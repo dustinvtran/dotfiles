@@ -4,3 +4,13 @@ Here's the link:
 http://codingkilledthecat.wordpress.com/2012/08/08/git-dotfiles-and-hardlinks/
 
 I've literally followed all those steps unwittingly, and finally came into the proper solution as a mishap from my previous blunders.
+
+Some notes:
+1. Don't use 'git rm', since it actually does remove the file from the directory, and not just the git repository.
+2. Don't add folders, only specific files.
+
+Guide:
+0. To add a new file: 'git add -f file'.
+1. 'git add -A'
+2. 'git commit -m "commit message"'
+3. 'git push -u origin master
