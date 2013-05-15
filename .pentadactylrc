@@ -1,0 +1,323 @@
+"
+" Pentadactyl dotfile
+" ~/.pentadactylrc
+" Name: nil
+"
+" Bugs & To-DO ---------------------------------------------------------------- {{{
+
+" <C-d> doesn't work even without Pentadactyl. wat??
+" <C-v>/<C-p> aren't working!!
+"   Neither does <C-z>
+" Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
+" turn the highlighted search term as yellow.
+" Jumps in same buffer without changing pages.
+" When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
+" Make all colors gray. It's a weird blotch right now of white and gray.
+
+" some way to navigate all my bookmarks with keyboards, i.e., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
+" adapt to tab groups, how to work with tab mix plus and pent
+" how to work with recently closed tabs/windows, and viewing them, as well as bunch of "back"'s history?
+
+" }}}
+" Settings {{{
+" -----------------------------------------------------------------------------
+
+loadplugins '\.(js|penta)$'
+group user
+
+highlight CompTitle color: #00000 !important; background: #F0F0F0 !important;
+highlight CompTitleSep color: #000000 !important; background: #F0F0F0 !important;
+highlight CompItem background: #F0F0F0 !important;
+highlight Find background: rgba(204,51,255,0.5) !important;
+highlight CompItem[selected] background: #DCDCDC !important;
+highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: Helvetica; line-height:1em;
+highlight HintActive background: rgba(145,197,43,0.8) !important;
+highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
+highlight StatusLine -moz-appearance: #F0F0F0 !important; font-weight: none; background: #F0F0F0 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: black !important; font: normal 12px 'Consolas' !important;
+
+unmap!
+iunmap!
+tunmap!
+cunmap!
+
+set complete=slSf
+" I'll never figure out how to navigate bookmarks most effectively. For now, using Places + mouse.
+set guioptions=
+set defsearch=g
+set maxitems=5
+set newtab=help
+set showstatuslinks=command
+set showtabline=always
+"set showtabline=multitab
+set titlestring=
+set hlfind
+set passkeys=reddit.com:as<CR>
+
+" For buftabs if I prefer the blocky bottom tabs vs the sleeker (yet larger) top. One problem with buftabs is that I don't get to see the current url, nor the current tab that I'm on.
+"set guioptions=s
+"set showtabline=never
+
+" Tab-Options Plugin.
+" set if I don't like opening to the left.
+"set tabclose=previous,opener,left,right
+set tabclose=right,opener,left,previous
+set tabopen=link:end,orphan:end,external:end
+
+" This is the same as my EasyMotion's default except that now 'h' is at the far-left, so it indexes properly.
+set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
+
+" I swear to god if I find out what's resetting the smooth scroll 'off', I'll rename it 'fuck you'.
+set! general.smoothScroll=false
+
+" }}}
+" Mappings - Unmapped {{{
+" -----------------------------------------------------------------------------
+" These are keys that are generally useless for me. I can always just not use it, but <Nop>ing everything eases my mind as I know exactly what keys do what, and how to prioritize my keybinds most effectively.
+
+map -modes=n,t * <Nop>
+map -modes=n,t # <Nop>
+map -modes=n,t <Home> <Nop>
+map -modes=n,t <PageUp> <Nop>
+map -modes=n,t <PageDown> <Nop>
+map -modes=n,t <End> <Nop>
+map -modes=n,t <Up> <Nop>
+map -modes=n,t <Left> <Nop>
+map -modes=n,t <Right> <Nop>
+map -modes=n,t <Down> <Nop>
+map -modes=n <C-]> <Nop>
+map -modes=n B <Nop>
+map -modes=n D <Nop>
+map -modes=n R <Nop>
+map -modes=n S <Nop>
+map -modes=n s <Nop>
+map -modes=n <C-i> <Nop>
+map -modes=n <C-u> <Nop>
+map -modes=n <C-y> <Nop>
+map -modes=n <C-n> <Nop>
+map -modes=n <C-p> <Nop>
+
+map -modes=c <C-c> <Nop>
+map -modes=c <C-]> <Nop>
+map -modes=c <Up> <Nop>
+map -modes=c <Down> <Nop>
+map -modes=c <S-Up> <Nop>
+map -modes=c <S-Down> <Nop>
+map -modes=c <PageDown> <Nop>
+map -modes=c <PageUp> <Nop>
+
+map -modes=i <C-[> <Nop>
+map -modes=i <C-d> <Nop>
+map -modes=i <C-e> <Nop>
+map -modes=i <C-h> <Nop>
+
+" Mozilla/Browser commands.
+map -modes=i,n <C-r> <Nop>
+map -modes=i,c <C-g> <Nop>
+map -modes=n <C-w> <Nop>
+map -modes=n <Tab> <Nop>
+map -modes=i <Home> <Nop>
+map -modes=i <PageUp> <Nop>
+map -modes=i <PageDown> <Nop>
+map -modes=i <End> <Nop>
+map -modes=n <Space> <Nop>
+" My alternatives aren't currently working. When they do, Nop these to get used to the others.
+"map -modes=i,c <Left> <Nop>
+"map -modes=i,c <Right> <Nop>
+"map -modes=i <Up> <Nop>
+"map -modes=i <Down> <Nop>
+"map -modes=i <C-z> <Nop>
+"map -modes=i <C-x> <Nop>
+"map -modes=i <C-c> <Nop>
+" Not sure if I like C-V or C-P for quick edit pastes.
+"map -modes=i <C-v> <Nop>
+
+" Text Edit mde.
+map -modes=t <C-a> <Nop>
+map -modes=t <C-x> <Nop>
+map -modes=t $ <Nop>
+map -modes=t t <Nop>
+map -modes=t T <Nop>
+
+" }}}
+" Mappings - General {{{
+" -----------------------------------------------------------------------------
+
+" Leader key. Note that <Leader> isn't actually a real command.
+map , <Leader>
+
+" Source.
+map -modes=n -builtin <C-r> :rehash<CR>
+
+" Text Edit Mode. How ingenious! I'll just map you to the Vim cmd-line default.
+map -modes=i,c -builtin <C-f> <C-T>
+
+" Clear cmd-line messages and search highlights.
+" Originally mapped to <Esc>, but was having funny issues with escaping caret mode. Could probably function ifelse this, but whatevs, this makes more sense with my Vim commands.
+map -modes=n -builtin <Leader><Space> /3u1<CR>:<CR>
+
+" A Vim favorite.
+map -modes=n -builtin ; :
+
+" Enter last input box you went to, otherwise go to first!
+map -modes=n -builtin i gi
+
+" For the rarer Caret mode.
+map -modes=n -builtin I i
+
+" A temporary fix for caret mode. Only con is that it doesn't tell you that you yanked and what you yanked.
+map -modes=caret -builtin y <C-v><C-c>
+
+" Bookmark support in pentadactyl sucks. Use native GUI for now.
+"map -modes=n -builtin a <C-v><C-d>
+
+" [e]xtended hints and hint hover url.
+map -modes=n -builtin e ;
+
+" Stay in hints mode with everything sent to background tabs.
+map -modes=n -builtin <C-f> g;b
+
+" Scrolling
+map -modes=n -builtin j 5j
+map -modes=n -builtin k 5k
+map -modes=n -builtin <C-j> <C-d>
+map -modes=n -builtin <C-k> <C-u>
+map -modes=n -builtin <Leader>h h
+map -modes=n -builtin <Leader>l l
+
+" +/- Command-line history.
+map -modes=c -builtin <C-j> <Down>
+map -modes=c -builtin <C-k> <Up>
+
+" +/- Tabs.
+map -modes=n -builtin h gT
+map -modes=n -builtin l gt
+
+" Go to specific # tab, to keep in line with my tiling WM.
+map -modes=n -builtin <C-1> :buffer 1<CR>
+map -modes=n -builtin <C-2> :buffer 2<CR>
+map -modes=n -builtin <C-3> :buffer 3<CR>
+map -modes=n -builtin <C-4> :buffer 4<CR>
+map -modes=n -builtin <C-5> :buffer 5<CR>
+map -modes=n -builtin <C-6> :buffer 6<CR>
+map -modes=n -builtin <C-7> :buffer 7<CR>
+map -modes=n -builtin <C-8> :buffer 8<CR>
+map -modes=n -builtin <C-9> :buffer 9<CR>
+
+" Go to first/last tab.
+map -modes=n -builtin 0 g0
+">>>>> Remap this one.
+map -modes=n -builtin $ g$
+
+" Move +/- tab.
+map <silent> -modes=n -builtin <C-h> :tabmove -1<CR>
+map <silent> -modes=n -builtin <C-l> :tabmove +1<CR>
+
+" Of the Windows default <C-> keys, <C-S> is definitely not needed anywhere here (neigher are some others I <Nop>'d. Hence I'm mapping it to stop page load, which I inadvertently do so many damn times anyways.
+map -modes=n -builtin <C-s> <C-c>
+
+" Move back to the previously used tab, damnit! tab-options plugin doesn't seem to always work in this way.
+"map -modes=n -builtin d <C-v><C-w>
+
+" Should I ever need to side-scroll. And I almost never use Meta modifiers!
+map -modes=n -builtin <M-h> 10h
+map -modes=n -builtin <M-l> 10l
+
+" Yanks: more intuitive.
+map -modes=n -builtin y Y
+map -modes=n -builtin Y y
+
+" Go to parent url/root.
+map -modes=n -builtin <BS> gu
+map -modes=n -builtin <S-BS> gU
+
+" Dialogs.
+map -modes=n -builtin <C-e> :dialog places<CR>
+map -modes=n -builtin <C-d> :dialog addons<CR>
+map -modes=n -builtin <C-p> :dialog preferences<CR>
+map -modes=n -builtin <C-y> :downloads<CR>
+
+" Jumps. They don't quite work yet.
+"map -modes=n -builtin <C-u> <C-i>
+"map -modes=n <C-o> <Nop>
+
+" Move tab to another window.
+map -modes=n -builtin <Leader>1 :tabattach 1<CR>
+map -modes=n -builtin <Leader>2 :tabattach 2<CR>
+map -modes=n -builtin <Leader>3 :tabdetach<CR>
+
+" My Vim insert mode paste.
+map -modes=i,c -builtin <C-p> <C-v><C-v>
+
+" I still like select-all, even though I don't use any other browser insert command since Text Edit Mode is boss.
+map -modes=n,i,c,t -builtin <C-a> <pass>
+
+" Text Edit Mode.
+map -modes=t -builtin t $
+
+" Tab Groups.
+map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
+map -modes=n -builtin <Leader>g t https://mail.google.com/mail/u/1/#inboxhttps://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
+map -modes=n -builtin <Leader>n t nyaa maou-sama | nyaa yahari | nyaa railgun | nyaa aku no hana | nyaa shingeki | nyaa hentai ouji | nyaa gargantia<CR>gT
+
+" }}}
+" Functions {{{
+" -----------------------------------------------------------------------------
+
+" Search multiple sites with one prompt. I use my search keywords instead of the full urls just so that if I edit the search keyword, or if the url makes for funkier search formulas with the result placed in the middle, I can edit all that within the browser. Ordered in ascending order of priority to read (so I read most important on foreground tab).
+" Bug: I have to use backslashes to get out of single quotes/double quotes. Annoying!
+javascript <<EOF
+    userContext.searchDictionary = function (selection) {
+        commands.execute("tabopen wikt " + selection);
+        commands.execute("tabopen g define " + selection);
+    };
+EOF
+javascript <<EOF
+    userContext.searchGiki = function (selection) {
+        commands.execute("tabopen g " + selection);
+        commands.execute("tabopen wiki " + selection);
+    };
+EOF
+
+command define -nargs=* -js userContext.searchDictionary(args)
+command giki -nargs=* -js userContext.searchGiki(args)
+
+" Custom [s]earch commands.
+map -modes=n -builtin s :define<Space>
+map -modes=n -builtin S :giki<Space>
+
+" Toggle statusline (to see %/url).
+map -modes=n -builtin <Leader>s :set guioptions+=s<CR>
+map -modes=n -builtin <Leader>d :set guioptions-=s<CR>
+
+" }}}
+" Macros & Comments {{{
+" -----------------------------------------------------------------------------
+
+cabbreviate pent pentadactyl
+
+" If I want BufTab. But I get an ugly top blue bar regardless, so might as well place tabs there.
+"set guioptions=s
+"set showtabline=never
+"Defaults.
+"set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
+"set wildmode = "list:full"
+
+" Pentadactyl Wishlist:
+" Bookmark support.
+"   No -folder option when adding bookmarks through :bmark.
+"   Better navigation through :bmarks, c.f., through folders with GUI.
+" Same with browsing history.
+" command to go to private window. Have to use firefox's default <C-S-p> for now.
+" Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
+" Better caret support. Possibly where caret starts at center of screen instead of wherever.
+" Not clear when I'm in text edit mode during cmd-line, and how to escape it.
+" I can't hint links that are popup windows.
+"   I can't see the damn hint if its outside of the left screen.
+" Tabs go all crazy when I use multitab, with inconsistent and awkward block formatting.
+" :help bugging up unless I clear cache. This also makes me unavailable to go back through help settings. I'd have to reinitialize the command to get to another page.
+"   Using AHK as temporary fix, but it requires manual loading each time..
+" Better indication for text edit mode, e.g., when doing it for command-line.
+
+" vim: set ft=pentadactyl:
+
+" }}}

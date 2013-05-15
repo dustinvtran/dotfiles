@@ -1,0 +1,27 @@
+#! /bin/bash
+
+# Okay, this took a really fucking long time to figure out how to do. The timeout represents how long it waits until it executes the command (for some reason I need the parameter). Use 'udevadm monitor' to see whether the kernel changes (the necessary condition) and then see if and how long it takes for the udev trigger to pull through. As for idiosyncrasies distinct from what the forums said, I require that this stuff is done under dotfiles rather than /etc/. There seems to be something barring the commands permission-wise, though I could probably find out and test now that I know how 'udevadm monitor' works. But fuck it, this is perfect anyways (I like dotfiles more than /etc/), and this'll work fantastically as well for an xrandr hotplug. Also, I don't even have a /etc/rc.d/alsa!, so how am I going to force-restart my programs??
+
+# I don't think I need these too.
+#set -x
+#udevadm settle --quiet --timeout=0
+
+export XAUTHORITY=/home/nil/.Xauthority
+export DISPLAY=:0
+
+hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
+alsa_dir=/home/nil/.config/nil
+asound_file=asound.hdmi-$hdmi_status
+
+if [[ -n $hdmi_status ]] && [[ -f "$alsa_dir/$asound_file" ]]; then
+    ln -sf "$alsa_dir/$asound_file" /home/nil/.asoundrc
+#/etc/rc.d/alsa force-restart
+#systemctl restart alsa-state
+fi
+
+
+if [ "${hdmi_status}" = connected ]; then
+    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+else
+    xrandr --output HDMI1 --off
+fi
