@@ -66,9 +66,10 @@ bindkey "^J" vi-down-line-or-history
 bindkey "^K" vi-up-line-or-history
 
 # Oh my alias.
+alias p="sudo pacman"
 alias pacmanl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
-alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
+alias reboot="sudo reboot"
 
 # Document files.
 alias planner="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Planner.ods' &"
@@ -77,7 +78,7 @@ alias goals="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Goals.ods' &"
 alias media="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Media.ods' &"
 alias devices="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Devices.ods' &"
 
-# Oh you.
+# le git.
 alias ga="git add -f"
 alias gA="git add -A"
 alias gc="git commit -m"
