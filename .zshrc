@@ -84,6 +84,7 @@ alias gA="git add -A"
 alias gc="git commit -m"
 alias gp="git push -u origin master"
 alias gr="git rm --cached"
+alias gs="git show --name-only"
 
 # Environment variables.
 export EDITOR=gvim
