@@ -55,6 +55,7 @@ set showtabline=always
 set titlestring=
 set hlfind
 set passkeys=reddit.com:as<CR>
+set passkeys=boards.4chan.org:qQ<C-q><C-s>wWmbJKxz<CR>
 
 " For buftabs if I prefer the blocky bottom tabs vs the sleeker (yet larger) top. One problem with buftabs is that I don't get to see the current url, nor the current tab that I'm on.
 "set guioptions=s
