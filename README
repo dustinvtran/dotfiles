@@ -5,6 +5,9 @@ Some notes:
 2. Don't add folders, only specific files. The only folders added are gm_scripts.
 3. The system-dotfiles are manual copy and pastes of system config files that I've edited and want to backup. I don't want to have the actual files in ~/system-dotfiles and symlink them, since that's a really bad idea. Manual copy-pastas for these are fine.
 
-Guide:
-0. To add a new file: 'ga file'.
-1. gc "commit msg" or gC, gp.
+Quick-Start:
+1. Add: 'ga file'.
+2. Commit: gc "commit msg"
+3. Push: gp.
+
+Super-Command: gP.
