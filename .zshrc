@@ -61,6 +61,10 @@ bindkey -a G end-of-buffer-or-history
 bindkey "^P" vi-up-line-or-history
 bindkey "^N" vi-down-line-or-history
 
+# My custom Vim commands.
+bindkey "^J" vi-down-line-or-history
+bindkey "^K" vi-up-line-or-history
+
 # Oh my alias.
 alias pacmanl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias reboot="sudo reboot"
