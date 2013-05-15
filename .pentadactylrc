@@ -28,6 +28,9 @@ group user
 highlight CompTitle color: #00000 !important; background: #F0F0F0 !important;
 highlight CompTitleSep color: #000000 !important; background: #F0F0F0 !important;
 highlight CompItem background: #F0F0F0 !important;
+highlight CompMore background: #F0F0F0 !important;
+highlight CompLess background: #F0F0F0 !important;
+highlight CmdLine background: #F0F0F0 !important;
 highlight Find background: rgba(204,51,255,0.5) !important;
 highlight CompItem[selected] background: #DCDCDC !important;
 highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: Helvetica; line-height:1em;

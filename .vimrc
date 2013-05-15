@@ -498,7 +498,8 @@ augroup END
 
 " Save.
 nnoremap <silent> <C-s> :silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
-inoremap <silent> <C-s> <Esc>:silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>i
+vnoremap <silent> <C-s> <Esc>:silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
+inoremap <silent> <C-s> <Esc>:silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
 
 " Set Leader key.
 let mapleader = ","
