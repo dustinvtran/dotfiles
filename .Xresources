@@ -66,8 +66,8 @@ URxvt.perl-ext-common: default,matcher,clipboard
 
 ! Keybindings.
 URxvt.keysym.C-v: perl:clipboard:paste
-URxvt.keysym.C-j: command:\033]721;1\007
-URxvt.keysym.C-k: command:\033]720;1\007
+URxvt.keysym.C-u: command:\033]720;1\007
+URxvt.keysym.C-d: command:\033]721;1\007
 
 !enabling clickable links:
 

@@ -1,3 +1,10 @@
+#
+# ranger commands
+# ~/.config/ranger/commands.py
+# Name: nil
+#
+
+#
 # -*- coding: utf-8 -*-
 # Copyright (C) 2009-2013  Roman Zimbelmann <hut@lavabit.com>
 # This configuration file is licensed under the same terms as ranger.
@@ -1100,7 +1107,7 @@ class travel(Command):
 class filter(Command):
     """:filter <string>
 
-    Displays only the files which contain <string> in their basename.
+    Displays only the files which  Usucontain <string> in their basename.
     """
 
     def execute(self):
@@ -1123,3 +1130,14 @@ class grep(Command):
             action.extend(f.path for f in self.fm.thistab.get_selection())
             self.fm.execute_command(action, flags='p')
 
+
+# User-defined commands.
+
+class emptytrash(Command):
+    """:emptytrash
+
+    Empties the trash directory ~/.trash
+    """
+
+    def execute(self):
+        self.fm.run("rm -rf /home/nil/.trash/{*,.[^.]*}")
