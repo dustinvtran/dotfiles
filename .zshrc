@@ -77,6 +77,12 @@ alias goals="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Goals.ods' &"
 alias media="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Media.ods' &"
 alias devices="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Devices.ods' &"
 
+# Oh you.
+alias ga="git add -f"
+alias gA="git add -A"
+alias gc="git commit -m"
+alias gp="git push -u origin master"
+
 # Environment variables.
 export EDITOR=gvim
 export PATH=~/.config/nil/dmenu-aliases:$PATH
