@@ -67,9 +67,12 @@ bindkey "^K" vi-up-line-or-history
 
 # Oh my alias.
 alias p="sudo pacman"
-alias pacmanl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
+alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
+
+# Applications
+alias v="gvim"
 
 # Document files.
 alias planner="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Planner.ods' &"
