@@ -85,7 +85,7 @@ alias devices="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Devices.o
 alias ga="git add -f"
 alias gc="git commit -a -m"
 alias gp="git push -u origin master"
-alias gP="git commit -a -m 'empty message' && git push -u origin master"
+alias gcp="git commit -a -m 'empty message' && git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
 

@@ -10,4 +10,4 @@ Quick-Start:
 2. Commit: gc "commit msg"
 3. Push: gp.
 
-Super-Command: gP.
+Super-Command: gcp.
