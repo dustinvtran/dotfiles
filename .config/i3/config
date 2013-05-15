@@ -1,0 +1,261 @@
+#
+# i3 dotfile
+# ~/.config/i3/config
+# Name: nil
+#
+# Windows {{{
+# -----------------------------------------------------------------------------
+
+# Set modifier key.
+set $mod Mod1
+set $mod2 Mod4
+
+# Window border style.
+new_window none
+new_float none
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Kill focused window.
+bindsym $mod+d kill
+
+# Change container layout.
+# One toggles splitv/splith, and the other toggles stacking/tabbed.
+bindsym $mod+e layout toggle split
+bindsym $mod+s exec bash ~/.config/nil/i3-container-toggle
+
+# Toggle tiling/floating for focused window.
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling/floating windows.
+bindsym $mod+space focus mode_toggle
+
+# Enter fullscreen mode for focused container.
+bindsym $mod+Shift+f fullscreen
+
+# Resize window mode. (you can also use the mouse for that).
+mode "resize" {
+    # h/j will +/- the window's width, k/l will +/- the window's height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # Allow movement of window as well during the mode.
+    bindsym $mod+h move left
+    bindsym $mod+j move down
+    bindsym $mod+k move up
+    bindsym $mod+l move right
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Font & Colors for window titles.
+# Class                 border  Backgr. Text    Indicator
+client.focused          #DCDCDC #DCDCDC #000000 #2e9ef4
+client.focused_inactive #DCDCDC #DCDCDC #000000 #484e50
+client.unfocused        #F0F0F0 #F0F0F0 #000000 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+font pango:HelveticaNeueCom 45 Lt 8
+
+# }}}
+# Focusing & Config Loading {{{
+# -----------------------------------------------------------------------------
+
+# Change focus commands.
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window.
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split in horizontal orientation.
+bindsym $mod+x split h
+
+# Split in vertical orientation.
+bindsym $mod+v split v
+
+# Reload the configuration file, Restart i3 inplace (preserves layout/session).
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# }}}
+# Workspaces {{{
+# -----------------------------------------------------------------------------
+
+# Switch to workspace.
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod2+1 workspace 11
+bindsym $mod2+2 workspace 12
+bindsym $mod2+3 workspace 13
+bindsym $mod2+4 workspace 14
+bindsym $mod2+5 workspace 15
+bindsym $mod2+6 workspace 16
+bindsym $mod2+7 workspace 17
+bindsym $mod2+8 workspace 18
+bindsym $mod2+9 workspace 19
+bindsym $mod2+0 workspace 20
+
+# Move focused container to workspace.
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod2+Shift+1 move container to workspace 11
+bindsym $mod2+Shift+2 move container to workspace 12
+bindsym $mod2+Shift+3 move container to workspace 13
+bindsym $mod2+Shift+4 move container to workspace 14
+bindsym $mod2+Shift+5 move container to workspace 15
+bindsym $mod2+Shift+6 move container to workspace 16
+bindsym $mod2+Shift+7 move container to workspace 17
+bindsym $mod2+Shift+8 move container to workspace 18
+bindsym $mod2+Shift+9 move container to workspace 19
+bindsym $mod2+Shift+0 move container to workspace 20
+
+# Force a consistent workspace # layout, so I can move it to that workspace without wondering whether it went to the right monitor.
+workspace 1 output LVDS1
+workspace 2 output LVDS1
+workspace 3 output LVDS1
+workspace 4 output LVDS1
+workspace 5 output LVDS1
+workspace 6 output LVDS1
+workspace 7 output LVDS1
+workspace 8 output LVDS1
+workspace 9 output LVDS1
+workspace 10 output LVDS1
+workspace 11 output HDMI1
+workspace 12 output HDMI1
+workspace 13 output HDMI1
+workspace 14 output HDMI1
+workspace 15 output HDMI1
+workspace 16 output HDMI1
+workspace 17 output HDMI1
+workspace 18 output HDMI1
+workspace 19 output HDMI1
+workspace 20 output HDMI1
+
+# }}}
+# i3bar {{{
+# -----------------------------------------------------------------------------
+
+# Don't use i3bar. It sucks.
+bar {
+    colors {
+    background #F0F0F0
+    #colorclass         border  backgr  text
+    focused_workspace   #DCDCDC #DCDCDC #000000
+    active_workspace    #DCDCDC #DCDCDC #000000
+    inactive_workspace  #F0F0F0 #F0F0F0 #000000
+    urgent_workspace    #2f343a #900000 #ffffff
+    }
+    position top
+    tray_output none
+    #status_command i3status
+    #font pango: Arial 9
+}
+
+# }}}
+# Application Settings {{{
+# -----------------------------------------------------------------------------
+
+# Force floating on all pop-up windows, e.g., browser pop-ups.
+for_window [window_role="pop-up"] floating enable
+# Force specifically some Firefox windows.
+for_window [title="^Library$"] floating enable
+for_window [title="^Firefox Preferences$"] floating enable
+for_window [title="^Options for Menu Editor$"] floating enable
+for_window [title="^Tab Mix Plus Options$"] floating enable
+
+# For mplayer and mplayer2/smplayer respectively.
+assign [class="MPlayer"] 11
+assign [class="mplayer"] 11
+assign [class="Zathura"] 11
+
+# Shortcut Applications.
+# $mod,$mod+z,c are available, as well as all mod1 (alt).
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+f exec dmenu_run -nb '#F0F0F0' -nf '#000000' -sb '#DCDCDC' -sf '#000000' -fn 'HelveticaNeueCom 45 Lt-11'
+bindsym $mod+q exec firefox
+bindsym $mod+a exec urxvt -e ranger
+bindsym $mod+w exec gvim
+
+# Media Keys.
+# Learn more about mplayer before you try this one.
+#bindsym F6 exec play pause
+# Here's the thing: PCM affects HDMI, Master affects Analog. Neither volume affects the other, so I normalized with percentages instead of decibels so they reach 0-100 at the same intervals. So I'll just go with both 0's as consistency for now.
+# What I would like: to switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons.
+bindsym F9 exec amixer set Master 2%- unmute | amixer set PCM 2%- unmute
+bindsym F10 exec amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute
+bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
+
+# }}}
+# Scratchpads {{{
+# -----------------------------------------------------------------------------
+# These are applications I always leave running on my computer, and for which I only need to take a quick peek once in a while to do something on them. They also generally feel much nicer to use in compact floating windows, rather than the pervasive array of space if you just place them into their own workspace (which somehow makes me feel even less productive).
+# To use multiple scratchpads, there's sort of a trick required in i3, since once you show two open scratchpad applications simultaneously, all hell breaks loose. To get around this without requiring more keybindings, you need to make your commands leave all other applications hidden in the scratchpad /before/ you show your next scratchpad application. There's yet another caveat: to use the for_window command to automove applications into the scratchpad, you have to be super-specific so that not even its child popup windows will be subsumed under the scratchpad.
+# do one for mpd
+
+for_window [title="^Deluge$"] move scratchpad
+for_window [title="HexChat($|.*@)"] move scratchpad
+for_window [class="^URxvt$" instance="^nil$"] move scratchpad
+
+bindsym $mod+y [title="HexChat($|.*@)"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [title="^Deluge$"] scratchpad show
+bindsym $mod+g [title="^Deluge$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [title="HexChat($|.*@)"] scratchpad show
+bindsym $mod+t [title="HexChat($|.*@)"] move scratchpad, [title="^Deluge$"] move scratchpad, [instance="^nil$"] scratchpad show
+
+# }}}
+# Startup Scripts & Programs {{{
+# -----------------------------------------------------------------------------
+
+exec xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+exec nitrogen --restore
+exec xbacklight -set 100
+exec_always synclient touchpadoff=0
+exec_always syndaemon -k -i 1 -d
+exec xmodmap /home/nil/.Xmodmap
+exec xrdb -merge ~/.Xresources
+exec amixer set IEC958 unmute
+# always for now.
+exec_always /home/nil/.config/xcape/xcape -e 'Control_L=Escape;Alt_R=emdash'
+    # Sticky Keys.
+#xkbset exp =sticky =twokey =latchlock
+#xkbset sticky twokey latchlock
+    #latchwork doesn't seem to work, fails to work quite often.
+
+exec_always i3-msg 'workspace 2; exec firefox; workspace 1'
+exec urxvt -name nil
+exec hexchat
+exec deluge
+exec dropboxd
+#exec redshift -l 37.9:-122.3 -t 6500:3700
+
+# A temporary fix to a problem I'm facing: xcape,syndaemon,firefox won't load at first, and weird i3bar placement. synclient touchpad
+exec i3 restart
+
+# vim:filetype=i3
+# }}}
