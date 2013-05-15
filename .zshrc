@@ -82,6 +82,7 @@ alias ga="git add -f"
 alias gA="git add -A"
 alias gc="git commit -m"
 alias gp="git push -u origin master"
+alias gr="git rm --cached"
 
 # Environment variables.
 export EDITOR=gvim
