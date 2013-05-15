@@ -1,0 +1,13 @@
+#! /bin/bash
+
+TOGGLE=~/.config/nil/.audiotoggle
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    ln -sf ~/.config/nil/asound.hdmi-disconnected ~/.asoundrc
+    echo "You're using the Laptop audio."
+else
+    rm $TOGGLE
+    ln -sf ~/.config/nil/asound.hdmi-connected ~/.asoundrc
+    echo "You're using the HDMI audio."
+fi
