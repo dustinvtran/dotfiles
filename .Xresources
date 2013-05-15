@@ -51,11 +51,9 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt*font: xft:Consolas:size=13
-URxvt*boldFont: xft:Consolas:bold:size=13
+URxvt*font: xft:Consolas:size=10
+URxvt*boldFont: xft:Consolas:bold:size=10
 URxvt.letterSpace: -1
-!URxvt*font: xft:Monospace:pixelsize=12
-!URxvt*boldFont: xft:Monospace:bold:pixelsize=12
 
 !urxvt extensions:
 
