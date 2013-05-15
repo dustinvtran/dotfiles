@@ -1,7 +1,7 @@
 dotfile organization done via http://codingkilledthecat.wordpress.com/2012/08/08/git-dotfiles-and-hardlinks/.
 
 Some notes:
-1. Don't use 'git rm', since it actually does remove the file from the directory, and not just the git repository.
+1. 'git rm' literally removes the file from local directory. Use 'git rm --cached'.
 2. Don't add folders, only specific files. The only folders added are gm_scripts.
 3. The system-dotfiles are manual copy and pastes of system config files that I've edited and want to backup. I don't want to have the actual files in ~/system-dotfiles and symlink them, since that's a really bad idea. Manual copy-pastas for these are fine.
 
