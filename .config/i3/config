@@ -197,9 +197,8 @@ assign [class="mplayer"] 11
 assign [class="Zathura"] 11
 
 # Shortcut Applications.
-# $mod,$mod+z,c are available, as well as all mod1 (alt).
+# $mod,$mod+f,z,c are available, as well as all mod1 (alt).
 bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+f exec dmenu_run -nb '#F0F0F0' -nf '#000000' -sb '#DCDCDC' -sf '#000000' -fn 'HelveticaNeueCom 45 Lt-8'
 bindsym $mod+q exec firefox
 bindsym $mod+a exec urxvt -e ranger
 bindsym $mod+w exec gvim
