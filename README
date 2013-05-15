@@ -7,4 +7,4 @@ Some notes:
 
 Guide:
 0. To add a new file: 'ga file'.
-1. gA, gc "commit msg", gp.
+1. gc "commit msg" or gC, gp.
