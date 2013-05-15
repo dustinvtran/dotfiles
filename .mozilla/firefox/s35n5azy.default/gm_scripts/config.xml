@@ -19,4 +19,13 @@
 		<Include>*.wikipedia.org/w*</Include>
 		<Include>*.wikibooks.org/w*</Include>
 	</Script>
+	<Script basedir="4chan_x" checkRemoteUpdates="1" dependhash="de4ca77d72f0a4de2229e149b7ba2844ff21f12a" description="Adds various features." enabled="true" filename="4chan_x.user.js" installTime="1368634337095" modified="1368634337000" name="4chan x" namespace="aeosynth" runAt="document-start" uuid="30e229c6-7f6e-43dc-a3da-c85f2f95a5ce" version="1.0.3" installurl="https://github.com/that4chanwolf/4chan-x/raw/stable/4chan_x.user.js" updateurl="https://github.com/that4chanwolf/4chan-x/raw/stable/4chan_x.user.js" icon="data:image/gif;base64,R0lGODlhEAAQAKECAAAAAGbMM////////yH5BAEKAAIALAAAAAAQABAAAAIxlI+pq+D9DAgUoFkPDlbs7lGiI2bSVnKglnJMOL6omczxVZK3dH/41AG6Lh7i6qUoAAA7">
+		<Grant>GM_getValue</Grant>
+		<Grant>GM_setValue</Grant>
+		<Grant>GM_deleteValue</Grant>
+		<Grant>GM_openInTab</Grant>
+		<Match>*://boards.4chan.org/*</Match>
+		<Match>*://images.4chan.org/*</Match>
+		<Match>*://sys.4chan.org/*</Match>
+	</Script>
 </UserScriptConfig>
