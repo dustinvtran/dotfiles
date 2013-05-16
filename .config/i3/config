@@ -197,10 +197,10 @@ assign [class="mplayer"] 11
 assign [class="Zathura"] 11
 
 # Shortcut Applications.
-# $mod,$mod+f,z,c are available, as well as all mod1 (alt).
-bindsym $mod+Return exec i3-sensible-terminal
+# $mod,$mod+a,z,c are available, as well as all mod1 (alt).
+# bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q exec firefox
-bindsym $mod+a exec urxvt -e ranger
+bindsym $mod+f exec urxvt -e ranger
 bindsym $mod+w exec gvim
 
 # Media Keys.
