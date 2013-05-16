@@ -45,7 +45,8 @@ order += "tztime local"
 #}
 
 tztime local {
-        format = "%a %b %e,%l:%M %p"
+        #format = "%a %b %e,%l:%M %p"
+        format = "%H:%M"
 }
 
 #load {

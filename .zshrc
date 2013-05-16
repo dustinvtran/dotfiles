@@ -60,6 +60,7 @@ bindkey "^?"    backward-delete-char   # Backspace
 bindkey '^[[3~' delete-char            # Delete
 bindkey -a u undo
 bindkey -a '^R' redo
+bindkey '^[[Z' reverse-menu-complete
 # I don't actually use these ones, but at least it's more Vim behavior.
 bindkey "^[[7~" vi-beginning-of-line   # Home
 bindkey "^[[8~" vi-end-of-line         # End
