@@ -163,7 +163,7 @@ workspace 20 output HDMI1
 # i3bar {{{
 # -----------------------------------------------------------------------------
 
-# Don't use i3bar. It sucks.
+## Don't use i3bar. It's too simple.
 bar {
     colors {
     background #F0F0F0
@@ -231,22 +231,27 @@ bindsym $mod+t [title="HexChat($|.*@)"] move scratchpad, [title="^Deluge$"] move
 # Startup Scripts & Programs {{{
 # -----------------------------------------------------------------------------
 
-exec xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+exec bash ~/.config/nil/hdmi-init
+# Argh...
+# 1. Set up dzen on both docks with appropriate size.
+# 2. Set up workspaces on conky.
+# 3. Then play around with the applets.
+# exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
 exec nitrogen --restore
 exec xbacklight -set 100
-exec_always synclient touchpadoff=0
-exec_always syndaemon -k -i 1 -d
+exec synclient touchpadoff=0
+exec syndaemon -k -i 1 -d
 exec xmodmap /home/nil/.Xmodmap
 exec xrdb -merge ~/.Xresources
 exec amixer set IEC958 unmute
 # always for now.
-exec_always xcape -e 'Control_L=Escape;Alt_R=emdash'
+exec xcape -e 'Control_L=Escape;Alt_R=emdash'
     # Sticky Keys.
 #xkbset exp =sticky =twokey =latchlock
 #xkbset sticky twokey latchlock
     #latchwork doesn't seem to work, fails to work quite often.
 
-exec_always i3-msg 'workspace 2; exec firefox; workspace 1'
+exec i3-msg 'workspace 2; exec firefox; workspace 1'
 exec urxvt -name nil
 exec hexchat
 exec deluge
@@ -254,7 +259,12 @@ exec dropboxd
 #exec redshift -l 37.9:-122.3 -t 6500:3700
 
 # A temporary fix to a problem I'm facing: xcape,syndaemon,firefox won't load at first, and weird i3bar placement. synclient touchpad
-exec i3 restart
+# synclient, syndaemon, xcape, firefox
+# 1. synclient + syndaemon? might have been fixed!
+# 2. xcape? might have been fixed!
+# 3. firefox not loading on startup
+# 4. i3bars go all funky.
+#exec i3 restart
 
 # vim:filetype=i3
 # }}}

@@ -52,6 +52,7 @@
 "* Figure out which <C-v> or <C-p> you ended up with.
 "* Consider VimSpeed for quicker inline navigation.
 "* Consider fuzzyfilesearcher/ctrl-p for quick file opening when you already know the name.
+"       E.g., if you'd prefer this way over nerdtree or fasd.
 
 " }}}
 " Settings {{{
