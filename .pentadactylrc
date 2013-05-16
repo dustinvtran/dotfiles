@@ -7,6 +7,8 @@
 
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
+" google search suggestions aren't working. unless i specifically go to 'g'
+
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Make all colors gray. It's a weird blotch right now of white and gray.
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
