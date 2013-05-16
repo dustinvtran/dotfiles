@@ -48,7 +48,12 @@ source $ZSH/oh-my-zsh.sh
 
 # }}}
 
-# Stuff on my own/not the template.
+# Allow auto-correct for git commands.
+git config --global help.autocorrect 1
+
+# Enable fasd.
+eval "$(fasd --init auto)"
+
 # Vi(m) baby.
 bindkey -v
 
