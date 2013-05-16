@@ -5,16 +5,19 @@
 #
 
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=/usr/share/oh-my-zsh/
 
 # Theme.
 ZSH_THEME="nil"
+
+# oh-my-zsh config options {{{
+# -----------------------------------------------------------------------------
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -43,6 +46,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# }}}
+
 # Stuff on my own/not the template.
 # Vi(m) baby.
 bindkey -v
@@ -65,11 +70,13 @@ bindkey "^N" vi-down-line-or-history
 bindkey "^J" vi-down-line-or-history
 bindkey "^K" vi-up-line-or-history
 
-# Oh my alias.
+# Oh my alias commands.
+alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias p="sudo pacman"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
+alias s="source ~/.zshrc"
 
 # Applications
 alias v="gvim"
@@ -92,3 +99,4 @@ alias gs="git show --name-only"
 # Environment variables.
 export EDITOR=gvim
 export PATH=~/.config/nil/dmenu-aliases:$PATH
+export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
