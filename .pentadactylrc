@@ -6,6 +6,7 @@
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
 " I can't seem to 'j' in github websites? What's weird is that it works sometimes on some sites..
+    " it may have to do with the touchpad. moving around the touchpad i think fixes it
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
