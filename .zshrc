@@ -39,20 +39,18 @@ COMPLETION_WAITING_DOTS="true"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+# }}}
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git fasd)
 
 source $ZSH/oh-my-zsh.sh
 
-# }}}
 
 # Allow auto-correct for git commands.
 git config --global help.autocorrect 1
-
-# Enable fasd.
-eval "$(fasd --init auto)"
 
 # Vi(m) baby.
 bindkey -v
@@ -77,11 +75,12 @@ bindkey "^K" vi-up-line-or-history
 
 # Oh my alias commands.
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
+alias bd="bg && disown"
 alias p="sudo pacman"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
-alias s="source ~/.zshrc"
+alias so="source ~/.zshrc"
 
 # Applications
 alias v="gvim"
