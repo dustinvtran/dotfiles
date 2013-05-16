@@ -83,14 +83,12 @@ alias reboot="sudo reboot"
 alias so="source ~/.zshrc"
 
 # Applications
-alias v="gvim"
-
-# Document files.
-alias planner="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Planner.ods' &"
-alias macros="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Macros.ods' &"
-alias goals="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Goals.ods' &"
-alias media="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Media.ods' &"
-alias devices="libreoffice '/home/nil/Dropbox/nil/Aesthetics/Manager - Devices.ods' &"
+l() { f -e libreoffice "$@" & }
+m() { f -e mplayer2 "$@" & }
+z() { f -e zathura "$@" & }
+alias nitrogen="nitrogen &"
+alias un="urxvt -name nil"
+alias v="f -e gvim -B viminfo"
 
 # le git.
 alias ga="git add -f"
