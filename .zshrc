@@ -98,5 +98,4 @@ alias gs="git show --name-only"
 
 # Environment variables.
 export EDITOR=gvim
-export PATH=~/.config/nil/dmenu-aliases:$PATH
 export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
