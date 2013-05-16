@@ -1,0 +1,12 @@
+#! /bin/bash
+
+xrandr | grep "HDMI1 connected"
+
+if [ $? -eq 0 ]; then
+  #Do stuff if HDMI1 is connected.
+    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+    ln -sf "/home/nil/.config/nil/asound.hdmi-connected" /home/nil/.asoundrc
+else
+    xrandr --output HDMI1 --off
+    ln -sf "/home/nil/.config/nil/asound.hdmi-disconnected" /home/nil/.asoundrc
+fi
