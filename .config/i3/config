@@ -240,7 +240,7 @@ exec xmodmap /home/nil/.Xmodmap
 exec xrdb -merge ~/.Xresources
 exec amixer set IEC958 unmute
 # always for now.
-exec_always /home/nil/.config/xcape/xcape -e 'Control_L=Escape;Alt_R=emdash'
+exec_always xcape -e 'Control_L=Escape;Alt_R=emdash'
     # Sticky Keys.
 #xkbset exp =sticky =twokey =latchlock
 #xkbset sticky twokey latchlock
