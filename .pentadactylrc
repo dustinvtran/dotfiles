@@ -5,17 +5,14 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
-" <C-d> doesn't work even without Pentadactyl. wat??
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
-" Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
-" turn the highlighted search term as yellow.
-" Jumps in same buffer without changing pages.
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Make all colors gray. It's a weird blotch right now of white and gray.
-
+" Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
+" Jumps in same buffer without changing pages. (same problem in Vim)
+" turn the highlighted search term as yellow.
 " some way to navigate all my bookmarks with keyboards, i.e., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
-" adapt to tab groups, how to work with tab mix plus and pent
 " how to work with recently closed tabs/windows, and viewing them, as well as bunch of "back"'s history?
 
 " }}}
@@ -166,7 +163,7 @@ map -modes=n -builtin I i
 map -modes=caret -builtin y <C-v><C-c>
 
 " Bookmark support in pentadactyl sucks. Use native GUI for now.
-"map -modes=n -builtin a <C-v><C-d>
+map -modes=n -builtin a <C-v><C-d>
 
 " [e]xtended hints and hint hover url.
 map -modes=n -builtin e ;
@@ -249,8 +246,8 @@ map -modes=i,c -builtin <C-p> <C-v><C-v>
 " I still like select-all, even though I don't use any other browser insert command since Text Edit Mode is boss.
 map -modes=n,i,c,t -builtin <C-a> <pass>
 
-" Text Edit Mode.
-map -modes=t -builtin t $
+" Open private window.
+map -modes=n -builtin <C-n> <C-V><C-S-P>
 
 " Tab Groups.
 map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
