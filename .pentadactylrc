@@ -9,13 +9,13 @@
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
-" allow keybinds when on flash video. it gets stuck otherwise and you can't get out without mouse clicking away.
-
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Make all colors gray. It's a weird blotch right now of white and gray.
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
 " Jumps in same buffer without changing pages. (same problem in Vim)
 " turn the highlighted search term as yellow.
+" allow keybinds when on flash video. it gets stuck otherwise and you can't get out without mouse clicking away.
+
 " some way to navigate all my bookmarks with keyboards, i.e., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
 " how to work with recently closed tabs/windows, and viewing them, as well as bunch of "back"'s history?
 
@@ -51,8 +51,7 @@ set defsearch=g
 set maxitems=5
 set newtab=help
 set showstatuslinks=command
-set showtabline=always
-"set showtabline=multitab
+set showtabline=multitab
 set titlestring=
 set hlfind
 set passkeys=reddit.com:as<CR>
@@ -144,8 +143,14 @@ map -modes=t T <Nop>
 " Leader key. Note that <Leader> isn't actually a real command.
 map , <Leader>
 
-" Source.
+" Dialogs & Stuff.
 map -modes=n -builtin <C-r> :rehash<CR>
+map -modes=n -builtin <C-e> :dialog places<CR>
+map -modes=n -builtin <C-d> :dialog addons<CR>
+map -modes=n -builtin <C-p> :dialog preferences<CR>
+map -modes=n -builtin <C-y> :dialog downloads<CR>
+map -modes=n -builtin <C-S-p> :dialog print<CR>
+map -modes=n -builtin <C-t>  :tabopen about:sync-tabs<CR>
 
 " Text Edit Mode. How ingenious! I'll just map you to the Vim cmd-line default.
 map -modes=i,c -builtin <C-f> <C-T>
@@ -169,11 +174,14 @@ map -modes=caret -builtin y <C-v><C-c>
 " Bookmark support in pentadactyl sucks. Use native GUI for now.
 map -modes=n -builtin a <C-v><C-d>
 
-" [e]xtended hints and hint hover url.
+" [e]xtended hints.
 map -modes=n -builtin e ;
 
 " Stay in hints mode with everything sent to background tabs.
 map -modes=n -builtin <C-f> g;b
+
+" The only extended hints mode I really use.
+map -modes=n -builtin <Leader>f ;;
 
 " Scrolling
 map -modes=n -builtin j 5j
@@ -191,6 +199,14 @@ map -modes=c -builtin <C-k> <Up>
 map -modes=n -builtin h gT
 map -modes=n -builtin l gt
 
+" Move +/- tab.
+map <silent> -modes=n -builtin <C-h> :tabmove -1<CR>
+map <silent> -modes=n -builtin <C-l> :tabmove +1<CR>
+
+" Go to first/last tab.
+map -modes=n -builtin 0 g0
+map -modes=n -builtin $ g$
+
 " Go to specific # tab, to keep in line with my tiling WM.
 map -modes=n -builtin <C-1> :buffer 1<CR>
 map -modes=n -builtin <C-2> :buffer 2<CR>
@@ -202,38 +218,20 @@ map -modes=n -builtin <C-7> :buffer 7<CR>
 map -modes=n -builtin <C-8> :buffer 8<CR>
 map -modes=n -builtin <C-9> :buffer 9<CR>
 
-" Go to first/last tab.
-map -modes=n -builtin 0 g0
-">>>>> Remap this one.
-map -modes=n -builtin $ g$
-
-" Move +/- tab.
-map <silent> -modes=n -builtin <C-h> :tabmove -1<CR>
-map <silent> -modes=n -builtin <C-l> :tabmove +1<CR>
-
-" Of the Windows default <C-> keys, <C-S> is definitely not needed anywhere here (neigher are some others I <Nop>'d. Hence I'm mapping it to stop page load, which I inadvertently do so many damn times anyways.
+" Of the Windows default <C-> keys, <C-S> is definitely not needed anywhere here (neither are some others I <Nop>'d. Hence I'm mapping it to stop page load, which I inadvertently do so many damn times anyways.
 map -modes=n -builtin <C-s> <C-c>
 
 " Move back to the previously used tab, damnit! tab-options plugin doesn't seem to always work in this way.
 "map -modes=n -builtin d <C-v><C-w>
-
-" Should I ever need to side-scroll. And I almost never use Meta modifiers!
-map -modes=n -builtin <M-h> 10h
-map -modes=n -builtin <M-l> 10l
 
 " Yanks: more intuitive.
 map -modes=n -builtin y Y
 map -modes=n -builtin Y y
 
 " Go to parent url/root.
-map -modes=n -builtin <BS> gu
-map -modes=n -builtin <S-BS> gU
-
-" Dialogs.
-map -modes=n -builtin <C-e> :dialog places<CR>
-map -modes=n -builtin <C-d> :dialog addons<CR>
-map -modes=n -builtin <C-p> :dialog preferences<CR>
-map -modes=n -builtin <C-y> :downloads<CR>
+" I'm starting to prefer the default keybinds for these two.
+"map -modes=n -builtin <BS> gu
+"map -modes=n -builtin <S-BS> gU
 
 " Jumps. They don't quite work yet.
 "map -modes=n -builtin <C-u> <C-i>
@@ -251,7 +249,7 @@ map -modes=i,c -builtin <C-p> <C-v><C-v>
 map -modes=n,i,c,t -builtin <C-a> <pass>
 
 " Open private window.
-map -modes=n -builtin <C-n> <C-V><C-S-P>
+map -modes=n -builtin <Leader>p <C-V><C-S-p>
 
 " Tab Groups.
 map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
@@ -294,29 +292,15 @@ map -modes=n -builtin <Leader>d :set guioptions-=s<CR>
 
 cabbreviate pent pentadactyl
 
-" If I want BufTab. But I get an ugly top blue bar regardless, so might as well place tabs there.
-"set guioptions=s
-"set showtabline=never
-"Defaults.
-"set editor='gvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
-"set wildmode = "list:full"
-
 " Pentadactyl Wishlist:
 " Bookmark support.
 "   No -folder option when adding bookmarks through :bmark.
 "   Better navigation through :bmarks, c.f., through folders with GUI.
-" Same with browsing history.
-" command to go to private window. Have to use firefox's default <C-S-p> for now.
+" Same with history dialog.
 " Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
-" Better caret support. Possibly where caret starts at center of screen instead of wherever.
+" Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
 " Not clear when I'm in text edit mode during cmd-line, and how to escape it.
-" I can't hint links that are popup windows.
-"   I can't see the damn hint if its outside of the left screen.
-" Tabs go all crazy when I use multitab, with inconsistent and awkward block formatting.
-" :help bugging up unless I clear cache. This also makes me unavailable to go back through help settings. I'd have to reinitialize the command to get to another page.
-"   Using AHK as temporary fix, but it requires manual loading each time..
-" Better indication for text edit mode, e.g., when doing it for command-line.
+" I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
 
-" vim: set ft=pentadactyl:
-
+" vim:filetype=pentadactyl
 " }}}

@@ -72,6 +72,7 @@ m() { f -e mplayer2 "$@" & }
 z() { f -e zathura "$@" & }
 alias nitrogen="nitrogen &"
 alias sv="sudo vim"
+alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias un="urxvt -name nil"
 alias v="f -e gvim -B viminfo"
 

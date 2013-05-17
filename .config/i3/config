@@ -178,9 +178,13 @@ bar {
     urgent_workspace    #2f343a #900000 #ffffff
     }
     position top
-    tray_output none
-    #status_command i3status
-    #font pango: Arial 9
+    #Temporary of a temporary, just so that I at least have /some/ way of noting when my torrents are done and when someone messages me on IRC.
+    # Also because I need a clock widget for now.
+    tray_output primary
+    #tray_output none
+    status_command i3status
+    colors { statusline #000000 }
+    font pango:HelveticaNeueCom 45 Lt 9
 }
 
 # }}}
@@ -248,12 +252,11 @@ exec syndaemon -k -i 1 -d
 exec xmodmap /home/nil/.Xmodmap
 exec xrdb -merge ~/.Xresources
 exec amixer set IEC958 unmute
-# always for now.
 exec xcape -e 'Control_L=Escape;Alt_R=emdash'
-    # Sticky Keys.
+# Sticky Keys.
+#latchwork doesn't seem to work, fails to work quite often.
 #xkbset exp =sticky =twokey =latchlock
 #xkbset sticky twokey latchlock
-    #latchwork doesn't seem to work, fails to work quite often.
 
 # Placed on top.
 #exec i3-msg 'workspace 2; exec firefox; workspace 1'
@@ -263,7 +266,7 @@ exec deluge
 exec dropboxd
 #exec redshift -l 37.9:-122.3 -t 6500:3700
 
-#   update: firefox works on top! i3 bar non-funky! xcpe fixed! synclient + syndaemon fixed!
+#   bugs not working: firefox not initialized, i3bar all placed on HDMI1, xcape buggy, synclient and syndaemon break randomly. Check if these are still issues when back on HDMI1.
 #exec i3 restart
 
 # vim:filetype=i3
