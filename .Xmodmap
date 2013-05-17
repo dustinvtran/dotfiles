@@ -247,15 +247,13 @@ keycode 253 =
 keycode 254 =
 keycode 255 =
 
-!! (5/3/13) Added my own temporary fix.
 remove Lock = Caps_Lock
 keysym Caps_Lock = Control_L
 add Control = Control_L
 
-!! For the emdsh s lt_R, though I would prefer this in xcpe progrm.
+! xcape requires this.
 keycode 108 = emdash
 
-!!! User-Customized
 !!! Capslock to Ctrl. Uncommented lines form a swap.
 !!clear Lock
 !!!remove Control = Control_L

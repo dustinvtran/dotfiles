@@ -17,14 +17,14 @@
 
 "Plugins:
 "* YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
-"* Snippets: Fix the auto-reload command to not be so computation heavy.
-"   How to do snippets inside a snippet? Or perhaps manage more carefully if not.
 "* NERDCommenter: get it to work for random filetypes (.snippets).
 "* NERDTree: see stuff.
 "* Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
 "* SetColors:   not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
 "* Powerline:   weird blinking when moving to folded text.
-"               change default normal mode color.
+"               change default normal mode (black) color to be transparent, and change colors for other modes (visual, operator, cmd).
+"* Snippets: Fix the auto-reload command to not be so computation heavy.
+"   How to do snippets inside a snippet? Or perhaps manage more carefully if not.
 
 "Misc:
 "* Don't fold where my cursor is, when I just opened the file.
@@ -46,13 +46,11 @@
 "* Have cursor position returned to exact position not just line position.
 "* Yank to last line (y$) doesn't grab the last character.
 "* The load last file doesn't really work as intended, but it does load *some* last files.
-"* The "jump to next/last sentence" doesn't always work.
+"* The "jump to next/last sentence" doesn't always work as intended.
 "
 "Consideration:
 "* Figure out which <C-v> or <C-p> you ended up with.
 "* Consider VimSpeed for quicker inline navigation.
-"* Consider fuzzyfilesearcher/ctrl-p for quick file opening when you already know the name.
-"       E.g., if you'd prefer this way over nerdtree or fasd.
 
 " }}}
 " Settings {{{
@@ -343,6 +341,8 @@ noremap <S-BS> <Nop>
 vnoremap <C-q> <Nop>
 onoremap <C-q> <Nop>
 noremap! <C-q> <Nop>
+" Made custom commands for the window scrolling I want.
+noremap <C-w> <Nop>
 "No, I have smooth scroll.
 noremap <C-y> <Nop>
 "You're too obscure! But I like you're trivia(l) use in visual mode hehe, paired with u's.
@@ -605,7 +605,7 @@ nnoremap ' '.
 " BufExplorer/NERDTree commands.
 " Window: Splits.
 " BufExplorer/NERDTree commands.
-"<C-w>             Close window.
+"<C-d>             Close window.
 " Window: Resize.
 noremap <silent> <F1> <C-w>+
 noremap <silent> <F2> <C-w>-
@@ -634,8 +634,8 @@ nnoremap <c-l> <C-w>w
 " Tabs:
 noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
-noremap <silent> <C-w> :q<CR>
-noremap! <silent> <C-w> :q<CR>
+noremap <silent> <C-d> :q<CR>
+noremap! <silent> <C-d> :q<CR>
 nnoremap <silent> H :tabp<CR>
 nnoremap <silent> L :tabn<CR>
 

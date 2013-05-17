@@ -3,8 +3,12 @@
 # ~/.config/i3/config
 # Name: nil
 #
+
 # Windows {{{
 # -----------------------------------------------------------------------------
+
+#Um, this works when placed on top, and am a bit lazy to see at what line breaks it, so I'll just keep it here.
+exec i3-msg 'workspace 2; exec firefox; workspace 1'
 
 # Set modifier key.
 set $mod Mod1
@@ -43,10 +47,10 @@ mode "resize" {
     bindsym l resize grow width 10 px or 10 ppt
 
     # Allow movement of window as well during the mode.
-    bindsym $mod+h move left
-    bindsym $mod+j move down
-    bindsym $mod+k move up
-    bindsym $mod+l move right
+    bindsym $mod+Shift+h move left
+    bindsym $mod+Shift+j move down
+    bindsym $mod+Shift+k move up
+    bindsym $mod+Shift+l move right
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -251,20 +255,16 @@ exec xcape -e 'Control_L=Escape;Alt_R=emdash'
 #xkbset sticky twokey latchlock
     #latchwork doesn't seem to work, fails to work quite often.
 
-exec i3-msg 'workspace 2; exec firefox; workspace 1'
+# Placed on top.
+#exec i3-msg 'workspace 2; exec firefox; workspace 1'
 exec urxvt -name nil
 exec hexchat
 exec deluge
 exec dropboxd
 #exec redshift -l 37.9:-122.3 -t 6500:3700
 
-# A temporary fix to a problem I'm facing: xcape,syndaemon,firefox won't load at first, and weird i3bar placement. synclient touchpad
-# synclient, syndaemon, xcape, firefox
-# 1. synclient + syndaemon? might have been fixed!
-# 2. xcape? might have been fixed!
-# 3. firefox not loading on startup
-# 4. i3bars go all funky.
+#   update: firefox works on top! i3 bar non-funky! xcpe fixed! synclient + syndaemon fixed!
 #exec i3 restart
 
 # vim:filetype=i3
-# }}}
+# }

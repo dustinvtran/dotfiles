@@ -5,11 +5,11 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
-" I can't seem to 'j' in github websites? What's weird is that it works sometimes on some sites..
-    " it may have to do with the touchpad. moving around the touchpad i think fixes it
+" I can't seem to 'j' in github websites? What's weird is that it works sometimes on some sites.. Neither does G.
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
+" allow keybinds when on flash video. it gets stuck otherwise and you can't get out without mouse clicking away.
 
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Make all colors gray. It's a weird blotch right now of white and gray.
