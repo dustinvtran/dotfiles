@@ -1,5 +1,4 @@
 alsa-utils
-apache
 archey3
 artwiz-fonts
 cairo-infinality-ultimate
@@ -36,7 +35,6 @@ libreoffice-gnome
 libreoffice-writer
 librsvg
 mesa
-mod_scgi
 mpd
 mplayer2
 ncmpcpp
@@ -44,9 +42,9 @@ nitrogen
 ntfs-3g
 ntp
 oh-my-zsh-git
+openssh
 os-prober
 packer
-php-apache
 pkgtools
 pulseaudio
 pygtk
@@ -55,8 +53,6 @@ ranger
 redshift
 rtorrent
 rubber
-rutorrent
-rutorrent-plugins
 rxvt-unicode
 sage-mathematics
 scrot
@@ -84,6 +80,7 @@ ttf-monaco
 ttf-ms-fonts
 ttf-vista-fonts
 unrar
+unzip
 virtualbox
 wget
 wireless_tools
