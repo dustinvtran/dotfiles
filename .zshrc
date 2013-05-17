@@ -59,6 +59,8 @@ alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
 alias p="sudo pacman"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
+alias packer="packer --noconfirm --noedit"
+alias pSyu="packer -Syu"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias so="source ~/.zshrc"
@@ -69,12 +71,12 @@ alias sm="sudo mount /dev/sdb1 /mnt/ext"
 # Applications
 l() { f -e libreoffice "$@" & }
 m() { f -e mplayer2 "$@" & }
-z() { f -e zathura "$@" & }
 alias nitrogen="nitrogen &"
 alias sv="sudo vim"
 alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias un="urxvt -name nil"
 alias v="f -e gvim -B viminfo"
+z() { f -e zathura "$@" & }
 
 # le git.
 alias ga="git add -f"
@@ -86,3 +88,5 @@ alias gs="git show --name-only"
 # Environment variables.
 export EDITOR=gvim
 export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
+
+# Functions.
