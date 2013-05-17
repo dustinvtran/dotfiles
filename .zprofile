@@ -1,5 +1,6 @@
 #
 # ~/.zprofile
+# Name: nil
 #
 
 . $HOME/.zshrc
