@@ -4,12 +4,10 @@
 ! Name: nil
 !
 
-!Xcursor.theme:    Vanilla-DMZ-AA
-
-!urxvt color scheme {{{
+! Archived stuff I previously used and not sure why {{{
 ! -----------------------------------------------------------------------------
 
-! Archived old colors {{{
+!Xcursor.theme:    Vanilla-DMZ-AA
 
 !URxvt*background: #2B2B2B
 !URxvt*foreground: #DEDEDE
@@ -48,6 +46,8 @@
 !URxvt.colorUL:      #87afd7
 
 ! }}}
+! Color Scheme {{{
+! -----------------------------------------------------------------------------
 
 ! Hybrid Terminal Colours
 ! vim: ft=xdefaults
@@ -93,7 +93,6 @@
 *color15: t_foreground
 
 ! }}}
-
 ! Fonts:
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
@@ -149,6 +148,6 @@ URxvt.tabbed.title: no
 
 dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
 dzen2.foreground: #22EE11
-dzen2.background: black
+dzen2.background: #F0F0F0
 
 ! }}}
