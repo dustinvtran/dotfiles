@@ -13,12 +13,8 @@ firefox
 flashplugin
 fontconfig-infinality-ultimate
 freetype2-infinality-ultimate
-gamin
 git
 grub-bios
-gstreamer0.10-base-plugins
-gstreamer0.10-good-plugins
-gvfs
 gvim
 hexchat
 hexchat-theme-manager
@@ -46,7 +42,6 @@ openssh
 os-prober
 packer
 pkgtools
-pulseaudio
 pygtk
 qt4
 ranger
@@ -82,7 +77,6 @@ ttf-vista-fonts
 unrar
 unzip
 virtualbox
-wget
 wireless_tools
 wpa_actiond
 wpa_supplicant

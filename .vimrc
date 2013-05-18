@@ -510,8 +510,14 @@ nnoremap <Leader>cdc :cd ~<CR>
 nnoremap <Leader>cdd :cd ~/Desktop<CR>
 
 " Delete without yanking.
+nnoremap <Leader>c "_c
+vnoremap <Leader>c "_c
+nnoremap <Leader>C "_C
+vnoremap <Leader>C "_C
 nnoremap <Leader>d "_d
 vnoremap <Leader>d "_d
+nnoremap <Leader>D "_D
+vnoremap <Leader>D "_D
 nnoremap <Leader>x "_dl
 vnoremap <Leader>x "_dl
 
