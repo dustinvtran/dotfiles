@@ -3,6 +3,8 @@
 # ~/.zshrc
 # Name: nil
 #
+# Oh my zsh setup. {{{
+# -----------------------------------------------------------------------------
 
 # Path to your oh-my-zsh configuration.
 ZSH=/usr/share/oh-my-zsh/
@@ -29,6 +31,10 @@ plugins=(git fasd)
 
 source $ZSH/oh-my-zsh.sh
 
+# }}}
+# Oh my keybindings. {{{
+# -----------------------------------------------------------------------------
+
 # Vi(m) baby.
 bindkey -v
 
@@ -54,16 +60,28 @@ bindkey    "^N"    vi-down-line-or-history
 bindkey     "^J"   vi-down-line-or-history
 bindkey     "^K"   vi-up-line-or-history
 
-# Oh my alias commands.
+# }}}
+# Oh my alias. {{{
+# -----------------------------------------------------------------------------
+
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
-alias p="sudo pacman"
-alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
-alias packer="packer --noconfirm --noedit"
-alias pSyu="packer -Syu"
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
+alias s="sudo "
 alias so="source ~/.zshrc"
+
+# Pacman/Packer aliases.
+p() { sudo pacman -$^@; }
+alias pa="packer --noedit"
+alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
+alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/system-dotfiles/pkglist"
+alias pqs="pacman -Qs"
+alias prns="sudo pacman -Rns"
+alias pr="sudo pacman -R"
+alias ps="sudo pacman -S"
+alias psyu="packer -Syu"
+alias pss="pacman -Ss"
 
 # A temporary workaround until I set a udev automount rule.
 alias sm="sudo mount /dev/sdb1 /mnt/ext"
@@ -72,8 +90,8 @@ alias sm="sudo mount /dev/sdb1 /mnt/ext"
 l() { f -e libreoffice "$@" & }
 m() { f -e mplayer2 "$@" & }
 alias nitrogen="nitrogen &"
-alias sv="sudo vim"
 alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
+alias sv="sudo vim"
 alias un="urxvt -name nil"
 alias v="f -e gvim -B viminfo"
 z() { f -e zathura "$@" & }
@@ -85,6 +103,7 @@ alias gp="git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
 
+# }}}
 # Environment variables.
 export EDITOR=gvim
 export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom

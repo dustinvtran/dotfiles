@@ -3,11 +3,37 @@
 # ~/.config/i3/config
 # Name: nil
 #
-# Windows {{{
+# Startup Scripts & Programs {{{
 # -----------------------------------------------------------------------------
 
-#Um, this works when placed on top, and am a bit lazy to see at what line breaks it, so I'll just keep it here.
+exec bash ~/.config/nil/hdmi-init
+# Argh...
+# 1. Set up dzen on both docks with appropriate size.
+# 2. Set up workspaces on conky.
+# 3. Then play around with the applets.
+# exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
+exec nitrogen --restore
+exec xbacklight -set 100
+exec synclient touchpadoff=0
+exec syndaemon -k -i 1 -d
+exec xmodmap ~/.Xmodmap
+exec xrdb -merge ~/.Xresources
+exec xcape -e 'Control_L=Escape;Alt_R=emdash'
+# Sticky Keys.
+#latchwork doesn't seem to work, fails to work quite often.
+#xkbset exp =sticky =twokey =latchlock
+#xkbset sticky twokey latchlock
+
 exec i3-msg 'workspace 2; exec firefox; workspace 1'
+exec urxvt -name nil
+exec hexchat
+exec deluge
+exec dropboxd
+#exec redshift -l 37.9:-122.3 -t 6500:3700
+
+# }}}
+# Windows {{{
+# -----------------------------------------------------------------------------
 
 # Set modifier key.
 set $mod Mod1
@@ -177,13 +203,11 @@ bar {
     urgent_workspace    #2f343a #900000 #ffffff
     }
     position top
-    #Temporary of a temporary, just so that I at least have /some/ way of noting when my torrents are done and when someone messages me on IRC.
-    # Also because I need a clock widget for now.
-    tray_output primary
-    #tray_output none
-    status_command i3status
-    colors { statusline #000000 }
     font pango:HelveticaNeueCom 45 Lt 9
+    tray_output none
+    #tray_output primary
+    #status_command i3status
+    #colors { statusline #000000 }
 }
 
 # }}}
@@ -199,7 +223,7 @@ for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
 # For mplayer and mplayer2/smplayer respectively.
-assign [class="MPlayer"] 11
+#assign [class="MPlayer"] 11
 assign [class="mplayer"] 11
 assign [class="Zathura"] 11
 
@@ -234,39 +258,5 @@ bindsym $mod+y [title="HexChat($|.*@)"] move scratchpad, [class="^URxvt$" instan
 bindsym $mod+g [title="^Deluge$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [title="HexChat($|.*@)"] scratchpad show
 bindsym $mod+t [title="HexChat($|.*@)"] move scratchpad, [title="^Deluge$"] move scratchpad, [instance="^nil$"] scratchpad show
 
-# }}}
-# Startup Scripts & Programs {{{
-# -----------------------------------------------------------------------------
-
-exec bash ~/.config/nil/hdmi-init
-# Argh...
-# 1. Set up dzen on both docks with appropriate size.
-# 2. Set up workspaces on conky.
-# 3. Then play around with the applets.
-# exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
-exec nitrogen --restore
-exec xbacklight -set 100
-exec synclient touchpadoff=0
-exec syndaemon -k -i 1 -d
-exec xmodmap /home/nil/.Xmodmap
-exec xrdb -merge ~/.Xresources
-exec amixer set IEC958 unmute
-exec xcape -e 'Control_L=Escape;Alt_R=emdash'
-# Sticky Keys.
-#latchwork doesn't seem to work, fails to work quite often.
-#xkbset exp =sticky =twokey =latchlock
-#xkbset sticky twokey latchlock
-
-# Placed on top.
-#exec i3-msg 'workspace 2; exec firefox; workspace 1'
-exec urxvt -name nil
-exec hexchat
-exec deluge
-exec dropboxd
-#exec redshift -l 37.9:-122.3 -t 6500:3700
-
-#   bugs not working: firefox not initialized, i3bar all placed on HDMI1, xcape buggy, synclient and syndaemon break randomly. Check if these are still issues when back on HDMI1.
-#exec i3 restart
-
 # vim:filetype=i3
-# }
+# }}}
