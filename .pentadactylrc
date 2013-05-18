@@ -5,7 +5,7 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
-" I can't seem to 'j' in github websites? What's weird is that it works sometimes on some sites.. Neither does G.
+" j/G/gg/PgDown/etc don't work on some sites, such as github primarily on occasionally things like ArchWiki.
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
