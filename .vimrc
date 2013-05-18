@@ -665,7 +665,7 @@ nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
-" For solarized dark.
+" Colorscheme Solarized
 "set t_Co=256
 "if !has('gui_running')
     "let g:solarized_termcolors=&t_Co
@@ -684,8 +684,6 @@ colorscheme hybrid
 syntax enable
 set guioptions=
 set notitle
-"set guifont=Consolas\ 10
-"set laststatus=0
 set guifont=Consolas\ for\ Powerline\ 10
 let g:Powerline_symbols="fancy"
 set laststatus=2
@@ -693,7 +691,6 @@ set noshowmode
 call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
-"call Pl#Theme#RemoveSegment('filetype')
 call Pl#Theme#RemoveSegment('lineinfo')
 
 " }}}

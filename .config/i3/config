@@ -3,26 +3,14 @@
 # ~/.config/i3/config
 # Name: nil
 #
-# Startup Scripts & Programs {{{
+# Startup Applications {{{
 # -----------------------------------------------------------------------------
 
-exec bash ~/.config/nil/hdmi-init
 # Argh...
 # 1. Set up dzen on both docks with appropriate size.
 # 2. Set up workspaces on conky.
 # 3. Then play around with the applets.
 # exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
-exec nitrogen --restore
-exec xbacklight -set 100
-exec synclient touchpadoff=0
-exec syndaemon -k -i 1 -d
-exec xmodmap ~/.Xmodmap
-exec xrdb -merge ~/.Xresources
-exec xcape -e 'Control_L=Escape;Alt_R=emdash'
-# Sticky Keys.
-#latchwork doesn't seem to work, fails to work quite often.
-#xkbset exp =sticky =twokey =latchlock
-#xkbset sticky twokey latchlock
 
 exec i3-msg 'workspace 2; exec firefox; workspace 1'
 exec urxvt -name nil
