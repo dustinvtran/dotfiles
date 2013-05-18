@@ -206,8 +206,8 @@ bar {
     font pango:HelveticaNeueCom 45 Lt 9
     tray_output none
     #tray_output primary
-    #status_command i3status
-    #colors { statusline #000000 }
+    status_command i3status
+    colors { statusline #000000 }
 }
 
 # }}}

@@ -70,7 +70,8 @@ alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias s="sudo "
 alias so="source ~/.zshrc"
-alias nil="date +'%A %B %e %l:%M %p'"
+# Temporarily using this and 'cal' until I can set up a time widget that popups cal when I hit a command.
+alias time="date +'%A %B %e %l:%M %p'"
 
 # Pacman/Packer aliases.
 p() { sudo pacman -$^@; }

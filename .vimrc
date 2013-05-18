@@ -661,20 +661,28 @@ nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
 
 " Colors/Powerline {{{
 
-set t_Co=256
-if !has('gui_running')
-    let g:solarized_termcolors=&t_Co
-    let g:solarized_termtrans=1
-endif
-set background=dark
-colorscheme solarized
-syntax enable
-set guioptions=
+" Colorscheme Hybrid
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
+
+" For solarized dark.
+"set t_Co=256
+"if !has('gui_running')
+    "let g:solarized_termcolors=&t_Co
+    "let g:solarized_termtrans=1
+"endif
+"set background=dark
+"colorscheme solarized
+
+" Set colorschemes for different filetypes.
 "augroup file_type_color_scheme
     "autocmd!
     "autocmd BufEnter,BufNewFile *.tex colorscheme molokai
     "autocmd BufLeave *.tex colorscheme solarized
 "augroup END
+
+syntax enable
+set guioptions=
 set notitle
 "set guifont=Consolas\ 10
 "set laststatus=0
