@@ -110,3 +110,6 @@ export EDITOR=gvim
 export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
 
 # Functions.
+# Open man pages in Vim.
+vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -; }
+alias man='vman'
