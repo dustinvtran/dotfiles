@@ -30,6 +30,7 @@
 "Misc:
 "* The load last file doesn't really work as intended, but it does load *some* last files.
 "* Sourcing .vimrc makes it go awry.
+"* Disable autofold at startup.
 "* C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "    Stuff about jump lists vs normal motion.
 "* Jump to paragraphs? One that includes <br><br> for html.
@@ -135,6 +136,10 @@ set expandtab                                " Spaces as tabs.
 set shiftwidth=4                             " 4-character tabs.
 set softtabstop=4                            " Fix it to 4.
 
+" 1 sec <Esc> delay? Vim pls.
+set noesckeys
+nnoremap <Esc> <Nop>
+
 " }}}
 " Functions {{{
 " -----------------------------------------------------------------------------
@@ -186,14 +191,14 @@ endif
 " Open URL in browser {{{"{{{
 
 " Not working..
-function! Browser ()
+function! Browser()
    let line = getline (".")
    let line = matchstr (line, "http[^   ]*")
-   exec "!start chrome ".line
+   exec "!firefox ".line
 endfunction
 
 " }}}"}}}
-"nnoremap <Leader>chrome :call Browser ()<CR>
+nnoremap <Leader>] :call Browser()<CR>
 
 " Fold all toggles. {{{
 
@@ -211,6 +216,7 @@ endfunction
 " }}}
 noremap <silent> <S-Space> :call FoldAllToggle()<CR>
 " Don't auto-fold in the beginning.
+" This doesn't quite work as intended, but whatever; it shall do for now.
 augroup auto_fold
     autocmd!
     autocmd BufEnter * call FoldAllToggle()

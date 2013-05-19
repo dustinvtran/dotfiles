@@ -4,49 +4,7 @@
 ! Name: nil
 !
 
-! Archived stuff I previously used and not sure why {{{
-! -----------------------------------------------------------------------------
-
-!Xcursor.theme:    Vanilla-DMZ-AA
-
-!URxvt*background: #2B2B2B
-!URxvt*foreground: #DEDEDE
-
-!URxvt*colorUL: #86a2b0
-
-!! black
-!URxvt*color0  : #2E3436
-!URxvt*color8  : #555753
-!! red
-!URxvt*color1  : #CC0000
-!URxvt*color9  : #EF2929
-!! green
-!URxvt*color2  : #4E9A06
-!URxvt*color10 : #8AE234
-!! yellow
-!URxvt*color3  : #C4A000
-!URxvt*color11 : #FCE94F
-!! blue
-!URxvt*color4  : #3465A4
-!URxvt*color12 : #729FCF
-!! magenta
-!URxvt*color5  : #75507B
-!URxvt*color13 : #AD7FA8
-!! cyan
-!URxvt*color6  : #06989A
-!URxvt*color14 : #34E2E2
-!! white
-!URxvt*color7  : #D3D7CF
-!URxvt*color15 : #EEEEEC
-
-! Colorful Man pages.
-! Doesnt seem to work.
-!URxvt.colorIT:      #87af5f
-!URxvt.colorBD:      #d7d7d7
-!URxvt.colorUL:      #87afd7
-
-! }}}
-! Color Scheme {{{
+! URxvt Colorscheme {{{
 ! -----------------------------------------------------------------------------
 
 ! Hybrid Terminal Colours
@@ -65,32 +23,32 @@
 #define t_blue #81A2BE
 #define t_purple #B294BB
 
-*background: t_background
-*foreground: t_foreground
+URxvt*background: t_background
+URxvt*foreground: t_foreground
 ! black
-*color0: t_current_line
-*color8: t_selection
+URxvt*color0: t_current_line
+URxvt*color8: t_selection
 ! red
-*color1: #A54242
-*color9: t_red
+URxvt*color1: #A54242
+URxvt*color9: t_red
 ! green
-*color2: #8C9440
-*color10: t_green
+URxvt*color2: #8C9440
+URxvt*color10: t_green
 ! yellow
-*color3: t_orange
-*color11: t_yellow
+URxvt*color3: t_orange
+URxvt*color11: t_yellow
 ! blue
-*color4: #5F819D
-*color12: t_blue
+URxvt*color4: #5F819D
+URxvt*color12: t_blue
 ! magenta
-*color5: #85678F
-*color13: t_purple
+URxvt*color5: #85678F
+URxvt*color13: t_purple
 ! cyan
-*color6: #5E8D87
-*color14: t_aqua
+URxvt*color6: #5E8D87
+URxvt*color14: t_aqua
 ! white
-*color7: t_comment
-*color15: t_foreground
+URxvt*color7: t_comment
+URxvt*color15: t_foreground
 
 ! }}}
 ! Fonts:
@@ -115,16 +73,14 @@ URxvt.iso14755: False
 URxvt.keysym.C-v: perl:clipboard:paste
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
-! Somehow unbind Esc, S-Space.
-!URxvt.keysym.C-s: \033[33~
+! Somehow unbind S-Space.
+!URxvt.keysym.S-space:  \033
 
 !enabling clickable links:
-
 URxvt.urlLauncher:      /usr/bin/firefox
 URxvt.matcher.button:   1
 
 !urxvt scrolling options and cursor style:
-
 URxvt*saveLines: 12000
 URxvt*scrollstyle:plain
 URxvt*scrollBar: false
@@ -132,7 +88,6 @@ URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 
 ! urxvt tabs settings:
-
 URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg: 2
@@ -142,6 +97,7 @@ URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
 
 ! dzen2 {{{
+! -----------------------------------------------------------------------------
 
 dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
 dzen2.foreground: #22EE11
