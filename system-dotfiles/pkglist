@@ -3,7 +3,6 @@ archey3
 artwiz-fonts
 cairo-infinality-ultimate
 conky
-deluge
 dialog
 dropbox
 dzen2
@@ -76,6 +75,7 @@ ttf-ms-fonts
 ttf-vista-fonts
 unrar
 unzip
+urxvt-clipboard
 virtualbox
 wireless_tools
 wpa_actiond
@@ -86,7 +86,6 @@ xf86-video-intel
 xkbset
 xorg-server
 xorg-server-utils
-xorg-twm
 xorg-utils
 xorg-xclock
 xorg-xev
@@ -95,4 +94,5 @@ zathura
 zathura-djvu
 zathura-pdf-poppler
 zathura-ps
+zip
 zsh
