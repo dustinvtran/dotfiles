@@ -60,6 +60,10 @@ bindkey    "^N"    vi-down-line-or-history
 bindkey     "^J"   vi-down-line-or-history
 bindkey     "^K"   vi-up-line-or-history
 
+# Unbinding some keys.
+stty stop undef
+stty start undef
+
 # }}}
 # Oh my alias. {{{
 # -----------------------------------------------------------------------------

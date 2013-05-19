@@ -13,7 +13,7 @@
 exec i3-msg 'workspace 2; exec firefox; workspace 1' &
 exec urxvt -name nil &
 exec hexchat &
-exec deluge &
+exec urxvt -name rtorrent -e rtorrent &
 exec dropboxd &
 
 # }}}
@@ -235,13 +235,13 @@ bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 # To use multiple scratchpads, there's sort of a trick required in i3, since once you show two open scratchpad applications simultaneously, all hell breaks loose. To get around this without requiring more keybindings, you need to make your commands leave all other applications hidden in the scratchpad /before/ you show your next scratchpad application. There's yet another caveat: to use the for_window command to automove applications into the scratchpad, you have to be super-specific so that not even its child popup windows will be subsumed under the scratchpad.
 # do one for mpd
 
-for_window [title="^Deluge$"] move scratchpad
+for_window [class="^URxvt$" instance="^rtorrent$"] move scratchpad
 for_window [title="HexChat($|.*@)"] move scratchpad
 for_window [class="^URxvt$" instance="^nil$"] move scratchpad
 
-bindsym $mod+y [title="HexChat($|.*@)"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [title="^Deluge$"] scratchpad show
-bindsym $mod+g [title="^Deluge$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [title="HexChat($|.*@)"] scratchpad show
-bindsym $mod+t [title="HexChat($|.*@)"] move scratchpad, [title="^Deluge$"] move scratchpad, [instance="^nil$"] scratchpad show
+bindsym $mod+y [title="HexChat($|.*@)"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] scratchpad show
+bindsym $mod+g [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [title="HexChat($|.*@)"] scratchpad show
+bindsym $mod+t [title="HexChat($|.*@)"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [instance="^nil$"] scratchpad show
 
 # vim:filetype=i3
 # }}}

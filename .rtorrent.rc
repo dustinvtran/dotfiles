@@ -9,6 +9,7 @@
 # dont upload at all, and stop auto-seeding unless i choose to
 # interface columns (#, name, size, progress gui (current status, % completed), down speed, up speed, ETA, Seeders, Peers)
 # set file priorities under subfiles and general downloads
+# Vi(m) keybindings? E.g., hjkl, gg/G
 
 # To enable the web interface for rutorrent.
 #scgi_port = localhost:5000
