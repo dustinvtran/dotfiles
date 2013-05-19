@@ -60,9 +60,13 @@ bindkey    "^N"    vi-down-line-or-history
 bindkey     "^J"   vi-down-line-or-history
 bindkey     "^K"   vi-up-line-or-history
 
-# Unbinding some keys.
-stty stop undef
-stty start undef
+# Unbind keys.
+stty stop undef     # <C-s>
+stty start undef    # <C-q>
+# 1 sec <Esc> time delay? zsh pls.
+# Separated into two in case I ever find a use for <Esc> prefixes.
+bindkey -rpM viins '^['
+bindkey -rpM vicmd '^['
 
 # }}}
 # Oh my alias. {{{
@@ -115,5 +119,6 @@ export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
 
 # Functions.
 # Open man pages in Vim.
+# One bug in that it opens vim anyways when no man page exists.
 vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -; }
 alias man='vman'
