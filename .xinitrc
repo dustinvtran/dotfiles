@@ -15,19 +15,20 @@ fi
 # Startup Scripts {{{
 # -----------------------------------------------------------------------------
 
-exec bash ~/.config/nil/hdmi-init
-exec nitrogen --restore
-exec xbacklight -set 100
-exec synclient touchpadoff=0
-exec syndaemon -k -i 1 -d
-exec xmodmap ~/.Xmodmap
-exec xrdb -merge ~/.Xresources
-exec xcape -e 'Control_L=Escape;Alt_R=emdash'
+bash ~/.config/nil/hdmi-init &
+nitrogen --restore &
+xbacklight -set 100 &
+synclient touchpadoff=0 &
+syndaemon -k -i 1 -d &
+xmodmap ~/.Xmodmap &
+xcape -e 'Control_L=Escape;Alt_R=emdash' &
+xrdb -merge ~/.Xresources &
+#redshift -l 37.9:-122.3 -t 6500:3700 &
 
 # Sticky Keys.
 #latchwork doesn't seem to work, fails to work quite often.
-#xkbset exp =sticky =twokey =latchlock
-#xkbset sticky twokey latchlock
+#xkbset exp =sticky =twokey =latchlock &
+#xkbset sticky twokey latchlock &
 
 # }}}
 
