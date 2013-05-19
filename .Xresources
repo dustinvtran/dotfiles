@@ -106,19 +106,16 @@ URxvt*boldFont: xft:Consolas\ for\ Powerline:bold:size=10
 URxvt.letterSpace: -1
 
 !urxvt extensions:
+URxvt.perl-ext-common: default,matcher,clipboard
 
-! Custom Perl Script Library
-!URxvt.perl-lib: /home/nil/.config/nil/urxvt-perls
-!loaded clipboard into /lib/urxvt/perl to see if the library is the problem.
-!URxvt.perl-ext-common: default,matcher,clipboard
-URxvt.perl-ext-common: default,matcher
+! No, dont go to ISO mode for S-C.
+URxvt.iso14755: False
 
 ! Keybindings.
-!URxvt.keysym.C-v: perl:clipboard:paste
+URxvt.keysym.C-v: perl:clipboard:paste
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
-
-! Somehow unbind C-s and Esc.
+! Somehow unbind C-s, Esc, S-Space.
 !URxvt.keysym.C-s: \033[33~
 
 !enabling clickable links:

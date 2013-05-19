@@ -16,19 +16,21 @@
 "* Allow rubber to compile filenames with spaces.
 
 "Plugins:
-"* YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
+"* Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
 "* NERDCommenter: get it to work for random filetypes (.snippets).
 "* NERDTree: see stuff.
-"* Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
 "* SetColors:   not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
 "* Powerline:   weird blinking when moving to folded text.
 "               change default normal mode (black) color to be transparent, and change colors for other modes (visual, operator, cmd).
+"* Repeat: not working.
 "* Snippets: Fix the auto-reload command to not be so computation heavy.
 "   How to do snippets inside a snippet? Or perhaps manage more carefully if not.
+"* YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
 
 "Misc:
-"* Don't fold where my cursor is, when I just opened the file.
-"* C-O and C-U (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
+"* The load last file doesn't really work as intended, but it does load *some* last files.
+"* Sourcing .vimrc makes it go awry.
+"* C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "    Stuff about jump lists vs normal motion.
 "* Jump to paragraphs? One that includes <br><br> for html.
 "* Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
@@ -45,7 +47,6 @@
 "* Save new file in some folder you want.
 "* Have cursor position returned to exact position not just line position.
 "* Yank to last line (y$) doesn't grab the last character.
-"* The load last file doesn't really work as intended, but it does load *some* last files.
 "* The "jump to next/last sentence" doesn't always work as intended.
 "
 "Consideration:
@@ -65,13 +66,14 @@ Bundle 'benjifisher/matchit.zip'
 Bundle 'bufexplorer.zip'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
+Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'msanders/snipmate.vim'
 Bundle 'nil-/nil'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
+Bundle 'sjl/gundo.vim'
 Bundle 'skammer/vim-css-color'
 "Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
@@ -150,17 +152,17 @@ augroup eidecticmemory
     " Go to last file if invoked without arguments.
     "Here, I'm opening past .viminfo marks just so that it places them into the buffer and I can :e# right away.
     "It slows down the startup by like half a second, so if you want to make it faster, tone down how many buffers you're opening. I'm going for pure accuracy since my computer is slow as fuck anyways, so I can wait the split second.
-    autocmd VimEnter * nested if
+    autocmd GUIEnter * nested if
         \ bufname("%") == "" |
-        \   exe "normal! `9" |
-        \   exe "normal! `8" |
-        \   exe "normal! `7" |
-        \   exe "normal! `6" |
-        \   exe "normal! `5" |
-        \   exe "normal! `4" |
-        \   exe "normal! `3" |
-        \   exe "normal! `2" |
-        \   exe "normal! `1" |
+        "\   exe "normal! `9" |
+        "\   exe "normal! `8" |
+        "\   exe "normal! `7" |
+        "\   exe "normal! `6" |
+        "\   exe "normal! `5" |
+        "\   exe "normal! `4" |
+        "\   exe "normal! `3" |
+        "\   exe "normal! `2" |
+        "\   exe "normal! `1" |
         \   exe "normal! `0" |
         \ endif
     " From vimrc_example.vim distributed with Vim 7.
@@ -181,7 +183,7 @@ if bufname('%') == ''
 endif
 "Something weird with having to press the <ENTER> prompt when opening and certain files.
 
-" Open URL in browser {{{
+" Open URL in browser {{{"{{{
 
 " Not working..
 function! Browser ()
@@ -190,7 +192,7 @@ function! Browser ()
    exec "!start chrome ".line
 endfunction
 
-" }}}
+" }}}"}}}
 "nnoremap <Leader>chrome :call Browser ()<CR>
 
 " Fold all toggles. {{{
@@ -208,6 +210,11 @@ endfunction
 
 " }}}
 noremap <silent> <S-Space> :call FoldAllToggle()<CR>
+" Don't auto-fold in the beginning.
+augroup auto_fold
+    autocmd!
+    autocmd BufEnter * call FoldAllToggle()
+augroup END
 
 " Smooth scrolling. {{{
 
@@ -345,13 +352,13 @@ noremap! <C-q> <Nop>
 noremap <C-w> <Nop>
 "No, I have smooth scroll.
 noremap <C-y> <Nop>
-"You're too obscure! But I like you're trivia(l) use in visual mode hehe, paired with u's.
+"You're too obscure! But I like your trivia(l) use in visual mode hehe, paired with u's.
 nnoremap U <Nop>
 onoremap U <Nop>
 "Wow! You're so obscure and you do..a cursor seach or a k. No thanks.
 "Can't decide if I want <C-P> or <C-V> as my cmd-line/insert paste. Leave both on for now and see which one I naturally end up with.
 "noremap! <C-P> <Nop>
-noremap <C-p> <Nop>
+"noremap <C-p> <Nop>
 "I don't know how to use you guys efficiently.
 "Set ] to <C-]>. I use <C-]> all the time (in :help). I never use default ] for anything.
 noremap [ <Nop>
@@ -695,6 +702,16 @@ call Pl#Theme#RemoveSegment('lineinfo')
 
 " }}}
 
+" Ctrl-P {{{
+
+let g:ctrlp_map = '<C-f>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" I really don't see why /I/ have to do this, but whatever.
+set wildignore+=*.docx,*.flac,*.mkv,*.ods,*.xlsx
+
+" }}}
+"
 " EasyMotion {{{
 
 " Sorted by closest keys to center of homekeys, with RHS as priority (because I'm right-handed and f/F is on the LHS which may require a LHS shift change). Then since it's pretty random anyways, I just swapped two's based on matchups on which I would prefer. Also note that you want something still good as your last choice, since it will invariably come up for a search requiring >= 2 presses. I went with H since it was kind of random between g and a anyways and it alternates hands after a possible chord press. For the more canonical route go with the default alphabet.
@@ -718,6 +735,12 @@ augroup END
 
 " }}}
 
+" Gundo {{{
+
+nnoremap <C-u> :GundoToggle<CR>
+
+" }}}
+
 " Matchit {{{
 
 " Move between matching brackets and tags with <Tab> instead of the default %.
@@ -731,7 +754,7 @@ augroup END
 ""onoremap <silent> <Tab> v:<C-u>call <SID>Match_wrapper('',1,'o') <CR>
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>.
-noremap <C-u> <C-i>
+noremap <C-p> <C-i>
 
 " }}}
 
