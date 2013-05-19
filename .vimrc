@@ -779,7 +779,6 @@ nnoremap <silent> <Leader>r :call NextColor(1)<CR>
 
 " Snipmate {{{
 
-" [TEMPORARY LINUX]
 let g:snippets_dir = '~/.vim/bundle/nil/snippets'
 
 " To reload the snippets whenever I rewrite them.
@@ -921,7 +920,6 @@ endfunction
 " Temporary.
 function! LaTeXBuild()
     if &filetype=='tex'
-" [TEMPORARY LINUX]
 " pdflatex for TeX Live doesn't support aux directory, only output-dir.
         "silent !start /min pdflatex -aux-directory="/home/nil/.vim/auxiliary" "%"
 " rubber doesn't accept spaces in file names. And since I don't get a minimixed window prompt for linux, don't do silent for now.
