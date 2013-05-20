@@ -3,4 +3,3 @@ script load mouse.pl
 script load uberprompt.pl
 script load vim_mode.pl
 script load xchatnickcolor.pl
-
