@@ -1,4 +1,6 @@
-#nil's irssi theme ~
+#
+# nil's irssi theme
+#
 
 default_color = "-1";
 replaces = { "[]" = ""; "<" = ""; ">" = " "; };
@@ -9,7 +11,7 @@ abstracts = {
 
   line_start = "";
   timestamp = " %c$*%n";
-  hilight = "$*";
+  hilight = "%r$*%r";
   error = "%R$*%n";
   channel = "$*";
   nick = "%_$*%_";
@@ -21,7 +23,7 @@ abstracts = {
 
   channick_hilight = "%w$*%w";
   chanhost_hilight = "%w{%wnickhost %w$*%w}%w";
-  channick = "$*";
+  channick = "%w$*%w";
   chanhost = "%w{%wnickhost %w$*%w}%w";
   channelhilight = "%w$*%w";
   ban = "$*";
@@ -40,10 +42,10 @@ abstracts = {
   pubmsghinick = "{msgnick $1 $0$2-}";
   msgchannel = "$*";
   privmsg = "$0($1-) ";
-  ownprivmsg = "$0($1-) ";
-  ownprivmsgnick = "$*: ";
-  ownprivnick = "$*";
-  privmsgnick = "$*: ";
+  ownprivmsg = "\00307$0$[-9] %r$1 %K| %n";
+  #ownprivmsgnick = "\00307$[-9] %r$* %K| %n";
+  #ownprivnick = "\00307$[-9] %r$*";
+  privmsgnick = "$[-9] %b$* %K| %n";
 
   action_core = "* $*";
   action = "{action_core $*} ";
@@ -70,13 +72,13 @@ abstracts = {
   netsplit = "$*";
   netjoin = "$*";
 
-  names_prefix = "%B-$y-%Y- ";
+  names_prefix = "     ";
   names_nick = "%g$0$1 ";
   names_nick_op = "%B$0%b$1%n ";
   names_nick_halfop = "%C$0%c$1 ";
   names_nick_voice = "%Y$0%y$1 ";
   names_users = "$*";
-  names_channel = "%b-%y-%Y%n";
+  names_channel = "";
 
   dcc = "$*";
   dccfile = "$*";
@@ -109,5 +111,5 @@ abstracts = {
 };
 
 formats = {
-  "fe-common/core" = { pubmsg = "%b<%w$2\00313$[-11]0%b>%K|%n $1"; };
+  "fe-common/core" = { pubmsg = " $2\00313$[-11]0%b %K|%n $1"; };
 };

@@ -87,7 +87,7 @@ alias pqs="pacman -Qs"
 alias prns="sudo pacman -Rns"
 alias pr="sudo pacman -R"
 alias ps="sudo pacman -S"
-alias psyu="packer -Syu"
+alias psyu="packer --noedit -Syu"
 alias pss="pacman -Ss"
 
 # A temporary workaround until I set a udev automount rule.
