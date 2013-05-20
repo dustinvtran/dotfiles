@@ -63,13 +63,12 @@ Xft.antialias: 1
 Xft.rgba: rgb
 
 ! urxvt perl extensions:
-URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.perl-ext-common: default,matcher
 
 ! No, dont go to ISO mode for S-C.
 URxvt.iso14755: False
 
 ! Keybindings.
-URxvt.keysym.C-v: perl:clipboard:paste
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
 ! Somehow unbind S-Space.
