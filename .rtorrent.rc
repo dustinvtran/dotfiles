@@ -18,7 +18,7 @@
 # Native notification system a la applet/widgets.
 
 # To enable the web interface for web GUI front-ends.
-scgi_port = localhost:5000
+#scgi_port = localhost:5000
 
 # Maximum and minimum number of peers to connect to per torrent.
 #min_peers = 40

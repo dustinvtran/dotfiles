@@ -111,5 +111,5 @@ abstracts = {
 };
 
 formats = {
-  "fe-common/core" = { pubmsg = "%b<%w$2\00305$[-11]0%b>%K|%n $1"; };
+  "fe-common/core" = { pubmsg = "%b<%w$2\00306$[-11]0%b>%K|%n $1"; };
 };
