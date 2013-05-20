@@ -1,5 +1,5 @@
 script load adv_windowlist.pl
 script load mouse.pl
-script load uberprompt.pl
-script load vim_mode.pl
+script load nil-vim.pl
 script load xchatnickcolor.pl
+reload

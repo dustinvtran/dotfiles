@@ -1,3 +1,15 @@
+#
+# nil-vim
+# Name: nil
+# Changes:
+# Changed maps:
+#    ; -> :
+#    j/k -> C-E/Y
+#    C-j/k -> C-D/U
+# Renamed 'Insert', '%_Ex%_', and '%_Command%_' -> ' %r$*%n ','',' %b$*%n '.
+# Not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.
+#
+
 =pod
 
 =head1 NAME
@@ -753,13 +765,13 @@ my $commands
      D => { char => 'D', func => \&cmd_D, type => C_NORMAL,
             repeatable => 1, no_operator => 1 },
      # scrolling
-     "\x05" => { char => '<C-E>', func => \&cmd_ctrl_d, type => C_NORMAL,
+     "j" => { char => 'j', func => \&cmd_ctrl_d, type => C_NORMAL,
                  no_operator => 1 },
-     "\x04" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
+     "\x0A" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
                  needs_count => 1, no_operator => 1 },
-     "\x19" => { char => '<C-Y>', func => \&cmd_ctrl_u, type => C_NORMAL,
+     "k" => { char => 'k', func => \&cmd_ctrl_u, type => C_NORMAL,
                  no_operator => 1 },
-     "\x15" => { char => '<C-U>', func => \&cmd_ctrl_u, type => C_NORMAL,
+     "\x0B" => { char => '<C-U>', func => \&cmd_ctrl_u, type => C_NORMAL,
                  needs_count => 1, no_operator => 1 },
      "\x06" => { char => '<C-F>', func => \&cmd_ctrl_f, type => C_NORMAL,
                  no_operator => 1 },
@@ -779,7 +791,7 @@ my $commands
                no_operator => 1 },
      '.'  => { char => '.', type => C_NORMAL, repeatable => 1,
                no_operator => 1 },
-     ':'  => { char => ':', type => C_NORMAL },
+     ';'  => { char => ';', type => C_NORMAL },
      "\n" => { char => '<CR>', type => C_NORMAL }, # return
      # undo
      'u'    => { char => 'u',     func => \&cmd_undo, type => C_NORMAL,
@@ -1210,45 +1222,29 @@ sub cmd_k {
 sub cmd_G {
     my ($count, $pos, $repeat) = @_;
 
-    if (Irssi::version < 20090117) {
-        _warn("G and gg not supported in irssi < 0.8.13");
-        return;
+    my $window = Irssi::active_win();
+    # no count = half of screen
+    if (not defined $count) {
+        $count = $window->{height} / 2;
     }
+    $window->view()->scroll(10000);
 
-    my @history = Irssi::active_win->get_history_lines();
-
-    # Go to the current input line if no count was given or it's too big.
-    if (not $count or $count - 1 >= scalar @history) {
-        if (defined $history_input and defined $history_pos) {
-            _input($history_input);
-            _input_pos($history_pos);
-            $history_index = undef;
-        }
-        return;
-    } else {
-        # Save input line so it doesn't get lost.
-        if (not defined $history_index) {
-            $history_input = _input();
-            $history_pos = _input_pos();
-        }
-        $history_index = $count - 1;
-    }
-
-    my $history = $history[$history_index];
-    # History is not in UTF-8!
-    if ($settings->{utf8}->{value}) {
-        $history = decode_utf8($history);
-    }
-    _input($history);
-    _input_pos(0);
-
+    Irssi::statusbar_items_redraw('more');
     return (undef, undef);
 }
 
 sub cmd_gg {
     my ($count, $pos, $repeat) = @_;
 
-    return cmd_G(1, $pos, $repeat);
+    my $window = Irssi::active_win();
+    # no count = half of screen
+    if (not defined $count) {
+        $count = $window->{height} / 2;
+    }
+    $window->view()->scroll(-10000);
+
+    Irssi::statusbar_items_redraw('more');
+    return (undef, undef);
 }
 
 sub cmd_f {
@@ -2323,7 +2319,7 @@ sub ex_map {
         # Add new mapping.
         my $command;
         # Ex-mode command
-        if (index($rhs, ':') == 0) {
+        if (index($rhs, ';') == 0) {
             $rhs =~ /^:(\S+)(\s.+)?$/;
             if (not exists $commands_ex->{$1}) {
                 return _warn_ex('map', "$rhs not found");
@@ -2629,11 +2625,11 @@ sub vim_mode_cmd {
 
     my $mode_str = '';
     if ($mode == M_INS) {
-        $mode_str = 'Insert';
+        $mode_str = ' %r~%n ';
     } elsif ($mode == M_EX) {
-        $mode_str = '%_Ex%_';
+        $mode_str = '';
     } else {
-        $mode_str = '%_Command%_';
+        $mode_str = ' %b~%n ';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
             my $partial = '';
@@ -3040,7 +3036,7 @@ sub handle_command_cmd {
         }
 
     # Start Ex mode.
-    } elsif ($cmd == $commands->{':'}) {
+    } elsif ($cmd == $commands->{';'}) {
 
         if (not script_is_loaded('uberprompt')) {
             _warn("Warning: Ex mode requires the 'uberprompt' script. " .
