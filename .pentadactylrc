@@ -14,7 +14,7 @@
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
 " Jumps in same buffer without changing pages. (same problem in Vim)
 " turn the highlighted search term as yellow.
-" allow keybinds when on flash video. it gets stuck otherwise and you can't get out without mouse clicking away.
+" the hint links don't work so well with that font, e.g., I vs l.
 
 " some way to navigate all my bookmarks with keyboards, i.e., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
 " how to work with recently closed tabs/windows, and viewing them, as well as bunch of "back"'s history?
@@ -53,8 +53,8 @@ set showstatuslinks=command
 set showtabline=multitab
 set titlestring=
 set hlfind
-set passkeys=reddit.com:as<CR>
-set passkeys=boards.4chan.org:qQ<C-q><C-s>wWmbJKxz<CR>
+set passkeys+=reddit.com:as<CR>
+set passkeys+=boards.4chan.org:qQ<C-q><C-s>wWmbJKxz<CR>
 
 " Tab-Options Plugin.
 set tabclose=right,opener,left,previous
