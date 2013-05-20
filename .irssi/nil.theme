@@ -1,0 +1,109 @@
+#nil's irssi theme ~
+
+default_color = "-1";
+replaces = { "[]=" = "$*"; };
+
+abstracts = {
+
+  line_start = "";
+  timestamp = " %c$*%n";
+  hilight = "$*";
+  error = "%R$*%n";
+  channel = "$*";
+  nick = "%_$*%_";
+  nickhost = "%C[*n$*%C]%n";
+  server = "%B[$*]";
+  comment = "[$*]";
+  reason = "{comment $*}";
+  mode = "{comment $*}";
+
+  channick_hilight = "%B$*%b";
+  chanhost_hilight = "{nickhost %Y$*%y}";
+  channick = "%r$*%r";
+  chanhost = "%G{nickhost $*}%g";
+  channelhilight = "$*";
+  ban = "$*";
+
+  msgnick = "%B$1%K:%n ";
+
+  ownmsgnick = "{msgnick $0 $1-}";
+  ownnick = "$*";
+  pubmsgnick = "{msgnick $0 $1-}";
+  pubnick = "$*";
+  pubmsgmenick = "{msgnick $0 $1-}";
+  menick = "$*";
+  pubmsghinick = "{msgnick $1 $0$2-}";
+  msgchannel = "$*";
+  privmsg = "$0($1-) ";
+  ownprivmsg = "$0($1-) ";
+  ownprivmsgnick = "$*: ";
+  ownprivnick = "$*";
+  privmsgnick = "$*: ";
+
+  action_core = "* $*";
+  action = "{action_core $*} ";
+  ownaction = "{action $*}";
+  ownaction_target = "{action_core $0}:$1 ";
+  pvtaction = "(*) $* ";
+  pvtaction_query = "{action $*}";
+  pubaction = "{action $*}";
+
+  whois = "> $[8]0 : $1-";
+
+  ownnotice = "$0($1-) ";
+  notice = "$* ";
+  pubnotice_channel = ":$*";
+  pvtnotice_host = "[$*]";
+  servernotice = "!$* ";
+
+  ownctcp = "$0 $1- ";
+  ctcp = "$* ";
+  wallop = "$*: ";
+  wallop_nick = "$*";
+  wallop_action = "* $* ";
+
+  netsplit = "$*";
+  netjoin = "$*";
+
+  names_prefix = "%B-$y-%Y- ";
+  names_nick = "%g$0$1 ";
+  names_nick_op = "%B$0%b$1%n ";
+  names_nick_halfop = "%C$0%c$1 ";
+  names_nick_voice = "%Y$0%y$1 ";
+  names_users = "$*";
+  names_channel = "%b-%y-%Y%n";
+
+  dcc = "$*";
+  dccfile = "$*";
+
+  dccownmsg = "$%Y[%B%0%r($1-%m)%b%Y] ";
+  dccownnick = "%Y$*%n";
+  dccownquerynick = "$*";
+  dccownaction = "{action $*}";
+  dccownaction_target = "{action_core $0}:$1 ";
+  dccmsg = "%Y[%G$1-$g(%R$0%b)%g%Y] ";
+  dccquerynick = "$*";
+  dccaction = "(*dcc*) $* %|";
+
+
+  sb_background = "%n";
+  sb_prompt_bg = "%n";
+  sb_info_bg = "%n";
+  #sb_topic_bg = "%7%k";
+  sbstart = "";
+  sbend = "";
+  prompt = "%r~ %n";
+  sb = "$* ";
+  sbmode = "(+$*)";
+  sbaway = "(away)";
+  sbservertag = ":$0";
+  sb_act_sep = "$*";
+  sb_act_text = "$*";
+  sb_act_msg = "$*";
+  sb_act_hilight = "%r$*%n";
+  sb_act_hilight_color = "$0$1-%n";
+};
+
+formats = {
+  "fe-common/core" = { pubmsg = "{pubmsgnick $2 {pubnick \00304$0}}$1"; };
+};
