@@ -44,7 +44,7 @@ directory = ~/nil
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
-session = ~/.rtorrent
+session = ~/.config/nil/rtorrent
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.

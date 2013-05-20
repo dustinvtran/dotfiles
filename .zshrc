@@ -84,7 +84,7 @@ alias time="date +'%A %B %e %l:%M %P'"
 p() { sudo pacman -$^@; }
 alias pa="packer --noedit"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
-alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/system-dotfiles/pkglist"
+alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/system-dotfiles/pkglist"
 alias pqs="pacman -Qs"
 alias prns="sudo pacman -Rns"
 alias pr="sudo pacman -R"
