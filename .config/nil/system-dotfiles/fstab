@@ -1,0 +1,5 @@
+# UUID=f8890857-cb01-4e14-a817-141d0649093b
+/dev/sda4           	/         	ext4      	rw,relatime	0 1
+
+# <file system>   <dir>		<type>    <options>             <dump>  <pass>
+/dev/sda2  	  /mnt/windows  ntfs-3g   defaults		  0       0
