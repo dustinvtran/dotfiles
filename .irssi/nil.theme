@@ -29,27 +29,27 @@ abstracts = {
   ban = "$*";
 
   #msgnick = "%B$1%K:%n ";
-  msgnick = "\00307$0$[-9] %r$1 %K| %n";
+  #msgnick = "\00307$0$[-9] %r$1 %K| %n";
 
   # This 'ownmsgnick' style is so that it remains consistent in formatting with xchatnickcolor.pl.
   # Not exactly sure why I have to format this myself, but whatever..
-  ownmsgnick = "\00307$0$[-9] %r$1 %K| %n";
-  ownnick = "$*";
-  pubmsgnick = "{msgnick $0 $1-}";
-  pubnick = "$*";
-  pubmsgmenick = "{msgnick $0 $1-}";
-  menick = "$*";
-  pubmsghinick = "{msgnick $1 $0$2-}";
-  msgchannel = "$*";
-  privmsg = "$0($1-) ";
-  ownprivmsg = "\00307$0$[-9] %r$1 %K| %n";
-  #ownprivmsgnick = "\00307$[-9] %r$* %K| %n";
-  #ownprivnick = "\00307$[-9] %r$*";
-  privmsgnick = "$[-9] %b$* %K| %n";
+  #ownmsgnick = "\00307$0$[-9] %r$1 %K| %n";
+  #ownnick = "$*";
+  #pubmsgnick = "\00307$0$[-9] %r$1 %K| %n";
+  #pubnick = "$*";
+  #pubmsgmenick = "\00307$0$[-9] %g$1 %K| %n";
+  #menick = "$*";
+  #pubmsghinick = "\00307$0$[-9] %r$1 %K| %n";
+  #msgchannel = "$*";
+  #privmsg = "$0($1-) ";
+  #ownprivmsg = "\00307$0$[-9] %r$1 %K| %n";
+  ##ownprivmsgnick = "\00307$[-9] %r$* %K| %n";
+  ##ownprivnick = "\00307$[-9] %r$*";
+  #privmsgnick = "$[-9] %b$* %K| %n";
 
   action_core = "* $*";
-  action = "{action_core $*} ";
-  ownaction = "{action $*}";
+  action = "%G{action_core $*} ";
+  ownaction = "%G{action $*}";
   ownaction_target = "{action_core $0}:$1 ";
   pvtaction = "(*) $* ";
   pvtaction_query = "{action $*}";
@@ -57,11 +57,11 @@ abstracts = {
 
   whois = "> $[8]0 : $1-";
 
-  ownnotice = "$0($1-) ";
-  notice = "$* ";
-  pubnotice_channel = ":$*";
+  ownnotice = "%b$0($1-) ";
+  notice = "%b$* ";
+  pubnotice_channel = "%b:$*";
   pvtnotice_host = "[$*]";
-  servernotice = "!$* ";
+  servernotice = "%b!$*%n ";
 
   ownctcp = "$0 $1- ";
   ctcp = "$* ";
@@ -111,5 +111,7 @@ abstracts = {
 };
 
 formats = {
-  "fe-common/core" = { pubmsg = "%b<%w$2\00306$[-11]0%b>%K|%n $1"; };
+  "Irssi::Script::nickcolor" = {
+    pubmsg_hilight = "{pubmsghinick $0 $3 $[-9]1}$2";
+  };
 };
