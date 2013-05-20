@@ -11,7 +11,7 @@ abstracts = {
 
   line_start = "";
   timestamp = " %c$*%n";
-  hilight = "%r$*%r";
+  hilight = "%Y$*%Y";
   error = "%R$*%n";
   channel = "$*";
   nick = "%_$*%_";
@@ -111,5 +111,5 @@ abstracts = {
 };
 
 formats = {
-  "fe-common/core" = { pubmsg = " $2\00313$[-11]0%b %K|%n $1"; };
+  "fe-common/core" = { pubmsg = "%b<%w$2\00305$[-11]0%b>%K|%n $1"; };
 };
