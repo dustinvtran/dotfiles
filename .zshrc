@@ -76,7 +76,7 @@ alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias s="sudo "
 alias so="source ~/.zshrc"
-alias time="date +'%A %B %e %l:%M %P'"
+alias date="date +'%A %B %e %l:%M %P'"
 
 # Pacman/Packer aliases.
 p() { sudo pacman -$^@; }
