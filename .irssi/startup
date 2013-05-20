@@ -2,4 +2,3 @@ script load adv_windowlist.pl
 script load mouse.pl
 script load nil-vim.pl
 script load xchatnickcolor.pl
-reload
