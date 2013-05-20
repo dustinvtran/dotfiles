@@ -2,6 +2,10 @@
 
 default_color = "-1";
 replaces = { "[]=" = "$*"; };
+# These two are so that I don't get the awkward < > in xchatnickcolor.pl.
+# Without having to edit the script itself, that is.
+replaces = { "<" = ""; };
+replaces = { ">" = " "; };
 
 abstracts = {
 
@@ -105,5 +109,5 @@ abstracts = {
 };
 
 formats = {
-  "fe-common/core" = { pubmsg = "{pubmsgnick $2 {pubnick \00304$0}}$1"; };
+  "fe-common/core" = { pubmsg = "%b<%w$2\00307$[-11]0%b>%K|%n $1"; };
 };
