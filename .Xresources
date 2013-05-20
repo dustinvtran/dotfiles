@@ -8,7 +8,6 @@
 ! -----------------------------------------------------------------------------
 
 ! Hybrid Terminal Colours
-! vim: ft=xdefaults
 ! Tomorrow-Night Palette
 #define t_background #1D1F21
 #define t_current_line #282A2E
@@ -52,18 +51,18 @@ URxvt*color15: t_foreground
 
 ! }}}
 ! Fonts:
+URxvt*font: xft:Consolas\ for\ Powerline:size=10
+URxvt*boldFont: xft:Consolas\ for\ Powerline:bold:size=10
+
+! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt*font: xft:Consolas\ for\ Powerline:size=10
-URxvt*boldFont: xft:Consolas\ for\ Powerline:bold:size=10
-URxvt.letterSpace: -1
-
-!urxvt extensions:
+! urxvt perl extensions:
 URxvt.perl-ext-common: default,matcher,clipboard
 
 ! No, dont go to ISO mode for S-C.
@@ -74,11 +73,11 @@ URxvt.keysym.C-v: perl:clipboard:paste
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
 ! Somehow unbind S-Space.
-!URxvt.keysym.S-space:  \033
+!URxvt.keysym.S-space:
 
 !enabling clickable links:
-URxvt.urlLauncher:      /usr/bin/firefox
-URxvt.matcher.button:   1
+URxvt.urlLauncher: /usr/bin/firefox
+URxvt.matcher.button: 1
 
 !urxvt scrolling options and cursor style:
 URxvt*saveLines: 12000
@@ -87,15 +86,6 @@ URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 
-! urxvt tabs settings:
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 2
-URxvt.tabbed.tab-bg: 8
-URxvt.tabbed.autohide:  yes
-URxvt.tabbed.new-button:  no
-URxvt.tabbed.title: no
-
 ! dzen2 {{{
 ! -----------------------------------------------------------------------------
 
@@ -103,4 +93,5 @@ dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
 dzen2.foreground: #22EE11
 dzen2.background: #F0F0F0
 
+! vim: ft=xdefaults
 ! }}}
