@@ -11,9 +11,9 @@
 # 3. Then set up applets/widgets.
 # exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
 exec i3-msg 'workspace 2; exec firefox; workspace 1' &
-exec urxvt -name nil &
-exec urxvt -name irssi -e irssi &
-exec urxvt -name rtorrent -e rtorrent &
+exec urxvt -name nil -g 80x22 &
+exec urxvt -name irssi -g 147x37 -e irssi &
+exec urxvt -name rtorrent -g 110x30 -e rtorrent &
 exec dropboxd &
 
 # }}}
