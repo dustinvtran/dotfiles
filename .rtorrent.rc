@@ -17,8 +17,8 @@
 # Change interface columns (#, name, size, progress gui (current status, % completed), down speed, up speed, ETA, Seeders, Peers)
 # Native notification system a la applet/widgets.
 
-# To enable the web interface for rutorrent.
-#scgi_port = localhost:5000
+# To enable the web interface for web GUI front-ends.
+scgi_port = localhost:5000
 
 # Maximum and minimum number of peers to connect to per torrent.
 #min_peers = 40

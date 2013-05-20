@@ -17,10 +17,8 @@ DISABLE_AUTO_UPDATE="true"
 
 # Autocorrection.
 DISABLE_CORRECTION="true"
-# Somehow disable it just for fasd commands, e.g., some easy way to handle an exclude list.
-
 # Autocorrection for git.
-git config --global help.autocorrect 1
+#git config --global help.autocorrect 1
 
 # Enable red dots while waiting for completion.
 COMPLETION_WAITING_DOTS="true"
