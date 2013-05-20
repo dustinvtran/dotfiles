@@ -45,7 +45,6 @@ tunmap!
 cunmap!
 
 set complete=slSf
-" I'll never figure out how to navigate bookmarks most effectively. For now, using Places + mouse.
 set guioptions=
 set defsearch=g
 set maxitems=5
@@ -64,8 +63,7 @@ set tabopen=link:end,orphan:end,external:end
 " This is the same as my EasyMotion's default except that now 'h' is at the far-left, so it indexes properly.
 set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
 
-" I swear to god if I find out what's resetting the smooth scroll 'off', I'll rename it 'fuck you'.
-set! general.smoothScroll=false
+"set! general.smoothScroll=false
 
 " }}}
 " Mappings - Unmapped {{{

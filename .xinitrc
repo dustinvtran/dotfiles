@@ -21,7 +21,10 @@ xbacklight -set 100 &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
 xmodmap ~/.Xmodmap &
-xcape -e 'Control_L=Escape;Alt_R=emdash' &
+#xcape -e 'Control_L=Escape;Alt_R=emdash' &
+# Perhaps them separately will help, since emdash still works when Esc doesn't,
+xcape -e 'Control_L=Escape' &
+xcape -e 'Alt_R=emdash' &
 xrdb -merge ~/.Xresources &
 #redshift -l 37.9:-122.3 -t 6500:3700 &
 
