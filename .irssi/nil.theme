@@ -1,11 +1,9 @@
 #nil's irssi theme ~
 
 default_color = "-1";
-replaces = { "[]=" = "$*"; };
+replaces = { "[]" = ""; "<" = ""; ">" = " "; };
 # These two are so that I don't get the awkward < > in xchatnickcolor.pl.
 # Without having to edit the script itself, that is.
-replaces = { "<" = ""; };
-replaces = { ">" = " "; };
 
 abstracts = {
 
@@ -21,16 +19,19 @@ abstracts = {
   reason = "{comment $*}";
   mode = "{comment $*}";
 
-  channick_hilight = "%B$*%b";
-  chanhost_hilight = "{nickhost %Y$*%y}";
-  channick = "%r$*%r";
-  chanhost = "%G{nickhost $*}%g";
-  channelhilight = "$*";
+  channick_hilight = "%w$*%w";
+  chanhost_hilight = "%w{%wnickhost %w$*%w}%w";
+  channick = "$*";
+  chanhost = "%w{%wnickhost %w$*%w}%w";
+  channelhilight = "%w$*%w";
   ban = "$*";
 
-  msgnick = "%B$1%K:%n ";
+  #msgnick = "%B$1%K:%n ";
+  msgnick = "\00307$0$[-9] %r$1 %K| %n";
 
-  ownmsgnick = "{msgnick $0 $1-}";
+  # This 'ownmsgnick' style is so that it remains consistent in formatting with xchatnickcolor.pl.
+  # Not exactly sure why I have to format this myself, but whatever..
+  ownmsgnick = "\00307$0$[-9] %r$1 %K| %n";
   ownnick = "$*";
   pubmsgnick = "{msgnick $0 $1-}";
   pubnick = "$*";
@@ -89,17 +90,16 @@ abstracts = {
   dccquerynick = "$*";
   dccaction = "(*dcc*) $* %|";
 
-
   sb_background = "%n";
   sb_prompt_bg = "%n";
   sb_info_bg = "%n";
-  #sb_topic_bg = "%7%k";
+  sb_topic_bg = "";
   sbstart = "";
   sbend = "";
   prompt = "%r~ %n";
   sb = "$* ";
   sbmode = "(+$*)";
-  sbaway = "(away)";
+  sbaway = "%w(away)%n ";
   sbservertag = ":$0";
   sb_act_sep = "$*";
   sb_act_text = "$*";
@@ -109,5 +109,5 @@ abstracts = {
 };
 
 formats = {
-  "fe-common/core" = { pubmsg = "%b<%w$2\00307$[-11]0%b>%K|%n $1"; };
+  "fe-common/core" = { pubmsg = "%b<%w$2\00313$[-11]0%b>%K|%n $1"; };
 };
