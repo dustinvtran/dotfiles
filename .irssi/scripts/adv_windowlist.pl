@@ -595,7 +595,7 @@ sub remake () {
 
 		my $backup_win = Storable::dclone($win);
 		ref($backup_win->{active}) or delete $backup_win->{active};
-		if (Irssi::settings_get_str(set 'display_header') and 
+		if (Irssi::settings_get_str(set 'display_header') and
 				$last_net ne $backup_win->{active}{server}{tag}) {
 			$global_hack_alert_tag_header = 1;
 		}
@@ -629,7 +629,7 @@ sub remake () {
 			unshift @display, map { (my $cpy = $_) =~ s/_no/_/; $cpy } @display;
 		}
 		if (exists $awins{$number}) {
-			unshift @display, map { my $cpy = $_; $cpy .= '_visible'; $cpy } @display;			
+			unshift @display, map { my $cpy = $_; $cpy .= '_visible'; $cpy } @display;
 		}
 		if (Irssi::active_win->{'refnum'} == $number) {
 			unshift @display, map { my $cpy = $_; $cpy .= '_active'; $cpy }
@@ -643,7 +643,7 @@ sub remake () {
 			$display = Irssi::settings_get_str(set 'display_header');
 			$name = $backup_win->{active}{server}{tag};
 		}
-			
+
 		if ($SCREEN_MODE or Irssi::settings_get_bool(set 'sbar_maxlength')
 				or ($block < 0)
 		) {
@@ -807,7 +807,7 @@ sub screenSize { # from nicklist.pl
 	# set screen width
 	$screenWidth = $col-1;
 	$screenHeight = $row-1;
-	
+
 	Irssi::timeout_add_once(100, sub {
 		Irssi::timeout_add_once(10,sub {$screenResizing = 0; screenFullRedraw()}, []);
 	}, $screenWidth);
@@ -963,7 +963,7 @@ sub update_awins {
 		local $BLOCK_ALL = 1;
 		my $wins = @{[Irssi::windows]};
 		%awins = ();
-		my $bwin = 
+		my $bwin =
 			my $awin = Irssi::active_win;
 		my $awin_counter = 0;
 		do {
@@ -1014,7 +1014,7 @@ sub mouse_xterm {
 sub mouse_enable {
 	print STDERR "\e[?1000h"; # start tracking
 }
-	
+
 sub mouse_event {
 	if ($_[2] < $currentLines) {
 		if ($_[0] == 3 and $_[3] == 0 and
@@ -1079,7 +1079,7 @@ Irssi::command_bind(
 		screenFullRedraw();
 	}
 );
-		
+
 
 # Algorithm::LCSS module (from CPAN)
 {
@@ -1900,7 +1900,7 @@ Irssi::command_bind(
 
 	sub Class::Classless::X::AUTOLOAD {
 	  my $it = shift @_;
-	  my $m =  ($Class::Classless::X::AUTOLOAD =~ m/([^:]+)$/s ) 
+	  my $m =  ($Class::Classless::X::AUTOLOAD =~ m/([^:]+)$/s )
 					 ? $1 : $Class::Classless::X::AUTOLOAD;
 
 	  croak "Can't call Class::Classless methods (like $m) without an object"
@@ -1943,7 +1943,7 @@ Irssi::command_bind(
 			if(ref($v) eq 'CODE') { # normal case, I expect!
 			  # Used to have copying of the arglist here.
 			  #  But it was apparently useless, so I deleted it
-			  unshift @_, 
+			  unshift @_,
 				 $it,                   # $_[0]    -- target object
 				 # a NEW callstate
 				 bless([$m, $i, $lineage, $no_fail, $prevstate ? 1 : 0],
@@ -2089,7 +2089,7 @@ Irssi::command_bind(
 
 	sub Class::Classless::X::isa { # Like UNIVERSAL::isa
 	  return unless ref($_[0]) && ref($_[1]);
-	  return scalar(grep {$_ eq $_[1]} &Class::Classless::X::ISA_TREE($_[0])); 
+	  return scalar(grep {$_ eq $_[1]} &Class::Classless::X::ISA_TREE($_[0]));
 	}
 
 	sub nodelist { join ', ', map { "" . ($_->{'NAME'} || $_) . ""} @_ }
