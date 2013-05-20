@@ -1,13 +1,15 @@
 #
 # nil-vim
 # Name: nil
-# Changes:
-# Changed maps:
+# Description: A haphazard fork of vim_mode.pl.
+#
+# Maps:
 #    ; -> :
 #    j/k -> C-E/Y
-#    C-j/k -> C-D/U
+#    C-n/k -> C-D/U
 # Renamed 'Insert', '%_Ex%_', and '%_Command%_' -> ' %r$*%n ','',' %b$*%n '.
 # Not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.
+# Rationale: I mapped <C-n>/k> in insert mode a la irssi default config to cycle my history, and <C-h>/l> to cycle my channels. These all fit more appropriately with my other Vim applications as well, c.f., zathura, zsh, ranger, pentadactyl, and vim.
 #
 
 =pod
@@ -767,7 +769,7 @@ my $commands
      # scrolling
      "j" => { char => 'j', func => \&cmd_ctrl_d, type => C_NORMAL,
                  no_operator => 1 },
-     "\x0A" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
+     "\x0E" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
                  needs_count => 1, no_operator => 1 },
      "k" => { char => 'k', func => \&cmd_ctrl_u, type => C_NORMAL,
                  no_operator => 1 },

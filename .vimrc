@@ -16,6 +16,7 @@
 "* Allow rubber to compile filenames with spaces.
 
 "Plugins:
+"* Ctrl-P: get it working.
 "* Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
 "* NERDCommenter: get it to work for random filetypes (.snippets).
 "* NERDTree: see stuff.
