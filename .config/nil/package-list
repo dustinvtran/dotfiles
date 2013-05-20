@@ -73,7 +73,6 @@ ttf-ms-fonts
 ttf-vista-fonts
 unrar
 unzip
-urxvt-clipboard
 virtualbox
 wireless_tools
 wpa_actiond
@@ -88,6 +87,7 @@ xorg-utils
 xorg-xclock
 xorg-xev
 xorg-xinit
+xsel
 zathura
 zathura-djvu
 zathura-pdf-poppler
