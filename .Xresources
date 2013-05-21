@@ -71,8 +71,8 @@ URxvt.iso14755: False
 ! Keybindings.
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
-! Somehow unbind S-Space.
-!URxvt.keysym.S-space:
+! Somehow map it to some obscure key, and then map that key via Vim.
+!URxvt.keysym.S-space: commdn: \033[1~
 
 !enabling clickable links:
 URxvt.matcher.button: 1
@@ -80,7 +80,7 @@ URxvt.urlLauncher: /usr/bin/firefox
 
 !urxvt scrolling options and cursor style:
 URxvt*saveLines: 12000
-URxvt*scrollstyle:plain
+URxvt*scrollstyle: plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
