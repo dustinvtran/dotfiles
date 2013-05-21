@@ -30,25 +30,19 @@
 
 "Misc:
 "* The load last file doesn't really work as intended, but it does load *some* last files.
+"* Something weird with having to press the <ENTER> prompt when opening and certain files.
 "* Sourcing .vimrc makes it go awry.
-"* Disable autofold at startup.
+"* Make InsertCharFunction() an atomic operator, e.g., '.'-able.
 "* C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "    Stuff about jump lists vs normal motion.
 "* Jump to paragraphs? One that includes <br><br> for html.
 "* Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
-"* the 'undo' awkwardly groups two undos sometimes.
 "* Enter url function.
 "* Keybind to open help at the last location that I closed it in.
+"* If in same workspace as another Vim file, somehow combine the two into one Vim window, with it split.
 "* Reloading vim doesn't work for everything, namely newly omitted mappings and settings.
-"* Go through EVERY single command on the keyboard, e.g., every mode.
-"* Open buffers under same window (use regedit/cmd.exe).
-"      Sometimes opening some files require pressing enter to escape.
-"      Something about the whole thing just seems off, so I'm getting rid of the cmd prompts as well as the regedit stuff.
 "* Fix $...$ in case there are none.
-"* Browse old files doesn't always work without needing to press <CR> again. Also, is there just a away to hit the number it corresponds to, without requiring the next <CR>? Something like a function with an argument inbetween two <CR>'s.
-"* Save new file in some folder you want.
-"* Have cursor position returned to exact position not just line position.
-"* Yank to last line (y$) doesn't grab the last character.
+"* Have cursor position returned to exact position (i.e. column) not just line position.
 "* The "jump to next/last sentence" doesn't always work as intended.
 "
 "Consideration:
@@ -145,6 +139,32 @@ nnoremap <Esc> <Nop>
 " Functions {{{
 " -----------------------------------------------------------------------------
 
+" When 'dd'ing blank lines, don't yank them into the register. {{{
+
+function! DDWrapper()
+    if getline('.') =~ '^\s*$'
+        normal! "_dd
+    else
+        normal! dd
+    endif
+endfunction
+
+" }}}
+nnoremap dd :call DDWrapper()<CR>:echom ""<CR>
+
+" When 'cc'ing blank lines, don't yank them into the register. {{{
+
+function! CCWrapper()
+    if getline('.') =~ '^\s*$'
+        normal! "_cc
+    else
+        normal! cc
+    endif
+endfunction
+
+" }}}
+nnoremap cc :call CCWrapper()<CR>:echom ""<CR>
+
 " Restore cursor to previous position and auto-open last file. {{{
 
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -183,13 +203,7 @@ augroup END
 
 " }}}
 
-" Since I set Window's registry editor to always run a single instance, I require this to close the first empty file.
-if bufname('%') == ''
-  set bufhidden=wipe
-endif
-"Something weird with having to press the <ENTER> prompt when opening and certain files.
-
-" Open URL in browser {{{"{{{
+" Open URL in browser {{{
 
 " Not working..
 function! Browser()
@@ -198,10 +212,10 @@ function! Browser()
    exec "!firefox ".line
 endfunction
 
-" }}}"}}}
+" }}}
 nnoremap <Leader>] :call Browser()<CR>
 
-" Fold all toggles. {{{
+" Fold all toggle. {{{
 
 let g:foldtoggle = 0
 function! FoldAllToggle()
@@ -717,7 +731,7 @@ let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " I really don't see why /I/ have to do this, but whatever.
-set wildignore+=*.docx,*.flac,*.mkv,*.ods,*.xlsx
+set wildignore+=*.doc,*.docx,*.epub,*.flac,*.lnk,*.mobi,*.mkv,*.pdf,*.ods,*.xlsx
 
 " }}}
 "
