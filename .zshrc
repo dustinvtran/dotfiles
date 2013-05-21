@@ -3,78 +3,41 @@
 # ~/.zshrc
 # Name: nil
 #
-# Oh my zsh setup. {{{
+# Settings {{{
 # -----------------------------------------------------------------------------
 
-# Path to your oh-my-zsh configuration.
-ZSH=/usr/share/oh-my-zsh/
-#export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
-# Theme.
-#ZSH_THEME="nil"
+# completion
+unsetopt menu_complete   # do not autoselect the first completion entry
+setopt auto_menu         # show completion menu on succesive tab press
+setopt complete_in_word
+setopt always_to_end
 
-# What a Windows/Mac feature.
-DISABLE_AUTO_UPDATE="true"
+# Changing/making/removing directory
+setopt auto_name_dirs
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
 
-# Enable red dots while waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+setopt multios
+setopt cdablevarS
 
-# Default file path: /usr/share/oh-my-zsh/plugins
-# Custom file path: ~/.config/nil/oh-my-zsh-custom/plugins
-plugins=(git fasd)
+## smart urls
+autoload -U url-quote-magic
+zle -N self-insert url-quote-magic
 
-source $ZSH/oh-my-zsh.sh
+# Load and run compinit
+autoload -U compinit
+compinit -i
 
-# }}}
-# Prompt Theme {{{
-# -----------------------------------------------------------------------------
-# Description: A minimalistic approach to determining the current Vi mode.
-# One caveat I haven't figured out: when pressing <CR> while still in cmd mode (blue), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
+# ------
 
-PROMPT='%n %{$fg[red]%}%c %{$reset_color%}'
-zle-keymap-select () {
-if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
-    if [ $KEYMAP = vicmd ]; then
-        PROMPT='%n %{$fg[blue]%}%c %{$reset_color%}'
-        () { return $__prompt_status }
-        zle reset-prompt
-    else
-        PROMPT='%n %{$fg[red]%}%c %{$reset_color%}'
-        () { return $__prompt_status }
-        zle reset-prompt
-    fi
-fi
+expand-or-complete-with-dots() {
+    echo -n "\e[31m......\e[0m"
+    zle expand-or-complete
+    zle redisplay
 }
-zle -N zle-keymap-select
-
-zle-line-init () {
-    zle -K viins
-    if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
-        PROMPT='%n %{$fg[red]%}%c %{$reset_color%}'
-        () { return $__prompt_status }
-        zle reset-prompt
-    fi
-}
-zle -N zle-line-init
-
-
-# }}}
-# Autocorrections. {{{
-# -----------------------------------------------------------------------------
-
-#DISABLE_CORRECTION="true"
-
-# Autocorrection for git.
-#git config --global help.autocorrect 1
-
-# Disable autocorrection for these.
-alias mkdir="nocorrect mkdir"
-alias cp="nocorrect cp"
-alias mv="nocorrect mv"
-alias ln="nocorrect ln"
-
-# }}}
-# Defaults I would like to keep track of should I ever decide to graduate from omz. {{{
-# -----------------------------------------------------------------------------
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
 
 # If non-ambiguous, allow changing into a directory just by typing its name.
 setopt autocd
@@ -98,15 +61,6 @@ setopt nobeep
 # Do not warn about closing the shell with background jobs running.
 setopt nocheckjobs
 
-# History.
-HISTSIZE=1000
-SAVEHIST=1000
-HISTFILE=~/.zshinfo
-# Do not record repeated lines in history.
-setopt histignoredups
-# Share history between shells.
-setopt share_history
-
 # Allow comments on the command line. Without this comments are only allowed
 # in scripts.
 setopt interactivecomments
@@ -117,11 +71,96 @@ setopt interactivecomments
 # the entire thing.
 WORDCHARS=${WORDCHARS//\/}
 
+# History.
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zshinfo
+# Do not record repeated lines in history.
+setopt histignoredups
+# Share history between shells.
+setopt share_history
+# omz defaults
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+
+# Autocorrection.
+setopt correct_all
+# Disable autocorrection for these.
+alias cp="nocorrect cp"
+alias ln="nocorrect ln"
+alias mv='nocorrect mv'
+alias mkdir='nocorrect mkdir'
+alias sudo='nocorrect sudo'
+# Autocorrection for git.
+#git config --global help.autocorrect 1
+
+# }}}
+# Purtiness. {{{
+# -----------------------------------------------------------------------------
+
+# Enable colors.
+autoload -U colors && colors
+
+# ls colors
+#export LSCOLORS="Gxfxcxdxbxegedabagacad"
+# Enable ls colors
+#ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
+
+# grep color
+#export GREP_OPTIONS='--color=auto'
+#export GREP_COLOR='1;32'
+
+# Prompt Style.
+# One caveat I haven't figured out: when pressing <CR> while still in cmd mode (blue), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
+PROMPT="%n %{$fg[red]%}%c %{$reset_color%}"
+
+zle-keymap-select () {
+if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
+    if [ $KEYMAP = vicmd ]; then
+        PROMPT="%n %{$fg[blue]%}%c %{$reset_color%}"
+        () { return $__prompt_status }
+        zle reset-prompt
+    else
+        PROMPT="%n %{$fg[red]%}%c %{$reset_color%}"
+        () { return $__prompt_status }
+        zle reset-prompt
+    fi
+fi
+}
+zle -N zle-keymap-select
+
+zle-line-init () {
+    zle -K viins
+    if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
+        PROMPT="%n %{$fg[red]%}%c %{$reset_color%}"
+        () { return $__prompt_status }
+        zle reset-prompt
+    fi
+}
+zle -N zle-line-init
+
+# }}}
+# Programs. {{{
+# -----------------------------------------------------------------------------
+
+# fasd
+if [ $commands[fasd] ]; then # check if fasd is installed
+  fasd_cache="$HOME/.fasd-init-cache"
+  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init auto >| "$fasd_cache"
+  fi
+  source "$fasd_cache"
+  unset fasd_cache
+fi
+
 # }}}
 # zle widgets. {{{
 # -----------------------------------------------------------------------------
-# The ZLE widges are all followed by "zle -<MODE> <NAME>" and bound below in
-# the "Key Bindings" section.
+# The ZLE widges are all followed by "zle -<MODE> <NAME>" and bound below in the "Key Bindings" section.
 
 # Delete all characters between a pair of characters. Mimics Vim's "di" text
 # object functionality.
@@ -304,10 +343,10 @@ bindkey -M viins '^[[5~' nop                    # i_PgUp
 bindkey -M viins '^[[6~' nop                    # i_PgDn
 
 # Editing the line in veritable Vim.
-# Mapped in line with pentadactyl.
+# Doesn't work; also need a good keybind for it.
 autoload edit-command-line
 zle -N edit-command-line
-bindkey -M viins "^I" edit-command-line         # i_CTRL-I
+bindkey -M viins "^O" edit-command-line         # i_CTRL-I
 
 # Vim normal mode mappings.
 bindkey -M vicmd "ca" change-around             # ca
@@ -343,11 +382,21 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
+alias history='fc -l'
+alias ls='ls -a'
+alias lsa='ls -lah'
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
-alias s="sudo "
+alias s="nocorrect sudo "
 alias so="source ~/.zshrc"
 alias date="date +'%A %B %e %l:%M %P'"
+
+# cd thingies.
+# Bug: - doesn't do cd - automatically, and alias won't work.
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Pacman/Packer aliases.
 p() { sudo pacman -$^@; }
@@ -389,7 +438,11 @@ alias gr="git rm --cached"
 alias gs="git show --name-only"
 
 # }}}
-# Environment variables.
+# Environment variables. {{{
+# -----------------------------------------------------------------------------
+
 export EDITOR=gvim
 # Open all man pages in Vim, under uneditable settings. FoldAllToggle() lets me fold at will without having folds on startup, and 'q' gives me easy access to exit.
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -\""
+
+# }}}
