@@ -31,7 +31,10 @@
     {WM_DE    => '%s%s:%s %s'},
     {OTHER    => '%sShell:%s zsh'},
     {OTHER    => '%sEditor:%s vim'},
+    {OTHER    => '%sTerminal:%s urxvt'},
     {OTHER    => '%sBrowser:%s firefox'},
+    #{OTHER    => '%sIRC:%s irssi'},
+    #{OTHER    => '%sTorrent:%s rtorrent'},
 
     {HARDCODED => ""},                            # A workaround for a newline.
     {CPU        => '%sCPU:%s %s'},
