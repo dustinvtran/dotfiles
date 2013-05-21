@@ -399,7 +399,7 @@ alias sm="sudo mount /dev/sdb1 /mnt/ext"
 hideme() { i3 '[instance="^nil$"] scratchpad show' }
 
 # Applications
-alias alsi="alsi -a"
+alias alsi="alsi -a -c1=white -c2=unboldblue"
 l() { (nocorrect f -e libreoffice "$@" &) | hideme }
 m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
 # i3 'workspace 11'

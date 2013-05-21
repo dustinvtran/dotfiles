@@ -28,9 +28,10 @@
     {PACKAGES => '%sPackages:%s %s'},
 
     {HARDCODED => ""},                            # A workaround for a newline.
-    {OTHER    => '%sEditor:%s vim'},
-    {OTHER    => '%sShell:%s zsh'},
     {WM_DE    => '%s%s:%s %s'},
+    {OTHER    => '%sShell:%s zsh'},
+    {OTHER    => '%sEditor:%s vim'},
+    {OTHER    => '%sBrowser:%s firefox'},
 
     {HARDCODED => ""},                            # A workaround for a newline.
     {CPU        => '%sCPU:%s %s'},
