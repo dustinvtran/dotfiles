@@ -21,15 +21,14 @@ xbacklight -set 100 &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
 xmodmap ~/.Xmodmap &
-#xcape -e 'Control_L=Escape;Alt_R=emdash' &
-# Perhaps them separately will help, since emdash still works when Esc doesn't,
 xcape -e 'Control_L=Escape' &
 xcape -e 'Alt_R=emdash' &
 xrdb -merge ~/.Xresources &
 #redshift -l 37.9:-122.3 -t 6500:3700 &
 
 # Sticky Keys.
-#latchwork doesn't seem to work, fails to work quite often.
+#latchwork doesn't seem to work, fails quite often.
+# I could probably get it to work, though I don't really want it anymore to begin with.
 #xkbset exp =sticky =twokey =latchlock &
 #xkbset sticky twokey latchlock &
 

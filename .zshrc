@@ -8,10 +8,9 @@
 
 # Path to your oh-my-zsh configuration.
 ZSH=/usr/share/oh-my-zsh/
-export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
-
+#export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
 # Theme.
-ZSH_THEME="nil"
+#ZSH_THEME="nil"
 
 # What a Windows/Mac feature.
 DISABLE_AUTO_UPDATE="true"
@@ -24,6 +23,39 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git fasd)
 
 source $ZSH/oh-my-zsh.sh
+
+# }}}
+# Prompt Theme {{{
+# -----------------------------------------------------------------------------
+# Description: A minimalistic approach to determining the current Vi mode.
+# One caveat I haven't figured out: when pressing <CR> while still in cmd mode (blue), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
+
+PROMPT='%n %{$fg[red]%}%c %{$reset_color%}'
+zle-keymap-select () {
+if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
+    if [ $KEYMAP = vicmd ]; then
+        PROMPT='%n %{$fg[blue]%}%c %{$reset_color%}'
+        () { return $__prompt_status }
+        zle reset-prompt
+    else
+        PROMPT='%n %{$fg[red]%}%c %{$reset_color%}'
+        () { return $__prompt_status }
+        zle reset-prompt
+    fi
+fi
+}
+zle -N zle-keymap-select
+
+zle-line-init () {
+    zle -K viins
+    if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
+        PROMPT='%n %{$fg[red]%}%c %{$reset_color%}'
+        () { return $__prompt_status }
+        zle reset-prompt
+    fi
+}
+zle -N zle-line-init
+
 
 # }}}
 # Autocorrections. {{{
@@ -333,16 +365,21 @@ alias pss="pacman -Ss"
 alias sm="sudo mount /dev/sdb1 /mnt/ext"
 
 # Applications
-l() { nocorrect f -e libreoffice "$@" & }
-m() { nocorrect f -e mplayer2 "$@" & }
-alias nitrogen="nitrogen &"
+# Hides away the terminal after application launching. Aliasing it for purtiness.
+hideme() { i3 '[instance="^nil$"] scratchpad show' }
+l() { (nocorrect f -e libreoffice "$@" &) | hideme }
+m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
+# i3 'workspace 11'
+alias nitrogen="(nitrogen &) | hideme"
 alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias sv="sudo vim"
 alias un="urxvt -name nil -g 80x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
 alias Lun="urxvt -name nil -g 147x37 &"
-alias v="nocorrect f -e gvim -B viminfo"
-z() { nocorrect f -e zathura "$@" & }
+# For some reason I can't use 'v' as a function since it lags the entire terminal and maxes out the function levels of 'v'. But I don't need to append things, so this is fine.
+alias v="hideme | nocorrect f -e gvim -B viminfo"
+z() { (nocorrect f -e zathura "$@" &) | hideme }
+# i3 'workspace 11'
 
 # le git.
 alias ga="git add -f"

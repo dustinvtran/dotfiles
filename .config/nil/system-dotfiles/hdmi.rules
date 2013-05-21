@@ -1,0 +1,1 @@
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/bin/bash /home/nil/.config/nil/hdmi-switch"

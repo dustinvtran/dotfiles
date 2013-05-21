@@ -80,7 +80,6 @@ wpa_supplicant
 xcape-git
 xf86-input-synaptics
 xf86-video-intel
-xkbset
 xorg-server
 xorg-server-utils
 xorg-utils
