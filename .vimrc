@@ -216,6 +216,8 @@ endfunction
 
 " }}}
 noremap <silent> <S-Space> :call FoldAllToggle()<CR>
+" A temporary workaround for terminal Vim.
+"noremap <silent> <S-F1> :call FoldAllToggle()<CR>
 " Don't auto-fold in the beginning.
 " This doesn't quite work as intended, but whatever; it shall do for now.
 augroup auto_fold

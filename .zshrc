@@ -8,6 +8,7 @@
 
 # Path to your oh-my-zsh configuration.
 ZSH=/usr/share/oh-my-zsh/
+export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
 
 # Theme.
 ZSH_THEME="nil"
@@ -43,42 +44,46 @@ alias ln="nocorrect ln"
 # Defaults I would like to keep track of should I ever decide to graduate from omz. {{{
 # -----------------------------------------------------------------------------
 
-# If non-ambiguous, allow changing into a directory just by typing its name
-# (ie, make "cd" optional)
-#setopt autocd
+# If non-ambiguous, allow changing into a directory just by typing its name.
+setopt autocd
 
 # Detect and prompt to correct typos in commands.
 # Note there is a "correctall" varient which also prompts to correct arguments
 # to commands, but this ends up being more troublesome than useful.
-#setopt correct
+setopt correct
 
 # When offering typo corrections, do not propose anything which starts with an
 # underscore (such as many of Zsh's shell functions).
-#CORRECT_IGNORE='_*'
+CORRECT_IGNORE='_*'
 
 # Enable extended globbing functionality.
-#setopt extendedglob
+setopt extendedglob
 
 # Disables the beep Zsh would otherwise make when giving invalid input (such as
 # hitting backspace on an command line).
-#setopt nobeep
+setopt nobeep
 
 # Do not warn about closing the shell with background jobs running.
-#setopt nocheckjobs
+setopt nocheckjobs
 
-# history
-#HISTSIZE=1000
-#SAVEHIST=1000
-#HISTFILE=~/.history
-# Do not record repeated lines in history. Note that this line is largely
-# non-functional in this .zshrc as history has not been enabled.
-#setopt histignoredups
-# share history between shells - very useful with Bedrock Linux
-#setopt share_history
+# History.
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zshinfo
+# Do not record repeated lines in history.
+setopt histignoredups
+# Share history between shells.
+setopt share_history
 
 # Allow comments on the command line. Without this comments are only allowed
 # in scripts.
 setopt interactivecomments
+
+# Do not consider "/" a word character. One benefit of this is that when
+# hitting ctrl-w in insert mode (which deletes the word before the cursor) just
+# before a filesystem path, it only removes the last item of the path and not
+# the entire thing.
+WORDCHARS=${WORDCHARS//\/}
 
 # }}}
 # zle widgets. {{{
@@ -237,7 +242,7 @@ setopt noflowcontrol
 stty -ixon
 
 # 1 sec <Esc> time delay? zsh pls.
-# Set to 10ms for key sequences. (Note "bindkey -rpM viins '^['" removes the
+# Set to 10ms for key sequences. (Note "bindkey -rp '^['" removes the
 # availability of any '^[...' mappings, so use this instead.)
 KEYTIMEOUT=1
 
@@ -260,7 +265,7 @@ bindkey -M viins "^[[7~" vi-beginning-of-line   # i_Home
 bindkey -M viins "^[[8~" vi-end-of-line         # i_End
 
 # Custom Vim insert mode mappings I use everywhere.
-bindkey -M vicmd '^V' append-x-selection        # i_CTRL-V
+bindkey -M viins '^V' append-x-selection        # i_CTRL-V
 bindkey -M viins "^J" vim-down-line-or-history  # i_CTRL-J
 bindkey -M viins "^K" vim-up-line-or-history    # i_CTRL-K
 bindkey -M viins '^[[5~' nop                    # i_PgUp
@@ -333,7 +338,9 @@ m() { nocorrect f -e mplayer2 "$@" & }
 alias nitrogen="nitrogen &"
 alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias sv="sudo vim"
-alias un="urxvt -name nil"
+alias un="urxvt -name nil -g 80x24 &"
+alias lun="urxvt -name nil -g 110x30 &"
+alias Lun="urxvt -name nil -g 147x37 &"
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
@@ -347,11 +354,5 @@ alias gs="git show --name-only"
 # }}}
 # Environment variables.
 export EDITOR=gvim
-export ZSH_CUSTOM=~/.config/nil/oh-my-zsh-custom
-
-# Functions.
-# Open man pages in Vim.
-# One bug in that it opens vim anyways when no man page exists.
-# Also, less is still opened up when programs go directly to the man page on commands
-vman() { /usr/bin/man $* | col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -; }
-alias man='vman'
+# Open all man pages in Vim, under uneditable settings. FoldAllToggle() lets me fold at will without having folds on startup, and 'q' gives me easy access to exit.
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -\""
