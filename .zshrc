@@ -3,34 +3,55 @@
 # ~/.zshrc
 # Name: nil
 #
+# Bugs & To-Do {{{
+# -----------------------------------------------------------------------------
+
+# * I also want that graphical selection in autocomplete as per omz, and to hide menu when I go away.
+#   Have it also indicate hidden files, like when you're doing rm<tab>
+# * Deletearound not working.
+# * - doesn't do cd - automatically, and alias won't work.
+# * Ctrl-I Doesn't work; also need a good keybind for it.
+# * have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
+# * display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
+# * make zle widget for 's/S' as your insert char function
+
+# }}}
 # Settings {{{
 # -----------------------------------------------------------------------------
 
-# completion
-unsetopt menu_complete   # do not autoselect the first completion entry
-setopt auto_menu         # show completion menu on succesive tab press
-setopt complete_in_word
-setopt always_to_end
-
-# Changing/making/removing directory
+# Some sane settings. Look up what they do if you're curious.
 setopt auto_name_dirs
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
-
 setopt multios
 setopt cdablevarS
+setopt autocd
+setopt extendedglob
+setopt interactivecomments
+setopt nobeep
+setopt nocheckjobs
 
-## smart urls
-autoload -U url-quote-magic
-zle -N self-insert url-quote-magic
+# Do not consider "/" a word character. One benefit of this is that when
+# hitting ctrl-w in insert mode (which deletes the word before the cursor) just
+# before a filesystem path, it only removes the last item of the path and not
+# the entire thing.
+WORDCHARS=${WORDCHARS//\/}
 
-# Load and run compinit
-autoload -U compinit
-compinit -i
-
-# ------
-
+# Autocompletion.
+# Enable the advanced completion system.
+autoload -U compinit && compinit
+# Completion colors.
+# not working
+zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
+# Auto-insert first suggestion.
+setopt menu_complete
+# Completion menu on successive tab presses.
+setopt auto_menu
+# stuff
+setopt complete_in_word
+setopt always_to_end
+# Red dots!
 expand-or-complete-with-dots() {
     echo -n "\e[31m......\e[0m"
     zle expand-or-complete
@@ -39,37 +60,16 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
-# If non-ambiguous, allow changing into a directory just by typing its name.
-setopt autocd
-
-# Detect and prompt to correct typos in commands.
-# Note there is a "correctall" varient which also prompts to correct arguments
-# to commands, but this ends up being more troublesome than useful.
-setopt correct
-
-# When offering typo corrections, do not propose anything which starts with an
-# underscore (such as many of Zsh's shell functions).
-CORRECT_IGNORE='_*'
-
-# Enable extended globbing functionality.
-setopt extendedglob
-
-# Disables the beep Zsh would otherwise make when giving invalid input (such as
-# hitting backspace on an command line).
-setopt nobeep
-
-# Do not warn about closing the shell with background jobs running.
-setopt nocheckjobs
-
-# Allow comments on the command line. Without this comments are only allowed
-# in scripts.
-setopt interactivecomments
-
-# Do not consider "/" a word character. One benefit of this is that when
-# hitting ctrl-w in insert mode (which deletes the word before the cursor) just
-# before a filesystem path, it only removes the last item of the path and not
-# the entire thing.
-WORDCHARS=${WORDCHARS//\/}
+# Autocorrection.
+setopt correct_all
+# Disable autocorrection for these.
+alias cp="nocorrect cp"
+alias ln="nocorrect ln"
+alias mv='nocorrect mv'
+alias mkdir='nocorrect mkdir'
+alias sudo='nocorrect sudo'
+# Autocorrection for git.
+#git config --global help.autocorrect 1
 
 # History.
 HISTSIZE=1000
@@ -87,45 +87,32 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
-# Autocorrection.
-setopt correct_all
-# Disable autocorrection for these.
-alias cp="nocorrect cp"
-alias ln="nocorrect ln"
-alias mv='nocorrect mv'
-alias mkdir='nocorrect mkdir'
-alias sudo='nocorrect sudo'
-# Autocorrection for git.
-#git config --global help.autocorrect 1
-
 # }}}
 # Purtiness. {{{
 # -----------------------------------------------------------------------------
 
-# Enable colors.
+# Enable colors (necessary for prompt).
 autoload -U colors && colors
 
-# ls colors
-#export LSCOLORS="Gxfxcxdxbxegedabagacad"
-# Enable ls colors
-#ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
+# ls colors.
+alias ls='ls -a --color'
+alias lsa='ls -lah --color'
 
-# grep color
-#export GREP_OPTIONS='--color=auto'
-#export GREP_COLOR='1;32'
+# grep colors.
+alias grep='grep --color'
 
 # Prompt Style.
 # One caveat I haven't figured out: when pressing <CR> while still in cmd mode (blue), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
-PROMPT="%n %{$fg[red]%}%c %{$reset_color%}"
+PS1="%n %{$fg[red]%}%c %{$reset_color%}"
 
 zle-keymap-select () {
 if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
     if [ $KEYMAP = vicmd ]; then
-        PROMPT="%n %{$fg[blue]%}%c %{$reset_color%}"
+        PS1="%n %{$fg[blue]%}%c %{$reset_color%}"
         () { return $__prompt_status }
         zle reset-prompt
     else
-        PROMPT="%n %{$fg[red]%}%c %{$reset_color%}"
+        PS1="%n %{$fg[red]%}%c %{$reset_color%}"
         () { return $__prompt_status }
         zle reset-prompt
     fi
@@ -136,7 +123,7 @@ zle -N zle-keymap-select
 zle-line-init () {
     zle -K viins
     if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
-        PROMPT="%n %{$fg[red]%}%c %{$reset_color%}"
+        PS1="%n %{$fg[red]%}%c %{$reset_color%}"
         () { return $__prompt_status }
         zle reset-prompt
     fi
@@ -148,14 +135,12 @@ zle -N zle-line-init
 # -----------------------------------------------------------------------------
 
 # fasd
-if [ $commands[fasd] ]; then # check if fasd is installed
-  fasd_cache="$HOME/.fasd-init-cache"
-  if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-    fasd --init auto >| "$fasd_cache"
-  fi
-  source "$fasd_cache"
-  unset fasd_cache
+fasd_cache="$HOME/.fasd-init-cache"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+fasd --init auto >| "$fasd_cache"
 fi
+source "$fasd_cache"
+unset fasd_cache
 
 # }}}
 # zle widgets. {{{
@@ -343,7 +328,6 @@ bindkey -M viins '^[[5~' nop                    # i_PgUp
 bindkey -M viins '^[[6~' nop                    # i_PgDn
 
 # Editing the line in veritable Vim.
-# Doesn't work; also need a good keybind for it.
 autoload edit-command-line
 zle -N edit-command-line
 bindkey -M viins "^O" edit-command-line         # i_CTRL-I
@@ -383,8 +367,6 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
 alias history='fc -l'
-alias ls='ls -a'
-alias lsa='ls -lah'
 alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias s="nocorrect sudo "
@@ -392,7 +374,6 @@ alias so="source ~/.zshrc"
 alias date="date +'%A %B %e %l:%M %P'"
 
 # cd thingies.
-# Bug: - doesn't do cd - automatically, and alias won't work.
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -401,6 +382,7 @@ alias .....='cd ../../../..'
 # Pacman/Packer aliases.
 p() { sudo pacman -$^@; }
 alias pa="packer --noedit"
+alias pas="packer --noedit -S"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
 alias pqs="pacman -Qs"
@@ -413,9 +395,11 @@ alias pss="pacman -Ss"
 # A temporary workaround until I set a udev automount rule.
 alias sm="sudo mount /dev/sdb1 /mnt/ext"
 
-# Applications
 # Hides away the terminal after application launching. Aliasing it for purtiness.
 hideme() { i3 '[instance="^nil$"] scratchpad show' }
+
+# Applications
+alias alsi="alsi -a"
 l() { (nocorrect f -e libreoffice "$@" &) | hideme }
 m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
 # i3 'workspace 11'
@@ -442,6 +426,7 @@ alias gs="git show --name-only"
 # -----------------------------------------------------------------------------
 
 export EDITOR=gvim
+
 # Open all man pages in Vim, under uneditable settings. FoldAllToggle() lets me fold at will without having folds on startup, and 'q' gives me easy access to exit.
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -\""
 
