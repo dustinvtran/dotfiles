@@ -79,10 +79,10 @@ set encoding=utf-8
 set showcmd                                  " Display partial commands.
 set foldmethod=marker                        " Custom folding.
 set noerrorbells visualbell t_vb=            " Disable error bells.
-"augroup stahp
-    "autocmd!
-    "autocmd GUIEnter * set visualbell t_vb=  " I need this one to prevent screen flashes.
-"augroup END
+augroup stahp
+    autocmd!
+    autocmd GUIEnter * set visualbell t_vb=  " I need this one to prevent screen flashes.
+augroup END
 set autochdir                                " Auto-cd into the file's dir.
 set hidden                                   " Change buffers without saving.
 set shortmess=I                              " Disable intro message.

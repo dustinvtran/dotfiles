@@ -6,20 +6,18 @@
 # Bugs & To-Do {{{
 # -----------------------------------------------------------------------------
 
-# * I also want that graphical selection in autocomplete as per omz, and to hide menu when I go away.
-#   Have it also indicate hidden files, like when you're doing rm<tab>
-# * Deletearound not working.
-# * - doesn't do cd - automatically, and alias won't work.
-# * Ctrl-I Doesn't work; also need a good keybind for it.
-# * have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
-# * display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
-# * make zle widget for 's/S' as your insert char function
+# Deletearound not working.
+# Ctrl-I Doesn't work; also need a good keybind for it.
+# have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
+# display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
+# make zle widget for 's/S' as your insert char function
+# Get working ip address function.
 
 # }}}
-# Settings {{{
+# General Settings. {{{
 # -----------------------------------------------------------------------------
 
-# Some sane settings. Look up what they do if you're curious.
+# Some sane settings.
 setopt auto_name_dirs
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -38,28 +36,6 @@ setopt nocheckjobs
 # the entire thing.
 WORDCHARS=${WORDCHARS//\/}
 
-# Autocompletion.
-# Enable the advanced completion system.
-autoload -U compinit && compinit
-# Completion colors.
-# not working
-zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}
-# Auto-insert first suggestion.
-setopt menu_complete
-# Completion menu on successive tab presses.
-setopt auto_menu
-# stuff
-setopt complete_in_word
-setopt always_to_end
-# Red dots!
-expand-or-complete-with-dots() {
-    echo -n "\e[31m......\e[0m"
-    zle expand-or-complete
-    zle redisplay
-}
-zle -N expand-or-complete-with-dots
-bindkey "^I" expand-or-complete-with-dots
-
 # Autocorrection.
 setopt correct_all
 # Disable autocorrection for these.
@@ -70,10 +46,13 @@ alias mkdir='nocorrect mkdir'
 alias sudo='nocorrect sudo'
 # Autocorrection for git.
 #git config --global help.autocorrect 1
+# When offering typo corrections, do not propose anything which starts with an
+# underscore (such as many of Zsh's shell functions).
+CORRECT_IGNORE='_*'
 
 # History.
 HISTSIZE=1000
-SAVEHIST=1000
+SAVEHIST=${HISTSIZE}
 HISTFILE=~/.zshinfo
 # Do not record repeated lines in history.
 setopt histignoredups
@@ -87,8 +66,65 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
+# Enable fasd.
+fasd_cache="$HOME/.fasd-init-cache"
+if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
+    fasd --init auto >| "$fasd_cache"
+fi
+source "$fasd_cache"
+unset fasd_cache
+
 # }}}
-# Purtiness. {{{
+# Completion. {{{
+# -----------------------------------------------------------------------------
+
+# Zsh's completion can benefit from caching. Set the directory in which to
+# load/store the caches.
+CACHEDIR="~/.config/nil/zsh-cache"
+
+# Use (advanced) completion functionality.
+autoload -U compinit
+compinit -d $CACHEDIR/zcompdump 2>/dev/null
+
+# Use cache to speed completion up and set cache folder path.
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path $CACHEDIR
+
+# Auto-insert first suggestion.
+setopt menu_complete
+
+# If the <tab> key is pressed with multiple possible options, print the
+# options. If the options are printed, begin cycling through them.
+zstyle ':completion:*' menu select
+
+# Set format for warnings.
+zstyle ':completion:*:warnings' format 'Sorry, no matches for: %d%b'
+
+# Use colors when outputting file names for completion options.
+zstyle ':completion:*' list-colors ''
+
+# Do not prompt to cd into current directory.
+# For example, cd ../<tab> should not prompt current directory.
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# Completion for kill.
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,cputime,cmd'
+
+# Show completion for hidden files also.
+zstyle ':completion:*' file-patterns '*(D)'
+
+# Red dots!
+expand-or-complete-with-dots() {
+    echo -n "\e[31m......\e[0m"
+    zle expand-or-complete
+    zle redisplay
+}
+zle -N expand-or-complete-with-dots
+bindkey "^I" expand-or-complete-with-dots
+
+# }}}
+# Appearance & Prompt Style. {{{
 # -----------------------------------------------------------------------------
 
 # Enable colors (necessary for prompt).
@@ -129,18 +165,6 @@ zle-line-init () {
     fi
 }
 zle -N zle-line-init
-
-# }}}
-# Programs. {{{
-# -----------------------------------------------------------------------------
-
-# fasd
-fasd_cache="$HOME/.fasd-init-cache"
-if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-    fasd --init auto >| "$fasd_cache"
-fi
-source "$fasd_cache"
-unset fasd_cache
 
 # }}}
 # zle widgets. {{{
@@ -364,22 +388,30 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 # Oh my alias. {{{
 # -----------------------------------------------------------------------------
 
+# Default flags.
+alias ping="ping -c 5"                  # Ping 5 packets, not unlimited.
+alias df="df -h"                        # Display sizes in human readable format.
+alias du="du -h -c"                     # Display sizes in human readable format, and total.
+alias poweroff="sudo poweroff"          # Don't require prepending sudo.
+alias reboot="sudo reboot"              # Don't require prepending sudo.
+alias s="nocorrect sudo "               # Don't prompt me!
+alias date="date +'%A %B %e %l:%M %P'"  # A nicer date format.
+alias weather="weather 92683"           # Weather me.
+
+# Custom commands.
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
 alias history='fc -l'
-alias poweroff="sudo poweroff"
-alias reboot="sudo reboot"
-alias s="nocorrect sudo "
 alias so="source ~/.zshrc"
 alias xrdbx="xrdb ~/.Xresources"
-alias date="date +'%A %B %e %l:%M %P'"
-alias weather="weather 92683"
+alias sv="sudo vim"
 
-# cd thingies.
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias .....='cd ../../../..'
+alias -- -='cd -'
+alias -- --='cd -2'
+alias -- ---='cd -3'
 
 # Pacman/Packer aliases.
 p() { sudo pacman -$^@; }
@@ -404,10 +436,8 @@ hideme() { i3 '[instance="^nil$"] scratchpad show' }
 alias alsi="alsi -a -c1=white -c2=unboldblue"
 l() { (nocorrect f -e libreoffice "$@" &) | hideme }
 m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
-# i3 'workspace 11'
 alias nitrogen="(nitrogen &) | hideme"
 alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
-alias sv="sudo vim"
 alias un="urxvt -name nil -g 85x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
 alias Lun="urxvt -name nil -g 147x37 &"
@@ -416,7 +446,6 @@ alias rtorrent="urxvt -name rtorrent -g 110x30 -e rtorrent &"
 # For some reason I can't use 'v' as a function since it lags the entire terminal and maxes out the function levels of 'v'. But I don't need to append things, so this is fine.
 alias v="hideme | nocorrect f -e gvim -B viminfo"
 z() { (nocorrect f -e zathura "$@" &) | hideme }
-# i3 'workspace 11'
 
 # le git.
 alias ga="git add -f"
@@ -431,7 +460,44 @@ alias gs="git show --name-only"
 
 export EDITOR=gvim
 
-# Open all man pages in Vim, under uneditable settings. FoldAllToggle() lets me fold at will without having folds on startup, and 'q' gives me easy access to exit.
+# Open all man pages in Vim, under uneditable settings.
+# FoldAllToggle() lets me fold at will without having folds on startup, and 'q' gives me easy access to exit.
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -\""
+
+# }}}
+# Functions {{{
+# -----------------------------------------------------------------------------
+
+# The all-on-one extract function.
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)        tar xjf $1        ;;
+            *.tar.gz)         tar xzf $1        ;;
+            *.bz2)            bunzip2 $1        ;;
+            *.rar)            unrar x $1        ;;
+            *.gz)             gunzip $1         ;;
+            *.tar)            tar xf $1         ;;
+            *.tbz2)           tar xjf $1        ;;
+            *.tgz)            tar xzf $1        ;;
+            *.zip)            unzip $1          ;;
+            *.Z)              uncompress $1     ;;
+            *)                echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+fi
+}
+
+# Echo external IP and what your NIC thinks your IP addresses are.
+exip () {
+    # gather external ip address
+    echo -n "Current External IP: "
+    curl -s -m 5 http://myip.dk | grep "ha4" | sed -e 's/.*ha4">//g' -e 's/<\/span>.*//g'
+}
+ips () {
+    # determine local IP address
+    ifconfig | grep "inet " | awk '{ print $2 }'
+}
 
 # }}}
