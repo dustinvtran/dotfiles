@@ -1,3 +1,13 @@
+#
+# Standard openurl.pl, but with slight modifications for right-aligned stuff.
+# Changelog:
+# * Commented out line 200 on original and added the next line.
+# * Commented out line 90 on original and added the next line.
+# * Commented out line 37 on original and added the next line.
+# * Commented out line 42 on original and added the next line.
+# * Commented out line 39 on original and added the next line.
+#
+
 # OpenURL by Stefan'tommie' Tomanek
 #
 # 05.06.2002
@@ -34,10 +44,13 @@ $recent = 1;
 sub draw_box ($$$$) {
     my ($title, $text, $footer, $colour) = @_;
     my $box = '';
-    $box .= '%R,--[%n%9%U'.$title.'%U%9%R]%n'."\n";
+    #$box .= '%R,--[%n%9%U'.$title.'%U%9%R]%n'."\n";
+    $box .= '%g,--%g[%n'.$title.'%g]%n'."\n";
     foreach (split(/\n/, $text)) {
-        $box .= '%R|%n '.$_."\n";
-    }                                                                               $box .= '%R`--<%n'.$footer.'%R>->%n';
+        #$box .= '%R|%n '.$_."\n";
+        $box .= '%g|%n '.$_."\n";
+    #}                                                                               $box .= '%R`--<%n'.$footer.'%R>->%n';
+    }                                                                               $box .= '%g`--%g[%n'.$footer.'%g]%n';
     $box =~ s/%.//g unless $colour;
     return $box;
 }
@@ -87,7 +100,8 @@ sub list_urls {
 	$string .= $text." %n\n";
 	$i++;
     }
-    print CLIENTCRAP draw_box("OpenURL", $string, "URLs", 1);
+    #print CLIENTCRAP draw_box("OpenURL", $string, "URLs", 1);
+    print CLIENTCRAP draw_box("URLs", $string, "URLs", 1);
 }
 
 sub event_private_message {
@@ -197,7 +211,8 @@ sub add_note ($$$) {
 	$witem = Irssi::window_item_find($target);
     }
     if (defined $witem) {
-	$witem->print("%R>>%n OpenURL ".$num, MSGLEVEL_CLIENTCRAP);
+	#$witem->print("%R>>%n OpenURL ".$num, MSGLEVEL_CLIENTCRAP);
+	$witem->print("          %nURL %Y=%n ".$num, MSGLEVEL_CLIENTCRAP);
 	# create a unique ID for the mark
 	my $foo = time().'-'.int(rand()*1000);
 	$witem->window()->view()->set_bookmark_bottom("openurl_".$num.'-'.$foo);

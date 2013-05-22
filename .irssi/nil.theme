@@ -247,8 +247,8 @@ formats = {
     part = "%K{channick $[-13]0} %R<%K";
     quit = "%K{channick $[-13]0} %R<%K";
     quit_once = "%K{channick $[-13]0} %R<%K";
-    nick_changed = "{channick $[-13]0} %Y= {channick_hilight $1}";
-    your_nick_changed = "{channick $[-13]0} %Y= {channick_hilight $1}";
+    nick_changed = "%m{channick $[-13]0} %Y= {channick_hilight $1}";
+    your_nick_changed = "%m{channick $[-13]0} %Y= {channick_hilight $1}";
 
     pubmsg = "{pubmsgnick $2 {pubnick \00306$[-11]0}}$1";
     own_msg = "{ownmsgnick {ownnick $[-13]0$2}}$1";
