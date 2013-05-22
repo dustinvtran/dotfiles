@@ -1,7 +1,7 @@
 #
 # Standard nickcolor.pl, but changed to allow for indented/right-aligned nicks.
 # Changelog:
-# * Commented out line 114 (108 on original) and added line 115 (109).
+# * Commented out line 108 on the original and added the next line.
 #
 
 use strict;
