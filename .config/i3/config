@@ -207,10 +207,14 @@ for_window [title="^Firefox Preferences$"] floating enable
 for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
+# Autoassign specific applications to a workspace.
 # For mplayer and mplayer2/smplayer respectively.
 #assign [class="MPlayer"] 11
 assign [class="mplayer"] 11
 assign [class="Zathura"] 11
+# Automove to workspace after it opens them.
+for_window [class="mplayer"] workspace 11
+for_window [class="Zathura"] workspace 11
 
 # Shortcut Applications.
 # $mod,$mod+a,z,c are available, as well as all mod1 (alt).
