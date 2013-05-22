@@ -4,6 +4,9 @@
 ! Name: nil
 !
 
+! Testing this out for irssi window navigation.
+URxvt*modifier: control
+
 ! URxvt Colorscheme {{{
 ! -----------------------------------------------------------------------------
 
