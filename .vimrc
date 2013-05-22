@@ -57,7 +57,6 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'benjifisher/matchit.zip'
 Bundle 'bufexplorer.zip'
 Bundle 'gmarik/vundle'
@@ -80,10 +79,10 @@ set encoding=utf-8
 set showcmd                                  " Display partial commands.
 set foldmethod=marker                        " Custom folding.
 set noerrorbells visualbell t_vb=            " Disable error bells.
-augroup stahp
-    autocmd!
-    autocmd GUIEnter * set visualbell t_vb=  " I need this one to prevent screen flashes.
-augroup END
+"augroup stahp
+    "autocmd!
+    "autocmd GUIEnter * set visualbell t_vb=  " I need this one to prevent screen flashes.
+"augroup END
 set autochdir                                " Auto-cd into the file's dir.
 set hidden                                   " Change buffers without saving.
 set shortmess=I                              " Disable intro message.
@@ -94,18 +93,15 @@ set clipboard=unnamed                        " Set to system's clipboard registe
 " Temp Directories
 set backup                                   " Enable backups.
 set noswapfile                               " It's 2013, Vim.
+set undofile                                 " Enable persistent undo.
 set backupdir=~/.vim/tmp/backup
-
-set undodir=~/.vim/tmp/undo     " Set undo dir for .und files.
+set undodir=~/.vim/tmp/undo
 
 " Searching, Highlighting, Replacing Settings
 set ignorecase                               " Case-insensitive matching...
 set smartcase                                "  except case-sensitive searches.
 set incsearch                                " Incremental searching.
-"set hlsearch                                 " Highlight searches.
-set gdefault                                 " Default: Substitute all occurrences in line.
-"set spell                                    " Enable spellcheck.
-set undofile                                 " Enable persistent undo.
+set gdefault                                 " Default: Substitute all occurrences only in line.
 set wildmenu                                 " Tab-completion features in cmd-line mode.
 set wildmode=list:full
 
