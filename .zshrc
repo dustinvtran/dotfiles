@@ -137,7 +137,7 @@ zle -N zle-line-init
 # fasd
 fasd_cache="$HOME/.fasd-init-cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
-fasd --init auto >| "$fasd_cache"
+    fasd --init auto >| "$fasd_cache"
 fi
 source "$fasd_cache"
 unset fasd_cache
@@ -371,6 +371,7 @@ alias poweroff="sudo poweroff"
 alias reboot="sudo reboot"
 alias s="nocorrect sudo "
 alias so="source ~/.zshrc"
+alias xrdbx="xrdb ~/.Xresources"
 alias date="date +'%A %B %e %l:%M %P'"
 alias weather="weather 92683"
 
@@ -407,7 +408,7 @@ m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
 alias nitrogen="(nitrogen &) | hideme"
 alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias sv="sudo vim"
-alias un="urxvt -name nil -g 80x24 &"
+alias un="urxvt -name nil -g 85x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
 alias Lun="urxvt -name nil -g 147x37 &"
 alias irssi="urxvt -name irssi -g 147x37 -e irssi &"

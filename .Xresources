@@ -4,9 +4,6 @@
 ! Name: nil
 !
 
-! Testing this out for irssi window navigation.
-URxvt*modifier: control
-
 ! URxvt Colorscheme {{{
 ! -----------------------------------------------------------------------------
 
@@ -87,6 +84,11 @@ URxvt*scrollstyle: plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
+
+! If only i3 supported (real) transparency!
+! Reason: nice to have just a /little/ blurred transparency to see through where I am.
+!urxvt*depth: 100
+!urxvt*background: rgba:0000/0000/0200/c800
 
 ! dzen2 {{{
 ! -----------------------------------------------------------------------------
