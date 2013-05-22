@@ -409,6 +409,8 @@ alias sv="sudo vim"
 alias un="urxvt -name nil -g 80x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
 alias Lun="urxvt -name nil -g 147x37 &"
+alias irssi="urxvt -name irssi -g 147x37 -e irssi &"
+alias rtorrent="urxvt -name rtorrent -g 110x30 -e rtorrent &"
 # For some reason I can't use 'v' as a function since it lags the entire terminal and maxes out the function levels of 'v'. But I don't need to append things, so this is fine.
 alias v="hideme | nocorrect f -e gvim -B viminfo"
 z() { (nocorrect f -e zathura "$@" &) | hideme }
