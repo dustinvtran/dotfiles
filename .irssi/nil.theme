@@ -7,6 +7,9 @@
 # http://dotshare.it/dots/279/
 #
 
+# Symbol stylings to consider for the break column:
+# = > < | · * (blank) # + - . _ →
+
 # default foreground color (%N) - -1 is the "default terminal color"
 default_color = "-1";
 
@@ -41,13 +44,14 @@ abstracts = {
   nick = "%_$*%_";
 
   # nick host is printed
-  nickhost = "%g$*";
+  nickhost = "%g$*%n";
 
   # server name is printed
   server = "%_$*%_";
 
   # some kind of comment is printed
-  comment = "%n(%b\"$*\"%n);";
+  #comment = "%n(%b\"$*\"%n);";
+  comment = "%b$*%n";
 
   # reason for something is printed (part, quit, kick, ..)
   reason = "{comment $*}";
@@ -115,11 +119,11 @@ abstracts = {
   ########## Actions (/ME stuff) #########################
 
   # generic one that's used by most actions
-  action = "  %y$* %Y* %y%|";
+  action = "  %y$* %K· %y%|";
 
   # own action, both private/public
   # ownaction = "{action $*}";
-  ownaction = "  %y$* %Y*%N%y";
+  ownaction = "  %y$* %K·%N%y";
 
   # own action with target, both private/public
   ownaction_target = "{action $*}";
@@ -163,7 +167,7 @@ abstracts = {
   names_nick_op = "{names_nick $*}";
   names_nick_halfop = "{names_nick $*}";
   names_nick_voice = "{names_nick $*}";
-  names_users = "       %MServer%n %Y=%n names($1)";
+  names_users = "       %MServer%n %Y=%n names(%b$1%n)";
   names_channel = "\"%b$*\"%n";
 
   # DCC
@@ -247,10 +251,11 @@ formats = {
     part = "%K{channick $[-13]0} %R<%K";
     quit = "%K{channick $[-13]0} %R<%K";
     quit_once = "%K{channick $[-13]0} %R<%K";
-    nick_changed = "%m{channick $[-13]0} %Y= {channick_hilight $1}";
-    your_nick_changed = "%m{channick $[-13]0} %Y= {channick_hilight $1}";
+    nick_changed = "%M{channick $[-13]0} %Y= {channick_hilight $1}";
+    your_nick_changed = "%M{channick $[-13]0} %Y= {channick_hilight $1}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00306$[-11]0}}$1";
+    # General Messages.
+    pubmsg = "{pubmsgnick $2 {pubnick \00312$[-11]0}}$1";
     own_msg = "{ownmsgnick {ownnick $[-13]0$2}}$1";
     own_msg_channel = "{ownmsgnick {ownnick $[-13]0$3}{msgchannel $1}}$2";
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-13]2}}$1";
@@ -263,14 +268,18 @@ formats = {
     new_topic = "        %ctopic %K= %|%B'$2' %non %b$1%n%K[set by {nick %y$0}]";
 
     # Last line in /names.
-    endofnames = "               Total of {hilight $1} nicks {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
+    endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
   };
   "fe-common/irc" = {
     # Actions (/me).
     own_action = "{ownaction $[-11]0} $1";
     action_private = "{pvtaction $[-11]0}$1";
-    action_private_query = "{pvtaction_query $[-11]0} $2";
+    action_private_query = "{pvtaction_query $[-11]0}$2";
     action_public = "{pubaction $[-11]0}$1";
+
+    # Change modes.
+    chanmode_change = "%M{nick $[-13]2} %K→ {mode $1}";
+    server_chanmode_change = "$M{nick $[-13]2} %K→ {netsplit ServerMode} {mode $1}";
   };
 };
 # Default formatting for server messages.

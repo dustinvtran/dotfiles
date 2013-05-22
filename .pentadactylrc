@@ -272,9 +272,16 @@ javascript <<EOF
         commands.execute("tabopen wiki " + selection);
     };
 EOF
+javascript <<EOF
+    userContext.searchArch = function (selection) {
+        commands.execute("tabopen archpkg " + selection);
+        commands.execute("tabopen aur " + selection);
+    };
+EOF
 
 command define -nargs=* -js userContext.searchDictionary(args)
 command giki -nargs=* -js userContext.searchGiki(args)
+command arch -nargs=* -js userContext.searchArch(args)
 
 " Custom [s]earch commands.
 map -modes=n -builtin s :define<Space>
