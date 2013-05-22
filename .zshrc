@@ -372,6 +372,7 @@ alias reboot="sudo reboot"
 alias s="nocorrect sudo "
 alias so="source ~/.zshrc"
 alias date="date +'%A %B %e %l:%M %P'"
+alias weather="weather 92683"
 
 # cd thingies.
 alias ..='cd ..'
