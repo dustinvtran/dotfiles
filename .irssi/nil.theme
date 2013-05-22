@@ -1,3 +1,12 @@
+#
+# irssi theme
+# ~/.irssi/nil.theme
+# Name: nil
+# Description: Modified theme from here, which is mostly emulation of the second link:
+# https://bbs.archlinux.org/viewtopic.php?id=143793
+# http://dotshare.it/dots/279/
+#
+
 # default foreground color (%N) - -1 is the "default terminal color"
 default_color = "-1";
 
@@ -70,7 +79,7 @@ abstracts = {
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0$1}";
-  ownnick = "%m$*%n";
+  ownnick = "%r$*%n";
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0$1}";
