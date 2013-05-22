@@ -186,7 +186,7 @@ abstracts = {
 
   # default background for all statusbars. You can also give
   # the default foreground color for statusbar items.
-  sb_background = "%K%0";
+  sb_background = "%n";
 
   # default backround for "default" statusbar group
   #sb_default_bg = "%4";
@@ -209,9 +209,9 @@ abstracts = {
 
   prompt = "%r:%n ";
 
-  sb = "$* ";
+  sb = "$*";
   sbmode = " %K[%g%g+%n$*%K]";
-  sbaway = " %g/* zZzZ */%n";
+  sbaway = "%w(away)%n ";
   sbservertag = ":%r$0%n";
   sbnickmode = "$0";
 
@@ -236,10 +236,11 @@ formats = {
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    join = "%K{channick $[-13]0} %G>%K has joined";
-    part = "%K{channick $[-13]0} %R<%K has left {channel $2}";
+    # Server Messages: join/quit are the most frequent, and hence left blank for nicety.
+    join = "%K{channick $[-13]0} %G>%K";
+    part = "%K{channick $[-13]0} %R<%K {channel $2}";
     kick = "%K{channick $[-13]0} %R<%K kicked by {nick $2} {reason %C$3}";
-    quit = "%K{channick $[-13]0} %R<%K has quit irc";
+    quit = "%K{channick $[-13]0} %R<%K";
     quit_once = "{channel $3} {channick $0} {chanhost $1} %kquit {reason %C$2}";
     nick_changed = "{channick $[-13]0} %Y= {channick_hilight $1}";
     your_nick_changed = "{channick $[-13]0} %Y= {channick_hilight $1}";
