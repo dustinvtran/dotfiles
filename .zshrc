@@ -12,6 +12,10 @@
 # display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
 # make zle widget for 's/S' as your insert char function
 # Get working ip address function.
+# Reopen last closed client/application/window function.
+#   E.g., it logs all the processes that disappear, and then it opens up the last line.
+#   Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
+#       which app (in the sense of /usr/share/applications)
 
 # }}}
 # General Settings. {{{

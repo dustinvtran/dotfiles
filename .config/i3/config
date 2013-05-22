@@ -3,6 +3,16 @@
 # ~/.config/i3/config
 # Name: nil
 #
+# Bugs/To-Do {{{
+
+# firefox gets weird block to the right on occasion.
+# gvim has a funny bottom and right margin.
+
+# Wishlist:
+# Have workspaces alphabetically ordered (or customizable order). Right now it can
+#   only order if the workspaces are prepended by a #.
+
+# }}}
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
 
@@ -10,7 +20,7 @@
 # 2. Set up workspaces on conky.
 # 3. Then set up applets/widgets.
 # exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
-exec i3-msg 'workspace 2; exec firefox; workspace 1' &
+exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 147x37 -e irssi &
 exec urxvt -name rtorrent -g 110x30 -e rtorrent &
@@ -153,72 +163,27 @@ bindsym $mod2+Shift+8 move container to workspace σ
 bindsym $mod2+Shift+9 move container to workspace τ
 bindsym $mod2+Shift+0 move container to workspace υ
 
-# Default numerical system. {{{
-# Switch to workspace.
-#bindsym $mod+1 workspace 1
-#bindsym $mod+2 workspace 2
-#bindsym $mod+3 workspace 3
-#bindsym $mod+4 workspace 4
-#bindsym $mod+5 workspace 5
-#bindsym $mod+6 workspace 6
-#bindsym $mod+7 workspace 7
-#bindsym $mod+8 workspace 8
-#bindsym $mod+9 workspace 9
-#bindsym $mod+0 workspace 10
-#bindsym $mod2+1 workspace 11
-#bindsym $mod2+2 workspace 12
-#bindsym $mod2+3 workspace 13
-#bindsym $mod2+4 workspace 14
-#bindsym $mod2+5 workspace 15
-#bindsym $mod2+6 workspace 16
-#bindsym $mod2+7 workspace 17
-#bindsym $mod2+8 workspace 18
-#bindsym $mod2+9 workspace 19
-#bindsym $mod2+0 workspace 20
-# Move focused container to workspace.
-#bindsym $mod+Shift+1 move container to workspace 1
-#bindsym $mod+Shift+2 move container to workspace 2
-#bindsym $mod+Shift+3 move container to workspace 3
-#bindsym $mod+Shift+4 move container to workspace 4
-#bindsym $mod+Shift+5 move container to workspace 5
-#bindsym $mod+Shift+6 move container to workspace 6
-#bindsym $mod+Shift+7 move container to workspace 7
-#bindsym $mod+Shift+8 move container to workspace 8
-#bindsym $mod+Shift+9 move container to workspace 9
-#bindsym $mod+Shift+0 move container to workspace 10
-#bindsym $mod2+Shift+1 move container to workspace 11
-#bindsym $mod2+Shift+2 move container to workspace 12
-#bindsym $mod2+Shift+3 move container to workspace 13
-#bindsym $mod2+Shift+4 move container to workspace 14
-#bindsym $mod2+Shift+5 move container to workspace 15
-#bindsym $mod2+Shift+6 move container to workspace 16
-#bindsym $mod2+Shift+7 move container to workspace 17
-#bindsym $mod2+Shift+8 move container to workspace 18
-#bindsym $mod2+Shift+9 move container to workspace 19
-#bindsym $mod2+Shift+0 move container to workspace 20
-# }}}
-
 # Force a consistent workspace # layout, so I can move it to that workspace without wondering whether it went to the right monitor.
-workspace 1 output LVDS1
-workspace 2 output LVDS1
-workspace 3 output LVDS1
-workspace 4 output LVDS1
-workspace 5 output LVDS1
-workspace 6 output LVDS1
-workspace 7 output LVDS1
-workspace 8 output LVDS1
-workspace 9 output LVDS1
-workspace 10 output LVDS1
-workspace 11 output HDMI1
-workspace 12 output HDMI1
-workspace 13 output HDMI1
-workspace 14 output HDMI1
-workspace 15 output HDMI1
-workspace 16 output HDMI1
-workspace 17 output HDMI1
-workspace 18 output HDMI1
-workspace 19 output HDMI1
-workspace 20 output HDMI1
+workspace α output LVDS1
+workspace β output LVDS1
+workspace γ output LVDS1
+workspace δ output LVDS1
+workspace ε output LVDS1
+workspace ζ output LVDS1
+workspace η output LVDS1
+workspace θ output LVDS1
+workspace ι output LVDS1
+workspace κ output LVDS1
+workspace λ output HDMI1
+workspace μ output HDMI1
+workspace ν output HDMI1
+workspace ξ output HDMI1
+workspace ο output HDMI1
+workspace π output HDMI1
+workspace ρ output HDMI1
+workspace σ output HDMI1
+workspace τ output HDMI1
+workspace υ output HDMI1
 
 # }}}
 # i3bar {{{
@@ -256,12 +221,12 @@ for_window [title="^Tab Mix Plus Options$"] floating enable
 
 # Autoassign specific applications to a workspace.
 # For mplayer and mplayer2/smplayer respectively.
-#assign [class="MPlayer"] 11
-assign [class="mplayer"] 11
-assign [class="Zathura"] 11
+#assign [class="MPlayer"] λ
+assign [class="mplayer"] λ
+assign [class="Zathura"] λ
 # Automove to workspace after it opens them.
-for_window [class="mplayer"] workspace 11
-for_window [class="Zathura"] workspace 11
+for_window [class="mplayer"] workspace λ
+for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
 # $mod,$mod+a,z,c are available, as well as all mod1 (alt).
