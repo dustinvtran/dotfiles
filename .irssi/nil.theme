@@ -207,7 +207,7 @@ abstracts = {
   topicsbstart = "%BChannel: %b\"$*";
   topicsbend = "$*%b\"";
 
-  prompt = "%r:%n ";
+  #prompt = "%r:%n ";
 
   sb = "$*";
   sbmode = " %K[%g%g+%n$*%K]";
@@ -236,34 +236,54 @@ formats = {
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
-    # Server Messages: join/quit are the most frequent, and hence left blank for nicety.
+    # Server Messages.
     join = "%K{channick $[-13]0} %G>%K";
-    part = "%K{channick $[-13]0} %R<%K {channel $2}";
     kick = "%K{channick $[-13]0} %R<%K kicked by {nick $2} {reason %C$3}";
+    # Likely better to see the part/quit/quit_once reason (ping timeout, general quit message, just
+    # parting the channel, etc.), but I rarely require them and I prefer the minimal arrow aesthetic.
+    #part = "%K{channick $[-13]0} %R<%K {channel $2}";
+    #quit = "%K{channick $[-13]0} %R<%K {reason %K$2}";
+    #quit_once = "{channel $3} {channick $0} {chanhost $1} %kquit {reason %C$2}";
+    part = "%K{channick $[-13]0} %R<%K";
     quit = "%K{channick $[-13]0} %R<%K";
-    quit_once = "{channel $3} {channick $0} {chanhost $1} %kquit {reason %C$2}";
+    quit_once = "%K{channick $[-13]0} %R<%K";
     nick_changed = "{channick $[-13]0} %Y= {channick_hilight $1}";
     your_nick_changed = "{channick $[-13]0} %Y= {channick_hilight $1}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00312$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00306$[-11]0}}$1";
     own_msg = "{ownmsgnick {ownnick $[-13]0$2}}$1";
     own_msg_channel = "{ownmsgnick {ownnick $[-13]0$3}{msgchannel $1}}$2";
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-13]2}}$1";
     pubmsg_me = "{pubmsgmenick {menick $[-13]0}$2}$1";
     pubmsg_me_channel = "{pubmsgmenick {menick $[-13]0$3}{msgchannel $1}}$2";
-    # pubmsg_hilight = "{pubmsghinick $0 $0 $[-13]1$3%n}$2";
     pubmsg_hilight = "{pubmsghinick $0 $0 %R$[-13]1$3%n}$2";
     pubmsg_hilight_channel = "{pubmsghinick $0 $[-13]1$4{msgchannel $2}}$3";
     pubmsg_channel = "{pubmsgnick {pubnick %G$[-13]0}$2}$1";
     msg_private_query = "{privmsgnick $[-13]0}$2";
     new_topic = "        %ctopic %K= %|%B'$2' %non %b$1%n%K[set by {nick %y$0}]";
 
+    # Last line in /names.
     endofnames = "               Total of {hilight $1} nicks {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
   };
   "fe-common/irc" = {
+    # Actions (/me).
     own_action = "{ownaction $[-11]0} $1";
     action_private = "{pvtaction $[-11]0}$1";
     action_private_query = "{pvtaction_query $[-11]0} $2";
     action_public = "{pubaction $[-11]0}$1";
   };
 };
+# Default formatting for server messages.
+#formats = {
+#"fe-common/core" = {
+#join = "{channick_hilight $0} {chanhost_hilight $1} has joined {channel $2}%N";
+#part = "{channick $0} {chanhost $1} has left {channel $2}%N";
+#quit = "{channick $0} {chanhost $1} has quit {reason $2}%N";
+#quit_once = "{channel $3} {channick $0} {chanhost $1} has quit {reason $2}%N";
+#nick_changed = "{channick $0} is now known as {channick_hilight $1}%N";
+#};
+#"fe-common/irc" = {
+#chanmode_change = "mode/{channelhilight $0} {mode $1} by {nick $2}";
+#server_chanmode_change = "{netsplit ServerMode}/{channelhilight $0} {mode $1} by {nick $2}";
+#};
+#};
