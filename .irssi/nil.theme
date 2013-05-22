@@ -10,7 +10,7 @@
 # https://bbs.archlinux.org/viewtopic.php?id=143793
 # http://dotshare.it/dots/279/
 # * Commented out lines with no changes are simply the default settings.
-# * Symbol stylings to consider for the break column:
+# * Symbol stylings to consider for the pipe column:
 # = > < | · * (blank) # + - . _ →
 
 # Default foreground color (%N); -1 is the default terminal color.
@@ -81,7 +81,7 @@ abstracts = {
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0$1}";
-  ownnick = " %R$*%n ";
+  ownnick = " %r$*%n ";
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0$1}";
@@ -177,7 +177,7 @@ abstracts = {
   dccquerynick = "%g$*%n";
   dccaction = "{action $*}";
   # }}}
-  # Statusbar/Topicbar {{{
+  # Bars {{{
   # default background for all statusbars. You can also give
   # the default foreground color for statusbar items.
   sb_background = "%n";
@@ -203,21 +203,26 @@ abstracts = {
   # ',' separator
   sb_act_sep = " ";
   # normal text
-  sb_act_text = "%K$*";
+  # This one changes the color of windows with new server text!
+  # Currently set 'read' channels and 'new server text' channels into the same color.
+  #     I don't really care if people join/quit.
+  sb_act_text = "%w$*";
   # public message
-  # This one affects the color of windows with new (chat) text!
-  sb_act_msg = "%M$*";
-  # hilight
+  # This one changes the color of windows with new chat text!
+  sb_act_msg = "%G$*";
+  # ilight
+  # This one changes the color of windows with new highlighted text!
+  #     This is also configurable per hilight via built-in commands.
   sb_act_hilight = "%r$*%n";
   # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "%r$1-%n";
+  # To change the color of windows with read text, change chanact_display.
   # }}}
 };
 
-########################################################
-
 formats = {
   "fe-common/core" = {
+    #{{{
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
@@ -252,8 +257,11 @@ formats = {
 
     # Last line in /names.
     endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
+    pubmsg = "{pubmsgnick $2 {pubnick \00312$[-11]0}}$1";
   };
+  #}}}
   "fe-common/irc" = {
+    #{{{
     # Actions (/me).
     own_action = "{ownaction $[-11]0} $1";
     action_private = "{pvtaction $[-11]0}$1";
@@ -264,9 +272,9 @@ formats = {
     chanmode_change = "%M{nick $[-13]2} %Y→ {mode $1}";
     server_chanmode_change = "$M{nick $[-13]2} %Y→ {netsplit ServerMode} {mode $1}";
   };
+  #}}}
 };
-#
-# Default formatting for server messages.
+# Default formatting for server messages. {{{
 #formats = {
 #"fe-common/core" = {
 #join = "{channick_hilight $0} {chanhost_hilight $1} has joined {channel $2}%N";
@@ -280,3 +288,4 @@ formats = {
 #server_chanmode_change = "{netsplit ServerMode}/{channelhilight $0} {mode $1} by {nick $2}";
 #};
 #};
+# }}}
