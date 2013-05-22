@@ -83,11 +83,11 @@ abstracts = {
 
   # $0 = nick mode, $1 = nick
   ownmsgnick = "{msgnick $0$1}";
-  ownnick = "%r$*%n";
+  ownnick = " %R$*%n ";
 
   # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick $0$1}";
-  pubnick = "%N $*%n ";
+  pubnick = " %N$*%n ";
 
   # public message in channel meant for me, $0 = nick mode, $1 = nick
   pubmsgmenick = "{msgnick $0$1}%r";
@@ -119,11 +119,11 @@ abstracts = {
   ########## Actions (/ME stuff) #########################
 
   # generic one that's used by most actions
-  action = "  %y$* %K· %y%|";
+  action = "  %y$* %y· %y%|";
 
   # own action, both private/public
   # ownaction = "{action $*}";
-  ownaction = "  %y$* %K·%N%y";
+  ownaction = "  %y$* %y·";
 
   # own action with target, both private/public
   ownaction_target = "{action $*}";
@@ -255,8 +255,9 @@ formats = {
     your_nick_changed = "%M{channick $[-13]0} %Y= {channick_hilight $1}";
 
     # General Messages.
-    pubmsg = "{pubmsgnick $2 {pubnick \00312$[-11]0}}$1";
-    own_msg = "{ownmsgnick {ownnick $[-13]0$2}}$1";
+    # pubmsg replaced by nil-nickcolor.pl's.
+    #pubmsg = "{pubmsgnick $2 {pubnick \00309$[-11]0}}$1";
+    own_msg = "{ownmsgnick $2 {ownnick %R$[-11]0}}$1";
     own_msg_channel = "{ownmsgnick {ownnick $[-13]0$3}{msgchannel $1}}$2";
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-13]2}}$1";
     pubmsg_me = "{pubmsgmenick {menick $[-13]0}$2}$1";
@@ -278,8 +279,8 @@ formats = {
     action_public = "{pubaction $[-11]0}$1";
 
     # Change modes.
-    chanmode_change = "%M{nick $[-13]2} %K→ {mode $1}";
-    server_chanmode_change = "$M{nick $[-13]2} %K→ {netsplit ServerMode} {mode $1}";
+    chanmode_change = "%M{nick $[-13]2} %Y→ {mode $1}";
+    server_chanmode_change = "$M{nick $[-13]2} %Y→ {netsplit ServerMode} {mode $1}";
   };
 };
 # Default formatting for server messages.

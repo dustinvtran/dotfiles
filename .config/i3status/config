@@ -46,8 +46,13 @@ order += "tztime local"
 
 tztime local {
         #format = "%a %b %e,%l:%M %P"
-        #format = "%H:%M"
-        format = "%l:%M %P"
+        #format = "%l:%M %P"
+        #
+        # A very very haphazard way to get centering on this widget.
+        # This is clearly resolution-specific and hence won't work on two monitors simultaneously.
+        # It's a shame there's no center option in i3status, but the simultaneous monitors can
+        # still be worked around by having two separate bars with two separate config files.
+        format = "%H:%M                                                                                                                                                                                                                              "
 }
 
 #load {
