@@ -39,6 +39,7 @@
     {HARDCODED => ""},                            # A workaround for a newline.
     {CPU        => '%sCPU:%s %s'},
     {RAM        => '%sRAM:%s %s'},
+    {OTHER      => '%sGraphics:%s Intel HD Graphics 3000'},
     {PARTITIONS => undef},
 ]
 
