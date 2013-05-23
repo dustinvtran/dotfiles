@@ -769,7 +769,7 @@ my $commands
      # scrolling
      "j" => { char => 'j', func => \&cmd_ctrl_d, type => C_NORMAL,
                  no_operator => 1 },
-     "\x0E" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
+     "\x0A" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
                  needs_count => 1, no_operator => 1 },
      "k" => { char => 'k', func => \&cmd_ctrl_u, type => C_NORMAL,
                  no_operator => 1 },
@@ -794,7 +794,9 @@ my $commands
      '.'  => { char => '.', type => C_NORMAL, repeatable => 1,
                no_operator => 1 },
      ';'  => { char => ';', type => C_NORMAL },
-     "\n" => { char => '<CR>', type => C_NORMAL }, # return
+     #"\n" => { char => '<CR>', type => C_NORMAL }, # return
+     "\n" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
+                 needs_count => 1, no_operator => 1 },
      # undo
      'u'    => { char => 'u',     func => \&cmd_undo, type => C_NORMAL,
                  no_operator => 1 },

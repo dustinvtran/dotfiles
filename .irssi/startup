@@ -1,4 +1,4 @@
-script load chanact.pl
+script load adv_windowlist.pl
 script load mouse.pl
 script load nil-nickcolor.pl
 script load nil-openurl.pl

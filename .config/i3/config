@@ -22,7 +22,7 @@
 # exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
 exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
-exec urxvt -name irssi -g 147x37 -e irssi &
+exec urxvt -name irssi -g 124x33 -e irssi &
 exec urxvt -name rtorrent -g 110x30 -e rtorrent &
 exec dropboxd &
 
