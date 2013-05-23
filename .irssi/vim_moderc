@@ -1,5 +1,13 @@
-map <C-h> :bprev
-map <C-l> :bnext
+map j <C-e>
+map k <C-y>
+map <C-j> <C-d>
+map <CR> <C-d>
+map <C-n> <C-d>
+map <C-k> <C-u>
+map gg /scrollback home
+map G /scrollback end
+map <C-h> /window prev
+map <C-l> /window next
 map ,1 /window 1
 map ,2 /window 2
 map ,3 /window 3
@@ -9,3 +17,14 @@ map ,6 /window 6
 map ,7 /window 7
 map ,8 /window 8
 map ,9 /window 9
+map ,10 /window 10
+map ,11 /window 11
+map ,12 /window 12
+map ,13 /window 13
+map ,14 /window 14
+map ,15 /window 15
+map ,16 /window 16
+map ,17 /window 17
+map ,18 /window 18
+map ,19 /window 19
+map ,20 /window 20

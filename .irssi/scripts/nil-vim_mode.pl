@@ -1,15 +1,11 @@
 #
-# nil-vim
+# nil-vim_mode.pl
 # Name: nil
-# Description: A haphazard fork of vim_mode.pl.
-#
-# Maps:
-#    ; -> :
-#    j/k -> C-E/Y
-#    C-n/k -> C-D/U
-# Renamed 'Insert', '%_Ex%_', and '%_Command%_' -> ' %r$*%n ','',' %b$*%n '.
-# Not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.
-# Rationale: I mapped <C-n>/k> in insert mode a la irssi default config to cycle my history, and <C-h>/l> to cycle my channels. These all fit more appropriately with my other Vim applications as well, c.f., zathura, zsh, ranger, pentadactyl, and vim.
+# Description: A haphazard fork of vim_mode.pl, to implement things I can't do with vim_moderc.
+# Changelog:
+# * Mapped ; to :.
+# * Renamed 'Insert', '%_Ex%_', and '%_Command%_' -> ' %r$*%n ','',' %b$*%n '.
+#       (Not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
 #
 
 =pod
@@ -767,13 +763,13 @@ my $commands
      D => { char => 'D', func => \&cmd_D, type => C_NORMAL,
             repeatable => 1, no_operator => 1 },
      # scrolling
-     "j" => { char => 'j', func => \&cmd_ctrl_d, type => C_NORMAL,
+     "\x05" => { char => '<C-E>', func => \&cmd_ctrl_d, type => C_NORMAL,
                  no_operator => 1 },
-     "\x0A" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
+     "\x04" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
                  needs_count => 1, no_operator => 1 },
-     "k" => { char => 'k', func => \&cmd_ctrl_u, type => C_NORMAL,
+     "\x19" => { char => '<C-Y>', func => \&cmd_ctrl_u, type => C_NORMAL,
                  no_operator => 1 },
-     "\x0B" => { char => '<C-U>', func => \&cmd_ctrl_u, type => C_NORMAL,
+     "\x15" => { char => '<C-U>', func => \&cmd_ctrl_u, type => C_NORMAL,
                  needs_count => 1, no_operator => 1 },
      "\x06" => { char => '<C-F>', func => \&cmd_ctrl_f, type => C_NORMAL,
                  no_operator => 1 },
@@ -793,10 +789,9 @@ my $commands
                no_operator => 1 },
      '.'  => { char => '.', type => C_NORMAL, repeatable => 1,
                no_operator => 1 },
+     ':'  => { char => ':', type => C_NORMAL },
      ';'  => { char => ';', type => C_NORMAL },
-     #"\n" => { char => '<CR>', type => C_NORMAL }, # return
-     "\n" => { char => '<C-D>', func => \&cmd_ctrl_d, type => C_NORMAL,
-                 needs_count => 1, no_operator => 1 },
+     "\n" => { char => '<CR>', type => C_NORMAL }, # return
      # undo
      'u'    => { char => 'u',     func => \&cmd_undo, type => C_NORMAL,
                  no_operator => 1 },
@@ -1226,29 +1221,45 @@ sub cmd_k {
 sub cmd_G {
     my ($count, $pos, $repeat) = @_;
 
-    my $window = Irssi::active_win();
-    # no count = half of screen
-    if (not defined $count) {
-        $count = $window->{height} / 2;
+    if (Irssi::version < 20090117) {
+        _warn("G and gg not supported in irssi < 0.8.13");
+        return;
     }
-    $window->view()->scroll(10000);
 
-    Irssi::statusbar_items_redraw('more');
+    my @history = Irssi::active_win->get_history_lines();
+
+    # Go to the current input line if no count was given or it's too big.
+    if (not $count or $count - 1 >= scalar @history) {
+        if (defined $history_input and defined $history_pos) {
+            _input($history_input);
+            _input_pos($history_pos);
+            $history_index = undef;
+        }
+        return;
+    } else {
+        # Save input line so it doesn't get lost.
+        if (not defined $history_index) {
+            $history_input = _input();
+            $history_pos = _input_pos();
+        }
+        $history_index = $count - 1;
+    }
+
+    my $history = $history[$history_index];
+    # History is not in UTF-8!
+    if ($settings->{utf8}->{value}) {
+        $history = decode_utf8($history);
+    }
+    _input($history);
+    _input_pos(0);
+
     return (undef, undef);
 }
 
 sub cmd_gg {
     my ($count, $pos, $repeat) = @_;
 
-    my $window = Irssi::active_win();
-    # no count = half of screen
-    if (not defined $count) {
-        $count = $window->{height} / 2;
-    }
-    $window->view()->scroll(-10000);
-
-    Irssi::statusbar_items_redraw('more');
-    return (undef, undef);
+    return cmd_G(1, $pos, $repeat);
 }
 
 sub cmd_f {
@@ -2629,11 +2640,11 @@ sub vim_mode_cmd {
 
     my $mode_str = '';
     if ($mode == M_INS) {
-        $mode_str = ' %r~%n ';
+        $mode_str = '%r~%n ';
     } elsif ($mode == M_EX) {
-        $mode_str = '';
+        $mode_str = '%_Ex%_';
     } else {
-        $mode_str = ' %b~%n ';
+        $mode_str = '%b~%n ';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
             my $partial = '';
