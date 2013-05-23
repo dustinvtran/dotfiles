@@ -7,6 +7,7 @@
 
 # firefox gets weird block to the right on occasion.
 # gvim has a funny bottom and right margin.
+# when i open some terminal apps, like 'l devices' it doesn't open in the workspace that I initialized it in, but rather the workspace I'm currently in.
 
 # Wishlist:
 # Have workspaces alphabetically ordered (or customizable order). Right now it can
@@ -25,6 +26,7 @@ exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 124x33 -e irssi &
 exec urxvt -name rtorrent -g 110x30 -e rtorrent &
 exec dropboxd &
+exec rssdler -d &
 
 # }}}
 # Windows {{{
