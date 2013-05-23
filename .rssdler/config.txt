@@ -1,0 +1,33 @@
+#
+# rssdler dotfile
+# ~/.rssdler/config.txt
+# Name: nil
+#
+
+# Refer to the help/commented config for explanation of options.
+#########################################################
+[global]
+#########################################################
+
+downloadDir = /home/nil/Dropbox
+workingDir = /home/nil/.rssdler
+minSize = 10
+maxSize = 0
+log = 3
+logFile = /home/nil/rssdlerlog.log
+verbose = 3
+scanMins = 5
+sleepTime = 5
+runOnce = False
+urllib = True
+
+#########################################################
+[nyaa]
+#########################################################
+
+link = http://www.nyaa.eu/?page=rss
+#maxSize =
+#minSize =
+#directory =
+regextrue = (UTW-Vivid.Suisei.no.Gargantia|gg.Aku.no.Hana|gg.Shingeki.no.Kyojin|gg.Hentai.Ouji|Commie.Hataraku.Maou-sama|UTW-Mazui.Railgun|Commie.Yahari)
+regexfalse = (480p)

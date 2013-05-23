@@ -6,6 +6,7 @@
 # * Commented out line 37 on original and added the next line.
 # * Commented out line 42 on original and added the next line.
 # * Commented out line 39 on original and added the next line.
+# * Commented out line 269 on original.
 #
 
 # OpenURL by Stefan'tommie' Tomanek
@@ -212,7 +213,7 @@ sub add_note ($$$) {
     }
     if (defined $witem) {
 	#$witem->print("%R>>%n OpenURL ".$num, MSGLEVEL_CLIENTCRAP);
-	$witem->print("          %nURL %Y=%n ".$num, MSGLEVEL_CLIENTCRAP);
+	$witem->print("          %gURL %Y=%g ".$num, MSGLEVEL_CLIENTCRAP);
 	# create a unique ID for the mark
 	my $foo = time().'-'.int(rand()*1000);
 	$witem->window()->view()->set_bookmark_bottom("openurl_".$num.'-'.$foo);
@@ -281,4 +282,4 @@ foreach my $cmd ('topics', 'clear', 'paste', 'help') {
 }
 Irssi::command_bind('openurl', 'cmd_openurl');
 
-print CLIENTCRAP '%B>>%n '.$IRSSI{name}.' '.$VERSION.' loaded: /openurl help for help';
+#print CLIENTCRAP '%B>>%n '.$IRSSI{name}.' '.$VERSION.' loaded: /openurl help for help';

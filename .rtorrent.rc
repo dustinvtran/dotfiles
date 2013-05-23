@@ -8,8 +8,9 @@
 # rss feed, queuing them to top
 # dont upload at all, and stop auto-seeding unless i choose to
 # Set file priorities under subfiles and general downloads
-# Set gmail notification.
 # Set default directory to ext HD if plugged in, ~/nil if not.
+# Delete .torrents after initializing them, not that default behavior where deletion = stop torrent.
+# Set notification system to a certain directory so that it pings to dzen2 like irssi does.
 
 # Wishlist:
 # Vi(m) keybindings, e.g., hjkl, gg/G (some patches exist, but minimal support)
