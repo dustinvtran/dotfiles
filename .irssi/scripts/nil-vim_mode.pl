@@ -6,6 +6,7 @@
 # * Mapped ; to :.
 # * Renamed 'Insert', '%_Ex%_', and '%_Command%_' -> ' %r$*%n ','',' %b$*%n '.
 #       (Not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
+# * Commented out <C-w>j/k so that I can use <C-w> without waiting for the timeout (mapping them to <Nop> in vim_moderc didn't work).
 #
 
 =pod
@@ -776,10 +777,10 @@ my $commands
      "\x02" => { char => '<C-B>', func => \&cmd_ctrl_b, type => C_NORMAL,
                  no_operator => 1 },
      # window switching
-     "\x17j" => { char => '<C-W>j', func => \&cmd_ctrl_wj, type => C_NORMAL,
-                  no_operator => 1 },
-     "\x17k" => { char => '<C-W>k', func => \&cmd_ctrl_wk, type => C_NORMAL,
-                  no_operator => 1 },
+     #"\x17j" => { char => '<C-W>j', func => \&cmd_ctrl_wj, type => C_NORMAL,
+                  #no_operator => 1 },
+     #"\x17k" => { char => '<C-W>k', func => \&cmd_ctrl_wk, type => C_NORMAL,
+                  #no_operator => 1 },
      "\x1e"  => { char => '<C-^>',  func => \&cmd_ctrl_6,  type => C_NORMAL,
                   no_operator => 1 },
      # misc
@@ -2640,11 +2641,11 @@ sub vim_mode_cmd {
 
     my $mode_str = '';
     if ($mode == M_INS) {
-        $mode_str = '%r~%n ';
+        $mode_str = ' %r~%n ';
     } elsif ($mode == M_EX) {
         $mode_str = '%_Ex%_';
     } else {
-        $mode_str = '%b~%n ';
+        $mode_str = ' %b~%n ';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
             my $partial = '';
