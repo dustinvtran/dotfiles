@@ -1,0 +1,11 @@
+map <C-h> :bprev
+map <C-l> :bnext
+map ,1 /window 1
+map ,2 /window 2
+map ,3 /window 3
+map ,4 /window 4
+map ,5 /window 5
+map ,6 /window 6
+map ,7 /window 7
+map ,8 /window 8
+map ,9 /window 9
