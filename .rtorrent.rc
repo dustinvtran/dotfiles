@@ -5,7 +5,6 @@
 #
 
 # To-DO:
-# rss feed, queuing them to top
 # dont upload at all, and stop auto-seeding unless i choose to
 # Set file priorities under subfiles and general downloads
 # Set default directory to ext HD if plugged in, ~/nil if not.

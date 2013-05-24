@@ -209,7 +209,7 @@ abstracts = {
   sb_act_text = "%w$*";
   # public message
   # This one changes the color of windows with new chat text!
-  sb_act_msg = "%g$*";
+  sb_act_msg = "%B$*";
   # ilight
   # This one changes the color of windows with new highlighted text!
   #     This is also configurable per hilight via built-in commands.
@@ -229,7 +229,7 @@ formats = {
 
     # Server Messages.
     join = "%K{channick $[-13]0} %G>%K";
-    kick = "%K{channick $[-13]0} %R<%c kicked by {nick $2} [{reason $3}]";
+    kick = "%K{channick $[-13]0} %R<%c kicked by {nick $2} [%c{reason %c$3}]";
     # Likely better to see the part/quit/quit_once reason (ping timeout, general quit message, just
     # parting the channel, etc.), but I rarely require them and I prefer the minimal arrow aesthetic.
     #part = "%K{channick $[-13]0} %R<%K {channel $2}";
@@ -258,7 +258,7 @@ formats = {
 
     # Last line in /names.
     endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
-    pubmsg = "{pubmsgnick $2 {pubnick \00313$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00306$[-11]0}}$1";
   };
   #}}}
   "fe-common/irc" = {
