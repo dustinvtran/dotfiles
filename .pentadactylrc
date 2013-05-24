@@ -5,19 +5,30 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
-" j/G/gg/PgDown/etc don't work on some sites, such as github primarily on occasionally things like ArchWiki.
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
-" When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
+" using digits autogoes to a url page. stahp. let them use google.
+" rehash shortcut breaks
 " Make all colors gray. It's a weird blotch right now of white and gray.
+"    turn the highlighted search term as yellow.
+" the hint links don't work so well with that font, e.g., I vs l. Also pent hint boxes overlap and obscure some letters.
+" When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
 " Jumps in same buffer without changing pages. (same problem in Vim)
-" turn the highlighted search term as yellow.
-" the hint links don't work so well with that font, e.g., I vs l.
 
 " some way to navigate all my bookmarks with keyboards, i.e., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
 " how to work with recently closed tabs/windows, and viewing them, as well as bunch of "back"'s history?
+
+" Wishlist:
+" True Bookmark support.
+"   No -folder option when adding bookmarks through :bmark.
+"   Better navigation through :bmarks, c.f., through folders with GUI.
+" Same with history dialog.
+" Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
+" Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
+" Not clear when I'm in text edit mode during cmd-line, and how to escape it.
+" I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
 
 " }}}
 " Settings {{{
@@ -53,7 +64,7 @@ set showstatuslinks=command
 set showtabline=multitab
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:as<CR>
+set passkeys+=reddit.com:JKasecCwWq<CR>
 set passkeys+=boards.4chan.org:qQ<C-q><C-s>wWmbJKxz<CR>
 
 " Tab-Options Plugin.
@@ -91,6 +102,10 @@ map -modes=n <C-u> <Nop>
 map -modes=n <C-y> <Nop>
 map -modes=n <C-n> <Nop>
 map -modes=n <C-p> <Nop>
+" I hit this one way too f--ing often.
+map -modes=n gf <Nop>
+map -modes=n gh <Nop>
+map -modes=n -builtin gs gf
 
 map -modes=c <C-c> <Nop>
 map -modes=c <C-]> <Nop>
@@ -251,6 +266,7 @@ map -modes=n -builtin <Leader>p <C-V><C-S-p>
 
 " Tab Groups.
 map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
+map -modes=n -builtin <Leader>l t http://myanimelist.net/animelist/nil-&show=0&order=4<CR>gT
 map -modes=n -builtin <Leader>g t https://mail.google.com/mail/u/1/#inboxhttps://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
 map -modes=n -builtin <Leader>n t nyaa maou-sama | nyaa yahari | nyaa railgun | nyaa aku no hana | nyaa shingeki | nyaa hentai ouji | nyaa gargantia<CR>gT
 
@@ -292,20 +308,10 @@ map -modes=n -builtin <Leader>s :set guioptions+=s<CR>
 map -modes=n -builtin <Leader>d :set guioptions-=s<CR>
 
 " }}}
-" Macros & Comments {{{
+" Macros {{{
 " -----------------------------------------------------------------------------
 
 cabbreviate pent pentadactyl
-
-" Pentadactyl Wishlist:
-" Bookmark support.
-"   No -folder option when adding bookmarks through :bmark.
-"   Better navigation through :bmarks, c.f., through folders with GUI.
-" Same with history dialog.
-" Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
-" Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
-" Not clear when I'm in text edit mode during cmd-line, and how to escape it.
-" I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
 
 " vim:filetype=pentadactyl
 " }}}

@@ -22,11 +22,14 @@ syndaemon -k -i 1 -d &
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
 xmodmap -e 'add Control = Control_L'
-#notsure if i need this one. xcape's alt_r works, but it implements — regardless
 #xmodmap -e 'keycode 108 = Alt_R'
 #xmodmap -e 'add Alt = Alt_R'
+# I could combine all Xcape commands with ;, though issuing them separately in case only one breaks for now.
+#xcape -e 'Control_L=Escape;Shift_L=parenleft;Shift_R=parenright'
 xcape -e 'Control_L=Escape'
-xcape -e 'Alt_R=emdash'
+xcape -e 'Shift_L=parenleft'
+xcape -e 'Shift_R=parenright'
+#xcape -e 'Alt_R=emdash'
 xrdb -merge ~/.Xresources
 #redshift -l 37.9:-122.3 -t 6500:3700 &
 

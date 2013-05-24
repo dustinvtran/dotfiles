@@ -14,7 +14,7 @@ workingDir = /home/nil/.rssdler
 minSize = 10
 maxSize = 0
 log = 3
-logFile = /home/nil/rssdlerlog.log
+logFile = /home/nil/.rssdler/rssdlerlog.log
 verbose = 5
 # Testing 5 for now just to see how it works out
 #verbose = 3
