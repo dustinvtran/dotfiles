@@ -7,51 +7,51 @@
 " -----------------------------------------------------------------------------
 
 " LaTeX:
-"* Start external command in background.. needed for compiling and opening pdf files.
-"* Allow rubber to compile filenames with spaces.
-"* Get error parser (rubber-info) and autobuild.
+" Start external command in background.. needed for compiling and opening pdf files.
+" Allow rubber to compile filenames with spaces.
+" Get error parser (rubber-info) and autobuild.
 
-"* Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
+" Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
 "       Which ones should be via LaTeX and others via vim?
-"* Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.
-"* I can't run tikz's external, but winedt can??
+" Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.
+" I can't run tikz's external, but winedt can??
 
 " Plugins:
-"* Ctrl-P: get it working.
+" Ctrl-P: get it working.
 
-"* Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
-"* NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
-"* NERDTree: see stuff.
-"* SetColors:   not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
-"* Powerline:   weird blinking when moving to folded text.
-"               change default normal mode (black) color to be transparent, and change colors for other modes (visual, operator, cmd).
-"* Repeat: not working.
-"* Snippets: Fix the auto-reload command to not be so computation heavy.
-"   How to do snippets inside a snippet? Or perhaps manage more carefully if not.
-"* YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
+" Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
+" NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
+" NERDTree: see stuff.
+" SetColors:   not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
+" Powerline:   weird blinking when moving to folded text.
+"              change default normal mode (black) color to be transparent, and change colors for other modes (visual, operator, cmd).
+" Repeat: not working.
+" Snippets: Fix the auto-reload command to not be so computation heavy.
+"  How to do snippets inside a snippet? Or perhaps manage more carefully if not.
+" YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
 
 " Misc:
-"* The load last file doesn't really work as intended, but it does load *some* last files.
-"* Something weird with having to press the <ENTER> prompt when opening and certain files.
-"* Keybind to open help at the last location that I closed it in.
+" The load last file doesn't really work as intended, but it does load *some* last files.
+" Something weird with having to press the <ENTER> prompt when opening and certain files.
+" Keybind to open help at the last location that I closed it in.
 
-"* Sourcing .vimrc makes it go awry.
-"* Make InsertCharFunction() an atomic operator, e.g., '.'-able.
-"* C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
-"    Stuff about jump lists vs normal motion.
-"* Jump to paragraphs? One that includes <br><br> for html.
-"* Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
-"* Enter url function.
-"* If in same workspace as another Vim file, somehow combine the two into one Vim window, with it split.
-"* Reloading vim doesn't work for everything, namely newly omitted mappings and settings.
-"* Fix $...$ in case there are none.
-"* Have cursor position returned to exact position (i.e. column) not just line position.
-"* The "jump to next/last sentence" doesn't always work as intended.
+" Sourcing .vimrc makes it go awry.
+" Make InsertCharFunction() an atomic operator, e.g., '.'-able.
+" C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
+"   Stuff about jump lists vs normal motion.
+" Jump to paragraphs? One that includes <br><br> for html.
+" Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
+" Enter url function.
+" If in same workspace as another Vim file, somehow combine the two into one Vim window, with it split.
+" Reloading vim doesn't work for everything, namely newly omitted mappings and settings.
+" Fix $...$ in case there are none.
+" Have cursor position returned to exact position (i.e. column) not just line position.
+" The "jump to next/last sentence" doesn't always work as intended.
 
 " Ideas:
-"* Figure out which <C-v> or <C-p> you ended up with.
-"* Consider VimSpeed for quicker inline navigation.
-"* Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
+" Figure out which <C-v> or <C-p> you ended up with.
+" Consider VimSpeed for quicker inline navigation.
+" Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
 " }}}
 " Settings {{{
@@ -151,7 +151,7 @@ function! DDWrapper()
 endfunction
 
 " }}}
-nnoremap dd :call DDWrapper()<CR>:echom ""<CR>
+nnoremap <silent> dd :call DDWrapper()<CR>:echom ""<CR>
 
 " When 'cc'ing blank lines, don't yank them into the register. {{{
 
@@ -164,7 +164,7 @@ function! CCWrapper()
 endfunction
 
 " }}}
-nnoremap cc :call CCWrapper()<CR>:echom ""<CR>
+nnoremap <silent> cc :call CCWrapper()<CR>:echom ""<CR>
 
 " Restore cursor to previous position and auto-open last file. {{{
 
@@ -214,7 +214,7 @@ function! Browser()
 endfunction
 
 " }}}
-nnoremap <Leader>] :call Browser()<CR>
+nnoremap <silent> <Leader>] :call Browser()<CR>
 
 " Fold all toggle. {{{
 
@@ -552,9 +552,6 @@ vnoremap <Leader>D "_D
 nnoremap <Leader>x "_dl
 vnoremap <Leader>x "_dl
 
-" Open list of recently edited files.
-nnoremap <silent> <Leader>o :browse oldfiles<CR>
-
 " Toggle highlight search.
 " They both have their uses. I like having not seen highlights until I want them to appear.
 "nnoremap <silent> <Leader><Space> :set nohlsearch<CR>
@@ -784,14 +781,14 @@ noremap <C-p> <C-i>
 
 " MarkMyWords {{{
 
-nnoremap <Leader>h :MMWSelect helpmark<CR>
+nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 
 " }}}
 
 " NERDCommenter {{{
 
 " To keep visual mode on. Technically, <BS> isn't healthy here since I merely need an empty key there, but I dunno how to do it.
-vmap <silent> <Leader>cc <plug>NERDCommenterComment<BS>gv
+vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth<BS>gv
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy<BS>gv
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment<BS>gv
 " For commenting Snippets plugin.
