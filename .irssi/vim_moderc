@@ -13,7 +13,7 @@ map l /window next
 map <C-w> /window close
 map <C-r> /reload
 map q /quit
-map <Leader>n /names
+map <Leader>n /anames
 map <Leader>1 /window 1
 map <Leader>2 /window 2
 map <Leader>1<Leader> /window 1

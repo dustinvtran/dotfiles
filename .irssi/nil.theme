@@ -153,13 +153,14 @@ abstracts = {
   netjoin = "      Netjoin %Y= %b\"$*\"%n";
 
   # /names list
-  names_prefix = "                ";
-  names_nick = "%_%R$0%_%n$1- ";
-  #names_nick_op = "{names_nick $*}";
-  #names_nick_halfop = "{names_nick $*}";
-  #names_nick_voice = "{names_nick $*}";
-  names_users = "       %MServer%n %Y=%n names(%b$1%n)";
-  names_channel = "\"%b$*\"%n";
+  # No longer using /names. Using /anames instead.
+  #names_prefix = "                ";
+  #names_nick = "%_%R$0%_%n$1- ";
+  ##names_nick_op = "{names_nick $*}";
+  ##names_nick_halfop = "{names_nick $*}";
+  ##names_nick_voice = "{names_nick $*}";
+  #names_users = "       %MServer%n %Y=%n names(%b$1%n)";
+  #names_channel = "\"%b$*\"%n";
 
   # DCC
   #dcc = "%g$*%n";
@@ -257,7 +258,9 @@ formats = {
     new_topic = "        %ctopic %Y= %|%B'$2' %non %b$1%n%K [set by {nick %y$0}]";
 
     # Last line in /names.
-    endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
+    # No longer using /names. Using /anames instead.
+    #endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
+
     pubmsg = "{pubmsgnick $2 {pubnick \00312$[-11]0}}$1";
   };
   #}}}

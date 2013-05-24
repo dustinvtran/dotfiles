@@ -63,6 +63,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'benjifisher/matchit.zip'
 Bundle 'bufexplorer.zip'
+Bundle 'dahu/MarkMyWords'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
@@ -778,6 +779,12 @@ nnoremap <C-u> :GundoToggle<CR>
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>.
 noremap <C-p> <C-i>
+
+" }}}
+
+" MarkMyWords {{{
+
+nnoremap <Leader>h :MMWSelect helpmark<CR>
 
 " }}}
 
