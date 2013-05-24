@@ -47,10 +47,11 @@
 "* Fix $...$ in case there are none.
 "* Have cursor position returned to exact position (i.e. column) not just line position.
 "* The "jump to next/last sentence" doesn't always work as intended.
-"
-"Consideration:
+
+" Ideas:
 "* Figure out which <C-v> or <C-p> you ended up with.
 "* Consider VimSpeed for quicker inline navigation.
+"* Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
 " }}}
 " Settings {{{
@@ -235,7 +236,7 @@ noremap <silent> <S-Space> :call FoldAllToggle()<CR>
 " This doesn't quite work as intended, but whatever; it shall do for now.
 augroup auto_fold
     autocmd!
-    autocmd BufEnter * call FoldAllToggle()
+    autocmd BufNew * call FoldAllToggle()
 augroup END
 
 " Smooth scrolling. {{{

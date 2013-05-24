@@ -6,10 +6,14 @@ map <C-n> <C-d>
 map <C-k> <C-u>
 map gg /scrollback home
 map G /scrollback end
-map n /names
-map <C-h> /window prev
-map <C-l> /window next
+map <C-h> h
+map <C-l> l
+map h /window prev
+map l /window next
 map <C-w> /window close
+map <C-r> /reload
+map <C-d> /quit
+map <Leader>n /names
 map <Leader>1 /window 1
 map <Leader>2 /window 2
 map <Leader>1<Leader> /window 1
@@ -42,15 +46,15 @@ map /6 /openurl 6
 map /7 /openurl 7
 map /8 /openurl 8
 map /9 /openurl 9
-map /1<CR> /openurl 1
-map /2<CR> /openurl 2
-map /3<CR> /openurl 3
-map /4<CR> /openurl 4
-map /5<CR> /openurl 5
-map /6<CR> /openurl 6
-map /7<CR> /openurl 7
-map /8<CR> /openurl 8
-map /9<CR> /openurl 9
+map /1/ /openurl 1
+map /2/ /openurl 2
+map /3/ /openurl 3
+map /4/ /openurl 4
+map /5/ /openurl 5
+map /6/ /openurl 6
+map /7/ /openurl 7
+map /8/ /openurl 8
+map /9/ /openurl 9
 map /10 /openurl 10
 map /11 /openurl 11
 map /12 /openurl 12
