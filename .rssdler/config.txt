@@ -31,5 +31,5 @@ link = http://www.nyaa.eu/?page=rss
 #maxSize =
 #minSize =
 #directory =
-regextrue = (UTW-Vivid.Suisei.no.Gargantia|gg.Aku.no.Hana|gg.Shingeki.no.Kyojin|gg.Hentai.Ouji|Commie.Hataraku.Maou-sama|UTW-Mazui.Railgun|Commie.Yahari)
-regexfalse = (480p)
+regExTrue = (UTW.*Vivid.*Suisei.*no.*Gargantia|gg.*Aku.*no.*Hana|gg.*Shingeki.*no.*Kyojin|gg.*Hentai.*Ouji|Commie.*Hataraku.*Maou.*sama|UTW.*Mazui.*Railgun|Commie.*Yahari)
+regExFalse = (480p)

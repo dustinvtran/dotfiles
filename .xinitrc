@@ -22,8 +22,9 @@ syndaemon -k -i 1 -d &
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
 xmodmap -e 'add Control = Control_L'
-xmodmap -e 'keycode 108 = Alt_R'
-xmodmap -e 'add Alt = Alt_R'
+#notsure if i need this one. xcape's alt_r works, but it implements — regardless
+#xmodmap -e 'keycode 108 = Alt_R'
+#xmodmap -e 'add Alt = Alt_R'
 xcape -e 'Control_L=Escape'
 xcape -e 'Alt_R=emdash'
 xrdb -merge ~/.Xresources
