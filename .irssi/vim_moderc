@@ -12,7 +12,7 @@ map h /window prev
 map l /window next
 map <C-w> /window close
 map <C-r> /reload
-map <C-d> /quit
+map q /quit
 map <Leader>n /names
 map <Leader>1 /window 1
 map <Leader>2 /window 2
