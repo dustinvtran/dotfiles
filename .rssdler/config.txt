@@ -5,11 +5,11 @@
 #
 
 # Refer to the help/commented config for explanation of options.
+# The filepaths don't require escaping special characters.
 #########################################################
 [global]
 #########################################################
 
-# The filepaths don't require escaping special characters.
 downloadDir = /home/nil/Dropbox/rtorrent/[Ext] Anime - Spring 2013
 workingDir = /home/nil/.rssdler
 minSize = 10

@@ -1,4 +1,3 @@
-# Write your default config options here!
-# Make all your keybindings work.
 [default]
 joystick=no
+#input=nodefault-bindings
