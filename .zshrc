@@ -399,6 +399,8 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 alias ping="ping -c 5"                  # Ping 5 packets, not unlimited.
 alias df="df -h"                        # Display sizes in human readable format.
 alias du="du -h -c"                     # Display sizes in human readable format, and total.
+alias mount="sudo mount"                # Don't require prepending sudo.
+alias umount="sudo umount"              # Don't require prepending sudo.
 alias poweroff="sudo poweroff"          # Don't require prepending sudo.
 alias reboot="sudo reboot"              # Don't require prepending sudo.
 alias s="nocorrect sudo "               # Don't prompt me!
