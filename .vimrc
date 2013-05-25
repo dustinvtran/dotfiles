@@ -239,6 +239,10 @@ augroup auto_fold
     autocmd!
     autocmd BufNew * call FoldAllToggle()
 augroup END
+" This one is just for the man pages, as a temporary workaround yet again.
+"if !has('gui_running')
+    "call FoldAllToggle()
+"endif
 
 " Smooth scrolling. {{{
 

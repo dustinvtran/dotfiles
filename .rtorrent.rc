@@ -11,7 +11,6 @@
 # Ability to dynamically set max # of torrent downloads.
 # Deletion of torrents in interface not working (^D does nothing).
 #   Currently working around this by deleting manually.
-# How to set rssdler for specific files (e.g. exclude 480/720 on Horrible Subs).
 # Auto-set different ratios on BakaBT downloads.
 #   Maybe by downloading them all into a different watch directory and changing ratios accordingly? Would have wished for a tracker solution.
 
@@ -50,7 +49,7 @@ ratio.min.set=0
 ratio.max.set=0
 
 #########################################################
-# File Paths and Autocommands
+# File Paths and Schedules
 #########################################################
 
 #scgi_port = localhost:5000
