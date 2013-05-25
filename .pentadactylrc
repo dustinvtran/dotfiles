@@ -266,9 +266,13 @@ map -modes=n -builtin <Leader>p <C-V><C-S-p>
 
 " Tab Groups.
 map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
-map -modes=n -builtin <Leader>l t http://myanimelist.net/animelist/nil-&show=0&order=4<CR>gT
 map -modes=n -builtin <Leader>g t https://mail.google.com/mail/u/1/#inboxhttps://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
 map -modes=n -builtin <Leader>n t nyaa maou-sama | nyaa yahari | nyaa railgun | nyaa aku no hana | nyaa shingeki | nyaa hentai ouji | nyaa gargantia<CR>gT
+
+" Bookmarks.
+map -modes=n -builtin <Leader>r t http://reddit.com<CR>gT
+map -modes=n -builtin <Leader>4 t http://boards.4chan.org/g/<CR>gT
+map -modes=n -builtin <Leader>l t http://myanimelist.net/animelist/nil-&show=0&order=4<CR>gT
 
 " }}}
 " Functions {{{
