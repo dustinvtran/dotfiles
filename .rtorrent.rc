@@ -56,14 +56,11 @@ session = ~/.config/nil/rtorrent-session
 schedule = watch_directory_1,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Anime/*.torrent,d.set_custom1=/mnt/ext/Media/Anime/\[Backlog\]"
 schedule = watch_directory_2,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Anime\\ -\\ Spring\\ 2013/*.torrent,d.set_custom1=/mnt/ext/Media/Anime/\[Backlog\]/\[Spring\\ 2013\]"
 schedule = watch_directory_3,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Manga/*.torrent,d.set_custom1=/mnt/ext/Media/Manga/\[Backlog\]"
-schedule = watch_directory_4,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Movies/*.torrent,d.set_custom1=/mnt/ext/Media/Movies/\[Backlog\]"
+schedule = watch_directory_4,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Film/*.torrent,d.set_custom1=/mnt/ext/Media/Film/\[Backlog\]"
 schedule = watch_directory_5,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ TV/*.torrent,d.set_custom1=/mnt/ext/Media/TV/\[Backlog\]"
 schedule = watch_directory_6,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Visual\\ Novel/*.torrent,d.set_custom1=/mnt/ext/Media/Visual\\ Novel/\[Backlog\]"
 schedule = watch_directory_7,10,10,"load_start=~/Dropbox/rtorrent/Music/*.torrent,d.set_custom1=~/nil/Media/Music"
 schedule = watch_directory_8,10,10,"load_start=~/Dropbox/rtorrent/*.torrent,d.set_custom1=~/nil/Media"
-
-#My old. Delete if this works.
-#schedule = watch_directory,5,5,load_start=~/Dropbox/*.torrent
 
 # On completion, move the torrent to the directory from custom1.
 system.method.set_key =event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ;execute=mv,-u,$d.get_base_path=,$d.get_custom1="
