@@ -92,4 +92,4 @@ root ALL=(ALL) ALL
 ## (the '#' here does not indicate a comment)
 #includedir /etc/sudoers.d
 
-nil arch =NOPASSWD: /sbin/shutdown -h now,/sbin/halt,/sbin/poweroff,/sbin/reboot
+nil arch =NOPASSWD: /sbin/shutdown -h now,/sbin/halt,/sbin/poweroff,/sbin/reboot,/bin/mount,/bin/umount
