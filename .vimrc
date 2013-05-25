@@ -668,8 +668,8 @@ nnoremap <c-l> <C-w>w
 " Tabs:
 noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
-noremap <silent> <C-d> :q<CR>
-noremap! <silent> <C-d> :q<CR>
+noremap <silent> <C-w> :q<CR>
+noremap! <silent> <C-w> :q<CR>
 nnoremap <silent> H :tabp<CR>
 nnoremap <silent> L :tabn<CR>
 
