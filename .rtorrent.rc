@@ -6,21 +6,18 @@
 
 # To-DO:
 # * Set notification system to a certain directory so that it pings to dzen2 like irssi does.
-
-# Double-check:
-# torrents stop after completed unless specified otherwise.
-# Delete .torrents after done/initialized with them.
-
 # Ability to set file priorities under subfiles and general downloads.
+# Deletion of torrents in interface not working (^D does nothing).
 # How to set rssdler for specific files (e.g. exclude 480/720 on Horrible Subs).
-# Set default directory to ext HD if plugged in, ~/nil if not.
-# Set up different ratios on BakaBT downloads, e.g., by downloading them all into a different watch directory and changing ratios accordingly.
+# Auto-set different ratios on BakaBT downloads.
+#   Maybe by downloading them all into a different watch directory and changing ratios accordingly? Would have wished for a tracker solution.
 
 # Wishlist:
 # Native vi(m) keybindings, e.g., hjkl, gg/G (some patches exist, but minimal support)
 # Customizable colors (some patches exist, but minimal support)
 # Change interface columns (#, name, size, progress gui (current status, % completed), down speed, up speed, ETA, Seeders, Peers)
 # Native notification system a la applet/widgets, not just mail.
+
 
 # Enable the web interface for web GUI front-ends.
 #scgi_port = localhost:5000
@@ -46,21 +43,34 @@ ratio.min.set=0
 ratio.max.set=0
 
 # Default directory to save the downloaded torrents.
-directory = ~/nil
+directory = ~/nil/Media/[Incomplete]
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
 session = ~/.config/nil/rtorrent-session
 
-# Watch a directory for new torrents, restart torrents that have been
-# copied back and stop those that have been deleted. Multiple watch
-# directories supported.
-schedule = watch_directory,5,5,load_start=~/Dropbox/*.torrent
-#schedule = tied_directory,10,10,start_tied=
-#schedule = untied_directory,5,5,stop_untied=
+# Watch a directory for new torrents. Multiple watch directories supported.
+# You need to escape special characters with \, and a space with \\.
+# Having tried both, apparently [ and \[ both work for a real bracket character.
+schedule = watch_directory_1,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Anime/*.torrent,d.set_custom1=/mnt/ext/Media/Anime/\[Backlog\]"
+schedule = watch_directory_2,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Anime\\ -\\ Spring\\ 2013/*.torrent,d.set_custom1=/mnt/ext/Media/Anime/\[Backlog\]/\[Spring\\ 2013\]"
+schedule = watch_directory_3,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Manga/*.torrent,d.set_custom1=/mnt/ext/Media/Manga/\[Backlog\]"
+schedule = watch_directory_4,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Movies/*.torrent,d.set_custom1=/mnt/ext/Media/Movies/\[Backlog\]"
+schedule = watch_directory_5,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ TV/*.torrent,d.set_custom1=/mnt/ext/Media/TV/\[Backlog\]"
+schedule = watch_directory_6,10,10,"load_start=~/Dropbox/rtorrent/\[Ext\]\\ Visual\\ Novel/*.torrent,d.set_custom1=/mnt/ext/Media/Visual\\ Novel/\[Backlog\]"
+schedule = watch_directory_7,10,10,"load_start=~/Dropbox/rtorrent/Music/*.torrent,d.set_custom1=~/nil/Media/Music"
+schedule = watch_directory_8,10,10,"load_start=~/Dropbox/rtorrent/*.torrent,d.set_custom1=~/nil/Media"
+
+#My old. Delete if this works.
+#schedule = watch_directory,5,5,load_start=~/Dropbox/*.torrent
+
+# On completion, move the torrent to the directory from custom1.
+system.method.set_key =event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ;execute=mv,-u,$d.get_base_path=,$d.get_custom1="
 
 # Move .torrent to ~/.trash after loading it into session.
+# Supposedly not supposed to work with watchdir, but I assume that's for cases
+# when you want rtorrent to do things depending on what happens to the *.torrent.
 system.method.set_key = event.download.inserted_new,move_tor,"execute=mv,-u,$d.get_loaded_file=,~/.trash"
 
 # Close torrents when diskspace is low.

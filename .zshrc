@@ -325,6 +325,9 @@ bindkey -v
 setopt noflowcontrol
 stty -ixon
 
+# Disable use of ^D.
+stty eof undef
+
 # 1 sec <Esc> time delay? zsh pls.
 # Set to 10ms for key sequences. (Note "bindkey -rp '^['" removes the
 # availability of any '^[...' mappings, so use this instead.)

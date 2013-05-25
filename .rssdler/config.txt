@@ -9,14 +9,14 @@
 [global]
 #########################################################
 
-downloadDir = /home/nil/Dropbox
+# The filepaths don't require escaping special characters.
+downloadDir = /home/nil/Dropbox/rtorrent/[Ext] Anime - Spring 2013
 workingDir = /home/nil/.rssdler
 minSize = 10
 maxSize = 0
 log = 3
 logFile = /home/nil/.rssdler/rssdlerlog.log
 verbose = 5
-# Testing 5 for now just to see how it works out
 #verbose = 3
 scanMins = 5
 sleepTime = 5
