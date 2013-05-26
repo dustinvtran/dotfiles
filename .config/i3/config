@@ -6,16 +6,22 @@
 # Bugs/To-Do {{{
 
 # firefox gets weird block to the right on occasion.
-# gvim has a funny bottom and right margin.
 # when i open some terminal apps, like 'l devices' it doesn't open in the workspace that I initialized it in, but rather the workspace I'm currently in.
 
 # Wishlist:
 # Have workspaces alphabetically ordered (or customizable order). Right now it can
 #   only order if the workspaces are prepended by a #.
+# Icon'd/non-UTF8 workspace names.
 
 # }}}
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
+#exec conky | perl ~/.config/nil/i3-wsbar -c "dzen2 -dock -ta l -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'"
+
+# I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs.
+exec perl ~/.config/nil/i3-wsbar -c "dzen2 -w 200 -ta l -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'"
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'
+exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -ta r -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'
 
 exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
@@ -185,38 +191,35 @@ workspace τ output HDMI1
 workspace υ output HDMI1
 
 # }}}
-# Panel {{{
+# Archived - Old Panel {{{
 # -----------------------------------------------------------------------------
-# There's currently no way to get workspaces working into dzen2. Apparently there /was/ a method via i3-wsbar, but it's now depecrated and impossible to find in order to install. As a result, the best you can work with is conky piped into i3bar instead of dzen2. This is a game changer. I'll eventually switch out of i3 for a better functioning and aesthetic panel.
-# What dzen2 can do that i3bar can't:
-# * Different formatting for Conky, e.g., separate font/font sizes.
-# * Icons/anything non-UTF8.
-# * Center alignment.
+# Packages/installiations:
+# ~/.config/nil/i3-wsbar, dzen2, perl-ipc-run, perl-try-tiny, perl-anyevent-i3, perl-json-xs
 # Archived:
 # conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9' &
-
-# Preferences currently:
-# Better-rendered greek symbols, without bold (without unbolding Conky), and/or icon-d workspaces.
-# Hover/keybind-toggle widget displays and icon widgets as your notifications (irssi, gmail, rtorrent, skype).
+#
+#
+# Things i3bar can't do that dzen2 can:
+# Any support whatsoever for conky formatting (e.g. colors, font attributes, icons, etc.).
+#   Better-rendered greek symbols, without bold (without unbolding Conky), and/or icon-d workspaces.
+# Hover/clickable/keybind-toggle widget displays and icon widgets as your notifications (irssi, gmail, rtorrent, skype).
 #   * Dropdown calendar/clock below timestamp (take one of earsplits calendar widgets and change the mouseover condition to a keybind).
 #   * Gmail notifier: Gmail widget icon appearing when I have unread email, with a circled red number appearing in a corner of the icon to represent # of unread, dropdown into a mini-preview of unread mails, and clickable/keybindable 'read/spam/open/reply' on them from there (like with chrome).
-
-bar {
-    colors {
-    background #F0F0F0
-    #colorclass         border  backgr  text
-    focused_workspace   #DCDCDC #DCDCDC #000000
-    active_workspace    #DCDCDC #DCDCDC #000000
-    inactive_workspace  #F0F0F0 #F0F0F0 #000000
-    urgent_workspace    #2f343a #900000 #ffffff
-    }
-    position top
-    font pango:HelveticaNeueCom 45 Lt Bold 9
-    tray_output none
-    colors { statusline #000000 }
-    status_command conky
-}
-
+#bar {
+#    colors {
+#    background #F0F0F0
+#    #colorclass         border  backgr  text
+#    focused_workspace   #DCDCDC #DCDCDC #000000
+#    active_workspace    #DCDCDC #DCDCDC #000000
+#    inactive_workspace  #F0F0F0 #F0F0F0 #000000
+#    urgent_workspace    #2f343a #900000 #ffffff
+#    }
+#    position top
+#    font pango:HelveticaNeueCom 45 Lt Bold 9
+#    tray_output none
+#    colors { statusline #000000 }
+#    status_command conky
+#}
 # }}}
 # Application Settings {{{
 # -----------------------------------------------------------------------------
@@ -229,7 +232,7 @@ for_window [title="^Firefox Preferences$"] floating enable
 for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
-# A desultory, haphazard method for a calendar "dropdown".
+# A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
 for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 315px
 bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
 

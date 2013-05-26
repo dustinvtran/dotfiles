@@ -30,6 +30,7 @@
 " Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
 " Not clear when I'm in text edit mode during cmd-line, and how to escape it.
 " I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
+" No support for <Leader><Leader> (though <Leader>,> works.
 
 " }}}
 " Settings {{{
@@ -75,7 +76,8 @@ set tabopen=link:end,orphan:end,external:end
 " This is the same as my EasyMotion's default except that now 'h' is at the far-left, so it indexes properly.
 set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
 
-"set! general.smoothScroll=false
+" I have no idea why this one resets back to true once in a while.
+set! general.smoothScroll=false
 
 " }}}
 " Mappings - Unmapped {{{
@@ -311,7 +313,7 @@ map -modes=n -builtin S :giki<Space>
 
 " Toggle statusline (to see %/url).
 map -modes=n -builtin <Leader>s :set guioptions+=s<CR>
-map -modes=n -builtin <Leader>d :set guioptions-=s<CR>
+map -modes=n -builtin <Leader>,s :set guioptions-=s<CR>
 
 " }}}
 " Macros {{{

@@ -33,9 +33,8 @@
 " Misc:
 " The load last file doesn't really work as intended, but it does load *some* last files.
 " Something weird with having to press the <ENTER> prompt when opening and certain files.
-" Keybind to open help at the last location that I closed it in.
 
-" Sourcing .vimrc makes it go awry.
+" Sourcing .vimrc makes it resize.
 " Make InsertCharFunction() an atomic operator, e.g., '.'-able.
 " C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "   Stuff about jump lists vs normal motion.

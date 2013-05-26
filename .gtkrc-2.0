@@ -1,0 +1,5 @@
+# Hide the annoying bottom and right borderlines in gvim.
+style "vimfix" {
+  bg[NORMAL] = "#1D1F21" # Match this with gvim's bg in its colorscheme.
+}
+widget "vim-main-window.*GtkForm" style "vimfix"
