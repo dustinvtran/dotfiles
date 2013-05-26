@@ -471,33 +471,12 @@ alias gs="git show --name-only"
 export EDITOR=gvim
 
 # Open all man pages in Vim, under uneditable settings.
-# FoldAllToggle() lets me fold at will without having folds on startup, and 'q' gives me easy access to exit.
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'call FoldAllToggle()' -c 'nnoremap q :q<CR>' -\""
+# Adding 'q' as the universal CLI shortcut for exit.
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'nnoremap q :q<CR>' -\""
 
 # }}}
 # Functions {{{
 # -----------------------------------------------------------------------------
-
-# The all-on-one extract function.
-extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar xjf $1        ;;
-            *.tar.gz)         tar xzf $1        ;;
-            *.bz2)            bunzip2 $1        ;;
-            *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar xf $1         ;;
-            *.tbz2)           tar xjf $1        ;;
-            *.tgz)            tar xzf $1        ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-fi
-}
 
 # Echo external IP and what your NIC thinks your IP addresses are.
 exip () {

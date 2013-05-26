@@ -17,10 +17,6 @@
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
 
-# 1. Set up dzen on both docks with appropriate size.
-# 2. Set up workspaces on conky.
-# 3. Then set up applets/widgets.
-# exec conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'Consolas-10' &
 exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 124x33 -e irssi &
@@ -189,10 +185,22 @@ workspace τ output HDMI1
 workspace υ output HDMI1
 
 # }}}
-# i3bar {{{
+# Panel {{{
 # -----------------------------------------------------------------------------
+# There's currently no way to get workspaces working into dzen2. Apparently there /was/ a method via i3-wsbar, but it's now depecrated and impossible to find in order to install. As a result, the best you can work with is conky piped into i3bar instead of dzen2. This is a game changer. I'll eventually switch out of i3 for a better functioning and aesthetic panel.
+# What dzen2 can do that i3bar can't:
+# * Different formatting for Conky, e.g., separate font/font sizes.
+# * Icons/anything non-UTF8.
+# * Center alignment.
+# Archived:
+# conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9' &
 
-## Don't use i3bar. It's too simple.
+# Preferences currently:
+# Better-rendered greek symbols, without bold (without unbolding Conky), and/or icon-d workspaces.
+# Hover/keybind-toggle widget displays and icon widgets as your notifications (irssi, gmail, rtorrent, skype).
+#   * Dropdown calendar/clock below timestamp (take one of earsplits calendar widgets and change the mouseover condition to a keybind).
+#   * Gmail notifier: Gmail widget icon appearing when I have unread email, with a circled red number appearing in a corner of the icon to represent # of unread, dropdown into a mini-preview of unread mails, and clickable/keybindable 'read/spam/open/reply' on them from there (like with chrome).
+
 bar {
     colors {
     background #F0F0F0
@@ -203,11 +211,10 @@ bar {
     urgent_workspace    #2f343a #900000 #ffffff
     }
     position top
-    font pango:HelveticaNeueCom 45 Lt 9
+    font pango:HelveticaNeueCom 45 Lt Bold 9
     tray_output none
-    #tray_output primary
-    status_command i3status
     colors { statusline #000000 }
+    status_command conky
 }
 
 # }}}
@@ -222,6 +229,10 @@ for_window [title="^Firefox Preferences$"] floating enable
 for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
+# A desultory, haphazard method for a calendar "dropdown".
+for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 315px
+bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
+
 # Autoassign specific applications to a workspace.
 # For mplayer and mplayer2/smplayer respectively.
 #assign [class="MPlayer"] λ
@@ -232,7 +243,7 @@ for_window [class="mplayer"] workspace λ
 for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
-# $mod,$mod+a,z,c are available, as well as all mod2 (super).
+# $mod,$mod+a,z are available, as well as all mod2 (super).
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q exec firefox
 bindsym $mod+f exec urxvt -e ranger

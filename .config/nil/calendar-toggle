@@ -1,0 +1,11 @@
+#! /bin/bash
+
+TOGGLE=~/.config/nil/.calendartoggle
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+    urxvt -name calendar -g 20x9 -fg '#000000' -bg '#F0F0F0' --hold -e cal
+else
+    rm $TOGGLE
+    i3 kill
+fi
