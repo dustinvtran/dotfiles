@@ -16,11 +16,11 @@
 # }}}
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
-#exec conky | perl ~/.config/nil/i3-wsbar -c "dzen2 -dock -ta l -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'"
 
 # I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs.
+#    The con is that this is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
 exec perl ~/.config/nil/i3-wsbar -c "dzen2 -w 200 -ta l -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'"
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9:bold'
 exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -ta r -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'
 
 exec i3-msg 'workspace β; exec firefox; workspace α' &
@@ -195,8 +195,9 @@ workspace υ output HDMI1
 # -----------------------------------------------------------------------------
 # Packages/installiations:
 # ~/.config/nil/i3-wsbar, dzen2, perl-ipc-run, perl-try-tiny, perl-anyevent-i3, perl-json-xs
-# Archived:
+# Archived commands:
 # conky | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9' &
+# exec conky | perl ~/.config/nil/i3-wsbar -c "dzen2 -dock -ta l -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'"
 #
 #
 # Things i3bar can't do that dzen2 can:
