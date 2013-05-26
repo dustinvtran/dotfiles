@@ -438,20 +438,22 @@ alias pss="pacman -Ss"
 # A temporary workaround until I set a udev automount rule.
 alias sm="sudo mount /dev/sdb1 /mnt/ext"
 
-# Hides away the terminal after application launching. Aliasing it for purtiness.
-hideme() { i3 '[instance="^nil$"] scratchpad show' }
-
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-l() { (nocorrect f -e libreoffice "$@" &) | hideme }
-m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
+alias irssi="urxvt -name irssi -g 124x33 -e irssi &"
 alias nitrogen="(nitrogen &) | hideme"
-alias scrot="scrot -c -d 5 ~/Dropbox/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
+alias ncmpcpp="urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &"
+alias rtorrent="urxvt -name rtorrent -g 110x30 -e rtorrent &"
+alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias un="urxvt -name nil -g 85x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
 alias Lun="urxvt -name nil -g 124x33 &"
-alias irssi="urxvt -name irssi -g 124x33 -e irssi &"
-alias rtorrent="urxvt -name rtorrent -g 110x30 -e rtorrent &"
+
+# Application Opening
+# Hides away the terminal after application launching. Aliasing it for purtiness.
+hideme() { i3 '[instance="^nil$"] scratchpad show' }
+l() { (nocorrect f -e libreoffice "$@" &) | hideme }
+m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
 alias v="hideme | nocorrect f -e gvim -B viminfo"
 z() { (nocorrect f -e zathura "$@" &) | hideme }
 
