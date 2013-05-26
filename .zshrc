@@ -71,7 +71,7 @@ setopt hist_verify
 setopt inc_append_history
 
 # Enable fasd.
-fasd_cache="$HOME/.fasd-init-cache"
+fasd_cache="$HOME/.config/nil/.fasd-init-cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
     fasd --init auto >| "$fasd_cache"
 fi
