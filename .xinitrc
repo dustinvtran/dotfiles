@@ -14,6 +14,7 @@ fi
 
 # Startup Scripts
 bash ~/.config/nil/hdmi-init &
+mpd ~/.config/mpd/mpd.conf &
 nitrogen --restore &
 xbacklight -set 100 &
 synclient touchpadoff=0 &

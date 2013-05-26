@@ -51,8 +51,10 @@ URxvt*color15: t_foreground
 
 ! }}}
 ! Fonts:
-URxvt*font: xft:Consolas\ for\ Powerline:size=10
-URxvt*boldFont: xft:Consolas\ for\ Powerline:bold:size=10
+!URxvt*font: xft:Consolas\ for\ Powerline:size=10
+!URxvt*boldFont: xft:Consolas\ for\ Powerline:bold:size=10
+URxvt*font: xft:Consolas:pixelsize=13
+URxvt*boldFont: xft:Consolas:bold:pixelsize=13
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0

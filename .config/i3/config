@@ -25,6 +25,7 @@ exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 124x33 -e irssi &
 exec urxvt -name rtorrent -g 110x30 -e rtorrent &
+exec urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &
 exec dropboxd &
 exec rssdler -d &
 
@@ -231,7 +232,7 @@ for_window [class="mplayer"] workspace λ
 for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
-# $mod,$mod+a,z,c are available, as well as all mod1 (alt).
+# $mod,$mod+a,z,c are available, as well as all mod2 (super).
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q exec firefox
 bindsym $mod+f exec urxvt -e ranger
@@ -250,16 +251,17 @@ bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 # Scratchpads {{{
 # -----------------------------------------------------------------------------
 # These are applications I always leave running on my computer, and for which I only need to take a quick peek once in a while to do something on them. They also generally feel much nicer to use in compact floating windows, rather than the pervasive array of space if you just place them into their own workspace (which somehow makes me feel even less productive).
-# To use multiple scratchpads, there's sort of a trick required in i3, since once you show two open scratchpad applications simultaneously, all hell breaks loose. To get around this without requiring more keybindings, you need to make your commands leave all other applications hidden in the scratchpad /before/ you show your next scratchpad application. There's yet another caveat: to use the for_window command to automove applications into the scratchpad, you have to be super-specific so that not even its child popup windows will be subsumed under the scratchpad.
-# do one for mpd
+# To use multiple scratchpads, there's sort of a trick required in i3, since once you show two open scratchpad applications simultaneously, all hell breaks loose. To get around this without requiring more keybindings, you need to make your commands leave all other applications hidden in the scratchpad /before/ you show your next scratchpad application. There's yet another caveat: to use the for_window command to automove applications into the scratchpad, you have to be super-specific so that not even its child popup windows will be subsumed under the scratchpad (e.g. settings windows).
 
-for_window [class="^URxvt$" instance="^rtorrent$"] move scratchpad
 for_window [class="^URxvt$" instance="^irssi$"] move scratchpad
+for_window [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad
+for_window [class="^URxvt$" instance="^rtorrent$"] move scratchpad
 for_window [class="^URxvt$" instance="^nil$"] move scratchpad
 
-bindsym $mod+y [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] scratchpad show
-bindsym $mod+g [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
-bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [instance="^nil$"] scratchpad show
+bindsym $mod+g [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
+bindsym $mod+b [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
+bindsym $mod+y [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] scratchpad show
+bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^rtorrent$"] move scratchpad, [instance="^nil$"] scratchpad show
 
 # vim:filetype=i3
 # }}}

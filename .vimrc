@@ -716,7 +716,8 @@ colorscheme hybrid
 syntax enable
 set guioptions=
 set notitle
-set guifont=Consolas\ for\ Powerline\ 10
+"set guifont=Consolas\ for\ Powerline\ 10
+set guifont=Consolas\ 10
 let g:Powerline_symbols="fancy"
 set laststatus=2
 set noshowmode

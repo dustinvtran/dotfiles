@@ -271,7 +271,7 @@ map -modes=n -builtin <Leader>n t nyaa maou-sama | nyaa yahari | nyaa railgun | 
 
 " Bookmarks.
 map -modes=n -builtin <Leader>r t http://reddit.com<CR>gT
-map -modes=n -builtin <Leader>g t https://github.com/nil-/dotfiles<CR>gT
+map -modes=n -builtin <Leader>d t https://github.com/nil-/dotfiles<CR>gT
 map -modes=n -builtin <Leader>4 t http://boards.4chan.org/g/<CR>gT
 map -modes=n -builtin <Leader>l t http://myanimelist.net/animelist/nil-&show=0&order=4<CR>gT
 
