@@ -1,11 +1,11 @@
-s:/mnt/ext/Media/Anime/[Backlog]/[Spring 2013]
-t:/home/nil/.trash
-w:/mnt/windows
-a:/mnt/ext/Media/Anime
+n:/home/nil/nil
+m:/mnt/ext/Media
 c:/home/nil/.config
-d:/home/nil/Dropbox
-e:/mnt/ext
+a:/mnt/ext/Media/Anime
 f:/home/nil/Dropbox/nil/Academics/Berkeley 2013 Spring
 ':/home/nil
-m:/mnt/ext/Media
-n:/home/nil/nil
+d:/home/nil/Dropbox
+e:/mnt/ext
+s:/mnt/ext/Media/Anime/[Backlog]/[Spring 2013]
+w:/mnt/windows
+t:/home/nil/.trash
