@@ -19,10 +19,10 @@ nitrogen --restore &
 xbacklight -set 100 &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
-#xmodmap ~/.Xmodmap &
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
 xmodmap -e 'add Control = Control_L'
+xmodmap -e 'keycode 135 = Super_R'
 #xmodmap -e 'keycode 108 = Alt_R'
 #xmodmap -e 'add Alt = Alt_R'
 # I could combine all Xcape commands with ;, though issuing them separately in case only one breaks for now.
