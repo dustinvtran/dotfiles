@@ -88,7 +88,10 @@ class Default(ColorScheme):
         elif context.in_titlebar:
             if context.hostname:
                 #fg = context.bad and red or green
-                fg = context.bad and red or default
+                # A temporary workaround until I can figure out how to
+                #   hide the hostname.
+                #fg = context.bad and red or default
+                fg = black
                 #attr |= bold
             elif context.directory:
                 #fg = blue

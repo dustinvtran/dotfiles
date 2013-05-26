@@ -5,10 +5,9 @@
 #
 
 # To-DO:
-# * Set notification system to a certain directory so that it pings to dzen2 like irssi does.
 # Ability to set file priorities under subfiles.
 # Ability to queue up/down torrents.
-# Ability to dynamically set max # of torrent downloads.
+# Setup max global downloads.
 # Deletion of torrents in interface not working (^D does nothing).
 #   Currently working around this by deleting manually.
 # Auto-set different ratios on BakaBT downloads.

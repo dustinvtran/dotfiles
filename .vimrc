@@ -237,12 +237,8 @@ noremap <silent> <S-Space> :call FoldAllToggle()<CR>
 " This doesn't quite work as intended, but whatever; it shall do for now.
 augroup auto_fold
     autocmd!
-    autocmd BufNew * call FoldAllToggle()
+    autocmd VimEnter * call FoldAllToggle()
 augroup END
-" This one is just for the man pages, as a temporary workaround yet again.
-"if !has('gui_running')
-    "call FoldAllToggle()
-"endif
 
 " Smooth scrolling. {{{
 
@@ -567,10 +563,13 @@ noremap <CR> o<Esc>
 
 " For cmdline-editing, use <C-f> to use the cmdline-window, :q to quit, <CR> to execute.
 set cmdwinheight=1
+" I forget why I needed this one.
 augroup Cmd_Enter
     autocmd!
     autocmd CmdwinEnter * noremap <buffer> <CR> <CR>
 augroup END
+" Trying this one for now since <C-f> seems to spit out errors on occasion.
+cnoremap <silent> <C-f> <C-f>
 
 " Insert new line without Insert mode and fix cursor.
 nnoremap <Leader><CR> o<Esc>k
