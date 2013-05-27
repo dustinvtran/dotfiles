@@ -204,8 +204,8 @@ map -modes=n -builtin j 5j
 map -modes=n -builtin k 5k
 map -modes=n -builtin <C-j> <C-d>
 map -modes=n -builtin <C-k> <C-u>
-map -modes=n -builtin <Leader>h h
-map -modes=n -builtin <Leader>l l
+map -modes=n -builtin K h
+map -modes=n -builtin J l
 
 " +/- Command-line history.
 map -modes=c -builtin <C-j> <Down>

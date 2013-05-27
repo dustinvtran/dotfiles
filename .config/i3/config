@@ -25,10 +25,10 @@ exec conky -c ~/.config/nil/.conkyrc | dzen2 -dock -ta c -fg '#000000' -bg '#F0F
 exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -ta r -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'
 
 exec i3-msg 'workspace β; exec firefox; workspace α' &
-exec urxvt -name nil -g 85x24 &
-exec urxvt -name irssi -g 124x33 -e irssi &
-exec urxvt -name rtorrent -g 110x30 -e rtorrent &
-exec urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &
+exec urxvtc -name nil -g 85x24 &
+exec urxvtc -name irssi -g 124x33 -e irssi &
+exec urxvtc -name rtorrent -g 110x30 -e rtorrent &
+exec urxvtc -name ncmpcpp -g 90x25 -e ncmpcpp &
 exec dropboxd &
 exec rssdler -d &
 
@@ -235,6 +235,8 @@ for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
+# Problems: The font is pretty ugly. Not aligned correctly to borders (either slightly overlaps or slightly off).
+#   No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
 for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 315px
 bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
 
@@ -249,9 +251,9 @@ for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
 # $mod,$mod+a,z are available, as well as all mod2 (super), and optional "modal" keys like resize.
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvtc
 bindsym $mod+q exec firefox
-bindsym $mod+f exec urxvt -e ranger
+bindsym $mod+f exec urxvtc -e ranger
 bindsym $mod+w exec gvim
 
 # Media Keys.
