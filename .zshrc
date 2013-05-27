@@ -7,6 +7,7 @@
 # -----------------------------------------------------------------------------
 
 # Deletearound not working.
+# slow split second startup.
 # Ctrl-I Doesn't work; also need a good keybind for it.
 # have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
 # display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
@@ -397,6 +398,7 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 
 # Default flags.
 alias ping="ping -c 5"                  # Ping 5 packets, not unlimited.
+alias crontabe="EDITOR=vim crontab -e"  # Since crontab doesn't work with gvim/detached editors.
 alias df="df -h"                        # Display sizes in human readable format.
 alias du="du -h -c"                     # Display sizes in human readable format, and total.
 alias mount="sudo mount"                # Don't require prepending sudo.
@@ -427,13 +429,16 @@ p() { sudo pacman -$^@; }
 alias pa="packer --noedit"
 alias pas="packer --noedit -S"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
-alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
 alias pqs="pacman -Qs"
 alias prns="sudo pacman -Rns"
 alias pr="sudo pacman -R"
 alias ps="sudo pacman -S"
 alias psyu="packer --noedit -Syu"
 alias pss="pacman -Ss"
+
+# System-dotfile backups.
+alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
+alias systemctlx="systemctl --all ~/.config/nil/system-dotfiles/systemctl"
 
 # A temporary workaround until I set a udev automount rule.
 alias sm="sudo mount /dev/sdb1 /mnt/ext"

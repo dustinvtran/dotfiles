@@ -4,22 +4,24 @@
 # Name: nil
 #
 
-# To-DO:
-# Ability to set file priorities under subfiles.
+# To-Do:
 # Ability to queue up/down torrents.
-# Setup max global downloads.
+# Setup max global downloads/max # torrents.
 # Deletion of torrents in interface not working (^D does nothing).
 #   Currently working around this by deleting manually.
 # Auto-set different ratios on BakaBT downloads.
 #   Maybe by downloading them all into a different watch directory and changing ratios accordingly? Would have wished for a tracker solution.
 
 # Wishlist:
-# Easier way to see/change download directory than ^X, print=$d.get_custom1= and d.set_custom1=.
-# Ability to clear console messages (e.g. polling stuff/errors) manually rather than only automatic timeouts.
-# Native vi(m) keybindings, e.g., hjkl, gg/G (some patches exist, but minimal support)
-# Customizable colors (some patches exist, but minimal support)
-# Change interface columns (#, name, size, progress gui (current status, % completed), down speed, up speed, ETA, Seeders, Peers)
-# Native notification system a la applet/widgets, not just mail.
+# Abilities:
+# * More priority levels than just off and high (c.f. uTorrent, which can prioritize level every single file).
+# * Native vi(m) keybindings, e.g., hjkl, gg/G (some patches exist, but minimal support)
+# * Open files from file list (like uTorrent).
+# Interface:
+# * Ability to clear console messages (e.g. polling stuff/errors) manually rather than only automatic timeouts.
+# * Customizable colors (some patches exist, but minimal support)
+# * Change interface columns (#, name, size, progress gui (current status, % completed), down speed, up speed, ETA, Seeders, Peers)
+# * Easier way to see/change download directory than ^X, print=$d.get_custom1= and d.set_custom1=.
 
 # Some notes on the watch directories. {{{
 # * You need to escape special characters with \, and a space with \\.

@@ -6,6 +6,7 @@ cairo-infinality-ultimate
 conky
 dialog
 dropbox
+dzen2
 fasd
 feh
 firefox
@@ -16,9 +17,9 @@ git
 grub-bios
 gvim
 htop
+i3-git
 i3lock
 i3status
-i3-wm
 icedtea-web-java7
 irssi
 jre7-openjdk
@@ -37,6 +38,10 @@ ntp
 openssh
 os-prober
 packer
+perl-anyevent-i3
+perl-ipc-run
+perl-json-xs
+perl-try-tiny
 pkgtools
 pygtk
 qt4

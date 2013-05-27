@@ -1,0 +1,151 @@
+UNIT                       LOAD   ACTIVE   SUB       DESCRIPTION
+proc-sys..._misc.automount loaded active   waiting   Arbitrary Executable File Formats File System Automount Point
+dev-cdrom.device           loaded active   plugged   hp_CDDVDW_TS-U633F
+dev-disk...VLJJ4KUJ.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x2dpart2.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x2dpart4.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...SZ707447.device loaded active   plugged   hp_CDDVDW_TS-U633F
+dev-disk...W3000ELV.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...5e3afbb7.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...b5e3861e.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x2dpart2.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x2dpart4.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...x20Drive.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...l-SYSTEM.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...d0:0:0:0.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...64F8ACB4.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...B0DF5451.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...22333379.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-disk...0649093b.device loaded active   plugged   Hitachi_HTS725050A9A364
+dev-sda.device             loaded active   plugged   Hitachi_HTS725050A9A364
+dev-sda1.device            loaded active   plugged   Hitachi_HTS725050A9A364
+dev-sda2.device            loaded active   plugged   Hitachi_HTS725050A9A364
+dev-sda4.device            loaded active   plugged   Hitachi_HTS725050A9A364
+dev-sdb.device             loaded active   plugged   ST4000DM000-1F2168
+dev-sdb1.device            loaded active   plugged   ST4000DM000-1F2168
+dev-sr0.device             loaded active   plugged   hp_CDDVDW_TS-U633F
+dev-ttyS0.device           loaded active   plugged   /dev/ttyS0
+dev-ttyS1.device           loaded active   plugged   /dev/ttyS1
+dev-ttyS2.device           loaded active   plugged   /dev/ttyS2
+dev-ttyS3.device           loaded active   plugged   /dev/ttyS3
+sys-devi...nd-card0.device loaded active   plugged   5 Series/3400 Series Chipset High Definition Audio
+sys-devi...net-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
+sys-devi...et-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
+sys-devi...sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
+sys-devi...lock-sdb.device loaded active   plugged   ST4000DM000-1F2168
+sys-devi...sda-sda1.device loaded active   plugged   Hitachi_HTS725050A9A364
+sys-devi...sda-sda2.device loaded active   plugged   Hitachi_HTS725050A9A364
+sys-devi...sda-sda4.device loaded active   plugged   Hitachi_HTS725050A9A364
+sys-devi...lock-sda.device loaded active   plugged   Hitachi_HTS725050A9A364
+sys-devi...lock-sr0.device loaded active   plugged   hp_CDDVDW_TS-U633F
+sys-devi...ty-ttyS0.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS0
+sys-devi...ty-ttyS1.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS1
+sys-devi...ty-ttyS2.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS2
+sys-devi...ty-ttyS3.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS3
+sys-module-configfs.device loaded active   plugged   /sys/module/configfs
+sys-module-fuse.device     loaded active   plugged   /sys/module/fuse
+sys-subs...ces-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
+sys-subs...es-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
+-.mount                    loaded active   mounted   /
+dev-hugepages.mount        loaded active   mounted   Huge Pages File System
+dev-mqueue.mount           loaded active   mounted   POSIX Message Queue File System
+mnt-ext.mount              loaded active   mounted   /mnt/ext
+mnt-windows.mount          loaded active   mounted   /mnt/windows
+proc-sys...nfmt_misc.mount loaded inactive dead      Arbitrary Executable File Formats File System
+sys-fs-f...nnections.mount loaded active   mounted   FUSE Control File System
+sys-kernel-config.mount    loaded active   mounted   Configuration File System
+sys-kernel-debug.mount     loaded active   mounted   Debug File System
+tmp.mount                  loaded active   mounted   Temporary Directory
+systemd-...rd-console.path loaded active   waiting   Dispatch Password Requests to Console Directory Watch
+systemd-...sword-wall.path loaded active   waiting   Forward Password Requests to Wall Directory Watch
+alsa-restore.service       loaded inactive dead      Restore Sound Card State
+alsa-state.service         loaded inactive dead      Manage Sound Card State (restore and store)
+alsa-store.service         loaded inactive dead      Store Sound Card State
+auditd.service             error  inactive dead      auditd.service
+autologin@tty1.service     loaded active   running   Getty on tty1
+console-...m-start.service loaded active   exited    Console System Startup Logging
+cronie.service             loaded inactive dead      Periodic Command Scheduler
+dbus.service               loaded active   running   D-Bus System Message Bus
+dmeventd.service           loaded inactive dead      Device-mapper event daemon
+emergency.service          loaded inactive dead      Emergency Shell
+httpd.service              error  inactive dead      httpd.service
+lvmetad.service            loaded inactive dead      LVM2 metadata daemon
+net-auto-wireless.service  error  inactive dead      net-auto-wireless.service
+netctl-auto@wlan0.service  loaded active   running   Automatic wireless network connection using netctl profiles
+netctl.service             loaded active   exited    (Re)store the netctl profile state
+ntpd.service               loaded active   running   Network Time Service
+plymouth-quit-wait.service error  inactive dead      plymouth-quit-wait.service
+plymouth-start.service     error  inactive dead      plymouth-start.service
+rescue.service             loaded inactive dead      Rescue Shell
+syslog.service             error  inactive dead      syslog.service
+systemd-...console.service loaded inactive dead      Dispatch Password Requests to Console
+systemd-...rd-wall.service loaded inactive dead      Forward Password Requests to Wall
+systemd-binfmt.service     loaded inactive dead      Set Up Additional Binary Formats
+systemd-fsck-root.service  loaded inactive dead      File System Check on Root Device
+systemd-initctl.service    loaded inactive dead      /dev/initctl Compatibility Daemon
+systemd-...l-flush.service loaded inactive dead      Trigger Flushing of Journal to Persistent Storage
+systemd-journald.service   loaded active   running   Journal Service
+systemd-logind.service     loaded active   running   Login Service
+systemd-...es-load.service loaded active   exited    Load Kernel Modules
+systemd-...ed-load.service loaded inactive dead      Load Random Seed
+systemd-...ed-save.service loaded inactive dead      Save Random Seed
+systemd-...collect.service loaded inactive dead      Collect Read-Ahead Data
+systemd-...ad-done.service loaded inactive dead      Stop Read-Ahead Data Collection
+systemd-...-replay.service loaded inactive dead      Replay Read-Ahead Data
+systemd-remount-fs.service loaded active   exited    Remount Root and Kernel File Systems
+systemd-shutdownd.service  loaded inactive dead      Delayed Shutdown Service
+systemd-sysctl.service     loaded active   exited    Apply Kernel Variables
+systemd-...s-clean.service loaded inactive dead      Cleanup of Temporary Directories
+systemd-...tup-dev.service loaded inactive dead      Create static device nodes in /dev
+systemd-...s-setup.service loaded active   exited    Recreate Volatile Files and Directories
+systemd-...trigger.service loaded active   exited    udev Coldplug all Devices
+systemd-udevd.service      loaded active   running   udev Kernel Device Manager
+systemd-...te-utmp.service loaded active   exited    Update UTMP about System Reboot/Shutdown
+systemd-...essions.service loaded active   exited    Permit User Sessions
+systemd-...e-setup.service loaded active   exited    Setup Virtual Console
+dbus.socket                loaded active   running   D-Bus System Message Bus Socket
+dmeventd.socket            loaded active   listening Device-mapper event daemon FIFOs
+lvmetad.socket             loaded active   listening LVM2 metadata daemon socket
+syslog.socket              loaded inactive dead      Syslog Socket
+systemd-initctl.socket     loaded active   listening /dev/initctl Compatibility Named Pipe
+systemd-journald.socket    loaded active   running   Journal Socket
+systemd-shutdownd.socket   loaded active   listening Delayed Shutdown Socket
+systemd-...-control.socket loaded active   listening udev Control Socket
+systemd-...d-kernel.socket loaded active   running   udev Kernel Socket
+basic.target               loaded active   active    Basic System
+cryptsetup.target          loaded active   active    Encrypted Volumes
+emergency.target           loaded inactive dead      Emergency Mode
+final.target               loaded inactive dead      Final Step
+getty.target               loaded active   active    Login Prompts
+local-fs-pre.target        loaded active   active    Local File Systems (Pre)
+local-fs.target            loaded active   active    Local File Systems
+multi-user.target          loaded active   active    Multi-User System
+network.target             loaded active   active    Network
+nss-lookup.target          loaded inactive dead      Host and Network Name Lookups
+nss-user-lookup.target     loaded inactive dead      User and Group Name Lookups
+paths.target               loaded active   active    Paths
+remote-fs-pre.target       loaded inactive dead      Remote File Systems (Pre)
+remote-fs.target           loaded active   active    Remote File Systems
+rescue.target              loaded inactive dead      Rescue Mode
+shutdown.target            loaded inactive dead      Shutdown
+sockets.target             loaded active   active    Sockets
+sound.target               loaded active   active    Sound Card
+swap.target                loaded active   active    Swap
+sysinit.target             loaded active   active    System Initialization
+syslog.target              error  inactive dead      syslog.target
+timers.target              loaded active   active    Timers
+umount.target              loaded inactive dead      Unmount All Filesystems
+systemd-...head-done.timer loaded inactive dead      Stop Read-Ahead Data Collection 10s After Completed Startup
+systemd-...les-clean.timer loaded active   waiting   Daily Cleanup of Temporary Directories
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+
+143 loaded units listed.
+To show all installed unit files use 'systemctl list-unit-files'.
