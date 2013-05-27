@@ -441,7 +441,7 @@ alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/
 alias systemctlx="systemctl --all ~/.config/nil/system-dotfiles/systemctl"
 
 # A temporary workaround until I set a udev automount rule.
-alias sm="sudo mount /dev/sdb1 /mnt/ext"
+alias me="sudo mount /dev/sdb1 /mnt/ext"
 
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
