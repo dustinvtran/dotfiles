@@ -5,7 +5,8 @@ pgrep -f 'urxvt -name calendar'
 # If not running.
 if [ $? -ne 0 ]
 then
-    urxvt -name calendar -g 20x9 -fg '#000000' -bg '#F0F0F0' -underlineColor '#F0F0F0' --hold -e cal
+    #urxvtc -name calendar -g 20x9 -fg '#000000' -bg '#F0F0F0' -underlineColor '#F0F0F0' -font 'xft:Monaco:pixelsize=11' --hold -e cal
+    urxvtc -name calendar -g 20x9 -fg '#000000' -bg '#F0F0F0' -underlineColor '#F0F0F0' --hold -e cal
 # Else if running.
 else
     pkill -f 'urxvt -name calendar'

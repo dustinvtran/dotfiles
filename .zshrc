@@ -41,8 +41,8 @@ setopt nocheckjobs
 # the entire thing.
 WORDCHARS=${WORDCHARS//\/}
 
-# Autocorrection.
-setopt correct_all
+# Autocorrection. Note there is a correct_all but it's often too persistent.
+setopt correct
 # Disable autocorrection for these.
 alias cp="nocorrect cp"
 alias ln="nocorrect ln"
@@ -445,14 +445,14 @@ alias sm="sudo mount /dev/sdb1 /mnt/ext"
 
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-alias irssi="urxvt -name irssi -g 124x33 -e irssi &"
+alias irssi="urxvtc -name irssi -g 124x33 -e irssi &"
 alias nitrogen="(nitrogen &) | hideme"
-alias ncmpcpp="urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &"
-alias rtorrent="urxvt -name rtorrent -g 110x30 -e rtorrent &"
+alias ncmpcpp="urxvtc -name ncmpcpp -g 90x25 -e ncmpcpp &"
+alias rtorrent="urxvtc -name rtorrent -g 110x30 -e rtorrent &"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
-alias un="urxvt -name nil -g 85x24 &"
-alias lun="urxvt -name nil -g 110x30 &"
-alias Lun="urxvt -name nil -g 124x33 &"
+alias un="urxvtc -name nil -g 85x24 &"
+alias lun="urxvtc -name nil -g 110x30 &"
+alias Lun="urxvtc -name nil -g 124x33 &"
 
 # Application Opening
 # Hides away the terminal after application launching. Aliasing it for purtiness.

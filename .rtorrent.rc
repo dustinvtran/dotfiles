@@ -16,6 +16,7 @@
 # Abilities:
 # * More priority levels than just off and high (c.f. uTorrent, which can prioritize level every single file).
 # * Native vi(m) keybindings, e.g., hjkl, gg/G (some patches exist, but minimal support)
+# * Cursor support, e.g., scrolling/clicking.
 # * Open files from file list (like uTorrent).
 # Interface:
 # * Ability to clear console messages (e.g. polling stuff/errors) manually rather than only automatic timeouts.

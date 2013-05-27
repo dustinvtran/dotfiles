@@ -38,3 +38,11 @@ regExFalse = (480p)
 #download1 = (HorribleSubs.*someanime)
 #download1True = False
 #download1False = (480p|720p)
+
+#########################################################
+[tpb]
+#########################################################
+
+link = http://thepiratebay.sx/rss
+regExTrue = (Arrested.*Development.*S04.*1080)
+regExFalse = (480p|720p)
