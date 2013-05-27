@@ -22,6 +22,7 @@
 #       windows.
 #   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
 #       can toggle hide them all away (can only do one at a time currently).
+#   * True transparency, e.g., just slightly for terminal scratchpads.
 
 # }}}
 # Startup Applications {{{

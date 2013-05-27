@@ -25,11 +25,7 @@ xmodmap -e 'add Control = Control_L'
 xmodmap -e 'keycode 135 = Super_R'
 #xmodmap -e 'keycode 108 = Alt_R'
 #xmodmap -e 'add Alt = Alt_R'
-# I could combine all Xcape commands with ;, though issuing them separately in case only one breaks for now.
-#xcape -e 'Control_L=Escape;Shift_L=parenleft;Shift_R=parenright'
 xcape -e 'Control_L=Escape'
-xcape -e 'Shift_L=parenleft'
-xcape -e 'Shift_R=parenright'
 #xcape -e 'Alt_R=emdash'
 xrdb -merge ~/.Xresources
 urxvtd -q -o -f
