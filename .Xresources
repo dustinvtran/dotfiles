@@ -64,6 +64,13 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
+!urxvt scrolling options and cursor style:
+URxvt*saveLines: 12000
+URxvt*scrollstyle: plain
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
 ! urxvt perl extensions:
 URxvt.perl-ext-common: default,matcher
 
@@ -80,12 +87,10 @@ URxvt.keysym.C-d: command:\033]721;1\007
 URxvt.matcher.button: 1
 URxvt.urlLauncher: /usr/bin/firefox
 
-!urxvt scrolling options and cursor style:
-URxvt*saveLines: 12000
-URxvt*scrollstyle: plain
-URxvt*scrollBar: false
-URxvt*cursorBlink: true
-URxvt*cursorUnderline: true
+! Highlight to end of last character, not the full line (particularly
+! more convenient for yanking).
+! Not working.
+URxvt.highlightSelection: true
 
 ! If only i3 supported (real) transparency!
 ! Reason: nice to have just a /little/ blurred transparency to see through where I am.
