@@ -3,16 +3,25 @@
 # ~/.config/i3/config
 # Name: nil
 #
-# Bugs/To-Do {{{
+# Comments {{{
 
+# To-Do:
 # When restarting, the nondocked dzen2's get overlapped and are hidden.
 # firefox gets weird block to the right on occasion.
 # when i open some terminal apps, like 'l devices' it doesn't open in the workspace that I initialized it in, but rather the workspace I'm currently in.
+#   read up on no-startup-id.
 
 # Wishlist:
-# Have workspaces alphabetically ordered (or customizable order). Right now it can
-#   only order if the workspaces are prepended by a #.
-# Icon'd/non-UTF8 workspace names.
+# Workspaces:
+#   * Non-# order, e.g., alphabetical or customizable.
+#   * Icon/non-UTF name support.
+# Floating:
+#   * Move scratchpads offcenter with for_window, but without restarting i3 redo the for_
+#       windows; in other words, ability for absolute placement.
+#   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
+#       windows.
+#   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
+#       can toggle hide them all away (can only do one at a time currently).
 
 # }}}
 # Startup Applications {{{
@@ -40,11 +49,7 @@ exec rssdler -d &
 set $mod Mod1
 set $mod2 Mod4
 
-# Window border style.
-new_window none
-new_float none
-
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Mouse left-click drag to move, right-click drag to resize.
 floating_modifier $mod
 
 # Kill focused window.
@@ -55,6 +60,10 @@ bindsym $mod+d kill
 bindsym $mod+e layout toggle split
 bindsym $mod+s exec bash ~/.config/nil/i3-container-toggle
 
+# Split in horizontal/vertical orientation.
+bindsym $mod+x split h
+bindsym $mod+v split v
+
 # Toggle tiling/floating for focused window.
 bindsym $mod+Shift+space floating toggle
 
@@ -64,7 +73,7 @@ bindsym $mod+space focus mode_toggle
 # Enter fullscreen mode for focused container.
 bindsym $mod+Shift+f fullscreen
 
-# Resize window mode. (you can also use the mouse for that).
+# Resize window mode.
 mode "resize" {
     # h/j will +/- the window's width, k/l will +/- the window's height.
     bindsym h resize shrink width 10 px or 10 ppt
@@ -84,6 +93,10 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Window border style.
+new_window none
+new_float none
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
@@ -108,12 +121,6 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-
-# Split in horizontal orientation.
-bindsym $mod+x split h
-
-# Split in vertical orientation.
-bindsym $mod+v split v
 
 # Reload the configuration file, Restart i3 inplace (preserves layout/session).
 bindsym $mod+Shift+c reload
@@ -170,6 +177,7 @@ bindsym $mod2+Shift+9 move container to workspace τ
 bindsym $mod2+Shift+0 move container to workspace υ
 
 # Force a consistent workspace # layout, so I can move it to that workspace without wondering whether it went to the right monitor.
+# I prefer this (dynamic tag creation plugin of Awesome) over default i3.
 workspace α output LVDS1
 workspace β output LVDS1
 workspace γ output LVDS1
@@ -191,8 +199,7 @@ workspace σ output HDMI1
 workspace τ output HDMI1
 workspace υ output HDMI1
 
-# }}}
-# Archived - Old Panel {{{
+# Archived - Old Panel
 # -----------------------------------------------------------------------------
 # Packages/installiations:
 # ~/.config/nil/i3-wsbar, dzen2, perl-ipc-run, perl-try-tiny, perl-anyevent-i3, perl-json-xs
