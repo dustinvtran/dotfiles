@@ -5,6 +5,7 @@
 #
 # Bugs/To-Do {{{
 
+# When restarting, the nondocked dzen2's get overlapped and are hidden.
 # firefox gets weird block to the right on occasion.
 # when i open some terminal apps, like 'l devices' it doesn't open in the workspace that I initialized it in, but rather the workspace I'm currently in.
 
@@ -247,7 +248,7 @@ for_window [class="mplayer"] workspace λ
 for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
-# $mod,$mod+a,z are available, as well as all mod2 (super).
+# $mod,$mod+a,z are available, as well as all mod2 (super), and optional "modal" keys like resize.
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+q exec firefox
 bindsym $mod+f exec urxvt -e ranger

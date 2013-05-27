@@ -4,6 +4,9 @@
 # Name: nil
 #
 
+# Wishlist:
+# Don't exit the rssdler process on errors, e.g., connection lost. (Forced to run a cron job to keep it up)
+
 # Note: The filepaths don't require escaping special characters.
 #########################################################
 [global]

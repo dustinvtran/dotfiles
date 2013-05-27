@@ -1,0 +1,9 @@
+#! /bin/bash
+
+# Pgrep myprog PID.
+pgrep rssdler
+# If not running.
+if [ $? -ne 0 ]
+then
+   rssdler -d &
+fi

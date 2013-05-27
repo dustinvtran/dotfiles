@@ -91,10 +91,4 @@ URxvt*cursorUnderline: true
 ! Reason: nice to have just a /little/ blurred transparency to see through where I am.
 !urxvt*depth: 100
 !urxvt*background: rgba:0000/0000/0200/c800
-
-! dzen2
-#dzen2.font:       -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
-#dzen2.foreground: #22EE11
-#dzen2.background: #F0F0F0
-
 ! vim: ft=xdefaults
