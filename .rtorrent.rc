@@ -15,13 +15,13 @@
 # Wishlist:
 # Abilities:
 # * More priority levels than just off and high (c.f. uTorrent, which can prioritize level every single file).
-# * Native vi(m) keybindings, e.g., hjkl, gg/G (some patches exist, but minimal support)
+# * Native vi(m) keybindings, e.g., hjkl, gg/G, and more generally, keybind customizability (some patches exist, but minimal support).
+# * Open files from file list with a simple double-click or <CR> (like uTorrent), instead of typing a full-on command sequence.
 # * Cursor support, e.g., scrolling/clicking.
-# * Open files from file list (like uTorrent).
 # Interface:
 # * Ability to clear console messages (e.g. polling stuff/errors) manually rather than only automatic timeouts.
-# * Customizable colors (some patches exist, but minimal support)
 # * Change interface columns (#, name, size, progress gui (current status, % completed), down speed, up speed, ETA, Seeders, Peers)
+# * Customizable colors (some patches exist, but minimal support)
 # * Easier way to see/change download directory than ^X, print=$d.get_custom1= and d.set_custom1=.
 
 # Some notes on the watch directories. {{{
@@ -40,6 +40,7 @@
 #########################################################
 
 #check_hash = no
+dht = auto
 #max_uploads = 10
 #max_uploads_global =
 #max_downloads_global =

@@ -302,12 +302,27 @@ javascript <<EOF
         commands.execute("tabopen aur " + selection);
     };
 EOF
+javascript <<EOF
+    userContext.searchAni = function (selection) {
+        commands.execute("tabopen nyaa " + selection);
+        commands.execute("tabopen baka " + selection);
+    };
+EOF
+javascript <<EOF
+    userContext.searchMal = function (selection) {
+        commands.execute("tabopen wiki " + selection);
+        commands.execute("tabopen mal " + selection);
+    };
+EOF
 
+" Custom [s]earch commands.
 command define -nargs=* -js userContext.searchDictionary(args)
 command giki -nargs=* -js userContext.searchGiki(args)
 command arch -nargs=* -js userContext.searchArch(args)
+command ani -nargs=* -js userContext.searchAni(args)
+command mal -nargs=* -js userContext.searchMal(args)
 
-" Custom [s]earch commands.
+" Most used generic ones.
 map -modes=n -builtin s :define<Space>
 map -modes=n -builtin S :giki<Space>
 

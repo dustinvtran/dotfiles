@@ -427,14 +427,13 @@ alias -- ---='cd -3'
 # Pacman/Packer aliases.
 p() { sudo pacman -$^@; }
 alias pa="packer --noedit"
-alias pas="packer --noedit -S"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias pqs="pacman -Qs"
 alias prns="sudo pacman -Rns"
 alias pr="sudo pacman -R"
-alias ps="sudo pacman -S"
+alias ps="packer --noedit -S"
 alias psyu="packer --noedit -Syu"
-alias pss="pacman -Ss"
+alias pss="packer -Ss"
 
 # System-dotfile backups.
 alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
