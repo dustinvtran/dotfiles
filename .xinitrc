@@ -28,7 +28,6 @@ xmodmap -e 'keycode 135 = Super_R'
 xcape -e 'Control_L=Escape'
 #xcape -e 'Alt_R=emdash'
 xrdb -merge ~/.Xresources
-urxvtd -q -o -f
 #redshift -l 37.9:-122.3 -t 6500:3700 &
 
 # Change DE/WM's by the command 'xinit asdf', where you have "asdf) exec the_asdf_start_cmd".

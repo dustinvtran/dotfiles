@@ -12,7 +12,8 @@
 [global]
 #########################################################
 
-downloadDir = /home/nil/Dropbox/rtorrent/[Ext] Anime - Spring 2013
+#downloadDir = /home/nil/Dropbox/rtorrent/[Ext] Anime - Spring 2013
+downloadDir = /home/nil/Dropbox
 workingDir = /home/nil/.rssdler
 minSize = 10
 maxSize = 0
