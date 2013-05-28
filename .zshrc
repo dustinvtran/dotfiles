@@ -425,14 +425,17 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # Pacman/Packer aliases.
+# I would normally add the --noedit flag to the packer installation aliases,
+#   but it's sorta wonky in that it also autoconfirms all installation questions
+#   past the first one..
 p() { sudo pacman -$^@; }
-alias pa="packer --noedit"
+alias pa="packer"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias pqs="pacman -Qs"
 alias prns="sudo pacman -Rns"
 alias pr="sudo pacman -R"
-alias ps="packer --noedit -S"
-alias psyu="packer --noedit -Syu"
+alias ps="packer -S"
+alias psyu="packer -Syu"
 alias pss="packer -Ss"
 
 # System-dotfile backups.
