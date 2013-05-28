@@ -13,6 +13,7 @@ firefox
 flashplugin
 fontconfig-infinality-ultimate
 freetype2-infinality-ultimate
+gimp
 git
 grub-bios
 gvim
@@ -48,7 +49,6 @@ qt4
 ranger
 redshift
 rssdler
-rtorrent
 rubber
 rxvt-unicode-patched
 scrot
@@ -70,6 +70,8 @@ texlive-pstricks
 texlive-publishers
 texlive-science
 tor-browser-en
+transmission-cli
+transmission-remote-cli-git
 ttf-dejavu
 ttf-inconsolata
 ttf-monaco
