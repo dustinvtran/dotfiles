@@ -6,4 +6,4 @@ total_run_times 0
 use_spacer none
 
 TEXT
-${time %H:%M}
+${time %l:%M %P}

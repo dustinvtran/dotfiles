@@ -76,7 +76,7 @@ key_enter = 10 'l'
 #key_artist_info = 'I'
 
 #key_lyrics = 'l'
-key_lyrics =
+key_lyrics = 'L'
 
 #key_reverse_selection = 'v'
 #key_deselect_all = 'V'
@@ -95,7 +95,10 @@ key_lyrics =
 #key_toggle_auto_center = 'U'
 #key_toggle_display_mode = 'p'
 #key_toggle_separators_in_playlist = '!'
+
 #key_toggle_lyrics_db = 'L'
+key_toggle_lyrics_db = ''
+
 #key_toggle_fetching_lyrics_for_current_song_in_background = 'F'
 #key_go_to_containing_directory = 'G'
 #key_go_to_media_library = '~'
