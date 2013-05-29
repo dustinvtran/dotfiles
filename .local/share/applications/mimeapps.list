@@ -1,0 +1,19 @@
+[Default Applications]
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+video/x-matroska=smplayer.desktop
+
+[Added Associations]
+text/plain=gvim.desktop;
+x-scheme-handler/http=exo-web-browser.desktop
+x-scheme-handler/https=exo-web-browser.desktop
+application/octet-stream=gvim.desktop;
+image/x-xcursor=gvim.desktop;
+video/x-matroska=mplayer.desktop;userapp-mplayer -slave-X8Z9WW.desktop;gnome-mplayer.desktop;smplayer.desktop;
+application/x-trash=gvim.desktop;
+inode/symlink=gvim.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=gvim.desktop;
+application/x-executable=gvim.desktop;
