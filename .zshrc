@@ -7,8 +7,10 @@
 # -----------------------------------------------------------------------------
 
 # Deletearound not working.
-# slow split second startup.
+# slow split second startup (urxvt issue?).
 # Ctrl-I Doesn't work; also need a good keybind for it.
+# tab completion doesn't work on some commands (e.g. fasd commands).
+# tab completion menu colors for scp  are wonky/inverted.
 # have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
 # display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
 # make zle widget for 's/S' as your insert char function
@@ -17,6 +19,8 @@
 #   E.g., it logs all the processes that disappear, and then it opens up the last line.
 #   Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
 #       which app (in the sense of /usr/share/applications)
+# all keybind/vim stuff lost during ssh session, wonky prompt
+# issue the hideme command only if that scratchpad was the one issuing the alias.
 
 # }}}
 # General Settings. {{{
@@ -428,7 +432,10 @@ alias -- ---='cd -3'
 # I would normally add the --noedit flag to the packer installation aliases,
 #   but it's sorta wonky in that it also autoconfirms all installation questions
 #   past the first one..
-p() { sudo pacman -$^@; }
+# Use this one if I don't want to write the -. But I use flags in lots of things, so it may
+#   only end up confusing me.
+#p() { sudo pacman -$^@; }
+alias p="sudo pacman"
 alias pa="packer"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias pqs="pacman -Qs"
@@ -450,8 +457,7 @@ alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
 alias irssi="urxvt -name irssi -g 124x33 -e irssi &"
 alias nitrogen="(nitrogen &) | hideme"
 alias ncmpcpp="urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &"
-alias tcli="urxvt -name tcli -g 110x30 -e transmission-remote-cli &"
-#alias deluge="deluge &"
+alias tcli="urxvt -name tcli -g 110x30 -e ~/.config/nil/nil-transmission-remote-cli &"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias un="urxvt -name nil -g 85x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
