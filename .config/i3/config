@@ -37,7 +37,6 @@ exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -ta r -fg '#0000
 exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 124x33 -e irssi &
-exec transmission-daemon &
 exec urxvt -name tcli -g 110x30 -e ~/.config/nil/nil-transmission-remote-cli &
 exec urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &
 exec dropboxd &
