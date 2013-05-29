@@ -41,9 +41,9 @@ regExFalse = (480p)
 #download1False = (480p|720p)
 
 #########################################################
-[tpb]
+#[tpb]
 #########################################################
 
-link = http://thepiratebay.sx/rss
-regExTrue = (Arrested.*Development.*S04.*1080)
-regExFalse = (480p|720p)
+#link = http://thepiratebay.sx/rss
+#regExTrue = (Arrested.*Development.*S04.*1080)
+#regExFalse = (480p|720p)

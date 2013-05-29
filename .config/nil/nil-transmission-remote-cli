@@ -5,7 +5,7 @@
 # Name: nil
 # Description: Slight modifications for custom keybinds, interface, and settings.
 # Changelog:
-# * Swapped 'J'/'K' to queue down/up instead of up/down respectively (contrary to what
+# * Swapped J/K to queue down/up instead of up/down respectively (contrary to what
 #   this script says, they seem to do the opposite).
 # * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
 # * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
@@ -123,6 +123,7 @@ config.set('Connection', 'host', 'localhost')
 config.set('Connection', 'path', '/transmission/rpc')
 config.set('Connection', 'ssl', 'False')
 config.add_section('Sorting')
+#config.set('Sorting', 'order', 'name')
 config.set('Sorting', 'order', 'queuePosition')
 config.add_section('Filtering')
 config.set('Filtering', 'filter', '')
@@ -131,6 +132,7 @@ config.add_section('Misc')
 config.set('Misc', 'compact_list', 'False')
 config.set('Misc', 'blank_lines', 'True')
 config.set('Misc', 'torrentname_is_progressbar', 'True')
+#config.set('Misc', 'file_viewer', 'xdg-open %%s')
 config.set('Misc', 'file_viewer', 'rifle %%s')
 config.add_section('Colors')
 config.set('Colors', 'title_seed',       'bg:green,fg:black')
@@ -898,8 +900,8 @@ class Interface:
             ord('t'):               self.t_key,
             ord('+'):               self.bandwidth_priority,
             ord('-'):               self.bandwidth_priority,
-            ord('K'):               self.J_key,
-            ord('J'):               self.K_key,
+            ord('J'):               self.J_key,
+            ord('K'):               self.K_key,
             ord('p'):               self.pause_unpause_torrent,
             ord('P'):               self.pause_unpause_all_torrent,
             ord('v'):               self.verify_torrent,
@@ -1188,13 +1190,15 @@ class Interface:
         if self.selected_torrent > -1 and self.details_category_focus == 1:
             self.move_to_next_directory_in_filelist()
         else:
-            self.move_queue('down')
+            #self.move_queue('down')
+            self.move_queue('up')
 
     def K_key(self, c):
         if self.selected_torrent > -1 and self.details_category_focus == 1:
             self.move_to_previous_directory_in_filelist()
         else:
-            self.move_queue('up')
+            #self.move_queue('up')
+            self.move_queue('down')
 
     def right_key(self, c):
         if self.focus > -1 and self.selected_torrent == -1:

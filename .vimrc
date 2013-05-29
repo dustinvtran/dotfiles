@@ -35,6 +35,7 @@
 " Something weird with having to press the <ENTER> prompt when opening and certain files.
 
 " Sourcing .vimrc makes it resize.
+" Option for "resize" mode of windows, like with i3.
 " Make InsertCharFunction() an atomic operator, e.g., '.'-able.
 " C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "   Stuff about jump lists vs normal motion.
