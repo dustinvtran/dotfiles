@@ -249,12 +249,12 @@ for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 315px
 bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
 
 # Autoassign specific applications to a workspace.
-# For mplayer and mplayer2/smplayer respectively.
-#assign [class="MPlayer"] λ
 assign [class="mplayer"] λ
+assign [class="mpv"] λ
 assign [class="Zathura"] λ
 # Automove to workspace after it opens them.
 for_window [class="mplayer"] workspace λ
+for_window [class="mpv"] workspace λ
 for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
