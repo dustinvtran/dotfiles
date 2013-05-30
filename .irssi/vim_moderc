@@ -6,10 +6,12 @@ map <C-n> <C-d>
 map <C-k> <C-u>
 map gg /scrollback home
 map G /scrollback end
-map <C-h> h
-map <C-l> l
+map H h
+map L l
 map h /window prev
 map l /window next
+map <C-h> /window move prev
+map <C-l> /window move next
 map <C-w> /window close
 map <C-r> /reload
 map q /quit

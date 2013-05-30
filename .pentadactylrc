@@ -5,7 +5,6 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
-" gg/G still breaks on some sites.
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
