@@ -444,10 +444,7 @@ alias pss="packer -Ss"
 
 # System-dotfile backups.
 alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
-alias systemctlx="systemctl --all ~/.config/nil/system-dotfiles/systemctl"
-
-# A temporary workaround until I set a udev automount rule.
-alias me="sudo mount /dev/sdb1 /mnt/ext"
+alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
 
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
