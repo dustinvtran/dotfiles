@@ -9,5 +9,8 @@ gapless-audio
 no-input-default-bindings
 osd-duration=2000
 osd-font='HelveticaNeueCom 45 Lt'
-# Change screenshot directory to nil/Media but preserve default format.
-#screenshot-template=
+screenshot-template=/home/nil/nil/Media/Pictures/Screenshots/mpv/%f_%p_%tm-%td-%ty
+
+# Wishlist:
+# * For screenshot-template, have the file extension displayed with a - instead of a . Currently,
+#   one can only include .filetype or omit it altogether.
