@@ -24,6 +24,7 @@ i3status
 icedtea-web-java7
 irssi
 jre7-openjdk
+ldm
 libreoffice-calc
 libreoffice-en-US
 libreoffice-gnome
@@ -31,7 +32,7 @@ libreoffice-writer
 librsvg
 mesa
 mpd
-mplayer2
+mpv-git
 ncmpcpp
 nitrogen
 ntfs-3g
@@ -52,7 +53,6 @@ rssdler
 rubber
 rxvt-unicode-patched
 scrot
-smplayer
 syslog-ng
 texlive-bibtexextra
 texlive-core
@@ -77,6 +77,7 @@ ttf-inconsolata
 ttf-monaco
 ttf-ms-fonts
 ttf-vista-fonts
+udisks
 unrar
 unzip
 virtualbox
