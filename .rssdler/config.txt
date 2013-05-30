@@ -47,3 +47,5 @@ regExFalse = (480p)
 #link = http://thepiratebay.sx/rss
 #regExTrue = (Arrested.*Development.*S04.*1080)
 #regExFalse = (480p|720p)
+
+# vim:filetype=conf

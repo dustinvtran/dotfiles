@@ -1,0 +1,13 @@
+#
+# mpv general dotfile
+# ~/.mpv/config
+# Name: nil
+#
+
+fullscreen
+gapless-audio
+no-input-default-bindings
+osd-duration=2000
+osd-font='HelveticaNeueCom 45 Lt'
+# Change screenshot directory to nil/Media but preserve default format.
+#screenshot-template=
