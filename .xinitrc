@@ -14,11 +14,12 @@ fi
 
 # Startup Scripts
 bash ~/.config/nil/hdmi-init &
-(mpd ~/.config/mpd/mpd.conf && mpc pause) &
+mpd ~/.config/mpd/mpd.conf &
 nitrogen --restore &
-xbacklight -set 100 &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
+transmission-daemon &
+xbacklight -set 100 &
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
 xmodmap -e 'add Control = Control_L'
@@ -28,7 +29,6 @@ xmodmap -e 'keycode 135 = Super_R'
 xcape -e 'Control_L=Escape'
 #xcape -e 'Alt_R=emdash'
 xrdb -merge ~/.Xresources
-transmission-daemon &
 #redshift -l 37.9:-122.3 -t 6500:3700 &
 
 # Change DE/WM's by the command 'xinit asdf', where you have "asdf) exec the_asdf_start_cmd".
