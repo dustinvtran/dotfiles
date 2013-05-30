@@ -3,3 +3,4 @@
 
 # <file system>   <dir>		<type>    <options>             <dump>  <pass>
 /dev/sda2  	  /mnt/windows  ntfs-3g   defaults		  0       0
+/dev/sda1  	  /mnt/SYSTEM   ntfs-3g   rw,noauto,user,exec	  0       0
