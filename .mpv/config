@@ -9,7 +9,10 @@ gapless-audio
 no-input-default-bindings
 osd-duration=2000
 osd-font='HelveticaNeueCom 45 Lt'
+osd-font-size=40
 screenshot-template=/home/nil/nil/Media/Pictures/Screenshots/mpv/%f_%p_%tm-%td-%ty
+# only one running instance, and run the new file while adding it to the playlist
+#   if i can't set some default flag, just add it to rifle.conf.
 
 # Wishlist:
 # * For screenshot-template, have the file extension displayed with a - instead of a . Currently,
