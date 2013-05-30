@@ -6,6 +6,7 @@
 # Comments {{{
 
 # To-Do:
+# Set all firefox popups to float more generally, rather than needing to xprop each individually.
 # When restarting, the nondocked dzen2's get overlapped and are hidden.
 # firefox gets weird block to the right on occasion.
 # when i open some terminal apps, like 'l devices' it doesn't open in the workspace that I initialized it in, but rather the workspace I'm currently in.
