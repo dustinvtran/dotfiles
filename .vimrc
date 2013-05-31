@@ -47,6 +47,7 @@
 " Fix $...$ in case there are none.
 " Have cursor position returned to exact position (i.e. column) not just line position.
 " The "jump to next/last sentence" doesn't always work as intended.
+" vim fold text styling. donri is coming up with a plugin for a nice one.
 
 " Ideas:
 " Figure out which <C-v> or <C-p> you ended up with.
@@ -82,7 +83,6 @@ filetype plugin on
 " System Settings
 set encoding=utf-8
 set showcmd                                  " Display partial commands.
-set foldmethod=marker                        " Custom folding.
 set noerrorbells visualbell t_vb=            " Disable error bells.
 augroup stahp
     autocmd!
@@ -109,6 +109,8 @@ set incsearch                                " Incremental searching.
 set gdefault                                 " Default: Substitute all occurrences only in line.
 set wildmenu                                 " Tab-completion features in cmd-line mode.
 set wildmode=list:full
+set foldmethod=marker                        " Custom folding.
+set foldlevelstart=1                         " Only auto-fold up to top level at startup.
 
 "Formatting
 "set autoindent                               " Auto-indent.
@@ -140,8 +142,21 @@ nnoremap <Esc> <Nop>
 " Functions {{{
 " -----------------------------------------------------------------------------
 
-" When 'dd'ing blank lines, don't yank them into the register. {{{
+" Better styling of folds. {{{
+function! NeatFoldText()
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('▪' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+" }}}
 
+" When 'dd/cc'ing blank lines, don't yank them into the register. {{{
 function! DDWrapper()
     if getline('.') =~ '^\s*$'
         normal! "_dd
@@ -149,12 +164,6 @@ function! DDWrapper()
         normal! dd
     endif
 endfunction
-
-" }}}
-nnoremap <silent> dd :call DDWrapper()<CR>:echom ""<CR>
-
-" When 'cc'ing blank lines, don't yank them into the register. {{{
-
 function! CCWrapper()
     if getline('.') =~ '^\s*$'
         normal! "_cc
@@ -162,8 +171,8 @@ function! CCWrapper()
         normal! cc
     endif
 endfunction
-
 " }}}
+nnoremap <silent> dd :call DDWrapper()<CR>:echom ""<CR>
 nnoremap <silent> cc :call CCWrapper()<CR>:echom ""<CR>
 
 " Restore cursor to previous position and auto-open last file. {{{
@@ -217,7 +226,6 @@ endfunction
 nnoremap <silent> <Leader>] :call Browser()<CR>
 
 " Fold all toggle. {{{
-
 let g:foldtoggle = 0
 function! FoldAllToggle()
   if g:foldtoggle == 0
@@ -228,20 +236,18 @@ function! FoldAllToggle()
     normal! zM
   endif
 endfunction
-
 " }}}
 noremap <silent> <S-Space> :call FoldAllToggle()<CR>
-" A temporary workaround for terminal Vim.
+" A temporary workaround for terminal Vim, since foldlevelstart ain't working.
 "noremap <silent> <S-F1> :call FoldAllToggle()<CR>
-" Don't auto-fold in the beginning.
-" This doesn't quite work as intended, but whatever; it shall do for now.
+if !has('gui_running')
 augroup auto_fold
     autocmd!
     autocmd VimEnter * call FoldAllToggle()
 augroup END
+endif
 
 " Smooth scrolling. {{{
-
 function! SmoothScroll(up)
     if a:up
         let scrollaction=""
@@ -258,7 +264,6 @@ function! SmoothScroll(up)
         exec "normal! " . scrollaction
     endwhile
 endfunction
-
 " }}}
 nnoremap <silent> <c-k> :call SmoothScroll(1)<CR>
 nnoremap <silent> <c-j> :call SmoothScroll(0)<CR>
@@ -267,7 +272,6 @@ vnoremap <silent> <c-k> H4k<CR>
 vnoremap <silent> <c-j> L4j<CR>
 
 " Insert Character Function. {{{
-
 "Taken from a plugin. This makes it an atomic operator, e.g., you can '.' it. Also, you get a neat cursor shader and can specify how many characters in particular.
 let loaded_InsertChar = 1
 function! InsertChar(count)
@@ -318,7 +322,6 @@ function! InsertChar(count)
 		call inputrestore()
 	endtry
 endfunction
-
 " }}}
 " I use both 's' and 'S' more often than I use default 's'. The default warrants enough use to be a single keypress (as opposed to 'cl') but I liked Append and InsertChar() even more. Also, this places the 's' default right next to 'x/c' which seems more natural in that perspective.
 " Have to do autocmd for now, because of weird YankStack.

@@ -3,8 +3,6 @@ proc-sys..._misc.automount loaded active   waiting   Arbitrary Executable File F
 dev-cdrom.device           loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-disk...VLJJ4KUJ.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...x2dpart2.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...x2dpart4.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...SZ707447.device loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-disk...W3000ELV.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
@@ -12,20 +10,13 @@ dev-disk...5e3afbb7.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...b5e3861e.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...x2dpart2.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...x2dpart4.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x20Drive.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...l-SYSTEM.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...d0:0:0:0.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...64F8ACB4.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...B0DF5451.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...22333379.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...0649093b.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda.device             loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda1.device            loaded active   plugged   Hitachi_HTS725050A9A364
-dev-sda2.device            loaded active   plugged   Hitachi_HTS725050A9A364
-dev-sda4.device            loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sdb.device             loaded active   plugged   ST4000DM000-1F2168
 dev-sdb1.device            loaded active   plugged   ST4000DM000-1F2168
 dev-sr0.device             loaded active   plugged   hp_CDDVDW_TS-U633F
@@ -39,8 +30,6 @@ sys-devi...et-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireles
 sys-devi...sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
 sys-devi...lock-sdb.device loaded active   plugged   ST4000DM000-1F2168
 sys-devi...sda-sda1.device loaded active   plugged   Hitachi_HTS725050A9A364
-sys-devi...sda-sda2.device loaded active   plugged   Hitachi_HTS725050A9A364
-sys-devi...sda-sda4.device loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devi...lock-sda.device loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devi...lock-sr0.device loaded active   plugged   hp_CDDVDW_TS-U633F
 sys-devi...ty-ttyS0.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS0
@@ -55,7 +44,6 @@ sys-subs...es-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireles
 dev-hugepages.mount        loaded active   mounted   Huge Pages File System
 dev-mqueue.mount           loaded active   mounted   POSIX Message Queue File System
 media-Se...lus_Drive.mount loaded active   mounted   /media/Seagate_Backup_Plus_Drive
-mnt-windows.mount          loaded active   mounted   /mnt/windows
 proc-sys...nfmt_misc.mount loaded inactive dead      Arbitrary Executable File Formats File System
 sys-fs-f...nnections.mount loaded active   mounted   FUSE Control File System
 sys-kernel-config.mount    loaded active   mounted   Configuration File System
@@ -148,5 +136,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-144 loaded units listed.
+132 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.
