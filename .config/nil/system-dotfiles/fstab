@@ -1,6 +1,2 @@
-# UUID=f8890857-cb01-4e14-a817-141d0649093b
-/dev/sda4           	/         	ext4      	rw,relatime	0 1
-
-# <file system>   <dir>		<type>    <options>             <dump>  <pass>
-/dev/sda2  	  /mnt/windows  ntfs-3g   defaults		  0       0
-/dev/sda1  	  /mnt/SYSTEM   ntfs-3g   rw,noauto,user,exec	  0       0
+# <file system>   				<dir>	<type>    <options>     <dump>  <pass>
+UUID=f8890857-cb01-4e14-a817-141d0649093b	/       ext4      rw,relatime	0 	1
