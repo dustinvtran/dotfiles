@@ -449,7 +449,6 @@ alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
 alias irssi="urxvt -name irssi -g 124x33 -e irssi &"
-alias nitrogen="(nitrogen &) | hideme"
 alias ncmpcpp="urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &"
 alias tcli="urxvt -name tcli -g 110x30 -e ~/.config/nil/nil-transmission-remote-cli &"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
@@ -462,7 +461,9 @@ alias Lun="urxvt -name nil -g 124x33 &"
 hideme() { i3 '[instance="^nil$"] scratchpad show' }
 l() { (nocorrect f -e libreoffice "$@" &) | hideme }
 m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
+alias nitrogen="(nitrogen &) | hideme"
 alias v="hideme | nocorrect f -e gvim -B viminfo"
+alias virtualbox="(virtualbox &) | hideme"
 z() { (nocorrect f -e zathura "$@" &) | hideme }
 
 # le git.

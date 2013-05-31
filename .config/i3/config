@@ -126,7 +126,8 @@ bindsym $mod+Shift+l move right
 
 # Reload the configuration file, Restart i3 inplace (preserves layout/session).
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+#Temporary to escape accidental presses, until I can get docks working to not be overlapped on restart.
+#bindsym $mod+Shift+r restart
 
 # }}}
 # Workspaces {{{
