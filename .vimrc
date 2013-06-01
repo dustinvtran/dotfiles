@@ -14,7 +14,6 @@
 " Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
 "       Which ones should be via LaTeX and others via vim?
 " Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.
-" I can't run tikz's external, but winedt can??
 
 " Plugins:
 " Ctrl-P: get it working.
@@ -25,7 +24,7 @@
 " SetColors:   not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
 " Powerline:   weird blinking when moving to folded text.
 "              change default normal mode (black) color to be transparent, and change colors for other modes (visual, operator, cmd).
-" Repeat: not working.
+" Repeat: not working with Surround.
 " Snippets: Fix the auto-reload command to not be so computation heavy.
 "  How to do snippets inside a snippet? Or perhaps manage more carefully if not.
 " YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
@@ -51,13 +50,13 @@
 
 " Ideas:
 " Figure out which <C-v> or <C-p> you ended up with.
-" Consider VimSpeed for quicker inline navigation.
 " Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
 " }}}
 " Settings {{{
 " -----------------------------------------------------------------------------
 
+" Vundle.
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -80,7 +79,7 @@ Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-surround'
 filetype plugin on
 
-" System Settings
+" System Settings.
 set encoding=utf-8
 set showcmd                                  " Display partial commands.
 set noerrorbells visualbell t_vb=            " Disable error bells.
@@ -95,14 +94,14 @@ set mouse=a                                  " Mouse support in terminal.
 set autoread                                 " Reload files outside vim.
 set clipboard=unnamed                        " Set to system's clipboard register.
 
-" Temp Directories
+" Temp Directories.
 set backup                                   " Enable backups.
 set noswapfile                               " It's 2013, Vim.
 set undofile                                 " Enable persistent undo.
 set backupdir=~/.vim/tmp/backup
 set undodir=~/.vim/tmp/undo
 
-" Searching, Highlighting, Replacing Settings
+" Searching, Highlighting, Replacing Settings.
 set ignorecase                               " Case-insensitive matching...
 set smartcase                                "  except case-sensitive searches.
 set incsearch                                " Incremental searching.
@@ -112,7 +111,7 @@ set wildmode=list:full
 set foldmethod=marker                        " Custom folding.
 set foldlevelstart=1                         " Only auto-fold up to top level at startup.
 
-"Formatting
+" Formatting.
 "set autoindent                               " Auto-indent.
 "set pastetoggle=<F10>                        " Option in case vim auto-indents pasted text. Use \ shortcuts to toggle these.
 set backspace=indent,eol,start               " Expected backspacing.
@@ -129,12 +128,12 @@ augroup no_indent
     autocmd FileType * set formatoptions=rol
 augroup END
 
-" Tab Settings
+" Tab Settings.
 set expandtab                                " Spaces as tabs.
 set shiftwidth=4                             " 4-character tabs.
 set softtabstop=4                            " Fix it to 4.
 
-" 1 sec <Esc> delay? Vim pls.
+" 1 sec <Esc> delay in terminal? Vim pls.
 set noesckeys
 nnoremap <Esc> <Nop>
 
@@ -337,7 +336,7 @@ vnoremap z s
 " }}}
 " Mappings - Unmapped {{{
 " -----------------------------------------------------------------------------
-" These are keys that are generally useless for me. I can always just not use it, but <Nop>ing everything eases my mind as I know exactly what keys do what, and how to prioritize my keybinds most effectively.
+" These are keys that are generally useless for me. I can always just not use it, but <Nop>ing everything eases my mind as I know exactly what keys do what, and how to prioritize my keybinds most effectively. I'll clean this up when I hardwire my brain to know every single key combination later.
 
 "Aside from , the \ commands are all up for grabs, as well as all <F1-12> keys, and the <M-> keys.
 " The non-! is for general modes, and ! for inserty modes.
@@ -634,18 +633,15 @@ noremap ] <C-]>
 " Go to last edited location.
 nnoremap ' '.
 
-" Better substitute function. This places you inbetween after you hit ':s/'.
-" This is annoying when I want to do other substitutions.
-"cnoreabbrev s %s/c<Left><Left>
 " }}}
 " Mappings - Buffers/Windows/Tabs  {{{
 " -----------------------------------------------------------------------------
 
 " Buffers:
-" BufExplorer/NERDTree commands.
+"BufExplorer/NERDTree commands.
 " Window: Splits.
-" BufExplorer/NERDTree commands.
-"<C-d>             Close window.
+"BufExplorer/NERDTree commands.
+"<C-w>             Close window.
 " Window: Resize.
 noremap <silent> <F1> <C-w>+
 noremap <silent> <F2> <C-w>-
@@ -684,17 +680,13 @@ nnoremap <silent> L :tabn<CR>
 " -----------------------------------------------------------------------------
 
 " Buffer Explorer {{{
-
 " I use these splits instead of the defined commands since occasionally BufExplorer collapses the extra split when I don't want that!
 " I also mapped <C-c> somewhat unnaturally just because I use the key so much and it's so powahful!
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
 nnoremap <silent> <C-x> <C-w>s:silent BufExplorer<CR>
 nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
-
 " }}}
-
 " Colors/Powerline {{{
-
 " Colorscheme Hybrid
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
@@ -727,21 +719,15 @@ call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('lineinfo')
-
 " }}}
-
 " Ctrl-P {{{
-
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " I really don't see why /I/ have to do this, but whatever.
 set wildignore+=*.doc,*.docx,*.epub,*.flac,*.lnk,*.mobi,*.mkv,*.pdf,*.ods,*.xlsx
-
 " }}}
-"
 " EasyMotion {{{
-
 " Sorted by closest keys to center of homekeys, with RHS as priority (because I'm right-handed and f/F is on the LHS which may require a LHS shift change). Then since it's pretty random anyways, I just swapped two's based on matchups on which I would prefer. Also note that you want something still good as your last choice, since it will invariably come up for a search requiring >= 2 presses. I went with H since it was kind of random between g and a anyways and it alternates hands after a possible chord press. For the more canonical route go with the default alphabet.
 let g:EasyMotion_keys = 'jklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBYh'
 " f/F keys defaulted to EasyMotion for normal/visual, and for operator mode (primarily d/c/y), set to t/T's instead.
@@ -760,17 +746,11 @@ augroup tilthefs
     autocmd VimEnter * omap f t
     autocmd VimEnter * omap F T
 augroup END
-
 " }}}
-
 " Gundo {{{
-
 nnoremap <C-u> :GundoToggle<CR>
-
 " }}}
-
 " Matchit {{{
-
 " Move between matching brackets and tags with <Tab> instead of the default %.
 ""let s:SID = Sid('$vim/vimfiles/bundle/matchit/plugin/matchit.vim')
 ""function! s:Is( input, expected, description )
@@ -783,17 +763,11 @@ nnoremap <C-u> :GundoToggle<CR>
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>.
 noremap <C-p> <C-i>
-
 " }}}
-
 " MarkMyWords {{{
-
 nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
-
 " }}}
-
 " NERDCommenter {{{
-
 " To keep visual mode on. Technically, <BS> isn't healthy here since I merely need an empty key there, but I dunno how to do it.
 vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth<BS>gv
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy<BS>gv
@@ -809,33 +783,24 @@ vmap <silent> <Leader>cu <plug>NERDCommenterUncomment<BS>gv
         "\ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
         "\ 'grondle': { 'left': '{{', 'right': '}}' }
     "\ }
-
 " }}}
-
 " NERDTree {{{
-
 " I want you as a Toggle, but I also want you to autotree node to CWD.
 " 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
 nnoremap <silent> <C-q> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-
 " }}}
-
 " Set Color {{{
-
 augroup color_scheme
     autocmd!
     autocmd VimEnter * silent SetColors all
 augroup END
 nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
 nnoremap <silent> <Leader>r :call NextColor(1)<CR>
-
 " }}}
-
 " Snipmate {{{
-
 let g:snippets_dir = '~/.vim/bundle/nil/snippets'
 
 " To reload the snippets whenever I rewrite them.
@@ -848,11 +813,8 @@ augroup snippets
     " This one does work, but it's computationally unpleasant in that I don't need to call it for /every/ file.
     autocmd BufWritePost * call ReloadAllSnippets()
 augroup END
-
 " }}}
-
 " Surround: {{{
-
 " Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways.
 vmap s <Plug>VSurround
 " So the '\' surround command does '\[...\]'.
@@ -886,11 +848,8 @@ augroup tex_only
     autocmd!
     autocmd FileType tex nnoremap <buffer> <silent> $ :call ParityDollarSign()<CR>
 augroup END
-
 " }}}
-
 " YankRing: {{{
-
 " Uncomment when I put in YankRing again.
 """nnoremap <silent> <Leader>p :YRShow<CR>
 """" Clipboard unnnamed doesn't work with YankRing since it remaps p and P to something stupid. Here I'm resetting it to work again.
@@ -926,7 +885,6 @@ cnoremap <C-v> <C-R>*<BS>
 inoremap <C-v> <C-R>*
 cnoremap <C-p> <C-R>*<BS>
 inoremap <C-p> <C-R>*
-
 " }}}
 
 " }}}
@@ -950,7 +908,7 @@ augroup END
 " Filetypes {{{
 " -----------------------------------------------------------------------------
 
-" LaTeX
+" LaTeX {{{
 " Always use LaTeX. It's 2013 Vim. Who needs TeX?
 let g:tex_flavor = "latex"
 
@@ -992,7 +950,6 @@ function! OpenPDF()
 endfunction
 
 " Autosave {{{
-
 "This prevents auto-saving unsaved files or unnecessarily, and hides command-line spam.
  "This works perfectly, but since my computer fucks up right now when I try to save shit, comment out for now.
 "function! FileUpdate()
@@ -1014,11 +971,8 @@ endfunction
    "autocmd FileType tex :autocmd CursorMoved,CursorMovedI * call FileUpdate()
 ""       How to leave this autocmd when I'm not in .tex?
 "augroup END
-
 " }}}
-
 " LaTeX Auto-Compile & Error Parser {{{
-
 " Later, when you deal with LaTeX plugins, try the IDE stuff like SuperTab.
 " Enable auto-compile current document.
 "
@@ -1041,7 +995,7 @@ endfunction
     "autocmd FileType tex set makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
-
+" }}}
 " }}}
 
 " }}}
