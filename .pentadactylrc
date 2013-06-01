@@ -9,7 +9,7 @@
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
 " using digits autogoes to a url page. stahp. let them use google.
-" rehash shortcut breaks
+" when rehashing, multitab doesn't work until i make/close a tab
 " Make all colors gray. It's a weird blotch right now of white and gray.
 "    turn the highlighted search term as yellow.
 " the hint links don't work so well with that font, e.g., I vs l. Also pent hint boxes overlap and obscure some letters.
@@ -65,8 +65,8 @@ set showstatuslinks=command
 set showtabline=multitab
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:JKasecCwWq<CR>
-set passkeys+=boards.4chan.org:qQ<C-q><C-s>wWmbJKxz<CR>
+set passkeys+=reddit.com:JKeicCaswbq<CR>
+set passkeys+=boards.4chan.org:JK<C-j><C-k>eiIcC<CR>
 
 " Tab-Options Plugin.
 set tabclose=right,opener,left,previous
@@ -120,6 +120,7 @@ map -modes=c <PageUp> <Nop>
 
 map -modes=i <C-[> <Nop>
 map -modes=i <C-d> <Nop>
+map -modes=i <C-i> <Nop>
 map -modes=i <C-e> <Nop>
 map -modes=i <C-h> <Nop>
 
@@ -160,7 +161,7 @@ map , <Leader>
 
 " Dialogs & Stuff.
 map -modes=n -builtin <C-r> :rehash<CR>
-map -modes=n -builtin <C-e> :dialog places<CR>
+map -modes=n -builtin <C-b> :dialog places<CR>
 map -modes=n -builtin <C-d> :dialog addons<CR>
 map -modes=n -builtin <C-p> :dialog preferences<CR>
 map -modes=n -builtin <C-y> :dialog downloads<CR>
@@ -252,6 +253,9 @@ map -modes=n -builtin Y y
 "map -modes=n -builtin <C-u> <C-i>
 "map -modes=n <C-o> <Nop>
 
+" Since <C-i> is annoying when using rich browser text editors with italics.
+map -modes=i -builtin <C-e> <C-i>
+
 " Move tab to another window.
 map -modes=n -builtin <Leader>1 :tabattach 1<CR>
 map -modes=n -builtin <Leader>2 :tabattach 2<CR>
@@ -269,12 +273,12 @@ map -modes=n -builtin <Leader>p <C-V><C-S-p>
 " Tab Groups.
 map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
 map -modes=n -builtin <Leader>g t https://mail.google.com/mail/u/1/#inboxhttps://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
-map -modes=n -builtin <Leader>n t nyaa maou-sama | nyaa yahari | nyaa railgun | nyaa aku no hana | nyaa shingeki | nyaa hentai ouji | nyaa gargantia<CR>gT
 
 " Bookmarks.
 map -modes=n -builtin <Leader>r t http://reddit.com<CR>gT
 map -modes=n -builtin <Leader>d t https://github.com/nil-/dotfiles<CR>gT
-map -modes=n -builtin <Leader>4 t http://boards.4chan.org/g/<CR>gT
+map -modes=n -builtin <Leader>4g t http://boards.4chan.org/g/<CR>gT
+map -modes=n -builtin <Leader>4a t http://boards.4chan.org/a/<CR>gT
 map -modes=n -builtin <Leader>l t http://myanimelist.net/animelist/nil-&show=0&order=4<CR>gT
 
 " }}}

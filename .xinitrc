@@ -18,7 +18,7 @@ mpd ~/.config/mpd/mpd.conf &
 nitrogen --restore &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
-transmission-daemon
+#transmission-daemon
 xbacklight -set 100 &
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
