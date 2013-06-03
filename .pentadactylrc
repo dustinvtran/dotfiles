@@ -65,8 +65,8 @@ set showstatuslinks=command
 set showtabline=multitab
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:JKeicCaswbq<CR>
-set passkeys+=boards.4chan.org:JK<C-j><C-k>eiIcC<CR>
+set passkeys+=reddit.com:JKeqcCaswb<CR>
+set passkeys+=boards.4chan.org:JK<C-j><C-k>eqQcC<CR>
 
 " Tab-Options Plugin.
 set tabclose=right,opener,left,previous
@@ -161,7 +161,7 @@ map , <Leader>
 
 " Dialogs & Stuff.
 map -modes=n -builtin <C-r> :rehash<CR>
-map -modes=n -builtin <C-b> :dialog places<CR>
+map -modes=n -builtin <C-e> :dialog places<CR>
 map -modes=n -builtin <C-d> :dialog addons<CR>
 map -modes=n -builtin <C-p> :dialog preferences<CR>
 map -modes=n -builtin <C-y> :dialog downloads<CR>
@@ -270,16 +270,22 @@ map -modes=n,i,c,t -builtin <C-a> <pass>
 " Open private window.
 map -modes=n -builtin <Leader>p <C-V><C-S-p>
 
-" Tab Groups.
-map -modes=n -builtin <Leader>a t http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>gT
-map -modes=n -builtin <Leader>g t https://mail.google.com/mail/u/1/#inboxhttps://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>gT
+" Bookmark Shortcuts.
+map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
+map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
+map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
+map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
+map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
+map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
+map -modes=n -builtin <Leader>r :tabopen! http://reddit.com<CR>
+map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
+map -modes=n -builtin <Leader>l :tabopen! http://myanimelist.net/animelist/nil-&show=0&order=4<CR>
+map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
+map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
 
-" Bookmarks.
-map -modes=n -builtin <Leader>r t http://reddit.com<CR>gT
-map -modes=n -builtin <Leader>d t https://github.com/nil-/dotfiles<CR>gT
-map -modes=n -builtin <Leader>4g t http://boards.4chan.org/g/<CR>gT
-map -modes=n -builtin <Leader>4a t http://boards.4chan.org/a/<CR>gT
-map -modes=n -builtin <Leader>l t http://myanimelist.net/animelist/nil-&show=0&order=4<CR>gT
+" Tab Groups.
+map -modes=n -builtin <Leader>a :tabopen! http://myanimelist.net/animelist/nil-&show=0&order=4 | myanimelist.net | http://www.feedly.com/home#index | nilblogs.wordpress.com <CR>
+map -modes=n -builtin <Leader>g :tabopen! https://mail.google.com/mail/u/1/#inboxhttps://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 
 " }}}
 " Functions {{{
