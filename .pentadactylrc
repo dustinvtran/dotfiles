@@ -121,7 +121,6 @@ map -modes=c <PageUp> <Nop>
 map -modes=i <C-[> <Nop>
 map -modes=i <C-d> <Nop>
 map -modes=i <C-i> <Nop>
-map -modes=i <C-e> <Nop>
 map -modes=i <C-h> <Nop>
 
 " Mozilla/Browser commands.
@@ -166,7 +165,7 @@ map -modes=n -builtin <C-d> :dialog addons<CR>
 map -modes=n -builtin <C-p> :dialog preferences<CR>
 map -modes=n -builtin <C-y> :dialog downloads<CR>
 map -modes=n -builtin <C-S-p> :dialog print<CR>
-map -modes=n -builtin <C-t>  :tabopen about:sync-tabs<CR>
+map -modes=n -builtin <C-o>  :tabopen about:sync-tabs<CR>
 
 " Text Edit Mode. How ingenious! I'll just map you to the Vim cmd-line default.
 map -modes=i,c -builtin <C-f> <C-T>
@@ -186,6 +185,10 @@ map -modes=n -builtin I i
 
 " A temporary fix for caret mode. Only con is that it doesn't tell you that you yanked and what you yanked.
 map -modes=caret -builtin y <C-v><C-c>
+
+" Toggle statusline (to see %/url).
+map -modes=n -builtin <Leader>s :set guioptions+=s<CR>
+map -modes=n -builtin <Leader>,s :set guioptions-=s<CR>
 
 " Bookmark support in pentadactyl sucks. Use native GUI for now.
 map -modes=n -builtin a <C-v><C-d>
@@ -210,6 +213,9 @@ map -modes=n -builtin J l
 " +/- Command-line history.
 map -modes=c -builtin <C-j> <Down>
 map -modes=c -builtin <C-k> <Up>
+
+" Open tab in background.
+map -modes=n -builtin <C-t> :tabopen!<Space>
 
 " +/- Tabs.
 map -modes=n -builtin h gT
@@ -253,9 +259,6 @@ map -modes=n -builtin Y y
 "map -modes=n -builtin <C-u> <C-i>
 "map -modes=n <C-o> <Nop>
 
-" Since <C-i> is annoying when using rich browser text editors with italics.
-map -modes=i -builtin <C-e> <C-i>
-
 " Move tab to another window.
 map -modes=n -builtin <Leader>1 :tabattach 1<CR>
 map -modes=n -builtin <Leader>2 :tabattach 2<CR>
@@ -291,8 +294,8 @@ map -modes=n -builtin <Leader>g :tabopen! https://mail.google.com/mail/u/1/#inbo
 " Functions {{{
 " -----------------------------------------------------------------------------
 
-" Search multiple sites with one prompt. I use my search keywords instead of the full urls just so that if I edit the search keyword, or if the url makes for funkier search formulas with the result placed in the middle, I can edit all that within the browser. Ordered in ascending order of priority to read (so I read most important on foreground tab).
 " Bug: I have to use backslashes to get out of single quotes/double quotes. Annoying!
+" Search multiple sites in one. {{{
 javascript <<EOF
     userContext.searchDictionary = function (selection) {
         commands.execute("tabopen wikt " + selection);
@@ -323,8 +326,8 @@ javascript <<EOF
         commands.execute("tabopen mal " + selection);
     };
 EOF
-
-" Custom [s]earch commands.
+" }}}
+" Custom search commands.
 command define -nargs=* -js userContext.searchDictionary(args)
 command giki -nargs=* -js userContext.searchGiki(args)
 command arch -nargs=* -js userContext.searchArch(args)
@@ -335,9 +338,38 @@ command mal -nargs=* -js userContext.searchMal(args)
 map -modes=n -builtin s :define<Space>
 map -modes=n -builtin S :giki<Space>
 
-" Toggle statusline (to see %/url).
-map -modes=n -builtin <Leader>s :set guioptions+=s<CR>
-map -modes=n -builtin <Leader>,s :set guioptions-=s<CR>
+" Edit in external editor, with filetype syntax! {{{
+javascript <<EOF
+function editExternallyWithFiletype() {
+    var save_editor = options["editor"];
+    var filetype = editExternallyFiletype();
+    console.log(filetype)
+    // Insert the :setf command before any existing +cmd, as there can be only one such argument.
+    options["editor"] = options["editor"].replace(/ "\+/, " \"+setf " + filetype + "|")
+    if (options["editor"] == save_editor) {
+        // The 'editor' setting doesn't yet contain a passed +cmd; append it.
+        options["editor"] += " \"+setf " + filetype + "\"";
+    }
+    editor.editFieldExternally();
+    options["editor"] = save_editor;
+}
+EOF
+javascript <<EOF
+function editExternallyFiletype() {
+    var host = buffer.URL.host
+    switch(host.replace(/^www\./, "")) {
+        case "github.com":
+        if (! buffer.URL.path.match("/wiki/"))
+        return "markdown";
+        case "stackoverflow.com":
+        return "markdown";
+    }
+    if (host.match(/.*\.4chan\.org$/))
+        return "4chan";
+}
+EOF
+" }}}
+map -modes=i -builtin <C-e> -javascript editExternallyWithFiletype()
 
 " }}}
 " Macros {{{
