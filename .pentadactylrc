@@ -9,6 +9,8 @@
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
 " using digits autogoes to a url page. stahp. let them use google.
+" toggled scrollbar doesn't always work
+    " they also don't show up until refreshed page
 " when rehashing, multitab doesn't work until i make/close a tab
 " Make all colors gray. It's a weird blotch right now of white and gray.
 "    turn the highlighted search term as yellow.
@@ -165,7 +167,7 @@ map -modes=n -builtin <C-d> :dialog addons<CR>
 map -modes=n -builtin <C-p> :dialog preferences<CR>
 map -modes=n -builtin <C-y> :dialog downloads<CR>
 map -modes=n -builtin <C-S-p> :dialog print<CR>
-map -modes=n -builtin <C-o>  :tabopen about:sync-tabs<CR>
+map -modes=n -builtin <C-w>  :tabopen about:sync-tabs<CR>
 
 " Text Edit Mode. How ingenious! I'll just map you to the Vim cmd-line default.
 map -modes=i,c -builtin <C-f> <C-T>
@@ -186,9 +188,9 @@ map -modes=n -builtin I i
 " A temporary fix for caret mode. Only con is that it doesn't tell you that you yanked and what you yanked.
 map -modes=caret -builtin y <C-v><C-c>
 
-" Toggle statusline (to see %/url).
-map -modes=n -builtin <Leader>s :set guioptions+=s<CR>
-map -modes=n -builtin <Leader>,s :set guioptions-=s<CR>
+" Toggle scrollbar (to see my progress for long pages).
+"map -modes=n -builtin <Leader>s :set guioptions!=r<CR>
+map -modes=n -builtin <Leader>s :set guioptions!=s<CR>
 
 " Bookmark support in pentadactyl sucks. Use native GUI for now.
 map -modes=n -builtin a <C-v><C-d>
@@ -269,6 +271,9 @@ map -modes=i,c -builtin <C-p> <C-v><C-v>
 
 " I still like select-all, even though I don't use any other browser insert command since Text Edit Mode is boss.
 map -modes=n,i,c,t -builtin <C-a> <pass>
+
+" For the rich text editors in browser.
+map -modes=i -builtin <C-i> <pass>
 
 " Open private window.
 map -modes=n -builtin <Leader>p <C-V><C-S-p>
