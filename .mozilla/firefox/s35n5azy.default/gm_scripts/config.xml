@@ -53,6 +53,8 @@
 		<Exclude>http://mxr.mozilla.org/*</Exclude>
 		<Grant>none</Grant>
 		<Include>http*</Include>
+		<UserExclude>http://boards.4chan.org/*</UserExclude>
+		<UserExclude>https://boards.4chan.org/*</UserExclude>
 	</Script>
 	<Script basedir="4chan_Linkify" checkRemoteUpdates="1" dependhash="ac38a19271549a5fe53c3584a66325c7cccaf310" description="Linkification of text links." enabled="true" filename="87750.user.js" installTime="1370246877036" modified="1370246877000" name="4chan Linkify" namespace="csimi" runAt="document-end" uuid="cbaf5f21-6a3e-4044-9f76-9568832bd16b" version="2.0.5" installurl="http://userscripts.org/scripts/source/87750.user.js" updateurl="http://userscripts.org/scripts/source/87750.meta.js" icon="JHVzK.png">
 		<Grant>GM_registerMenuCommand</Grant>
