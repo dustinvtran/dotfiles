@@ -260,7 +260,7 @@ for_window [class="mpv"] workspace λ
 for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
-# $mod,$mod+a,z are available, as well as all mod2 (super), and optional "modal" keys like resize.
+# $mod,$mod+a,b,z and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.
 bindsym $mod+Return exec urxvt
 bindsym $mod+q exec firefox
 bindsym $mod+f exec urxvt -e ranger
@@ -286,9 +286,9 @@ for_window [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad
 for_window [class="^URxvt$" instance="^tcli$"] move scratchpad
 for_window [class="^URxvt$" instance="^nil$"] move scratchpad
 
-bindsym $mod+g [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
-bindsym $mod+b [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
-bindsym $mod+y [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
+bindsym $mod+i [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
+bindsym $mod+m [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
+bindsym $mod+g [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
 bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [instance="^nil$"] scratchpad show
 
 # vim:filetype=i3
