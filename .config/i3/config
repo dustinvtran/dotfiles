@@ -267,10 +267,10 @@ bindsym $mod+f exec urxvt -e ranger
 bindsym $mod+w exec gvim
 
 # Media Keys.
-# Learn more about mplayer before you try this one.
-#bindsym F6 exec play pause
+# Set this one to toggle mpv and always leave ncmpcpp paused, if mpv's open.
+bindsym F6 exec ncmpcpp toggle
 # Here's the thing: PCM affects HDMI, Master affects Analog. Neither volume affects the other, so I normalized with percentages instead of decibels so they reach 0-100 at the same intervals. So I'll just go with both 0's as consistency for now.
-# What I would like: to switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons.
+# Wishlist: Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
 bindsym F9 exec amixer set Master 2%- unmute | amixer set PCM 2%- unmute
 bindsym F10 exec amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute
 bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
@@ -288,7 +288,7 @@ for_window [class="^URxvt$" instance="^nil$"] move scratchpad
 
 bindsym $mod+i [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
 bindsym $mod+m [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
-bindsym $mod+g [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
+bindsym $mod+y [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
 bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [instance="^nil$"] scratchpad show
 
 # vim:filetype=i3
