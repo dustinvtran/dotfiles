@@ -417,7 +417,7 @@ alias weather="weather 92683"           # Weather me.
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
 alias history='fc -l'
-alias so="source ~/.zshrc"
+alias so="exec zsh"
 alias xrdbx="xrdb ~/.Xresources"
 alias sv="sudo vim"
 
@@ -448,13 +448,14 @@ alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
 
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-alias irssi="urxvt -name irssi -g 124x33 -e irssi &"
-alias ncmpcpp="urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &"
-alias tcli="urxvt -name tcli -g 110x30 -e ~/.config/nil/nil-transmission-remote-cli &"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
+alias tcli="~/.config/nil/nil-transmission-remote-cli"
 alias un="urxvt -name nil -g 85x24 &"
 alias lun="urxvt -name nil -g 110x30 &"
 alias Lun="urxvt -name nil -g 124x33 &"
+alias uirssi="urxvt -name irssi -g 124x33 -e irssi &"
+alias uncmpcpp="urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &"
+alias utcli="urxvt -name tcli -g 110x30 -e ~/.config/nil/nil-transmission-remote-cli &"
 
 # Application Opening
 # Hides away the terminal after application launching. Aliasing it for purtiness.
