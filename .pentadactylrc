@@ -69,6 +69,8 @@ set titlestring=
 set hlfind
 set passkeys+=reddit.com:JKeqcCaswb<CR>
 set passkeys+=boards.4chan.org:JK<C-j><C-k>eqQcC<CR>
+set passkeys+=feedly.com:?<CR>
+"JK/rjknpovMmsbV
 
 " Tab-Options Plugin.
 set tabclose=right,opener,left,previous
@@ -287,7 +289,7 @@ map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>r :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
-map -modes=n -builtin <Leader>l :tabopen! http://myanimelist.net/animelist/nil-&show=0&order=4<CR>
+map -modes=n -builtin <Leader>l :tabopen! http://myanimelist.net/profile/nil-<CR>
 map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
 map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
 
