@@ -15,6 +15,7 @@ fi
 # Startup Scripts
 bash ~/.config/nil/hdmi-init &
 mpd ~/.config/mpd/mpd.conf &
+mpdas &
 nitrogen --restore &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
