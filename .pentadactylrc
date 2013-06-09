@@ -18,6 +18,8 @@
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
 " Jumps in same buffer without changing pages. (same problem in Vim)
+" set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
+" g not always working on reddit
 
 " some way to navigate all my bookmarks with keyboards, i.e., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
 " how to work with recently closed tabs/windows, and viewing them, as well as bunch of "back"'s history?

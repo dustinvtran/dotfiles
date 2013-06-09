@@ -16,14 +16,20 @@
 #key_down_album = ']'
 #key_up_artist = '{'
 #key_down_artist = '}'
+
 #key_page_up = 339
 #key_page_down = 338
 #key_home = 262
 #key_end = 360
+key_page_up = 339 11
+key_page_down = 338 10
+key_home = 262 'g'
+key_end = 360 'G'
+
 #key_space = 32
 
 #key_enter = 10
-key_enter = 10 'l'
+key_enter = 'l'
 
 #key_delete = 330 'd'
 #key_volume_up = 261 '+'
@@ -48,11 +54,17 @@ key_enter = 10 'l'
 #key_clock = '0' 274
 #key_server_info = '@'
 #key_stop = 's'
+
 #key_pause = 'P'
-#key_next = '>'
+key_pause = 'p'
+
+key_next = '>'
 #key_prev = '<'
 #key_replay = 263 127
+
 #key_seek_forward = 'f'
+key_seek_forward = 'w'
+
 #key_seek_backward = 'b'
 #key_toggle_repeat = 'r'
 #key_toggle_random = 'z'
@@ -71,7 +83,10 @@ key_enter = 10 'l'
 #key_prev_found_position = ','
 #key_toggle_find_mode = 'w'
 #key_edit_tags = 'e'
+
 #key_go_to_position = 'g'
+key_go_to_position = 'f'
+
 #key_song_info = 'i'
 #key_artist_info = 'I'
 
@@ -93,15 +108,24 @@ key_lyrics = 'L'
 #key_save_playlist = 'S'
 #key_go_to_now_playing = 'o'
 #key_toggle_auto_center = 'U'
+
 #key_toggle_display_mode = 'p'
+key_toggle_display_mode = ''
+
 #key_toggle_separators_in_playlist = '!'
 
 #key_toggle_lyrics_db = 'L'
 key_toggle_lyrics_db = ''
 
 #key_toggle_fetching_lyrics_for_current_song_in_background = 'F'
+
 #key_go_to_containing_directory = 'G'
+key_go_to_containing_directory = ''
+
 #key_go_to_media_library = '~'
+
 #key_go_to_parent_dir = 263 127
+key_go_to_parent_dir = 263 'h'
+
 #key_switch_tag_type_list = '`'
 #key_quit = 'q' 'Q'
