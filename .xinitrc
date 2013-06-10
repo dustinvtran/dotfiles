@@ -13,6 +13,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # Startup Scripts
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 bash ~/.config/nil/hdmi-init &
 mpd ~/.config/mpd/mpd.conf &
 mpdas &

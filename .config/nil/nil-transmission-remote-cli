@@ -5,12 +5,15 @@
 # Name: nil
 # Description: Slight modifications for custom keybinds, interface, and settings.
 #   I don't want to bother with ~/.config/tra..-cli/settings.cfg since it won't let
-#       me configure everything like I can with the source, e.g., keybindings.
+#       me configure everything like I can with the source, e.g., select keybindings.
 # Changelog:
 # * Swapped J/K to queue down/up instead of up/down respectively (contrary to what
 #   this script says, they do the opposite..though I don't know why).
 # * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
 # * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
+#
+# Wishlist:
+# * Half page up/downs (or 5j/k's).
 #
 
 ########################################################################
