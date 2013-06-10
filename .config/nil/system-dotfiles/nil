@@ -1,1 +1,3 @@
-*/5 * * * * bash /home/nil/.config/nil/rssdler
+*/5 * * * * bash /home/nil/.config/nil/cron-rssdler
+*/5 * * * * bash /home/nil/.config/nil/cron-mpdas
+*/60 * * * * bash /home/nil/.config/nil/cron-xcape

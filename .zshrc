@@ -402,7 +402,7 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 
 # Default flags.
 alias ping="ping -c 5"                  # Ping 5 packets, not unlimited.
-alias crontabe="EDITOR=vim crontab -e"  # Since crontab doesn't work with gvim/detached editors.
+alias crontab="EDITOR=vim crontab"      # Since crontab doesn't work with gvim/detached editors.
 alias df="df -h"                        # Display sizes in human readable format.
 alias du="du -h -c"                     # Display sizes in human readable format, and total.
 alias mount="sudo mount"                # Don't require prepending sudo.
@@ -445,6 +445,7 @@ alias pss="packer -Ss"
 # System-dotfile backups.
 alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
 alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
+alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
 
 # Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
