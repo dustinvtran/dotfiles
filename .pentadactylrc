@@ -11,7 +11,6 @@
 " using digits autogoes to a url page. stahp. let them use google.
 " toggled scrollbar doesn't always work
     " they also don't show up until refreshed page
-" when rehashing, multitab doesn't work until i make/close a tab
 " Make all colors gray. It's a weird blotch right now of white and gray.
 "    turn the highlighted search term as yellow.
 " the hint links don't work so well with that font, e.g., I vs l. Also pent hint boxes overlap and obscure some letters.
@@ -66,7 +65,10 @@ set defsearch=g
 set maxitems=5
 set newtab=help
 set showstatuslinks=command
-set showtabline=multitab
+" when rehashing, multitab doesn't work until i make/close a tab. I don't really like it anyways, so whatever.
+" Also, it's available in TabMixPlus instead.
+"set showtabline=multitab
+set showtabline=always
 set titlestring=
 set hlfind
 set passkeys+=reddit.com:JKeqcCaswb<CR>
@@ -76,6 +78,7 @@ set passkeys+=feedly.com:?<CR>
 
 " Tab-Options Plugin.
 set tabclose=right,opener,left,previous
+" I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
 set tabopen=link:end,orphan:end,external:end
 
 " This is the same as my EasyMotion's default except that now 'h' is at the far-left, so it indexes properly.
@@ -298,13 +301,18 @@ map -modes=n -builtin <Leader>f :tabopen! http://www.feedly.com/home#index<CR>
 map -modes=n -builtin <Leader>m :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 
 " Media pages.
-map -modes=n -builtin <Leader>a :tabopen! http://myanimelist.net/profile/nil-<CR>
+map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/profile/nil-<CR>
+map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
+map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/user/show/7207396-nil<CR>
 map -modes=n -builtin <Leader>i :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=title:asc&defaults=1&my_ratings=restrict&scb=0.07529765367507935<CR>
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Video%20Game%20List.html<CR>
 map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Visual%20Novel%20List.html<CR>
 map -modes=n -builtin <Leader>y :tabopen! http://rateyourmusic.com/~nilin<CR>
+
+" Private trackers.
+map -modes=n -builtin <Leader>t :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " }}}
 " Functions {{{

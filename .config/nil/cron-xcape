@@ -1,4 +1,6 @@
 #! /bin/bash
 
-pkill xcape
-xcape -e 'Control_L=Escape'
+#set +e
+#pkill xcape
+#xcape -e 'Control_L=Escape' &
+#set -e
