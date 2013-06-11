@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         4chan X
-// @version      3.5.0
+// @version      3.5.2
 // @namespace    4chan-X
 // @description  Cross-browser extension for productive lurking on 4chan.
 // @license      MIT; https://github.com/MayhemYDG/4chan-x/blob/v3/LICENSE
@@ -18,7 +18,7 @@
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAACVBMVEUAAGcAAABmzDNZt9VtAAAAAXRSTlMAQObYZgAAAHFJREFUKFOt0LENACEIBdBv4Qju4wgWanEj3D6OcIVMKaitYHEU/jwTCQj8W75kiVCSBvdQ5/AvfVHBin11BgdRq3ysBgfwBDRrj3MCIA+oAQaku/Q1cNctrAmyDl577tOThYt/Y1RBM4DgOHzM0HFTAyLukH/cmRnqAAAAAElFTkSuQmCC
 // ==/UserScript==
 
-/* 4chan X - Version 3.5.0 - 2013-05-31
+/* 4chan X - Version 3.5.2 - 2013-06-10
  * https://4chan-x.just-believe.in/
  *
  * Copyrights and License: https://github.com/MayhemYDG/4chan-x/blob/v3/LICENSE
@@ -91,7 +91,7 @@
         'Unread Line': [true, 'Show a line to distinguish read posts from unread ones.'],
         'Scroll to Last Read Post': [true, 'Scroll back to the last read post when reopening a thread.'],
         'Thread Excerpt': [true, 'Show an excerpt of the thread in the tab title.'],
-        'Thread Stats': [true, 'Display reply, image and page count.'],
+        'Thread Stats': [true, 'Display reply, image, and page count.'],
         'Thread Watcher': [true, 'Bookmark threads.'],
         'Auto Watch': [true, 'Automatically watch threads you start.'],
         'Auto Watch Reply': [false, 'Automatically watch threads you reply to.']
@@ -187,6 +187,7 @@
       'Open thread tab': ['Shift+o', 'Open thread in new tab.'],
       'Next reply': ['j', 'Select next reply.'],
       'Previous reply': ['k', 'Select previous reply.'],
+      'Deselect reply': ['Shift+d', 'Deselect reply.'],
       'Hide': ['x', 'Hide thread.']
     },
     updater: {
@@ -210,7 +211,7 @@
   doc = d.documentElement;
 
   g = {
-    VERSION: '3.5.0',
+    VERSION: '3.5.2',
     NAMESPACE: '4chan X.',
     boards: {},
     threads: {},
@@ -665,25 +666,22 @@
       return Polyfill.visibility();
     },
     visibility: function() {
-      var event, prefix, property;
-
-      if ('visibilityState' in document) {
+      if (!('webkitHidden' in document)) {
         return;
       }
-      if ('webkitVisibilityState' in document) {
-        prefix = 'webkit';
-      } else if ('mozVisibilityState' in document) {
-        prefix = 'moz';
-      } else {
-        return;
-      }
-      property = prefix + 'VisibilityState';
-      event = prefix + 'visibilitychange';
-      d.visibilityState = d[property];
-      d.hidden = d.visibilityState === 'hidden';
-      return $.on(d, event, function() {
-        d.visibilityState = d[property];
-        d.hidden = d.visibilityState === 'hidden';
+      Object.defineProperties(HTMLDocument.prototype, {
+        visibilityState: {
+          get: function() {
+            return this.webkitVisibilityState;
+          }
+        },
+        hidden: {
+          get: function() {
+            return this.webkitHidden;
+          }
+        }
+      });
+      return $.on(d, 'webkitvisibilitychange', function() {
         return $.event('visibilitychange');
       });
     }
@@ -1206,6 +1204,13 @@
         });
         $.on(btn, 'click', Header.toggleBoardList);
         $.add(fullBoardList, btn);
+      } else {
+        Main.logError({
+          message: "Header crash: nav is null",
+          error: new Error("" + ($$('body > .desktop').map(function(el) {
+            return el.id;
+          }).join(',')))
+        });
       }
       Header.setCustomNav(Conf['Custom Board Navigation']);
       Header.generateBoardList(Conf['boardnav']);
@@ -2566,6 +2571,10 @@
       for (key in Config.filter) {
         this.filters[key] = [];
         if (Conf[key] === void 0) {
+          Main.logError({
+            message: 'XXX some filters are still undefined',
+            error: new Error("Conf[" + key + "] === undefined")
+          });
           $["delete"](key);
           continue;
         }
@@ -6434,7 +6443,7 @@
       return $.after(root, [$.tn(' '), icon]);
     },
     parse: function(postObjects) {
-      var ID, OP, count, deletedFiles, deletedPosts, files, index, node, nodes, num, post, postObject, posts, scroll, _i, _len, _ref;
+      var ID, OP, count, deletedFiles, deletedPosts, files, index, length, node, nodes, num, post, postObject, posts, scroll, sendEvent, threadID, _i, _len, _ref;
 
       OP = postObjects[0];
       Build.spoilerRange[ThreadUpdater.thread.board] = OP.custom_spoiler;
@@ -6478,52 +6487,52 @@
           deletedFiles.push(post);
         }
       }
+      sendEvent = function() {
+        return $.event('ThreadUpdate', {
+          404: false,
+          thread: ThreadUpdater.thread,
+          newPosts: posts,
+          deletedPosts: deletedPosts,
+          deletedFiles: deletedFiles,
+          postCount: OP.replies + 1,
+          fileCount: OP.images + (!!ThreadUpdater.thread.OP.file && !ThreadUpdater.thread.OP.file.isDead)
+        });
+      };
       if (!count) {
         ThreadUpdater.set('status', null, null);
         ThreadUpdater.outdateCount++;
-      } else {
-        ThreadUpdater.set('status', "+" + count, 'new');
-        ThreadUpdater.outdateCount = 0;
-        if (Conf['Beep'] && d.hidden && Unread.posts && !Unread.posts.length) {
-          if (!ThreadUpdater.audio) {
-            ThreadUpdater.audio = $.el('audio', {
-              src: ThreadUpdater.beep
-            });
-          }
-          ThreadUpdater.audio.play();
-        }
-        ThreadUpdater.lastPost = posts[count - 1].ID;
-        Main.callbackNodes(Post, posts);
-        scroll = Conf['Auto Scroll'] && ThreadUpdater.scrollBG() && ThreadUpdater.root.getBoundingClientRect().bottom - doc.clientHeight < 25;
-        $.add(ThreadUpdater.root, nodes);
-        if (scroll) {
-          if (Conf['Bottom Scroll']) {
-            doc.scrollTop = d.body.clientHeight;
-          } else {
-            Header.scrollToPost(nodes[0]);
-          }
-        }
-        $.queueTask(function() {
-          var length, threadID;
-
-          threadID = ThreadUpdater.thread.ID;
-          length = $$('.thread > .postContainer', ThreadUpdater.root).length;
-          if (Conf['Enable 4chan\'s Extension']) {
-            return $.globalEval("Parser.parseThread(" + threadID + ", " + (-count) + ")");
-          } else {
-            return Fourchan.parseThread(threadID, length - count, length);
-          }
-        });
+        sendEvent();
+        return;
       }
-      return $.event('ThreadUpdate', {
-        404: false,
-        thread: ThreadUpdater.thread,
-        newPosts: posts,
-        deletedPosts: deletedPosts,
-        deletedFiles: deletedFiles,
-        postCount: OP.replies + 1,
-        fileCount: OP.images + (!!ThreadUpdater.thread.OP.file && !ThreadUpdater.thread.OP.file.isDead)
-      });
+      ThreadUpdater.set('status', "+" + count, 'new');
+      ThreadUpdater.outdateCount = 0;
+      if (Conf['Beep'] && d.hidden && Unread.posts && !Unread.posts.length) {
+        if (!ThreadUpdater.audio) {
+          ThreadUpdater.audio = $.el('audio', {
+            src: ThreadUpdater.beep
+          });
+        }
+        ThreadUpdater.audio.play();
+      }
+      ThreadUpdater.lastPost = posts[count - 1].ID;
+      Main.callbackNodes(Post, posts);
+      scroll = Conf['Auto Scroll'] && ThreadUpdater.scrollBG() && ThreadUpdater.root.getBoundingClientRect().bottom - doc.clientHeight < 25;
+      $.add(ThreadUpdater.root, nodes);
+      sendEvent();
+      if (scroll) {
+        if (Conf['Bottom Scroll']) {
+          doc.scrollTop = d.body.clientHeight;
+        } else {
+          Header.scrollToPost(nodes[0]);
+        }
+      }
+      threadID = ThreadUpdater.thread.ID;
+      length = $$('.thread > .postContainer', ThreadUpdater.root).length;
+      if (Conf['Enable 4chan\'s Extension']) {
+        return $.globalEval("Parser.parseThread(" + threadID + ", " + (-count) + ")");
+      } else {
+        return Fourchan.parseThread(threadID, length - count, length);
+      }
     }
   };
 
@@ -6714,7 +6723,7 @@
       return Unread.scroll();
     },
     scroll: function() {
-      var hash, onload, post, posts, prevID, root;
+      var checkPosition, hash, onload, post, posts, prevID, root;
 
       if ((hash = location.hash.match(/\d+/)) && hash[0] in Unread.thread.posts) {
         return;
@@ -6732,15 +6741,25 @@
           }
         }
         onload = function() {
-          return root.scrollIntoView(false);
+          if (checkPosition(root)) {
+            return root.scrollIntoView(false);
+          }
         };
       } else {
         posts = Object.keys(Unread.thread.posts);
-        post = Unread.thread.posts[posts[posts.length - 1]];
+        root = Unread.thread.posts[posts[posts.length - 1]].nodes.root;
         onload = function() {
-          return Header.scrollToPost(post.nodes.root);
+          if (checkPosition(root)) {
+            return Header.scrollToPost(root);
+          }
         };
       }
+      checkPosition = function(target) {
+        var height, top, _ref;
+
+        _ref = target.getBoundingClientRect(), top = _ref.top, height = _ref.height;
+        return top + height - doc.clientHeight > 0;
+      };
       return $.on(window, 'load', onload);
     },
     sync: function() {
@@ -6760,11 +6779,11 @@
       Unread.setLine();
       return Unread.update();
     },
-    addPosts: function(newPosts) {
+    addPosts: function(posts) {
       var ID, data, post, _i, _len, _ref;
 
-      for (_i = 0, _len = newPosts.length; _i < _len; _i++) {
-        post = newPosts[_i];
+      for (_i = 0, _len = posts.length; _i < _len; _i++) {
+        post = posts[_i];
         ID = post.ID;
         if (ID <= Unread.lastReadPost || post.isHidden) {
           continue;
@@ -6783,7 +6802,7 @@
         Unread.addPostQuotingYou(post);
       }
       if (Conf['Unread Line']) {
-        Unread.setLine((_ref = Unread.posts[0], __indexOf.call(newPosts, _ref) >= 0));
+        Unread.setLine((_ref = Unread.posts[0], __indexOf.call(posts, _ref) >= 0));
       }
       Unread.read();
       return Unread.update();
@@ -6911,6 +6930,10 @@
         Conf['archives'].length;
       } catch (_error) {
         err = _error;
+        Main.logError({
+          message: "XXX Conf['archives'].length still failing",
+          error: new Error("Conf['archives'] === " + (JSON.stringify(Conf['archives'])))
+        });
         Conf['archives'] = Redirect.archives;
         $["delete"](['archives', 'lastarchivecheck']);
       }
@@ -7652,6 +7675,9 @@
         case Conf['Previous reply']:
           Keybinds.hl(-1, threadRoot);
           break;
+        case Conf['Deselect reply']:
+          Keybinds.hl(0, threadRoot);
+          break;
         case Conf['Hide']:
           if (g.VIEW === 'index') {
             ThreadHiding.toggle(thread);
@@ -7751,8 +7777,14 @@
       }
     },
     hl: function(delta, thread) {
-      var headRect, next, postEl, rect, replies, reply, root, topMargin, _i, _len;
+      var axe, headRect, next, postEl, rect, replies, reply, root, topMargin, _i, _len;
 
+      if (!delta) {
+        if (postEl = $('.reply.highlight', thread)) {
+          $.rmClass(postEl, 'highlight');
+        }
+        return;
+      }
       if (Conf['Bottom header']) {
         topMargin = 0;
       } else {
@@ -7764,7 +7796,8 @@
         rect = postEl.getBoundingClientRect();
         if (rect.bottom >= topMargin && rect.top <= doc.clientHeight) {
           root = postEl.parentNode;
-          next = $.x('child::div[contains(@class,"post reply")]', delta === +1 ? root.nextElementSibling : root.previousElementSibling);
+          axe = delta === +1 ? 'following' : 'preceding';
+          next = $.x("" + axe + "-sibling::div[contains(@class,'replyContainer')][1]/child::div[contains(@class,'reply')]", root);
           if (!next) {
             this.focus(postEl);
             return;
@@ -7903,7 +7936,7 @@
       return $.on(d, '4chanXInitFinished', this.setup);
     },
     setup: function() {
-      var btn, entry, items, psa;
+      var btn, entry, psa;
 
       $.off(d, '4chanXInitFinished', PSAHiding.setup);
       if (!(psa = $.id('globalMessage'))) {
@@ -7932,21 +7965,10 @@
         href: 'javascript:;'
       });
       $.on(btn, 'click', PSAHiding.toggle);
-      items = {
-        hiddenPSA: 0,
-        hiddenPSAs: null
-      };
-      $.get(items, function(_arg) {
-        var hiddenPSA, hiddenPSAs, _ref;
+      $.get('hiddenPSA', 0, function(_arg) {
+        var hiddenPSA;
 
-        hiddenPSA = _arg.hiddenPSA, hiddenPSAs = _arg.hiddenPSAs;
-        if (hiddenPSAs) {
-          $["delete"]('hiddenPSAs');
-          if (_ref = psa.textContent.replace(/\W+/g, '').toLowerCase(), __indexOf.call(hiddenPSAs, _ref) >= 0) {
-            hiddenPSA = +$.id('globalMessage').dataset.utc;
-            $.set('hiddenPSA', hiddenPSA);
-          }
-        }
+        hiddenPSA = _arg.hiddenPSA;
         PSAHiding.sync(hiddenPSA);
         $.before(psa, btn);
         return $.rmClass(doc, 'hide-announcement');
@@ -8728,6 +8750,10 @@
       for (boardID in _ref) {
         val = _ref[boardID];
         if (typeof this.data.boards[boardID] !== 'object') {
+          Main.logError({
+            message: 'XXX weird DataBoard values',
+            error: new Error("@key === " + this.key + "\n@data.boards[" + boardID + "] === " + this.data.boards[boardID])
+          });
           delete this.data.boards[boardID];
         } else {
           this.deleteIfEmpty({

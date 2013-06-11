@@ -257,7 +257,7 @@ search_engine_display_mode = "columns"
 playlist_editor_display_mode = "columns"
 #discard_colors_if_item_is_selected = "yes"
 #incremental_seeking = "yes"
-#seek_time = "1"
+seek_time = "15"
 #autocenter_mode = "no"
 #centered_cursor = "no"
 
