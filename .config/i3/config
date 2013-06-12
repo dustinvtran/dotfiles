@@ -268,7 +268,7 @@ bindsym $mod+w exec gvim
 
 # Media Keys.
 # Set this one to toggle mpv and always leave ncmpcpp paused, if mpv's open.
-bindsym F6 exec ncmpcpp toggle
+bindsym F6 exec bash ~/.config/nil/play-pause
 # Here's the thing: PCM affects HDMI, Master affects Analog. Neither volume affects the other, so I normalized with percentages instead of decibels so they reach 0-100 at the same intervals. So I'll just go with both 0's as consistency for now.
 # Wishlist: Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
 bindsym F9 exec amixer set Master 2%- unmute | amixer set PCM 2%- unmute
