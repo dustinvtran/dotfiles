@@ -24,11 +24,11 @@ dev-ttyS0.device           loaded active   plugged   /dev/ttyS0
 dev-ttyS1.device           loaded active   plugged   /dev/ttyS1
 dev-ttyS2.device           loaded active   plugged   /dev/ttyS2
 dev-ttyS3.device           loaded active   plugged   /dev/ttyS3
+sys-devi...sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
+sys-devi...lock-sdb.device loaded active   plugged   ST4000DM000-1F2168
 sys-devi...nd-card0.device loaded active   plugged   5 Series/3400 Series Chipset High Definition Audio
 sys-devi...net-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
 sys-devi...et-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
-sys-devi...sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
-sys-devi...lock-sdb.device loaded active   plugged   ST4000DM000-1F2168
 sys-devi...sda-sda1.device loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devi...lock-sda.device loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devi...lock-sr0.device loaded active   plugged   hp_CDDVDW_TS-U633F
@@ -56,7 +56,6 @@ alsa-state.service         loaded inactive dead      Manage Sound Card State (re
 alsa-store.service         loaded inactive dead      Store Sound Card State
 auditd.service             error  inactive dead      auditd.service
 autologin@tty1.service     loaded active   running   Getty on tty1
-console-...m-start.service loaded active   exited    Console System Startup Logging
 cronie.service             loaded active   running   Periodic Command Scheduler
 dbus.service               loaded active   running   D-Bus System Message Bus
 dmeventd.service           loaded inactive dead      Device-mapper event daemon
@@ -136,5 +135,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-132 loaded units listed.
+131 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.

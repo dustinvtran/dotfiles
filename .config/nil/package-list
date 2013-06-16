@@ -1,9 +1,13 @@
 alsa-utils
 alsi
+android-sdk
+android-sdk-platform-tools
 artwiz-fonts
 atool
+autocutsel
 cairo-infinality-ultimate
 conky
+deluge
 dialog
 dropbox
 dzen2
@@ -45,6 +49,7 @@ perl-ipc-run
 perl-json-xs
 perl-try-tiny
 pkgtools
+ppp
 pygtk
 qt4
 ranger

@@ -298,12 +298,15 @@ map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
 map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
 map -modes=n -builtin <Leader>f :tabopen! http://www.feedly.com/home#index<CR>
-map -modes=n -builtin <Leader>m :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
+map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
+map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
+map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
 
 " Media pages.
-map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/profile/nil-<CR>
+map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
+map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/user/show/7207396-nil<CR>
 map -modes=n -builtin <Leader>i :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=title:asc&defaults=1&my_ratings=restrict&scb=0.07529765367507935<CR>

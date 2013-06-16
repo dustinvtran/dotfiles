@@ -747,4 +747,22 @@
 		<Include>http://www.bloomingfaeries.com/*</Include>
 		<UserExclude>http://www.reddit.com/*</UserExclude>
 	</Script>
+	<Script basedir="YouScrobbler" checkRemoteUpdates="1" dependhash="da39a3ee5e6b4b0d3255bfef95601890afd80709" description="Scrobbles the currently watching YouTube video to last.fm. (http://www.lukash.de/youscrobbler)" enabled="true" filename="119694.user.js" installTime="1371380584724" modified="1371380584000" name="YouScrobbler" namespace="userscripts.org" runAt="document-end" uuid="c7ed9539-5d99-4252-b890-767b2bd9267f" version="1.1.7" installurl="https://userscripts.org/scripts/source/119694.user.js" updateurl="http://userscripts.org.nyud.net/scripts/source/119694.meta.js">
+		<Grant>GM_getValue</Grant>
+		<Grant>GM_setValue</Grant>
+		<Grant>GM_xmlhttpRequest</Grant>
+		<Include>http://*.youtube.com/watch?*v=*</Include>
+		<Include>http://*.youtube.com/watch#!*v=*</Include>
+		<Include>http://youtube.com/watch?*v=*</Include>
+		<Include>http://youtube.com/watch?v=*</Include>
+		<Include>http://youtube.com/watch#!*v=*</Include>
+		<Include>http://www.youtube.com/user/*</Include>
+		<Include>https://*.youtube.com/watch?*v=*</Include>
+		<Include>https://*.youtube.com/watch#!*v=*</Include>
+		<Include>https://youtube.com/watch?*v=*</Include>
+		<Include>https://youtube.com/watch?v=*</Include>
+		<Include>https://youtube.com/watch#!*v=*</Include>
+		<Include>https://www.youtube.com/user/*</Include>
+		<Include>http://*.youtube.com/watch%3F*v=*</Include>
+	</Script>
 </UserScriptConfig>
