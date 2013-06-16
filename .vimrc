@@ -38,6 +38,7 @@
 " Make InsertCharFunction() an atomic operator, e.g., '.'-able.
 " C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "   Stuff about jump lists vs normal motion.
+" cc not working until i wait a few seconds after first input of 'c'.
 " Jump to paragraphs? One that includes <br><br> for html.
 " Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
 " Enter url function.
