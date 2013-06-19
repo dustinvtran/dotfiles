@@ -12,7 +12,7 @@
     "blocklist-url": "http://www.example.com/blocklist", 
     "cache-size-mb": 4, 
     "dht-enabled": true, 
-    "download-dir": "/media/Seagate_Drive/Media/Anime/[Backlog]", 
+    "download-dir": "/home/nil/nil/Media/temp", 
     "download-queue-enabled": true, 
     "download-queue-size": 5, 
     "encryption": 1, 
