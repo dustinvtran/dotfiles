@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# Needs an improvement: don't toggle based on whether a file exists, but which audio I'm currently using.
 TOGGLE=~/.config/nil/.audiotoggle
 
 if [ ! -e $TOGGLE ]; then
