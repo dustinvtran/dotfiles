@@ -13,7 +13,7 @@ dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x20Drive.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...d0:0:0:0.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...64F8ACB4.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...630137cb.device loaded active   plugged   ST4000DM000-1F2168
 dev-disk...0649093b.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda.device             loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda1.device            loaded active   plugged   Hitachi_HTS725050A9A364
@@ -37,15 +37,14 @@ sys-devi...ty-ttyS1.device loaded active   plugged   /sys/devices/platform/seria
 sys-devi...ty-ttyS2.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS2
 sys-devi...ty-ttyS3.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS3
 sys-module-configfs.device loaded active   plugged   /sys/module/configfs
-sys-module-fuse.device     loaded active   plugged   /sys/module/fuse
 sys-subs...ces-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
 sys-subs...es-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
 -.mount                    loaded active   mounted   /
 dev-hugepages.mount        loaded active   mounted   Huge Pages File System
 dev-mqueue.mount           loaded active   mounted   POSIX Message Queue File System
-media-Se...lus_Drive.mount loaded active   mounted   /media/Seagate_Backup_Plus_Drive
+media-Seagate_Drive.mount  loaded active   mounted   /media/Seagate_Drive
 proc-sys...nfmt_misc.mount loaded inactive dead      Arbitrary Executable File Formats File System
-sys-fs-f...nnections.mount loaded active   mounted   FUSE Control File System
+sys-fs-f...nnections.mount loaded inactive dead      FUSE Control File System
 sys-kernel-config.mount    loaded active   mounted   Configuration File System
 sys-kernel-debug.mount     loaded active   mounted   Debug File System
 tmp.mount                  loaded active   mounted   Temporary Directory
@@ -135,5 +134,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-131 loaded units listed.
+130 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.

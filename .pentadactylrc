@@ -285,17 +285,35 @@ map -modes=i -builtin <C-i> <pass>
 " Open private window.
 map -modes=n -builtin <Leader>p <C-V><C-S-p>
 
-" Bookmark Shortcuts.
-map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
+" huehuehue
+map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
-map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
 map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
-map -modes=n -builtin <Leader>r :tabopen! http://reddit.com<CR>
+map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
+map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
+map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
+map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/math<CR>
+map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
+map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/frugalmalefashion<CR>
+map -modes=n -builtin <Leader>rc :tabopen! http://www.reddit.com/r/bicycling+bikeporn<CR>
+map -modes=n -builtin <Leader>ru :tabopen! http://www.reddit.com/r/unixporn<CR>
+map -modes=n -builtin <Leader>rd :tabopen! http://www.reddit.com/r/android<CR>
+map -modes=n -builtin <Leader>rb :tabopen! http://www.reddit.com/r/battlestations<CR>
+map -modes=n -builtin <Leader>rp :tabopen! http://www.reddit.com/r/buildapc<CR>
+map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/anime<CR>
+map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
-map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
+" Forums.
+map -modes=n -builtin <Leader>s :tabopen! http://www.styleforum.net/f/<CR>
+map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
+map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
 map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
+map -modes=n -builtin <Leader>k :tabopen! http://geekhack.org/index.php<CR>
+
+" Others.
+map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
 map -modes=n -builtin <Leader>f :tabopen! http://www.feedly.com/home#index<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
@@ -313,6 +331,7 @@ map -modes=n -builtin <Leader>i :tabopen! http://www.imdb.com/user/ur33286458/ra
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Video%20Game%20List.html<CR>
 map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Visual%20Novel%20List.html<CR>
 map -modes=n -builtin <Leader>y :tabopen! http://rateyourmusic.com/~nilin<CR>
+map -modes=n -builtin <Leader>l :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " Private trackers.
 map -modes=n -builtin <Leader>t :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
