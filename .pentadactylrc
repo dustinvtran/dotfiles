@@ -32,6 +32,7 @@
 " Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
 " Not clear when I'm in text edit mode during cmd-line, and how to escape it.
 " I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
+"   Also I can't hint out of the popup windows, e.g., when editing entries in MAL.
 " No support for <Leader><Leader> (though <Leader>,> works.
 
 " }}}
@@ -49,10 +50,10 @@ highlight CompLess background: #F0F0F0 !important;
 highlight CmdLine background: #F0F0F0 !important;
 highlight Find background: rgba(204,51,255,0.5) !important;
 highlight CompItem[selected] background: #DCDCDC !important;
-highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: Helvetica; line-height:1em;
+highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: lemon; line-height:1em;
 highlight HintActive background: rgba(145,197,43,0.8) !important;
 highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
-highlight StatusLine -moz-appearance: #F0F0F0 !important; font-weight: none; background: #F0F0F0 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: black !important; font: normal 12px 'Consolas' !important;
+highlight StatusLine -moz-appearance: #F0F0F0 !important; font-weight: none; background: #F0F0F0 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: black !important; font: normal 12px 'lemon' !important;
 
 unmap!
 iunmap!
@@ -197,7 +198,7 @@ map -modes=caret -builtin y <C-v><C-c>
 
 " Toggle scrollbar (to see my progress for long pages).
 "map -modes=n -builtin <Leader>s :set guioptions!=r<CR>
-map -modes=n -builtin <Leader>s :set guioptions!=s<CR>
+map -modes=n -builtin <Leader>st :set guioptions!=s<CR>
 
 " Bookmark support in pentadactyl sucks. Use native GUI for now.
 map -modes=n -builtin a <C-v><C-d>
@@ -306,7 +307,7 @@ map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
 " Forums.
-map -modes=n -builtin <Leader>s :tabopen! http://www.styleforum.net/f/<CR>
+map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/<CR>
 map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
 map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
 map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
@@ -362,6 +363,7 @@ javascript <<EOF
 EOF
 javascript <<EOF
     userContext.searchAni = function (selection) {
+        commands.execute("tabopen animebytes " + selection);
         commands.execute("tabopen nyaa " + selection);
         commands.execute("tabopen baka " + selection);
     };

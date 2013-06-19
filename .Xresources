@@ -4,7 +4,7 @@
 ! Name: nil
 !
 
-! URxvt Colorscheme {{{
+! w0ng Charcoal Black Colorscheme (hybrid) {{{
 ! -----------------------------------------------------------------------------
 
 ! Hybrid Terminal Colours
@@ -50,11 +50,64 @@ URxvt*color7: t_comment
 URxvt*color15: t_foreground
 
 ! }}}
+!! falac White Colorscheme (no name) {{{
+!! -----------------------------------------------------------------------------
+
+!! black
+!URxvt*color15 : #505050
+!URxvt*color7 : #505050
+
+!! red
+!!URxvt*color1 : #c29198
+!!URxvt*color9 : #a0616a
+!URxvt*color1: #d8a5aa
+!URxvt*color9: #a27b7f
+
+!! yellow/orange
+!!URxvt*color3: #acacac
+!!URxvt*color11: #858585
+!URxvt*color3: #bfa5d8
+!URxvt*color11: #9884ac
+
+!! green
+!URxvt*color2 : #abd8a5
+!URxvt*color10 : #80a27b
+
+!! blue
+!URxvt*color4: #a5abd8
+!URxvt*color12: #7b80a2
+
+!! magenta
+!URxvt*color5 : #d8a5d2
+!URxvt*color13 : #a27b9d
+
+!! cyan
+!URxvt*color6 : #a5d2d8
+!URxvt*color14 : #7b9da2
+
+!! white
+!URxvt*color0 : #b5b5b5
+!URxvt*color8 : #727272
+
+!URxvt*background: #f9f9f9
+!URxvt*foreground: #909090
+!URxvt*cursorColor: #f9f9f9
+!URxvt*colorUL: #9693b5
+!!URxvt*colorBD: #af8ac1
+!URxvt*borderColor: #f9f9f9
+
+!! }}}
+
 ! Fonts:
-!URxvt*font: xft:Consolas\ for\ Powerline:size=10
-!URxvt*boldFont: xft:Consolas\ for\ Powerline:bold:size=10
-URxvt*font: xft:Consolas:pixelsize=13
-URxvt*boldFont: xft:Consolas:bold:pixelsize=13
+! Both fonts are nonpixelsize adjustable.
+!URxvt*font: xft:limey:pixelsize=10
+! This one isnt working, even though I can set it in gvim.
+!URxvt*font: xft:lemon:pixelsize=10
+!URxvt*boldFont: xft:Consolas:bold:pixelsize=10
+! Only a few configurable pixel sizes available.
+URxvt*font: xft:Terminus:pixelsize=8
+! Since bitmap fonts (in this case, Terminus) dont have bold, this will do instead.
+URxvt*boldFont: xft:Consolas:bold:pixelsize=12
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0
@@ -64,7 +117,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-!urxvt scrolling options and cursor style:
+! urxvt scrolling options and cursor style:
 URxvt*saveLines: 12000
 URxvt*scrollstyle: plain
 URxvt*scrollBar: false
