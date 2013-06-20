@@ -99,14 +99,11 @@ URxvt*color15: t_foreground
 !! }}}
 
 ! Fonts:
-! Both fonts are nonpixelsize adjustable.
-!URxvt*font: xft:limey:pixelsize=10
-! This one isnt working, even though I can set it in gvim.
 !URxvt*font: xft:lemon:pixelsize=10
+! Since bitmap fonts dont have bold, this will do instead.
 !URxvt*boldFont: xft:Consolas:bold:pixelsize=10
 ! Only a few configurable pixel sizes available.
 URxvt*font: xft:Terminus:pixelsize=8
-! Since bitmap fonts (in this case, Terminus) dont have bold, this will do instead.
 URxvt*boldFont: xft:Consolas:bold:pixelsize=12
 
 ! Since urxvt ignores fontconfig settings.
