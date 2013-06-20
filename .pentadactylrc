@@ -13,7 +13,6 @@
     " they also don't show up until refreshed page
 " Make all colors gray. It's a weird blotch right now of white and gray.
 "    turn the highlighted search term as yellow.
-" the hint links don't work so well with that font, e.g., I vs l. Also pent hint boxes overlap and obscure some letters.
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
 " Jumps in same buffer without changing pages. (same problem in Vim)
@@ -28,6 +27,7 @@
 "   No -folder option when adding bookmarks through :bmark.
 "   Better navigation through :bmarks, c.f., through folders with GUI.
 " Same with history dialog.
+" Navigate between multiple scrollbars on the same tab, e.g., on feedly.
 " Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
 " Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
 " Not clear when I'm in text edit mode during cmd-line, and how to escape it.
@@ -50,10 +50,12 @@ highlight CompLess background: #F0F0F0 !important;
 highlight CmdLine background: #F0F0F0 !important;
 highlight Find background: rgba(204,51,255,0.5) !important;
 highlight CompItem[selected] background: #DCDCDC !important;
-highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: lemon; line-height:1em;
+highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: lime; line-height:1em;
 highlight HintActive background: rgba(145,197,43,0.8) !important;
 highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
 highlight StatusLine -moz-appearance: #F0F0F0 !important; font-weight: none; background: #F0F0F0 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: black !important; font: normal 12px 'lemon' !important;
+highlight CmdLine -a font-family: lemon !important;
+highlight Link -a font-family: lemon !important;
 
 unmap!
 iunmap!
@@ -74,7 +76,7 @@ set titlestring=
 set hlfind
 set passkeys+=reddit.com:JKeqcCaswb<CR>
 set passkeys+=boards.4chan.org:JK<C-j><C-k>eqQcC<CR>
-set passkeys+=feedly.com:?<CR>
+set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 
 " Tab-Options Plugin.
@@ -143,6 +145,7 @@ map -modes=i <PageUp> <Nop>
 map -modes=i <PageDown> <Nop>
 map -modes=i <End> <Nop>
 map -modes=n <Space> <Nop>
+map -modes=n <F5> <Nop>
 " My alternatives aren't currently working. When they do, Nop these to get used to the others.
 "map -modes=i,c <Left> <Nop>
 "map -modes=i,c <Right> <Nop>
@@ -316,7 +319,7 @@ map -modes=n -builtin <Leader>k :tabopen! http://geekhack.org/index.php<CR>
 " Others.
 map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
-map -modes=n -builtin <Leader>f :tabopen! http://www.feedly.com/home#index<CR>
+map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#index<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>

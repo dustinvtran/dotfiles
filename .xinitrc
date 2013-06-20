@@ -17,7 +17,7 @@ autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 bash ~/.config/nil/hdmi-init &
 mpd ~/.config/mpd/mpd.conf &
-mpdas &
+#mpdas &
 nitrogen --restore &
 synclient touchpadoff=0 &
 syndaemon -k -i 1 -d &
