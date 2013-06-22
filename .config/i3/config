@@ -97,14 +97,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window border style.
-new_window none
-new_float none
+#new_window none
+#new_float none
+new_float pixel 5
+new_window pixel 5
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
-client.focused          #DCDCDC #DCDCDC #000000 #2e9ef4
-client.focused_inactive #DCDCDC #DCDCDC #000000 #484e50
-client.unfocused        #F0F0F0 #F0F0F0 #000000 #292d2e
+client.focused          #000000 #2f4f4f #000000 #2f4f4f
+client.focused_inactive #000000 #000000 #000000 #484e50
+client.unfocused        #000000 #000000 #000000 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 font pango:HelveticaNeueCom 45 Lt 8
 
@@ -260,10 +262,10 @@ for_window [class="Zathura"] workspace λ
 
 # Shortcut Applications.
 # $mod,$mod+y,b,z and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.
-bindsym $mod+Return exec urxvt
-bindsym $mod+q exec firefox
-bindsym $mod+f exec urxvt -e ranger
-bindsym $mod+w exec gvim
+bindsym $mod2+Return exec urxvt
+bindsym $mod2+q exec firefox
+bindsym $mod2+f exec urxvt -name ranger -e ranger
+bindsym $mod2+w exec gvim
 
 # Media Keys.
 # Set this one to toggle mpv and always leave ncmpcpp paused, if mpv's open.
@@ -280,15 +282,24 @@ bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 # These are applications I always leave running on my computer, and for which I only need to take a quick peek once in a while to do something on them. They also generally feel much nicer to use in compact floating windows, rather than the pervasive array of space if you just place them into their own workspace (which somehow makes me feel even less productive).
 # To use multiple scratchpads, there's sort of a trick required in i3, since once you show two open scratchpad applications simultaneously, all hell breaks loose. To get around this without requiring more keybindings, you need to make your commands leave all other applications hidden in the scratchpad /before/ you show your next scratchpad application. There's yet another caveat: to use the for_window command to automove applications into the scratchpad, you have to be super-specific so that not even its child popup windows will be subsumed under the scratchpad (e.g. settings windows).
 
-for_window [class="^URxvt$" instance="^irssi$"] move scratchpad
-for_window [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad
-for_window [class="^URxvt$" instance="^tcli$"] move scratchpad
-for_window [class="^URxvt$" instance="^nil$"] move scratchpad
+#for_window [class="^URxvt$" instance="^irssi$"] move scratchpad
+#for_window [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad
+#for_window [class="^URxvt$" instance="^tcli$"] move scratchpad
+#for_window [class="^URxvt$" instance="^nil$"] move scratchpad
 
-bindsym $mod+i [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
-bindsym $mod+m [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
-bindsym $mod+a [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
-bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [instance="^nil$"] scratchpad show
+#bindsym $mod+i [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^irssi$"] scratchpad show
+#bindsym $mod+m [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
+#bindsym $mod+a [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
+#bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [instance="^nil$"] scratchpad show
+
+bindsym $mod+i [class="^URxvt$" instance="^irssi$"] focus
+bindsym $mod+m [class="^URxvt$" instance="^ncmpcpp$"] focus
+bindsym $mod+a [class="^URxvt$" instance="^tcli$"] focus
+bindsym $mod+t [instance="^nil$"] focus
+
+bindsym $mod+q [class="^Firefox$"] focus
+bindsym $mod+f [class="^URxvt$" instance="^ranger$"] focus
+bindsym $mod+g [class="^Gvim$"] focus
 
 # vim:filetype=i3
 # }}}

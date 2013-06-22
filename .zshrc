@@ -89,7 +89,7 @@ unset fasd_cache
 
 # Zsh's completion can benefit from caching. Set the directory in which to
 # load/store the caches.
-CACHEDIR="~/.config/nil/zsh-cache"
+CACHEDIR="/home/nil/.config/nil/zsh-cache"
 
 # Use (advanced) completion functionality.
 autoload -U compinit
