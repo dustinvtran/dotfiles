@@ -7,4 +7,8 @@
 #xcape -e 'Control_L=Escape' &
 #set -e
 
-xcape
+#xcape
+# apparently pkill xcape && xcape will only pkill xcape and not have the next line read, nor will xcape on a separate line work. apparently this one works and doesn't
+# add a new process for xcape either, but I'm not sure if this solves the above noted problem.
+#
+# nope it didn't work

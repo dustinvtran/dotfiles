@@ -4,107 +4,107 @@
 ! Name: nil
 !
 
-! w0ng Charcoal Black Colorscheme (hybrid) {{{
-! -----------------------------------------------------------------------------
-
-! Hybrid Terminal Colours
-! Tomorrow-Night Palette
-#define t_background #1D1F21
-#define t_current_line #282A2E
-#define t_selection #373B41
-#define t_foreground #C5C8C6
-#define t_comment #707880
-#define t_red #CC6666
-#define t_orange #DE935F
-#define t_yellow #F0C674
-#define t_green #B5BD68
-#define t_aqua #8ABEB7
-#define t_blue #81A2BE
-#define t_purple #B294BB
-
-URxvt*background: t_background
-URxvt*foreground: t_foreground
-! black
-URxvt*color0: t_current_line
-URxvt*color8: t_selection
-! red
-URxvt*color1: #A54242
-URxvt*color9: t_red
-! green
-URxvt*color2: #8C9440
-URxvt*color10: t_green
-! yellow
-URxvt*color3: t_orange
-URxvt*color11: t_yellow
-! blue
-URxvt*color4: #5F819D
-URxvt*color12: t_blue
-! magenta
-URxvt*color5: #85678F
-URxvt*color13: t_purple
-! cyan
-URxvt*color6: #5E8D87
-URxvt*color14: t_aqua
-! white
-URxvt*color7: t_comment
-URxvt*color15: t_foreground
-
-! }}}
-!! falac White Colorscheme (no name) {{{
+!! w0ng Charcoal Black Colorscheme (hybrid) {{{
 !! -----------------------------------------------------------------------------
 
+!! Hybrid Terminal Colours
+!! Tomorrow-Night Palette
+!#define t_background #1D1F21
+!#define t_current_line #282A2E
+!#define t_selection #373B41
+!#define t_foreground #C5C8C6
+!#define t_comment #707880
+!#define t_red #CC6666
+!#define t_orange #DE935F
+!#define t_yellow #F0C674
+!#define t_green #B5BD68
+!#define t_aqua #8ABEB7
+!#define t_blue #81A2BE
+!#define t_purple #B294BB
+
+!URxvt*background: t_background
+!URxvt*foreground: t_foreground
 !! black
-!URxvt*color15 : #505050
-!URxvt*color7 : #505050
-
+!URxvt*color0: t_current_line
+!URxvt*color8: t_selection
 !! red
-!!URxvt*color1 : #c29198
-!!URxvt*color9 : #a0616a
-!URxvt*color1: #d8a5aa
-!URxvt*color9: #a27b7f
-
-!! yellow/orange
-!!URxvt*color3: #acacac
-!!URxvt*color11: #858585
-!URxvt*color3: #bfa5d8
-!URxvt*color11: #9884ac
-
+!URxvt*color1: #A54242
+!URxvt*color9: t_red
 !! green
-!URxvt*color2 : #abd8a5
-!URxvt*color10 : #80a27b
-
+!URxvt*color2: #8C9440
+!URxvt*color10: t_green
+!! yellow
+!URxvt*color3: t_orange
+!URxvt*color11: t_yellow
 !! blue
-!URxvt*color4: #a5abd8
-!URxvt*color12: #7b80a2
-
+!URxvt*color4: #5F819D
+!URxvt*color12: t_blue
 !! magenta
-!URxvt*color5 : #d8a5d2
-!URxvt*color13 : #a27b9d
-
+!URxvt*color5: #85678F
+!URxvt*color13: t_purple
 !! cyan
-!URxvt*color6 : #a5d2d8
-!URxvt*color14 : #7b9da2
-
+!URxvt*color6: #5E8D87
+!URxvt*color14: t_aqua
 !! white
-!URxvt*color0 : #b5b5b5
-!URxvt*color8 : #727272
-
-!URxvt*background: #f9f9f9
-!URxvt*foreground: #909090
-!URxvt*cursorColor: #f9f9f9
-!URxvt*colorUL: #9693b5
-!!URxvt*colorBD: #af8ac1
-!URxvt*borderColor: #f9f9f9
+!URxvt*color7: t_comment
+!URxvt*color15: t_foreground
 
 !! }}}
+! falac White Colorscheme (no name) {{{
+! -----------------------------------------------------------------------------
+
+! black
+URxvt*color15 : #505050
+URxvt*color7 : #505050
+
+! red
+!URxvt*color1 : #c29198
+!URxvt*color9 : #a0616a
+URxvt*color1: #d8a5aa
+URxvt*color9: #a27b7f
+
+! yellow/orange
+!URxvt*color3: #acacac
+!URxvt*color11: #858585
+URxvt*color3: #bfa5d8
+URxvt*color11: #9884ac
+
+! green
+URxvt*color2 : #abd8a5
+URxvt*color10 : #80a27b
+
+! blue
+URxvt*color4: #a5abd8
+URxvt*color12: #7b80a2
+
+! magenta
+URxvt*color5 : #d8a5d2
+URxvt*color13 : #a27b9d
+
+! cyan
+URxvt*color6 : #a5d2d8
+URxvt*color14 : #7b9da2
+
+! white
+URxvt*color0 : #b5b5b5
+URxvt*color8 : #727272
+
+URxvt*background: #f9f9f9
+URxvt*foreground: #909090
+URxvt*cursorColor: #f9f9f9
+URxvt*colorUL: #9693b5
+!URxvt*colorBD: #af8ac1
+URxvt*borderColor: #f9f9f9
+
+! }}}
 
 ! Fonts:
-!URxvt*font: xft:lemon:pixelsize=10
+URxvt*font: xft:lemon:pixelsize=10
 ! Since bitmap fonts dont have bold, this will do instead.
-!URxvt*boldFont: xft:Consolas:bold:pixelsize=10
+URxvt*boldFont: xft:Consolas:bold:pixelsize=10
 ! Only a few configurable pixel sizes available.
-URxvt*font: xft:Terminus:pixelsize=8
-URxvt*boldFont: xft:Consolas:bold:pixelsize=12
+!URxvt*font: xft:Terminus:pixelsize=8
+!URxvt*boldFont: xft:Consolas:bold:pixelsize=12
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0
