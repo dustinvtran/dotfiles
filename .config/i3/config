@@ -220,11 +220,28 @@ workspace υ output HDMI1
 #   * Gmail notifier: Gmail widget icon appearing when I have unread email, with a circled red number appearing in a corner of the icon to represent # of unread, dropdown into a mini-preview of unread mails, and clickable/keybindable 'read/spam/open/reply' on them from there (like with chrome).
 bar {
     colors {
-    background #F0F0F0
+    # Silvers and Grays
+    #background #F0F0F0
+    ##colorclass         border  backgr  text
+    #focused_workspace   #DCDCDC #DCDCDC #000000
+    #active_workspace    #DCDCDC #DCDCDC #000000
+    #inactive_workspace  #F0F0F0 #F0F0F0 #000000
+    #urgent_workspace    #2f343a #900000 #ffffff
+
+    # White on Black Scheme
+    #background #000000
+    #colorclass         border  backgr  text
+    #focused_workspace   #ffffff #ffffff #000000
+    #active_workspace    #ffffff #ffffff #000000
+    #inactive_workspace  #000000 #000000 #ffffff
+    #urgent_workspace    #2f343a #900000 #ffffff
+
+    # Black on White/Gray Scheme
+    background #ffffff
     #colorclass         border  backgr  text
     focused_workspace   #DCDCDC #DCDCDC #000000
     active_workspace    #DCDCDC #DCDCDC #000000
-    inactive_workspace  #F0F0F0 #F0F0F0 #000000
+    inactive_workspace  #ffffff #ffffff #000000
     urgent_workspace    #2f343a #900000 #ffffff
     }
     position top
@@ -248,17 +265,17 @@ for_window [title="^Tab Mix Plus Options$"] floating enable
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
 # Problems: The font is pretty ugly. Not aligned correctly to borders (either slightly overlaps or slightly off).
 #   No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
-for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 315px
+for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 322px
 bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
 
 # Autoassign specific applications to a workspace.
-assign [class="mplayer"] λ
-assign [class="mpv"] λ
-assign [class="Zathura"] λ
+assign [class="mplayer"] μ
+assign [class="mpv"] μ
+assign [class="Zathura"] μ
 # Automove to workspace after it opens them.
-for_window [class="mplayer"] workspace λ
-for_window [class="mpv"] workspace λ
-for_window [class="Zathura"] workspace λ
+for_window [class="mplayer"] workspace μ
+for_window [class="mpv"] workspace μ
+for_window [class="Zathura"] workspace μ
 
 # Shortcut Applications.
 # $mod,$mod+y,b,z and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.

@@ -689,8 +689,8 @@ nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
 " }}}
 " Colors/Powerline {{{
 " Colorscheme Hybrid
-let g:hybrid_use_Xresources = 1
-colorscheme hybrid
+"let g:hybrid_use_Xresources = 1
+"colorscheme hybrid
 
 " Colorscheme Solarized
 "set t_Co=256
@@ -700,6 +700,8 @@ colorscheme hybrid
 "endif
 "set background=dark
 "colorscheme solarized
+
+colorscheme bclear
 
 " Set colorschemes for different filetypes.
 "augroup file_type_color_scheme
@@ -711,7 +713,7 @@ colorscheme hybrid
 syntax enable
 set guioptions=
 set notitle
-"set guifont=lemon\ 10
+"set guifont=lemon
 set guifont=Terminus\ 8
 let g:Powerline_symbols="fancy"
 set laststatus=2

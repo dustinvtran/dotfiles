@@ -1,6 +1,6 @@
-screenies of the aesthetics-based configs
+screenies
 ##first display
-![screeny1](http://i.imgur.com/xDzAGji.png)
+![screeny1](http://i.imgur.com/Y5XCIyA.jpg)
 
 ##second display
-![screeny2](http://i.imgur.com/MfTXe0F.png)
+![screeny2](http://i.imgur.com/JzSXhpX.png)
