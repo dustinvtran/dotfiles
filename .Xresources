@@ -100,8 +100,9 @@ URxvt*borderColor: #f9f9f9
 
 ! Fonts:
 URxvt*font: xft:lemon:pixelsize=10
-! Since bitmap fonts dont have bold, this will do instead.
-URxvt*boldFont: xft:Consolas:bold:pixelsize=10
+! bitmap fonts dont have bold, nor do I need it.
+URxvt*boldFont: xft:lemon:pixelsize=10
+
 ! Only a few configurable pixel sizes available.
 !URxvt*font: xft:Terminus:pixelsize=8
 !URxvt*boldFont: xft:Consolas:bold:pixelsize=12
