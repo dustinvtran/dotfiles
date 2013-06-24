@@ -1,14 +1,21 @@
 #! /bin/bash
 
 # Needs an improvement: don't toggle based on whether a file exists, but which audio I'm currently using.
+# Also, restart mpd.
 TOGGLE=~/.config/nil/.audiotoggle
 
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE
     ln -sf ~/.config/nil/asound.hdmi-disconnected ~/.asoundrc
+    #pkill mpd
+    #mpd ~/.config/mpd/mpd.conf &
+    #mpdas &
     echo "You're using the Laptop audio."
 else
     rm $TOGGLE
     ln -sf ~/.config/nil/asound.hdmi-connected ~/.asoundrc
-    echo "You're using the HDMI audio."
+    pkill mpd
+    #mpd ~/.config/mpd/mpd.conf &
+    #mpdas &
+    #echo "You're using the HDMI audio."
 fi

@@ -319,7 +319,7 @@ map -modes=n -builtin <Leader>k :tabopen! http://geekhack.org/index.php<CR>
 " Others.
 map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
-map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#index<CR>
+map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#category%2FAnifavorites<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
@@ -366,8 +366,8 @@ javascript <<EOF
 EOF
 javascript <<EOF
     userContext.searchAni = function (selection) {
-        commands.execute("tabopen animebytes " + selection);
         commands.execute("tabopen nyaa " + selection);
+        commands.execute("tabopen animebytes " + selection);
         commands.execute("tabopen baka " + selection);
     };
 EOF

@@ -1,9 +1,8 @@
-background no
+background yes
 out_to_console yes
 out_to_x no
-update_interval 1.0
-total_run_times 0
-use_spacer none
+update_interval 10
+update_interval_on_battery 30
 
 TEXT
-${time %l:%M %P}
+^fg(\#000000)^i(/home/nil/.config/nil/conky/dzen2/clock.xbm) ^fg(black)${time %l:%M %P}

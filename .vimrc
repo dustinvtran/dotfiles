@@ -138,6 +138,11 @@ set softtabstop=4                            " Fix it to 4.
 set noesckeys
 nnoremap <Esc> <Nop>
 
+" Set floating window size, but not for console Vim.
+if has("gui_running")
+  set lines=59 columns=110
+endif
+
 " }}}
 " Functions {{{
 " -----------------------------------------------------------------------------
