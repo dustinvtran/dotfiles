@@ -5,43 +5,68 @@
 #
 # Comments {{{
 
+# My Work Method:
+# For frequently used applications, I float them, often because they don't need to take the entire screen nor does it look pretty (particularly on my 27'' display). In fact, that becomes counter-intuitive to the tiling WM philosophy, since while you're using the full screen for an application, you could more effectively use that unneeded space for another application (much like how I orient my floating windows).
+# When I don't have time to play with floating (e.g. during real math work), I use the tiles mainly with 3 programs: firefox, zathura, and gvim (also ranger on occasion).
+
 # To-Do:
-# Set all firefox popups to float more generally, rather than needing to xprop each individually.
+# different keybinds and aliases for whether i want to float certain applications (like ranger, firefox--particularly for huge 27'' 1440p monitors) and at what location of the screen it's placed in (.e.g the top right-ish , etc. by doing app cmd && i3-msg 'move the shit up')
 # When restarting, the nondocked dzen2's get overlapped and are hidden.
+# Set all firefox popups to float more generally, rather than needing to xprop each individually.
 # firefox gets weird block to the right on occasion.
-# when i open some terminal apps, like 'l devices' it doesn't open in the workspace that I initialized it in, but rather the workspace I'm currently in.
+# when I open select applications that have a popup beforehand, the real application opens up not at the workspace I initalized the command but at the workspace I'm currently at (e.g. libreoffice, gimp)
 #   read up on no-startup-id.
+# dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv
 
 # Wishlist:
-# Workspaces:
+#   * Right-click desktop with options.
+# Panel/Workspaces:
 #   * Non-# order, e.g., alphabetical or customizable.
 #   * Icon/non-UTF name support.
-# Floating:
-#   * Move scratchpads offcenter with for_window, but without restarting i3 redo the for_
-#       windows; in other words, ability for absolute placement.
-#   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
-#       windows.
+#   * Can't add a black outline to it.
+#   * Don't overlap the dzen2's on new i3-session.
+# Windows:
+#   * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
+#       also a keybind to be able to toggle that border.)
+#   * More instantaneous mouse-over-window focus, rather than moving further into the window.
+#   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+# - Floating:
+#   * Absolute positioning based off workspace, not pixels and monitor alignment.
+#       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
+#   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
+#       * As a subset, this means I can't move to the next monitor with hl.
+#   * Shadowed outlines.
+# - Don't need these any longer, but keeping for documentation:
 #   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
 #       can toggle hide them all away (can only do one at a time currently).
+#   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
+#       windows, like scratchpad terminals).
 #   * True transparency, e.g., just slightly for terminal scratchpads.
 
 # }}}
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
 
-# I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs.
-#    The con is that this is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
-#exec perl ~/.config/nil/i3-wsbar -c "dzen2 -w 200 -ta l -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9:bold'"
-#exec conky -c ~/.config/nil/.conkyrc | dzen2 -dock -ta c -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9:bold'
-#exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -ta r -fg '#000000' -bg '#F0F0F0' -fn 'HelveticaNeueCom 45 Lt-9'
+# I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs. This is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
+# HDMI Display
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 400 -x 760 -y 4 -ta c -fg '#000000' -bg '#ffffff' -fn 'lime'
+#exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 1520 -y 4 -ta r -fg '#000000' -bg '#ffffff' -fn 'lime'
+# LVDS Display
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 200 -x 583 -y 4 -ta c -fg '#000000' -bg '#ffffff' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -y 4 -ta r -fg '#000000' -bg '#ffffff' -fn 'lime' -xs 1
 
 exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 124x33 -e irssi &
-exec urxvt -name tcli -g 110x30 -e ~/.config/nil/nil-transmission-remote-cli &
-exec urxvt -name ncmpcpp -g 90x25 -e ncmpcpp &
+exec urxvt -name ncmpcpp -g 95x25 -e ncmpcpp &
+exec urxvt -name ranger -g 90x27 -e ranger &
+exec urxvt -name tcli -g 90x27 -e ~/.config/nil/nil-transmission-remote-cli &
+exec gvim &
 exec dropboxd &
 exec rssdler -d &
+# I tried applying both of these commands in xinitrc with no luck, yet here it works.
+exec transmission-daemon &
+exec mpdas &
 
 # }}}
 # Windows {{{
@@ -128,6 +153,7 @@ bindsym $mod+Shift+l move right
 
 # Reload the configuration file, Restart i3 inplace (preserves layout/session).
 bindsym $mod+Shift+c reload
+# Be wary. This one ruins dzen2 and for_window positions.
 bindsym $mod+Shift+r restart
 
 # }}}
@@ -262,30 +288,51 @@ for_window [title="^Firefox Preferences$"] floating enable
 for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
+# Assign application to workspace on startup.
+assign [class="^URxvt$" instance="^nil$"] λ
+assign [class="^URxvt$" instance="^irssi$"] λ
+assign [class="^URxvt$" instance="^ncmpcpp$"] λ
+assign [class="^mpv$"] λ
+assign [class="Zathura"] λ
+
+# Float, focus, and position application on startup.
+for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 368px,move right 520px
+for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 315px,move right 520px
+for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move down 54px,move right 520px
+for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move up 190px,move right 370px
+for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 190px,move right 370px
+for_window [class="^mpv$"] floating enable,focus,focus
+for_window [class="^Zathura$"] floating enable,focus,move left 450px
+for_window [class="^Gvim$"] floating enable,focus,move left 322px
+
+# Shortcut Application focusing.
+bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
+bindsym $mod+i [class="^URxvt$" instance="^irssi$"] focus
+bindsym $mod+n [class="^URxvt$" instance="^ncmpcpp$"] focus
+bindsym $mod+f [class="^URxvt$" instance="^ranger$"] focus
+bindsym $mod+a [class="^URxvt$" instance="^tcli$"] focus
+bindsym $mod+m [class="^mpv$"] focus
+bindsym $mod+z [class="^Zathura$"] focus
+bindsym $mod+w [class="^Gvim$"] focus
+bindsym $mod+q [class="^Firefox$"] focus
+
+# Shortcut Applications.
+# $mod,$mod+y,b and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.
+bindsym $mod2+Return exec urxvt
+bindsym $mod2+t exec urxvt -name nil -g 85x24 &
+bindsym $mod2+i exec urxvt -name irssi -g 124x33 -e irssi &
+bindsym $mod2+n exec urxvt -name ncmpcpp -g 95x25 -e ncmpcpp &
+bindsym $mod2+f exec urxvt -name ranger -g 90x27 -e ranger &
+bindsym $mod2+a exec urxvt -name tcli -g 90x27 -e ~/.config/nil/nil-transmission-remote-cli &
+bindsym $mod2+w exec gvim
+bindsym $mod2+q exec firefox
+
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
-# Problems: The font is pretty ugly. Not aligned correctly to borders (either slightly overlaps or slightly off).
-#   No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
+# Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
 for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 322px
 bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
 
-# Autoassign specific applications to a workspace.
-assign [class="mplayer"] μ
-assign [class="mpv"] μ
-assign [class="Zathura"] μ
-# Automove to workspace after it opens them.
-for_window [class="mplayer"] workspace μ
-for_window [class="mpv"] workspace μ
-for_window [class="Zathura"] workspace μ
-
-# Shortcut Applications.
-# $mod,$mod+y,b,z and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.
-bindsym $mod2+Return exec urxvt
-bindsym $mod2+q exec firefox
-bindsym $mod2+f exec urxvt -name ranger -e ranger
-bindsym $mod2+w exec gvim
-
 # Media Keys.
-# Set this one to toggle mpv and always leave ncmpcpp paused, if mpv's open.
 bindsym F6 exec bash ~/.config/nil/play-pause
 # Here's the thing: PCM affects HDMI, Master affects Analog. Neither volume affects the other, so I normalized with percentages instead of decibels so they reach 0-100 at the same intervals. So I'll just go with both 0's as consistency for now.
 # Wishlist: Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
@@ -294,7 +341,7 @@ bindsym F10 exec amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute
 bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 
 # }}}
-# Scratchpads {{{
+# Archive - On Scratchpads {{{
 # -----------------------------------------------------------------------------
 # These are applications I always leave running on my computer, and for which I only need to take a quick peek once in a while to do something on them. They also generally feel much nicer to use in compact floating windows, rather than the pervasive array of space if you just place them into their own workspace (which somehow makes me feel even less productive).
 # To use multiple scratchpads, there's sort of a trick required in i3, since once you show two open scratchpad applications simultaneously, all hell breaks loose. To get around this without requiring more keybindings, you need to make your commands leave all other applications hidden in the scratchpad /before/ you show your next scratchpad application. There's yet another caveat: to use the for_window command to automove applications into the scratchpad, you have to be super-specific so that not even its child popup windows will be subsumed under the scratchpad (e.g. settings windows).
@@ -309,14 +356,7 @@ bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 #bindsym $mod+a [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
 #bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [instance="^nil$"] scratchpad show
 
-bindsym $mod+i [class="^URxvt$" instance="^irssi$"] focus
-bindsym $mod+m [class="^URxvt$" instance="^ncmpcpp$"] focus
-bindsym $mod+a [class="^URxvt$" instance="^tcli$"] focus
-bindsym $mod+t [instance="^nil$"] focus
-
-bindsym $mod+q [class="^Firefox$"] focus
-bindsym $mod+f [class="^URxvt$" instance="^ranger$"] focus
-bindsym $mod+g [class="^Gvim$"] focus
+# I decided to go full ricer and just leave the windows up on different workspaces, usually on my second monitor. Hence I only need to focus on them, as I no longer use a scratchpad. Scratchpads are good if you're limited on space (I am not), and I never liked the idea of having truly hidden applications until a keybind. Just feels weird when you want to poweroff, and you want to ensure that all main applications are closed beforehand.
 
 # vim:filetype=i3
 # }}}
