@@ -9,6 +9,7 @@ cairo-infinality-ultimate
 conky
 deluge
 dialog
+dina-font
 dropbox
 dzen2
 fasd
@@ -19,6 +20,7 @@ fontconfig-infinality-ultimate
 freetype2-infinality-ultimate
 gimp
 git
+gparted
 grub-bios
 gvim
 htop
@@ -34,6 +36,7 @@ libreoffice-en-US
 libreoffice-gnome
 libreoffice-writer
 librsvg
+mediainfo
 mesa
 mpd
 mpdas
@@ -59,6 +62,7 @@ rubber
 rxvt-unicode-patched
 scrot
 syslog-ng
+terminus-font
 texlive-bibtexextra
 texlive-core
 texlive-fontsextra
@@ -86,6 +90,7 @@ udisks
 unrar
 unzip
 virtualbox
+w3m
 weather
 wireless_tools
 wpa_actiond

@@ -5,7 +5,7 @@ pgrep mpv
 # If not running.
 if [ $? -ne 0 ]
 then
-    ncmpcpp toggle &
+    ncmpcpp toggle
 else
 # Else (if it is running)
     echo "cycle pause" > ~/.config/nil/mpv-control

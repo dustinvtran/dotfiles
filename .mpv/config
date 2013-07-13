@@ -4,9 +4,10 @@
 # Name: nil
 #
 
-autofit-larger=90%x70%
+autofit=1000
+#autofit-larger=90%x70%
 input-file=/home/nil/.config/nil/mpv-control
-fullscreen
+#fullscreen
 gapless-audio
 no-input-default-bindings
 osd-duration=2000
@@ -15,6 +16,9 @@ osd-font-size=40
 screenshot-template=/home/nil/nil/Media/Pictures/Screenshots/mpv/%f_%p_%tm-%td-%ty
 
 # Wishlist:
+# * Negative subtitle delays seem to do the same as positive ones (see [a-s] ouran 14 release for what I tried it on).
+# * Hotkey that can toggle screen size to 100% and whatever my preferred is.
+# * View (and access) list of recently opened files.
 # * Have the only one running instance add new files with a playlist, not the temp workaround in my scope.sh (also no-fixed-vo doesn't work instead)
 # * Don't quit at end of file, i.e., freeze at last frame. --idle idles the terminal command but autocloses the window.
 # * For screenshot-template, have the file extension displayed with a - instead of a . Currently,

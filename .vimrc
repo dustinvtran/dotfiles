@@ -161,7 +161,7 @@ endfunction
 set foldtext=NeatFoldText()
 " }}}
 
-" When 'dd/cc'ing blank lines, don't yank them into the register. {{{
+" When 'dd'ing blank lines, don't yank them into the register. {{{
 function! DDWrapper()
     if getline('.') =~ '^\s*$'
         normal! "_dd
@@ -169,16 +169,8 @@ function! DDWrapper()
         normal! dd
     endif
 endfunction
-function! CCWrapper()
-    if getline('.') =~ '^\s*$'
-        normal! "_cc
-    else
-        normal! cc
-    endif
-endfunction
 " }}}
 nnoremap <silent> dd :call DDWrapper()<CR>:echom ""<CR>
-nnoremap <silent> cc :call CCWrapper()<CR>:echom ""<CR>
 
 " Restore cursor to previous position and auto-open last file. {{{
 

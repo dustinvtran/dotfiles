@@ -469,6 +469,9 @@ alias gp="git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
 
+# My way of clearing the irssi notification for now. There's a better, sed command seen from Google results that adds a newline at EOF only if there isn't one. I can't get it to work, but whatever. I don't need a clean fnotify anyways.
+alias fnotify="echo >> ~/.irssi/logs/fnotify"
+
 # }}}
 # Environment variables. {{{
 # -----------------------------------------------------------------------------
