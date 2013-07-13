@@ -12,7 +12,6 @@
 [global]
 #########################################################
 
-#downloadDir = /home/nil/Dropbox/rtorrent/[Ext] Anime - Spring 2013
 downloadDir = /home/nil/Dropbox
 workingDir = /home/nil/.rssdler
 minSize = 10
@@ -34,11 +33,11 @@ link = http://www.nyaa.eu/?page=rss
 #maxSize =
 #minSize =
 #directory =
-regExTrue = (UTW.*Vivid.*Suisei.*no.*Gargantia|gg.*Aku.*no.*Hana|gg.*Shingeki.*no.*Kyojin|gg.*Hentai.*Ouji|Commie.*Hataraku.*Maou.*sama|UTW.*Mazui.*Railgun|Commie.*Yahari)
+regExTrue = (Commie.*Stella|UTW.*Danganronpa|gg.*Shingeki.*no.*Kyojin|UTW.*Mazui.*Railgun|UTW.*Fate.*Kaleid|FTW.*Watashi)
 regExFalse = (480p)
-#download1 = (HorribleSubs.*someanime)
-#download1True = False
-#download1False = (480p|720p)
+download1 = (HorribleSubs.*Servant|HorribleSubs.*Free|HorribleSubs.*Genshiken|HorribleSubs.*Monogatari|HorribleSubs.*Uchouten|HorribleSubs.*World.*God|HorribleSubs.*Gatchaman|HorribleSubs.*Neptun)
+download1True = False
+download1False = (360p|480p|1080p)
 
 #########################################################
 #[tpb]

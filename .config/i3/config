@@ -20,6 +20,7 @@
 
 # Wishlist:
 #   * Right-click desktop with options.
+#   * When changing workspaces and back, the w3m image preview in ranger is gone.
 # Panel/Workspaces:
 #   * Non-# order, e.g., alphabetical or customizable.
 #   * Icon/non-UTF name support.
@@ -293,7 +294,9 @@ assign [class="^URxvt$" instance="^nil$"] λ
 assign [class="^URxvt$" instance="^irssi$"] λ
 assign [class="^URxvt$" instance="^ncmpcpp$"] λ
 assign [class="^mpv$"] λ
-assign [class="Zathura"] λ
+assign [class="^Zathura$"] λ
+assign [class="^libreoffice-calc$"] γ
+assign [class="^Gimp$"] δ
 
 # Float, focus, and position application on startup.
 for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 368px,move right 520px
@@ -301,7 +304,7 @@ for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 31
 for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move down 54px,move right 520px
 for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move up 190px,move right 370px
 for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 190px,move right 370px
-for_window [class="^mpv$"] floating enable,focus,focus
+for_window [class="^mpv$"] floating enable,focus,focus,move left 415px
 for_window [class="^Zathura$"] floating enable,focus,move left 450px
 for_window [class="^Gvim$"] floating enable,focus,move left 322px
 
@@ -315,6 +318,7 @@ bindsym $mod+m [class="^mpv$"] focus
 bindsym $mod+z [class="^Zathura$"] focus
 bindsym $mod+w [class="^Gvim$"] focus
 bindsym $mod+q [class="^Firefox$"] focus
+bindsym $mod+Shift+i exec echo >> ~/.irssi/logs/fnotify
 
 # Shortcut Applications.
 # $mod,$mod+y,b and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.

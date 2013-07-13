@@ -260,7 +260,7 @@ formats = {
     # No longer using /names. Using /anames instead.
     #endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00313$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00310$[-11]0}}$1";
   };
   #}}}
   "fe-common/irc" = {

@@ -145,7 +145,7 @@ map -modes=i <PageUp> <Nop>
 map -modes=i <PageDown> <Nop>
 map -modes=i <End> <Nop>
 map -modes=n <Space> <Nop>
-map -modes=n <F5> <Nop>
+map -modes=i,n <F5> <Nop>
 " My alternatives aren't currently working. When they do, Nop these to get used to the others.
 "map -modes=i,c <Left> <Nop>
 "map -modes=i,c <Right> <Nop>
@@ -310,11 +310,11 @@ map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
 " Forums.
-map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/<CR>
-map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
-map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
-map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
-map -modes=n -builtin <Leader>k :tabopen! http://geekhack.org/index.php<CR>
+map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace<CR>
+"map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
+"map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
+"map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
+"map -modes=n -builtin <Leader>k :tabopen! http://geekhack.org/index.php<CR>
 
 " Others.
 map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
@@ -339,6 +339,9 @@ map -modes=n -builtin <Leader>l :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " Private trackers.
 map -modes=n -builtin <Leader>t :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
+
+" Temp
+map -modes=n -builtin <Leader>n :tabopen! nyaa gatchaman crowds | nyaa neptun | nyaa watashi ga motenai | nyaa world | nyaa prisma | nyaa uchouten kazoku | nyaa monogatari | nyaa genshiken | nyaa danganronpa | nyaa servant | nyaa stella | nyaa free<CR>
 
 " }}}
 " Functions {{{
