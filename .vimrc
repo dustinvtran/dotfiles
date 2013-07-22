@@ -262,11 +262,14 @@ function! SmoothScroll(up)
     endwhile
 endfunction
 " }}}
-nnoremap <silent> <c-k> :call SmoothScroll(1)<CR>
-nnoremap <silent> <c-j> :call SmoothScroll(0)<CR>
-"This compromise works for visual mode since the above doesn't, but still awkward.
-vnoremap <silent> <c-k> H4k<CR>
-vnoremap <silent> <c-j> L4j<CR>
+"nnoremap <silent> <c-k> :call SmoothScroll(1)<CR>
+"nnoremap <silent> <c-j> :call SmoothScroll(0)<CR>
+""This compromise works for visual mode since the above doesn't, but still awkward.
+"vnoremap <silent> <c-k> H4k<CR>
+"vnoremap <silent> <c-j> L4j<CR>
+" Seeing if my eyes can track the normal one, since the above gets input lag.
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
 
 " Insert Character Function. {{{
 "Taken from a plugin. This makes it an atomic operator, e.g., you can '.' it. Also, you get a neat cursor shader and can specify how many characters in particular.
@@ -358,6 +361,7 @@ noremap * <Nop>
 "I-I like you guys, but you're so far away! W/E/B/gE's better.
 noremap ( <Nop>
 noremap ) <Nop>
+nnoremap ) ^
 "Why not j/k?
 noremap - <Nop>
 noremap _ <Nop>
