@@ -331,7 +331,7 @@ map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/user/show/7207396-nil<CR>
-map -modes=n -builtin <Leader>i :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=title:asc&defaults=1&my_ratings=restrict&scb=0.07529765367507935<CR>
+map -modes=n -builtin <Leader>i :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Video%20Game%20List.html<CR>
 map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Visual%20Novel%20List.html<CR>
 map -modes=n -builtin <Leader>y :tabopen! http://rateyourmusic.com/~nilin<CR>
@@ -341,7 +341,7 @@ map -modes=n -builtin <Leader>l :tabopen! http://www.last.fm/user/nil1729<CR>
 map -modes=n -builtin <Leader>t :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " Temp
-map -modes=n -builtin <Leader>n :tabopen! nyaa gatchaman crowds | nyaa neptun | nyaa watashi ga motenai | nyaa world | nyaa prisma | nyaa uchouten kazoku | nyaa monogatari | nyaa genshiken | nyaa danganronpa | nyaa servant | nyaa stella | nyaa free<CR>
+map -modes=n -builtin <Leader>n :tabopen! nyaa gatchaman crowds | nyaa neptun | nyaa prisma | nyaa world | nyaa uchouten kazoku | nyaa monogatari | nyaa genshiken | nyaa servant | nyaa gin no saji | nyaa stella | nyaa free<CR>
 
 " }}}
 " Functions {{{
