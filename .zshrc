@@ -306,11 +306,13 @@ zle -N nop
 # Use clipboard rather than system registers.
 prepend-x-selection () {
     RBUFFER=$(xsel -op </dev/null)$RBUFFER;
+    zle vi-end-of-line
 }
 zle -N prepend-x-selection
 append-x-selection () {
     zle vi-forward-char
     RBUFFER=$(xsel -op </dev/null)$RBUFFER;
+    zle vi-end-of-line
 }
 zle -N append-x-selection
 yank-x-selection () {
@@ -378,6 +380,10 @@ bindkey -M vicmd "dd" kill-whole-line           # dd
 bindkey -M vicmd "gg" beginning-of-buffer-or-history # gg
 bindkey -M vicmd "G" end-of-buffer-or-history   # G
 bindkey -M vicmd "^R" redo                      # CTRL-R
+#Temporary until I can get them to scroll the buffer.
+#Note zshrc cannot physically do this, but urxvt itself cannot detect vicmd/viins apart..
+bindkey -M vicmd "j" nop                        # j
+bindkey -M vicmd "k" nop                        # k
 
 # Vim normal mode mappings I don't use but nice to have.
 bindkey -M vicmd "^E" vi-add-eol                # CTRL-E

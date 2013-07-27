@@ -5,6 +5,7 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
+" lemon/limey/uushi not working
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
@@ -54,8 +55,14 @@ highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; bord
 highlight HintActive background: rgba(145,197,43,0.8) !important;
 highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
 highlight StatusLine -moz-appearance: #F0F0F0 !important; font-weight: none; background: #F0F0F0 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: black !important; font: normal 12px 'lemon' !important;
-highlight CmdLine -a font-family: lemon !important;
-highlight Link -a font-family: lemon !important;
+"Neither font-family or font: seems to work with specific fonts, e.g., lemon,limey,uushi.
+"highlight CmdLine -a font-family: Dina !important;
+"highlight Link -a font-family: Dina !important;
+"highlight CompTitle -a font-family: Dina !important;
+"highlight CompTitleSep -a font-family: Dina !important;
+"highlight CompItem -a font-family: Dina !important;
+"highlight CompMore -a font-family: Dina !important;
+"highlight CompLess -a font-family: Dina !important;
 
 unmap!
 iunmap!

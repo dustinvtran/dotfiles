@@ -117,6 +117,7 @@ set backspace=indent,eol,start               " Expected backspacing.
 set linebreak                                " Don't linebreak words in the middle.
 set display=lastline                         " Displays partial wrapped lines.
 set cursorline                               " Cursor Highlight, Color
+set number                                   " Show absolute number for cursor line.
 set relativenumber                           " Line numbers relative to cursor line.
 set scrolloff=10                             " Minimum # of lines shown above/below cursor.
 set splitbelow                               " Split windows as expected.

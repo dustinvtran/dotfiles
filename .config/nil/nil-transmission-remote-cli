@@ -11,9 +11,8 @@
 #   this script says, they do the opposite..though I don't know why).
 # * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
 # * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
-#
-# Wishlist:
-# * Half page up/downs (or 5j/k's).
+# * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
+# * Added Ctrl-l to open file in the file list.
 #
 
 ########################################################################
@@ -925,6 +924,9 @@ class Interface:
             curses.KEY_END:         self.movement_keys,
             ord('g'):               self.movement_keys,
             ord('G'):               self.movement_keys,
+            curses.ascii.ctrl(ord('j')): self.movement_keys,
+            curses.ascii.ctrl(ord('k')): self.movement_keys,
+            curses.ascii.ctrl(ord('l')): self.movement_keys,
             curses.ascii.ctrl(ord('f')): self.movement_keys,
             curses.ascii.ctrl(ord('b')): self.movement_keys,
             curses.ascii.ctrl(ord('n')): self.movement_keys,
@@ -1420,6 +1422,22 @@ class Interface:
             elif c == curses.KEY_DOWN or c == ord('j') or c == curses.ascii.ctrl(ord('n')):
                 self.focus, self.scrollpos = self.move_down(self.focus, self.scrollpos, self.tlist_item_height,
                                                             self.torrents_per_page, len(self.torrents))
+            elif c == curses.ascii.ctrl(ord('j')):
+                self.focus, self.scrollpos = self.move_down(self.focus, self.scrollpos, self.tlist_item_height,
+                                                            self.torrents_per_page, len(self.torrents))
+                self.focus, self.scrollpos = self.move_down(self.focus, self.scrollpos, self.tlist_item_height,
+                                                            self.torrents_per_page, len(self.torrents))
+                self.focus, self.scrollpos = self.move_down(self.focus, self.scrollpos, self.tlist_item_height,
+                                                            self.torrents_per_page, len(self.torrents))
+                self.focus, self.scrollpos = self.move_down(self.focus, self.scrollpos, self.tlist_item_height,
+                                                            self.torrents_per_page, len(self.torrents))
+                self.focus, self.scrollpos = self.move_down(self.focus, self.scrollpos, self.tlist_item_height,
+                                                            self.torrents_per_page, len(self.torrents))
+            elif c == curses.ascii.ctrl(ord('k')):
+                self.focus, self.scrollpos = self.move_up(self.focus, self.scrollpos, self.tlist_item_height)
+                self.focus, self.scrollpos = self.move_up(self.focus, self.scrollpos, self.tlist_item_height)
+                self.focus, self.scrollpos = self.move_up(self.focus, self.scrollpos, self.tlist_item_height)
+                self.focus, self.scrollpos = self.move_up(self.focus, self.scrollpos, self.tlist_item_height)
             elif c == curses.KEY_PPAGE or c == curses.ascii.ctrl(ord('b')):
                 self.focus, self.scrollpos = self.move_page_up(self.focus, self.scrollpos, self.tlist_item_height,
                                                                self.torrents_per_page)
@@ -1442,6 +1460,38 @@ class Interface:
                     self.focus_detaillist, self.scrollpos_detaillist = \
                         self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
                                        self.detaillistitems_per_page, len(self.torrent_details['files']))
+                elif c == curses.ascii.ctrl(ord('j')):
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
+                                       self.detaillistitems_per_page, len(self.torrent_details['files']))
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
+                                       self.detaillistitems_per_page, len(self.torrent_details['files']))
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
+                                       self.detaillistitems_per_page, len(self.torrent_details['files']))
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
+                                       self.detaillistitems_per_page, len(self.torrent_details['files']))
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
+                                       self.detaillistitems_per_page, len(self.torrent_details['files']))
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_down(self.focus_detaillist, self.scrollpos_detaillist, 1,
+                                       self.detaillistitems_per_page, len(self.torrent_details['files']))
+                elif c == curses.ascii.ctrl(ord('k')):
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_up(self.focus_detaillist, self.scrollpos_detaillist, 1)
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_up(self.focus_detaillist, self.scrollpos_detaillist, 1)
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_up(self.focus_detaillist, self.scrollpos_detaillist, 1)
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_up(self.focus_detaillist, self.scrollpos_detaillist, 1)
+                    self.focus_detaillist, self.scrollpos_detaillist = \
+                        self.move_up(self.focus_detaillist, self.scrollpos_detaillist, 1)
+                elif c == curses.ascii.ctrl(ord('l')):
+                    self.open_torrent_file(c)
                 elif c == curses.KEY_PPAGE or c == curses.ascii.ctrl(ord('b')):
                     self.focus_detaillist, self.scrollpos_detaillist = \
                         self.move_page_up(self.focus_detaillist, self.scrollpos_detaillist, 1,
