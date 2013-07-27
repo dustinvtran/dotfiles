@@ -2,6 +2,7 @@ alsa-utils
 alsi
 android-sdk
 android-sdk-platform-tools
+anki
 artwiz-fonts
 atool
 autocutsel
@@ -21,7 +22,7 @@ freetype2-infinality-ultimate
 gimp
 git
 gparted
-grub-bios
+grub
 gvim
 htop
 i3-git

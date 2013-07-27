@@ -4,8 +4,7 @@
 # Name: nil
 
 # Parameters:
-# Colors: black, blue, cyan, green (dark green), magenta, red, white (actually gray),
-#   yellow (actually orange), default (true white)
+# Colors: black, blue, cyan, green, magenta, red, white, yellow, default
 # Styles: normal, bold, blink, reverse, underline, invisible
 
 from ranger.gui.colorscheme import ColorScheme
@@ -43,8 +42,8 @@ class Default(ColorScheme):
                 fg = red
             if context.directory:
                 #attr |= bold
-                #fg = blue
-                fg = white
+                fg = blue
+                #fg = white
             # These files are finicky, as it also colors things like *.txts and
             #   random rc/config files.
             elif context.executable and not \
