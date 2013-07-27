@@ -50,11 +50,11 @@
 
 # I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs. This is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
 # HDMI Display
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 400 -x 760 -y 4 -ta c -fg '#000000' -bg '#ffffff' -fn 'lime'
-#exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 1520 -y 4 -ta r -fg '#000000' -bg '#ffffff' -fn 'lime'
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 400 -x 760 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
+#exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 1520 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
 # LVDS Display
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 200 -x 583 -y 4 -ta c -fg '#000000' -bg '#ffffff' -fn 'lime' -xs 1
-exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -y 4 -ta r -fg '#000000' -bg '#ffffff' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 200 -x 583 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 
 exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec urxvt -name nil -g 85x24 &
@@ -264,12 +264,12 @@ bar {
     #urgent_workspace    #2f343a #900000 #ffffff
 
     # Black on White/Gray Scheme
-    background #ffffff
+    background #f9f9f9
     #colorclass         border  backgr  text
-    focused_workspace   #DCDCDC #DCDCDC #000000
-    active_workspace    #DCDCDC #DCDCDC #000000
-    inactive_workspace  #ffffff #ffffff #000000
-    urgent_workspace    #2f343a #900000 #ffffff
+    focused_workspace   #e0e0e0 #e0e0e0 #707070
+    active_workspace    #e0e0e0 #e0e0e0 #707070
+    inactive_workspace  #f9f9f9 #f9f9f9 #707070
+    urgent_workspace    #2f343a #900000 #f9f9f9
     }
     position top
     font pango:HelveticaNeueCom 45 Lt Bold 9

@@ -7,4 +7,4 @@ update_interval_on_battery 10
 
 #^ca(1,/home/nil/.config/nil/conky/sc /home/nil/.config/nil/conky/scripts/dzen_battery.sh)   ^fg(\#636e74)${execi 2 /home/nil/.config/nil/conky/scripts/bar_battery.sh}^fg(\#bea492)   ^ca()\
 TEXT
-^fg(black)${exec tail -n 1 /home/nil/.irssi/logs/fnotify} ${execpi 120 python ~/.config/nil/gmail1.py}${execpi 120 python ~/.config/nil/gmail2.py}
+^fg(\#707070)${exec tail -n 1 /home/nil/.irssi/logs/fnotify} ${execpi 120 python ~/.config/nil/gmail1.py}${execpi 120 python ~/.config/nil/gmail2.py}
