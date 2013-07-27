@@ -130,9 +130,9 @@ new_window pixel 5
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
-client.focused          #000000 #2f4f4f #000000 #2f4f4f
-client.focused_inactive #000000 #000000 #000000 #484e50
-client.unfocused        #000000 #000000 #000000 #292d2e
+client.focused          #707070 #a27b7f #707070 #2f4f4f
+client.focused_inactive #707070 #707070 #707070 #484e50
+client.unfocused        #707070 #707070 #707070 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 font pango:HelveticaNeueCom 45 Lt 8
 
