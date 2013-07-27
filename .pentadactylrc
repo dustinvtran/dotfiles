@@ -6,8 +6,6 @@
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
 " lemon/limey/uushi not working
-" finish rest of colorscheming.
-
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
@@ -43,7 +41,7 @@
 loadplugins '\.(js|penta)$'
 group user
 
-" Colorscheme.
+" Colorscheme: Command bar.
 highlight CompTitle color: #707070 !important; background: #f9f9f9 !important;
 highlight CompTitleSep color: #707070 !important; background: #f9f9f9 !important;
 highlight CompItem background: #f9f9f9 !important;
@@ -51,7 +49,10 @@ highlight CompMore background: #f9f9f9 !important;
 highlight CompLess background: #f9f9f9 !important;
 highlight CmdLine background: #f9f9f9 !important;
 highlight CompItem[selected] background: #e0e0e0 !important;
+highlight NonText color: #707070 !important;
 highlight StatusLine -moz-appearance: #f9f9f9 !important; font-weight: none; background: #f9f9f9 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: #707070 !important;
+
+" Colorscheme: Hints & Find.
 highlight Find background: #FF96A3 !important;
 highlight Hint background: #FF96A3 !important; padding: 3px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: #f9f9f9; line-height:1em;
 highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
