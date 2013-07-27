@@ -6,14 +6,14 @@
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
 " lemon/limey/uushi not working
+" finish rest of colorscheming.
+
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
 " using digits autogoes to a url page. stahp. let them use google.
 " toggled scrollbar doesn't always work
     " they also don't show up until refreshed page
-" Make all colors gray. It's a weird blotch right now of white and gray.
-"    turn the highlighted search term as yellow.
 " When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 " Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
 " Jumps in same buffer without changing pages. (same problem in Vim)
@@ -43,26 +43,31 @@
 loadplugins '\.(js|penta)$'
 group user
 
-highlight CompTitle color: #00000 !important; background: #F0F0F0 !important;
-highlight CompTitleSep color: #000000 !important; background: #F0F0F0 !important;
-highlight CompItem background: #F0F0F0 !important;
-highlight CompMore background: #F0F0F0 !important;
-highlight CompLess background: #F0F0F0 !important;
-highlight CmdLine background: #F0F0F0 !important;
-highlight Find background: rgba(204,51,255,0.5) !important;
-highlight CompItem[selected] background: #DCDCDC !important;
-highlight Hint font-size: 14px; background: rgba(1,132,208,0.8) !important; border: 2px solid rgb(1,132,208); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: lime; line-height:1em;
-highlight HintActive background: rgba(145,197,43,0.8) !important;
+" Colorscheme.
+highlight CompTitle color: #707070 !important; background: #f9f9f9 !important;
+highlight CompTitleSep color: #707070 !important; background: #f9f9f9 !important;
+highlight CompItem background: #f9f9f9 !important;
+highlight CompMore background: #f9f9f9 !important;
+highlight CompLess background: #f9f9f9 !important;
+highlight CmdLine background: #f9f9f9 !important;
+highlight CompItem[selected] background: #e0e0e0 !important;
+highlight StatusLine -moz-appearance: #f9f9f9 !important; font-weight: none; background: #f9f9f9 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: #707070 !important;
+highlight Find background: #FF96A3 !important;
+highlight Hint background: #FF96A3 !important; padding: 3px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: #f9f9f9; line-height:1em;
 highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
-highlight StatusLine -moz-appearance: #F0F0F0 !important; font-weight: none; background: #F0F0F0 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important; color: black !important; font: normal 12px 'lemon' !important;
+highlight HintActive background: rgba(255, 209, 20, 0.7) !important;
+
+" Font.
 "Neither font-family or font: seems to work with specific fonts, e.g., lemon,limey,uushi.
-"highlight CmdLine -a font-family: Dina !important;
-"highlight Link -a font-family: Dina !important;
-"highlight CompTitle -a font-family: Dina !important;
-"highlight CompTitleSep -a font-family: Dina !important;
-"highlight CompItem -a font-family: Dina !important;
-"highlight CompMore -a font-family: Dina !important;
-"highlight CompLess -a font-family: Dina !important;
+highlight Hint -a font: normal 12px Terminus !important;
+highlight CmdLine -a font: normal 12px Terminus !important;
+highlight Link -a font: normal 12px Terminus !important;
+highlight CompTitle -a font: normal 12px Terminus !important;
+highlight CompTitleSep -a font: normal 12px Terminus !important;
+highlight CompItem -a font: normal 12px Terminus !important;
+highlight CompMore -a font: normal 12px Terminus !important;
+highlight CompLess -a font: normal 12px Terminus !important;
+highlight StatusLine -a font: normal 12px Terminus !important;
 
 unmap!
 iunmap!
