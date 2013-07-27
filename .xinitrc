@@ -43,3 +43,4 @@ case $1 in
 	exec i3
 	;;
 esac
+xmodmap -e 'add Alt = Alt_R'

@@ -35,9 +35,9 @@ link = http://www.nyaa.eu/?page=rss
 #directory =
 #regExTrue =
 #regExFalse =
-download1 = (Commie.*Stella|gg.*Shingeki.*no.*Kyojin|UTW.*Mazui.*Railgun|UTW.*Fate.*Kaleid)
+download1 = (Commie.*Stella|gg.*Shingeki.*no.*Kyojin|UTW.*Mazui.*Railgun)
 download1False = (396p|480p)
-download2 = (HorribleSubs.*Servant|HorribleSubs.*Free|HorribleSubs.*Gin.*no.*Saji|HorribleSubs.*Genshiken|HorribleSubs.*Monogatari|HorribleSubs.*Uchouten|HorribleSubs.*World.*God|HorribleSubs.*Gatchaman|HorribleSubs.*Neptun)
+download2 = (HorribleSubs.*Servant|HorribleSubs.*Free|HorribleSubs.*Gin.*no.*Saji|HorribleSubs.*Genshiken|HorribleSubs.*Monogatari|HorribleSubs.*Uchouten|HorribleSubs.*World.*God|HorribleSubs.*Gatchaman)
 download2False = (360p|480p|1080p)
 
 #########################################################

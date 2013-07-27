@@ -298,7 +298,7 @@ map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
 map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
-map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/math<CR>
+map -modes=n -builtin <Leader>rt :tabopen! http://www.reddit.com/r/math<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
 map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/frugalmalefashion<CR>
 map -modes=n -builtin <Leader>rc :tabopen! http://www.reddit.com/r/bicycling+bikeporn<CR>
@@ -310,7 +310,7 @@ map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
 " Forums.
-map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace<CR>
+map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 "map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
 "map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
 "map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
@@ -319,7 +319,7 @@ map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/mark
 " Others.
 map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
-map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#category%2FAnifavorites<CR>
+map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#category%2FAssociates<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
@@ -331,7 +331,8 @@ map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/user/show/7207396-nil<CR>
-map -modes=n -builtin <Leader>i :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>
+map -modes=n -builtin <Leader>ii :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>
+map -modes=n -builtin <Leader>iw :tabopen! http://www.imdb.com/user/ur33286458/watchlist?start=1&view=compact&sort=release_date_us:desc&defaults=1&lists=watchlist&defaults=1&lists=watchlist<CR>
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Video%20Game%20List.html<CR>
 map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Visual%20Novel%20List.html<CR>
 map -modes=n -builtin <Leader>y :tabopen! http://rateyourmusic.com/~nilin<CR>

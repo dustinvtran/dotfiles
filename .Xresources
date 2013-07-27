@@ -4,7 +4,7 @@
 ! Name: nil
 !
 
-!! w0ng Charcoal Black Colorscheme (hybrid) {{{
+!! w0ng Charcoal Black Colorscheme: hybrid {{{
 !! -----------------------------------------------------------------------------
 
 !! Hybrid Terminal Colours
@@ -50,7 +50,7 @@
 !URxvt*color15: t_foreground
 
 !! }}}
-!! falac White Colorscheme (no name) {{{
+!! falac White Colorscheme {{{
 !! -----------------------------------------------------------------------------
 
 !! black
@@ -97,60 +97,104 @@
 !URxvt*borderColor: #f9f9f9
 
 !! }}}
-! My own mix and match {{{
-!! -----------------------------------------------------------------------------
+!! My own mix and match {{{
+!!! -----------------------------------------------------------------------------
 
-#define t_background #1D1F21
-#define t_current_line #282A2E
-#define t_selection #373B41
-#define t_foreground #C5C8C6
-#define t_comment #707880
-#define t_red #CC6666
-#define t_orange #DE935F
-#define t_yellow #F0C674
-#define t_green #B5BD68
-#define t_aqua #8ABEB7
-#define t_blue #81A2BE
-#define t_purple #B294BB
+!#define t_background #1D1F21
+!#define t_current_line #282A2E
+!#define t_selection #373B41
+!#define t_foreground #C5C8C6
+!#define t_comment #707880
+!#define t_red #CC6666
+!#define t_orange #DE935F
+!#define t_yellow #F0C674
+!#define t_green #B5BD68
+!#define t_aqua #8ABEB7
+!#define t_blue #81A2BE
+!#define t_purple #B294BB
+
+!! black
+!URxvt*color0: t_current_line
+!URxvt*color8: t_selection
+!! red
+!URxvt*color1: #A54242
+!URxvt*color9: t_red
+!! green
+!URxvt*color2: #8C9440
+!URxvt*color10: t_green
+!! yellow
+!URxvt*color3: t_orange
+!URxvt*color11: t_yellow
+!! blue
+!URxvt*color4: #5F819D
+!URxvt*color12: t_blue
+!! magenta
+!URxvt*color5: #85678F
+!URxvt*color13: t_purple
+!! cyan
+!URxvt*color6: #5E8D87
+!URxvt*color14: t_aqua
+!! white
+!URxvt*color7: t_comment
+!URxvt*color15: t_foreground
+
+!URxvt*background: #f9f9f9
+!URxvt*foreground: t_current_line
+
+!!! }}}
+! falac White Colorscheme: Customized {{{
+! -----------------------------------------------------------------------------
 
 ! black
-URxvt*color0: t_current_line
-URxvt*color8: t_selection
+URxvt*color15 : #505050
+URxvt*color7 : #b5b5b5
+
 ! red
-URxvt*color1: #A54242
-URxvt*color9: t_red
+!URxvt*color1 : #c29198
+!URxvt*color9 : #a0616a
+URxvt*color1: #d8a5aa
+URxvt*color9: #a27b7f
+
+! yellow/orange
+!URxvt*color3: #acacac
+!URxvt*color11: #858585
+URxvt*color3: #bfa5d8
+URxvt*color11: #9884ac
+
 ! green
-URxvt*color2: #8C9440
-URxvt*color10: t_green
-! yellow
-URxvt*color3: t_orange
-URxvt*color11: t_yellow
+URxvt*color2 : #abd8a5
+URxvt*color10 : #80a27b
+
 ! blue
-URxvt*color4: #5F819D
-URxvt*color12: t_blue
+URxvt*color4: #a5abd8
+URxvt*color12: #7b80a2
+
 ! magenta
-URxvt*color5: #85678F
-URxvt*color13: t_purple
+URxvt*color5 : #d8a5d2
+URxvt*color13 : #a27b9d
+
 ! cyan
-URxvt*color6: #5E8D87
-URxvt*color14: t_aqua
+URxvt*color6 : #a5d2d8
+URxvt*color14 : #7b9da2
+
 ! white
-URxvt*color7: t_comment
-URxvt*color15: t_foreground
+URxvt*color0 : #505050
+URxvt*color8 : #727272
 
 URxvt*background: #f9f9f9
-URxvt*foreground: t_current_line
+URxvt*foreground: #707070
+URxvt*cursorColor: #f9f9f9
+URxvt*colorUL: #9693b5
+!URxvt*colorBD: #af8ac1
+URxvt*borderColor: #f9f9f9
 
-!! }}}
+! }}}
 
 ! Fonts:
-!URxvt*font: xft:lemon:pixelsize=10
-!! bitmap fonts dont have bold, nor do I need it.
-!URxvt*boldFont: xft:lemon:pixelsize=10
-
-! Only a few configurable pixel sizes available.
-URxvt*font: xft:Terminus:pixelsize=8
-URxvt*boldFont: xft:Consolas:bold:pixelsize=12
+! I would go with lemon if it werent so damn tiny.
+URxvt*font: xft:uushi:pixelsize=10
+!! Most bitmap fonts dont have bold, nor do I need it.
+URxvt*boldFont: xft:uushi:pixelsize=10
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0
@@ -177,7 +221,7 @@ URxvt.iso14755: False
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
 ! Somehow map it to some obscure key, and then map that key via Vim.
-!URxvt.keysym.S-space: commdn: \033[1~
+!URxvt.keysym.S-space: command: \033[1~
 
 !enabling clickable links:
 URxvt.matcher.button: 1

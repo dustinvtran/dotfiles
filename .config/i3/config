@@ -293,6 +293,8 @@ for_window [title="^Tab Mix Plus Options$"] floating enable
 assign [class="^URxvt$" instance="^nil$"] λ
 assign [class="^URxvt$" instance="^irssi$"] λ
 assign [class="^URxvt$" instance="^ncmpcpp$"] λ
+assign [class="^URxvt$" instance="^ranger$"] α
+assign [class="^URxvt$" instance="^tcli$"] α
 assign [class="^mpv$"] λ
 assign [class="^Zathura$"] λ
 assign [class="^libreoffice-calc$"] γ
@@ -330,6 +332,11 @@ bindsym $mod2+f exec urxvt -name ranger -g 90x27 -e ranger &
 bindsym $mod2+a exec urxvt -name tcli -g 90x27 -e ~/.config/nil/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
+
+# Archived
+#for_window [class="^URxvt$" instance="^vim$"] floating enable,focus,move left 322px
+#bindsym $mod+w [class="^URxvt$" instance="^vim$"] focus
+#bindsym $mod2+w exec urxvt -name vim -g 110x63 &
 
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
 # Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
