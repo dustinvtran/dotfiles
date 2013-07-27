@@ -33,12 +33,10 @@
 " The load last file doesn't really work as intended, but it does load *some* last files.
 " Something weird with having to press the <ENTER> prompt when opening and certain files.
 
-" Sourcing .vimrc makes it resize.
 " Option for "resize" mode of windows, like with i3.
 " Make InsertCharFunction() an atomic operator, e.g., '.'-able.
 " C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
 "   Stuff about jump lists vs normal motion.
-" cc not working until i wait a few seconds after first input of 'c'.
 " Jump to paragraphs? One that includes <br><br> for html.
 " Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
 " Enter url function.
@@ -140,7 +138,10 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size, but not for console Vim.
 if has("gui_running")
-  set lines=59 columns=110
+  " For uushi.
+  "set lines=63 columns=110
+  " Lemon.
+  set lines=69 columns=132
 endif
 
 " }}}
@@ -702,7 +703,7 @@ nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
 "set background=dark
 "colorscheme solarized
 
-colorscheme bclear
+colorscheme nil
 
 " Set colorschemes for different filetypes.
 "augroup file_type_color_scheme
@@ -714,8 +715,8 @@ colorscheme bclear
 syntax enable
 set guioptions=
 set notitle
-"set guifont=lemon
-set guifont=Terminus\ 8
+"set guifont=uushi
+set guifont=lemon
 let g:Powerline_symbols="fancy"
 set laststatus=2
 set noshowmode

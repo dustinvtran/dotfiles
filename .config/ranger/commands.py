@@ -1141,3 +1141,12 @@ class emptytrash(Command):
 
     def execute(self):
         self.fm.run("rm -rf /home/nil/.trash/{*,.[^.]*}")
+
+#class aunpack(Command):
+#    """:aunpack
+
+#    Prompts aunpack on currently selected file.
+#    """
+
+#    def execute(self):
+#        self.fm.run("shell aunpack %s")
