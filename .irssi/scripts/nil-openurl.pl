@@ -213,7 +213,7 @@ sub add_note ($$$) {
     }
     if (defined $witem) {
 	#$witem->print("%R>>%n OpenURL ".$num, MSGLEVEL_CLIENTCRAP);
-	$witem->print("          %mURL %Y=%n ".$num, MSGLEVEL_CLIENTCRAP);
+	$witem->print("          %mURL %c=%m ".$num, MSGLEVEL_CLIENTCRAP);
 	# create a unique ID for the mark
 	my $foo = time().'-'.int(rand()*1000);
 	$witem->window()->view()->set_bookmark_bottom("openurl_".$num.'-'.$foo);

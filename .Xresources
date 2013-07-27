@@ -152,7 +152,7 @@ URxvt*color7 : #b5b5b5
 ! red
 !URxvt*color1 : #c29198
 !URxvt*color9 : #a0616a
-URxvt*color1: #d8a5aa
+URxvt*color1: #FF96A3
 URxvt*color9: #a27b7f
 
 ! yellow/orange

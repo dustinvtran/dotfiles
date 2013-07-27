@@ -210,7 +210,7 @@ abstracts = {
   sb_act_text = "%w$*";
   # public message
   # This one changes the color of windows with new chat text!
-  sb_act_msg = "%B$*";
+  sb_act_msg = "%b$*";
   # ilight
   # This one changes the color of windows with new highlighted text!
   #     This is also configurable per hilight via built-in commands.
@@ -229,16 +229,17 @@ formats = {
     line_start_irssi = "{line_start}";
 
     # Server Messages.
-    join = "%K{channick $[-13]0} %G>%K";
-    kick = "%K{channick $[-13]0} %R<%c kicked by {nick $2} [%c{reason %c$3}]";
-    # Likely better to see the part/quit/quit_once reason (ping timeout, general quit message, just
-    # parting the channel, etc.), but I rarely require them and I prefer the minimal arrow aesthetic.
-    #part = "%K{channick $[-13]0} %R<%K {channel $2}";
-    #quit = "%K{channick $[-13]0} %R<%K {reason %K$2}";
-    #quit_once = "{channel $3} {channick $0} {chanhost $1} %kquit {reason %C$2}";
-    part = "%K{channick $[-13]0} %R<%K";
-    quit = "%K{channick $[-13]0} %R<%K";
-    quit_once = "%K{channick $[-13]0} %R<%K";
+    # To see the part/quit/quit_once reason (ping timeout, specific quit message, just
+    # parting the channel, etc.), and the IP address.
+    join = "%w{channick $[-13]0} %g>%w ({chanhost %w$1})";
+    part = "%w{channick $[-13]0} %r<%w ({chanhost %w$1}) ({channel %w$2}) ({reason %w$3})";
+    quit = "%w{channick $[-13]0} %r<%w ({chanhost %w$1}) ({reason %w$2})";
+    quit_once = "{channel $3} {channick $0} {chanhost %w$1} %wquit {reason %w$2}";
+    kick = "%w{channick $[-13]0} %r<%c kicked by {nick $2} [%c{reason %c$3}]";
+    # Use these if you want to go minimalist, i.e., don't see reasons.
+    #part = "%K{channick $[-13]0} %R<%K";
+    #quit = "%K{channick $[-13]0} %R<%K";
+    #quit_once = "%K{channick $[-13]0} %R<%K";
     nick_changed = "%g{channick $[-13]0} %Y= {channick_hilight $1}";
     your_nick_changed = "%g{channick $[-13]0} %Y= {channick_hilight $1}";
 

@@ -29,9 +29,9 @@ xmodmap -e 'add Control = Control_L'
 xcape -e 'Control_L=Escape'
 xmodmap -e 'keycode 135 = Super_R'
 #
-xmodmap -e 'keycode 108 = Alt_R'
-xmodmap -e 'add Alt = Alt_R'
-xcape -e 'Alt_R=emdash'
+#xmodmap -e 'keycode 108 = Alt_R'
+#xmodmap -e 'add Alt = Alt_R'
+#xcape -e 'Alt_R=emdash'
 #
 xrdb -merge ~/.Xresources
 #redshift -l 37.9:-122.3 -t 6500:3700 &

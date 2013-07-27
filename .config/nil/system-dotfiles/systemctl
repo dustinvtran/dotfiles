@@ -4,28 +4,27 @@ dev-cdrom.device           loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-disk...VLJJ4KUJ.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...SZ707447.device loaded active   plugged   hp_CDDVDW_TS-U633F
-dev-disk...W3000ELV.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...5e3afbb7.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...0\x2d0:0.device loaded active   plugged   My_Passport_0730
+dev-disk...x2dpart1.device loaded active   plugged   My_Passport_0730
 dev-disk...b5e3861e.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...x20Drive.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...d0:0:0:0.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...x2dpart1.device loaded active   plugged   ST4000DM000-1F2168
-dev-disk...630137cb.device loaded active   plugged   ST4000DM000-1F2168
+dev-disk...x20Drive.device loaded active   plugged   My_Passport_0730
+dev-disk...d0:0:0:0.device loaded active   plugged   My_Passport_0730
+dev-disk...x2dpart1.device loaded active   plugged   My_Passport_0730
+dev-disk...328BDF41.device loaded active   plugged   My_Passport_0730
 dev-disk...0649093b.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda.device             loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda1.device            loaded active   plugged   Hitachi_HTS725050A9A364
-dev-sdb.device             loaded active   plugged   ST4000DM000-1F2168
-dev-sdb1.device            loaded active   plugged   ST4000DM000-1F2168
+dev-sdb.device             loaded active   plugged   My_Passport_0730
+dev-sdb1.device            loaded active   plugged   My_Passport_0730
 dev-sr0.device             loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-ttyS0.device           loaded active   plugged   /dev/ttyS0
 dev-ttyS1.device           loaded active   plugged   /dev/ttyS1
 dev-ttyS2.device           loaded active   plugged   /dev/ttyS2
 dev-ttyS3.device           loaded active   plugged   /dev/ttyS3
-sys-devi...sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
-sys-devi...lock-sdb.device loaded active   plugged   ST4000DM000-1F2168
+sys-devi...nd-card1.device loaded active   plugged   Schiit_USB_Audio_Device
+sys-devi...sdb-sdb1.device loaded active   plugged   My_Passport_0730
+sys-devi...lock-sdb.device loaded active   plugged   My_Passport_0730
 sys-devi...nd-card0.device loaded active   plugged   5 Series/3400 Series Chipset High Definition Audio
 sys-devi...net-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
 sys-devi...et-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
@@ -37,14 +36,15 @@ sys-devi...ty-ttyS1.device loaded active   plugged   /sys/devices/platform/seria
 sys-devi...ty-ttyS2.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS2
 sys-devi...ty-ttyS3.device loaded active   plugged   /sys/devices/platform/serial8250/tty/ttyS3
 sys-module-configfs.device loaded active   plugged   /sys/module/configfs
+sys-module-fuse.device     loaded active   plugged   /sys/module/fuse
 sys-subs...ces-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
 sys-subs...es-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
 -.mount                    loaded active   mounted   /
 dev-hugepages.mount        loaded active   mounted   Huge Pages File System
 dev-mqueue.mount           loaded active   mounted   POSIX Message Queue File System
-media-Seagate_Drive.mount  loaded active   mounted   /media/Seagate_Drive
+media-Ex...ard_Drive.mount loaded active   mounted   /media/External_Hard_Drive
 proc-sys...nfmt_misc.mount loaded inactive dead      Arbitrary Executable File Formats File System
-sys-fs-f...nnections.mount loaded inactive dead      FUSE Control File System
+sys-fs-f...nnections.mount loaded active   mounted   FUSE Control File System
 sys-kernel-config.mount    loaded active   mounted   Configuration File System
 sys-kernel-debug.mount     loaded active   mounted   Debug File System
 tmp.mount                  loaded active   mounted   Temporary Directory
