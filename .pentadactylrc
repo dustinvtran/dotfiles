@@ -324,6 +324,8 @@ map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusi
 
 " Forums.
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
+map -modes=n -builtin <Leader>sc :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTI5NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
+map -modes=n -builtin <Leader>ss :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTM2Mi9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
 "map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
 "map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
 "map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
@@ -343,7 +345,7 @@ map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-
 map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
-map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/user/show/7207396-nil<CR>
+map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/<CR>
 map -modes=n -builtin <Leader>ii :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>
 map -modes=n -builtin <Leader>iw :tabopen! http://www.imdb.com/user/ur33286458/watchlist?start=1&view=compact&sort=release_date_us:desc&defaults=1&lists=watchlist&defaults=1&lists=watchlist<CR>
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Video%20Game%20List.html<CR>

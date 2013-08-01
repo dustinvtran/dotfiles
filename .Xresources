@@ -97,51 +97,6 @@
 !URxvt*borderColor: #f9f9f9
 
 !! }}}
-!! My own mix and match {{{
-!!! -----------------------------------------------------------------------------
-
-!#define t_background #1D1F21
-!#define t_current_line #282A2E
-!#define t_selection #373B41
-!#define t_foreground #C5C8C6
-!#define t_comment #707880
-!#define t_red #CC6666
-!#define t_orange #DE935F
-!#define t_yellow #F0C674
-!#define t_green #B5BD68
-!#define t_aqua #8ABEB7
-!#define t_blue #81A2BE
-!#define t_purple #B294BB
-
-!! black
-!URxvt*color0: t_current_line
-!URxvt*color8: t_selection
-!! red
-!URxvt*color1: #A54242
-!URxvt*color9: t_red
-!! green
-!URxvt*color2: #8C9440
-!URxvt*color10: t_green
-!! yellow
-!URxvt*color3: t_orange
-!URxvt*color11: t_yellow
-!! blue
-!URxvt*color4: #5F819D
-!URxvt*color12: t_blue
-!! magenta
-!URxvt*color5: #85678F
-!URxvt*color13: t_purple
-!! cyan
-!URxvt*color6: #5E8D87
-!URxvt*color14: t_aqua
-!! white
-!URxvt*color7: t_comment
-!URxvt*color15: t_foreground
-
-!URxvt*background: #f9f9f9
-!URxvt*foreground: t_current_line
-
-!!! }}}
 ! falac White Colorscheme: Customized {{{
 ! -----------------------------------------------------------------------------
 
@@ -190,7 +145,7 @@ URxvt*borderColor: #f9f9f9
 
 ! }}}
 ! Global Colorscheme Notes {{{
-! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl), gvim, i3, conky.
+! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl), gvim, i3, conky, calendar.
 
 ! White (a snow white):         #f9f9f9
 ! Black (a faded black):        #707070

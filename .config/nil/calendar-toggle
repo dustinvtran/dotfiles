@@ -7,7 +7,8 @@ pgrep -f 'urxvt -name calendar'
 # If not running.
 if [ $? -ne 0 ]
 then
-    urxvt -name calendar -g 20x9 -fg '#000000' -bg '#ffffff' -underlineColor '#ffffff' -font 'xft:lemon:pixelsize=10' --hold -e cal
+    urxvt -name calendar -g 20x9 -underlineColor '#ffffff' -font 'xft:lime' --hold -e cal
+    #urxvt -name calendar -g 20x9 -fg '#f9f9f9' -bg '#ffffff' -underlineColor '#ffffff' -font 'xft:lemon:pixelsize=10' --hold -e cal
     #urxvt -name calendar -g 20x9 -fg '#000000' -bg '#F0F0F0' -underlineColor '#F0F0F0' --hold -e cal
 # Else if running.
 else
