@@ -6,17 +6,14 @@
 # Comments {{{
 
 # My Work Method:
-# For frequently used applications, I float them, often because they don't need to take the entire screen nor does it look pretty (particularly on my 27'' display). In fact, that becomes counter-intuitive to the tiling WM philosophy, since while you're using the full screen for an application, you could more effectively use that unneeded space for another application (much like how I orient my floating windows).
-# When I don't have time to play with floating (e.g. during real math work), I use the tiles mainly with 3 programs: firefox, zathura, and gvim (also ranger on occasion).
+# For frequently used applications, I float them, often because they don't need to take the entire screen nor does it look pretty (particularly on my 27'' display). In fact, that becomes counter-intuitive to the tiling WM philosophy, since while you're using the full screen for an application, you could more effectively use that unneeded space for another application (much like how I orient my floating windows). This works both for 'casual use' and 'real work', as floating is efficient for both manners.
 
 # To-Do:
-# different keybinds and aliases for whether i want to float certain applications (like ranger, firefox--particularly for huge 27'' 1440p monitors) and at what location of the screen it's placed in (.e.g the top right-ish , etc. by doing app cmd && i3-msg 'move the shit up')
-# When restarting, the nondocked dzen2's get overlapped and are hidden.
 # Set all firefox popups to float more generally, rather than needing to xprop each individually.
-# firefox gets weird block to the right on occasion.
 # when I open select applications that have a popup beforehand, the real application opens up not at the workspace I initalized the command but at the workspace I'm currently at (e.g. libreoffice, gimp)
 #   read up on no-startup-id.
 # dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv
+# When restarting, the nondocked dzen2's get overlapped and are hidden (and the for_windows re-do itself of course).
 
 # Wishlist:
 #   * Right-click desktop with options.
@@ -32,6 +29,8 @@
 #   * More instantaneous mouse-over-window focus, rather than moving further into the window.
 #   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
 # - Floating:
+#   * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
+#   * Ability to distinguish focusing on two programs that are the same application, e.g., two firefox windows.
 #   * Absolute positioning based off workspace, not pixels and monitor alignment.
 #       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
 #   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.

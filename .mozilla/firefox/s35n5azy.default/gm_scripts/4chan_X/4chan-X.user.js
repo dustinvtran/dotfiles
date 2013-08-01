@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         4chan X
-// @version      3.5.5
+// @version      3.5.7
 // @namespace    4chan-X
 // @description  Cross-browser extension for productive lurking on 4chan.
 // @license      MIT; https://github.com/MayhemYDG/4chan-x/blob/v3/LICENSE
@@ -18,7 +18,7 @@
 // @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAACVBMVEUAAGcAAABmzDNZt9VtAAAAAXRSTlMAQObYZgAAAHFJREFUKFOt0LENACEIBdBv4Qju4wgWanEj3D6OcIVMKaitYHEU/jwTCQj8W75kiVCSBvdQ5/AvfVHBin11BgdRq3ysBgfwBDRrj3MCIA+oAQaku/Q1cNctrAmyDl577tOThYt/Y1RBM4DgOHzM0HFTAyLukH/cmRnqAAAAAElFTkSuQmCC
 // ==/UserScript==
 
-/* 4chan X - Version 3.5.5 - 2013-06-20
+/* 4chan X - Version 3.5.7 - 2013-07-30
  * https://4chan-x.just-believe.in/
  *
  * Copyrights and License: https://github.com/MayhemYDG/4chan-x/blob/v3/LICENSE
@@ -211,7 +211,7 @@
   doc = d.documentElement;
 
   g = {
-    VERSION: '3.5.5',
+    VERSION: '3.5.7',
     NAMESPACE: '4chan X.',
     boards: {},
     threads: {},
@@ -245,9 +245,9 @@
   };
 
   $.ready = function(fc) {
-    var cb, _ref;
+    var cb;
 
-    if ((_ref = d.readyState) === 'interactive' || _ref === 'complete') {
+    if (d.readyState !== 'loading') {
       $.queueTask(fc);
       return;
     }
@@ -504,9 +504,7 @@
   };
 
   $.open = function(URL) {
-    return GM_openInTab(($.el('a', {
-      href: URL
-    })).href);
+    return GM_openInTab(URL);
   };
 
   $.debounce = function(wait, fn) {
@@ -580,6 +578,14 @@
     return "" + size + " " + ['B', 'KB', 'MB', 'GB'][unit];
   };
 
+  $.item = function(key, val) {
+    var item;
+
+    item = {};
+    item[key] = val;
+    return item;
+  };
+
   $.syncing = {};
 
   $.sync = (function() {
@@ -594,14 +600,6 @@
       return $.syncing[g.NAMESPACE + key] = cb;
     };
   })();
-
-  $.item = function(key, val) {
-    var item;
-
-    item = {};
-    item[key] = val;
-    return item;
-  };
 
   $["delete"] = function(keys) {
     var key, _i, _len;
@@ -1051,7 +1049,13 @@
         }
       });
       $.on(root, endEvents, o.hoverend);
-      return $.on(root, 'mousemove', o.hover);
+      $.on(root, 'mousemove', o.hover);
+      o.workaround = function(e) {
+        if (!root.contains(e.target)) {
+          return o.hoverend();
+        }
+      };
+      return $.on(doc, 'mousemove', o.workaround);
     };
     hover = function(e) {
       var clientX, clientY, height, left, right, style, top, _ref;
@@ -1071,6 +1075,7 @@
       $.rm(this.el);
       $.off(this.root, this.endEvents, this.hoverend);
       $.off(this.root, 'mousemove', this.hover);
+      $.off(doc, 'mousemove', this.workaround);
       if (this.cb) {
         return this.cb.call(this);
       }
@@ -1171,9 +1176,7 @@
           return;
         }
         $.asap((function() {
-          var _ref;
-
-          return $.id('boardNavMobile') || ((_ref = d.readyState) === 'interactive' || _ref === 'complete');
+          return $.id('boardNavMobile') || d.readyState !== 'loading';
         }), Header.setBoardList);
         return $.prepend(d.body, headerEl);
       });
@@ -1929,7 +1932,7 @@
         }
       });
       $.on($('input[name="Custom CSS"]', section), 'change', Settings.togglecss);
-      return $.on($.id('apply-css'), 'click', Settings.usercss);
+      return $.on($('#apply-css', section), 'click', Settings.usercss);
     },
     boardnav: function() {
       return Header.generateBoardList(this.value);
@@ -2170,7 +2173,7 @@
     postFromNode: function(root) {
       return Get.postFromRoot($.x('ancestor::div[contains(@class,"postContainer")][1]', root));
     },
-    contextFromLink: function(quotelink) {
+    contextFromNode: function(quotelink) {
       return Get.postFromRoot($.x('ancestor::div[parent::div[@class="thread"]][1]', quotelink));
     },
     postDataFromLink: function(link) {
@@ -2356,7 +2359,7 @@
         }
       });
       comment = bq.innerHTML.replace(/(^|>)(&gt;[^<$]*)(<|$)/g, '$1<span class=quote>$2</span>$3').replace(/((&gt;){2}(&gt;\/[a-z\d]+\/)?\d+)/g, '<span class=deadlink>$1</span>');
-      threadID = data.thread_num;
+      threadID = +data.thread_num;
       o = {
         postID: "" + postID,
         threadID: "" + threadID,
@@ -2495,7 +2498,7 @@
           capcodeStart = '';
           capcode = '';
       }
-      flag = flagCode ? (" <img src='" + staticPath + "country/" + (boardID === 'pol' ? 'troll/' : '')) + flagCode.toLowerCase() + (".gif' alt=" + flagCode + " title='" + flagName + "' class=countryFlag>") : '';
+      flag = !flagCode ? '' : boardID === 'pol' ? " <img src='" + staticPath + "country/troll/" + (flagCode.toLowerCase()) + ".gif' alt=" + flagCode + " title='" + flagName + "' class=countryFlag>" : " <span title='" + flagName + "' class='flag flag-" + (flagCode.toLowerCase()) + "'></span>";
       if (file != null ? file.isDeleted : void 0) {
         fileHTML = isOP ? ("<div class=file id=f" + postID + "><div class=fileInfo></div><span class=fileThumb>") + ("<img src='" + staticPath + "filedeleted.gif' alt='File deleted.' class=fileDeletedRes>") + "</span></div>" : ("<div class=file id=f" + postID + "><span class=fileThumb>") + ("<img src='" + staticPath + "filedeleted-res.gif' alt='File deleted.' class=fileDeletedRes>") + "</span></div>";
       } else if (file) {
@@ -3553,7 +3556,7 @@
       }
       e.preventDefault();
       _ref = Get.postDataFromLink(this), boardID = _ref.boardID, threadID = _ref.threadID, postID = _ref.postID;
-      context = Get.contextFromLink(this);
+      context = Get.contextFromNode(this);
       if ($.hasClass(this, 'inlined')) {
         QuoteInline.rm(this, boardID, threadID, postID, context);
       } else {
@@ -3689,7 +3692,7 @@
         className: 'dialog'
       });
       $.add(d.body, qp);
-      Get.postClone(boardID, threadID, postID, qp, Get.contextFromLink(this));
+      Get.postClone(boardID, threadID, postID, qp, Get.contextFromNode(this));
       UI.hover({
         root: this,
         el: qp,
@@ -4307,7 +4310,7 @@
       }
     },
     quote: function(e) {
-      var OP, caretPos, com, index, post, range, s, sel, selectionRoot, text, thread, _ref;
+      var caretPos, com, index, post, range, s, sel, text, thread, _ref;
 
       if (e != null) {
         e.preventDefault();
@@ -4316,11 +4319,9 @@
         return;
       }
       sel = d.getSelection();
-      selectionRoot = $.x('ancestor::div[contains(@class,"postContainer")][1]', sel.anchorNode);
       post = Get.postFromNode(this);
-      OP = Get.contextFromLink(this).thread.OP;
       text = ">>" + post + "\n";
-      if ((s = sel.toString().trim()) && post.nodes.root === selectionRoot) {
+      if ((s = sel.toString().trim()) && post === Get.postFromNode(sel.anchorNode)) {
         s = s.replace(/\n/g, '\n>');
         text += ">" + s + "\n";
       }
@@ -4333,7 +4334,7 @@
       }
       _ref = QR.nodes, com = _ref.com, thread = _ref.thread;
       if (!com.value) {
-        thread.value = OP.ID;
+        thread.value = Get.contextFromNode(this).thread;
       }
       caretPos = com.selectionStart;
       com.value = com.value.slice(0, caretPos) + text + com.value.slice(com.selectionEnd);
@@ -4517,9 +4518,6 @@
           (QR.posts[index - 1] || QR.posts[index + 1]).select();
         }
         QR.posts.splice(index, 1);
-        if (!window.URL) {
-          return;
-        }
         return URL.revokeObjectURL(this.URL);
       };
 
@@ -4616,9 +4614,7 @@
         if (QR.spoiler) {
           this.nodes.label.hidden = false;
         }
-        if (window.URL) {
-          URL.revokeObjectURL(this.URL);
-        }
+        URL.revokeObjectURL(this.URL);
         this.showFileData();
         if (!/^image/.test(file.type)) {
           this.nodes.el.style.backgroundImage = null;
@@ -4627,22 +4623,10 @@
         return this.setThumbnail();
       };
 
-      _Class.prototype.setThumbnail = function(fileURL) {
-        var img, reader,
+      _Class.prototype.setThumbnail = function() {
+        var fileURL, img,
           _this = this;
 
-        if (!window.URL) {
-          if (!fileURL) {
-            reader = new FileReader();
-            reader.onload = function(e) {
-              return _this.setThumbnail(e.target.result);
-            };
-            reader.readAsDataURL(this.file);
-            return;
-          }
-        } else {
-          fileURL = URL.createObjectURL(this.file);
-        }
         img = $.el('img');
         img.onload = function() {
           var applyBlob, cv, data, height, i, l, s, ui8a, width, _i;
@@ -4653,9 +4637,7 @@
           }
           height = img.height, width = img.width;
           if (height < s || width < s) {
-            if (window.URL) {
-              _this.URL = fileURL;
-            }
+            _this.URL = fileURL;
             _this.nodes.el.style.backgroundImage = "url(" + _this.URL + ")";
             return;
           }
@@ -4670,11 +4652,6 @@
           cv.height = img.height = height;
           cv.width = img.width = width;
           cv.getContext('2d').drawImage(img, 0, 0, width, height);
-          if (!window.URL) {
-            _this.nodes.el.style.backgroundImage = "url(" + (cv.toDataURL()) + ")";
-            delete _this.URL;
-            return;
-          }
           URL.revokeObjectURL(fileURL);
           applyBlob = function(blob) {
             _this.URL = URL.createObjectURL(blob);
@@ -4694,6 +4671,7 @@
             type: 'image/png'
           }));
         };
+        fileURL = URL.createObjectURL(this.file);
         return img.src = fileURL;
       };
 
@@ -4706,9 +4684,6 @@
           this.nodes.label.hidden = true;
         }
         this.showFileData();
-        if (!window.URL) {
-          return;
-        }
         return URL.revokeObjectURL(this.URL);
       };
 
@@ -4769,12 +4744,11 @@
       _Class.prototype.drop = function() {
         var el, index, newIndex, oldIndex, post;
 
-        el = $('.drag', this.parentNode);
-        $.rmClass(el, 'drag');
         $.rmClass(this, 'over');
         if (!this.draggable) {
           return;
         }
+        el = $('.drag', this.parentNode);
         index = function(el) {
           return __slice.call(el.parentNode.children).indexOf(el);
         };
@@ -4801,7 +4775,7 @@
         }), this.ready.bind(this));
       },
       ready: function() {
-        var imgContainer, input, observer, setLifetime,
+        var imgContainer, input, setLifetime,
           _this = this;
 
         setLifetime = function(e) {
@@ -4826,14 +4800,9 @@
           img: imgContainer.firstChild,
           input: input
         };
-        if (window.MutationObserver) {
-          observer = new MutationObserver(this.load.bind(this));
-          observer.observe(this.nodes.challenge, {
-            childList: true
-          });
-        } else {
-          $.on(this.nodes.challenge, 'DOMNodeInserted', this.load.bind(this));
-        }
+        new MutationObserver(this.load.bind(this)).observe(this.nodes.challenge, {
+          childList: true
+        });
         $.on(imgContainer, 'click', this.reload.bind(this));
         $.on(input, 'keydown', this.keydown.bind(this));
         $.get('captchas', [], function(item) {
@@ -4957,7 +4926,7 @@
     dialog: function() {
       var dialog, elm, mimeTypes, name, node, nodes, thread, _i, _j, _k, _len, _len1, _len2, _ref, _ref1, _ref2;
 
-      dialog = UI.dialog('qr', 'top:0;right:0;', "<div><input type=\"checkbox\" id=\"autohide\" title=\"Auto-hide\"><select data-name=\"thread\" title=\"Create a new thread / Reply\"><option value=\"new\">New thread</option></select><span class=\"move\"></span><a href=\"javascript:;\" class=\"close\" title=\"Close\">×</a></div><form><div class=\"persona\"><input type=\"button\" id=\"dump-button\" title=\"Dump list\" value=\"+\"><input data-name=\"name\"  list=\"list-name\"  placeholder=\"Name\"    class=\"field\" size=\"1\"><input data-name=\"email\" list=\"list-email\" placeholder=\"E-mail\"  class=\"field\" size=\"1\"><input data-name=\"sub\"   list=\"list-sub\"   placeholder=\"Subject\" class=\"field\" size=\"1\"></div><div id=\"dump-list-container\"><div id=\"dump-list\"></div><a id=\"add-post\" href=\"javascript:;\" title=\"Add a post\">+</a></div><div class=\"textarea\"><textarea data-name=\"com\" placeholder=\"Comment\" class=\"field\"></textarea><span id=\"char-count\"></span></div><div id=\"file-n-submit\"><input type=\"submit\"><input type=\"button\" id=\"qr-file-button\" value=\"Choose files\"><span id=\"qr-filename-container\"><span id=\"qr-no-file\">No selected file</span><span id=\"qr-filename\"></span></span><a id=\"qr-filerm\" href=\"javascript:;\" title=\"Remove file\">×</a><input type=\"checkbox\" id=\"qr-file-spoiler\" title=\"Spoiler image\"></div><input type=\"file\" multiple></form><datalist id=\"list-name\"></datalist><datalist id=\"list-email\"></datalist><datalist id=\"list-sub\"></datalist>");
+      dialog = UI.dialog('qr', 'top:0;right:0;', "<div><input type=\"checkbox\" id=\"autohide\" title=\"Auto-hide\"><select data-name=\"thread\" title=\"Create a new thread / Reply\"><option value=\"new\">New thread</option></select><span class=\"move\"></span><a href=\"javascript:;\" class=\"close\" title=\"Close\">×</a></div><form><div class=\"persona\"><input type=\"button\" id=\"dump-button\" title=\"Dump list\" value=\"+\"><input data-name=\"name\"  list=\"list-name\"  placeholder=\"Name\"    class=\"field\" size=\"1\"><input data-name=\"email\" list=\"list-email\" placeholder=\"E-mail\"  class=\"field\" size=\"1\"><input data-name=\"sub\"   list=\"list-sub\"   placeholder=\"Subject\" class=\"field\" size=\"1\"></div><div id=\"dump-list-container\"><div id=\"dump-list\"></div><a id=\"add-post\" href=\"javascript:;\" title=\"Add a post\">+</a></div><div class=\"textarea\"><textarea data-name=\"com\" placeholder=\"Comment\" class=\"field\"></textarea><span id=\"char-count\"></span></div><div id=\"file-n-submit\"><input type=\"submit\"><input type=\"button\" id=\"qr-file-button\" value=\"Choose files\"><span id=\"qr-filename-container\"><span id=\"qr-no-file\">No selected file</span><span id=\"qr-filename\"></span></span><a id=\"qr-filerm\" href=\"javascript:;\" title=\"Remove file\">×</a><input type=\"checkbox\" id=\"qr-file-spoiler\" title=\"Spoiler image\"></div><input type=\"file\" multiple hidden></form><datalist id=\"list-name\"></datalist><datalist id=\"list-email\"></datalist><datalist id=\"list-sub\"></datalist>");
       QR.nodes = nodes = {
         el: dialog,
         move: $('.move', dialog),
@@ -4999,7 +4968,6 @@
       QR.mimeTypes = mimeTypes.split(', ');
       QR.mimeTypes.push('');
       nodes.fileInput.max = $('input[name=MAX_FILE_SIZE]').value;
-      nodes.fileInput.accept = "text/*, " + mimeTypes;
       QR.spoiler = !!$('input[name=spoiler]');
       nodes.spoiler.hidden = !QR.spoiler;
       if (g.BOARD.ID === 'f') {
@@ -5261,16 +5229,12 @@
         post: post,
         isReply: isReply
       });
-      if (threadID === postID) {
-        URL = "/" + g.BOARD + "/res/" + threadID;
-      } else if (g.VIEW === 'index' && !QR.cooldown.auto && Conf['Open Post in New Tab']) {
-        URL = "/" + g.BOARD + "/res/" + threadID + "#p" + postID;
-      }
+      URL = threadID === postID ? "/" + g.BOARD + "/res/" + threadID : g.VIEW === 'index' && !QR.cooldown.auto && Conf['Open Post in New Tab'] ? "/" + g.BOARD + "/res/" + threadID + "#p" + postID : void 0;
       if (URL) {
         if (Conf['Open Post in New Tab']) {
-          $.open("/" + g.BOARD + "/res/" + threadID);
+          $.open(URL);
         } else {
-          window.location = "/" + g.BOARD + "/res/" + threadID;
+          window.location = URL;
         }
       }
       return QR.status();
@@ -5692,6 +5656,74 @@
     }
   };
 
+  Sauce = {
+    init: function() {
+      var err, link, links, _i, _len, _ref;
+
+      if (g.VIEW === 'catalog' || !Conf['Sauce']) {
+        return;
+      }
+      links = [];
+      _ref = Conf['sauces'].split('\n');
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        link = _ref[_i];
+        try {
+          if (link[0] !== '#') {
+            links.push(this.createSauceLink(link.trim()));
+          }
+        } catch (_error) {
+          err = _error;
+        }
+      }
+      if (!links.length) {
+        return;
+      }
+      this.links = links;
+      this.link = $.el('a', {
+        target: '_blank'
+      });
+      return Post.prototype.callbacks.push({
+        name: 'Sauce',
+        cb: this.node
+      });
+    },
+    createSauceLink: function(link) {
+      var m, text;
+
+      link = link.replace(/%(T?URL|MD5|board)/g, function(parameter) {
+        switch (parameter) {
+          case '%TURL':
+            return "' + encodeURIComponent(post.file.thumbURL) + '";
+          case '%URL':
+            return "' + encodeURIComponent(post.file.URL) + '";
+          case '%MD5':
+            return "' + encodeURIComponent(post.file.MD5) + '";
+          case '%board':
+            return "' + encodeURIComponent(post.board) + '";
+          default:
+            return parameter;
+        }
+      });
+      text = (m = link.match(/;text:(.+)$/)) ? m[1] : link.match(/(\w+)\.\w+\//)[1];
+      link = link.replace(/;text:.+$/, '');
+      return Function('post', 'a', "a.href = '" + link + "';\na.textContent = '" + text + "';\nreturn a;");
+    },
+    node: function() {
+      var link, nodes, _i, _len, _ref;
+
+      if (this.isClone || !this.file) {
+        return;
+      }
+      nodes = [];
+      _ref = Sauce.links;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        link = _ref[_i];
+        nodes.push($.tn('\u00A0'), link(this, Sauce.link.cloneNode(true)));
+      }
+      return $.add(this.file.info, nodes);
+    }
+  };
+
   ArchiveLink = {
     init: function() {
       var div, entry, type, _i, _len, _ref;
@@ -5831,8 +5863,8 @@
         return;
       }
       $.off(this, 'click', DeleteLink["delete"]);
-      this.textContent = "Deleting " + this.textContent + "...";
       fileOnly = $.hasClass(this, 'delete-file');
+      this.textContent = "Deleting " + (fileOnly ? 'file' : 'post') + "...";
       form = {
         mode: 'usrdel',
         onlyimgdel: fileOnly,
@@ -5952,39 +5984,29 @@
     node: function() {
       var button;
 
-      button = Menu.makeButton(this);
       if (this.isClone) {
-        $.replace($('.menu-button', this.nodes.info), button);
-        return;
+        button = $('.menu-button', this.nodes.info);
+      } else {
+        button = Menu.makeButton(this);
+        $.add(this.nodes.info, [$.tn('\u00A0'), button]);
       }
-      return $.add(this.nodes.info, [$.tn('\u00A0'), button]);
+      return $.on(button, 'click', Menu.toggle);
     },
     makeButton: (function() {
       var a;
 
       a = null;
-      return function(post) {
-        var clone;
-
+      return function() {
         a || (a = $.el('a', {
           className: 'menu-button',
           innerHTML: '[<i></i>]',
           href: 'javascript:;'
         }));
-        clone = a.cloneNode(true);
-        clone.setAttribute('data-postid', post.fullID);
-        if (post.isClone) {
-          clone.setAttribute('data-clone', true);
-        }
-        $.on(clone, 'click', Menu.toggle);
-        return clone;
+        return a.cloneNode(true);
       };
     })(),
     toggle: function(e) {
-      var post;
-
-      post = this.dataset.clone ? Get.postFromNode(this) : g.posts[this.dataset.postid];
-      return Menu.menu.toggle(e, this, post);
+      return Menu.menu.toggle(e, this, Get.postFromNode(this));
     }
   };
 
@@ -6309,7 +6331,7 @@
         }
       },
       load: function() {
-        var klass, req, text, _ref, _ref1;
+        var klass, req, text, _ref;
 
         req = ThreadUpdater.req;
         switch (req.status) {
@@ -6339,7 +6361,7 @@
             This saves bandwidth for both the user and the servers and avoid unnecessary computation.
             */
 
-            _ref1 = (_ref = req.status) === 0 || _ref === 304 ? [null, null] : ["" + req.statusText + " (" + req.status + ")", 'warning'], text = _ref1[0], klass = _ref1[1];
+            _ref = req.status === 304 ? [null, null] : ["" + req.statusText + " (" + req.status + ")", 'warning'], text = _ref[0], klass = _ref[1];
             ThreadUpdater.set('status', text, klass);
         }
         return delete ThreadUpdater.req;
@@ -6710,22 +6732,20 @@
       return Unread.scroll();
     },
     scroll: function() {
-      var checkPosition, hash, onload, post, posts, prevID, root;
+      var checkPosition, hash, onload, post, posts, root;
 
       if ((hash = location.hash.match(/\d+/)) && hash[0] in Unread.thread.posts) {
         return;
       }
       if (Unread.posts.length) {
-        prevID = 0;
-        while (root = $.x('preceding-sibling::div[contains(@class,"postContainer")][1]', Unread.posts[0].nodes.root)) {
-          post = Get.postFromRoot(root);
-          if (prevID === post.ID) {
+        post = Unread.posts[0];
+        while (root = $.x('preceding-sibling::div[contains(@class,"replyContainer")][1]', post.nodes.root)) {
+          if (!(post = Get.postFromRoot(root)).isHidden) {
             break;
           }
-          prevID = post.ID;
-          if (!post.isHidden) {
-            break;
-          }
+        }
+        if (!root) {
+          return;
         }
         onload = function() {
           if (checkPosition(root)) {
@@ -6906,7 +6926,7 @@
   };
 
   Redirect = {
-    archives: [{"uid":0,"name":"Foolz","domain":"archive.foolz.us","http":true,"https":true,"software":"foolfuuka","boards":["a","co","gd","jp","m","q","sp","tg","tv","vg","vp","vr","wsg"],"files":["a","gd","jp","m","q","tg","vg","vp","vr","wsg"]},{"uid":1,"name":"NSFW Foolz","domain":"nsfw.foolz.us","http":true,"https":true,"software":"foolfuuka","boards":["u"],"files":["u"]},{"uid":2,"name":"The Dark Cave","domain":"archive.thedarkcave.org","http":true,"https":true,"software":"foolfuuka","boards":["c","int","out","po"],"files":["c","po"]},{"uid":3,"name":"4plebs","domain":"archive.4plebs.org","http":true,"https":false,"software":"foolfuuka","boards":["hr","tg","tv","x"],"files":["hr","tg","tv","x"]},{"uid":4,"name":"Nyafuu","domain":"archive.nyafuu.org","http":true,"https":true,"software":"foolfuuka","boards":["c","w","wg"],"files":["c","w","wg"]},{"uid":5,"name":"Love is Over","domain":"loveisover.me","http":true,"https":true,"software":"foolfuuka","boards":["d","h","v"],"files":["d","h","v"]},{"uid":11,"name":"Foolz a Shit","domain":"archive.foolzashit.com","http":true,"https":true,"software":"foolfuuka","boards":["adv","asp","cm","e","i","lgbt","n","o","p","pol","s","s4s","t","trv","y"],"files":["adv","asp","cm","e","i","lgbt","n","o","p","s","s4s","t","trv","y"]},{"uid":7,"name":"Install Gentoo","domain":"archive.installgentoo.net","http":true,"https":true,"software":"fuuka","boards":["diy","g","sci"],"files":[]},{"uid":8,"name":"Rebecca Black Tech","domain":"rbt.asia","http":true,"https":true,"software":"fuuka","boards":["cgl","g","mu","w"],"files":["cgl","g","mu","w"]},{"uid":9,"name":"Heinessen","domain":"archive.heinessen.com","http":true,"https":false,"software":"fuuka","boards":["an","fit","k","mlp","r9k","toy"],"files":["an","fit","k","r9k","toy"]},{"uid":10,"name":"warosu","domain":"fuuka.warosu.org","http":true,"https":true,"software":"fuuka","boards":["3","cgl","ck","fa","ic","jp","lit","q","tg","vr"],"files":["3","cgl","ck","fa","ic","jp","lit","q","vr"]}],
+    archives: [{"uid":0,"name":"Foolz","domain":"archive.foolz.us","http":true,"https":true,"software":"foolfuuka","boards":["a","co","gd","jp","m","q","sp","tg","tv","vg","vp","vr","wsg"],"files":["a","gd","jp","m","q","tg","vg","vp","vr","wsg"]},{"uid":1,"name":"NSFW Foolz","domain":"nsfw.foolz.us","http":true,"https":true,"software":"foolfuuka","boards":["u"],"files":["u"]},{"uid":2,"name":"The Dark Cave","domain":"archive.thedarkcave.org","http":true,"https":true,"software":"foolfuuka","boards":["c","int","out","po"],"files":["c","po"]},{"uid":3,"name":"4plebs","domain":"archive.4plebs.org","http":true,"https":false,"software":"foolfuuka","boards":["hr","tg","tv","x"],"files":["hr","tg","tv","x"]},{"uid":4,"name":"Nyafuu","domain":"archive.nyafuu.org","http":true,"https":true,"software":"foolfuuka","boards":["c","w","wg"],"files":["c","w","wg"]},{"uid":5,"name":"Love is Over","domain":"loveisover.me","http":true,"https":true,"software":"foolfuuka","boards":["d","h","v"],"files":["d","h","v"]},{"uid":11,"name":"Foolz a Shit","domain":"archive.foolzashit.com","http":true,"https":true,"software":"foolfuuka","boards":["adv","asp","cm","e","i","lgbt","n","o","p","pol","s","s4s","t","trv","y"],"files":["adv","asp","cm","e","i","lgbt","n","o","p","s","s4s","t","trv","y"]},{"uid":7,"name":"Install Gentoo","domain":"archive.installgentoo.net","http":false,"https":true,"software":"fuuka","boards":["diy","g","sci"],"files":[]},{"uid":8,"name":"Rebecca Black Tech","domain":"rbt.asia","http":true,"https":true,"software":"fuuka","boards":["cgl","g","mu","w"],"files":["cgl","g","mu","w"]},{"uid":9,"name":"Heinessen","domain":"archive.heinessen.com","http":true,"https":false,"software":"fuuka","boards":["an","fit","k","mlp","r9k","toy"],"files":["an","fit","k","r9k","toy"]},{"uid":10,"name":"warosu","domain":"fuuka.warosu.org","http":true,"https":true,"software":"fuuka","boards":["3","cgl","ck","fa","ic","jp","lit","q","tg","vr"],"files":["3","cgl","ck","fa","ic","jp","lit","q","tg","vr"]}],
     thread: {},
     post: {},
     file: {},
@@ -7625,13 +7645,13 @@
           }
           break;
         case Conf['Next thread']:
-          if (g.VIEW === 'thread') {
+          if (g.VIEW !== 'index') {
             return;
           }
           Nav.scroll(+1);
           break;
         case Conf['Previous thread']:
-          if (g.VIEW === 'thread') {
+          if (g.VIEW !== 'index') {
             return;
           }
           Nav.scroll(-1);
@@ -7894,10 +7914,9 @@
 
       _ref = Nav.getThread(true), threads = _ref[0], thread = _ref[1], i = _ref[2], rect = _ref[3], topMargin = _ref[4];
       top = rect.top - topMargin;
-      if (!((delta === -1 && Math.ceil(top) < 0) || (delta === +1 && top > 1))) {
-        i += delta;
+      if ((delta === -1 && top > -5) || (delta === +1 && top < 5)) {
+        top = ((_ref1 = threads[i + delta]) != null ? _ref1.getBoundingClientRect().top : void 0) - topMargin;
       }
-      top = ((_ref1 = threads[i]) != null ? _ref1.getBoundingClientRect().top : void 0) - topMargin;
       return window.scrollBy(0, top);
     }
   };
@@ -8084,76 +8103,6 @@
     }
   };
 
-  Sauce = {
-    init: function() {
-      var err, link, links, _i, _len, _ref;
-
-      if (g.VIEW === 'catalog' || !Conf['Sauce']) {
-        return;
-      }
-      links = [];
-      _ref = Conf['sauces'].split('\n');
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        link = _ref[_i];
-        if (link[0] === '#') {
-          continue;
-        }
-        try {
-          links.push(this.createSauceLink(link.trim()));
-        } catch (_error) {
-          err = _error;
-          continue;
-        }
-      }
-      if (!links.length) {
-        return;
-      }
-      this.links = links;
-      this.link = $.el('a', {
-        target: '_blank'
-      });
-      return Post.prototype.callbacks.push({
-        name: 'Sauce',
-        cb: this.node
-      });
-    },
-    createSauceLink: function(link) {
-      var m, text;
-
-      link = link.replace(/%(T?URL|MD5|board)/g, function(parameter) {
-        switch (parameter) {
-          case '%TURL':
-            return "' + encodeURIComponent(post.file.thumbURL) + '";
-          case '%URL':
-            return "' + encodeURIComponent(post.file.URL) + '";
-          case '%MD5':
-            return "' + encodeURIComponent(post.file.MD5) + '";
-          case '%board':
-            return "' + encodeURIComponent(post.board) + '";
-          default:
-            return parameter;
-        }
-      });
-      text = (m = link.match(/;text:(.+)$/)) ? m[1] : link.match(/(\w+)\.\w+\//)[1];
-      link = link.replace(/;text:.+$/, '');
-      return Function('post', 'a', "a.href = '" + link + "';\na.textContent = '" + text + "';\nreturn a;");
-    },
-    node: function() {
-      var link, nodes, _i, _len, _ref;
-
-      if (this.isClone || !this.file) {
-        return;
-      }
-      nodes = [];
-      _ref = Sauce.links;
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        link = _ref[_i];
-        nodes.push($.tn('\u00A0'), link(this, Sauce.link.cloneNode(true)));
-      }
-      return $.add(this.file.info, nodes);
-    }
-  };
-
   Time = {
     init: function() {
       if (g.VIEW === 'catalog' || !Conf['Time Formatting']) {
@@ -8276,8 +8225,8 @@
     };
 
     function Thread(ID, board) {
+      this.ID = ID;
       this.board = board;
-      this.ID = +ID;
       this.fullID = "" + this.board + "." + this.ID;
       this.posts = {};
       g.threads[this.fullID] = board.threads[this] = this;
@@ -8300,7 +8249,7 @@
     };
 
     function Post(root, thread, board, that) {
-      var alt, anchor, capcode, date, email, file, fileInfo, flag, info, name, post, size, subject, thumb, tripcode, uniqueID, unit;
+      var capcode, date, email, flag, info, name, post, subject, tripcode, uniqueID;
 
       this.thread = thread;
       this.board = board;
@@ -8319,6 +8268,11 @@
         quotelinks: [],
         backlinks: info.getElementsByClassName('backlink')
       };
+      if (!(this.isReply = $.hasClass(post, 'reply'))) {
+        this.thread.OP = this;
+        this.thread.isSticky = !!$('.stickyIcon', info);
+        this.thread.isClosed = !!$('.closedIcon', info);
+      }
       this.info = {};
       if (subject = $('.subject', info)) {
         this.nodes.subject = subject;
@@ -8344,7 +8298,7 @@
         this.nodes.capcode = capcode;
         this.info.capcode = capcode.textContent.replace('## ', '');
       }
-      if (flag = $('.countryFlag', info)) {
+      if (flag = $('.flag, .countryFlag', info)) {
         this.nodes.flag = flag;
         this.info.flag = flag.title;
       }
@@ -8354,36 +8308,7 @@
       }
       this.parseComment();
       this.parseQuotes();
-      if ((file = $('.file', post)) && (thumb = $('img[data-md5]', file))) {
-        alt = thumb.alt;
-        anchor = thumb.parentNode;
-        fileInfo = file.firstElementChild;
-        this.file = {
-          info: fileInfo,
-          text: fileInfo.firstElementChild,
-          thumb: thumb,
-          URL: anchor.href,
-          size: alt.match(/[\d.]+\s\w+/)[0],
-          MD5: thumb.dataset.md5,
-          isSpoiler: $.hasClass(anchor, 'imgspoiler')
-        };
-        size = +this.file.size.match(/[\d.]+/)[0];
-        unit = ['B', 'KB', 'MB', 'GB'].indexOf(this.file.size.match(/\w+$/)[0]);
-        while (unit-- > 0) {
-          size *= 1024;
-        }
-        this.file.sizeInBytes = size;
-        this.file.thumbURL = that.isArchived ? thumb.src : "" + location.protocol + "//thumbs.4chan.org/" + board + "/thumb/" + (this.file.URL.match(/(\d+)\./)[1]) + "s.jpg";
-        this.file.name = $('span[title]', fileInfo).title.replace(/%22/g, '"');
-        if (this.file.isImage = /(jpg|png|gif)$/i.test(this.file.name)) {
-          this.file.dimensions = this.file.text.textContent.match(/\d+x\d+/)[0];
-        }
-      }
-      if (!(this.isReply = $.hasClass(post, 'reply'))) {
-        this.thread.OP = this;
-        this.thread.isSticky = !!$('.stickyIcon', this.nodes.info);
-        this.thread.isClosed = !!$('.closedIcon', this.nodes.info);
-      }
+      this.parseFile(that);
       this.clones = [];
       g.posts[this.fullID] = thread.posts[this] = board.posts[this] = this;
       if (that.isArchived) {
@@ -8427,7 +8352,7 @@
           continue;
         }
         this.nodes.quotelinks.push(quotelink);
-        if (quotelink.parentNode.parentNode.className === 'capcodeReplies') {
+        if (!this.isReply && $.hasClass(quotelink.parentNode.parentNode, 'capcodeReplies')) {
           continue;
         }
         quotes["" + (pathname.split('/')[1]) + "." + hash.slice(2)] = true;
@@ -8436,6 +8361,37 @@
         return;
       }
       return this.quotes = Object.keys(quotes);
+    };
+
+    Post.prototype.parseFile = function(that) {
+      var alt, anchor, fileEl, fileInfo, size, thumb, unit;
+
+      if (!((fileEl = $('.file', this.nodes.post)) && (thumb = $('img[data-md5]', fileEl)))) {
+        return;
+      }
+      alt = thumb.alt;
+      anchor = thumb.parentNode;
+      fileInfo = fileEl.firstElementChild;
+      this.file = {
+        info: fileInfo,
+        text: fileInfo.firstElementChild,
+        thumb: thumb,
+        URL: anchor.href,
+        size: alt.match(/[\d.]+\s\w+/)[0],
+        MD5: thumb.dataset.md5,
+        isSpoiler: $.hasClass(anchor, 'imgspoiler')
+      };
+      size = +this.file.size.match(/[\d.]+/)[0];
+      unit = ['B', 'KB', 'MB', 'GB'].indexOf(this.file.size.match(/\w+$/)[0]);
+      while (unit-- > 0) {
+        size *= 1024;
+      }
+      this.file.sizeInBytes = size;
+      this.file.thumbURL = that.isArchived ? thumb.src : "" + location.protocol + "//thumbs.4chan.org/" + this.board + "/thumb/" + (this.file.URL.match(/(\d+)\./)[1]) + "s.jpg";
+      this.file.name = $('span[title]', fileInfo).title;
+      if (this.file.isImage = /(jpg|png|gif)$/i.test(this.file.name)) {
+        return this.file.dimensions = this.file.text.textContent.match(/\d+x\d+/)[0];
+      }
     };
 
     Post.prototype.kill = function(file, now) {
@@ -8828,12 +8784,7 @@
       Conf['selectedArchives'] = {};
       Conf['archives'] = Redirect.archives;
       $.get(Conf, Main.initFeatures);
-      $.on(d, '4chanMainInit', Main.initStyle);
-      return $.asap((function() {
-        var _ref1;
-
-        return d.head && $('title', d.head) && $('link[rel="shortcut icon"]', d.head) || ((_ref1 = d.readyState) === 'interactive' || _ref1 === 'complete');
-      }), Main.initStyle);
+      return $.on(d, '4chanMainInit', Main.initStyle);
     },
     initFeatures: function(items) {
       var initFeature;
@@ -8928,7 +8879,7 @@
       return $.ready(Main.initReady);
     },
     initStyle: function() {
-      var mainStyleSheet, observer, setStyle, style, styleSheets, _ref;
+      var mainStyleSheet, setStyle, style, styleSheets, _ref;
 
       $.off(d, '4chanMainInit', Main.initStyle);
       if (!Main.isThisPageLegit() || $.hasClass(doc, 'fourchan-x')) {
@@ -8964,18 +8915,13 @@
       if (!mainStyleSheet) {
         return;
       }
-      if (window.MutationObserver) {
-        observer = new MutationObserver(setStyle);
-        return observer.observe(mainStyleSheet, {
-          attributes: true,
-          attributeFilter: ['href']
-        });
-      } else {
-        return $.on(mainStyleSheet, 'DOMAttrModified', setStyle);
-      }
+      return new MutationObserver(setStyle).observe(mainStyleSheet, {
+        attributes: true,
+        attributeFilter: ['href']
+      });
     },
     initReady: function() {
-      var board, boardChild, el, err, errors, href, posts, thread, threadChild, threads, _i, _j, _len, _len1, _ref, _ref1;
+      var board, el, err, errors, href, postRoot, posts, thread, threadRoot, threads, _i, _j, _len, _len1, _ref, _ref1;
 
       if (d.title === '4chan - 404 Not Found') {
         if (Conf['404 Redirect'] && g.VIEW === 'thread') {
@@ -8994,29 +8940,23 @@
       if (board = $('.board')) {
         threads = [];
         posts = [];
-        _ref = board.children;
+        _ref = $$('.board > .thread', board);
         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          boardChild = _ref[_i];
-          if (!$.hasClass(boardChild, 'thread')) {
-            continue;
-          }
-          thread = new Thread(boardChild.id.slice(1), g.BOARD);
+          threadRoot = _ref[_i];
+          thread = new Thread(+threadRoot.id.slice(1), g.BOARD);
           threads.push(thread);
-          _ref1 = boardChild.children;
+          _ref1 = $$('.thread > .postContainer', threadRoot);
           for (_j = 0, _len1 = _ref1.length; _j < _len1; _j++) {
-            threadChild = _ref1[_j];
-            if (!$.hasClass(threadChild, 'postContainer')) {
-              continue;
-            }
+            postRoot = _ref1[_j];
             try {
-              posts.push(new Post(threadChild, thread, g.BOARD));
+              posts.push(new Post(postRoot, thread, g.BOARD));
             } catch (_error) {
               err = _error;
               if (!errors) {
                 errors = [];
               }
               errors.push({
-                message: "Parsing of Post No." + (threadChild.id.match(/\d+/)) + " failed. Post will be skipped.",
+                message: "Parsing of Post No." + (postRoot.id.match(/\d+/)) + " failed. Post will be skipped.",
                 error: err
               });
             }
@@ -9127,8 +9067,9 @@
             }
             $.set('lastchecked', now);
             el = $.el('span', {
-              innerHTML: "Update: 4chan X v" + version + " is out, get it <a href=https://4chan-x.just-believe.in/ target=_blank>here</a>."
+              textContent: "Update: 4chan X v" + version + " is out, get it "
             });
+            el.innerHTML += '<a href=https://4chan-x.just-believe.in/ target=_blank>here</a>.';
             return new Notification('info', el, 120);
           }
         });
@@ -9189,9 +9130,20 @@
       if (Main.v2Detected) {
         return;
       }
-      errors = Main.errors.map(function(d) {
-        return d.message + ' ' + d.error.stack;
-      });
+      errors = Main.errors.filter(function(d) {
+        return !!d.error.stack;
+      }).map(function(d) {
+        var stack;
+
+        stack = d.error.stack;
+        if (stack) {
+          stack = stack.replace(/file:\/{3}.+\//g, '');
+        }
+        return "" + d.message + " " + stack;
+      }).join('\n');
+      if (!errors) {
+        return;
+      }
       return $.ajax('https://4chan-x.just-believe.in/errors', {}, {
         sync: true,
         form: $.formData({
@@ -9199,7 +9151,7 @@
           t: 'userscript',
           ua: window.navigator.userAgent,
           url: window.location.href,
-          e: errors.join('\n')
+          e: errors
         })
       });
     },
@@ -9207,11 +9159,11 @@
       var _ref;
 
       if (!('thisPageIsLegit' in Main)) {
-        Main.thisPageIsLegit = location.hostname === 'boards.4chan.org' && !$('link[href*="favicon-status.ico"]', d.head) && ((_ref = d.title) !== '4chan - Temporarily Offline' && _ref !== '4chan - Error');
+        Main.thisPageIsLegit = location.hostname === 'boards.4chan.org' && !$('link[href*="favicon-status.ico"]', d.head) && ((_ref = d.title) !== '4chan - Temporarily Offline' && _ref !== '4chan - Error' && _ref !== '504 Gateway Time-out');
       }
       return Main.thisPageIsLegit;
     },
-    css: "/* General */\n.dialog {\nbox-shadow: 0 1px 2px rgba(0, 0, 0, .15);\nborder: 1px solid;\ndisplay: block;\npadding: 0;\n}\n.field {\nbackground-color: #FFF;\nborder: 1px solid #CCC;\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\ncolor: #333;\nfont-family: inherit;\nfont-size: 13px;\nmargin: 0;\npadding: 2px 4px 3px;\noutline: none;\ntransition: color .25s, border-color .25s, -webkit-flex .25s;\ntransition: color .25s, border-color .25s, flex .25s;\n}\n.field::-moz-placeholder,\n.field:hover::-moz-placeholder {\ncolor: #AAA !important;\n}\n.field:hover {\nborder-color: #999;\n}\n.field:hover, .field:focus {\ncolor: #000;\n}\n.field[disabled] {\nbackground-color: #F2F2F2;\ncolor: #888;\n}\n.move {\ncursor: move;\n}\nlabel, .favicon {\ncursor: pointer;\n}\na[href=\"javascript:;\"] {\ntext-decoration: none;\n}\n.warning {\ncolor: red;\n}\n\n/* 4chan style fixes */\n.opContainer, .op {\ndisplay: block !important;\n}\n.post {\noverflow: visible !important;\n}\n[hidden] {\ndisplay: none !important;\n}\n\n/* fixed, z-index */\n#overlay,\n#qp, #ihover,\n#updater, #thread-stats,\n#navlinks, #header,\n#qr {\nposition: fixed;\n}\n#overlay {\nz-index: 999;\n}\n#notifications {\nz-index: 70;\n}\n#qp, #ihover {\nz-index: 60;\n}\n#menu {\nz-index: 50;\n}\n#navlinks, #updater, #thread-stats {\nz-index: 40;\n}\n#qr {\nz-index: 30;\n}\n#watcher:hover {\nz-index: 20;\n}\n#header {\nz-index: 10;\n}\n#watcher {\nz-index: 5;\n}\n\n/* Header */\n:root.top-header body {\nmargin-top: 2em;\n}\n:root.bottom-header body {\nmargin-bottom: 2em;\n}\n:root.fourchan-x #navtopright,\n:root.fourchan-x #navbotright,\n:root.fourchan-x:not(.show-original-top-board-list) #boardNavDesktop,\n:root.fourchan-x:not(.show-original-bot-board-list) #boardNavDesktopFoot {\ndisplay: none !important;\n}\n#header {\nright: 0;\nleft: 0;\n}\n#header.top {\ntop: 0;\n}\n#header.bottom {\nbottom: 0;\n}\n#header-bar {\nborder-width: 0;\ndisplay: -webkit-flex;\ndisplay: flex;\npadding: 3px 4px 4px;\nposition: relative;\ntransition: all .1s .05s ease-in-out;\n}\n#header.top #header-bar {\nborder-bottom-width: 1px;\n}\n#header.bottom #header-bar {\nbox-shadow: 0 -1px 2px rgba(0, 0, 0, .15);\nborder-top-width: 1px;\n}\n#header.bottom .menu-button i {\nborder-top: none;\nborder-bottom: 6px solid;\n}\n#board-list {\n-webkit-flex: 1;\nflex: 1;\ntext-align: center;\n}\n#header-bar.autohide:not(:hover) {\nbox-shadow: none;\ntransition: all .8s .6s cubic-bezier(.55, .055, .675, .19);\n}\n#header.top #header-bar.autohide:not(:hover) {\nmargin-bottom: -1em;\n-webkit-transform: translateY(-100%);\ntransform: translateY(-100%);\n}\n#header.bottom #header-bar.autohide:not(:hover) {\n-webkit-transform: translateY(100%);\ntransform: translateY(100%);\n}\n#toggle-header-bar {\nleft: 0;\nright: 0;\nheight: 10px;\nposition: absolute;\n}\n#header.top #toggle-header-bar {\ncursor: n-resize;\nbottom: -8px;\n}\n#header.bottom #toggle-header-bar {\ncursor: s-resize;\ntop: -8px;\n}\n#header-bar.autohide:not(:hover) #toggle-header-bar,\n#toggle-header-bar:hover {\nheight: 18px;\n}\n#header.top #header-bar.autohide:not(:hover) #toggle-header-bar,\n#header.top #toggle-header-bar:hover {\nbottom: -16px;\n}\n#header.bottom #header-bar.autohide:not(:hover) #toggle-header-bar,\n#header.bottom #toggle-header-bar:hover {\ntop: -16px;\n}\n#header.top #header-bar.autohide #toggle-header-bar {\ncursor: s-resize;\n}\n#header.bottom #header-bar.autohide #toggle-header-bar {\ncursor: n-resize;\n}\n#header-bar a:not(.entry) {\ntext-decoration: none;\npadding: 1px;\n}\n#shortcuts:empty {\ndisplay: none;\n}\n.shortcut:not(:last-child)::after {\ncontent: \" / \";\n}\n.brackets-wrap::before {\ncontent: \"\\00a0[\";\n}\n.brackets-wrap::after {\ncontent: \"]\\00a0\";\n}\n.expand-all-shortcut {\nopacity: .35;\n}\n\n/* Notifications */\n#notifications {\nheight: 0;\ntext-align: center;\n}\n#header.bottom #notifications {\nposition: fixed;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n.notification {\ncolor: #FFF;\nfont-weight: 700;\ntext-shadow: 0 1px 2px rgba(0, 0, 0, .5);\nbox-shadow: 0 1px 2px rgba(0, 0, 0, .15);\nborder-radius: 2px;\nmargin: 1px auto;\nwidth: 500px;\nmax-width: 100%;\nposition: relative;\ntransition: all .25s ease-in-out;\n}\n.notification.error {\nbackground-color: hsla(0, 100%, 38%, .9);\n}\n.notification.warning {\nbackground-color: hsla(36, 100%, 38%, .9);\n}\n.notification.info {\nbackground-color: hsla(200, 100%, 38%, .9);\n}\n.notification.success {\nbackground-color: hsla(104, 100%, 38%, .9);\n}\n.notification a {\ncolor: white;\n}\n.notification > .close {\npadding: 6px;\ntop: 0;\nright: 0;\nposition: absolute;\n}\n.message {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\npadding: 6px 20px;\nmax-height: 200px;\nwidth: 100%;\noverflow: auto;\n}\n\n/* Settings */\n:root.fourchan-x body {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\n}\n#overlay {\nbackground-color: rgba(0, 0, 0, .5);\ndisplay: -webkit-flex;\ndisplay: flex;\nposition: fixed;\ntop: 0;\nleft: 0;\nheight: 100%;\nwidth: 100%;\n}\n#fourchanx-settings {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\nbox-shadow: 0 0 15px rgba(0, 0, 0, .15);\nheight: 600px;\nmin-height: 0;\nmax-height: 100%;\nwidth: 900px;\nmin-width: 0;\nmax-width: 100%;\nmargin: auto;\npadding: 3px;\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: column;\nflex-direction: column;\n}\n#fourchanx-settings > nav {\ndisplay: -webkit-flex;\ndisplay: flex;\npadding: 2px 2px 0;\n}\n#fourchanx-settings > nav a {\ntext-decoration: underline;\n}\n#fourchanx-settings > nav a.close {\ntext-decoration: none;\npadding: 2px;\n}\n.sections-list {\n-webkit-flex: 1;\nflex: 1;\n}\n.tab-selected {\nfont-weight: 700;\n}\n.section-container {\n-webkit-flex: 1;\nflex: 1;\nposition: relative;\n}\n.section-container > section {\nposition: absolute;\ntop: 0;\nright: 0;\nbottom: 0;\nleft: 0;\noverflow: auto;\n}\n.section-sauce ul,\n.section-rice ul {\nlist-style: none;\nmargin: 0;\npadding: 8px;\n}\n.section-sauce li,\n.section-rice li {\npadding-left: 4px;\n}\n.section-main label {\ntext-decoration: underline;\n}\n.section-filter ul,\n.section-qr ul {\npadding: 0;\n}\n.section-filter li,\n.section-qr li {\nmargin: 10px 40px;\n}\n.section-filter textarea {\nheight: 500px;\n}\n.section-qr textarea {\nheight: 200px;\n}\n.section-sauce textarea {\nheight: 350px;\n}\n.section-rice .field[name=\"boardnav\"] {\nwidth: 100%;\n}\n.section-rice textarea {\nheight: 150px;\n}\n.section-archives table {\nwidth: 100%;\n}\n.section-archives th:not(:first-child) {\nwidth: 30%;\n}\n.section-archives td {\ntext-align: center;\n}\n.section-archives select {\nwidth: 90%;\n}\n#fourchanx-settings fieldset {\nborder: 1px solid;\nborder-radius: 3px;\n}\n#fourchanx-settings legend {\nfont-weight: 700;\n}\n#fourchanx-settings textarea {\nfont-family: monospace;\nmin-width: 100%;\nmax-width: 100%;\n}\n#fourchanx-settings code {\ncolor: #000;\nbackground-color: #FFF;\npadding: 0 2px;\n}\n.unscroll {\noverflow: hidden;\n}\n\n/* Announcement Hiding */\n:root.hide-announcement #globalMessage,\n:root.hide-announcement-enabled #toggleMsgBtn {\ndisplay: none;\n}\na.hide-announcement {\nfloat: left;\n}\n\n/* Unread */\n#unread-line {\nmargin: 0;\n}\n\n/* Thread Updater */\n#updater:not(:hover) {\nbackground: none;\nborder: none;\nbox-shadow: none;\n}\n#updater > .move {\npadding: 0 3px;\n}\n#updater > div:last-child {\ntext-align: center;\n}\n#updater input[type=number] {\nwidth: 4em;\n}\n#updater:not(:hover) > div:not(.move) {\ndisplay: none;\n}\n#updater input[type=\"button\"] {\nwidth: 100%;\n}\n.new {\ncolor: limegreen;\n}\n\n/* Thread Watcher */\n#watcher {\npadding-bottom: 3px;\nposition: absolute;\noverflow: hidden;\nwhite-space: nowrap;\n}\n#watcher:not(:hover) {\nmax-height: 220px;\n}\n#watcher > .move {\npadding-top: 3px;\n}\n#watcher > div {\nmax-width: 200px;\noverflow: hidden;\npadding-left: 3px;\npadding-right: 3px;\ntext-overflow: ellipsis;\n}\n#watcher a {\ntext-decoration: none;\n}\n\n/* Thread Stats */\n#thread-stats {\nbackground: none;\nborder: none;\nbox-shadow: none;\n}\n\n/* Quote */\n.deadlink {\ntext-decoration: none !important;\n}\n.backlink.deadlink:not(.forwardlink), .quotelink.deadlink:not(.forwardlink) {\ntext-decoration: underline !important;\n}\n.inlined {\nopacity: .5;\n}\n#qp input, .forwarded {\ndisplay: none;\n}\n.quotelink.forwardlink,\n.backlink.forwardlink {\ntext-decoration: none;\nborder-bottom: 1px dashed;\n}\n.filtered {\ntext-decoration: underline line-through;\n}\n.inline {\nborder: 1px solid;\ndisplay: table;\nmargin: 2px 0;\n}\n.inline .post {\nborder: 0 !important;\nbackground-color: transparent !important;\ndisplay: table !important;\nmargin: 0 !important;\npadding: 1px 2px !important;\n}\n#qp > .opContainer::after {\ncontent: '';\nclear: both;\ndisplay: table;\n}\n#qp .post {\nborder: none;\nmargin: 0;\npadding: 2px 2px 5px;\n}\n#qp img {\nmax-height: 300px;\nmax-width: 500px;\nmax-height: 80vh;\nmax-width: 50vw;\n}\n.qphl {\noutline: 2px solid rgba(216, 94, 49, .7);\n}\n\n/* File */\n.fileText:hover .fntrunc,\n.fileText:not(:hover) .fnfull,\n.expanded-image > .post > .file > .fileThumb > img[data-md5],\n:not(.expanded-image) > .post > .file > .fileThumb > .full-image {\ndisplay: none;\n}\n.expanding {\nopacity: .5;\n}\n.expanded-image {\nclear: both;\n}\n.expanded-image > .op > .file::after {\ncontent: '';\nclear: both;\ndisplay: table;\n}\n:root.fit-height .full-image {\nmax-height: 100vh;\n}\n:root.fit-width .full-image {\nmax-width: 100%;\n}\n:root.gecko.fit-width .full-image,\n:root.presto.fit-width .full-image {\nwidth: 100%;\n}\n#ihover {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\nmax-height: 100%;\nmax-width: 75%;\npadding-bottom: 16px;\n}\n\n/* Index/Reply Navigation */\n#navlinks {\nfont-size: 16px;\ntop: 25px;\nright: 10px;\n}\n\n/* Filter */\n.opContainer.filter-highlight {\nbox-shadow: inset 5px 0 rgba(255, 0, 0, .5);\n}\n.filter-highlight > .reply {\nbox-shadow: -5px 0 rgba(255, 0, 0, .5);\n}\n\n/* Thread & Reply Hiding */\n.hide-thread-button,\n.hide-reply-button {\nfloat: left;\nmargin-right: 2px;\n}\n.stub ~ * {\ndisplay: none !important;\n}\n.stub input {\ndisplay: inline-block;\n}\n\n/* QR */\n:root.hide-original-post-form #postForm,\n:root.hide-original-post-form .postingMode,\n:root.hide-original-post-form #togglePostForm,\n#qr.autohide:not(.has-focus):not(:hover) > form {\ndisplay: none;\n}\n#qr select, #dump-button, .remove, .captcha-img {\ncursor: pointer;\n}\n#qr > div {\nmin-width: 300px;\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-align-items: center;\nalign-items: center;\n}\n#qr .move {\n-webkit-align-self: stretch;\nalign-self: stretch;\n-webkit-flex: 1;\nflex: 1;\n}\n#qr select {\nmargin: 0;\n-webkit-appearance: none;\n-moz-appearance: none;\nappearance: none;\nborder: none;\nbackground: none;\n}\n#qr option {\ncolor: #000;\nbackground-color: #F7F7F7;\n}\n.presto #qr select {\nheight: 1em;\n}\n#qr .close {\npadding: 0 3px;\n}\n#qr > form {\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: column;\nflex-direction: column;\n}\n.persona {\ndisplay: -webkit-flex;\ndisplay: flex;\n}\n.persona .field {\n-webkit-flex: 1;\nflex: 1;\n}\n.persona .field:hover,\n.persona .field:focus {\n-webkit-flex: 3;\nflex: 3;\n}\n#dump-button {\nbackground: linear-gradient(#EEE, #CCC);\nborder: 1px solid #CCC;\nmargin: 0;\npadding: 2px 4px 3px;\noutline: none;\nwidth: 30px;\n}\n#dump-button:hover, #dump-button:focus {\nbackground: linear-gradient(#FFF, #DDD);\n}\n#dump-button:active, .dump #dump-button:not(:hover):not(:focus) {\nbackground: linear-gradient(#CCC, #DDD);\n}\n.gecko #dump-button {\npadding: 0;\n}\n#qr:not(.dump) #dump-list-container {\ndisplay: none;\n}\n#dump-list-container {\nheight: 100px;\nposition: relative;\n-webkit-user-select: none;\n-moz-user-select: none;\nuser-select: none;\n}\n#dump-list {\ncounter-reset: qrpreviews;\ntop: 0; right: 0; bottom: 0; left: 0;\noverflow: hidden;\nposition: absolute;\nwhite-space: nowrap;\n}\n#dump-list:hover {\nbottom: -12px;\noverflow-x: auto;\nz-index: 1;\n}\n#dump-list::-webkit-scrollbar {\nheight: 12px;\n}\n#dump-list::-webkit-scrollbar-thumb {\nborder: 1px solid;\n}\n.qr-preview {\nbackground-position: 50% 20%;\nbackground-size: cover;\nborder: 1px solid #808080;\ncolor: #FFF !important;\nfont-size: 12px;\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\ncursor: move;\ndisplay: inline-block;\nheight: 92px; width: 92px;\nmargin: 4px; padding: 2px;\nopacity: .6;\noutline: none;\noverflow: hidden;\nposition: relative;\ntext-shadow: 0 1px 1px #000;\ntransition: opacity .25s ease-in-out;\nvertical-align: top;\nwhite-space: pre;\n}\n.qr-preview:hover, .qr-preview:focus {\nopacity: .9;\ncolor: #FFF !important;\n}\n.qr-preview#selected {\nopacity: 1;\n}\n.qr-preview::before {\ncounter-increment: qrpreviews;\ncontent: counter(qrpreviews);\nfont-weight: 700;\ntext-shadow: 0 0 3px #000, 0 0 5px #000;\nposition: absolute;\ntop: 3px; right: 3px;\n}\n.qr-preview.drag {\nborder-color: red;\nborder-style: dashed;\n}\n.qr-preview.over {\nborder-color: #FFF;\nborder-style: dashed;\n}\n.remove {\ncolor: #E00 !important;\nfont-weight: 700;\npadding: 3px;\n}\n.remove:hover::after {\ncontent: ' Remove';\n}\n.qr-preview > label {\nbackground: rgba(0, 0, 0, .5);\nright: 0; bottom: 0; left: 0;\nposition: absolute;\ntext-align: center;\n}\n.qr-preview > label > input {\nmargin: 1px 0;\nvertical-align: bottom;\n}\n#add-post {\ndisplay: inline-block;\nfont-size: 30px;\nheight: 30px;\nwidth: 30px;\nline-height: 1;\ntext-align: center;\nposition: absolute;\nright: 0; bottom: 0;\nz-index: 1;\n}\n#qr textarea {\nmin-height: 160px;\nmin-width: 100%;\ndisplay: block;\n}\n#qr.has-captcha textarea {\nmin-height: 120px;\n}\n.textarea {\nposition: relative;\n}\n#char-count {\ncolor: #000;\nbackground: hsla(0, 0%, 100%, .5);\nfont-size: 8pt;\nposition: absolute;\nbottom: 1px;\nright: 1px;\npointer-events: none;\n}\n#char-count.warning {\ncolor: red;\n}\n.captcha-img {\nbackground: #FFF;\noutline: 1px solid #CCC;\noutline-offset: -1px;\n}\n.captcha-img > img {\ndisplay: block;\nheight: 57px;\nwidth: 300px;\n}\n#file-n-submit > input {\nmargin: 0;\n}\n#file-n-submit.has-file #qr-no-file {\nvisibility: hidden;\n}\n#file-n-submit:not(.has-file) #qr-filename,\n#file-n-submit:not(.has-file) #qr-file-spoiler,\n#file-n-submit:not(.has-file) #qr-filerm {\ndisplay: none;\n}\n#file-n-submit {\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: row;\nflex-direction: row;\n-webkit-align-items: center;\nalign-items: center;\n}\n#qr-no-file, #qr-filename-container {\n-webkit-flex: 1;\nflex: 1;\n}\n#qr-filename-container {\ncursor: default;\nposition: relative;\nmargin-left: 2px;\n}\n#qr-filename {\nposition: absolute;\ntop: 0; right: 0; bottom: 0; left: 0;\ntext-overflow: ellipsis;\noverflow: hidden;\nwhite-space: nowrap;\n}\n#qr-filerm {\npadding: 0 2px;\n}\n#file-n-submit > #qr-file-spoiler {\nmargin: 0 2px;\n}\n#file-n-submit input[type='submit'] {\nmin-width: 40px;\n-webkit-order: 1;\norder: 1;\n}\n#qr input[type='file'] {\nposition: absolute;\nvisibility: hidden;\n}\n\n/* Menu */\n.menu-button {\ndisplay: inline-block;\nposition: relative;\n}\n.menu-button i {\nborder-top:   6px solid;\nborder-right: 4px solid transparent;\nborder-left:  4px solid transparent;\ndisplay: inline-block;\nmargin: 2px;\nvertical-align: middle;\n}\n#menu {\nborder-bottom: 0;\ndisplay: -webkit-flex;\ndisplay: flex;\nmargin: 2px 0;\n-webkit-flex-direction: column;\nflex-direction: column;\nposition: absolute;\noutline: none;\n}\n.entry {\ncursor: pointer;\noutline: none;\npadding: 3px 7px;\nposition: relative;\ntext-decoration: none;\nwhite-space: nowrap;\n}\n.entry.has-submenu {\npadding-right: 20px;\n}\n.has-submenu::after {\ncontent: '';\nborder-left:   6px solid;\nborder-top:    4px solid transparent;\nborder-bottom: 4px solid transparent;\ndisplay: inline-block;\nmargin: 4px;\nposition: absolute;\nright: 3px;\n}\n.has-submenu:not(.focused) > .submenu {\ndisplay: none;\n}\n.submenu {\nborder-bottom: 0;\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: column;\nflex-direction: column;\nposition: absolute;\nmargin: -1px 0;\n}\n.entry input {\nmargin: 0;\n}\n\n/* General */\n:root.yotsuba .dialog {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.yotsuba .field:focus {\nborder-color: #EA8;\n}\n\n/* Header */\n:root.yotsuba #header-bar {\nfont-size: 9pt;\ncolor: #B86;\n}\n:root.yotsuba #header-bar a {\ncolor: #800000;\n}\n\n/* Settings */\n:root.yotsuba #fourchanx-settings fieldset {\nborder-color: #D9BFB7;\n}\n\n/* Quote */\n:root.yotsuba .backlink.deadlink {\ncolor: #00E !important;\n}\n:root.yotsuba .inline {\nborder-color: #D9BFB7;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.yotsuba #qr select {\ncolor: #00E;\n}\n:root.yotsuba #qr select:hover {\ncolor: red;\n}\n.yotsuba #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.yotsuba .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.yotsuba #menu {\ncolor: #800000;\n}\n:root.yotsuba .entry {\nborder-bottom: 1px solid #D9BFB7;\nfont-size: 10pt;\n}\n:root.yotsuba .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.yotsuba-b .dialog {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.yotsuba-b .field:focus {\nborder-color: #98E;\n}\n\n/* Header */\n:root.yotsuba-b #header-bar {\nfont-size: 9pt;\ncolor: #89A;\n}\n:root.yotsuba-b #header-bar a {\ncolor: #34345C;\n}\n\n/* Settings */\n:root.yotsuba-b #fourchanx-settings fieldset {\nborder-color: #B7C5D9;\n}\n\n/* Quote */\n:root.yotsuba-b .backlink.deadlink {\ncolor: #34345C !important;\n}\n:root.yotsuba-b .inline {\nborder-color: #B7C5D9;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.yotsuba-b #qr select {\ncolor: #34345C;\n}\n:root.yotsuba-b #qr select:hover {\ncolor: #DD0000;\n}\n.yotsuba-b #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.yotsuba-b .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.yotsuba-b #menu {\ncolor: #000;\n}\n:root.yotsuba-b .entry {\nborder-bottom: 1px solid #B7C5D9;\nfont-size: 10pt;\n}\n:root.yotsuba-b .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.futaba .dialog {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.futaba .field:focus {\nborder-color: #EA8;\n}\n\n/* Header */\n:root.futaba #header-bar {\nfont-size: 11pt;\ncolor: #B86;\n}\n:root.futaba #header-bar a {\ncolor: #800000;\n}\n\n/* Settings */\n:root.futaba #fourchanx-settings fieldset {\nborder-color: #D9BFB7;\n}\n\n/* Quote */\n:root.futaba .backlink.deadlink {\ncolor: #00E !important;\n}\n:root.futaba .inline {\nborder-color: #D9BFB7;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.futaba #qr select {\ncolor: #00E;\n}\n:root.futaba #qr select:hover {\ncolor: red;\n}\n.futaba #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.futaba .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.futaba #menu {\ncolor: #800000;\n}\n:root.futaba .entry {\nborder-bottom: 1px solid #D9BFB7;\nfont-size: 12pt;\n}\n:root.futaba .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.burichan .dialog {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.burichan .field:focus {\nborder-color: #98E;\n}\n\n/* Header */\n:root.burichan #header-bar {\nfont-size: 11pt;\ncolor: #89A;\n}\n:root.burichan #header-bar a {\ncolor: #34345C;\n}\n\n/* Settings */\n:root.burichan #fourchanx-settings fieldset {\nborder-color: #B7C5D9;\n}\n\n/* Quote */\n:root.burichan .backlink.deadlink {\ncolor: #34345C !important;\n}\n:root.burichan .inline {\nborder-color: #B7C5D9;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.burichan #qr select {\ncolor: #34345C;\n}\n:root.burichan #qr select:hover {\ncolor: #DD0000;\n}\n.burichan #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.burichan .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.burichan #menu {\ncolor: #000000;\n}\n:root.burichan .entry {\nborder-bottom: 1px solid #B7C5D9;\nfont-size: 12pt;\n}\n:root.burichan .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.tomorrow .dialog {\nbackground-color: #282A2E;\nborder-color: #111;\n}\n:root.tomorrow .field:focus {\nborder-color: #000;\n}\n\n/* Header */\n:root.tomorrow #header-bar {\nfont-size: 9pt;\ncolor: #C5C8C6;\n}\n:root.tomorrow #header-bar a {\ncolor: #81A2BE;\n}\n\n/* Settings */\n:root.tomorrow #fourchanx-settings fieldset {\nborder-color: #111;\n}\n\n/* Quote */\n:root.tomorrow .backlink.deadlink {\ncolor: #81A2BE !important;\n}\n:root.tomorrow .inline {\nborder-color: #111;\nbackground-color: rgba(0, 0, 0, .14);\n}\n\n/* QR */\n:root.tomorrow #qr select {\ncolor: #81A2BE;\n}\n:root.tomorrow #qr select:hover {\ncolor: #5F89AC;\n}\n.tomorrow #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #282A2E;\nborder-color: #111;\n}\n:root.tomorrow .qr-preview {\nbackground-color: rgba(255, 255, 255, .15);\n}\n\n/* Menu */\n:root.tomorrow #menu {\ncolor: #C5C8C6;\n}\n:root.tomorrow .entry {\nborder-bottom: 1px solid #111;\nfont-size: 10pt;\n}\n:root.tomorrow .focused.entry {\nbackground: rgba(0, 0, 0, .33);\n}\n\n/* General */\n:root.photon .dialog {\nbackground-color: #DDD;\nborder-color: #CCC;\n}\n:root.photon .field:focus {\nborder-color: #EA8;\n}\n\n/* Header */\n:root.photon #header-bar {\nfont-size: 9pt;\ncolor: #333;\n}\n:root.photon #header-bar a {\ncolor: #F60;\n}\n\n/* Settings */\n:root.photon #fourchanx-settings fieldset {\nborder-color: #CCC;\n}\n\n/* Quote */\n:root.photon .backlink.deadlink {\ncolor: #F60 !important;\n}\n:root.photon .inline {\nborder-color: #CCC;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.photon #qr select {\ncolor: #F60;\n}\n:root.photon #qr select:hover {\ncolor: #FF3300;\n}\n.photon #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #DDD;\nborder-color: #CCC;\n}\n:root.photon .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.photon #menu {\ncolor: #333;\n}\n:root.photon .entry {\nborder-bottom: 1px solid #CCC;\nfont-size: 10pt;\n}\n:root.photon .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n"
+    css: "/* General */\n.dialog {\nbox-shadow: 0 1px 2px rgba(0, 0, 0, .15);\nborder: 1px solid;\ndisplay: block;\npadding: 0;\n}\n.field {\nbackground-color: #FFF;\nborder: 1px solid #CCC;\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\ncolor: #333;\nfont-family: inherit;\nfont-size: 13px;\nmargin: 0;\npadding: 2px 4px 3px;\noutline: none;\ntransition: color .25s, border-color .25s, -webkit-flex .25s;\ntransition: color .25s, border-color .25s, flex .25s;\n}\n.field::-moz-placeholder,\n.field:hover::-moz-placeholder {\ncolor: #AAA !important;\n}\n.field:hover {\nborder-color: #999;\n}\n.field:hover, .field:focus {\ncolor: #000;\n}\n.field[disabled] {\nbackground-color: #F2F2F2;\ncolor: #888;\n}\n.move {\ncursor: move;\n}\nlabel, .favicon {\ncursor: pointer;\n}\na[href=\"javascript:;\"] {\ntext-decoration: none;\n}\n.warning {\ncolor: red;\n}\n\n/* 4chan style fixes */\n.opContainer, .op {\ndisplay: block !important;\n}\n.post {\noverflow: visible !important;\n}\n[hidden] {\ndisplay: none !important;\n}\n\n/* fixed, z-index */\n#overlay,\n#qp, #ihover,\n#updater, #thread-stats,\n#navlinks, #header,\n#qr {\nposition: fixed;\n}\n#overlay {\nz-index: 999;\n}\n#notifications {\nz-index: 70;\n}\n#qp, #ihover {\nz-index: 60;\n}\n#menu {\nz-index: 50;\n}\n#navlinks, #updater, #thread-stats {\nz-index: 40;\n}\n#qr {\nz-index: 30;\n}\n#watcher:hover {\nz-index: 20;\n}\n#header {\nz-index: 10;\n}\n#watcher {\nz-index: 5;\n}\n\n/* Header */\n:root.top-header body {\nmargin-top: 2em;\n}\n:root.bottom-header body {\nmargin-bottom: 2em;\n}\n:root.fourchan-x #navtopright,\n:root.fourchan-x #navbotright,\n:root.fourchan-x:not(.show-original-top-board-list) #boardNavDesktop,\n:root.fourchan-x:not(.show-original-bot-board-list) #boardNavDesktopFoot {\ndisplay: none !important;\n}\n#header {\nright: 0;\nleft: 0;\n}\n#header.top {\ntop: 0;\n}\n#header.bottom {\nbottom: 0;\n}\n#header-bar {\nborder-width: 0;\ndisplay: -webkit-flex;\ndisplay: flex;\npadding: 3px 4px 4px;\nposition: relative;\ntransition: all .1s .05s ease-in-out;\n}\n#header.top #header-bar {\nborder-bottom-width: 1px;\n}\n#header.bottom #header-bar {\nbox-shadow: 0 -1px 2px rgba(0, 0, 0, .15);\nborder-top-width: 1px;\n}\n#header.bottom .menu-button i {\nborder-top: none;\nborder-bottom: 6px solid;\n}\n#board-list {\n-webkit-flex: 1;\nflex: 1;\ntext-align: center;\n}\n#header-bar.autohide:not(:hover) {\nbox-shadow: none;\ntransition: all .8s .6s cubic-bezier(.55, .055, .675, .19);\n}\n#header.top #header-bar.autohide:not(:hover) {\nmargin-bottom: -1em;\n-webkit-transform: translateY(-100%);\ntransform: translateY(-100%);\n}\n#header.bottom #header-bar.autohide:not(:hover) {\n-webkit-transform: translateY(100%);\ntransform: translateY(100%);\n}\n#toggle-header-bar {\nleft: 0;\nright: 0;\nheight: 10px;\nposition: absolute;\n}\n#header.top #toggle-header-bar {\ncursor: n-resize;\nbottom: -8px;\n}\n#header.bottom #toggle-header-bar {\ncursor: s-resize;\ntop: -8px;\n}\n#header-bar.autohide:not(:hover) #toggle-header-bar,\n#toggle-header-bar:hover {\nheight: 18px;\n}\n#header.top #header-bar.autohide:not(:hover) #toggle-header-bar,\n#header.top #toggle-header-bar:hover {\nbottom: -16px;\n}\n#header.bottom #header-bar.autohide:not(:hover) #toggle-header-bar,\n#header.bottom #toggle-header-bar:hover {\ntop: -16px;\n}\n#header.top #header-bar.autohide #toggle-header-bar {\ncursor: s-resize;\n}\n#header.bottom #header-bar.autohide #toggle-header-bar {\ncursor: n-resize;\n}\n#header-bar a:not(.entry) {\ntext-decoration: none;\npadding: 1px;\n}\n#shortcuts:empty {\ndisplay: none;\n}\n.shortcut:not(:last-child)::after {\ncontent: \" / \";\n}\n.brackets-wrap::before {\ncontent: \"\\00a0[\";\n}\n.brackets-wrap::after {\ncontent: \"]\\00a0\";\n}\n.expand-all-shortcut {\nopacity: .35;\n}\n\n/* Notifications */\n#notifications {\nheight: 0;\ntext-align: center;\n}\n#header.bottom #notifications {\nposition: fixed;\ntop: 0;\nleft: 0;\nwidth: 100%;\n}\n.notification {\ncolor: #FFF;\nfont-weight: 700;\ntext-shadow: 0 1px 2px rgba(0, 0, 0, .5);\nbox-shadow: 0 1px 2px rgba(0, 0, 0, .15);\nborder-radius: 2px;\nmargin: 1px auto;\nwidth: 500px;\nmax-width: 100%;\nposition: relative;\ntransition: all .25s ease-in-out;\n}\n.notification.error {\nbackground-color: hsla(0, 100%, 38%, .9);\n}\n.notification.warning {\nbackground-color: hsla(36, 100%, 38%, .9);\n}\n.notification.info {\nbackground-color: hsla(200, 100%, 38%, .9);\n}\n.notification.success {\nbackground-color: hsla(104, 100%, 38%, .9);\n}\n.notification a {\ncolor: white;\n}\n.notification > .close {\npadding: 6px;\ntop: 0;\nright: 0;\nposition: absolute;\n}\n.message {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\npadding: 6px 20px;\nmax-height: 200px;\nwidth: 100%;\noverflow: auto;\n}\n\n/* Settings */\n:root.fourchan-x body {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\n}\n#overlay {\nbackground-color: rgba(0, 0, 0, .5);\ndisplay: -webkit-flex;\ndisplay: flex;\nposition: fixed;\ntop: 0;\nleft: 0;\nheight: 100%;\nwidth: 100%;\n}\n#fourchanx-settings {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\nbox-shadow: 0 0 15px rgba(0, 0, 0, .15);\nheight: 600px;\nmax-height: 100%;\nwidth: 900px;\nmax-width: 100%;\nmargin: auto;\npadding: 3px;\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: column;\nflex-direction: column;\n}\n#fourchanx-settings > nav {\ndisplay: -webkit-flex;\ndisplay: flex;\npadding: 2px 2px 0;\n}\n#fourchanx-settings > nav a {\ntext-decoration: underline;\n}\n#fourchanx-settings > nav a.close {\ntext-decoration: none;\npadding: 2px;\n}\n.sections-list {\n-webkit-flex: 1;\nflex: 1;\n}\n.tab-selected {\nfont-weight: 700;\n}\n.section-container {\n-webkit-flex: 1;\nflex: 1;\nposition: relative;\n}\n.section-container > section {\nposition: absolute;\ntop: 0;\nright: 0;\nbottom: 0;\nleft: 0;\noverflow: auto;\n}\n.section-sauce ul,\n.section-rice ul {\nlist-style: none;\nmargin: 0;\npadding: 8px;\n}\n.section-sauce li,\n.section-rice li {\npadding-left: 4px;\n}\n.section-main label {\ntext-decoration: underline;\n}\n.section-filter ul,\n.section-qr ul {\npadding: 0;\n}\n.section-filter li,\n.section-qr li {\nmargin: 10px 40px;\n}\n.section-filter textarea {\nheight: 500px;\n}\n.section-qr textarea {\nheight: 200px;\n}\n.section-sauce textarea {\nheight: 350px;\n}\n.section-rice .field[name=\"boardnav\"] {\nwidth: 100%;\n}\n.section-rice textarea {\nheight: 150px;\n}\n.section-archives table {\nwidth: 100%;\n}\n.section-archives th:not(:first-child) {\nwidth: 30%;\n}\n.section-archives td {\ntext-align: center;\n}\n.section-archives select {\nwidth: 90%;\n}\n.section-keybinds .field {\nfont-family: monospace;\n}\n#fourchanx-settings fieldset {\nborder: 1px solid;\nborder-radius: 3px;\n}\n#fourchanx-settings legend {\nfont-weight: 700;\n}\n#fourchanx-settings textarea {\nfont-family: monospace;\nmin-width: 100%;\nmax-width: 100%;\n}\n#fourchanx-settings code {\ncolor: #000;\nbackground-color: #FFF;\npadding: 0 2px;\n}\n.unscroll {\noverflow: hidden;\n}\n\n/* Announcement Hiding */\n:root.hide-announcement #globalMessage,\n:root.hide-announcement-enabled #toggleMsgBtn {\ndisplay: none;\n}\na.hide-announcement {\nfloat: left;\n}\n\n/* Unread */\n#unread-line {\nmargin: 0;\n}\n\n/* Thread Updater */\n#updater:not(:hover) {\nbackground: none;\nborder: none;\nbox-shadow: none;\n}\n#updater > .move {\npadding: 0 3px;\n}\n#updater > div:last-child {\ntext-align: center;\n}\n#updater input[type=number] {\nwidth: 4em;\n}\n#updater:not(:hover) > div:not(.move) {\ndisplay: none;\n}\n#updater input[type=\"button\"] {\nwidth: 100%;\n}\n.new {\ncolor: limegreen;\n}\n\n/* Thread Watcher */\n#watcher {\npadding-bottom: 3px;\nposition: absolute;\noverflow: hidden;\nwhite-space: nowrap;\n}\n#watcher:not(:hover) {\nmax-height: 220px;\n}\n#watcher > .move {\npadding-top: 3px;\n}\n#watcher > div {\nmax-width: 200px;\noverflow: hidden;\npadding-left: 3px;\npadding-right: 3px;\ntext-overflow: ellipsis;\n}\n#watcher a {\ntext-decoration: none;\n}\n\n/* Thread Stats */\n#thread-stats {\nbackground: none;\nborder: none;\nbox-shadow: none;\n}\n\n/* Quote */\n.deadlink {\ntext-decoration: none !important;\n}\n.backlink.deadlink:not(.forwardlink),\n.quotelink.deadlink:not(.forwardlink) {\ntext-decoration: underline !important;\n}\n.inlined {\nopacity: .5;\n}\n#qp input, .forwarded {\ndisplay: none;\n}\n.quotelink.forwardlink,\n.backlink.forwardlink {\ntext-decoration: none;\nborder-bottom: 1px dashed;\n}\n.filtered {\ntext-decoration: underline line-through;\n}\n.inline {\nborder: 1px solid;\ndisplay: table;\nmargin: 2px 0;\n}\n.inline .post {\nborder: 0 !important;\nbackground-color: transparent !important;\ndisplay: table !important;\nmargin: 0 !important;\npadding: 1px 2px !important;\n}\n#qp > .opContainer::after {\ncontent: '';\nclear: both;\ndisplay: table;\n}\n#qp .post {\nborder: none;\nmargin: 0;\npadding: 2px 2px 5px;\n}\n#qp img {\nmax-height: 80vh;\nmax-width: 50vw;\n}\n.qphl {\noutline: 2px solid rgba(216, 94, 49, .7);\n}\n\n/* File */\n.fileText:hover .fntrunc,\n.fileText:not(:hover) .fnfull,\n.expanded-image > .post > .file > .fileThumb > img[data-md5],\n:not(.expanded-image) > .post > .file > .fileThumb > .full-image {\ndisplay: none;\n}\n.expanding {\nopacity: .5;\n}\n.expanded-image {\nclear: both;\n}\n.expanded-image > .op > .file::after {\ncontent: '';\nclear: both;\ndisplay: table;\n}\n:root.fit-height .full-image {\nmax-height: 100vh;\n}\n:root.fit-width .full-image {\nmax-width: 100%;\n}\n:root.gecko.fit-width .full-image {\nwidth: 100%;\n}\n#ihover {\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\nmax-height: 100%;\nmax-width: 75%;\npadding-bottom: 16px;\n}\n\n/* Index/Reply Navigation */\n#navlinks {\nfont-size: 16px;\ntop: 25px;\nright: 10px;\n}\n\n/* Filter */\n.opContainer.filter-highlight {\nbox-shadow: inset 5px 0 rgba(255, 0, 0, .5);\n}\n.filter-highlight > .reply {\nbox-shadow: -5px 0 rgba(255, 0, 0, .5);\n}\n\n/* Thread & Reply Hiding */\n.hide-thread-button,\n.hide-reply-button {\nfloat: left;\nmargin-right: 2px;\n}\n.stub ~ * {\ndisplay: none !important;\n}\n.stub input {\ndisplay: inline-block;\n}\n\n/* QR */\n:root.hide-original-post-form #postForm,\n:root.hide-original-post-form .postingMode,\n:root.hide-original-post-form #togglePostForm,\n#qr.autohide:not(.has-focus):not(:hover) > form {\ndisplay: none;\n}\n#qr select, #dump-button, .remove, .captcha-img {\ncursor: pointer;\n}\n#qr > div {\nmin-width: 300px;\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-align-items: center;\nalign-items: center;\n}\n#qr .move {\n-webkit-align-self: stretch;\nalign-self: stretch;\n-webkit-flex: 1;\nflex: 1;\n}\n#qr select {\nmargin: 0;\n-webkit-appearance: none;\n-moz-appearance: none;\nappearance: none;\nborder: none;\nbackground: none;\n}\n#qr option {\ncolor: #000;\nbackground-color: #F7F7F7;\n}\n#qr .close {\npadding: 0 3px;\n}\n#qr > form {\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: column;\nflex-direction: column;\n}\n.persona {\ndisplay: -webkit-flex;\ndisplay: flex;\n}\n.persona .field {\n-webkit-flex: 1;\nflex: 1;\n}\n.persona .field:hover,\n.persona .field:focus {\n-webkit-flex: 3;\nflex: 3;\n}\n#dump-button {\nbackground: linear-gradient(#EEE, #CCC);\nborder: 1px solid #CCC;\nmargin: 0;\npadding: 2px 4px 3px;\noutline: none;\nwidth: 30px;\n}\n#dump-button:hover,\n#dump-button:focus {\nbackground: linear-gradient(#FFF, #DDD);\n}\n#dump-button:active,\n.dump #dump-button:not(:hover):not(:focus) {\nbackground: linear-gradient(#CCC, #DDD);\n}\n:root.gecko #dump-button {\npadding: 0;\n}\n#qr:not(.dump) #dump-list-container {\ndisplay: none;\n}\n#dump-list-container {\nheight: 100px;\nposition: relative;\n-webkit-user-select: none;\n-moz-user-select: none;\nuser-select: none;\n}\n#dump-list {\ncounter-reset: qrpreviews;\ntop: 0;\nright: 0;\nbottom: 0;\nleft: 0;\noverflow: hidden;\nposition: absolute;\nwhite-space: nowrap;\n}\n#dump-list:hover {\nbottom: -12px;\noverflow-x: auto;\nz-index: 1;\n}\n#dump-list::-webkit-scrollbar {\nheight: 12px;\n}\n#dump-list::-webkit-scrollbar-thumb {\nborder: 1px solid;\n}\n.qr-preview {\nbackground-position: 50% 20%;\nbackground-size: cover;\nborder: 1px solid #808080;\ncolor: #FFF !important;\nfont-size: 12px;\n-moz-box-sizing: border-box;\nbox-sizing: border-box;\ncursor: move;\ndisplay: inline-block;\nheight: 92px;\nwidth: 92px;\nmargin: 4px;\npadding: 2px;\nopacity: .6;\noutline: none;\noverflow: hidden;\nposition: relative;\ntext-shadow: 0 1px 1px #000;\ntransition: opacity .25s ease-in-out;\nvertical-align: top;\nwhite-space: pre;\n}\n.qr-preview:hover,\n.qr-preview:focus {\nopacity: .9;\ncolor: #FFF !important;\n}\n.qr-preview#selected {\nopacity: 1;\n}\n.qr-preview::before {\ncounter-increment: qrpreviews;\ncontent: counter(qrpreviews);\nfont-weight: 700;\ntext-shadow: 0 0 3px #000, 0 0 5px #000;\nposition: absolute;\ntop: 3px;\nright: 3px;\n}\n.qr-preview.drag {\nborder-color: red;\nborder-style: dashed;\n}\n.qr-preview.over {\nborder-color: #FFF;\nborder-style: dashed;\n}\n.remove {\ncolor: #E00 !important;\nfont-weight: 700;\npadding: 3px;\n}\n.remove:hover::after {\ncontent: ' Remove';\n}\n.qr-preview > label {\nbackground: rgba(0, 0, 0, .5);\nright: 0;\nbottom: 0;\nleft: 0;\nposition: absolute;\ntext-align: center;\n}\n.qr-preview > label > input {\nmargin: 1px 0;\nvertical-align: bottom;\n}\n#add-post {\ndisplay: inline-block;\nfont-size: 30px;\nheight: 30px;\nwidth: 30px;\nline-height: 1;\ntext-align: center;\nposition: absolute;\nright: 0;\nbottom: 0;\nz-index: 1;\n}\n#qr textarea {\nmin-height: 160px;\nmin-width: 100%;\ndisplay: block;\n}\n#qr.has-captcha textarea {\nmin-height: 120px;\n}\n.textarea {\nposition: relative;\n}\n#char-count {\ncolor: #000;\nbackground: hsla(0, 0%, 100%, .5);\nfont-size: 8pt;\nposition: absolute;\nbottom: 1px;\nright: 1px;\npointer-events: none;\n}\n#char-count.warning {\ncolor: red;\n}\n.captcha-img {\nbackground: #FFF;\noutline: 1px solid #CCC;\noutline-offset: -1px;\n}\n.captcha-img > img {\ndisplay: block;\nheight: 57px;\nwidth: 300px;\n}\n#file-n-submit > input {\nmargin: 0;\n}\n#file-n-submit.has-file #qr-no-file {\nvisibility: hidden;\n}\n#file-n-submit:not(.has-file) #qr-filename,\n#file-n-submit:not(.has-file) #qr-file-spoiler,\n#file-n-submit:not(.has-file) #qr-filerm {\ndisplay: none;\n}\n#file-n-submit {\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: row;\nflex-direction: row;\n-webkit-align-items: center;\nalign-items: center;\n}\n#qr-no-file, #qr-filename-container {\n-webkit-flex: 1;\nflex: 1;\n}\n#qr-filename-container {\ncursor: default;\nposition: relative;\nmargin-left: 2px;\n}\n#qr-filename {\nposition: absolute;\ntop: 0;\nright: 0;\nbottom: 0;\nleft: 0;\ntext-overflow: ellipsis;\noverflow: hidden;\nwhite-space: nowrap;\n}\n#qr-filerm {\npadding: 0 2px;\n}\n#file-n-submit > #qr-file-spoiler {\nmargin: 0 2px;\n}\n#file-n-submit input[type='submit'] {\nmin-width: 40px;\n-webkit-order: 1;\norder: 1;\n}\n\n/* Menu */\n.menu-button {\ndisplay: inline-block;\nposition: relative;\n}\n.menu-button i {\nborder-top:   6px solid;\nborder-right: 4px solid transparent;\nborder-left:  4px solid transparent;\ndisplay: inline-block;\nmargin: 2px;\nvertical-align: middle;\n}\n#menu {\nborder-bottom: 0;\ndisplay: -webkit-flex;\ndisplay: flex;\nmargin: 2px 0;\n-webkit-flex-direction: column;\nflex-direction: column;\nposition: absolute;\noutline: none;\n}\n.entry {\ncursor: pointer;\noutline: none;\npadding: 3px 7px;\nposition: relative;\ntext-decoration: none;\nwhite-space: nowrap;\n}\n.entry.has-submenu {\npadding-right: 20px;\n}\n.has-submenu::after {\ncontent: '';\nborder-left:   6px solid;\nborder-top:    4px solid transparent;\nborder-bottom: 4px solid transparent;\ndisplay: inline-block;\nmargin: 4px;\nposition: absolute;\nright: 3px;\n}\n.has-submenu:not(.focused) > .submenu {\ndisplay: none;\n}\n.submenu {\nborder-bottom: 0;\ndisplay: -webkit-flex;\ndisplay: flex;\n-webkit-flex-direction: column;\nflex-direction: column;\nposition: absolute;\nmargin: -1px 0;\n}\n.entry input {\nmargin: 0;\n}\n\n/* General */\n:root.yotsuba .dialog {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.yotsuba .field:focus {\nborder-color: #EA8;\n}\n\n/* Header */\n:root.yotsuba #header-bar {\nfont-size: 9pt;\ncolor: #B86;\n}\n:root.yotsuba #header-bar a {\ncolor: #800000;\n}\n\n/* Settings */\n:root.yotsuba #fourchanx-settings fieldset {\nborder-color: #D9BFB7;\n}\n\n/* Quote */\n:root.yotsuba .backlink.deadlink {\ncolor: #00E !important;\n}\n:root.yotsuba .inline {\nborder-color: #D9BFB7;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.yotsuba #qr select {\ncolor: #00E;\n}\n:root.yotsuba #qr select:hover {\ncolor: red;\n}\n.yotsuba #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.yotsuba .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.yotsuba #menu {\ncolor: #800000;\n}\n:root.yotsuba .entry {\nborder-bottom: 1px solid #D9BFB7;\nfont-size: 10pt;\n}\n:root.yotsuba .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.yotsuba-b .dialog {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.yotsuba-b .field:focus {\nborder-color: #98E;\n}\n\n/* Header */\n:root.yotsuba-b #header-bar {\nfont-size: 9pt;\ncolor: #89A;\n}\n:root.yotsuba-b #header-bar a {\ncolor: #34345C;\n}\n\n/* Settings */\n:root.yotsuba-b #fourchanx-settings fieldset {\nborder-color: #B7C5D9;\n}\n\n/* Quote */\n:root.yotsuba-b .backlink.deadlink {\ncolor: #34345C !important;\n}\n:root.yotsuba-b .inline {\nborder-color: #B7C5D9;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.yotsuba-b #qr select {\ncolor: #34345C;\n}\n:root.yotsuba-b #qr select:hover {\ncolor: #DD0000;\n}\n.yotsuba-b #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.yotsuba-b .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.yotsuba-b #menu {\ncolor: #000;\n}\n:root.yotsuba-b .entry {\nborder-bottom: 1px solid #B7C5D9;\nfont-size: 10pt;\n}\n:root.yotsuba-b .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.futaba .dialog {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.futaba .field:focus {\nborder-color: #EA8;\n}\n\n/* Header */\n:root.futaba #header-bar {\nfont-size: 11pt;\ncolor: #B86;\n}\n:root.futaba #header-bar a {\ncolor: #800000;\n}\n\n/* Settings */\n:root.futaba #fourchanx-settings fieldset {\nborder-color: #D9BFB7;\n}\n\n/* Quote */\n:root.futaba .backlink.deadlink {\ncolor: #00E !important;\n}\n:root.futaba .inline {\nborder-color: #D9BFB7;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.futaba #qr select {\ncolor: #00E;\n}\n:root.futaba #qr select:hover {\ncolor: red;\n}\n.futaba #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #F0E0D6;\nborder-color: #D9BFB7;\n}\n:root.futaba .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.futaba #menu {\ncolor: #800000;\n}\n:root.futaba .entry {\nborder-bottom: 1px solid #D9BFB7;\nfont-size: 12pt;\n}\n:root.futaba .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.burichan .dialog {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.burichan .field:focus {\nborder-color: #98E;\n}\n\n/* Header */\n:root.burichan #header-bar {\nfont-size: 11pt;\ncolor: #89A;\n}\n:root.burichan #header-bar a {\ncolor: #34345C;\n}\n\n/* Settings */\n:root.burichan #fourchanx-settings fieldset {\nborder-color: #B7C5D9;\n}\n\n/* Quote */\n:root.burichan .backlink.deadlink {\ncolor: #34345C !important;\n}\n:root.burichan .inline {\nborder-color: #B7C5D9;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.burichan #qr select {\ncolor: #34345C;\n}\n:root.burichan #qr select:hover {\ncolor: #DD0000;\n}\n.burichan #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #D6DAF0;\nborder-color: #B7C5D9;\n}\n:root.burichan .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.burichan #menu {\ncolor: #000000;\n}\n:root.burichan .entry {\nborder-bottom: 1px solid #B7C5D9;\nfont-size: 12pt;\n}\n:root.burichan .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n\n/* General */\n:root.tomorrow .dialog {\nbackground-color: #282A2E;\nborder-color: #111;\n}\n:root.tomorrow .field:focus {\nborder-color: #000;\n}\n\n/* Header */\n:root.tomorrow #header-bar {\nfont-size: 9pt;\ncolor: #C5C8C6;\n}\n:root.tomorrow #header-bar a {\ncolor: #81A2BE;\n}\n\n/* Settings */\n:root.tomorrow #fourchanx-settings fieldset {\nborder-color: #111;\n}\n\n/* Quote */\n:root.tomorrow .backlink.deadlink {\ncolor: #81A2BE !important;\n}\n:root.tomorrow .inline {\nborder-color: #111;\nbackground-color: rgba(0, 0, 0, .14);\n}\n\n/* QR */\n:root.tomorrow #qr select {\ncolor: #81A2BE;\n}\n:root.tomorrow #qr select:hover {\ncolor: #5F89AC;\n}\n.tomorrow #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #282A2E;\nborder-color: #111;\n}\n:root.tomorrow .qr-preview {\nbackground-color: rgba(255, 255, 255, .15);\n}\n\n/* Menu */\n:root.tomorrow #menu {\ncolor: #C5C8C6;\n}\n:root.tomorrow .entry {\nborder-bottom: 1px solid #111;\nfont-size: 10pt;\n}\n:root.tomorrow .focused.entry {\nbackground: rgba(0, 0, 0, .33);\n}\n\n/* General */\n:root.photon .dialog {\nbackground-color: #DDD;\nborder-color: #CCC;\n}\n:root.photon .field:focus {\nborder-color: #EA8;\n}\n\n/* Header */\n:root.photon #header-bar {\nfont-size: 9pt;\ncolor: #333;\n}\n:root.photon #header-bar a {\ncolor: #F60;\n}\n\n/* Settings */\n:root.photon #fourchanx-settings fieldset {\nborder-color: #CCC;\n}\n\n/* Quote */\n:root.photon .backlink.deadlink {\ncolor: #F60 !important;\n}\n:root.photon .inline {\nborder-color: #CCC;\nbackground-color: rgba(255, 255, 255, .14);\n}\n\n/* QR */\n:root.photon #qr select {\ncolor: #F60;\n}\n:root.photon #qr select:hover {\ncolor: #FF3300;\n}\n.photon #dump-list::-webkit-scrollbar-thumb {\nbackground-color: #DDD;\nborder-color: #CCC;\n}\n:root.photon .qr-preview {\nbackground-color: rgba(0, 0, 0, .15);\n}\n\n/* Menu */\n:root.photon #menu {\ncolor: #333;\n}\n:root.photon .entry {\nborder-bottom: 1px solid #CCC;\nfont-size: 10pt;\n}\n:root.photon .focused.entry {\nbackground: rgba(255, 255, 255, .33);\n}\n"
   };
 
   Main.init();
