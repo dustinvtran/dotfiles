@@ -338,6 +338,7 @@ map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#category%2FAs
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
+map -modes=n -builtin <Leader>x :tabopen! http://localhost:32400/manage/<CR>
 
 " Media pages.
 map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>

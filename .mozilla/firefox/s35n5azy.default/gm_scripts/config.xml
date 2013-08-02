@@ -19,7 +19,7 @@
 		<Include>*.wikipedia.org/w*</Include>
 		<Include>*.wikibooks.org/w*</Include>
 	</Script>
-	<Script basedir="4chan_X" checkRemoteUpdates="1" dependhash="f1749cc5da0817fbaad8431c9b2aa4bedfd17e21" description="Cross-browser extension for productive lurking on 4chan." enabled="true" filename="4chan-X.user.js" installTime="1375248807958" modified="1375248807000" name="4chan X" namespace="4chan-X" runAt="document-start" uuid="7ee62614-2eaa-47b4-9d76-c8921ad0ff2d" version="3.5.7" installurl="https://4chan-x.just-believe.in/builds/4chan-X.user.js" updateurl="https://4chan-x.just-believe.in/builds/4chan-X.meta.js" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAACVBMVEUAAGcAAABmzDNZt9VtAAAAAXRSTlMAQObYZgAAAHFJREFUKFOt0LENACEIBdBv4Qju4wgWanEj3D6OcIVMKaitYHEU/jwTCQj8W75kiVCSBvdQ5/AvfVHBin11BgdRq3ysBgfwBDRrj3MCIA+oAQaku/Q1cNctrAmyDl577tOThYt/Y1RBM4DgOHzM0HFTAyLukH/cmRnqAAAAAElFTkSuQmCC">
+	<Script basedir="4chan_X" checkRemoteUpdates="1" dependhash="f1749cc5da0817fbaad8431c9b2aa4bedfd17e21" description="Cross-browser extension for productive lurking on 4chan." enabled="false" filename="4chan-X.user.js" installTime="1375248807958" modified="1375248807000" name="4chan X" namespace="4chan-X" runAt="document-start" uuid="7ee62614-2eaa-47b4-9d76-c8921ad0ff2d" version="3.5.7" installurl="https://4chan-x.just-believe.in/builds/4chan-X.user.js" updateurl="https://4chan-x.just-believe.in/builds/4chan-X.meta.js" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAgMAAAAqbBEUAAAACVBMVEUAAGcAAABmzDNZt9VtAAAAAXRSTlMAQObYZgAAAHFJREFUKFOt0LENACEIBdBv4Qju4wgWanEj3D6OcIVMKaitYHEU/jwTCQj8W75kiVCSBvdQ5/AvfVHBin11BgdRq3ysBgfwBDRrj3MCIA+oAQaku/Q1cNctrAmyDl577tOThYt/Y1RBM4DgOHzM0HFTAyLukH/cmRnqAAAAAElFTkSuQmCC">
 		<Grant>GM_getValue</Grant>
 		<Grant>GM_setValue</Grant>
 		<Grant>GM_deleteValue</Grant>
@@ -29,7 +29,7 @@
 		<Match>*://images.4chan.org/*</Match>
 		<Match>*://sys.4chan.org/*</Match>
 	</Script>
-	<Script basedir="4chan_x" checkRemoteUpdates="1" dependhash="de4ca77d72f0a4de2229e149b7ba2844ff21f12a" description="Adds various features." enabled="false" filename="4chan_x.user.js" installTime="1370068981096" modified="1370068981000" name="4chan x" namespace="aeosynth" runAt="document-start" uuid="6402e286-5cc7-4430-b33b-fc4d9c656771" version="1.0.3" installurl="https://github.com/phallus/4chan-x/raw/4chan_x.user.js" updateurl="https://github.com/phallus/4chan-x/raw/4chan_x.user.js" icon="data:image/gif;base64,R0lGODlhEAAQAKECAAAAAGbMM////////yH5BAEKAAIALAAAAAAQABAAAAIxlI+pq+D9DAgUoFkPDlbs7lGiI2bSVnKglnJMOL6omczxVZK3dH/41AG6Lh7i6qUoAAA7">
+	<Script basedir="4chan_x" checkRemoteUpdates="1" dependhash="de4ca77d72f0a4de2229e149b7ba2844ff21f12a" description="Adds various features." enabled="true" filename="4chan_x.user.js" installTime="1370068981096" modified="1370068981000" name="4chan x" namespace="aeosynth" runAt="document-start" uuid="6402e286-5cc7-4430-b33b-fc4d9c656771" version="1.0.3" installurl="https://github.com/phallus/4chan-x/raw/4chan_x.user.js" updateurl="https://github.com/phallus/4chan-x/raw/4chan_x.user.js" icon="data:image/gif;base64,R0lGODlhEAAQAKECAAAAAGbMM////////yH5BAEKAAIALAAAAAAQABAAAAIxlI+pq+D9DAgUoFkPDlbs7lGiI2bSVnKglnJMOL6omczxVZK3dH/41AG6Lh7i6qUoAAA7">
 		<Grant>GM_getValue</Grant>
 		<Grant>GM_setValue</Grant>
 		<Grant>GM_deleteValue</Grant>
