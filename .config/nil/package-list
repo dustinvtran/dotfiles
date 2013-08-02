@@ -48,11 +48,8 @@ ntfs-3g
 ntp
 openssh
 packer
-perl-anyevent-i3
-perl-ipc-run
-perl-json-xs
-perl-try-tiny
 pkgtools
+plexmediaserver
 ppp
 pygtk
 qt4
