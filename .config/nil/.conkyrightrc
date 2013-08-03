@@ -1,4 +1,9 @@
 #i need acpi for the battery portion
+#Other Notification/Statuses/Bitmap Icons:
+# * Now Playing, which hovers to mpc, a mpd applet showcasing simple buttons and album art
+# * Volume
+# * Wifi Signal
+# * RAM Usage
 background yes
 out_to_console yes
 out_to_x no
@@ -7,4 +12,4 @@ update_interval_on_battery 10
 
 #^ca(1,/home/nil/.config/nil/conky/sc /home/nil/.config/nil/conky/scripts/dzen_battery.sh)   ^fg(\#636e74)${execi 2 /home/nil/.config/nil/conky/scripts/bar_battery.sh}^fg(\#bea492)   ^ca()\
 TEXT
-^fg(\#707070)${exec tail -n 1 /home/nil/.irssi/logs/fnotify} ${execpi 120 python ~/.config/nil/gmail1.py}${execpi 120 python ~/.config/nil/gmail2.py}
+^fg(\#707070)${exec tail -n 1 /home/nil/.irssi/logs/fnotify} ^i(/home/nil/.config/nil/conky/dzen2/mail.xbm) ${execpi 120 python ~/.config/nil/gmail1.py}${execpi 120 python ~/.config/nil/gmail2.py}^fg(\#f9f9f9).

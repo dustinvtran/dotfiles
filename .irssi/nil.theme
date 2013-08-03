@@ -3,13 +3,14 @@
 # ~/.irssi/nil.theme
 # Name: nil
 # Description: A minimalistic approach which improves upon right-aligned-nick integration
-#   through dynamic uses of the pipe (|) column.
+#   through dynamic usage of the pipe (|) column.
 #
 
+# Note:
 # * First taken from here, which mostly emulates the second link. Huge changes over time however.
 # https://bbs.archlinux.org/viewtopic.php?id=143793
 # http://dotshare.it/dots/279/
-# * Commented out lines with no changes are simply the default settings.
+# * Commented out lines with no changes are simply the default settings, and/or notes.
 # * Symbol stylings to consider for the pipe column:
 # = > < | · * (blank) # + - . _ →
 
@@ -205,13 +206,13 @@ abstracts = {
   sb_act_sep = "";
   # normal text
   # This one changes the color of windows with new server text!
-  # Currently set 'read' channels and 'new server text' channels into the same color.
+  # I currently set 'read' channels and 'new server text' channels into the same color.
   #     I don't really care if people join/quit.
   sb_act_text = "%w$*";
   # public message
   # This one changes the color of windows with new chat text!
   sb_act_msg = "%b$*";
-  # ilight
+  # hilight
   # This one changes the color of windows with new highlighted text!
   #     This is also configurable per hilight via built-in commands.
   sb_act_hilight = "%r$*%n";
@@ -261,7 +262,7 @@ formats = {
     # No longer using /names. Using /anames instead.
     #endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00310$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00304$[-11]0}}$1";
   };
   #}}}
   "fe-common/irc" = {
