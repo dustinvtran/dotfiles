@@ -1,6 +1,6 @@
 screenies
 ##first display
-![screeny1](http://a.pomf.se/4Gw8.png)
+![screeny1](http://a.pomf.se/7Ik4.png)
 
 ##second display
-![screeny2](http://a.pomf.se/2Hz6.png)
+![screeny2](http://a.pomf.se/3Zn6.png)
