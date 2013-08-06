@@ -637,6 +637,9 @@ noremap ] <C-]>
 " Go to last edited location.
 nnoremap ' '.
 
+" Swap two characters.
+nnoremap t xph
+
 " }}}
 " Mappings - Buffers/Windows/Tabs  {{{
 " -----------------------------------------------------------------------------

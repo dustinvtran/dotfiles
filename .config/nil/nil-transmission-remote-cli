@@ -13,6 +13,7 @@
 # * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
 # * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
 # * Added Ctrl-l to open file in the file list.
+# * Cleaned up top bar by commenting out 'self.draw_quick_help()'.
 #
 
 ########################################################################
@@ -2611,7 +2612,7 @@ class Interface:
     def draw_title_bar(self):
         self.screen.insstr(0, 0, ' '.center(self.width), curses.A_REVERSE)
         self.draw_connection_status()
-        self.draw_quick_help()
+        #self.draw_quick_help()
     def draw_connection_status(self):
         status = "Transmission @ %s:%s" % (server.host, server.port)
         if cmd_args.DEBUG:

@@ -158,9 +158,13 @@ URxvt*borderColor: #f9f9f9
 
 ! Fonts:
 ! I would go with lemon if its font size werent so damn tiny.
-URxvt*font: xft:uushi:pixelsize=10
 !! Most bitmap fonts dont have bold, nor do I need it.
+!URxvt*font: xft:lemon:pixelsize=10
+!URxvt*boldFont: xft:lemon:pixelsize=10
+URxvt*font: xft:uushi:pixelsize=10
 URxvt*boldFont: xft:uushi:pixelsize=10
+!URxvt*font: xft:tewi:pixelsize=10
+!URxvt*boldFont: xft:tewi:pixelsize=10
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0
