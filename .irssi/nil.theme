@@ -196,7 +196,7 @@ abstracts = {
 
   sb = "$*";
   sbmode = " %K[%g%g+%n$*%K]";
-  sbaway = "%w(away)%n ";
+  sbaway = "%5 away %N ";
   sbservertag = ":%r$0%n";
   #sbnickmode = "$0";
 
