@@ -20,7 +20,6 @@
 #   Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
 #       which app (in the sense of /usr/share/applications)
 # all keybind/vim stuff lost during ssh session, wonky prompt
-# issue the hideme command only if that scratchpad was the one issuing the alias.
 
 # }}}
 # General Settings. {{{
@@ -47,12 +46,6 @@ WORDCHARS=${WORDCHARS//\/}
 
 # Autocorrection. Note there is a correct_all but it's often too persistent.
 setopt correct
-# Disable autocorrection for these.
-alias cp="nocorrect cp"
-alias ln="nocorrect ln"
-alias mv='nocorrect mv'
-alias mkdir='nocorrect mkdir'
-alias sudo='nocorrect sudo'
 # Autocorrection for git.
 #git config --global help.autocorrect 1
 # When offering typo corrections, do not propose anything which starts with an
@@ -147,17 +140,18 @@ alias lsa='ls -lah --color'
 alias grep='grep --color'
 
 # Prompt Style.
-# One caveat I haven't figured out: when pressing <CR> while still in cmd mode (blue), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
-PS1="%n %{$fg[red]%}%c %{$reset_color%}"
+# One caveat I haven't figured out: when pressing <CR> while still in cmd mode (green), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
+PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
+
 
 zle-keymap-select () {
 if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
     if [ $KEYMAP = vicmd ]; then
-        PS1="%n %{$fg[blue]%}%c %{$reset_color%}"
+        PS1="%{[38;05;8;48;05;2m%} %(!.%S-ROOT-%s.%n) %{[38;05;2;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
         () { return $__prompt_status }
         zle reset-prompt
     else
-        PS1="%n %{$fg[red]%}%c %{$reset_color%}"
+        PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
         () { return $__prompt_status }
         zle reset-prompt
     fi
@@ -168,7 +162,7 @@ zle -N zle-keymap-select
 zle-line-init () {
     zle -K viins
     if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
-        PS1="%n %{$fg[red]%}%c %{$reset_color%}"
+        PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
         () { return $__prompt_status }
         zle reset-prompt
     fi
@@ -406,9 +400,16 @@ bindkey -M vicmd '^[[6~' nop                    # PgDn
 # Oh my alias. {{{
 # -----------------------------------------------------------------------------
 
+# Disable autocorrection for these.
+alias ln="nocorrect ln"
+alias mv='nocorrect mv'
+alias mkdir='nocorrect mkdir'
+alias sudo='nocorrect sudo'
+
 # Default flags.
 alias ping="ping -c 5"                  # Ping 5 packets, not unlimited.
 alias crontab="EDITOR=vim crontab"      # Since crontab doesn't work with gvim/detached editors.
+alias cp="nocorrect cp -Rv"             # Ensure that cp is always recursive and verbose.
 alias df="df -h"                        # Display sizes in human readable format.
 alias du="du -h -c"                     # Display sizes in human readable format, and total.
 alias mount="sudo mount"                # Don't require prepending sudo.
@@ -422,6 +423,7 @@ alias weather="weather 92683"           # Weather me.
 # Custom commands.
 alias audio-toggle="bash ~/.config/nil/audio-toggle"
 alias bd="bg && disown"
+alias fonts="fc-cache -vf"              # Because 'fonts' is faster.
 alias history='fc -l'
 alias so="exec zsh"
 alias xrdbx="xrdb ~/.Xresources"
@@ -435,9 +437,6 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # Pacman/Packer aliases.
-# Use this one if I don't want to write the -. But I use flags in lots of things, so it may
-#   only end up confusing me.
-#p() { sudo pacman -$^@; }
 alias p="sudo pacman"
 alias pa="packer --noedit"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
@@ -454,29 +453,24 @@ alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
 
 # CLI Applications
-alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
+alias alsi="clear && alsi -a -c1=white -c2=unboldred"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias tcli="~/.config/nil/nil-transmission-remote-cli"
 
 # Application Opening
-# Hides away the terminal after application launching. Aliasing it for purtiness.
-hideme() { i3 '[instance="^nil$"] scratchpad show' }
-l() { (nocorrect f -e libreoffice "$@" &) | hideme }
-m() { (nocorrect f -e mplayer2 "$@" &) | hideme }
-alias nitrogen="(nitrogen &) | hideme"
-alias v="hideme | nocorrect f -e gvim -B viminfo"
-alias virtualbox="(virtualbox &) | hideme"
-z() { (nocorrect f -e zathura "$@" &) | hideme }
+l() { nocorrect f -e libreoffice "$@" & }
+m() { nocorrect f -e mplayer2 "$@" & }
+alias nitrogen="nitrogen &"
+alias v="nocorrect f -e gvim -B viminfo"
+alias virtualbox="virtualbox &"
+z() { nocorrect f -e zathura "$@" & }
 
 # le git.
 alias ga="git add -f"
-alias gc="git commit -a -m"
+alias gc="git commit -a -m"         # Don't forget to add quotes.
 alias gp="git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
-
-# My way of clearing the irssi notification for now. There's a better, sed command seen from Google results that adds a newline at EOF only if there isn't one. I can't get it to work, but whatever. I don't need a clean fnotify anyways.
-alias fnotify="echo >> ~/.irssi/logs/fnotify"
 
 # }}}
 # Environment variables. {{{

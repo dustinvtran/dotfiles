@@ -5,10 +5,11 @@
 "
 " Bugs & To-DO ---------------------------------------------------------------- {{{
 
-" lemon/limey/uushi not working
+" uushi
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
 " google search suggestions aren't working. unless i specifically go to 'g'
+" Have '/' searches show the # of results.
 " using digits autogoes to a url page. stahp. let them use google.
 " toggled scrollbar doesn't always work
     " they also don't show up until refreshed page
@@ -59,16 +60,15 @@ highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
 highlight HintActive background: rgba(255, 209, 20, 0.7) !important;
 
 " Font.
-"Neither font-family or font: seems to work with specific fonts, e.g., lemon,limey,uushi.
-highlight Hint -a font: normal 12px Terminus !important;
-highlight CmdLine -a font: normal 12px Terminus !important;
-highlight Link -a font: normal 12px Terminus !important;
-highlight CompTitle -a font: normal 12px Terminus !important;
-highlight CompTitleSep -a font: normal 12px Terminus !important;
-highlight CompItem -a font: normal 12px Terminus !important;
-highlight CompMore -a font: normal 12px Terminus !important;
-highlight CompLess -a font: normal 12px Terminus !important;
-highlight StatusLine -a font: normal 12px Terminus !important;
+highlight Hint -a font: normal 12px tewi !important;
+highlight CmdLine -a font: normal 12px tewi !important;
+highlight Link -a font: normal 12px tewi !important;
+highlight CompTitle -a font: normal 12px tewi !important;
+highlight CompTitleSep -a font: normal 12px tewi !important;
+highlight CompItem -a font: normal 12px tewi !important;
+highlight CompMore -a font: normal 12px tewi !important;
+highlight CompLess -a font: normal 12px tewi !important;
+highlight StatusLine -a font: normal 12px tewi !important;
 
 unmap!
 iunmap!
@@ -305,9 +305,9 @@ map -modes=n -builtin <Leader>p <C-V><C-S-p>
 " huehuehue
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
+map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
 map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
-map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
 map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
@@ -368,33 +368,33 @@ map -modes=n -builtin <Leader>n :tabopen! nyaa gatchaman crowds | nyaa neptun | 
 " Search multiple sites in one. {{{
 javascript <<EOF
     userContext.searchDictionary = function (selection) {
-        commands.execute("tabopen wikt " + selection);
-        commands.execute("tabopen g define " + selection);
+        commands.execute("tabopen! wikt " + selection);
+        commands.execute("tabopen! g define " + selection);
     };
 EOF
 javascript <<EOF
     userContext.searchGiki = function (selection) {
-        commands.execute("tabopen g " + selection);
-        commands.execute("tabopen wiki " + selection);
+        commands.execute("tabopen! g " + selection);
+        commands.execute("tabopen! wiki " + selection);
     };
 EOF
 javascript <<EOF
     userContext.searchArch = function (selection) {
-        commands.execute("tabopen archpkg " + selection);
-        commands.execute("tabopen aur " + selection);
+        commands.execute("tabopen! archpkg " + selection);
+        commands.execute("tabopen! aur " + selection);
     };
 EOF
 javascript <<EOF
     userContext.searchAni = function (selection) {
-        commands.execute("tabopen nyaa " + selection);
-        commands.execute("tabopen animebytes " + selection);
-        commands.execute("tabopen baka " + selection);
+        commands.execute("tabopen! nyaa " + selection);
+        commands.execute("tabopen! animebytes " + selection);
+        commands.execute("tabopen! baka " + selection);
     };
 EOF
 javascript <<EOF
     userContext.searchMal = function (selection) {
-        commands.execute("tabopen wiki " + selection);
-        commands.execute("tabopen mal " + selection);
+        commands.execute("tabopen! wiki " + selection);
+        commands.execute("tabopen! mal " + selection);
     };
 EOF
 " }}}

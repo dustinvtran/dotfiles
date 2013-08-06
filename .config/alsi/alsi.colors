@@ -14,4 +14,5 @@ scalar {
          white   => {normal => "\e[0;37m", bold => "\e[1;37m"},
          reset   => "\e[0m",
          unboldblue => {normal => "\e[0;34m", bold => "\e[0;34m"},
+         unboldred  => {normal => "\e[0;31m", bold => "\e[0;31m"},
 }
