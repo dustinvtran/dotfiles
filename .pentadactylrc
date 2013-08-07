@@ -8,6 +8,7 @@
 " uushi
 " <C-v>/<C-p> aren't working!!
 "   Neither does <C-z>
+" normal <C-j> goes to home page if it's assigned to do nothing else at that issue of command, e.g., if it's unbinded, for example, in 4chan thread pages.
 " google search suggestions aren't working. unless i specifically go to 'g'
 " Have '/' searches show the # of results.
 " using digits autogoes to a url page. stahp. let them use google.
@@ -88,7 +89,7 @@ set showtabline=always
 set titlestring=
 set hlfind
 set passkeys+=reddit.com:JKeqcCaswb<CR>
-set passkeys+=boards.4chan.org:JK<C-j><C-k>eqQcC<CR>
+set passkeys+=boards.4chan.org:JK<C-j><C-k>eqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 
@@ -122,8 +123,6 @@ map -modes=n <C-]> <Nop>
 map -modes=n B <Nop>
 map -modes=n D <Nop>
 map -modes=n R <Nop>
-map -modes=n S <Nop>
-map -modes=n s <Nop>
 map -modes=n <C-i> <Nop>
 map -modes=n <C-u> <Nop>
 map -modes=n <C-y> <Nop>
@@ -133,6 +132,7 @@ map -modes=n <C-p> <Nop>
 map -modes=n gf <Nop>
 map -modes=n gh <Nop>
 map -modes=n -builtin gs gf
+map -modes=n,t,i <C-q> <Nop>
 
 map -modes=c <C-c> <Nop>
 map -modes=c <C-]> <Nop>
@@ -310,6 +310,7 @@ map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
 map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
 map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
+map -modes=n -builtin <Leader>4w :tabopen! http://boards.4chan.org/w/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rt :tabopen! http://www.reddit.com/r/math<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>

@@ -150,6 +150,7 @@ URxvt*borderColor: #f9f9f9
 ! White (a snow white):         #f9f9f9
 ! Black (a faded black):        #707070
 ! Gray (a dusky gray):          #e0e0e0
+! Green:                        #abd8a5
 ! Lighter Gray:                 #ebebeb
 ! Red/Pink (flourescent faded): #FF96A3
 ! Darker Red (faded burgundy):  #a27b7f
@@ -159,12 +160,15 @@ URxvt*borderColor: #f9f9f9
 ! Fonts:
 ! I would go with lemon if its font size werent so damn tiny.
 !! Most bitmap fonts dont have bold, nor do I need it.
-!URxvt*font: xft:lemon:pixelsize=10
-!URxvt*boldFont: xft:lemon:pixelsize=10
-URxvt*font: xft:uushi:pixelsize=10
-URxvt*boldFont: xft:uushi:pixelsize=10
-!URxvt*font: xft:tewi:pixelsize=10
-!URxvt*boldFont: xft:tewi:pixelsize=10
+! Strangely enough, lemon renders weirdly here.
+!URxvt*font: xft:lemon
+!URxvt*boldFont: xft:lemon
+!URxvt*font: xft:limey
+!URxvt*boldFont: xft:limey
+URxvt*font: xft:uushi
+URxvt*boldFont: xft:uushi
+!URxvt*font: xft:tewi
+!URxvt*boldFont: xft:tewi
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0

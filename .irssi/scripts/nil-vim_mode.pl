@@ -4,8 +4,9 @@
 # Description: A haphazard fork of vim_mode.pl, to implement things I can't do with vim_moderc.
 # Changelog:
 # * Mapped ; to :.
-# * Renamed 'Insert' and '%_Command%_' -> '%2 %Knil %1 ~ %n ' and '%4 %Knil %1 ~ %n '.
-#       (Not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
+# * Renamed 'Insert' to '%2 %Knil %1%g⮀%K ~ %N%r⮀%N '.
+# * Renamed '%_Command%_' to '%4 %Knil %1%b⮀%K ~ %N%r⮀%N '.
+#   Note: I'm not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
 # * Commented out <C-w>j/k so that I can use <C-w> without waiting for the timeout (mapping them to <Nop> in vim_moderc didn't work).
 #
 
@@ -2641,11 +2642,11 @@ sub vim_mode_cmd {
 
     my $mode_str = '';
     if ($mode == M_INS) {
-        $mode_str = '%2 %Knil %1 ~ %n ';
+        $mode_str = '%2 %Knil %1%g⮀%K ~ %N%r⮀%N ';
     } elsif ($mode == M_EX) {
         $mode_str = '%_Ex%_';
     } else {
-        $mode_str = '%4 %Knil %1 ~ %n ';
+        $mode_str = '%4 %Knil %1%b⮀%K ~ %N%r⮀%N ';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
             my $partial = '';

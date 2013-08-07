@@ -1,87 +1,84 @@
 // ==UserScript==
-// @name 4chan x
-// @version 1.0.3
-// @namespace aeosynth
-// @description Adds various features.
-// @copyright 2009-2011 James Campos <james.r.campos@gmail.com>
-// @copyright 2012-2013 Nicolas Stepien <stepien.nicolas@gmail.com>
-// @license MIT; http://en.wikipedia.org/wiki/Mit_license
-// @include http://boards.4chan.org/*
-// @include https://boards.4chan.org/*
-// @include http://images.4chan.org/*
-// @include https://images.4chan.org/*
-// @include http://sys.4chan.org/*
-// @include https://sys.4chan.org/*
-// @grant GM_getValue
-// @grant GM_setValue
-// @grant GM_deleteValue
-// @grant GM_openInTab
-// @run-at document-start
-// @updateURL https://github.com/phallus/4chan-x/raw/4chan_x.user.js
-// @downloadURL https://github.com/phallus/4chan-x/raw/4chan_x.user.js
-// @icon data:image/gif;base64,R0lGODlhEAAQAKECAAAAAGbMM////////yH5BAEKAAIALAAAAAAQABAAAAIxlI+pq+D9DAgUoFkPDlbs7lGiI2bSVnKglnJMOL6omczxVZK3dH/41AG6Lh7i6qUoAAA7
+// @name           4chan x
+// @version        1.0.4
+// @namespace      aeosynth
+// @description    Adds various features.
+// @copyright      2009-2011 James Campos <james.r.campos@gmail.com>
+// @copyright      2012-2013 Nicolas Stepien <stepien.nicolas@gmail.com>
+// @license        MIT; http://en.wikipedia.org/wiki/Mit_license
+// @include        http://boards.4chan.org/*
+// @include        https://boards.4chan.org/*
+// @include        http://images.4chan.org/*
+// @include        https://images.4chan.org/*
+// @include        http://sys.4chan.org/*
+// @include        https://sys.4chan.org/*
+// @grant          GM_getValue
+// @grant          GM_setValue
+// @grant          GM_deleteValue
+// @grant          GM_openInTab
+// @run-at         document-start
+// @updateURL      https://github.com/phallus/4chan-x/raw/stable/4chan_x.user.js
+// @downloadURL    https://github.cphalluss/4chan-x/raw/stable/4chan_x.user.js
+// @icon           data:image/gif;base64,R0lGODlhEAAQAKECAAAAAGbMM////////yH5BAEKAAIALAAAAAAQABAAAAIxlI+pq+D9DAgUoFkPDlbs7lGiI2bSVnKglnJMOL6omczxVZK3dH/41AG6Lh7i6qUoAAA7
 // ==/UserScript==
 
 /* LICENSE
-*
-* Copyright (c) 2009-2011 James Campos <james.r.campos@gmail.com>
-* Copyright (c) 2012-2013 Nicolas Stepien <stepien.nicolas@gmail.com>
-* http://phallus.github.io/4chan-x/
-* 4chan X 1.0.3
-*
-* Permission is hereby granted, free of charge, to any person
-* obtaining a copy of this software and associated documentation
-* files (the "Software"), to deal in the Software without
-* restriction, including without limitation the rights to use,
-* copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the
-* Software is furnished to do so, subject to the following
-* conditions:
-*
-* The above copyright notice and this permission notice shall be
-* included in all copies or substantial portions of the Software.
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-* OTHER DEALINGS IN THE SOFTWARE.
-*
-* HACKING
-*
-* 4chan X is written in CoffeeScript[1], and developed on GitHub[2].
-*
-* [1]: http://coffeescript.org/
-* [2]: https://github.com/MayhemYDG/4chan-x
-*
-* CONTRIBUTORS
-*
-* noface - unique ID fixes
-* desuwa - Firefox filename upload fix
-* seaweed - bottom padding for image hover
-* e000 - cooldown sanity check
-* ahodesuka - scroll back when unexpanding images, file info formatting
-* Shou- - pentadactyl fixes
-* ferongr - new favicons
-* xat- - new favicons
-* Zixaphir - fix qr textarea - captcha-image gap
-* Ongpot - sfw favicon
-* thisisanon - nsfw + 404 favicons
-* Anonymous - empty favicon
-* Seiba - chrome quick reply focusing
-* herpaderpderp - recaptcha fixes
-* WakiMiko - recaptcha tab order http://userscripts.org/scripts/show/82657
-* btmcsweeney - allow users to specify text for sauce links
-* Mayhem - botnet
-* that4chanwolf - for letting me pet you ;_;
-* phallus - shit
-* 
-* All the people who've taken the time to write bug reports.
-*
-* Thank you.
-*/
+ *
+ * Copyright (c) 2009-2011 James Campos <james.r.campos@gmail.com>
+ * Copyright (c) 2012-2013 Nicolas Stepien <stepien.nicolas@gmail.com>
+ * http://phallus.github.io/4chan-x/
+ * 4chan X 1.0.4
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * HACKING
+ *
+ * 4chan X is written in CoffeeScript[1], and developed on GitHub[2].
+ *
+ * [1]: http://coffeescript.org/
+ * [2]: https://github.com/phallus/4chan-x
+ *
+ * CONTRIBUTORS
+ *
+ * noface - unique ID fixes
+ * desuwa - Firefox filename upload fix
+ * seaweed - bottom padding for image hover
+ * e000 - cooldown sanity check
+ * ahodesuka - scroll back when unexpanding images, file info formatting
+ * Shou- - pentadactyl fixes
+ * ferongr - new favicons
+ * xat- - new favicons
+ * Zixaphir - fix qr textarea - captcha-image gap
+ * Ongpot - sfw favicon
+ * thisisanon - nsfw + 404 favicons
+ * Anonymous - empty favicon
+ * Seiba - chrome quick reply focusing
+ * herpaderpderp - recaptcha fixes
+ * WakiMiko - recaptcha tab order http://userscripts.org/scripts/show/82657
+ * btmcsweeney - allow users to specify text for sauce links
+ *
+ * All the people who've taken the time to write bug reports.
+ *
+ * Thank you.
+ */
 
 (function() {
   var $, $$, Anonymize, ArchiveLink, AutoGif, Build, CatalogLinks, Conf, Config, DeleteLink, DownloadLink, ExpandComment, ExpandThread, Favicon, FileInfo, Filter, Get, ImageExpand, ImageHover, Keybinds, Main, Menu, Nav, Options, Prefetch, QR, QuoteBacklink, QuoteCT, QuoteInline, QuoteOP, QuotePreview, Quotify, Redirect, RelativeDates, ReplyHiding, ReportLink, RevealSpoilers, Sauce, StrikethroughQuotes, ThreadHiding, ThreadStats, Time, TitlePost, UI, Unread, Updater, Watcher, d, g, _base;
@@ -100,7 +97,7 @@
         'Thread Expansion': [true, 'View all replies'],
         'Index Navigation': [true, 'Navigate to previous / next thread'],
         'Reply Navigation': [false, 'Navigate to top / bottom of thread'],
-        'Check for Updates': [false, 'Check for updated versions of 4chan X']
+        'Check for Updates': [true, 'Check for updated versions of 4chan X']
       },
       Filtering: {
         'Anonymize': [false, 'Make everybody anonymous'],
@@ -117,7 +114,7 @@
         'Sauce': [true, 'Add sauce to images'],
         'Reveal Spoilers': [false, 'Replace spoiler thumbnails by the original thumbnail'],
         'Expand From Current': [false, 'Expand images from current position to thread end'],
-	'Prefetch': [true, 'Prefetch images']
+		'Prefetch': [true, 'Prefetch images']
       },
       Menu: {
         'Menu': [true, 'Add a drop-down menu in posts'],
@@ -211,7 +208,7 @@
         'Verbose': [true, 'Show countdown timer, new post count'],
         'Auto Update': [true, 'Automatically fetch new posts']
       },
-      'Interval': 30
+      'Interval': 09
     }
   };
 
@@ -285,10 +282,10 @@
   };
 
   /*
-loosely follows the jquery api:
-http://api.jquery.com/
-not chainable
-*/
+  loosely follows the jquery api:
+  http://api.jquery.com/
+  not chainable
+  */
 
 
   $ = function(selector, root) {
@@ -2295,13 +2292,13 @@ not chainable
           this.onready = function() {
             return _this.ready();
           };
-          return $.on($.id('recaptcha_widget_div'), 'DOMNodeInserted', this.onready);
+          return $.on($.id('captchaContainer'), 'DOMNodeInserted', this.onready);
         }
       },
       ready: function() {
         var _this = this;
         if (this.challenge = $.id('recaptcha_challenge_field_holder')) {
-          $.off($.id('recaptcha_widget_div'), 'DOMNodeInserted', this.onready);
+          $.off($.id('captchaContainer'), 'DOMNodeInserted', this.onready);
           delete this.onready;
         } else {
           return;
@@ -2391,16 +2388,16 @@ not chainable
       var fileInput, id, mimeTypes, name, spoiler, ta, thread, threads, _i, _j, _len, _len1, _ref, _ref1;
       QR.el = UI.dialog('qr', 'top:0;right:0;', '\
 <div class=move>\
-Quick Reply <input type=checkbox id=autohide title=Auto-hide>\
-<span> <a class=close title=Close>×</a></span>\
+  Quick Reply <input type=checkbox id=autohide title=Auto-hide>\
+  <span> <a class=close title=Close>×</a></span>\
 </div>\
 <form>\
-<div><input id=dump type=button title="Dump list" value=+ class=field><input name=name title=Name placeholder=Name class=field size=1><input name=email title=E-mail placeholder=E-mail class=field size=1><input name=sub title=Subject placeholder=Subject class=field size=1></div>\
-<div id=replies><div><a id=addReply href=javascript:; title="Add a reply">+</a></div></div>\
-<div class=textarea><textarea name=com title=Comment placeholder=Comment class=field></textarea><span id=charCount></span></div>\
-<div><input type=file title="Shift+Click to remove the selected file." multiple size=16><input type=submit></div>\
-<label id=spoilerLabel><input type=checkbox id=spoiler> Spoiler Image</label>\
-<div class=warning></div>\
+  <div><input id=dump type=button title="Dump list" value=+ class=field><input name=name title=Name placeholder=Name class=field size=1><input name=email title=E-mail placeholder=E-mail class=field size=1><input name=sub title=Subject placeholder=Subject class=field size=1></div>\
+  <div id=replies><div><a id=addReply href=javascript:; title="Add a reply">+</a></div></div>\
+  <div class=textarea><textarea name=com title=Comment placeholder=Comment class=field></textarea><span id=charCount></span></div>\
+  <div><input type=file title="Shift+Click to remove the selected file." multiple size=16><input type=submit></div>\
+  <label id=spoilerLabel><input type=checkbox id=spoiler> Spoiler Image</label>\
+  <div class=warning></div>\
 </form>');
       if (Conf['Remember QR size'] && $.engine === 'gecko') {
         $.on(ta = $('textarea', QR.el), 'mouseup', function() {
@@ -2732,109 +2729,109 @@ Quick Reply <input type=checkbox id=autohide title=Auto-hide>\
         id: 'options',
         className: 'reply dialog',
         innerHTML: '<div id=optionsbar>\
-<div id=credits>\
-<a target=_blank href=http://phallus.github.io/4chan-x/>4chan X</a>\
-| <a target=_blank href=https://raw.github.com/phallus/4chan-x/master/changelog>' + Main.version + '</a>\
-| <a target=_blank href=http://phallus.github.io/4chan-x/#bug-report>Issues</a>\
-</div>\
-<div>\
-<label for=main_tab>Main</label>\
-| <label for=filter_tab>Filter</label>\
-| <label for=sauces_tab>Sauce</label>\
-| <label for=rice_tab>Rice</label>\
-| <label for=keybinds_tab>Keybinds</label>\
-</div>\
+  <div id=credits>\
+    <a target=_blank href=http://mayhemydg.github.io/4chan-x/>4chan X</a>\
+    | <a target=_blank href=https://raw.github.com/mayhemydg/4chan-x/master/changelog>' + Main.version + '</a>\
+    | <a target=_blank href=http://mayhemydg.github.io/4chan-x/#bug-report>Issues</a>\
+  </div>\
+  <div>\
+    <label for=main_tab>Main</label>\
+    | <label for=filter_tab>Filter</label>\
+    | <label for=sauces_tab>Sauce</label>\
+    | <label for=rice_tab>Rice</label>\
+    | <label for=keybinds_tab>Keybinds</label>\
+  </div>\
 </div>\
 <hr>\
 <div id=content>\
-<input type=radio name=tab hidden id=main_tab checked>\
-<div>\
-<div class=imp-exp>\
-<button class=export>Export settings</button>\
-<button class=import>Import settings</button>\
-<input type=file style="visibility:hidden">\
-</div>\
-<p class=imp-exp-result></p>\
-</div>\
-<input type=radio name=tab hidden id=sauces_tab>\
-<div>\
-<div class=warning><code>Sauce</code> is disabled.</div>\
-Lines starting with a <code>#</code> will be ignored.<br>\
-You can specify a certain display text by appending <code>;text:[text]</code> to the url.\
-<ul>These parameters will be replaced by their corresponding values:\
-<li>$1: Thumbnail url.</li>\
-<li>$2: Full image url.</li>\
-<li>$3: MD5 hash.</li>\
-<li>$4: Current board.</li>\
-</ul>\
-<textarea name=sauces id=sauces class=field></textarea>\
-</div>\
-<input type=radio name=tab hidden id=filter_tab>\
-<div>\
-<div class=warning><code>Filter</code> is disabled.</div>\
-<select name=filter>\
-<option value=guide>Guide</option>\
-<option value=name>Name</option>\
-<option value=uniqueid>Unique ID</option>\
-<option value=tripcode>Tripcode</option>\
-<option value=mod>Admin/Mod</option>\
-<option value=email>E-mail</option>\
-<option value=subject>Subject</option>\
-<option value=comment>Comment</option>\
-<option value=country>Country</option>\
-<option value=filename>Filename</option>\
-<option value=dimensions>Image dimensions</option>\
-<option value=filesize>Filesize</option>\
-<option value=md5>Image MD5 (uses exact string matching, not regular expressions)</option>\
-</select>\
-</div>\
-<input type=radio name=tab hidden id=rice_tab>\
-<div>\
-<div class=warning><code>Quote Backlinks</code> are disabled.</div>\
-<ul>\
-Backlink formatting\
-<li><input name=backlink class=field> : <span id=backlinkPreview></span></li>\
-</ul>\
-<div class=warning><code>Time Formatting</code> is disabled.</div>\
-<ul>\
-Time formatting\
-<li><input name=time class=field> : <span id=timePreview></span></li>\
-<li>Supported <a href=http://en.wikipedia.org/wiki/Date_%28Unix%29#Formatting>format specifiers</a>:</li>\
-<li>Day: %a, %A, %d, %e</li>\
-<li>Month: %m, %b, %B</li>\
-<li>Year: %y</li>\
-<li>Hour: %k, %H, %l (lowercase L), %I (uppercase i), %p, %P</li>\
-<li>Minutes: %M</li>\
-<li>Seconds: %S</li>\
-</ul>\
-<div class=warning><code>File Info Formatting</code> is disabled.</div>\
-<ul>\
-File Info Formatting\
-<li><input name=fileInfo class=field> : <span id=fileInfoPreview class=fileText></span></li>\
-<li>Link: %l (lowercase L, truncated), %L (untruncated), %t (Unix timestamp)</li>\
-<li>Original file name: %n (truncated), %N (untruncated), %T (Unix timestamp)</li>\
-<li>Spoiler indicator: %p</li>\
-<li>Size: %B (Bytes), %K (KB), %M (MB), %s (4chan default)</li>\
-<li>Resolution: %r (Displays PDF on /po/, for PDFs)</li>\
-</ul>\
-<div class=warning><code>Unread Favicon</code> is disabled.</div>\
-Unread favicons<br>\
-<select name=favicon>\
-<option value=ferongr>ferongr</option>\
-<option value=xat->xat-</option>\
-<option value=Mayhem>Mayhem</option>\
-<option value=Original>Original</option>\
-</select>\
-<span></span>\
-</div>\
-<input type=radio name=tab hidden id=keybinds_tab>\
-<div>\
-<div class=warning><code>Keybinds</code> are disabled.</div>\
-<div>Allowed keys: Ctrl, Alt, Meta, a-z, A-Z, 0-9, Up, Down, Right, Left.</div>\
-<table><tbody>\
-<tr><th>Actions</th><th>Keybinds</th></tr>\
-</tbody></table>\
-</div>\
+  <input type=radio name=tab hidden id=main_tab checked>\
+  <div>\
+    <div class=imp-exp>\
+      <button class=export>Export settings</button>\
+      <button class=import>Import settings</button>\
+      <input type=file style="visibility:hidden">\
+    </div>\
+    <p class=imp-exp-result></p>\
+  </div>\
+  <input type=radio name=tab hidden id=sauces_tab>\
+  <div>\
+    <div class=warning><code>Sauce</code> is disabled.</div>\
+    Lines starting with a <code>#</code> will be ignored.<br>\
+    You can specify a certain display text by appending <code>;text:[text]</code> to the url.\
+    <ul>These parameters will be replaced by their corresponding values:\
+      <li>$1: Thumbnail url.</li>\
+      <li>$2: Full image url.</li>\
+      <li>$3: MD5 hash.</li>\
+      <li>$4: Current board.</li>\
+    </ul>\
+    <textarea name=sauces id=sauces class=field></textarea>\
+  </div>\
+  <input type=radio name=tab hidden id=filter_tab>\
+  <div>\
+    <div class=warning><code>Filter</code> is disabled.</div>\
+    <select name=filter>\
+      <option value=guide>Guide</option>\
+      <option value=name>Name</option>\
+      <option value=uniqueid>Unique ID</option>\
+      <option value=tripcode>Tripcode</option>\
+      <option value=mod>Admin/Mod</option>\
+      <option value=email>E-mail</option>\
+      <option value=subject>Subject</option>\
+      <option value=comment>Comment</option>\
+      <option value=country>Country</option>\
+      <option value=filename>Filename</option>\
+      <option value=dimensions>Image dimensions</option>\
+      <option value=filesize>Filesize</option>\
+      <option value=md5>Image MD5 (uses exact string matching, not regular expressions)</option>\
+    </select>\
+  </div>\
+  <input type=radio name=tab hidden id=rice_tab>\
+  <div>\
+    <div class=warning><code>Quote Backlinks</code> are disabled.</div>\
+    <ul>\
+      Backlink formatting\
+      <li><input name=backlink class=field> : <span id=backlinkPreview></span></li>\
+    </ul>\
+    <div class=warning><code>Time Formatting</code> is disabled.</div>\
+    <ul>\
+      Time formatting\
+      <li><input name=time class=field> : <span id=timePreview></span></li>\
+      <li>Supported <a href=http://en.wikipedia.org/wiki/Date_%28Unix%29#Formatting>format specifiers</a>:</li>\
+      <li>Day: %a, %A, %d, %e</li>\
+      <li>Month: %m, %b, %B</li>\
+      <li>Year: %y</li>\
+      <li>Hour: %k, %H, %l (lowercase L), %I (uppercase i), %p, %P</li>\
+      <li>Minutes: %M</li>\
+      <li>Seconds: %S</li>\
+    </ul>\
+    <div class=warning><code>File Info Formatting</code> is disabled.</div>\
+    <ul>\
+      File Info Formatting\
+      <li><input name=fileInfo class=field> : <span id=fileInfoPreview class=fileText></span></li>\
+      <li>Link: %l (lowercase L, truncated), %L (untruncated), %t (Unix timestamp)</li>\
+      <li>Original file name: %n (truncated), %N (untruncated), %T (Unix timestamp)</li>\
+      <li>Spoiler indicator: %p</li>\
+      <li>Size: %B (Bytes), %K (KB), %M (MB), %s (4chan default)</li>\
+      <li>Resolution: %r (Displays PDF on /po/, for PDFs)</li>\
+    </ul>\
+    <div class=warning><code>Unread Favicon</code> is disabled.</div>\
+    Unread favicons<br>\
+    <select name=favicon>\
+      <option value=ferongr>ferongr</option>\
+      <option value=xat->xat-</option>\
+      <option value=Mayhem>Mayhem</option>\
+      <option value=Original>Original</option>\
+    </select>\
+    <span></span>\
+  </div>\
+  <input type=radio name=tab hidden id=keybinds_tab>\
+  <div>\
+    <div class=warning><code>Keybinds</code> are disabled.</div>\
+    <div>Allowed keys: Ctrl, Alt, Meta, a-z, A-Z, 0-9, Up, Down, Right, Left.</div>\
+    <table><tbody>\
+      <tr><th>Actions</th><th>Keybinds</th></tr>\
+    </tbody></table>\
+  </div>\
 </div>'
       });
       $.on($('#main_tab + div .export', dialog), 'click', Options["export"]);
@@ -2964,30 +2961,30 @@ Unread favicons<br>\
       }
       return $.after(this, $.el('article', {
         innerHTML: '<p>Use <a href=https://developer.mozilla.org/en/JavaScript/Guide/Regular_Expressions>regular expressions</a>, one per line.<br>\
-Lines starting with a <code>#</code> will be ignored.<br>\
-For example, <code>/weeaboo/i</code> will filter posts containing the string `<code>weeaboo</code>`, case-insensitive.</p>\
-<ul>You can use these settings with each regular expression, separate them with semicolons:\
-<li>\
-Per boards, separate them with commas. It is global if not specified.<br>\
-For example: <code>boards:a,jp;</code>.\
-</li>\
-<li>\
-Filter OPs only along with their threads (`only`), replies only (`no`, this is default), or both (`yes`).<br>\
-For example: <code>op:only;</code>, <code>op:no;</code> or <code>op:yes;</code>.\
-</li>\
-<li>\
-Overrule the `Show Stubs` setting if specified: create a stub (`yes`) or not (`no`).<br>\
-For example: <code>stub:yes;</code> or <code>stub:no;</code>.\
-</li>\
-<li>\
-Highlight instead of hiding. You can specify a class name to use with a userstyle.<br>\
-For example: <code>highlight;</code> or <code>highlight:wallpaper;</code>.\
-</li>\
-<li>\
-Highlighted OPs will have their threads put on top of board pages by default.<br>\
-For example: <code>top:yes;</code> or <code>top:no;</code>.\
-</li>\
-</ul>'
+  Lines starting with a <code>#</code> will be ignored.<br>\
+  For example, <code>/weeaboo/i</code> will filter posts containing the string `<code>weeaboo</code>`, case-insensitive.</p>\
+  <ul>You can use these settings with each regular expression, separate them with semicolons:\
+    <li>\
+      Per boards, separate them with commas. It is global if not specified.<br>\
+      For example: <code>boards:a,jp;</code>.\
+    </li>\
+    <li>\
+      Filter OPs only along with their threads (`only`), replies only (`no`, this is default), or both (`yes`).<br>\
+      For example: <code>op:only;</code>, <code>op:no;</code> or <code>op:yes;</code>.\
+    </li>\
+    <li>\
+      Overrule the `Show Stubs` setting if specified: create a stub (`yes`) or not (`no`).<br>\
+      For example: <code>stub:yes;</code> or <code>stub:no;</code>.\
+    </li>\
+    <li>\
+      Highlight instead of hiding. You can specify a class name to use with a userstyle.<br>\
+      For example: <code>highlight;</code> or <code>highlight:wallpaper;</code>.\
+    </li>\
+    <li>\
+      Highlighted OPs will have their threads put on top of board pages by default.<br>\
+      For example: <code>top:yes;</code> or <code>top:no;</code>.\
+    </li>\
+  </ul>'
       }));
     },
     time: function() {
@@ -3195,12 +3192,6 @@ Updater = {
         }
         Updater.retryCoef = 10;
         Updater.timer.textContent = "-" + Conf['Interval'];
-        /*
-Status Code 304: Not modified
-By sending the `If-Modified-Since` header we get a proper status code, and no response.
-This saves bandwidth for both the user and the servers, avoid unnecessary computation,
-and won't load images and scripts when parsing the response.
-*/
 
         if (this.status === 304) {
           if (Conf['Verbose']) {
@@ -4011,9 +4002,9 @@ and won't load images and scripts when parsing the response.
     },
     post: function(o, isArchived) {
       /*
-This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
-@license: https://github.com/4chan/4chan-JS/blob/master/LICENSE
-*/
+      This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
+      @license: https://github.com/4chan/4chan-JS/blob/master/LICENSE
+      */
 
       var a, board, capcode, capcodeClass, capcodeStart, closed, comment, container, date, dateUTC, email, emailEnd, emailStart, ext, file, fileDims, fileHTML, fileInfo, fileSize, fileThumb, filename, flag, flagCode, flagName, href, imgSrc, isClosed, isOP, isSticky, name, postID, quote, shortFilename, spoilerRange, staticPath, sticky, subject, threadID, tripcode, uniqueID, userID, _i, _len, _ref;
       postID = o.postID, threadID = o.threadID, board = o.board, name = o.name, capcode = o.capcode, tripcode = o.tripcode, uniqueID = o.uniqueID, email = o.email, subject = o.subject, flagCode = o.flagCode, flagName = o.flagName, date = o.date, dateUTC = o.dateUTC, isSticky = o.isSticky, isClosed = o.isClosed, comment = o.comment, file = o.file;
@@ -4894,6 +4885,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'm':
         case 'q':
         case 'tg':
+        case 'vg':
         case 'vp':
         case 'vr':
         case 'wsg':
@@ -4904,20 +4896,31 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
           return "//archive.thedarkcave.org/" + board + "/full_image/" + filename;
         case 'hr':
         case 'tv':
+        case 'x':
           return "http://archive.4plebs.org/" + board + "/full_image/" + filename;
         case 'c':
         case 'w':
         case 'wg':
           return "//archive.nyafuu.org/" + board + "/full_image/" + filename;
-        case 'vg':
-          return "http://archive.nihil-ad-rem.net/" + board + "/full_image/" + filename;
         case 'd':
+        case 'h':
+        case 'v':
           return "//loveisover.me/" + board + "/full_image/" + filename;
-        case 'ck':
-        case 'fa':
-        case 'lit':
+        case 'adv':
+        case 'asp':
+        case 'cm':
+        case 'e':
+        case 'i':
+        case 'lgbt':
+        case 'n':
+        case 'o':
+        case 'p':
+        case 's':
         case 's4s':
-          return "//fuuka.warosu.org/" + board + "/full_image/" + filename;
+        case 't':
+        case 'trv':
+        case 'y':
+          return "//archive.foolzashit.com/" + board + "/full_image/" + filename;
         case 'cgl':
         case 'g':
         case 'mu':
@@ -4925,8 +4928,13 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'an':
         case 'k':
         case 'toy':
-        case 'x':
           return "http://archive.heinessen.com/" + board + "/full_image/" + filename;
+        case '3':
+        case 'ck':
+        case 'fa':
+        case 'ic':
+        case 'lit':
+          return "//fuuka.warosu.org/" + board + "/full_image/" + filename;
       }
     },
     post: function(board, postID) {
@@ -4940,6 +4948,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'sp':
         case 'tg':
         case 'tv':
+        case 'vg':
         case 'vp':
         case 'vr':
         case 'wsg':
@@ -4957,11 +4966,26 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'w':
         case 'wg':
           return "//archive.nyafuu.org/_/api/chan/post/?board=" + board + "&num=" + postID;
-        case 'v':
-        case 'vg':
-          return "http://archive.nihil-ad-rem.net/_/api/chan/post/?board=" + board + "&num=" + postID;
         case 'd':
+        case 'h':
+        case 'v':
           return "//loveisover.me/_/api/chan/post/?board=" + board + "&num=" + postID;
+        case 'adv':
+        case 'asp':
+        case 'cm':
+        case 'e':
+        case 'i':
+        case 'lgbt':
+        case 'n':
+        case 'o':
+        case 'p':
+        case 'pol':
+        case 's':
+        case 's4s':
+        case 't':
+        case 'trv':
+        case 'y':
+          return "//archive.foolzashit.com/_/api/chan/post/?board=" + board + "&num=" + postID;
       }
     },
     to: function(data) {
@@ -4980,6 +5004,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'sp':
         case 'tg':
         case 'tv':
+        case 'vg':
         case 'vp':
         case 'vr':
         case 'wsg':
@@ -4994,6 +5019,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
           url = Redirect.path('//archive.thedarkcave.org', 'foolfuuka', data);
           break;
         case 'hr':
+        case 'x':
           url = Redirect.path('http://archive.4plebs.org', 'foolfuuka', data);
           break;
         case 'c':
@@ -5001,18 +5027,27 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'wg':
           url = Redirect.path('//archive.nyafuu.org', 'foolfuuka', data);
           break;
-        case 'v':
-        case 'vg':
-          url = Redirect.path('http://archive.nihil-ad-rem.net', 'foolfuuka', data);
-          break;
         case 'd':
+        case 'h':
+        case 'v':
           url = Redirect.path('//loveisover.me', 'foolfuuka', data);
           break;
-        case 'ck':
-        case 'fa':
-        case 'lit':
+        case 'adv':
+        case 'asp':
+        case 'cm':
+        case 'e':
+        case 'i':
+        case 'lgbt':
+        case 'n':
+        case 'o':
+        case 'p':
+        case 'pol':
+        case 's':
         case 's4s':
-          url = Redirect.path('//fuuka.warosu.org', 'fuuka', data);
+        case 't':
+        case 'trv':
+        case 'y':
+          url = Redirect.path('//archive.foolzashit.com', 'foolfuuka', data);
           break;
         case 'diy':
         case 'g':
@@ -5029,8 +5064,14 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         case 'mlp':
         case 'r9k':
         case 'toy':
-        case 'x':
           url = Redirect.path('http://archive.heinessen.com', 'fuuka', data);
+          break;
+        case '3':
+        case 'ck':
+        case 'fa':
+        case 'ic':
+        case 'lit':
+          url = Redirect.path('//fuuka.warosu.org', 'fuuka', data);
           break;
         default:
           if (threadID) {
@@ -5146,7 +5187,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
     }
   };
 
-  Prefetch = {
+Prefetch = {
     init: function() {
       if (g.BOARD === 'f') {
         return;
@@ -5400,67 +5441,6 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
     }
   };
 
-  BanChecker = {
-    init: function() {
-      var reason;
-
-      this.now = Date.now();
-      if (!Conf['Check for Bans constantly'] && (reason = $.get('isBanned'))) {
-        return BanChecker.prepend(reason);
-      } else if (Conf['Check for Bans constantly'] || $.get('lastBanCheck', 0) < this.now - 6 * $.HOUR) {
-        return BanChecker.load();
-      }
-    },
-    load: function() {
-      this.url = 'https://www.4chan.org/banned';
-      return $.ajax(this.url, {
-        onloadend: function() {
-          var doc, msg, reason;
-
-          if (this.status === 200 || 304) {
-            if (!Conf['Check for Bans constantly']) {
-              $.set('lastBanCheck', BanChecker.now);
-            }
-            doc = d.implementation.createHTMLDocument('');
-            doc.documentElement.innerHTML = this.response;
-            if (/no entry in our database/i.test((msg = $('.boxcontent', doc).textContent.trim()))) {
-              if ($.get('isBanned', false)) {
-                $["delete"]('isBanned');
-                $.rm(BanChecker.el);
-                delete BanChecker.el;
-              }
-              return;
-            }
-            $.set('isBanned', reason = /This ban will not expire/i.test(msg) ? 'You are permabanned.' : 'You are banned.');
-            return BanChecker.prepend(reason);
-          }
-        }
-      });
-    },
-    prepend: function(reason) {
-      var el;
-
-      if (!BanChecker.el) {
-        Banchecker.el = el = $.el('h2', {
-          id: 'banmessage',
-          "class": 'warning',
-          innerHTML: " <span>" + reason + "</span> <a href=" + BanChecker.url + " title='Click to find out why.' target=_blank>Click to find out why.</a>",
-          title: 'Click to recheck.'
-        }, $.on(el.lastChild, 'click', function() {
-          if (!Conf['Check for Bans constantly']) {
-            $["delete"]('lastBanCheck');
-          }
-          $["delete"]('isBanned');
-          this.parentNode.style.opacity = '.5';
-          return BanChecker.load();
-        }));
-        return $.before($.id('delform'), el);
-      } else {
-        return Banchecker.el.firstChild.textContent = reason;
-      }
-    }
-  };
-
   CatalogLinks = {
     init: function() {
       var clone, el, nav, _i, _len, _ref;
@@ -5508,7 +5488,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
 
   Main = {
     init: function() {
-      var key, path, pathname, settings, temp, val;
+      var asap, key, path, pathname, settings, temp, val;
       Main.flatten(null, Config);
       path = location.pathname;
       pathname = path.slice(1).split('/');
@@ -5528,10 +5508,13 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
       switch (location.hostname) {
         case 'sys.4chan.org':
           if (/report/.test(location.search)) {
-            $.ready(function() {
+            asap = function() {
               var field, form;
+              if (!(field = $.id('recaptcha_response_field'))) {
+                setTimeout(asap, 200);
+                return;
+              }
               form = $('form');
-              field = $.id('recaptcha_response_field');
               $.on(field, 'keydown', function(e) {
                 if (e.keyCode === 8 && !e.target.value) {
                   return window.location = 'javascript:Recaptcha.reload()';
@@ -5546,7 +5529,8 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
                 }
                 return form.submit();
               });
-            });
+            };
+            asap();
           }
           return;
         case 'images.4chan.org':
@@ -5751,7 +5735,7 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
         });
       }
       if (g.REPLY) {
-	if (Conf['Prefetch']) {
+		if (Conf['Prefetch']) {
           Prefetch.init();
         }
         if (Conf['Thread Updater']) {
@@ -5918,30 +5902,30 @@ This function contains code from 4chan-JS (https://github.com/4chan/4chan-JS).
       return $.globalEval(("(" + code + ")()").replace('_id_', bq.id));
     },
     namespace: '4chan_x.',
-    version: '1.0.3',
+    version: '1.0.4',
     callbacks: [],
     css: '\
 /* dialog styling */\
 .dialog.reply {\
-display: block;\
-border: 1px solid rgba(0,0,0,.25);\
-padding: 0;\
+  display: block;\
+  border: 1px solid rgba(0,0,0,.25);\
+  padding: 0;\
 }\
 .move {\
-cursor: move;\
+  cursor: move;\
 }\
 label, .favicon {\
-cursor: pointer;\
+  cursor: pointer;\
 }\
 a[href="javascript:;"] {\
-text-decoration: none;\
+  text-decoration: none;\
 }\
 .warning {\
-color: red;\
+  color: red;\
 }\
 \
 .hide_thread_button:not(.hidden_thread) {\
-float: left;\
+  float: left;\
 }\
 \
 .thread > .hidden_thread ~ *,\
@@ -5950,472 +5934,472 @@ float: left;\
 #updater:not(:hover) > :not(.move),\
 .autohide:not(:hover) > form,\
 #qp input, .forwarded {\
-display: none !important;\
+  display: none !important;\
 }\
 \
 .menu_button {\
-display: inline-block;\
+  display: inline-block;\
 }\
 .menu_button > span {\
-border-top: .5em solid;\
-border-right: .3em solid transparent;\
-border-left: .3em solid transparent;\
-display: inline-block;\
-margin: 2px;\
-vertical-align: middle;\
+  border-top:   .5em solid;\
+  border-right: .3em solid transparent;\
+  border-left:  .3em solid transparent;\
+  display: inline-block;\
+  margin: 2px;\
+  vertical-align: middle;\
 }\
 #menu {\
-position: absolute;\
-outline: none;\
+  position: absolute;\
+  outline: none;\
 }\
 .entry {\
-border-bottom: 1px solid rgba(0, 0, 0, .25);\
-cursor: pointer;\
-display: block;\
-outline: none;\
-padding: 3px 7px;\
-position: relative;\
-text-decoration: none;\
-white-space: nowrap;\
+  border-bottom: 1px solid rgba(0, 0, 0, .25);\
+  cursor: pointer;\
+  display: block;\
+  outline: none;\
+  padding: 3px 7px;\
+  position: relative;\
+  text-decoration: none;\
+  white-space: nowrap;\
 }\
 .entry:last-child {\
-border: none;\
+  border: none;\
 }\
 .focused.entry {\
-background: rgba(255, 255, 255, .33);\
+  background: rgba(255, 255, 255, .33);\
 }\
 .entry.hasSubMenu {\
-padding-right: 1.5em;\
+  padding-right: 1.5em;\
 }\
 .hasSubMenu::after {\
-content: "";\
-border-left: .5em solid;\
-border-top: .3em solid transparent;\
-border-bottom: .3em solid transparent;\
-display: inline-block;\
-margin: .3em;\
-position: absolute;\
-right: 3px;\
+  content: "";\
+  border-left:   .5em solid;\
+  border-top:    .3em solid transparent;\
+  border-bottom: .3em solid transparent;\
+  display: inline-block;\
+  margin: .3em;\
+  position: absolute;\
+  right: 3px;\
 }\
 .hasSubMenu:not(.focused) > .subMenu {\
-display: none;\
+  display: none;\
 }\
 .subMenu {\
-position: absolute;\
-left: 100%;\
-top: 0;\
-margin-top: -1px;\
+  position: absolute;\
+  left: 100%;\
+  top: 0;\
+  margin-top: -1px;\
 }\
 \
 h1 {\
-text-align: center;\
+  text-align: center;\
 }\
 #qr > .move {\
-min-width: 300px;\
-overflow: hidden;\
-box-sizing: border-box;\
--moz-box-sizing: border-box;\
-padding: 0 2px;\
+  min-width: 300px;\
+  overflow: hidden;\
+  box-sizing: border-box;\
+  -moz-box-sizing: border-box;\
+  padding: 0 2px;\
 }\
 #qr > .move > span {\
-float: right;\
+  float: right;\
 }\
 #autohide, .close, #qr select, #dump, .remove, .captchaimg, #qr div.warning {\
-cursor: pointer;\
+  cursor: pointer;\
 }\
 #qr select,\
 #qr > form {\
-margin: 0;\
+  margin: 0;\
 }\
 #dump {\
-background: -webkit-linear-gradient(#EEE, #CCC);\
-background: -moz-linear-gradient(#EEE, #CCC);\
-background: -o-linear-gradient(#EEE, #CCC);\
-background: linear-gradient(#EEE, #CCC);\
-width: 10%;\
+  background: -webkit-linear-gradient(#EEE, #CCC);\
+  background: -moz-linear-gradient(#EEE, #CCC);\
+  background: -o-linear-gradient(#EEE, #CCC);\
+  background: linear-gradient(#EEE, #CCC);\
+  width: 10%;\
 }\
 .gecko #dump {\
-padding: 1px 0 2px;\
+  padding: 1px 0 2px;\
 }\
 #dump:hover, #dump:focus {\
-background: -webkit-linear-gradient(#FFF, #DDD);\
-background: -moz-linear-gradient(#FFF, #DDD);\
-background: -o-linear-gradient(#FFF, #DDD);\
-background: linear-gradient(#FFF, #DDD);\
+  background: -webkit-linear-gradient(#FFF, #DDD);\
+  background: -moz-linear-gradient(#FFF, #DDD);\
+  background: -o-linear-gradient(#FFF, #DDD);\
+  background: linear-gradient(#FFF, #DDD);\
 }\
 #dump:active, .dump #dump:not(:hover):not(:focus) {\
-background: -webkit-linear-gradient(#CCC, #DDD);\
-background: -moz-linear-gradient(#CCC, #DDD);\
-background: -o-linear-gradient(#CCC, #DDD);\
-background: linear-gradient(#CCC, #DDD);\
+  background: -webkit-linear-gradient(#CCC, #DDD);\
+  background: -moz-linear-gradient(#CCC, #DDD);\
+  background: -o-linear-gradient(#CCC, #DDD);\
+  background: linear-gradient(#CCC, #DDD);\
 }\
 #qr:not(.dump) #replies, .dump > form > label {\
-display: none;\
+  display: none;\
 }\
 #replies {\
-display: block;\
-height: 100px;\
-position: relative;\
--webkit-user-select: none;\
--moz-user-select: none;\
--o-user-select: none;\
-user-select: none;\
+  display: block;\
+  height: 100px;\
+  position: relative;\
+  -webkit-user-select: none;\
+  -moz-user-select: none;\
+  -o-user-select: none;\
+  user-select: none;\
 }\
 #replies > div {\
-counter-reset: thumbnails;\
-top: 0; right: 0; bottom: 0; left: 0;\
-margin: 0; padding: 0;\
-overflow: hidden;\
-position: absolute;\
-white-space: pre;\
+  counter-reset: thumbnails;\
+  top: 0; right: 0; bottom: 0; left: 0;\
+  margin: 0; padding: 0;\
+  overflow: hidden;\
+  position: absolute;\
+  white-space: pre;\
 }\
 #replies > div:hover {\
-bottom: -10px;\
-overflow-x: auto;\
-z-index: 1;\
+  bottom: -10px;\
+  overflow-x: auto;\
+  z-index: 1;\
 }\
 .thumbnail {\
-background-color: rgba(0,0,0,.2) !important;\
-background-position: 50% 20% !important;\
-background-size: cover !important;\
-border: 1px solid #666;\
-box-sizing: border-box;\
--moz-box-sizing: border-box;\
-cursor: move;\
-display: inline-block;\
-height: 90px; width: 90px;\
-margin: 5px; padding: 2px;\
-opacity: .5;\
-outline: none;\
-overflow: hidden;\
-position: relative;\
-text-shadow: 0 1px 1px #000;\
--webkit-transition: opacity .25s ease-in-out;\
--moz-transition: opacity .25s ease-in-out;\
--o-transition: opacity .25s ease-in-out;\
-transition: opacity .25s ease-in-out;\
-vertical-align: top;\
+  background-color: rgba(0,0,0,.2) !important;\
+  background-position: 50% 20% !important;\
+  background-size: cover !important;\
+  border: 1px solid #666;\
+  box-sizing: border-box;\
+  -moz-box-sizing: border-box;\
+  cursor: move;\
+  display: inline-block;\
+  height: 90px; width: 90px;\
+  margin: 5px; padding: 2px;\
+  opacity: .5;\
+  outline: none;\
+  overflow: hidden;\
+  position: relative;\
+  text-shadow: 0 1px 1px #000;\
+  -webkit-transition: opacity .25s ease-in-out;\
+  -moz-transition: opacity .25s ease-in-out;\
+  -o-transition: opacity .25s ease-in-out;\
+  transition: opacity .25s ease-in-out;\
+  vertical-align: top;\
 }\
 .thumbnail:hover, .thumbnail:focus {\
-opacity: .9;\
+  opacity: .9;\
 }\
 .thumbnail#selected {\
-opacity: 1;\
+  opacity: 1;\
 }\
 .thumbnail::before {\
-counter-increment: thumbnails;\
-content: counter(thumbnails);\
-color: #FFF;\
-font-weight: 700;\
-padding: 3px;\
-position: absolute;\
-top: 0;\
-right: 0;\
-text-shadow: 0 0 3px #000, 0 0 8px #000;\
+  counter-increment: thumbnails;\
+  content: counter(thumbnails);\
+  color: #FFF;\
+  font-weight: 700;\
+  padding: 3px;\
+  position: absolute;\
+  top: 0;\
+  right: 0;\
+  text-shadow: 0 0 3px #000, 0 0 8px #000;\
 }\
 .thumbnail.drag {\
-box-shadow: 0 0 10px rgba(0,0,0,.5);\
+  box-shadow: 0 0 10px rgba(0,0,0,.5);\
 }\
 .thumbnail.over {\
-border-color: #FFF;\
+  border-color: #FFF;\
 }\
 .thumbnail > span {\
-color: #FFF;\
+  color: #FFF;\
 }\
 .remove {\
-background: none;\
-color: #E00;\
-font-weight: 700;\
-padding: 3px;\
+  background: none;\
+  color: #E00;\
+  font-weight: 700;\
+  padding: 3px;\
 }\
 .remove:hover::after {\
-content: " Remove";\
+  content: " Remove";\
 }\
 .thumbnail > label {\
-background: rgba(0,0,0,.5);\
-color: #FFF;\
-right: 0; bottom: 0; left: 0;\
-position: absolute;\
-text-align: center;\
+  background: rgba(0,0,0,.5);\
+  color: #FFF;\
+  right: 0; bottom: 0; left: 0;\
+  position: absolute;\
+  text-align: center;\
 }\
 .thumbnail > label > input {\
-margin: 0;\
+  margin: 0;\
 }\
 #addReply {\
-color: #333;\
-font-size: 3.5em;\
-line-height: 100px;\
+  color: #333;\
+  font-size: 3.5em;\
+  line-height: 100px;\
 }\
 #addReply:hover, #addReply:focus {\
-color: #000;\
+  color: #000;\
 }\
 .field {\
-border: 1px solid #CCC;\
-box-sizing: border-box;\
--moz-box-sizing: border-box;\
-color: #333;\
-font: 13px sans-serif;\
-margin: 0;\
-padding: 2px 4px 3px;\
--webkit-transition: color .25s, border .25s;\
--moz-transition: color .25s, border .25s;\
--o-transition: color .25s, border .25s;\
-transition: color .25s, border .25s;\
+  border: 1px solid #CCC;\
+  box-sizing: border-box;\
+  -moz-box-sizing: border-box;\
+  color: #333;\
+  font: 13px sans-serif;\
+  margin: 0;\
+  padding: 2px 4px 3px;\
+  -webkit-transition: color .25s, border .25s;\
+  -moz-transition: color .25s, border .25s;\
+  -o-transition: color .25s, border .25s;\
+  transition: color .25s, border .25s;\
 }\
 .field:-moz-placeholder,\
 .field:hover:-moz-placeholder {\
-color: #AAA;\
+  color: #AAA;\
 }\
 .field:hover, .field:focus {\
-border-color: #999;\
-color: #000;\
-outline: none;\
+  border-color: #999;\
+  color: #000;\
+  outline: none;\
 }\
 #qr > form > div:first-child > .field:not(#dump) {\
-width: 30%;\
+  width: 30%;\
 }\
 #qr textarea.field {\
-display: -webkit-box;\
-min-height: 160px;\
-min-width: 100%;\
+  display: -webkit-box;\
+  min-height: 160px;\
+  min-width: 100%;\
 }\
 #qr.captcha textarea.field {\
-min-height: 120px;\
+  min-height: 120px;\
 }\
 .textarea {\
-position: relative;\
+  position: relative;\
 }\
 #charCount {\
-color: #000;\
-background: hsla(0, 0%, 100%, .5);\
-font-size: 8pt;\
-margin: 1px;\
-position: absolute;\
-bottom: 0;\
-right: 0;\
-pointer-events: none;\
+  color: #000;\
+  background: hsla(0, 0%, 100%, .5);\
+  font-size: 8pt;\
+  margin: 1px;\
+  position: absolute;\
+  bottom: 0;\
+  right: 0;\
+  pointer-events: none;\
 }\
 #charCount.warning {\
-color: red;\
+  color: red;\
 }\
 .captchainput > .field {\
-min-width: 100%;\
+  min-width: 100%;\
 }\
 .captchaimg {\
-background: #FFF;\
-outline: 1px solid #CCC;\
-outline-offset: -1px;\
-text-align: center;\
+  background: #FFF;\
+  outline: 1px solid #CCC;\
+  outline-offset: -1px;\
+  text-align: center;\
 }\
 .captchaimg > img {\
-display: block;\
-height: 57px;\
-width: 300px;\
+  display: block;\
+  height: 57px;\
+  width: 300px;\
 }\
 #qr [type=file] {\
-margin: 1px 0;\
-width: 70%;\
+  margin: 1px 0;\
+  width: 70%;\
 }\
 #qr [type=submit] {\
-margin: 1px 0;\
-padding: 1px; /* not Gecko */\
-width: 30%;\
+  margin: 1px 0;\
+  padding: 1px; /* not Gecko */\
+  width: 30%;\
 }\
 .gecko #qr [type=submit] {\
-padding: 0 1px; /* Gecko does not respect box-sizing: border-box */\
+  padding: 0 1px; /* Gecko does not respect box-sizing: border-box */\
 }\
 \
 .fileText:hover .fntrunc,\
 .fileText:not(:hover) .fnfull {\
-display: none;\
+  display: none;\
 }\
 .fitwidth img[data-md5] + img {\
-max-width: 100%;\
+  max-width: 100%;\
 }\
-.gecko .fitwidth img[data-md5] + img,\
+.gecko  .fitwidth img[data-md5] + img,\
 .presto .fitwidth img[data-md5] + img {\
-width: 100%;\
+  width: 100%;\
 }\
 \
 #qr, #qp, #updater, #stats, #ihover, #overlay, #navlinks {\
-position: fixed;\
+  position: fixed;\
 }\
 \
 #ihover {\
-max-height: 97%;\
-max-width: 75%;\
-padding-bottom: 18px;\
+  max-height: 97%;\
+  max-width: 75%;\
+  padding-bottom: 18px;\
 }\
 \
 #navlinks {\
-font-size: 16px;\
-top: 25px;\
-right: 5px;\
+  font-size: 16px;\
+  top: 25px;\
+  right: 5px;\
 }\
 \
 body {\
-box-sizing: border-box;\
--moz-box-sizing: border-box;\
+  box-sizing: border-box;\
+  -moz-box-sizing: border-box;\
 }\
 body.unscroll {\
-overflow: hidden;\
+  overflow: hidden;\
 }\
 #overlay {\
-top: 0;\
-left: 0;\
-width: 100%;\
-height: 100%;\
-text-align: center;\
-background: rgba(0,0,0,.5);\
-z-index: 1;\
+  top: 0;\
+  left: 0;\
+  width: 100%;\
+  height: 100%;\
+  text-align: center;\
+  background: rgba(0,0,0,.5);\
+  z-index: 1;\
 }\
 #overlay::after {\
-content: "";\
-display: inline-block;\
-height: 100%;\
-vertical-align: middle;\
+  content: "";\
+  display: inline-block;\
+  height: 100%;\
+  vertical-align: middle;\
 }\
 #options {\
-box-sizing: border-box;\
--moz-box-sizing: border-box;\
-display: inline-block;\
-padding: 5px;\
-position: relative;\
-text-align: left;\
-vertical-align: middle;\
-width: 600px;\
-max-width: 100%;\
-height: 500px;\
-max-height: 100%;\
+  box-sizing: border-box;\
+  -moz-box-sizing: border-box;\
+  display: inline-block;\
+  padding: 5px;\
+  position: relative;\
+  text-align: left;\
+  vertical-align: middle;\
+  width: 600px;\
+  max-width: 100%;\
+  height: 500px;\
+  max-height: 100%;\
 }\
 #credits {\
-float: right;\
+  float: right;\
 }\
 #options ul {\
-padding: 0;\
+  padding: 0;\
 }\
 #options article li {\
-margin: 10px 0 10px 2em;\
+  margin: 10px 0 10px 2em;\
 }\
 #options code {\
-background: hsla(0, 0%, 100%, .5);\
-color: #000;\
-padding: 0 1px;\
+  background: hsla(0, 0%, 100%, .5);\
+  color: #000;\
+  padding: 0 1px;\
 }\
 #options label {\
-text-decoration: underline;\
+  text-decoration: underline;\
 }\
 #content {\
-overflow: auto;\
-position: absolute;\
-top: 2.5em;\
-right: 5px;\
-bottom: 5px;\
-left: 5px;\
+  overflow: auto;\
+  position: absolute;\
+  top: 2.5em;\
+  right: 5px;\
+  bottom: 5px;\
+  left: 5px;\
 }\
 #content textarea {\
-font-family: monospace;\
-min-height: 350px;\
-resize: vertical;\
-width: 100%;\
+  font-family: monospace;\
+  min-height: 350px;\
+  resize: vertical;\
+  width: 100%;\
 }\
 \
 #updater {\
-text-align: right;\
+  text-align: right;\
 }\
 #updater:not(:hover) {\
-border: none;\
-background: transparent;\
+  border: none;\
+  background: transparent;\
 }\
 #updater input[type=number] {\
-width: 4em;\
+  width: 4em;\
 }\
 .new {\
-background: lime;\
+  background: lime;\
 }\
 \
 #watcher {\
-padding-bottom: 5px;\
-position: absolute;\
-overflow: hidden;\
-white-space: nowrap;\
+  padding-bottom: 5px;\
+  position: absolute;\
+  overflow: hidden;\
+  white-space: nowrap;\
 }\
 #watcher:not(:hover) {\
-max-height: 220px;\
+  max-height: 220px;\
 }\
 #watcher > div {\
-max-width: 200px;\
-overflow: hidden;\
-padding-left: 5px;\
-padding-right: 5px;\
-text-overflow: ellipsis;\
+  max-width: 200px;\
+  overflow: hidden;\
+  padding-left: 5px;\
+  padding-right: 5px;\
+  text-overflow: ellipsis;\
 }\
 #watcher > .move {\
-padding-top: 5px;\
-text-decoration: underline;\
+  padding-top: 5px;\
+  text-decoration: underline;\
 }\
 \
 #qp {\
-padding: 2px 2px 5px;\
+  padding: 2px 2px 5px;\
 }\
 #qp .post {\
-border: none;\
-margin: 0;\
-padding: 0;\
+  border: none;\
+  margin: 0;\
+  padding: 0;\
 }\
 #qp img {\
-max-height: 300px;\
-max-width: 500px;\
+  max-height: 300px;\
+  max-width: 500px;\
 }\
 .qphl {\
-box-shadow: 0 0 0 2px rgba(216, 94, 49, .7);\
+  box-shadow: 0 0 0 2px rgba(216, 94, 49, .7);\
 }\
 .quotelink.deadlink {\
-text-decoration: underline !important;\
+  text-decoration: underline !important;\
 }\
 .deadlink:not(.quotelink) {\
-text-decoration: none !important;\
+  text-decoration: none !important;\
 }\
 .inlined {\
-opacity: .5;\
+  opacity: .5;\
 }\
 .inline {\
-background-color: rgba(255, 255, 255, 0.15);\
-border: 1px solid rgba(128, 128, 128, 0.5);\
-display: table;\
-margin: 2px;\
-padding: 2px;\
+  background-color: rgba(255, 255, 255, 0.15);\
+  border: 1px solid rgba(128, 128, 128, 0.5);\
+  display: table;\
+  margin: 2px;\
+  padding: 2px;\
 }\
 .inline .post {\
-background: none;\
-border: none;\
-margin: 0;\
-padding: 0;\
+  background: none;\
+  border: none;\
+  margin: 0;\
+  padding: 0;\
 }\
 div.opContainer {\
-display: block !important;\
+  display: block !important;\
 }\
 .opContainer.filter_highlight {\
-box-shadow: inset 5px 0 rgba(255, 0, 0, .5);\
+  box-shadow: inset 5px 0 rgba(255, 0, 0, .5);\
 }\
 .opContainer.filter_highlight.qphl {\
-box-shadow: inset 5px 0 rgba(255, 0, 0, .5),\
-0 0 0 2px rgba(216, 94, 49, .7);\
+  box-shadow: inset 5px 0 rgba(255, 0, 0, .5),\
+              0 0 0 2px rgba(216, 94, 49, .7);\
 }\
 .filter_highlight > .reply {\
-box-shadow: -5px 0 rgba(255, 0, 0, .5);\
+  box-shadow: -5px 0 rgba(255, 0, 0, .5);\
 }\
 .filter_highlight > .reply.qphl {\
-box-shadow: -5px 0 rgba(255, 0, 0, .5),\
-0 0 0 2px rgba(216, 94, 49, .7)\
+  box-shadow: -5px 0 rgba(255, 0, 0, .5),\
+              0 0 0 2px rgba(216, 94, 49, .7)\
 }\
 .filtered {\
-text-decoration: underline line-through;\
+  text-decoration: underline line-through;\
 }\
 .quotelink.forwardlink,\
 .backlink.forwardlink {\
-text-decoration: none;\
-border-bottom: 1px dashed;\
+  text-decoration: none;\
+  border-bottom: 1px dashed;\
 }\
 '
   };

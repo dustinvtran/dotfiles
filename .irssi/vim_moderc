@@ -13,15 +13,13 @@ map l /window next
 map <C-h> /window move prev
 map <C-l> /window move next
 map 0 /window 1
-map $ /window 15
+map $ /window 5
 map <c-e> /window last
 map <C-w> /window close
 map <C-r> /reload
 map <Leader>n /anames
 map <Leader>1 /window 1
 map <Leader>2 /window 2
-map <Leader>1<Leader> /window 1
-map <Leader>2<Leader> /window 2
 map <Leader>3 /window 3
 map <Leader>4 /window 4
 map <Leader>5 /window 5
@@ -29,18 +27,6 @@ map <Leader>6 /window 6
 map <Leader>7 /window 7
 map <Leader>8 /window 8
 map <Leader>9 /window 9
-map <Leader>10 /window 10
-map <Leader>0 /window 10
-map <Leader>11 /window 11
-map <Leader>12 /window 12
-map <Leader>13 /window 13
-map <Leader>14 /window 14
-map <Leader>15 /window 15
-map <Leader>16 /window 16
-map <Leader>17 /window 17
-map <Leader>18 /window 18
-map <Leader>19 /window 19
-map <Leader>20 /window 20
 map /1 /openurl 1
 map /2 /openurl 2
 map /3 /openurl 3

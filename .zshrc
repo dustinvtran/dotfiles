@@ -454,6 +454,7 @@ alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
 
 # CLI Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldred"
+alias pipes="~/.config/nil/pipes.sh"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias tcli="~/.config/nil/nil-transmission-remote-cli"
 

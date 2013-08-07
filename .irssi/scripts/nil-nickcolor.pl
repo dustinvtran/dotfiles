@@ -112,7 +112,7 @@ sub sig_public {
 
   $color = "0".$color if ($color < 10);
   #$server->command('/^format pubmsg {pubmsgnick $2 {pubnick '.chr(3).$color.'$0}}$1');
-  $server->command('/^format pubmsg {pubmsgnick $2 {pubnick '.chr(3).$color.'$[-11]0}}$1');
+  $server->command('/^format pubmsg {pubmsgnick $2 {pubnick '.chr(3).$color.'$[-9]0}}$1');
 }
 
 sub cmd_color {

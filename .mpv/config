@@ -4,7 +4,7 @@
 # Name: nil
 #
 
-autofit=1000
+autofit=1200
 #autofit-larger=90%x70%
 input-file=/home/nil/.config/nil/mpv-control
 #fullscreen
