@@ -3,8 +3,8 @@
 " ~/.vimrc
 " Name: nil
 "
-" Bugs & To-DO {{{
-" -----------------------------------------------------------------------------
+" Bugs & To-DO List {{{
+"------------------------------------------------------------------------------
 
 " LaTeX:
 " Start external command in background.. needed for compiling and opening pdf files.
@@ -14,6 +14,7 @@
 " Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
 "       Which ones should be via LaTeX and others via vim?
 " Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.
+" Later, when you deal with LaTeX plugins, try the IDE stuff like SuperTab.
 
 " Plugins:
 " Ctrl-P: get it working.
@@ -21,9 +22,8 @@
 " Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
 " NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
 " NERDTree: see stuff.
-" SetColors:   not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
-" Powerline:   weird blinking when moving to folded text.
-"              change default normal mode (black) color to be transparent, and change colors for other modes (visual, operator, cmd).
+" SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
+" Powerline: change colors for all modes to suit colorscheme
 " Repeat: not working with Surround.
 " Snippets: Fix the auto-reload command to not be so computation heavy.
 "  How to do snippets inside a snippet? Or perhaps manage more carefully if not.
@@ -53,7 +53,7 @@
 
 " }}}
 " Settings {{{
-" -----------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 " Vundle.
 set nocompatible
@@ -111,7 +111,6 @@ set foldmethod=marker                        " Custom folding.
 set foldlevelstart=1                         " Only auto-fold up to top level at startup.
 
 " Formatting.
-"set autoindent                               " Auto-indent.
 "set pastetoggle=<F10>                        " Option in case vim auto-indents pasted text. Use \ shortcuts to toggle these.
 set backspace=indent,eol,start               " Expected backspacing.
 set linebreak                                " Don't linebreak words in the middle.
@@ -142,11 +141,26 @@ if has("gui_running")
   set lines=49 columns=129
 endif
 
+" Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost $myvimrc nested source $myvimrc
+    autocmd BufWritePost $myvimrc set formatoptions-=c formatoptions-=t formatoptions-=q formatoptions+=r formatoptions+=o formatoptions+=l
+augroup END
+
+augroup misc
+    autocmd!
+    " Remove any trailing whitespace in the file.
+    autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+augroup END
+
 " }}}
 " Functions {{{
-" -----------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
-" Better styling of folds. {{{
+"------------------------------------------------------------------------------
+" Better styling of folds.
+"------------------------------------------------------------------------------
 function! NeatFoldText()
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
@@ -158,9 +172,10 @@ function! NeatFoldText()
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
 set foldtext=NeatFoldText()
-" }}}
 
-" When 'dd'ing blank lines, don't yank them into the register. {{{
+"------------------------------------------------------------------------------
+" When 'dd'ing blank lines, don't yank them into the register.
+"------------------------------------------------------------------------------
 function! DDWrapper()
     if getline('.') =~ '^\s*$'
         normal! "_dd
@@ -168,10 +183,11 @@ function! DDWrapper()
         normal! dd
     endif
 endfunction
-" }}}
 nnoremap <silent> dd :call DDWrapper()<CR>:echom ""<CR>
 
-" Restore cursor to previous position and auto-open last file. {{{
+"------------------------------------------------------------------------------
+" Restore cursor to previous position and auto-open last file.
+"------------------------------------------------------------------------------
 
 "  '10  :  marks will be remembered for up to 10 previously edited files
 "  "100 :  will save up to 100 lines for each register
@@ -207,9 +223,9 @@ augroup eidecticmemory
         \ endif
 augroup END
 
-" }}}
-
-" Open URL in browser {{{
+"------------------------------------------------------------------------------
+" Open URL in browser.
+"------------------------------------------------------------------------------
 
 " Not working..
 function! Browser()
@@ -218,10 +234,11 @@ function! Browser()
    exec "!firefox ".line
 endfunction
 
-" }}}
 nnoremap <silent> <Leader>] :call Browser()<CR>
 
-" Fold all toggle. {{{
+"------------------------------------------------------------------------------
+" Fold all toggle.
+"------------------------------------------------------------------------------
 let g:foldtoggle = 0
 function! FoldAllToggle()
   if g:foldtoggle == 0
@@ -232,7 +249,6 @@ function! FoldAllToggle()
     normal! zM
   endif
 endfunction
-" }}}
 noremap <silent> <S-Space> :call FoldAllToggle()<CR>
 " A temporary workaround for terminal Vim, since foldlevelstart ain't working.
 "noremap <silent> <S-F1> :call FoldAllToggle()<CR>
@@ -243,34 +259,9 @@ augroup auto_fold
 augroup END
 endif
 
-" Smooth scrolling. {{{
-function! SmoothScroll(up)
-    if a:up
-        let scrollaction=""
-    else
-        let scrollaction=""
-    endif
-    exec "normal! " . scrollaction
-    redraw
-    let counter=1
-    while counter<&scroll
-        let counter+=1
-        sleep 10m
-        redraw
-        exec "normal! " . scrollaction
-    endwhile
-endfunction
-" }}}
-"nnoremap <silent> <c-k> :call SmoothScroll(1)<CR>
-"nnoremap <silent> <c-j> :call SmoothScroll(0)<CR>
-""This compromise works for visual mode since the above doesn't, but still awkward.
-"vnoremap <silent> <c-k> H4k<CR>
-"vnoremap <silent> <c-j> L4j<CR>
-" Seeing if my eyes can track the normal one, since the above gets input lag.
-noremap <C-j> <C-d>
-noremap <C-k> <C-u>
-
-" Insert Character Function. {{{
+"------------------------------------------------------------------------------
+" Insert Character Function.
+"------------------------------------------------------------------------------
 "Taken from a plugin. This makes it an atomic operator, e.g., you can '.' it. Also, you get a neat cursor shader and can specify how many characters in particular.
 let loaded_InsertChar = 1
 function! InsertChar(count)
@@ -321,7 +312,6 @@ function! InsertChar(count)
 		call inputrestore()
 	endtry
 endfunction
-" }}}
 " I use both 's' and 'S' more often than I use default 's'. The default warrants enough use to be a single keypress (as opposed to 'cl') but I liked Append and InsertChar() even more. Also, this places the 's' default right next to 'x/c' which seems more natural in that perspective.
 " Have to do autocmd for now, because of weird YankStack.
 augroup fuck_you_yankstack
@@ -329,14 +319,15 @@ augroup fuck_you_yankstack
     autocmd VimEnter * nnoremap s :<C-U>call InsertChar(v:count1)<CR>
     autocmd VimEnter * nnoremap S l:<C-U>call InsertChar(v:count1)<CR>
 augroup END
+
 "Use 'z' as 's' instead.
 nnoremap z s
 vnoremap z s
 
 " }}}
 " Mappings - Unmapped {{{
-" -----------------------------------------------------------------------------
-" These are keys that are generally useless for me. I can always just not use it, but <Nop>ing everything eases my mind as I know exactly what keys do what, and how to prioritize my keybinds most effectively. I'll clean this up when I hardwire my brain to know every single key combination later.
+"------------------------------------------------------------------------------
+" These are keys that are generally useless for me. I can always just not use it, but <Nop>ing everything eases my mind as I know exactly what keys do what, and how to prioritize my keybinds most effectively. I'll clean this up when I hardwire my brain to know every single key combination later. I don't know if I want keep any of this section, to be honest.
 
 "Aside from , the \ commands are all up for grabs, as well as all <F1-12> keys, and the <M-> keys.
 " The non-! is for general modes, and ! for inserty modes.
@@ -529,15 +520,18 @@ augroup END
 
 " }}}
 " Mappings - General {{{
-" -----------------------------------------------------------------------------
+"------------------------------------------------------------------------------
+
+" Leader key.
+let mapleader = ","
+
+" Use : without requiring Shift.
+noremap ; :
 
 " Save.
 nnoremap <silent> <C-s> :silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
 vnoremap <silent> <C-s> <Esc>:silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
 inoremap <silent> <C-s> <Esc>:silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
-
-" Set Leader key.
-let mapleader = ","
 
 " cd to current directory.
 nnoremap <Leader>cdc :cd ~<CR>
@@ -600,13 +594,14 @@ noremap <silent> k gk
 noremap gj j
 noremap gk k
 
+" Half-page scrolling.
+noremap <C-j> <C-d>
+noremap <C-k> <C-u>
+
 " Toggle folds with <space>.
 " The echom is just my cheap way (probably a better way) to hide errors in case there's no fold.
 nnoremap <Space> za
 ":echom ""<CR>
-
-" Swap ; and :.
-noremap ; :
 
 " Keep selection after indent.
 vnoremap < <gv
@@ -639,10 +634,11 @@ nnoremap t xph
 
 " }}}
 " Mappings - Buffers/Windows/Tabs  {{{
-" -----------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
 " Buffers:
 "BufExplorer/NERDTree commands.
+
 " Window: Splits.
 "BufExplorer/NERDTree commands.
 "<C-w>             Close window.
@@ -679,9 +675,11 @@ nnoremap <silent> L :tabn<CR>
 
 " }}}
 " Plugins {{{
-" -----------------------------------------------------------------------------
+"------------------------------------------------------------------------------
 
-" Buffer Explorer {{{
+"------------------------------------------------------------------------------
+" Buffer Explorer
+"------------------------------------------------------------------------------
 " I use these splits instead of the defined commands since occasionally BufExplorer collapses the extra split when I don't want that!
 " I also mapped <C-c> somewhat unnaturally just because I use the key so much and it's so powahful!
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
@@ -689,21 +687,10 @@ nnoremap <silent> <C-x> <C-w>s:silent BufExplorer<CR>
 nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
 noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
-" }}}
-" Colors/Powerline {{{
-" Colorscheme Hybrid
-"let g:hybrid_use_Xresources = 1
-"colorscheme hybrid
 
-" Colorscheme Solarized
-"set t_Co=256
-"if !has('gui_running')
-    "let g:solarized_termcolors=&t_Co
-    "let g:solarized_termtrans=1
-"endif
-"set background=dark
-"colorscheme solarized
-
+"------------------------------------------------------------------------------
+" Colors/Powerline
+"------------------------------------------------------------------------------
 colorscheme nil
 
 " Set colorschemes for different filetypes.
@@ -725,15 +712,19 @@ call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('lineinfo')
-" }}}
-" Ctrl-P {{{
+
+"------------------------------------------------------------------------------
+" Ctrl-P
+"------------------------------------------------------------------------------
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " I really don't see why /I/ have to do this, but whatever.
 set wildignore+=*.doc,*.docx,*.epub,*.flac,*.lnk,*.mobi,*.mkv,*.pdf,*.ods,*.xlsx
-" }}}
-" EasyMotion {{{
+
+"------------------------------------------------------------------------------
+" EasyMotion
+"------------------------------------------------------------------------------
 " Sorted by closest keys to center of homekeys, with RHS as priority (because I'm right-handed and f/F is on the LHS which may require a LHS shift change). Then since it's pretty random anyways, I just swapped two's based on matchups on which I would prefer. Also note that you want something still good as your last choice, since it will invariably come up for a search requiring >= 2 presses. I went with H since it was kind of random between g and a anyways and it alternates hands after a possible chord press. For the more canonical route go with the default alphabet.
 let g:EasyMotion_keys = 'jklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBYh'
 " f/F keys defaulted to EasyMotion for normal/visual, and for operator mode (primarily d/c/y), set to t/T's instead.
@@ -752,11 +743,15 @@ augroup tilthefs
     autocmd VimEnter * omap f t
     autocmd VimEnter * omap F T
 augroup END
-" }}}
-" Gundo {{{
+
+"------------------------------------------------------------------------------
+" Gundo
+"------------------------------------------------------------------------------
 nnoremap <C-u> :GundoToggle<CR>
-" }}}
-" Matchit {{{
+
+"------------------------------------------------------------------------------
+" Matchit
+"------------------------------------------------------------------------------
 " Move between matching brackets and tags with <Tab> instead of the default %.
 ""let s:SID = Sid('$vim/vimfiles/bundle/matchit/plugin/matchit.vim')
 ""function! s:Is( input, expected, description )
@@ -769,11 +764,15 @@ nnoremap <C-u> :GundoToggle<CR>
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>.
 noremap <C-p> <C-i>
-" }}}
-" MarkMyWords {{{
+
+"------------------------------------------------------------------------------
+" MarkMyWords
+"------------------------------------------------------------------------------
 nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
-" }}}
-" NERDCommenter {{{
+
+"------------------------------------------------------------------------------
+" NERDCommenter
+"------------------------------------------------------------------------------
 " To keep visual mode on. Technically, <BS> isn't healthy here since I merely need an empty key there, but I dunno how to do it.
 vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth<BS>gv
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy<BS>gv
@@ -789,24 +788,30 @@ vmap <silent> <Leader>cu <plug>NERDCommenterUncomment<BS>gv
         "\ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
         "\ 'grondle': { 'left': '{{', 'right': '}}' }
     "\ }
-" }}}
-" NERDTree {{{
+
+"------------------------------------------------------------------------------
+" NERDTree
+"------------------------------------------------------------------------------
 " I want you as a Toggle, but I also want you to autotree node to CWD.
 " 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
 nnoremap <silent> <C-q> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
-" }}}
-" Set Color {{{
+
+"------------------------------------------------------------------------------
+" Set Color
+"------------------------------------------------------------------------------
 augroup color_scheme
     autocmd!
     autocmd VimEnter * silent SetColors all
 augroup END
 nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
 nnoremap <silent> <Leader>r :call NextColor(1)<CR>
-" }}}
-" Snipmate {{{
+
+"------------------------------------------------------------------------------
+" Snipmate
+"------------------------------------------------------------------------------
 let g:snippets_dir = '~/.vim/bundle/nil/snippets'
 
 " To reload the snippets whenever I rewrite them.
@@ -819,8 +824,10 @@ augroup snippets
     " This one does work, but it's computationally unpleasant in that I don't need to call it for /every/ file.
     autocmd BufWritePost * call ReloadAllSnippets()
 augroup END
-" }}}
-" Surround: {{{
+
+"------------------------------------------------------------------------------
+" Surround
+"------------------------------------------------------------------------------
 " Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways.
 vmap s <Plug>VSurround
 " So the '\' surround command does '\[...\]'.
@@ -828,7 +835,7 @@ let g:surround_92 = "\\[\r\\]"
 " Remaps \[ as shortcut to in-line surround with '\[...\]'. It requires 'map' since I need the above hotkey for 's\'.
 nmap <silent> \[ yss\
 
-" Parity Dollar Sign. {{{
+" Parity Dollar Sign.
 
 " Bug: It spits out an error if there's no '$' in the buffer.
 " '$' acts like this: map! modes            Default;
@@ -849,13 +856,14 @@ function! ParityDollarSign()
     endif
 endfunction
 
-"}}}
 augroup tex_only
     autocmd!
     autocmd FileType tex nnoremap <buffer> <silent> $ :call ParityDollarSign()<CR>
 augroup END
-" }}}
-" YankRing: {{{
+
+"------------------------------------------------------------------------------
+" YankRing:
+"------------------------------------------------------------------------------
 " Uncomment when I put in YankRing again.
 """nnoremap <silent> <Leader>p :YRShow<CR>
 """" Clipboard unnnamed doesn't work with YankRing since it remaps p and P to something stupid. Here I'm resetting it to work again.
@@ -891,30 +899,14 @@ cnoremap <C-v> <C-R>*<BS>
 inoremap <C-v> <C-R>*
 cnoremap <C-p> <C-R>*<BS>
 inoremap <C-p> <C-R>*
-" }}}
 
 " }}}
-" Other Autocommands {{{
-" -----------------------------------------------------------------------------
+" Specific Filetypes {{{
+"------------------------------------------------------------------------------
 
-" Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!
-augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost $myvimrc nested source $myvimrc
-    autocmd BufWritePost $myvimrc set formatoptions-=c formatoptions-=t formatoptions-=q formatoptions+=r formatoptions+=o formatoptions+=l
-augroup END
-
-augroup misc
-    autocmd!
-    " Remove any trailing whitespace in the file.
-    autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-augroup END
-
-" }}}
-" Filetypes {{{
-" -----------------------------------------------------------------------------
-
-" LaTeX {{{
+"------------------------------------------------------------------------------
+" LaTeX
+"------------------------------------------------------------------------------
 " Always use LaTeX. It's 2013 Vim. Who needs TeX?
 let g:tex_flavor = "latex"
 
@@ -979,7 +971,6 @@ endfunction
 "augroup END
 " }}}
 " LaTeX Auto-Compile & Error Parser {{{
-" Later, when you deal with LaTeX plugins, try the IDE stuff like SuperTab.
 " Enable auto-compile current document.
 "
 " Enable rubber-info to parse log for errors/warnings.
@@ -1001,7 +992,6 @@ endfunction
     "autocmd FileType tex set makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
-" }}}
 " }}}
 
 " }}}
