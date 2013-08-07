@@ -7,14 +7,27 @@
 #   I don't want to bother with ~/.config/tra..-cli/settings.cfg since it won't let
 #       me configure everything like I can with the source, e.g., select keybindings.
 # Changelog:
-# * Swapped J/K to queue down/up instead of up/down respectively (contrary to what
+# - Top Bar
+#    * Removed draw_title_bar and placed 0 in self.pad.refresh.
+#       To make up for an extra row, subtracted one from totals in self.mainview_height and self.detaillistitems_per_page.
+# - Bottom Bar
+#    * Changed bottom bar by a bunch of things from draw_stats all the way down to draw_title_bar.
+#    * Never show filter or sort order on bottom bar.
+# - Keyboard Shortcuts
+#    * Swapped J/K to queue down/up instead of up/down respectively (contrary to what
 #   this script says, they do the opposite..though I don't know why).
-# * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
-# * Set 'compact_list' to be true by default.
-# * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
-# * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
-# * Added Ctrl-l to open file in the file list.
-# * Cleaned up top bar by commenting out 'self.draw_quick_help()'.
+#    * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
+#    * Added Ctrl-l to open file in the file list.
+# - Default Settings
+#    * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
+#    * Set 'compact_list' to be true by default.
+#    * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
+# - Styles
+#    * Changed up colors in config.set('Colors'.
+#    * Stripped attributes in draw_ratio for the eta+ratio part.
+#    * Removed reverse from  draw_torrents_stats.
+#    * Flipped color in self.torrentname_is_progressbar.
+#    * Reduced the # of items in self_sort_options and draw_options_dialog, since my small transmission window would crash when using these keys otherwise.
 #
 
 ########################################################################
@@ -143,14 +156,19 @@ config.set('Misc', 'torrentname_is_progressbar', 'True')
 config.set('Misc', 'file_viewer', 'rifle %%s')
 config.add_section('Colors')
 config.set('Colors', 'title_seed',       'bg:green,fg:black')
-config.set('Colors', 'title_download',   'bg:blue,fg:black')
+#config.set('Colors', 'title_seed',       'bg:white,fg:green')
+#config.set('Colors', 'title_download',   'bg:blue,fg:black')
+config.set('Colors', 'title_download',   'bg:red,fg:black')
 config.set('Colors', 'title_idle',       'bg:cyan,fg:black')
 config.set('Colors', 'title_verify',     'bg:magenta,fg:black')
 config.set('Colors', 'title_paused',     'bg:black,fg:white')
-config.set('Colors', 'title_error',      'bg:red,fg:white')
-config.set('Colors', 'download_rate',    'bg:black,fg:blue')
-config.set('Colors', 'upload_rate',      'bg:black,fg:red')
-config.set('Colors', 'eta+ratio',        'bg:black,fg:white')
+#config.set('Colors', 'title_error',      'bg:red,fg:white')
+config.set('Colors', 'title_error',      'bg:blue,fg:black')
+#config.set('Colors', 'download_rate',    'bg:black,fg:blue')
+config.set('Colors', 'download_rate',    'bg:black,fg:red')
+#config.set('Colors', 'upload_rate',      'bg:black,fg:red')
+config.set('Colors', 'upload_rate',      'bg:black,fg:green')
+config.set('Colors', 'eta+ratio',        'bg:black,fg:red')
 config.set('Colors', 'filter_status',    'bg:red,fg:black')
 config.set('Colors', 'dialog',           'bg:black,fg:white')
 config.set('Colors', 'dialog_important', 'bg:red,fg:black')
@@ -954,7 +972,8 @@ class Interface:
             ('seeders','_Seeds'), ('leechers','Lee_ches'), ('sizeWhenDone', 'Si_ze'),
             ('status','S_tatus'), ('uploadedEver','Up_loaded'),
             ('rateUpload','_Upload Speed'), ('rateDownload','_Download Speed'),
-            ('uploadRatio','_Ratio'), ('peersConnected','P_eers'),
+            #('uploadRatio','_Ratio'), ('peersConnected','P_eers'),
+            ('uploadRatio','_Ratio'),
             ('downloadDir', 'L_ocation'), ('mainTrackerDomain', 'Trac_ker') ]
 
         # queue was implemmented in transmission 2.4
@@ -1027,7 +1046,8 @@ class Interface:
         self.recalculate_torrents_per_page()
         self.pad_height = max((len(self.torrents)+1) * self.tlist_item_height, self.height)
         self.pad = curses.newpad(self.pad_height, self.width)
-        self.detaillistitems_per_page = self.height - 8
+        #self.detaillistitems_per_page = self.height - 8
+        self.detaillistitems_per_page = self.height - 7
 
         if self.selected_torrent > -1:
             self.rateDownload_width = self.get_rateDownload_width([self.torrent_details])
@@ -1067,11 +1087,12 @@ class Interface:
     def recalculate_torrents_per_page(self):
         self.lines_per_entry   = 3 if self.blank_lines else 2
         self.tlist_item_height = self.lines_per_entry if not self.compact_list else 1
-        self.mainview_height = self.height - 2
+        #self.mainview_height = self.height - 2
+        self.mainview_height = self.height - 1
         self.torrents_per_page = self.mainview_height / self.tlist_item_height
 
     def run(self):
-        self.draw_title_bar()
+        #self.draw_title_bar()
         self.draw_stats()
         self.draw_torrent_list()
 
@@ -1087,7 +1108,7 @@ class Interface:
                 self.draw_details()
 
             self.stats = server.get_global_stats()
-            self.draw_title_bar()  # show shortcuts and stuff
+            #self.draw_title_bar()  # show shortcuts and stuff
             self.draw_stats()      # show global states
             self.screen.move(0,0)  # in case cursor can't be invisible
             self.handle_user_input()
@@ -1776,7 +1797,8 @@ class Interface:
                                                self.compact_list,
                                                ypos)
 
-        self.pad.refresh(0,0, 1,0, self.mainview_height,self.width-1)
+        #self.pad.refresh(0,0, 1,0, self.mainview_height,self.width-1)
+        self.pad.refresh(0,0, 0,0, self.mainview_height,self.width-1)
         self.screen.refresh()
 
 
@@ -1811,24 +1833,28 @@ class Interface:
         self.pad.addch(curses.ACS_DARROW, (0,curses.A_BOLD)[torrent['downloadLimited']])
         rate = ('',scale_bytes(torrent['rateDownload']))[torrent['rateDownload']>0]
         self.pad.addstr(rate.rjust(self.rateDownload_width),
-                        curses.color_pair(self.colors.id('download_rate')) + curses.A_BOLD + curses.A_REVERSE)
+                        #curses.color_pair(self.colors.id('download_rate')) + curses.A_BOLD + curses.A_REVERSE)
+                        curses.color_pair(self.colors.id('download_rate')))
     def draw_uploadrate(self, torrent, ypos):
         self.pad.move(ypos, self.width-self.rateUpload_width-1)
         self.pad.addch(curses.ACS_UARROW, (0,curses.A_BOLD)[torrent['uploadLimited']])
         rate = ('',scale_bytes(torrent['rateUpload']))[torrent['rateUpload']>0]
         self.pad.addstr(rate.rjust(self.rateUpload_width),
-                        curses.color_pair(self.colors.id('upload_rate')) + curses.A_BOLD + curses.A_REVERSE)
+                        #curses.color_pair(self.colors.id('upload_rate')) + curses.A_BOLD + curses.A_REVERSE)
+                        curses.color_pair(self.colors.id('upload_rate')))
     def draw_ratio(self, torrent, ypos):
         self.pad.addch(ypos+1, self.width-self.rateUpload_width-1, curses.ACS_DIAMOND,
                        (0,curses.A_BOLD)[torrent['uploadRatio'] < 1 and torrent['uploadRatio'] >= 0])
         self.pad.addstr(ypos+1, self.width-self.rateUpload_width,
                         num2str(torrent['uploadRatio'], '%.02f').rjust(self.rateUpload_width),
-                        curses.color_pair(self.colors.id('eta+ratio')) + curses.A_BOLD + curses.A_REVERSE)
+                        #self.colors.id('eta+ratio')) + curses.A_BOLD + curses.A_REVERSE)
+                        self.colors.id('eta+ratio'))
     def draw_eta(self, torrent, ypos):
         self.pad.addch(ypos+1, self.width-self.rateDownload_width-self.rateUpload_width-3, curses.ACS_PLMINUS)
         self.pad.addstr(ypos+1, self.width-self.rateDownload_width-self.rateUpload_width-2,
                         scale_time(torrent['eta']).rjust(self.rateDownload_width),
-                        curses.color_pair(self.colors.id('eta+ratio')) + curses.A_BOLD + curses.A_REVERSE)
+                        #curses.color_pair(self.colors.id('eta+ratio')) + curses.A_BOLD + curses.A_REVERSE)
+                        curses.color_pair(self.colors.id('eta+ratio')))
 
 
     def draw_torrentlist_title(self, torrent, focused, width, ypos):
@@ -1875,7 +1901,8 @@ class Interface:
             # terminal, so we have to catch this exception.
             try:
                 self.pad.addstr(ypos, 0, self.enc(title[0:bar_width]), tag_done)
-                self.pad.addstr(ypos, len_columns(title[0:bar_width]), self.enc(title[bar_width:]), tag)
+                #self.pad.addstr(ypos, len_columns(title[0:bar_width]), self.enc(title[bar_width:]), tag)
+                self.pad.addstr(ypos, len_columns(title[0:bar_width]), self.enc(title[bar_width:]), tag + curses.A_REVERSE + curses.A_BLINK)
             except:
                 pass
         else:
@@ -1963,7 +1990,8 @@ class Interface:
         elif self.details_category_focus == 4:
             self.draw_pieces_map(5)
 
-        self.pad.refresh(0,0, 1,0, self.height-2,self.width)
+        #self.pad.refresh(0,0, 1,0, self.height-2,self.width)
+        self.pad.refresh(0,0, 0,0, self.height-2,self.width)
         self.screen.refresh()
 
 
@@ -2524,7 +2552,8 @@ class Interface:
 
 
     def draw_stats(self):
-        self.screen.insstr(self.height-1, 0, ' '.center(self.width), curses.A_REVERSE)
+        #self.screen.insstr(self.height-1, 0, ' '.center(self.width), curses.A_REVERSE)
+        self.screen.insstr(self.height-1, 0, ' '.center(self.width))
         self.draw_torrents_stats()
         self.draw_global_rates()
 
@@ -2538,45 +2567,56 @@ class Interface:
                                    "LTEP:%d " % self.torrent_details['peersFrom']['fromLtep'] + \
                                    "PEX:%d " % self.torrent_details['peersFrom']['fromPex'] + \
                                    "Incoming:%d " % self.torrent_details['peersFrom']['fromIncoming'] + \
-                                   "Cache:%d)" % self.torrent_details['peersFrom']['fromCache'],
-                               curses.A_REVERSE)
+                                   #"Cache:%d)" % self.torrent_details['peersFrom']['fromCache'],
+                               #curses.A_REVERSE)
+                                   "Cache:%d)" % self.torrent_details['peersFrom']['fromCache'])
         else:
-            self.screen.addstr((self.height-1), 0, "Torrent%s:" % ('s','')[len(self.torrents) == 1],
-                                   curses.A_REVERSE)
-            self.screen.addstr("%d (" % len(self.torrents), curses.A_REVERSE)
+            #self.screen.addstr((self.height-1), 0, "Torrent%s:" % ('s','')[len(self.torrents) == 1],
+                                   #curses.A_REVERSE)
+            self.screen.addstr((self.height-1), 0, "Torrent%s:" % ('s','')[len(self.torrents) == 1])
+            #self.screen.addstr("%d (" % len(self.torrents), curses.A_REVERSE)
+            self.screen.addstr("%d [" % len(self.torrents))
 
             downloading = len(filter(lambda x: x['status']==Transmission.STATUS_DOWNLOAD, self.torrents))
             seeding = len(filter(lambda x: x['status']==Transmission.STATUS_SEED, self.torrents))
             paused = self.stats['pausedTorrentCount']
 
-            self.screen.addstr("Downloading:", curses.A_REVERSE)
-            self.screen.addstr("%d " % downloading, curses.A_REVERSE)
-            self.screen.addstr("Seeding:", curses.A_REVERSE)
-            self.screen.addstr("%d " % seeding, curses.A_REVERSE)
-            self.screen.addstr("Paused:", curses.A_REVERSE)
-            self.screen.addstr("%d) " % paused, curses.A_REVERSE)
+            #self.screen.addstr("Downloading:", curses.A_REVERSE)
+            #self.screen.addstr("%d " % downloading, curses.A_REVERSE)
+            #self.screen.addstr("Seeding:", curses.A_REVERSE)
+            #self.screen.addstr("%d " % seeding, curses.A_REVERSE)
+            #self.screen.addstr("Paused:", curses.A_REVERSE)
+            #self.screen.addstr("%d) " % paused, curses.A_REVERSE)
+            #self.screen.addstr("Downloading:")
+            self.screen.addstr("%d " % downloading)
+            #self.screen.addstr("Seeding:")
+            self.screen.addstr("%d " % seeding)
+            #self.screen.addstr("Paused:")
+            self.screen.addstr("%d] " % paused)
 
-            if self.filter_list:
-                self.screen.addstr("Filter:", curses.A_REVERSE)
-                self.screen.addstr("%s%s" % (('','not ')[self.filter_inverse], self.filter_list),
-                                   curses.color_pair(self.colors.id('filter_status'))
-                                   + curses.A_REVERSE)
+            #if self.filter_list:
+                ##self.screen.addstr("Filter:", curses.A_REVERSE)
+                #self.screen.addstr("Filter:")
+                #self.screen.addstr("%s%s" % (('','not ')[self.filter_inverse], self.filter_list),
+                                   #curses.color_pair(self.colors.id('filter_status'))
+                                   #+ curses.A_REVERSE)
 
             # show last sort order (if terminal size permits it)
-            curpos_y, curpos_x = self.screen.getyx()
-            if self.sort_orders and self.width - curpos_x > 20:
-                self.screen.addstr(" Sort by:", curses.A_REVERSE)
-                name = [name[1] for name in self.sort_options if name[0] == self.sort_orders[-1]['name']][0]
-                name = name.replace('_', '').lower()
-                curses_tags = curses.color_pair(self.colors.id('filter_status')) + curses.A_REVERSE
-                if self.sort_orders[-1]['reverse']:
-                    self.screen.addch(curses.ACS_DARROW, curses_tags)
-                else:
-                    self.screen.addch(curses.ACS_UARROW, curses_tags)
-                try:  # 'name' may be too long
-                    self.screen.addstr(name, curses_tags)
-                except curses.error:
-                    pass
+            #curpos_y, curpos_x = self.screen.getyx()
+            #if self.sort_orders and self.width - curpos_x > 20:
+                ##self.screen.addstr(" Sort by:", curses.A_REVERSE)
+                #self.screen.addstr(" Sort by:")
+                #name = [name[1] for name in self.sort_options if name[0] == self.sort_orders[-1]['name']][0]
+                #name = name.replace('_', '').lower()
+                #curses_tags = curses.color_pair(self.colors.id('filter_status')) + curses.A_REVERSE
+                #if self.sort_orders[-1]['reverse']:
+                    #self.screen.addch(curses.ACS_DARROW, curses_tags)
+                #else:
+                    #self.screen.addch(curses.ACS_UARROW, curses_tags)
+                #try:  # 'name' may be too long
+                    #self.screen.addstr(name, curses_tags)
+                #except curses.error:
+                    #pass
 
     def draw_global_rates(self):
         rates_width = self.rateDownload_width + self.rateUpload_width + 3
@@ -2593,28 +2633,37 @@ class Interface:
 
         if self.stats['alt-speed-enabled']:
             self.screen.move(self.height-1, self.width-rates_width - limits_width - len('Turtle mode '))
-            self.screen.addstr('Turtle mode', curses.A_REVERSE + curses.A_BOLD)
-            self.screen.addch(' ', curses.A_REVERSE)
+            #self.screen.addstr('Turtle mode', curses.A_REVERSE + curses.A_BOLD)
+            #self.screen.addch(' ', curses.A_REVERSE)
+            self.screen.addstr('Turtle mode')
+            self.screen.addch(' ')
 
         self.screen.move(self.height - 1, self.width - rates_width - limits_width)
-        self.screen.addch(curses.ACS_DARROW, curses.A_REVERSE)
+        #self.screen.addch(curses.ACS_DARROW, curses.A_REVERSE)
+        self.screen.addch(curses.ACS_DARROW)
         self.screen.addstr(scale_bytes(self.stats['downloadSpeed']).rjust(self.rateDownload_width),
-                           curses.color_pair(self.colors.id('download_rate'))
-                           + curses.A_REVERSE + curses.A_BOLD)
-        self.screen.addstr(limits['dn_limit'], curses.A_REVERSE)
-        self.screen.addch(' ', curses.A_REVERSE)
-        self.screen.addch(curses.ACS_UARROW, curses.A_REVERSE)
-        self.screen.insstr(limits['up_limit'], curses.A_REVERSE)
+                           #curses.color_pair(self.colors.id('download_rate'))
+                           #+ curses.A_REVERSE + curses.A_BOLD)
+                           curses.color_pair(self.colors.id('download_rate')))
+        #self.screen.addstr(limits['dn_limit'], curses.A_REVERSE)
+        #self.screen.addch(' ', curses.A_REVERSE)
+        #self.screen.addch(curses.ACS_UARROW, curses.A_REVERSE)
+        #self.screen.insstr(limits['up_limit'], curses.A_REVERSE)
+        self.screen.addstr(limits['dn_limit'])
+        self.screen.addch(' ')
+        self.screen.addch(curses.ACS_UARROW)
+        self.screen.insstr(limits['up_limit'])
         self.screen.insstr(scale_bytes(self.stats['uploadSpeed']).rjust(self.rateUpload_width),
-                           curses.color_pair(self.colors.id('upload_rate'))
-                           + curses.A_REVERSE + curses.A_BOLD)
+                           #curses.color_pair(self.colors.id('upload_rate'))
+                           #+ curses.A_REVERSE + curses.A_BOLD)
+                           curses.color_pair(self.colors.id('upload_rate')))
 
 
 
     def draw_title_bar(self):
         self.screen.insstr(0, 0, ' '.center(self.width), curses.A_REVERSE)
         self.draw_connection_status()
-        #self.draw_quick_help()
+        self.draw_quick_help()
     def draw_connection_status(self):
         status = "Transmission @ %s:%s" % (server.host, server.port)
         if cmd_args.DEBUG:
@@ -3026,8 +3075,8 @@ class Interface:
         while True:
             options = []
             options.append(('Peer _Port', "%d" % self.stats['peer-port']))
-            options.append(('UP_nP/NAT-PMP', ('disabled','enabled ')[self.stats['port-forwarding-enabled']]))
-            options.append(('Peer E_xchange', ('disabled','enabled ')[self.stats['pex-enabled']]))
+            #options.append(('UP_nP/NAT-PMP', ('disabled','enabled ')[self.stats['port-forwarding-enabled']]))
+            #options.append(('Peer E_xchange', ('disabled','enabled ')[self.stats['pex-enabled']]))
             options.append(('_Distributed Hash Table', ('disabled','enabled ')[self.stats['dht-enabled']]))
             options.append(('_Local Peer Discovery', ('disabled','enabled ')[self.stats['lpd-enabled']]))
             options.append(('Protocol En_cryption', "%s" % self.stats['encryption']))

@@ -30,7 +30,7 @@ abstracts = {
   line_start = "";
 
   # timestamp styling, nothing by default
-  timestamp = "%w$0-%n";
+  timestamp = "%K$0-%n";
 
   # any kind of text that needs hilighting, default is to bold
   hilight = "%_$*%_";
@@ -196,7 +196,7 @@ abstracts = {
 
   sb = "$*";
   sbmode = " %K[%g%g+%n$*%K]";
-  sbaway = "%5 away %N ";
+  sbaway = " %m⮂%N%5 away %N%m⮀%N ";
   sbservertag = ":%r$0%n";
   #sbnickmode = "$0";
 

@@ -1,3 +1,5 @@
+set window-height 1000
+set window-width 760
 map ; focus_inputbar :
 map <C-j> navigate next
 map <C-k> navigate previous
