@@ -1,11 +1,13 @@
+# I just uncommented that one line for utf-8 support.
+
 # trackbar.pl
-# 
+#
 # This little script will do just one thing: it will draw a line each time you
 # switch away from a window. This way, you always know just upto where you've
 # been reading that window :) It also removes the previous drawn line, so you
 # don't see double lines.
 #
-# Usage: 
+# Usage:
 #
 #     The script works right out of the box, but if you want you can change
 #     the working by /set'ing the following variables:
@@ -18,12 +20,12 @@
 #     requires irssi version after 20021228.  otherwise you'll get the error
 #     redraw: unknown command, and your screen is all goofed up :)
 #
-#     /upgrade & buf.pl notice: This version tries to remove the trackbars before 
+#     /upgrade & buf.pl notice: This version tries to remove the trackbars before
 #     the upgrade is done, so buf.pl does not restore them, as they are not removeable
 #     afterwards by trackbar.  Unfortiounatly, to make this work, trackbar and buf.pl
 #     need to be loaded in a specific order.  Please experiment to see which order works
 #     for you (strangely, it differs from configuration to configuration, something I will
-#     try to fix in a next version) 
+#     try to fix in a next version)
 #
 # Authors:
 #   - Main maintainer & author: Peter 'kinlo' Leurs
@@ -38,11 +40,11 @@
 #         irssi internal bugs.  The function Irssi::settings_get_str does NOT handle
 #         unicode strings properly, hence you will notice problems when setting the bar
 #         to a unicode char.  For changing your bar to utf-8 symbols, read the line sub.
-#  1.3: - Upgrade now removes the trackbars. 
+#  1.3: - Upgrade now removes the trackbars.
 #       - Some code cleanups, other defaults
 #       - /mark sets the line to the bottom
 #  1.2: - Support for utf-8
-#       - How the bar looks can now be configured with trackbar_string 
+#       - How the bar looks can now be configured with trackbar_string
 #         and trackbar_style
 #  1.1: - Fixed bug when closing window
 #  1.0: - Initial release
@@ -59,15 +61,15 @@
 # Known bugs:
 #  - if you /clear a window, it will be uncleared when returning to the window
 #  - UTF-8 characters in the trackbar_string doesnt work.  This is an irssi bug.
-#  - if you resize your irssi (in xterm or so) the bar is not resized 
+#  - if you resize your irssi (in xterm or so) the bar is not resized
 #  - changing the trackbar style is only visible after returning to a window
 #  however, changing style/resize takes in effect after you left the window.
 #
 # Whishlist/todo:
-#  - instead of drawing a line, just invert timestamp or something, 
+#  - instead of drawing a line, just invert timestamp or something,
 #    to save a line (but I don't think this is possible with current irssi)
 #  - some pageup keybinding possibility, to scroll up upto the trackbar
-#  - <@coekie> kinlo: if i switch to another window, in another split window, i 
+#  - <@coekie> kinlo: if i switch to another window, in another split window, i
 #              want the trackbar to go down in the previouswindow in  that splitwindow :)
 #  - < bob_2> anyway to clear the line once the window is read?
 #  - < elho> kinlo: wishlist item: a string that gets prepended to the repeating pattern
@@ -133,7 +135,7 @@ sub line {
     my $string = $config{'trackbar_string'};
     $string = '-' unless defined $string;
 
-    # There is a bug in irssi's utf-8 handling on config file settings, as you 
+    # There is a bug in irssi's utf-8 handling on config file settings, as you
     # can reproduce/see yourself by the following code sniplet:
     #
     #   my $quake = pack 'U*', 8364;    # EUR symbol
@@ -149,7 +151,7 @@ sub line {
     # unicode characters, uncomment the line below for a nice full line, or set
     # the string to whatever char you want.
 
-    # $string = pack('U*', 0x2500);
+     $string = pack('U*', 0x2500);
 
 
     my $length = length $string;
@@ -168,7 +170,7 @@ sub line {
 # Remove trackbars on upgrade - but this doesn't really work if the scripts are not loaded in the correct order... watch out!
 
 Irssi::signal_add_first( 'session save' => sub {
-	    for my $window (Irssi::windows) {	
+	    for my $window (Irssi::windows) {
 		next unless defined $window;
 		my $line = $window->view()->get_bookmark('trackbar');
 		$window->view()->remove_line($line) if defined $line;
@@ -183,7 +185,7 @@ sub cmd_mark {
     $window->view()->remove_line($line) if defined $line;
     $window->print(line($window->{'width'}), MSGLEVEL_NEVER);
     $window->view()->set_bookmark_bottom('trackbar');
-    Irssi::command("redraw");    
+    Irssi::command("redraw");
 }
 
 Irssi::command_bind('mark',   'cmd_mark');

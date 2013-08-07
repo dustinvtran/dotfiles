@@ -139,10 +139,7 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size, but not for console Vim.
 if has("gui_running")
-  " For uushi.
-  "set lines=63 columns=110
-  " Lemon.
-  set lines=69 columns=132
+  set lines=49 columns=129
 endif
 
 " }}}
@@ -675,8 +672,6 @@ nnoremap <c-h> <C-w>W
 nnoremap <c-l> <C-w>w
 
 " Tabs:
-noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
-noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 noremap <silent> <C-w> :q<CR>
 noremap! <silent> <C-w> :q<CR>
 nnoremap <silent> H :tabp<CR>
@@ -692,6 +687,8 @@ nnoremap <silent> L :tabn<CR>
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
 nnoremap <silent> <C-x> <C-w>s:silent BufExplorer<CR>
 nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
+noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
+noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 " }}}
 " Colors/Powerline {{{
 " Colorscheme Hybrid

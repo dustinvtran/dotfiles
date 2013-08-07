@@ -2,17 +2,16 @@
 # irssi theme
 # ~/.irssi/nil.theme
 # Name: nil
+#
 # Description: A minimalistic approach which improves upon right-aligned-nick integration
 #   through dynamic usage of the pipe (|) column.
-#
-
 # Note:
 # * First taken from here, which mostly emulates the second link. Huge changes over time however.
 # https://bbs.archlinux.org/viewtopic.php?id=143793
 # http://dotshare.it/dots/279/
 # * Commented out lines with no changes are simply the default settings, and/or notes.
 # * Symbol stylings to consider for the pipe column:
-# = > < | · * (blank) # + - . _ →
+# = > < | · * (blank) # + - . _ → »
 
 # Default foreground color (%N); -1 is the default terminal color.
 #default_color = "-1";
@@ -78,23 +77,24 @@ abstracts = {
   # }}}
   # Messages {{{
   # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  msgnick = "$1-$0%K│%N %|";
+  #msgnick = "$1-$0%K│%N %|";
+  msgnick = "$1-$0  %|";
 
   # $0 = nick mode, $1 = nick
-  ownmsgnick = "{msgnick $0$1}";
+  ownmsgnick = "{msgnick %w$0$1}%N";
   ownnick = " %W$*%n ";
 
   # public message in channel, $0 = nick mode, $1 = nick
-  pubmsgnick = "{msgnick $0$1}";
+  pubmsgnick = "{msgnick %w$0$1}%N";
   pubnick = " %N$*%n ";
 
   # public message in channel meant for me, $0 = nick mode, $1 = nick
-  pubmsgmenick = "{msgnick $0$1}%r";
-  menick = "%W$*%n";
+  pubmsgmenick = "{msgnick %w$0$1}%r";
+  menick = "%W$*%n ";
 
   # public highlighted message in channel
   # $0 = highlight color, $1 = nick mode, $2 = nick
-  pubmsghinick = "{msgnick $1$0$2%n}%r";
+  pubmsghinick = "{msgnick %w$1$0$2%n}%r";
 
   # channel name is printed with message
   msgchannel = "%K:%m$*%n";
@@ -131,7 +131,7 @@ abstracts = {
   # }}}
   # Other IRC Events. {{{
   # whois
-  whois = "%#    $[9]0 = $1-;";
+  whois = "%#    $[7]0 = $1-;";
 
   # notices
   ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
@@ -230,52 +230,57 @@ formats = {
     line_start_irssi = "{line_start}";
 
     # Server Messages.
-    # To see the part/quit/quit_once reason (ping timeout, specific quit message, just
+    # Use these to see the part/quit/quit_once reason (ping timeout, specific quit message, just
     # parting the channel, etc.), and the IP address.
-    join = "%w{channick $[-13]0} %g>%w ({chanhost %w$1})";
-    part = "%w{channick $[-13]0} %r<%w ({chanhost %w$1}) ({channel %w$2}) ({reason %w$3})";
-    quit = "%w{channick $[-13]0} %r<%w ({chanhost %w$1}) ({reason %w$2})";
+    #join = "%w{channick $[-11]0} %g>%w ({chanhost %w$1})";
+    #part = "%w{channick $[-11]0} %r<%w ({chanhost %w$1}) ({channel %w$2}) ({reason %w$3})";
+    #quit = "%w{channick $[-11]0} %r<%w ({chanhost %w$1}) ({reason %w$2})";
+    #quit_once = "{channel $3} {channick $0} {chanhost %w$1} %wquit {reason %w$2}";
+    # Use these to see only the part/quit/quit_once reason.
+    join = "%w{channick $[-11]0} %g>%w";
+    part = "%w{channick $[-11]0} %r<%w ({channel %w$2}) ({reason %w$3})";
+    quit = "%w{channick $[-11]0} %r<%w ({reason %w$2})";
     quit_once = "{channel $3} {channick $0} {chanhost %w$1} %wquit {reason %w$2}";
-    kick = "%w{channick $[-13]0} %r<%c kicked by {nick $2} [%c{reason %c$3}]";
     # Use these if you want to go minimalist, i.e., don't see reasons.
-    #part = "%K{channick $[-13]0} %R<%K";
-    #quit = "%K{channick $[-13]0} %R<%K";
-    #quit_once = "%K{channick $[-13]0} %R<%K";
-    nick_changed = "%g{channick $[-13]0} %Y= {channick_hilight $1}";
-    your_nick_changed = "%g{channick $[-13]0} %Y= {channick_hilight $1}";
+    #part = "%K{channick $[-11]0} %R<%K";
+    #quit = "%K{channick $[-11]0} %R<%K";
+    #quit_once = "%K{channick $[-11]0} %R<%K";
+    kick = "%w{channick $[-11]0} %r<%c kicked by {nick $2} [%c{reason %c$3}]";
+    nick_changed = "%g{channick $[-11]0} %Y= {channick_hilight $1}";
+    your_nick_changed = "%g{channick $[-11]0} %Y= {channick_hilight $1}";
 
     # General Messages.
     # pubmsg replaced by nil-nickcolor.pl's.
     #pubmsg = "{pubmsgnick $2 {pubnick \00309$[-11]0}}$1";
-    own_msg = "{ownmsgnick $2 {ownnick %W$[-11]0}}$1";
-    own_msg_channel = "{ownmsgnick {ownnick $[-13]0$3}{msgchannel $1}}$2";
-    own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-13]2}}$1";
-    pubmsg_me = "{pubmsgmenick $2 {menick $[-13]0}}$1";
-    pubmsg_me_channel = "{pubmsgmenick {menick $[-13]0$3}{msgchannel $1}}$2";
-    pubmsg_hilight = "{pubmsghinick $0 $[-13]1$3}$2";
-    pubmsg_hilight_channel = "{pubmsghinick $0 $[-13]1$4{msgchannel $2}}$3";
-    pubmsg_channel = "{pubmsgnick {pubnick %g$[-13]0}$2}$1";
-    msg_private_query = "{privmsgnick $[-13]0}$2";
+    own_msg = "{ownmsgnick $2 {ownnick %W$[-9]0}}$1";
+    own_msg_channel = "{ownmsgnick {ownnick $[-9]0$3}{msgchannel $1}}$2";
+    own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-9]2}}$1";
+    pubmsg_me = "{pubmsgmenick $2 {menick $[-10]0}}$1";
+    pubmsg_me_channel = "{pubmsgmenick {menick $[-10]0$3}{msgchannel $1}}$2";
+    pubmsg_hilight = "{pubmsghinick $0 $[-11]1$3}$2";
+    pubmsg_hilight_channel = "{pubmsghinick $0 $[-11]1$4{msgchannel $2}}$3";
+    pubmsg_channel = "{pubmsgnick {pubnick %g$[-11]0}$2}$1";
+    msg_private_query = "{privmsgnick $[-11]0}$2";
     new_topic = "        %ctopic %Y= %|%B'$2' %non %b$1%n%K [set by {nick %y$0}]";
 
     # Last line in /names.
     # No longer using /names. Using /anames instead.
     #endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
 
-    pubmsg = "{pubmsgnick $2 {pubnick \00304$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00311$[-9]0}}$1";
   };
   #}}}
   "fe-common/irc" = {
     #{{{
     # Actions (/me).
-    own_action = "{ownaction $[-11]0} $1";
-    action_private = "{pvtaction $[-11]0}$1";
-    action_private_query = "{pvtaction_query $[-11]0}$2";
-    action_public = "{pubaction $[-11]0}$1";
+    own_action = "{ownaction $[-9]0} $1";
+    action_private = "{pvtaction $[-9]0}$1";
+    action_private_query = "{pvtaction_query $[-9]0}$2";
+    action_public = "{pubaction $[-9]0}$1";
 
     # Change modes.
-    chanmode_change = "%M{nick $[-13]2} %Y→ {mode $1}";
-    server_chanmode_change = "$M{nick $[-13]2} %Y→ {netsplit ServerMode} {mode $1}";
+    chanmode_change = "%M{nick $[-11]2} %Y→ {mode $1}";
+    server_chanmode_change = "$M{nick $[-11]2} %Y→ {netsplit ServerMode} {mode $1}";
   };
   #}}}
 };

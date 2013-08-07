@@ -16,32 +16,34 @@
 # When restarting, the nondocked dzen2's get overlapped and are hidden (and the for_windows re-do itself of course).
 
 # Wishlist:
+# Misc:
 #   * Right-click desktop with options.
 #   * When changing workspaces and back, the w3m image preview in ranger is gone.
 # Panel/Workspaces:
 #   * Non-# order, e.g., alphabetical or customizable.
+#   * Clickable panel applets, e.g., a now-playing mpd widget with hover support.
 #   * Icon/non-UTF name support.
 #   * Can't add a black outline to it.
 #   * Don't overlap the dzen2's on new i3-session.
 # Windows:
+#   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+#   * More instantaneous mouse-over-window focus, rather than moving further into the window.
 #   * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
 #       also a keybind to be able to toggle that border.)
-#   * More instantaneous mouse-over-window focus, rather than moving further into the window.
-#   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
 # - Floating:
-#   * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
+#   * Shadowed outlines.
+#   * True transparency, e.g., just slightly for terminal scratchpads.
 #   * Ability to distinguish focusing on two programs that are the same application, e.g., two firefox windows.
-#   * Absolute positioning based off workspace, not pixels and monitor alignment.
-#       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
 #   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
 #       * As a subset, this means I can't move to the next monitor with hl.
-#   * Shadowed outlines.
+#   * Absolute positioning based off workspace, not pixels and monitor alignment.
+#       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
+#   * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
 # - Don't need these any longer, but keeping for documentation:
 #   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
 #       can toggle hide them all away (can only do one at a time currently).
 #   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
 #       windows, like scratchpad terminals).
-#   * True transparency, e.g., just slightly for terminal scratchpads.
 
 # }}}
 # Startup Applications {{{
@@ -55,12 +57,13 @@ exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 400 -x 760 -y 4 -ta c -fg '#7070
 exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 200 -x 583 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 
-exec i3-msg 'workspace β; exec firefox; workspace α' &
+#exec i3-msg 'workspace β; exec firefox; workspace α' &
+exec firefox &
 exec urxvt -name nil -g 85x24 &
-exec urxvt -name irssi -g 124x33 -e irssi &
-exec urxvt -name ncmpcpp -g 95x25 -e ncmpcpp &
-exec urxvt -name ranger -g 90x27 -e ranger &
-exec urxvt -name tcli -g 90x27 -e ~/.config/nil/nil-transmission-remote-cli &
+exec urxvt -name irssi -g 85x31 -e irssi &
+exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
+exec urxvt -name ranger -g 85x19 -e ranger &
+exec urxvt -name tcli -g 108x16 -e ~/.config/nil/nil-transmission-remote-cli &
 exec gvim &
 exec dropboxd &
 exec rssdler -d &
@@ -124,8 +127,8 @@ bindsym $mod+r mode "resize"
 # Window border style.
 #new_window none
 #new_float none
-new_float pixel 5
-new_window pixel 5
+new_float pixel 2
+new_window pixel 2
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
@@ -292,22 +295,23 @@ for_window [title="^Tab Mix Plus Options$"] floating enable
 assign [class="^URxvt$" instance="^nil$"] λ
 assign [class="^URxvt$" instance="^irssi$"] λ
 assign [class="^URxvt$" instance="^ncmpcpp$"] λ
-assign [class="^URxvt$" instance="^ranger$"] α
+assign [class="^URxvt$" instance="^ranger$"] λ
 assign [class="^URxvt$" instance="^tcli$"] α
+assign [class="^Firefox$"] β
 assign [class="^mpv$"] λ
 assign [class="^Zathura$"] λ
 assign [class="^libreoffice-calc$"] γ
 assign [class="^Gimp$"] δ
 
 # Float, focus, and position application on startup.
-for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 368px,move right 520px
-for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 315px,move right 520px
-for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move down 54px,move right 520px
-for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move up 190px,move right 370px
-for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 190px,move right 370px
-for_window [class="^mpv$"] floating enable,focus,focus,move left 415px
-for_window [class="^Zathura$"] floating enable,focus,move left 450px
-for_window [class="^Gvim$"] floating enable,focus,move left 322px
+for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 140px,move right 640px
+for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 200px,move right 640px
+for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move up 455px,move right 640px
+for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move down 405px,move right 640px
+for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 325px
+for_window [class="^mpv$"] floating enable,focus,focus,move left 300px
+for_window [class="^Zathura$"] floating enable,focus,move left 300px
+for_window [class="^Gvim$"] floating enable,focus,move up 102px,move left 327px
 
 # Shortcut Application focusing.
 bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
@@ -325,10 +329,10 @@ bindsym $mod+Shift+i exec echo >> ~/.irssi/logs/fnotify
 # $mod,$mod+y,b and RHS-side are available, as well as all mod2 (super), and optional "modal" keys like resize.
 bindsym $mod2+Return exec urxvt
 bindsym $mod2+t exec urxvt -name nil -g 85x24 &
-bindsym $mod2+i exec urxvt -name irssi -g 124x33 -e irssi &
-bindsym $mod2+n exec urxvt -name ncmpcpp -g 95x25 -e ncmpcpp &
-bindsym $mod2+f exec urxvt -name ranger -g 90x27 -e ranger &
-bindsym $mod2+a exec urxvt -name tcli -g 90x27 -e ~/.config/nil/nil-transmission-remote-cli &
+bindsym $mod2+i exec urxvt -name irssi -g 85x31 -e irssi &
+bindsym $mod2+n exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
+bindsym $mod2+f exec urxvt -name ranger -g 85x19 -e ranger &
+bindsym $mod2+a exec urxvt -name tcli -g 108x16 -e ~/.config/nil/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 

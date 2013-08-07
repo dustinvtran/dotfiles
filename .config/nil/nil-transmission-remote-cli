@@ -10,6 +10,7 @@
 # * Swapped J/K to queue down/up instead of up/down respectively (contrary to what
 #   this script says, they do the opposite..though I don't know why).
 # * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
+# * Set 'compact_list' to be true by default.
 # * Changed startup order from 'Name' to 'queuePosition', since I prefer the latter.
 # * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
 # * Added Ctrl-l to open file in the file list.
@@ -134,7 +135,8 @@ config.add_section('Filtering')
 config.set('Filtering', 'filter', '')
 config.set('Filtering', 'invert', 'False')
 config.add_section('Misc')
-config.set('Misc', 'compact_list', 'False')
+#config.set('Misc', 'compact_list', 'False')
+config.set('Misc', 'compact_list', 'True')
 config.set('Misc', 'blank_lines', 'True')
 config.set('Misc', 'torrentname_is_progressbar', 'True')
 #config.set('Misc', 'file_viewer', 'xdg-open %%s')
