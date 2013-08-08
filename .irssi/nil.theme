@@ -6,7 +6,7 @@
 
 # Note:
 # * Commented out lines with no changes are simply the default settings or notes.
-# * Symbol stylings to consider for the pipe column: = > < | · * (blank) # + - . _ → »
+# * Symbol stylings to consider for the pipe column: = > < | · * (blank) # + - . _ → » «
 
 #default_color = "-1";
 #info_eol = "false";
