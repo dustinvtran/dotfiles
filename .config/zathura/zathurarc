@@ -4,6 +4,5 @@ map ; focus_inputbar :
 map <C-j> navigate next
 map <C-k> navigate previous
 map <C-s> toggle_statusbar
-
 unmap J
 unmap K

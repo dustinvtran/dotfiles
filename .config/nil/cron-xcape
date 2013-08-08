@@ -1,7 +1,9 @@
 #! /bin/bash
 
+# This is a script for cronjob.
+
 # I do this because occasionally xcape seems to break, and will stop working for a few seconds or sometimes not at all. It has variable success, and sometimes stops
-# working altogether in some applications, like irssi. I have noticed that killing and remaking the process fixes this.
+# working altogether in some applications, like irssi. I have noticed that manually killing and remaking the process fixes this.
 #set +e
 #pkill xcape
 #xcape -e 'Control_L=Escape' &

@@ -3,57 +3,72 @@
 " ~/.vimrc
 " Name: nil
 "
-" Bugs & To-DO List {{{
-"------------------------------------------------------------------------------
+" To-Do List {{{
+" -----------------------------------------------------------------------------
 
-" LaTeX:
-" Start external command in background.. needed for compiling and opening pdf files.
-" Allow rubber to compile filenames with spaces.
-" Get error parser (rubber-info) and autobuild.
+"##############################################################################
+" LaTeX
+"##############################################################################
 
-" Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
+" High Priority:
+"   * Start external command in background.. needed for compiling and opening pdf files.
+"   * Allow rubber to compile filenames with spaces.
+"   * Get error parser (rubber-info) and autobuild.
+" Low Priority:
+"   * Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
 "       Which ones should be via LaTeX and others via vim?
-" Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.
-" Later, when you deal with LaTeX plugins, try the IDE stuff like SuperTab.
+"   * Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.
+"   * Later, when you deal with LaTeX plugins, try the IDE stuff like SuperTab.
 
-" Plugins:
-" Ctrl-P: get it working.
+"##############################################################################
+" Plugins
+"##############################################################################
 
-" Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
-" NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
-" NERDTree: see stuff.
-" SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
-" Powerline: change colors for all modes to suit colorscheme
-" Repeat: not working with Surround.
-" Snippets: Fix the auto-reload command to not be so computation heavy.
-"  How to do snippets inside a snippet? Or perhaps manage more carefully if not.
-" YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
+" High Priority:
+"   * Ctrl-P: get it working.
+" Medium Priority:
+"   * Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
+"   * NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
+"   * NERDTree: see stuff.
+"   * SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
+"   * Powerline: change colors for all modes to suit colorscheme
+"   * Repeat: not working with Surround.
+"   * Snippets: Fix the auto-reload command to not be so computation heavy.
+"   *  How to do snippets inside a snippet? Or perhaps manage more carefully if not.
+"   * YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
+
+"##############################################################################
+" Misc
+"##############################################################################
+
+" High Priority:
+"   * The load last file doesn't really work as intended, but it does load *some* last files.
+"   * Something weird with having to press the <ENTER> prompt when opening and certain files.
+" Low Priority:
+"   * Option for "resize" mode of windows, like with i3.
+"   * Make InsertCharFunction() an atomic operator, e.g., '.'-able.
+"   * C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
+"       * Stuff about jump lists vs normal motion.
+"   * Jump to paragraphs? One that includes <br><br> for html.
+"   * Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
+"   * Enter url function.
+"   * If in same workspace as another Vim file, somehow combine the two into one Vim window, with it split.
+"   * Reloading vim doesn't work for everything, namely newly omitted mappings and settings.
+"   * Fix $...$ in case there are none.
+"   * Have cursor position returned to exact position (i.e. column) not just line position.
+"   * The "jump to next/last sentence" doesn't always work as intended.
+"   * vim fold text styling. donri is coming up with a plugin for a nice one.
+
+"##############################################################################
+" Wishlist
+"##############################################################################
 
 " Misc:
-" The load last file doesn't really work as intended, but it does load *some* last files.
-" Something weird with having to press the <ENTER> prompt when opening and certain files.
-
-" Option for "resize" mode of windows, like with i3.
-" Make InsertCharFunction() an atomic operator, e.g., '.'-able.
-" C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
-"   Stuff about jump lists vs normal motion.
-" Jump to paragraphs? One that includes <br><br> for html.
-" Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
-" Enter url function.
-" If in same workspace as another Vim file, somehow combine the two into one Vim window, with it split.
-" Reloading vim doesn't work for everything, namely newly omitted mappings and settings.
-" Fix $...$ in case there are none.
-" Have cursor position returned to exact position (i.e. column) not just line position.
-" The "jump to next/last sentence" doesn't always work as intended.
-" vim fold text styling. donri is coming up with a plugin for a nice one.
-
-" Ideas:
-" Figure out which <C-v> or <C-p> you ended up with.
-" Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
+"   * Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
 " }}}
 " Settings {{{
-"------------------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
 " Vundle.
 set nocompatible
@@ -111,7 +126,6 @@ set foldmethod=marker                        " Custom folding.
 set foldlevelstart=1                         " Only auto-fold up to top level at startup.
 
 " Formatting.
-"set pastetoggle=<F10>                        " Option in case vim auto-indents pasted text. Use \ shortcuts to toggle these.
 set backspace=indent,eol,start               " Expected backspacing.
 set linebreak                                " Don't linebreak words in the middle.
 set display=lastline                         " Displays partial wrapped lines.
@@ -156,11 +170,11 @@ augroup END
 
 " }}}
 " Functions {{{
-"------------------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Better styling of folds.
-"------------------------------------------------------------------------------
+"##############################################################################
 function! NeatFoldText()
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
@@ -173,9 +187,9 @@ function! NeatFoldText()
 endfunction
 set foldtext=NeatFoldText()
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " When 'dd'ing blank lines, don't yank them into the register.
-"------------------------------------------------------------------------------
+"##############################################################################
 function! DDWrapper()
     if getline('.') =~ '^\s*$'
         normal! "_dd
@@ -185,9 +199,9 @@ function! DDWrapper()
 endfunction
 nnoremap <silent> dd :call DDWrapper()<CR>:echom ""<CR>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Restore cursor to previous position and auto-open last file.
-"------------------------------------------------------------------------------
+"##############################################################################
 
 "  '10  :  marks will be remembered for up to 10 previously edited files
 "  "100 :  will save up to 100 lines for each register
@@ -223,9 +237,9 @@ augroup eidecticmemory
         \ endif
 augroup END
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Open URL in browser.
-"------------------------------------------------------------------------------
+"##############################################################################
 
 " Not working..
 function! Browser()
@@ -236,9 +250,9 @@ endfunction
 
 nnoremap <silent> <Leader>] :call Browser()<CR>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Fold all toggle.
-"------------------------------------------------------------------------------
+"##############################################################################
 let g:foldtoggle = 0
 function! FoldAllToggle()
   if g:foldtoggle == 0
@@ -259,9 +273,9 @@ augroup auto_fold
 augroup END
 endif
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Insert Character Function.
-"------------------------------------------------------------------------------
+"##############################################################################
 "Taken from a plugin. This makes it an atomic operator, e.g., you can '.' it. Also, you get a neat cursor shader and can specify how many characters in particular.
 let loaded_InsertChar = 1
 function! InsertChar(count)
@@ -325,9 +339,9 @@ nnoremap z s
 vnoremap z s
 
 " }}}
-" Mappings - Unmapped {{{
-"------------------------------------------------------------------------------
-" These are keys that are generally useless for me. I can always just not use it, but <Nop>ing everything eases my mind as I know exactly what keys do what, and how to prioritize my keybinds most effectively. I'll clean this up when I hardwire my brain to know every single key combination later. I don't know if I want keep any of this section, to be honest.
+" Unmappings {{{
+" -----------------------------------------------------------------------------
+" These are keys that are useless for me, and I accidentally hit.
 
 "Aside from , the \ commands are all up for grabs, as well as all <F1-12> keys, and the <M-> keys.
 " The non-! is for general modes, and ! for inserty modes.
@@ -374,9 +388,8 @@ noremap <C-y> <Nop>
 nnoremap U <Nop>
 onoremap U <Nop>
 "Wow! You're so obscure and you do..a cursor seach or a k. No thanks.
-"Can't decide if I want <C-P> or <C-V> as my cmd-line/insert paste. Leave both on for now and see which one I naturally end up with.
-"noremap! <C-P> <Nop>
-"noremap <C-p> <Nop>
+noremap! <C-P> <Nop>
+noremap <C-p> <Nop>
 "I don't know how to use you guys efficiently.
 "Set ] to <C-]>. I use <C-]> all the time (in :help). I never use default ] for anything.
 noremap [ <Nop>
@@ -495,7 +508,8 @@ augroup plugin_stahp
     autocmd VimEnter * unmap <Leader>bv
     autocmd VimEnter * unmap <Leader>bs
     " EasyMotion: It provides an option to turn them all off, but that requires changing keys through the default source code (I think?).
-    autocmd VimEnter * nnoremap t <Nop>
+    " Swap two chars.
+    autocmd VimEnter * nnoremap t xph
     autocmd VimEnter * vnoremap t <Nop>
     autocmd VimEnter * nnoremap T <Nop>
     autocmd VimEnter * vnoremap T <Nop>
@@ -519,14 +533,16 @@ augroup plugin_stahp
 augroup END
 
 " }}}
-" Mappings - General {{{
-"------------------------------------------------------------------------------
+" Mappings {{{
+" -----------------------------------------------------------------------------
 
-" Leader key.
+"##############################################################################
+" General
+"##############################################################################
+
 let mapleader = ","
-
-" Use : without requiring Shift.
 noremap ; :
+nnoremap x "_x
 
 " Save.
 nnoremap <silent> <C-s> :silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
@@ -629,12 +645,9 @@ noremap ] <C-]>
 " Go to last edited location.
 nnoremap ' '.
 
-" Swap two characters.
-nnoremap t xph
-
-" }}}
-" Mappings - Buffers/Windows/Tabs  {{{
-"------------------------------------------------------------------------------
+"##############################################################################
+" Buffers, Windows, & Tabs
+"##############################################################################
 
 " Buffers:
 "BufExplorer/NERDTree commands.
@@ -675,11 +688,11 @@ nnoremap <silent> L :tabn<CR>
 
 " }}}
 " Plugins {{{
-"------------------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Buffer Explorer
-"------------------------------------------------------------------------------
+"##############################################################################
 " I use these splits instead of the defined commands since occasionally BufExplorer collapses the extra split when I don't want that!
 " I also mapped <C-c> somewhat unnaturally just because I use the key so much and it's so powahful!
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
@@ -688,9 +701,9 @@ nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
 noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Colors/Powerline
-"------------------------------------------------------------------------------
+"##############################################################################
 colorscheme nil
 
 " Set colorschemes for different filetypes.
@@ -713,18 +726,18 @@ call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('lineinfo')
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Ctrl-P
-"------------------------------------------------------------------------------
+"##############################################################################
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " I really don't see why /I/ have to do this, but whatever.
 set wildignore+=*.doc,*.docx,*.epub,*.flac,*.lnk,*.mobi,*.mkv,*.pdf,*.ods,*.xlsx
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " EasyMotion
-"------------------------------------------------------------------------------
+"##############################################################################
 " Sorted by closest keys to center of homekeys, with RHS as priority (because I'm right-handed and f/F is on the LHS which may require a LHS shift change). Then since it's pretty random anyways, I just swapped two's based on matchups on which I would prefer. Also note that you want something still good as your last choice, since it will invariably come up for a search requiring >= 2 presses. I went with H since it was kind of random between g and a anyways and it alternates hands after a possible chord press. For the more canonical route go with the default alphabet.
 let g:EasyMotion_keys = 'jklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBYh'
 " f/F keys defaulted to EasyMotion for normal/visual, and for operator mode (primarily d/c/y), set to t/T's instead.
@@ -744,14 +757,14 @@ augroup tilthefs
     autocmd VimEnter * omap F T
 augroup END
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Gundo
-"------------------------------------------------------------------------------
+"##############################################################################
 nnoremap <C-u> :GundoToggle<CR>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Matchit
-"------------------------------------------------------------------------------
+"##############################################################################
 " Move between matching brackets and tags with <Tab> instead of the default %.
 ""let s:SID = Sid('$vim/vimfiles/bundle/matchit/plugin/matchit.vim')
 ""function! s:Is( input, expected, description )
@@ -765,14 +778,14 @@ map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>.
 noremap <C-p> <C-i>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " MarkMyWords
-"------------------------------------------------------------------------------
+"##############################################################################
 nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " NERDCommenter
-"------------------------------------------------------------------------------
+"##############################################################################
 " To keep visual mode on. Technically, <BS> isn't healthy here since I merely need an empty key there, but I dunno how to do it.
 vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth<BS>gv
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy<BS>gv
@@ -789,9 +802,9 @@ vmap <silent> <Leader>cu <plug>NERDCommenterUncomment<BS>gv
         "\ 'grondle': { 'left': '{{', 'right': '}}' }
     "\ }
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " NERDTree
-"------------------------------------------------------------------------------
+"##############################################################################
 " I want you as a Toggle, but I also want you to autotree node to CWD.
 " 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
 nnoremap <silent> <C-q> :NERDTreeToggle<CR>
@@ -799,9 +812,9 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Set Color
-"------------------------------------------------------------------------------
+"##############################################################################
 augroup color_scheme
     autocmd!
     autocmd VimEnter * silent SetColors all
@@ -809,9 +822,9 @@ augroup END
 nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
 nnoremap <silent> <Leader>r :call NextColor(1)<CR>
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Snipmate
-"------------------------------------------------------------------------------
+"##############################################################################
 let g:snippets_dir = '~/.vim/bundle/nil/snippets'
 
 " To reload the snippets whenever I rewrite them.
@@ -825,9 +838,9 @@ augroup snippets
     autocmd BufWritePost * call ReloadAllSnippets()
 augroup END
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " Surround
-"------------------------------------------------------------------------------
+"##############################################################################
 " Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways.
 vmap s <Plug>VSurround
 " So the '\' surround command does '\[...\]'.
@@ -861,9 +874,9 @@ augroup tex_only
     autocmd FileType tex nnoremap <buffer> <silent> $ :call ParityDollarSign()<CR>
 augroup END
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " YankRing:
-"------------------------------------------------------------------------------
+"##############################################################################
 " Uncomment when I put in YankRing again.
 """nnoremap <silent> <Leader>p :YRShow<CR>
 """" Clipboard unnnamed doesn't work with YankRing since it remaps p and P to something stupid. Here I'm resetting it to work again.
@@ -894,19 +907,16 @@ augroup END
 nnoremap Y y$
 
 " Command-line/Insert paste shortcuts.
-" Can't decide since I use <C-v> for Windows compatibility and my browser Vim. Use both for now and later figure out which one you end up going to.
 cnoremap <C-v> <C-R>*<BS>
 inoremap <C-v> <C-R>*
-cnoremap <C-p> <C-R>*<BS>
-inoremap <C-p> <C-R>*
 
 " }}}
 " Specific Filetypes {{{
-"------------------------------------------------------------------------------
+" -----------------------------------------------------------------------------
 
-"------------------------------------------------------------------------------
+"##############################################################################
 " LaTeX
-"------------------------------------------------------------------------------
+"##############################################################################
 " Always use LaTeX. It's 2013 Vim. Who needs TeX?
 let g:tex_flavor = "latex"
 
@@ -947,7 +957,9 @@ function! OpenPDF()
   silent !zathura "%:r".pdf
 endfunction
 
-" Autosave {{{
+"##############################################################################
+" Autosave
+"##############################################################################
 "This prevents auto-saving unsaved files or unnecessarily, and hides command-line spam.
  "This works perfectly, but since my computer fucks up right now when I try to save shit, comment out for now.
 "function! FileUpdate()
@@ -969,8 +981,10 @@ endfunction
    "autocmd FileType tex :autocmd CursorMoved,CursorMovedI * call FileUpdate()
 ""       How to leave this autocmd when I'm not in .tex?
 "augroup END
-" }}}
-" LaTeX Auto-Compile & Error Parser {{{
+"
+"##############################################################################
+" LaTeX Auto-Compile & Error Parser
+"##############################################################################
 " Enable auto-compile current document.
 "
 " Enable rubber-info to parse log for errors/warnings.
@@ -992,6 +1006,5 @@ endfunction
     "autocmd FileType tex set makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
-" }}}
 
 " }}}

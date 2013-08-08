@@ -5,13 +5,12 @@
 #
 
 # Notes:
-# Can bind a maximum of two keys per command.
-# Keys can be defined with a character or a decimal value.
-# A command can be disabled by binding it to 0.
-# First bind of volume_up/down will be used to switch between columns.
+# * Can bind a maximum of two keys per command.
+# * Keys can be defined with a character or a decimal value.
+# * A command can be disabled by binding it to 0.
 
 # Wishlist:
-# Half-page up/downs (or 5j/k's).
+# * Half-page up/downs (or 5j/k's).
 
 key_up = 259 'k'
 key_down = 258 'j'
@@ -30,12 +29,10 @@ key_volume_up = 0
 key_volume_down = 0
 key_prev_column = 260
 key_next_column = 261
-
 key_toggle_space_mode = 't'
 key_toggle_add_mode = 'T'
 key_toggle_mouse = 0
 key_toggle_bitrate_visibility = 0
-
 key_screen_switcher = 9
 key_backward_screen_switcher = 353
 key_help = '1' 265
@@ -49,7 +46,6 @@ key_outputs = '8'
 key_music_visualizer = '9'
 key_clock = '0'
 key_server_info = '@'
-
 key_stop = 's'
 key_pause = 'p'
 key_next = '>'
@@ -57,7 +53,6 @@ key_prev = '<'
 #key_replay = 263 127
 key_seek_forward = 261 'w'
 key_seek_backward = 260 'b'
-
 key_toggle_repeat = 'r'
 key_toggle_random = 'z'
 key_toggle_single = 'y'
@@ -69,21 +64,16 @@ key_set_crossfade = 'X'
 key_update_db = 'u'
 key_sort_playlist = 22
 key_apply_filter = 6
-
 key_find_forward = '/'
 key_find_backward = '?'
 key_next_found_position = '.'
 key_prev_found_position = ','
-
 key_toggle_find_mode = 'w'
 key_edit_tags = 'e'
-
 key_go_to_position = 'f'
-
 key_song_info = 'i'
 key_artist_info = 'I'
 key_lyrics = 'L'
-
 key_reverse_selection = 'v'
 key_deselect_all = 'V'
 key_select_album = 'B'
@@ -95,7 +85,6 @@ key_move_song_down = 'K'
 #key_move_to = 'M'
 #key_move_before = 0
 #key_move_after = 0
-
 key_add = 'a'
 key_save_playlist = 'S'
 key_go_to_now_playing = 'o'

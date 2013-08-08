@@ -5,7 +5,7 @@
 # homedir-relative path, or XDG_xxx_DIR="/yyy", where /yyy is an
 # absolute path. No other format is supported.
 
-# Using an absolute path for CONFIG since archey fails to read $HOME.
+# Using an absolute path for CONFIG since archey fails to read $HOME. I don't know if I still need this.
 
 XDG_DESKTOP_DIR="$HOME"
 XDG_DOWNLOAD_DIR="$HOME"

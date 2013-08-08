@@ -1,4 +1,4 @@
-#i need acpi for the battery portion, to indicate %
+# I need acpi for the battery portion, to indicate %.
 #Other Notification/Statuses/Bitmap Icons:
 # * Now Playing, which hovers to mpc, a mpd applet showcasing simple buttons and album art
 # * Volume
