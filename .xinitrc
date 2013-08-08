@@ -37,10 +37,9 @@ xrdb -merge ~/.Xresources
 #redshift -l 37.9:-122.3 -t 6500:3700 &
 
 # Change DE/WM's by the command 'xinit asdf', where you have "asdf) exec the_asdf_start_cmd".
-# 'xinit' by itself will launch the default session.
+# 'xinit' by itself will launch the default session. You can also manually start the application with just the exec command.
 case $1 in
-*)
-	exec i3
-	;;
+    awesome) exec awesome ;;
+    *) exec i3 ;;
 esac
 xmodmap -e 'add Alt = Alt_R'

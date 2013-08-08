@@ -473,6 +473,10 @@ alias gp="git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
 
+# Manual mounter for now.
+alias mounte="mount /dev/sdb1 /media/External_Hard_Drive"
+alias umounte="umount /media/External_Hard_Drive"
+
 # }}}
 # Environment variables. {{{
 # -----------------------------------------------------------------------------

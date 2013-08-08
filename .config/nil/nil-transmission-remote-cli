@@ -174,10 +174,11 @@ config.set('Colors', 'dialog',           'bg:black,fg:white')
 config.set('Colors', 'dialog_important', 'bg:red,fg:black')
 config.set('Colors', 'button',           'bg:white,fg:black')
 config.set('Colors', 'button_focused',   'bg:black,fg:white')
-config.set('Colors', 'file_prio_high',   'bg:red,fg:black')
-config.set('Colors', 'file_prio_normal', 'bg:white,fg:black')
-config.set('Colors', 'file_prio_low',    'bg:yellow,fg:black')
-config.set('Colors', 'file_prio_off',    'bg:blue,fg:black')
+# FOr some reason these ones are inverted.
+config.set('Colors', 'file_prio_high',   'bg:black,fg:red')
+config.set('Colors', 'file_prio_normal', 'bg:black,fg:white')
+config.set('Colors', 'file_prio_low',    'bg:black,fg:yellow')
+config.set('Colors', 'file_prio_off',    'bg:black,fg:blue')
 
 
 class ColorManager:
