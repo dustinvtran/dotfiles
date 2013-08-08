@@ -1,7 +1,10 @@
 #! /bin/bash
 
+# This is a script that toggles between two audio outputs.
+
 # Needs an improvement: don't toggle based on whether a file exists, but which audio I'm currently using.
-# Also, restart mpd.
+# Also, so that it doesn't require restarting applications, e.g., mpd, firefox.
+
 TOGGLE=~/.config/nil/.audiotoggle
 
 if [ ! -e $TOGGLE ]; then
@@ -14,8 +17,8 @@ if [ ! -e $TOGGLE ]; then
 else
     rm $TOGGLE
     ln -sf ~/.config/nil/asound.hdmi-connected ~/.asoundrc
-    pkill mpd
+    #pkill mpd
     #mpd ~/.config/mpd/mpd.conf &
     #mpdas &
-    #echo "You're using the HDMI audio."
+    echo "You're using the HDMI audio."
 fi

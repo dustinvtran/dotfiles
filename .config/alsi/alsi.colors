@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 
-# Colors for alsi
-
 scalar {
          black   => {normal => "\e[0;30m", bold => "\e[1;30m"},
          red     => {normal => "\e[0;31m", bold => "\e[1;31m"},

@@ -3,9 +3,12 @@
 #
 # transmission-remote-cli
 # Name: nil
-# Description: Slight modifications for custom keybinds, interface, and settings.
-#   I don't want to bother with ~/.config/tra..-cli/settings.cfg since it won't let
-#       me configure everything like I can with the source, e.g., select keybindings.
+# Description: Heavy interface modifications, default settings, and keybinds.
+#
+
+# Note:  I don't want to bother with ~/.config/tra..-cli/settings.cfg since it won't let
+#   me configure everything like I can with the source.
+#
 # Changelog:
 # - Top Bar
 #    * Removed draw_title_bar and placed 0 in self.pad.refresh.
@@ -28,7 +31,7 @@
 #    * Removed reverse from  draw_torrents_stats.
 #    * Flipped color in self.torrentname_is_progressbar.
 #    * Reduced the # of items in self_sort_options and draw_options_dialog, since my small transmission window would crash when using these keys otherwise.
-#
+
 
 ########################################################################
 # This is transmission-remote-cli, whereas 'cli' stands for 'Curses    #
@@ -174,7 +177,7 @@ config.set('Colors', 'dialog',           'bg:black,fg:white')
 config.set('Colors', 'dialog_important', 'bg:red,fg:black')
 config.set('Colors', 'button',           'bg:white,fg:black')
 config.set('Colors', 'button_focused',   'bg:black,fg:white')
-# FOr some reason these ones are inverted.
+# For some reason these ones are inverted.
 config.set('Colors', 'file_prio_high',   'bg:black,fg:red')
 config.set('Colors', 'file_prio_normal', 'bg:black,fg:white')
 config.set('Colors', 'file_prio_low',    'bg:black,fg:yellow')

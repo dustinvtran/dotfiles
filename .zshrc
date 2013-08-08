@@ -3,23 +3,28 @@
 # ~/.zshrc
 # Name: nil
 #
-# Bugs & To-Do {{{
+# To-Do List {{{
 # -----------------------------------------------------------------------------
 
-# Deletearound not working.
-# slow split second startup (urxvt issue?).
-# Ctrl-I Doesn't work; also need a good keybind for it.
-# tab completion doesn't work on some commands (e.g. fasd commands).
-# tab completion menu colors for scp  are wonky/inverted.
-# have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
-# display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
-# make zle widget for 's/S' as your insert char function
-# Get working ip address function.
-# Reopen last closed client/application/window function.
-#   E.g., it logs all the processes that disappear, and then it opens up the last line.
-#   Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
-#       which app (in the sense of /usr/share/applications)
-# all keybind/vim stuff lost during ssh session, wonky prompt
+# High Priority:
+#   * Deletearound not working.
+#   * slow split second startup (urxvt issue?).
+#   * Ctrl-I Doesn't work; also need a good keybind for it.
+#   * tab completion doesn't work on some commands (e.g. fasd commands).
+#   * tab completion menu colors for scp  are wonky/inverted.
+# Medium Priority:
+#   * Better ls and grep colors, and better ls style.
+#   * have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
+#   * display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
+#   * make zle widget for 's/S' as your insert char function
+# Low Priority:
+#   * Get working ip address function.
+#   * Reopen last closed client/application/window function.
+#       * E.g., it logs all the processes that disappear, and then it opens up the last line.
+#       * Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
+#           * which app (in the sense of /usr/share/applications)
+#   * all keybind/vim stuff lost during ssh session, wonky prompt
+#   * When pressing <CR> while still in cmd mode (green), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
 
 # }}}
 # General Settings. {{{
@@ -56,11 +61,8 @@ CORRECT_IGNORE='_*'
 HISTSIZE=1000
 SAVEHIST=${HISTSIZE}
 HISTFILE=~/.zshinfo
-# Do not record repeated lines in history.
 setopt histignoredups
-# Share history between shells.
 setopt share_history
-# omz defaults
 setopt append_history
 setopt extended_history
 setopt hist_expire_dups_first
@@ -68,7 +70,6 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
-# Enable fasd.
 fasd_cache="$HOME/.config/nil/.fasd-init-cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
     fasd --init auto >| "$fasd_cache"
@@ -140,7 +141,7 @@ alias lsa='ls -lah --color'
 alias grep='grep --color'
 
 # Prompt Style.
-# One caveat I haven't figured out: when pressing <CR> while still in cmd mode (green), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
+# This changes PS1 dynamically depending on insert or command mode.
 PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
 
 
@@ -397,8 +398,12 @@ bindkey -M vicmd '^[[5~' nop                    # PgUp
 bindkey -M vicmd '^[[6~' nop                    # PgDn
 
 # }}}
-# Oh my alias. {{{
+# Alias, Environment Variables, & Functions {{{
 # -----------------------------------------------------------------------------
+
+###############################################################################
+# Alias
+###############################################################################
 
 # Disable autocorrection for these.
 alias ln="nocorrect ln"
@@ -429,6 +434,7 @@ alias so="exec zsh"
 alias xrdbx="xrdb ~/.Xresources"
 alias sv="sudo vim"
 
+# Directory navigation.
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -448,7 +454,7 @@ alias psyu="packer --noedit -Syu"
 alias pss="packer -Ss"
 
 # System-dotfile backups.
-alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/package-list"
+alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/system-dotfiles/package-list"
 alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
 
@@ -477,9 +483,9 @@ alias gs="git show --name-only"
 alias mounte="mount /dev/sdb1 /media/External_Hard_Drive"
 alias umounte="umount /media/External_Hard_Drive"
 
-# }}}
-# Environment variables. {{{
-# -----------------------------------------------------------------------------
+###############################################################################
+# Environment variables
+###############################################################################
 
 export EDITOR=gvim
 
@@ -487,9 +493,9 @@ export EDITOR=gvim
 # Adding 'q' as the universal CLI shortcut for exit.
 export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'nnoremap q :q<CR>' -\""
 
-# }}}
-# Functions {{{
-# -----------------------------------------------------------------------------
+###############################################################################
+# Functions
+###############################################################################
 
 # Echo external IP and what your NIC thinks your IP addresses are.
 exip () {

@@ -1,6 +1,8 @@
 #! /bin/bash
 
-# Use 'udevadm monitor' to see whether the kernel changes (the necessary condition) and then see if and how long it takes for the udev trigger to pull through. As for idiosyncrasies distinct from what the forums said, I require that this stuff is done under dotfiles rather than /etc/. There seems to be something barring the commands permission-wise, though I could probably find out and test now that I know how 'udevadm monitor' works. But fuck it, this is perfect anyways (I like dotfiles more than /etc/).
+# This is a script for a udev rule. It changes audio and video output triggered whenever HDMI1 is connected or disconnected.
+
+# Use 'udevadm monitor' to see whether the kernel changes (the necessary condition) and then see if and how long it takes for the udev trigger to pull through.
 
 export XAUTHORITY=/home/nil/.Xauthority
 export DISPLAY=:0
@@ -10,7 +12,7 @@ alsa_dir=/home/nil/.config/nil
 asound_file=asound.hdmi-$hdmi_status
 
 ## Change audio source.
-# With my leet headphone setup, I rarely use the HDMI audio anyways, enough so that I'd rather do it manually through my 'audio-toggle' script.
+# Commented, because I'd rather do it manually through my 'audio-toggle' script.
 #if [[ -n $hdmi_status ]] && [[ -f "$alsa_dir/$asound_file" ]]; then
 #    ln -sf "$alsa_dir/$asound_file" /home/nil/.asoundrc
 #fi

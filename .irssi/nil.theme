@@ -3,157 +3,89 @@
 # ~/.irssi/nil.theme
 # Name: nil
 #
-# Description: A minimalistic approach which improves upon right-aligned-nick integration
-#   through dynamic usage of the pipe (|) column.
+
 # Note:
-# * First taken from here, which mostly emulates the second link. Huge changes over time however.
-# https://bbs.archlinux.org/viewtopic.php?id=143793
-# http://dotshare.it/dots/279/
-# * Commented out lines with no changes are simply the default settings, and/or notes.
-# * Symbol stylings to consider for the pipe column:
-# = > < | · * (blank) # + - . _ → »
+# * Commented out lines with no changes are simply the default settings or notes.
+# * Symbol stylings to consider for the pipe column: = > < | · * (blank) # + - . _ → »
 
-# Default foreground color (%N); -1 is the default terminal color.
 #default_color = "-1";
-
-# print timestamp/servertag at the end of line, not at beginning
 #info_eol = "false";
-
-# these characters are automatically replaced with specified color
-# (dark grey by default)
 replaces = { "[]" = "%g$*%n"; };
 
 abstracts = {
-  # General Settings. {{{
-  # text to insert at the beginning of each non-message line
-  #line_start = "%g//%n ";
+###############################################################################
+# General Settings.
+###############################################################################
+
   line_start = "";
-
-  # timestamp styling, nothing by default
   timestamp = "%K$0-%n";
-
-  # any kind of text that needs hilighting, default is to bold
-  hilight = "%_$*%_";
-
-  # any kind of error message, default is bright red
-  error = "%R$*%n";
-
-  # channel name is printed
+  #hilight = "%_$*%_";
+  #error = "%R$*%n";
   channel = "%b$*%n";
-
-  # nick is printed
   #nick = "%_$*%_";
-
-  # nick host is printed
   nickhost = "%g$*%n";
-
-  # server name is printed
   #server = "%_$*%_";
-
-  # some kind of comment is printed
-  #comment = "%n(%b\"$*\"%n);";
   comment = "%b$*%n";
-
-  # reason for something is printed (part, quit, kick, ..)
   #reason = "{comment $*}";
-
-  # mode change is printed ([+o nick])
   #mode = "{comment $*}";
-  # }}}
-  # Channel Specific Messages {{{
-  # highlighted nick/host is printed (joins)
+
+###############################################################################
+# Channel Specific Messages
+###############################################################################
+
   channick_hilight = "%g$*%N";
   chanhost_hilight = "{nickhost $*}";
-
-  # nick/host is printed (parts, quits, etc.)
   channick = "$*";
   #chanhost = "{nickhost $*}";
-
-  # highlighted channel name is printed
   channelhilight = "%g$*%n";
-
-  # ban/ban exception/invite list mask is printed
   ban = "$*";
-  # }}}
-  # Messages {{{
-  # the basic styling of how to print message, $0 = nick mode, $1 = nick
-  #msgnick = "$1-$0%K│%N %|";
-  msgnick = "$1-$0  %|";
 
-  # $0 = nick mode, $1 = nick
+###############################################################################
+# Messages
+###############################################################################
+
+  msgnick = "$1-$0  %|";
   ownmsgnick = "{msgnick %w$0$1}%N";
   ownnick = " %W$*%n ";
-
-  # public message in channel, $0 = nick mode, $1 = nick
   pubmsgnick = "{msgnick %w$0$1}%N";
   pubnick = " %N$*%n ";
-
-  # public message in channel meant for me, $0 = nick mode, $1 = nick
   pubmsgmenick = "{msgnick %w$0$1}%r";
   menick = "%W$*%n ";
-
-  # public highlighted message in channel
-  # $0 = highlight color, $1 = nick mode, $2 = nick
   pubmsghinick = "{msgnick %w$1$0%K$2%n}%r";
-
-  # channel name is printed with message
   msgchannel = "%K:%m$*%n";
-
-  # private message, $0 = nick, $1 = host
   privmsg = "$0=%b\"$1-\"%n ";
-
-  # private message from you, $0 = "msg", $1 = target nick
   ownprivmsg = "$0=%b\"$1-\"%n ";
-
-  # private message in query
   privmsgnick = "%g<%N %|";
-
-  # own private message in query
   ownprivmsgnick = "%r>%N %|";
-  # }}}
-  # Actions (/me stuff.) {{{
-  # generic one that's used by most actions
+
+###############################################################################
+# Actions (/me commands)
+###############################################################################
+
   action = "  %y$* %y· %y%|";
-
-  # own action, both private/public
-  # ownaction = "{action $*}";
   ownaction = "  %y$* %y·";
-
-  # own action with target, both private/public
   ownaction_target = "{action $*}";
-
-  # private action sent by others
   pvtaction = "{action $*}";
   #pvtaction_query = "{action $*}";
-
-  # public action sent by others
   #pubaction = "{action $*}";
-  # }}}
-  # Other IRC Events. {{{
-  # whois
-  whois = "%#    $[7]0 = $1-;";
 
-  # notices
+###############################################################################
+# Other IRC Events
+###############################################################################
+
+  whois = "%#    $[7]0 = $1-;";
   ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
   notice = "%M$*%n ";
   pubnotice_channel = " %N($*)";
   pvtnotice_host = " %N($*)";
   servernotice = " %N($*)";
-
-  # CTCPs
   ownctcp = "%NCTCP c = %Mnew%n $0 ($1-) ";
   ctcp = "%N$*%n";
-
-  # wallops
   wallop = "%K$*%n: ";
   #wallop_nick = "%n$*";
   wallop_action = "%K * $*%n ";
-
-  # netsplits
   netsplit = "     Netsplit %Y= %b\"$*\"%n";
   netjoin = "      Netjoin %Y= %b\"$*\"%n";
-
-  # /names list
   # No longer using /names. Using /anames instead.
   #names_prefix = "                ";
   #names_nick = "%_%R$0%_%n$1- ";
@@ -162,70 +94,54 @@ abstracts = {
   ##names_nick_voice = "{names_nick $*}";
   #names_users = "       %MServer%n %Y=%n names(%b$1%n)";
   #names_channel = "\"%b$*\"%n";
-
-  # DCC
   #dcc = "%g$*%n";
   #dccfile = "%_$*%_";
-
-  # DCC chat, own msg/action
   dccownmsg = "%g /* $0 ($1-) */";
   dccownnick = "$*%n";
   dccownquerynick = "$*%n";
   #dccownaction = "{action $*}";
   dccownaction_target = "{action $*}";
-
-  # DCC chat, others
   dccmsg = "%g/* $1- ($0) */";
   dccquerynick = "%g$*%n";
   dccaction = "{action $*}";
-  # }}}
-  # Bars {{{
-  # default background for all statusbars. You can also give
-  # the default foreground color for statusbar items.
+
+###############################################################################
+# Status Bars
+###############################################################################
+
   sb_background = "%n";
-
-  # text at the beginning of statusbars. sb-item already puts
-  # space there,so we don't use anything by default.
+  ##sb_default_bg = "%4";
+  #sb_prompt_bg = "%n";
+  #sb_info_bg = "%8";
+  #sb_topic_bg = "%4";
   #sbstart = "";
-  # text at the end of statusbars. Use space so that it's never
-  # used for anything.
   #sbend = "";
-
   topicsbstart = "%BChannel: %b\"$*";
   topicsbend = "$*%b\"";
-
   sb = "$*";
   sbmode = " %K[%g%g+%n$*%K]";
   sbaway = " %m⮂%N%5 away %N%m⮀%N ";
   sbservertag = ":%r$0%n";
   #sbnickmode = "$0";
-
-  # activity in statusbar
-
-  # ',' separator
   sb_act_sep = "";
-  # normal text
   # This one changes the color of windows with new server text!
-  # I currently set 'read' channels and 'new server text' channels into the same color.
-  #     I don't really care if people join/quit.
   sb_act_text = "%w$*";
-  # public message
   # This one changes the color of windows with new chat text!
   sb_act_msg = "%b$*";
-  # hilight
   # This one changes the color of windows with new highlighted text!
   #     This is also configurable per hilight via built-in commands.
   sb_act_hilight = "%g$*%n";
-  # hilight with specified color, $0 = color, $1 = text
   sb_act_hilight_color = "%g$1-%n";
   # To change the color of windows with read text, change awl_display_key.
   # TO change the color of active window, change awl_display_key_active.
-  # }}}
 };
 
 formats = {
+
+###############################################################################
   "fe-common/core" = {
-    #{{{
+###############################################################################
+
     line_start = "{line_start}";
     line_start_irssi = "{line_start}";
 
@@ -265,13 +181,15 @@ formats = {
 
     # Last line in /names.
     # No longer using /names. Using /anames instead.
-    #endofnames = "               Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
+    #endofnames = "             Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
 
     pubmsg = "{pubmsgnick $2 {pubnick \00311$[-9]0}}$1";
   };
-  #}}}
+
+###############################################################################
   "fe-common/irc" = {
-    #{{{
+###############################################################################
+
     # Actions (/me).
     own_action = "{ownaction $[-9]0} $1";
     action_private = "{pvtaction $[-9]0}$1";
@@ -282,9 +200,12 @@ formats = {
     chanmode_change = "%M{nick $[-11]2} %Y→ {mode $1}";
     server_chanmode_change = "$M{nick $[-11]2} %Y→ {netsplit ServerMode} {mode $1}";
   };
-  #}}}
 };
-# Default formatting for server messages. {{{
+
+###############################################################################
+# Default formatting for server messages.
+###############################################################################
+
 #formats = {
 #"fe-common/core" = {
 #join = "{channick_hilight $0} {chanhost_hilight $1} has joined {channel $2}%N";
@@ -298,4 +219,3 @@ formats = {
 #server_chanmode_change = "{netsplit ServerMode}/{channelhilight $0} {mode $1} by {nick $2}";
 #};
 #};
-# }}}

@@ -138,7 +138,7 @@ sub print_anames
     $channel->print("     %MServer%n %Y=%n names('%b". $chan. "%n')",
                     MSGLEVEL_CLIENTCRAP);
     columnize_nicks($channel,@nicks);
-    $channel->print("             Total of %_$total%_ nicks: %b%_$ops%_ ops, " .
+    $channel->print("Total of %_$total%_ nicks: %b%_$ops%_ ops, " .
                     "%_$halfops%_ halfops, %_$voices%_ voices, %_$normal%_ " .
                     "normal, %_$away%_ away",
                     MSGLEVEL_CLIENTNOTICE);
