@@ -34,6 +34,7 @@
 #   * Clickable panel applets, e.g., a now-playing mpd widget with hover support.
 #   * Icon/non-UTF name support.
 #   * Can't add a black outline to it.
+#   * Different styles for focused app, e.g., a triangle at the top left, etc.
 #   * Don't overlap the dzen2's on new i3-session.
 # Windows:
 #   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
@@ -67,7 +68,6 @@ exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 400 -x 760 -y 4 -ta c -fg '#7070
 exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 200 -x 583 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 
-#exec i3-msg 'workspace β; exec firefox; workspace α' &
 exec firefox &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 85x31 -e irssi &
@@ -171,87 +171,86 @@ bindsym $mod+Shift+r restart
 # Workspaces {{{
 # -----------------------------------------------------------------------------
 
-# Greek alphabet.
-# Other stylistic choices: dice, chinese/japanese/etc.
+# Other stylistic choices: dice, chinese/japanese/etc, greek alphabet, other UTF-8.
 # Switch to workspace.
-bindsym $mod+1 workspace α
-bindsym $mod+2 workspace β
-bindsym $mod+3 workspace γ
-bindsym $mod+4 workspace δ
-bindsym $mod+5 workspace ε
-bindsym $mod+6 workspace ζ
-bindsym $mod+7 workspace η
-bindsym $mod+8 workspace θ
-bindsym $mod+9 workspace ι
-bindsym $mod+0 workspace κ
-bindsym $mod2+1 workspace λ
-bindsym $mod2+2 workspace μ
-bindsym $mod2+3 workspace ν
-bindsym $mod2+4 workspace ξ
-bindsym $mod2+5 workspace ο
-bindsym $mod2+6 workspace π
-bindsym $mod2+7 workspace ρ
-bindsym $mod2+8 workspace σ
-bindsym $mod2+9 workspace τ
-bindsym $mod2+0 workspace υ
+bindsym $mod+1 workspace i
+bindsym $mod+2 workspace ii
+bindsym $mod+3 workspace iii
+bindsym $mod+4 workspace iv
+bindsym $mod+5 workspace v
+bindsym $mod+6 workspace vi
+bindsym $mod+7 workspace vii
+bindsym $mod+8 workspace viii
+bindsym $mod+9 workspace ix
+bindsym $mod+0 workspace x
+bindsym $mod2+1 workspace -
+bindsym $mod2+2 workspace =
+bindsym $mod2+3 workspace ⌯
+bindsym $mod2+4 workspace ﬩
+#bindsym $mod2+5 workspace 15
+#bindsym $mod2+6 workspace 16
+#bindsym $mod2+7 workspace 17
+#bindsym $mod2+8 workspace 18
+#bindsym $mod2+9 workspace 19
+#bindsym $mod2+0 workspace 20
 
 # Move focused container to workspace.
-bindsym $mod+Shift+1 move container to workspace α
-bindsym $mod+Shift+2 move container to workspace β
-bindsym $mod+Shift+3 move container to workspace γ
-bindsym $mod+Shift+4 move container to workspace δ
-bindsym $mod+Shift+5 move container to workspace ε
-bindsym $mod+Shift+6 move container to workspace ζ
-bindsym $mod+Shift+7 move container to workspace η
-bindsym $mod+Shift+8 move container to workspace θ
-bindsym $mod+Shift+9 move container to workspace ι
-bindsym $mod+Shift+0 move container to workspace κ
-bindsym $mod2+Shift+1 move container to workspace λ
-bindsym $mod2+Shift+2 move container to workspace μ
-bindsym $mod2+Shift+3 move container to workspace ν
-bindsym $mod2+Shift+4 move container to workspace ξ
-bindsym $mod2+Shift+5 move container to workspace ο
-bindsym $mod2+Shift+6 move container to workspace π
-bindsym $mod2+Shift+7 move container to workspace ρ
-bindsym $mod2+Shift+8 move container to workspace σ
-bindsym $mod2+Shift+9 move container to workspace τ
-bindsym $mod2+Shift+0 move container to workspace υ
+bindsym $mod+Shift+1 move container to workspace i
+bindsym $mod+Shift+2 move container to workspace ii
+bindsym $mod+Shift+3 move container to workspace iii
+bindsym $mod+Shift+4 move container to workspace iv
+bindsym $mod+Shift+5 move container to workspace v
+bindsym $mod+Shift+6 move container to workspace vi
+bindsym $mod+Shift+7 move container to workspace vii
+bindsym $mod+Shift+8 move container to workspace viii
+bindsym $mod+Shift+9 move container to workspace ix
+bindsym $mod+Shift+0 move container to workspace x
+bindsym $mod2+Shift+1 move container to workspace -
+bindsym $mod2+Shift+2 move container to workspace =
+bindsym $mod2+Shift+3 move container to workspace ⌯
+bindsym $mod2+Shift+4 move container to workspace ﬩
+#bindsym $mod2+Shift+5 move container to workspace 15
+#bindsym $mod2+Shift+6 move container to workspace 16
+#bindsym $mod2+Shift+7 move container to workspace 17
+#bindsym $mod2+Shift+8 move container to workspace 18
+#bindsym $mod2+Shift+9 move container to workspace 19
+#bindsym $mod2+Shift+0 move container to workspace 20
 
 # Force a consistent workspace # layout, so I can move it to that workspace without wondering whether it went to the right monitor.
 # I prefer this (dynamic tag creation plugin of Awesome) over default i3.
-workspace α output LVDS1
-workspace β output LVDS1
-workspace γ output LVDS1
-workspace δ output LVDS1
-workspace ε output LVDS1
-workspace ζ output LVDS1
-workspace η output LVDS1
-workspace θ output LVDS1
-workspace ι output LVDS1
-workspace κ output LVDS1
-workspace λ output HDMI1
-workspace μ output HDMI1
-workspace ν output HDMI1
-workspace ξ output HDMI1
-workspace ο output HDMI1
-workspace π output HDMI1
-workspace ρ output HDMI1
-workspace σ output HDMI1
-workspace τ output HDMI1
-workspace υ output HDMI1
+workspace i output LVDS1
+workspace ii output LVDS1
+workspace iii output LVDS1
+workspace iv output LVDS1
+workspace v output LVDS1
+workspace vi output LVDS1
+workspace vii output LVDS1
+workspace vii output LVDS1
+workspace ix output LVDS1
+workspace x output LVDS1
+workspace - output HDMI1
+workspace = output HDMI1
+workspace ⌯ output HDMI1
+workspace ﬩ output HDMI1
+#workspace 15 output HDMI1
+#workspace 16 output HDMI1
+#workspace 17 output HDMI1
+#workspace 18 output HDMI1
+#workspace 19 output HDMI1
+#workspace 10 output HDMI1
 
 # i3bar Panel
 bar {
     colors {
     background #f9f9f9
     #colorclass         border  backgr  text
-    focused_workspace   #e0e0e0 #e0e0e0 #707070
-    active_workspace    #e0e0e0 #e0e0e0 #707070
+    focused_workspace   #707070 #707070 #f9f9f9
+    active_workspace    #707070 #707070 #f9f9f9
     inactive_workspace  #f9f9f9 #f9f9f9 #707070
     urgent_workspace    #2f343a #900000 #f9f9f9
     }
     position top
-    font pango:HelveticaNeueCom 45 Lt Bold 9
+    font pango: nu
     tray_output none
     colors { statusline #000000 }
 }
@@ -268,16 +267,17 @@ for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
 
 # Assign application to workspace on startup.
-assign [class="^URxvt$" instance="^nil$"] λ
-assign [class="^URxvt$" instance="^irssi$"] λ
-assign [class="^URxvt$" instance="^ncmpcpp$"] λ
-assign [class="^URxvt$" instance="^ranger$"] λ
-assign [class="^URxvt$" instance="^tcli$"] α
-assign [class="^Firefox$"] β
-assign [class="^mpv$"] λ
-assign [class="^Zathura$"] λ
-assign [class="^libreoffice-calc$"] γ
-assign [class="^Gimp$"] δ
+assign [class="^URxvt$" instance="^nil$"] -
+assign [class="^URxvt$" instance="^irssi$"] -
+assign [class="^URxvt$" instance="^ncmpcpp$"] -
+assign [class="^URxvt$" instance="^ranger$"] -
+assign [class="^URxvt$" instance="^tcli$"] i
+assign [class="^feh$"] -
+assign [class="^Firefox$"] ii
+assign [class="^Gimp$"] iv
+assign [class="^libreoffice-calc$"] iii
+assign [class="^mpv$"] -
+assign [class="^Zathura$"] -
 
 # Float, focus, and position application on startup.
 for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 140px,move right 640px
@@ -285,10 +285,10 @@ for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 20
 for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move up 455px,move right 640px
 for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move down 405px,move right 640px
 for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 325px
-for_window [class="^mpv$"] floating enable,focus,move left 300px
 for_window [class="^feh$"] floating enable,focus,move left 290px
-for_window [class="^Zathura$"] floating enable,focus,move left 300px
 for_window [class="^Gvim$"] floating enable,focus,move up 102px,move left 325px
+for_window [class="^mpv$"] floating enable,focus,move left 300px
+for_window [class="^Zathura$"] floating enable,focus,move left 300px
 
 # Shortcut Application focusing.
 bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
