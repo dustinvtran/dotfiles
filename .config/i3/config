@@ -309,9 +309,10 @@ for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 20
 for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move up 455px,move right 640px
 for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move down 405px,move right 640px
 for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 325px
-for_window [class="^mpv$"] floating enable,focus,focus,move left 300px
+for_window [class="^mpv$"] floating enable,focus,move left 300px
+for_window [class="^feh$"] floating enable,focus,move left 290px
 for_window [class="^Zathura$"] floating enable,focus,move left 300px
-for_window [class="^Gvim$"] floating enable,focus,move up 102px,move left 327px
+for_window [class="^Gvim$"] floating enable,focus,move up 102px,move left 325px
 
 # Shortcut Application focusing.
 bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
@@ -332,7 +333,7 @@ bindsym $mod2+t exec urxvt -name nil -g 85x24 &
 bindsym $mod2+i exec urxvt -name irssi -g 85x31 -e irssi &
 bindsym $mod2+n exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
 bindsym $mod2+f exec urxvt -name ranger -g 85x19 -e ranger &
-bindsym $mod2+a exec urxvt -name tcli -g 108x16 -e ~/.config/nil/nil-transmission-remote-cli &
+bindsym $mod2+a exec urxvt -name tcli -g 107x16 -e ~/.config/nil/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 

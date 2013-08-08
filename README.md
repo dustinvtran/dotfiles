@@ -7,4 +7,4 @@ screenies. on other apps:
 ![screeny1](http://a.pomf.se/2Gn1.png)
 
 ##second display
-![screeny2](http://a.pomf.se/5En8.png)
+![screeny2](http://a.pomf.se/0Au8.png)
