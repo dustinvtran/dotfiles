@@ -63,6 +63,15 @@
 " Wishlist
 "##############################################################################
 
+" EasyMotion:
+"   * This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
+"   * I want to f/F's to be case-insensitive, but smartcase when I do capitalize.
+"   I can do this by setting it to the EasyMotion n/N commands, whilst allowing a one key argument for the find. This also makes it easier in case I screw up so I can cycle with n/N.
+"   * Remap operator mode's t/T to <Nop> without affecting f/F's operator mode. Of course, I can always map the t/T to some other obscure keys and just forget about them, but it leaves me with peace of mind to know that whatever two keys they are, they're <Nop>'d.
+"   * Include the fold title as part of search.
+" NERDTree:
+"   * I want you as a Toggle, but I also want you to always autotree node to CWD.
+"   * 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
 " Misc:
 "   * Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
@@ -693,8 +702,8 @@ nnoremap <silent> L :tabn<CR>
 "##############################################################################
 " Buffer Explorer
 "##############################################################################
+
 " I use these splits instead of the defined commands since occasionally BufExplorer collapses the extra split when I don't want that!
-" I also mapped <C-c> somewhat unnaturally just because I use the key so much and it's so powahful!
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
 nnoremap <silent> <C-x> <C-w>s:silent BufExplorer<CR>
 nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
@@ -704,15 +713,8 @@ noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 "##############################################################################
 " Colors/Powerline
 "##############################################################################
+
 colorscheme nil
-
-" Set colorschemes for different filetypes.
-"augroup file_type_color_scheme
-    "autocmd!
-    "autocmd BufEnter,BufNewFile *.tex colorscheme molokai
-    "autocmd BufLeave *.tex colorscheme solarized
-"augroup END
-
 syntax enable
 set guioptions=
 set notitle
@@ -729,24 +731,20 @@ call Pl#Theme#RemoveSegment('lineinfo')
 "##############################################################################
 " Ctrl-P
 "##############################################################################
+
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_cmd = 'CtrlP'
-
 " I really don't see why /I/ have to do this, but whatever.
 set wildignore+=*.doc,*.docx,*.epub,*.flac,*.lnk,*.mobi,*.mkv,*.pdf,*.ods,*.xlsx
 
 "##############################################################################
 " EasyMotion
 "##############################################################################
+
 " Sorted by closest keys to center of homekeys, with RHS as priority (because I'm right-handed and f/F is on the LHS which may require a LHS shift change). Then since it's pretty random anyways, I just swapped two's based on matchups on which I would prefer. Also note that you want something still good as your last choice, since it will invariably come up for a search requiring >= 2 presses. I went with H since it was kind of random between g and a anyways and it alternates hands after a possible chord press. For the more canonical route go with the default alphabet.
 let g:EasyMotion_keys = 'jklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBYh'
-" f/F keys defaulted to EasyMotion for normal/visual, and for operator mode (primarily d/c/y), set to t/T's instead.
-"   This makes it so that I only need two keys for mega-navigations, where other such motions are useless compared to my omni f/F.
-" Major Improvement: This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
-" Want: I want to f/F's to be case-insensitive, but smartcase when I do capitalize.
-"   I can do this by setting it to the EasyMotion n/N commands, whilst allowing a one key argument for the find. This also makes it easier in case I screw up so I can cycle with n/N.
-" Want: Remap operator mode's t/T to <Nop> without affecting f/F's operator mode. Of course, I can always map the t/T to some other obscure keys and just forget about them, but it leaves me with peace of mind to know that whatever two keys they are, they're <Nop>'d.
-" Want: Include the fold title as part of search.
+
+" f/F keys are defaulted to EasyMotion for normal/visual, and for operator mode (primarily d/c/y), they're set to t/T's instead. This makes it so that I only need two keys for mega-navigations, where other such motions are useless compared to my omn f/F.
 let g:EasyMotion_mapping_f = 'f'
 let g:EasyMotion_mapping_F = 'F'
 let g:EasyMotion_mapping_t = 't'
@@ -760,20 +758,13 @@ augroup END
 "##############################################################################
 " Gundo
 "##############################################################################
+
 nnoremap <C-u> :GundoToggle<CR>
 
 "##############################################################################
 " Matchit
 "##############################################################################
-" Move between matching brackets and tags with <Tab> instead of the default %.
-""let s:SID = Sid('$vim/vimfiles/bundle/matchit/plugin/matchit.vim')
-""function! s:Is( input, expected, description )
-    ""let l:got = SidInvoke(s:SID, printf("IsWildcardPathPattern('%s')", a:input))
-    ""call vimtap#Is(l:got, a:expected, a:description)
-""endfunction
-""nnoremap <silent> <Tab> :<C-u>call <SID>Match_wrapper('',1,'n') <CR>
-""vnoremap <silent> <Tab> :<C-u>call <SID>Match_wrapper('',1,'v') <CR>m'gv``
-""onoremap <silent> <Tab> v:<C-u>call <SID>Match_wrapper('',1,'o') <CR>
+
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>.
 noremap <C-p> <C-i>
@@ -781,12 +772,14 @@ noremap <C-p> <C-i>
 "##############################################################################
 " MarkMyWords
 "##############################################################################
+
 nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 
 "##############################################################################
 " NERDCommenter
 "##############################################################################
-" To keep visual mode on. Technically, <BS> isn't healthy here since I merely need an empty key there, but I dunno how to do it.
+
+" Technically, <BS> isn't healthy here since I merely need an empty key there, but I dunno how to do it.
 vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth<BS>gv
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy<BS>gv
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment<BS>gv
@@ -805,8 +798,7 @@ vmap <silent> <Leader>cu <plug>NERDCommenterUncomment<BS>gv
 "##############################################################################
 " NERDTree
 "##############################################################################
-" I want you as a Toggle, but I also want you to autotree node to CWD.
-" 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
+
 nnoremap <silent> <C-q> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
@@ -815,6 +807,7 @@ let NERDTreeShowHidden=1
 "##############################################################################
 " Set Color
 "##############################################################################
+
 augroup color_scheme
     autocmd!
     autocmd VimEnter * silent SetColors all
@@ -825,6 +818,7 @@ nnoremap <silent> <Leader>r :call NextColor(1)<CR>
 "##############################################################################
 " Snipmate
 "##############################################################################
+
 let g:snippets_dir = '~/.vim/bundle/nil/snippets'
 
 " To reload the snippets whenever I rewrite them.
@@ -841,6 +835,7 @@ augroup END
 "##############################################################################
 " Surround
 "##############################################################################
+
 " Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways.
 vmap s <Plug>VSurround
 " So the '\' surround command does '\[...\]'.
