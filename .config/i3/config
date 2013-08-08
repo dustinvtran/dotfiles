@@ -13,6 +13,8 @@
 # To-Do
 ###############################################################################
 
+# Medium Priority:
+#   * ncmcpp reissues for_window occasionally.
 # Low Priority:
 #   * make sure the conky/dzens work right when hotplugged
 #   * Set all firefox popups to float more generally, rather than needing to xprop each individually.
@@ -31,6 +33,7 @@
 #   * When changing workspaces and back, the w3m image preview in ranger is gone.
 # Panel/Workspaces:
 #   * Non-# order, e.g., alphabetical or customizable.
+#   * Don't have full-tiled apps have shadows that make the dzen2's noticeable, in compton.
 #   * Clickable panel applets, e.g., a now-playing mpd widget with hover support.
 #   * Icon/non-UTF name support.
 #   * Can't add a black outline to it.
@@ -42,8 +45,6 @@
 #   * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
 #       also a keybind to be able to toggle that border.)
 # - Floating:
-#   * Shadowed outlines.
-#   * True transparency, e.g., just slightly for terminal scratchpads.
 #   * Ability to distinguish focusing on two programs that are the same application, e.g., two firefox windows.
 #   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
 #       * As a subset, this means I can't move to the next monitor with hl.
@@ -166,6 +167,8 @@ bindsym $mod+Shift+l move right
 bindsym $mod+Shift+c reload
 # Be wary. This one ruins dzen2 and for_window positions.
 bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # }}}
 # Workspaces {{{
@@ -275,7 +278,7 @@ assign [class="^URxvt$" instance="^tcli$"] i
 assign [class="^feh$"] -
 assign [class="^Firefox$"] ii
 assign [class="^Gimp$"] iv
-assign [class="^libreoffice-calc$"] iii
+assign [class="libreoffice-calc"] iii
 assign [class="^mpv$"] -
 assign [class="^Zathura$"] -
 
