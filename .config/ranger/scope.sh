@@ -1,9 +1,13 @@
 #!/usr/bin/env sh
+
 #
 # ranger: File Preview
 # ~/.config/ranger/rc.conf
 # Name: nil
 #
+
+# Note: Only difference is that I commented out mediainfo.
+# I use mediainfo manually, and like seeing the full mkv name instead of a blip of mediainfo.
 
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its
@@ -84,7 +88,6 @@ case "$mimetype" in
     video/* | audio/*)
         exiftool "$path" && exit 5
         # Use sed to remove spaces so the output fits into the narrow window
-        # I use mediainfo manually, and like seeing the full mkv name instead of a blip of mediainfo.
         #try mediainfo "$path" && { dump | trim | sed 's/  \+:/: /;';  exit 5; } || exit 1;;
 esac
 
