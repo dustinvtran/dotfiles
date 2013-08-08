@@ -33,6 +33,7 @@ fi
 
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
+compton -b
 mpd ~/.config/mpd/mpd.conf &
 #mpdas &
 nitrogen --restore &
@@ -46,9 +47,9 @@ xmodmap -e 'add Control = Control_L'
 xcape -e 'Control_L=Escape'
 xmodmap -e 'keycode 135 = Super_R'
 #
-xmodmap -e 'keycode 108 = Alt_R'
-xmodmap -e 'add Alt = Alt_R'
-xcape -e 'Alt_R=emdash'
+#xmodmap -e 'keycode 108 = Alt_R'
+#xmodmap -e 'add Alt = Alt_R'
+#xcape -e 'Alt_R=emdash'
 #
 xrdb -merge ~/.Xresources
 
@@ -59,6 +60,7 @@ xrdb -merge ~/.Xresources
 # 'xinit' by itself will launch the default session. You can also manually start the application with just the exec command.
 
 case $1 in
-    awesome) exec awesome ;;
+    #awesome) exec awesome ;;
     *) exec i3 ;;
+    #*) exec awesome ;;
 esac

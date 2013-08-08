@@ -5,6 +5,7 @@
 # * Wifi Signal
 # * RAM Usage
 background yes
+own_window_class conky
 out_to_console yes
 out_to_x no
 update_interval 1
