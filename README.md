@@ -4,7 +4,7 @@ screenies. on other apps:
 * firefox, gimp, and libreoffice are always open on my second display's other workspaces.
 
 ##first display
-![screeny1](http://a.pomf.se/2Ay4.png)
+![screeny1](http://a.pomf.se/8Md5.png)
 
 ##second display
 ![screeny2](http://a.pomf.se/5Px6.png)
