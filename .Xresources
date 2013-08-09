@@ -11,6 +11,7 @@
 
 ! White (a snow white):         #f9f9f9
 ! Black (a faded black):        #707070
+! Darker Gray:                  #adadad
 ! Gray (a dusky gray):          #e0e0e0
 ! Green:                        #abd8a5
 ! Lighter Gray:                 #ebebeb
@@ -20,11 +21,11 @@
 !##############################################################################
 ! falac White Colorscheme: Customized
 !##############################################################################
-! Flipped color7 and color0, darkened foreground.
+! Gave color0 color7's original, darkened foreground, darkened color7.
 
 ! black
 URxvt*color15 : #505050
-URxvt*color7 : #b5b5b5
+URxvt*color7 : #adadad
 
 ! red
 !URxvt*color1 : #c29198

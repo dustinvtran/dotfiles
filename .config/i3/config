@@ -15,37 +15,31 @@
 
 # Medium Priority:
 #   * ncmcpp reissues for_window occasionally.
-# Low Priority:
 #   * make sure the conky/dzens work right when hotplugged
+# Low Priority:
 #   * Set all firefox popups to float more generally, rather than needing to xprop each individually.
-#   * when I open select applications that have a popup beforehand, the real application opens up not at the workspace I initalized the command but at the workspace I'm currently at (e.g. libreoffice, gimp)
 #       * read up on no-startup-id.
 #   * dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv
-#   * When restarting, the nondocked dzen2's get overlapped and are hidden (and the for_windows re-do itself of course).
+#   * When restarting, the nondocked dzen2's get overlapped because i3bar restarts, and the for_windows re-do themselves.
 #   * Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
 
 ###############################################################################
 # Wishlist
 ###############################################################################
 
-# Misc:
-#   * Right-click desktop with options.
-#   * When changing workspaces and back, the w3m image preview in ranger is gone.
 # Panel/Workspaces:
 #   * Non-# order, e.g., alphabetical or customizable.
-#   * Don't have full-tiled apps have shadows that make the dzen2's noticeable, in compton.
-#   * Clickable panel applets, e.g., a now-playing mpd widget with hover support.
-#   * Icon/non-UTF name support.
-#   * Can't add a black outline to it.
-#   * Different styles for focused app, e.g., a triangle at the top left, etc.
-#   * Don't overlap the dzen2's on new i3-session.
+#   * Clickable panel applets, e.g., a now-playing mpd widget with hover/click support.
+#   * Image icon/non-UTF name support.
+#   * Can't add a black outline to the panel.
+#   * Different styles for focused workspace, e.g., a triangle at the top left, etc.
+#   * Don't overlap the dzen2's when restarting i3bar.
 # Windows:
 #   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
-#   * More instantaneous mouse-over-window focus, rather than moving further into the window.
 #   * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
 #       also a keybind to be able to toggle that border.)
+#   * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
 # - Floating:
-#   * Ability to distinguish focusing on two programs that are the same application, e.g., two firefox windows.
 #   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
 #       * As a subset, this means I can't move to the next monitor with hl.
 #   * Absolute positioning based off workspace, not pixels and monitor alignment.
@@ -56,6 +50,10 @@
 #       can toggle hide them all away (can only do one at a time currently).
 #   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
 #       windows, like scratchpad terminals).
+# Misc:
+#   * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
+#   * Right-click desktop with options.
+#   * When changing workspaces and back, the w3m image preview in ranger is gone.
 
 # }}}
 # Startup Applications {{{
@@ -63,24 +61,26 @@
 
 # I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs. This is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
 # HDMI Display
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 400 -x 760 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
-#exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 1520 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 100 -x 910 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
+exec conky -c ~/.config/nil/.conkyrightrc2 | dzen2 -w 910 -x 1010 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
 # LVDS Display
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 200 -x 583 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
-exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 400 -x 966 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 100 -x 633 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 632 -x 734 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 
 exec firefox &
+exec gvim &
+exec libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
 exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 85x31 -e irssi &
 exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
 exec urxvt -name ranger -g 85x19 -e ranger &
 exec urxvt -name tcli -g 108x16 -e ~/.config/nil/nil-transmission-remote-cli &
-exec gvim &
+# These terminal commands should be placed in .xinitrc.
 exec dropboxd &
 exec rssdler -d &
 # I tried applying both of these commands in xinitrc with no luck, yet here it works.
-exec transmission-daemon &
 exec mpdas &
+exec transmission-daemon &
 
 # }}}
 # Windows {{{
@@ -98,7 +98,7 @@ bindsym $mod+d kill
 
 # Change container layout.
 # One toggles splitv/splith, and the other toggles stacking/tabbed.
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle split
 bindsym $mod+s exec bash ~/.config/nil/i3-container-toggle
 
 # Split in horizontal/vertical orientation.
@@ -278,7 +278,7 @@ assign [class="^URxvt$" instance="^tcli$"] i
 assign [class="^feh$"] -
 assign [class="^Firefox$"] ii
 assign [class="^Gimp$"] iv
-assign [class="libreoffice-calc"] iii
+assign [instance="VCLSalFrame"] iii
 assign [class="^mpv$"] -
 assign [class="^Zathura$"] -
 
@@ -299,6 +299,9 @@ bindsym $mod+i [class="^URxvt$" instance="^irssi$"] focus
 bindsym $mod+n [class="^URxvt$" instance="^ncmpcpp$"] focus
 bindsym $mod+f [class="^URxvt$" instance="^ranger$"] focus
 bindsym $mod+a [class="^URxvt$" instance="^tcli$"] focus
+bindsym $mod+e [class="^feh$"] focus
+bindsym $mod+g [class="^Gimp$"] focus
+bindsym $mod+o [instance="VCLSalFrame"] focus
 bindsym $mod+m [class="^mpv$"] focus
 bindsym $mod+z [class="^Zathura$"] focus
 bindsym $mod+w [class="^Gvim$"] focus
