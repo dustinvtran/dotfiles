@@ -26,16 +26,17 @@
 ###############################################################################
 # Wishlist
 ###############################################################################
+# ** are notated for high priority.
 
 # Panel/Workspaces:
-#   * Non-# order, e.g., alphabetical or customizable.
-#   * Clickable panel applets, e.g., a now-playing mpd widget with hover/click support.
-#   * Image icon/non-UTF name support.
+#   ** Non-# order, e.g., alphabetical or customizable.
+#   ** Keybindable/Clickable panel applets, e.g., a now-playing mpd widget with hover/click support.
 #   * Can't add a black outline to the panel.
+#   * Image icon/non-UTF name support.
 #   * Different styles for focused workspace, e.g., a triangle at the top left, etc.
 #   * Don't overlap the dzen2's when restarting i3bar.
 # Windows:
-#   * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+#   ** When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
 #   * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
 #       also a keybind to be able to toggle that border.)
 #   * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
@@ -45,7 +46,6 @@
 #   * Absolute positioning based off workspace, not pixels and monitor alignment.
 #       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
 #   * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
-# - Don't need these any longer, but keeping for documentation:
 #   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
 #       can toggle hide them all away (can only do one at a time currently).
 #   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
@@ -320,7 +320,7 @@ bindsym $mod2+q exec firefox
 
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
 # Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
-for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 322px
+for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 325px
 bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
 
 # Media Keys.
