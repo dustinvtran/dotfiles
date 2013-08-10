@@ -903,7 +903,7 @@ nnoremap Y y$
 
 " Command-line/Insert paste shortcuts.
 cnoremap <C-v> <C-R>*<BS>
-"inoremap <C-v> <C-R>*
+inoremap <C-v> <C-R>*
 
 " }}}
 " Specific Filetypes {{{
