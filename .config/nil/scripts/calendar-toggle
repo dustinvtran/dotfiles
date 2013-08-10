@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# This is a script for a "dropdown" calendar.
+
+# Pgrep my program's PID.
+pgrep -f 'urxvt -name calendar'
+# If not running.
+if [ $? -ne 0 ]
+then
+    urxvt -name calendar -g 20x9 -underlineColor '#ffffff' -font 'xft:limey' --hold -e cal
+# Else if running.
+else
+    pkill -f 'urxvt -name calendar'
+fi
