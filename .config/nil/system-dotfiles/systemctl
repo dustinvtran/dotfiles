@@ -1,30 +1,22 @@
 UNIT                       LOAD   ACTIVE   SUB       DESCRIPTION
 proc-sys..._misc.automount loaded active   waiting   Arbitrary Executable File Formats File System Automount Point
+dev-bus-usb-001-006.device loaded active   plugged   LaserJet 1018
 dev-cdrom.device           loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-disk...VLJJ4KUJ.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...SZ707447.device loaded active   plugged   hp_CDDVDW_TS-U633F
-dev-disk...0\x2d0:0.device loaded active   plugged   My_Passport_0730
-dev-disk...x2dpart1.device loaded active   plugged   My_Passport_0730
 dev-disk...b5e3861e.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...x20Drive.device loaded active   plugged   My_Passport_0730
-dev-disk...d0:0:0:0.device loaded active   plugged   My_Passport_0730
-dev-disk...x2dpart1.device loaded active   plugged   My_Passport_0730
-dev-disk...328BDF41.device loaded active   plugged   My_Passport_0730
 dev-disk...0649093b.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda.device             loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda1.device            loaded active   plugged   Hitachi_HTS725050A9A364
-dev-sdb.device             loaded active   plugged   My_Passport_0730
-dev-sdb1.device            loaded active   plugged   My_Passport_0730
 dev-sr0.device             loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-ttyS0.device           loaded active   plugged   /dev/ttyS0
 dev-ttyS1.device           loaded active   plugged   /dev/ttyS1
 dev-ttyS2.device           loaded active   plugged   /dev/ttyS2
 dev-ttyS3.device           loaded active   plugged   /dev/ttyS3
 sys-devi...nd-card1.device loaded active   plugged   Schiit_USB_Audio_Device
-sys-devi...sdb-sdb1.device loaded active   plugged   My_Passport_0730
-sys-devi...lock-sdb.device loaded active   plugged   My_Passport_0730
+sys-devi...1\x2d1.2.device loaded active   plugged   LaserJet 1018
 sys-devi...nd-card0.device loaded active   plugged   5 Series/3400 Series Chipset High Definition Audio
 sys-devi...net-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
 sys-devi...et-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
@@ -42,13 +34,13 @@ sys-subs...es-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireles
 -.mount                    loaded active   mounted   /
 dev-hugepages.mount        loaded active   mounted   Huge Pages File System
 dev-mqueue.mount           loaded active   mounted   POSIX Message Queue File System
-media-Ex...ard_Drive.mount loaded active   mounted   /media/External_Hard_Drive
 proc-sys...nfmt_misc.mount loaded inactive dead      Arbitrary Executable File Formats File System
 run-user-1000-gvfs.mount   loaded active   mounted   /run/user/1000/gvfs
 sys-fs-f...nnections.mount loaded active   mounted   FUSE Control File System
 sys-kernel-config.mount    loaded active   mounted   Configuration File System
 sys-kernel-debug.mount     loaded active   mounted   Debug File System
 tmp.mount                  loaded active   mounted   Temporary Directory
+cups.path                  loaded inactive dead      CUPS Printer Service Spool
 systemd-...rd-console.path loaded active   waiting   Dispatch Password Requests to Console Directory Watch
 systemd-...sword-wall.path loaded active   waiting   Forward Password Requests to Wall Directory Watch
 alsa-restore.service       loaded inactive dead      Restore Sound Card State
@@ -57,6 +49,7 @@ alsa-store.service         loaded inactive dead      Store Sound Card State
 auditd.service             error  inactive dead      auditd.service
 autologin@tty1.service     loaded active   running   Getty on tty1
 cronie.service             loaded active   running   Periodic Command Scheduler
+cups.service               loaded active   running   CUPS Printing Service
 dbus.service               loaded active   running   D-Bus System Message Bus
 dmeventd.service           loaded inactive dead      Device-mapper event daemon
 emergency.service          loaded inactive dead      Emergency Shell
@@ -98,6 +91,7 @@ systemd-...te-utmp.service loaded active   exited    Update UTMP about System Re
 systemd-...essions.service loaded active   exited    Permit User Sessions
 systemd-...e-setup.service loaded active   exited    Setup Virtual Console
 udisks2.service            loaded active   running   Disk Manager
+cups.socket                loaded inactive dead      CUPS Printing Service Sockets
 dbus.socket                loaded active   running   D-Bus System Message Bus Socket
 dmeventd.socket            loaded active   listening Device-mapper event daemon FIFOs
 lvmetad.socket             loaded active   listening LVM2 metadata daemon socket
@@ -119,6 +113,7 @@ network.target             loaded active   active    Network
 nss-lookup.target          loaded inactive dead      Host and Network Name Lookups
 nss-user-lookup.target     loaded inactive dead      User and Group Name Lookups
 paths.target               loaded active   active    Paths
+printer.target             loaded active   active    Printer
 remote-fs-pre.target       loaded inactive dead      Remote File Systems (Pre)
 remote-fs.target           loaded active   active    Remote File Systems
 rescue.target              loaded inactive dead      Rescue Mode
@@ -137,5 +132,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-133 loaded units listed.
+128 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.

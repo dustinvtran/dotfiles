@@ -6,10 +6,11 @@ artwiz-fonts
 atool
 autocutsel
 awesome-git
-bdf-tewi-git
 cairo-infinality-ultimate
 compton-git
 conky
+cups
+cups-filters
 deluge
 dialog
 dropbox
@@ -19,6 +20,7 @@ feh
 firefox
 flashplugin
 fontconfig-infinality-ultimate
+foo2zjs
 freetype2-infinality-ultimate
 gimp-git
 git
