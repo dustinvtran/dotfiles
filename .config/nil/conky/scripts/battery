@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# As my mail notification system, this displays unread mail count if it's greater than zero. The unread mail count is given by my two gmail scripts, each of which monitor a different account.
+# This displays battery percent and a corresponding bitmap icon at different levels of its percentage.
 
 batperc=$(acpi -b | sed -n "1p" | awk -F " " '{print $4}' | head -c3)
 batpercint=$(acpi -b | sed -n "1p" | awk -F "[% ]" '{print $4}' | head -c3)
