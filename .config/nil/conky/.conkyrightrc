@@ -14,6 +14,6 @@ update_interval 1
 update_interval_on_battery 10
 
 # I need acpi for the battery portion, to indicate %.
-#^i(/home/nil/.config/nil/conky/bat_full_01.xbm) something_here_to_indicate_'100%'
+#^i(/home/nil/.config/nil/conky/xbm/bat_full_01.xbm) something_here_to_indicate_'100%'
 TEXT
-^fg(\#707070)${exec /home/nil/.config/nil/conky/irssi-notify}  ^i(/home/nil/.config/nil/conky/mail.xbm) ${execpi 120 python ~/.config/nil/conky/gmail1.py}${execpi 120 python ~/.config/nil/conky/gmail2.py} ^fg()
+^fg(\#707070)${exec /home/nil/.config/nil/conky/irssi-notify}  ^i(/home/nil/.config/nil/conky/xbm/mail.xbm) ${execpi 120 python ~/.config/nil/conky/gmail1.py}${execpi 120 python ~/.config/nil/conky/gmail2.py} ^fg()

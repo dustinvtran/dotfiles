@@ -4,7 +4,7 @@
 
 #input='tail -n 1 /home/nil/.irssi/logs/fnotify'
 #nick=$(echo $input | grep 'a')
-icon='/home/nil/.config/nil/conky/dzen2/spkr_01.xbm'
+icon='/home/nil/.config/nil/conky/xbm/spkr_01.xbm'
 default='#707070'
 red='#FF96A3'
 

@@ -4,7 +4,7 @@
 
 so=`mpc current -f %title%`
 art=`mpc current -f %artist%`
-icon='/home/nil/.config/nil/conky/note.xbm'
+icon='/home/nil/.config/nil/conky/xbm/note.xbm'
 default='#707070'
 bold='#adadad'
 
