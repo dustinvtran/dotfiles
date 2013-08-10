@@ -226,7 +226,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- Newly added additions.
-    awful.key({ }, "F6", function () awful.util.spawn_with_shell("bash ~/.config/nil/play-pause") end),
+    awful.key({ }, "F6", function () awful.util.spawn_with_shell("bash ~/.config/nil/scripts/play-pause") end),
     awful.key({ }, "F9", function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
     awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end)
@@ -418,7 +418,7 @@ run_once("urxvt -name nil -g 85x24")
 run_once("urxvt -name irssi -g 85x31 -e irssi")
 run_once("urxvt -name ncmpcpp -g 85x9 -e ncmpcpp")
 run_once("urxvt -name ranger -g 85x19 -e ranger")
-run_once("urxvt -name tcli -g 108x16 -e ~/.config/nil/nil-transmission-remote-cli")
+run_once("urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli")
 -- Terminal commands I haven't put in xinitrc yet.
 run_once("dropboxd")
 run_once("rssdler -d")

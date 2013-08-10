@@ -233,6 +233,40 @@ class StatusBar(Widget):
 
     def _get_right_part(self, bar):
         right = bar.right
+
+	# This chunk is to get file size working on the right side.
+        if self.column is not None and self.column.target is not None\
+                and self.column.target.is_directory:
+            target = self.column.target.pointed_obj
+        else:
+            directory = self.fm.thistab.at_level(0)
+            if directory:
+                target = directory.pointed_obj
+            else:
+                return
+        try:
+            stat = target.stat
+        except:
+            return
+        if stat is None:
+            return
+        if self.fm.mode != 'normal':
+            perms = '--%s--' % self.fm.mode.upper()
+        else:
+            perms = target.get_permission_string()
+        how = getuid() == stat.st_uid and 'good' or 'bad'
+        if target.is_link:
+            how = target.exists and 'good' or 'bad'
+            try:
+                dest = readlink(target.path)
+            except:
+                dest = '?'
+            right.add(' -> ' + dest, 'link', how)
+        else:
+            if self.settings.display_size_in_status_bar and target.infostring:
+                right.add(target.infostring.replace(" ", ""))
+                right.add(" » ", "space")
+
         if self.column is None:
             return
 
