@@ -21,7 +21,7 @@
 !##############################################################################
 ! falac White Colorscheme: Customized
 !##############################################################################
-! Gave color0 color7's original, darkened foreground, darkened color7.
+! Gave color0 color7s original, darkened foreground, darkened color7.
 
 ! black
 URxvt*color15 : #505050
@@ -70,12 +70,10 @@ URxvt*borderColor: #f9f9f9
 ! Fonts
 !##############################################################################
 
-URxvt*font: xft:uushi
-URxvt*boldFont: xft:uushi
-!URxvt*font: xft:lemon
-!URxvt*boldFont: xft:lemon
-!URxvt*font: xft:limey
-!URxvt*boldFont: xft:limey
+!URxvt*font: xft:uushi
+!URxvt*boldFont: xft:uushi
+URxvt*font: xft:lemon
+URxvt*boldFont: xft:lemon
 
 ! Since urxvt ignores fontconfig settings.
 Xft.autohint: 0

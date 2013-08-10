@@ -421,6 +421,7 @@ alias mount="sudo mount"                # Don't require prepending sudo.
 alias umount="sudo umount"              # Don't require prepending sudo.
 alias poweroff="sudo poweroff"          # Don't require prepending sudo.
 alias reboot="sudo reboot"              # Don't require prepending sudo.
+alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also the best low power state.
 alias s="nocorrect sudo "               # Don't prompt me!
 alias date="date +'%A %B %e %l:%M %P'"  # A nicer date format.
 alias weather="weather 94704"           # Weather me.

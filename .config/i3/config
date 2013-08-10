@@ -60,18 +60,24 @@
 # -----------------------------------------------------------------------------
 
 # I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs for M and R per display. Workspaces on L are shown on both displays via i3bar. Note the dzen2's are clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs, etc.
-exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 910 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
-exec conky -c ~/.config/nil/conky/.conkyright2rc | dzen2 -w 910 -x 1010 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
-exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 633 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
-exec conky -c ~/.config/nil/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 910 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon'
+exec conky -c ~/.config/nil/conky/.conkyright2rc | dzen2 -w 910 -x 1010 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon'
+exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 633 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1
+exec conky -c ~/.config/nil/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1
 exec firefox &
 exec gvim &
 exec libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
-exec urxvt -name nil -g 85x24 &
-exec urxvt -name irssi -g 85x31 -e irssi &
-exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
-exec urxvt -name ranger -g 85x19 -e ranger &
-exec urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+# For uushi.
+#exec urxvt -name nil -g 85x24 &
+#exec urxvt -name irssi -g 85x31 -e irssi &
+#exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
+#exec urxvt -name ranger -g 85x19 -e ranger &
+#exec urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+exec urxvt -name nil -g 102x26 &
+exec urxvt -name irssi -g 102x35 -e irssi &
+exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+exec urxvt -name ranger -g 102x21 -e ranger &
+exec urxvt -name tcli -g 130x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
 exec rssdler -d &
@@ -138,11 +144,11 @@ new_window pixel 2
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
-client.focused          #707070 #a27b7f #707070 #2f4f4f
-client.focused_inactive #707070 #707070 #707070 #484e50
-client.unfocused        #707070 #707070 #707070 #292d2e
+client.focused          #e0e0e0 #707070 #e0e0e0 #2f4f4f
+client.focused_inactive #e0e0e0 #e0e0e0 #e0e0e0 #484e50
+client.unfocused        #e0e0e0 #e0e0e0 #e0e0e0 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
-font pango:HelveticaNeueCom 45 Lt 8
+font pango:lemon
 
 # }}}
 # Focusing & Config Loading {{{
@@ -285,7 +291,9 @@ for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 14
 for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 200px,move right 640px
 for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move up 455px,move right 640px
 for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move down 405px,move right 640px
-for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 325px
+# For uushi.
+#for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 325px
+for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 324px
 for_window [class="^feh$"] floating enable,focus,move left 290px
 for_window [class="^Gvim$"] floating enable,focus,move up 102px,move left 325px
 for_window [class="^mpv$"] floating enable,focus,move left 300px
@@ -308,11 +316,17 @@ bindsym $mod+Shift+i exec echo >> ~/.irssi/logs/fnotify
 
 # Shortcut Applications.
 bindsym $mod2+Return exec urxvt
-bindsym $mod2+t exec urxvt -name nil -g 85x24 &
-bindsym $mod2+i exec urxvt -name irssi -g 85x31 -e irssi &
-bindsym $mod2+n exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
-bindsym $mod2+f exec urxvt -name ranger -g 85x19 -e ranger &
-bindsym $mod2+a exec urxvt -name tcli -g 107x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+# For uushi.
+#bindsym $mod2+t exec urxvt -name nil -font 'xft:uushi' -g 85x31 &
+#bindsym $mod2+i exec urxvt -name irssi -font 'xft:uushi' -g 85x31 -e irssi &
+#bindsym $mod2+n exec urxvt -name ncmpcpp -font 'xft:uushi' -g 85x9 -e ncmpcpp &
+#bindsym $mod2+f exec urxvt -name ranger -font 'xft:uushi' -g 85x19 -e ranger &
+#bindsym $mod2+a exec urxvt -name tcli -font 'xft:uushi' -g 107x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+bindsym $mod2+t exec urxvt -name nil -g 102x26 &
+bindsym $mod2+i exec urxvt -name irssi -g 102x35 -e irssi &
+bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
+bindsym $mod2+a exec urxvt -name tcli -g 130x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 

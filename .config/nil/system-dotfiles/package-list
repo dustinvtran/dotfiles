@@ -1,7 +1,6 @@
+acpi
 alsa-utils
 alsi
-android-sdk
-android-sdk-platform-tools
 anki
 artwiz-fonts
 atool
@@ -9,10 +8,10 @@ autocutsel
 awesome-git
 bdf-tewi-git
 cairo-infinality-ultimate
+compton-git
 conky
 deluge
 dialog
-dina-font
 dropbox
 dzen2
 fasd
@@ -21,9 +20,8 @@ firefox
 flashplugin
 fontconfig-infinality-ultimate
 freetype2-infinality-ultimate
-gimp
+gimp-git
 git
-gparted
 grub
 gvim
 htop
@@ -40,6 +38,7 @@ libreoffice-writer
 librsvg
 mediainfo
 mesa
+mpc
 mpd
 mpdas
 mpv-git
@@ -51,6 +50,7 @@ openssh
 packer
 pkgtools
 plexmediaserver
+pm-utils
 ppp
 pygtk
 qt4
