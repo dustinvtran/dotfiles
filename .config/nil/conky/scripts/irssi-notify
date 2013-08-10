@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# As my irssi notification system, this echoes something if there's a non-empty last line in the fnotify file (the fnotify file in turn is triggered by highlights and private messages).
+
+#input='tail -n 1 /home/nil/.irssi/logs/fnotify'
+#nick=$(echo $input | grep 'a')
+icon='/home/nil/.config/nil/conky/xbm/spkr_01.xbm'
+default='#707070'
+red='#FF96A3'
+
+tail -n 1 /home/nil/.irssi/logs/fnotify | grep " "
+if [ $? -eq 0 ]; then
+    #echo "^fg($red)^i($icon) $nick^fg($default)"
+    echo "^fg($red)^i($icon) Ping!^fg($default)"
+fi
