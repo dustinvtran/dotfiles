@@ -1,8 +1,0 @@
-background yes
-out_to_console yes
-out_to_x no
-update_interval 10
-update_interval_on_battery 30
-
-TEXT
-^fg(\#707070)^i(/home/nil/.config/nil/conky/dzen2/clock.xbm) ^fg(\#707070)${time %l:%M %P}

@@ -61,11 +61,11 @@
 
 # I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs. This is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
 # HDMI Display
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 100 -x 910 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
-exec conky -c ~/.config/nil/.conkyrightrc2 | dzen2 -w 910 -x 1010 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
+exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 910 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
+exec conky -c ~/.config/nil/conky/.conkyrightrc2 | dzen2 -w 910 -x 1010 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
 # LVDS Display
-exec conky -c ~/.config/nil/.conkyrc | dzen2 -w 100 -x 633 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
-exec conky -c ~/.config/nil/.conkyrightrc | dzen2 -w 632 -x 734 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 633 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
+exec conky -c ~/.config/nil/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 
 exec firefox &
 exec gvim &
@@ -74,7 +74,7 @@ exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 85x31 -e irssi &
 exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
 exec urxvt -name ranger -g 85x19 -e ranger &
-exec urxvt -name tcli -g 108x16 -e ~/.config/nil/nil-transmission-remote-cli &
+exec urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
 exec rssdler -d &
@@ -99,7 +99,7 @@ bindsym $mod+d kill
 # Change container layout.
 # One toggles splitv/splith, and the other toggles stacking/tabbed.
 #bindsym $mod+e layout toggle split
-bindsym $mod+s exec bash ~/.config/nil/i3-container-toggle
+bindsym $mod+s exec bash ~/.config/nil/scripts/i3-container-toggle
 
 # Split in horizontal/vertical orientation.
 bindsym $mod+x split h
@@ -314,17 +314,17 @@ bindsym $mod2+t exec urxvt -name nil -g 85x24 &
 bindsym $mod2+i exec urxvt -name irssi -g 85x31 -e irssi &
 bindsym $mod2+n exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
 bindsym $mod2+f exec urxvt -name ranger -g 85x19 -e ranger &
-bindsym $mod2+a exec urxvt -name tcli -g 107x16 -e ~/.config/nil/nil-transmission-remote-cli &
+bindsym $mod2+a exec urxvt -name tcli -g 107x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
 # Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
 for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 325px
-bindsym $mod+c exec bash ~/.config/nil/calendar-toggle
+bindsym $mod+c exec bash ~/.config/nil/scripts/calendar-toggle
 
 # Media Keys.
-bindsym F6 exec bash ~/.config/nil/play-pause
+bindsym F6 exec bash ~/.config/nil/scripts/play-pause
 # PCM affects HDMI, Master affects Analog.
 bindsym F9 exec amixer set Master 2%- unmute | amixer set PCM 2%- unmute
 bindsym F10 exec amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute

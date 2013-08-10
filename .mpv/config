@@ -6,7 +6,7 @@
 
 autofit=1200
 #autofit-larger=90%x70%
-input-file=/home/nil/.config/nil/mpv-control
+input-file=/home/nil/.config/nil/scripts/mpv-control
 #fullscreen
 gapless-audio
 keep-open

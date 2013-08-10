@@ -70,7 +70,7 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
-fasd_cache="$HOME/.config/nil/.fasd-init-cache"
+fasd_cache="$HOME/.config/nil/cache/.fasd-init-cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
     fasd --init auto >| "$fasd_cache"
 fi
@@ -83,7 +83,7 @@ unset fasd_cache
 
 # Zsh's completion can benefit from caching. Set the directory in which to
 # load/store the caches.
-CACHEDIR="/home/nil/.config/nil/zsh-cache"
+CACHEDIR="/home/nil/.config/nil/cache/zsh-cache"
 
 # Use (advanced) completion functionality.
 autoload -U compinit
@@ -423,10 +423,11 @@ alias poweroff="sudo poweroff"          # Don't require prepending sudo.
 alias reboot="sudo reboot"              # Don't require prepending sudo.
 alias s="nocorrect sudo "               # Don't prompt me!
 alias date="date +'%A %B %e %l:%M %P'"  # A nicer date format.
-alias weather="weather 92683"           # Weather me.
+alias weather="weather 94704"           # Weather me.
+alias zip="zip -r"                      # Zip recursively faget.
 
 # Custom commands.
-alias audio-toggle="bash ~/.config/nil/audio-toggle"
+alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle"
 alias bd="bg && disown"
 alias fonts="fc-cache -vf"              # Because 'fonts' is faster.
 alias history='fc -l'
@@ -460,9 +461,9 @@ alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
 
 # CLI Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-alias pipes="~/.config/nil/pipes.sh"
+alias pipes="~/.config/nil/scripts/pipes.sh"
 alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
-alias tcli="~/.config/nil/nil-transmission-remote-cli"
+alias tcli="~/.config/nil/scripts/nil-transmission-remote-cli"
 
 # Application Opening
 l() { nocorrect f -e libreoffice "$@" & }
