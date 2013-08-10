@@ -86,15 +86,15 @@ highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
 highlight HintActive background: rgba(255, 209, 20, 0.7) !important;
 
 " Font.
-highlight Hint -a font: normal 12px tewi !important;
-highlight CmdLine -a font: normal 12px tewi !important;
-highlight Link -a font: normal 12px tewi !important;
-highlight CompTitle -a font: normal 12px tewi !important;
-highlight CompTitleSep -a font: normal 12px tewi !important;
-highlight CompItem -a font: normal 12px tewi !important;
-highlight CompMore -a font: normal 12px tewi !important;
-highlight CompLess -a font: normal 12px tewi !important;
-highlight StatusLine -a font: normal 12px tewi !important;
+highlight Hint -a font: normal 12px lemon !important;
+highlight CmdLine -a font: normal 12px lemon !important;
+highlight Link -a font: normal 12px lemon !important;
+highlight CompTitle -a font: normal 12px lemon !important;
+highlight CompTitleSep -a font: normal 12px lemon !important;
+highlight CompItem -a font: normal 12px lemon !important;
+highlight CompMore -a font: normal 12px lemon !important;
+highlight CompLess -a font: normal 12px lemon !important;
+highlight StatusLine -a font: normal 12px lemon !important;
 
 "##############################################################################
 " Set
