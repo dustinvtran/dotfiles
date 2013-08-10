@@ -15,6 +15,5 @@ out_to_x no
 update_interval 1
 update_interval_on_battery 10
 
-#put mail-notify at execi 90
 TEXT
-^fg(\#FF96A3)${exec /home/nil/.config/nil/conky/scripts/irssi-notify}  ${exec /home/nil/.config/nil/conky/scripts/mail-notify}  ^fg(\#707070)${execi 60 /home/nil/.config/nil/conky/scripts/battery} ^fg()
+^fg(\#FF96A3) ${exec /home/nil/.config/nil/conky/scripts/irssi-notify}${execi 60 /home/nil/.config/nil/conky/scripts/mail-notify}^fg(\#707070)${exec /home/nil/.config/nil/conky/scripts/battery} ^fg()
