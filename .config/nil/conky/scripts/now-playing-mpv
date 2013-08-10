@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This displays mpv now playing info if mpv is running.
+# This displays mpv's now playing filename if mpv is running.
 # Everything here was written by frau (see github). I only modified the last line.
 
 function get_file_playing() {

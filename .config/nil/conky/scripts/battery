@@ -1,0 +1,20 @@
+#! /bin/bash
+
+# As my mail notification system, this displays unread mail count if it's greater than zero. The unread mail count is given by my two gmail scripts, each of which monitor a different account.
+
+batperc=$(acpi -b | sed -n "1p" | awk -F " " '{print $4}' | head -c3)
+batpercint=$(acpi -b | sed -n "1p" | awk -F "[% ]" '{print $4}' | head -c3)
+batstatus=$(acpi -b | sed -n "1p" | awk -F "[, ]" '{print $3}')
+lowbaticon='/home/nil/.config/nil/conky/xbm/bat_empty_02.xbm'
+midbaticon='/home/nil/.config/nil/conky/xbm/bat_low_02.xbm'
+highbaticon='/home/nil/.config/nil/conky/xbm/bat_full_02.xbm'
+
+if [ $batpercint -lt 30 ]; then
+echo "^i($lowbaticon) $batstatus $batperc"
+elif [ $batpercint -lt 60 ]; then
+echo "^i($midbaticon) $batstatus $batperc"
+elif [ $batpercint -lt 99 ]; then
+echo "^i($highbaticon) $batstatus $batperc"
+else
+echo "^i($highbaticon) $batperc"
+fi

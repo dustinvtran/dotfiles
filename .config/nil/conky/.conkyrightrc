@@ -1,4 +1,4 @@
-# This is a conky script that is right-aligned on my laptop display's panel.
+# This is a conky script that is right-aligned on my laptop display's panel. It displays any notifications and my battery.
 
 # Other Infos for Notifications/Statuses/Bitmap Icons:
 # * Volume
@@ -15,7 +15,6 @@ out_to_x no
 update_interval 1
 update_interval_on_battery 10
 
-# I need acpi for the battery portion, to indicate %.
-#^i(/home/nil/.config/nil/conky/xbm/bat_full_01.xbm) something_here_to_indicate_'100%'
+#put mail-notify at execi 90
 TEXT
-^fg(\#707070)${exec /home/nil/.config/nil/conky/scripts/irssi-notify}  ^i(/home/nil/.config/nil/conky/xbm/mail.xbm) ${execpi 120 python ~/.config/nil/conky/scripts/gmail1.py}${execpi 120 python ~/.config/nil/conky/scripts/gmail2.py} ^fg()
+^fg(\#FF96A3)${exec /home/nil/.config/nil/conky/scripts/irssi-notify}  ${exec /home/nil/.config/nil/conky/scripts/mail-notify}  ^fg(\#707070)${execi 60 /home/nil/.config/nil/conky/scripts/battery} ^fg()
