@@ -278,6 +278,7 @@ assign [class="^URxvt$" instance="^tcli$"] i
 assign [class="^feh$"] -
 assign [class="^Firefox$"] ii
 assign [class="^Gimp$"] iv
+assign [class="^Gvim$"] i
 assign [instance="VCLSalFrame"] iii
 assign [class="^mpv$"] -
 assign [class="^Zathura$"] -
