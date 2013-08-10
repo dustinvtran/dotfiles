@@ -59,14 +59,11 @@
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
 
-# I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs. This is clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs.
-# HDMI Display
+# I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs for M and R per display. Workspaces on L are shown on both displays via i3bar. Note the dzen2's are clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs, etc.
 exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 910 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime'
 exec conky -c ~/.config/nil/conky/.conkyrightrc2 | dzen2 -w 910 -x 1010 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime'
-# LVDS Display
 exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 633 -y 4 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
 exec conky -c ~/.config/nil/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 4 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lime' -xs 1
-
 exec firefox &
 exec gvim &
 exec libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
@@ -78,7 +75,7 @@ exec urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
 exec rssdler -d &
-# I tried applying both of these commands in xinitrc with no luck, yet here it works.
+# I tried applying both of these commands in xinitrc with no luck, yet here it works. What the do?
 exec mpdas &
 exec transmission-daemon &
 

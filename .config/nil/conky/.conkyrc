@@ -1,3 +1,5 @@
+# This is a conky script that is center-aligned on both display's panels.
+
 background yes
 out_to_console yes
 out_to_x no
