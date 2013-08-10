@@ -145,9 +145,9 @@ new_window pixel 2
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
-client.focused          #707070 #707070 #b9b9b9 #2f4f4f
-client.focused_inactive #f9f9f9 #f9f9f9 #707070 #484e50
-client.unfocused        #f9f9f9 #f9f9f9 #707070 #292d2e
+client.focused          #707070 #707070 #e0e0e0 #2f4f4f
+client.focused_inactive #e0e0e0 #e0e0e0 #707070 #484e50
+client.unfocused        #e0e0e0 #e0e0e0 #707070 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 font pango:lemon
 
