@@ -6,7 +6,7 @@ screenies. on other apps:
 For edited system files and janky scripts, see `~/.config/nil`. For vim files, see [nil](https://github.com/nil-/nil).
 
 ##first display
-![screeny1](http://a.pomf.se/8Md5.png)
+![screeny1](http://a.pomf.se/5Wg1.png)
 
 ##second display
-![screeny2](http://a.pomf.se/5Px6.png)
+![screeny2](http://a.pomf.se/0Uq1.png)

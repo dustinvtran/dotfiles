@@ -43,7 +43,7 @@
 # - Floating:
 #   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
 #       * As a subset, this means I can't move to the next monitor with hl.
-#   * Absolute positioning based off workspace, not pixels and monitor alignment.
+#   * Somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution.
 #       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
 #   * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
 #   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
@@ -68,16 +68,17 @@ exec firefox &
 exec gvim &
 exec libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
 # For uushi.
-#exec urxvt -name nil -g 85x24 &
-#exec urxvt -name irssi -g 85x31 -e irssi &
-#exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
-#exec urxvt -name ranger -g 85x19 -e ranger &
-#exec urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
-exec urxvt -name nil -g 102x26 &
-exec urxvt -name irssi -g 102x35 -e irssi &
-exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-exec urxvt -name ranger -g 102x21 -e ranger &
-exec urxvt -name tcli -g 130x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+exec urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
+exec urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
+exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
+exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
+#exec urxvt -name tcli  -font 'xft:uushi' -boldFont 'xft:uushi'-g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+# For lemon.
+#exec urxvt -name nil -g 102x26 &
+#exec urxvt -name irssi -g 102x35 -e irssi &
+#exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+#exec urxvt -name ranger -g 102x21 -e ranger &
+exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
 exec rssdler -d &
@@ -144,9 +145,9 @@ new_window pixel 2
 
 # Font & Colors for window titles.
 # Class                 border  Backgr. Text    Indicator
-client.focused          #e0e0e0 #707070 #e0e0e0 #2f4f4f
-client.focused_inactive #e0e0e0 #e0e0e0 #e0e0e0 #484e50
-client.unfocused        #e0e0e0 #e0e0e0 #e0e0e0 #292d2e
+client.focused          #707070 #707070 #b9b9b9 #2f4f4f
+client.focused_inactive #f9f9f9 #f9f9f9 #707070 #484e50
+client.unfocused        #f9f9f9 #f9f9f9 #707070 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 font pango:lemon
 
@@ -287,17 +288,15 @@ assign [class="^mpv$"] -
 assign [class="^Zathura$"] -
 
 # Float, focus, and position application on startup.
-for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move down 140px,move right 640px
-for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move up 200px,move right 640px
-for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move up 455px,move right 640px
-for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move down 405px,move right 640px
-# For uushi.
-#for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 325px
-for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move down 265px,move left 324px
-for_window [class="^feh$"] floating enable,focus,move left 290px
-for_window [class="^Gvim$"] floating enable,focus,move up 102px,move left 325px
-for_window [class="^mpv$"] floating enable,focus,move left 300px
-for_window [class="^Zathura$"] floating enable,focus,move left 300px
+#for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move absolute position 1340px 550px
+for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move absolute position 1340px 175px
+for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move absolute position 1340px 40px
+for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move absolute position 1340px 845px
+for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move absolute position 1950px 560px
+for_window [class="^feh$"] floating enable,focus,move absolute position 60px 150px
+for_window [class="^Gvim$"] floating enable,focus,move absolute position 1950px 40px
+for_window [class="^mpv$"] floating enable,focus,move absolute position 60px 200px
+for_window [class="^Zathura$"] floating enable,focus,move absolute position 280px 50px
 
 # Shortcut Application focusing.
 bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
@@ -317,16 +316,17 @@ bindsym $mod+Shift+i exec echo >> ~/.irssi/logs/fnotify
 # Shortcut Applications.
 bindsym $mod2+Return exec urxvt
 # For uushi.
-#bindsym $mod2+t exec urxvt -name nil -font 'xft:uushi' -g 85x31 &
-#bindsym $mod2+i exec urxvt -name irssi -font 'xft:uushi' -g 85x31 -e irssi &
-#bindsym $mod2+n exec urxvt -name ncmpcpp -font 'xft:uushi' -g 85x9 -e ncmpcpp &
-#bindsym $mod2+f exec urxvt -name ranger -font 'xft:uushi' -g 85x19 -e ranger &
-#bindsym $mod2+a exec urxvt -name tcli -font 'xft:uushi' -g 107x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
-bindsym $mod2+t exec urxvt -name nil -g 102x26 &
-bindsym $mod2+i exec urxvt -name irssi -g 102x35 -e irssi &
-bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
-bindsym $mod2+a exec urxvt -name tcli -g 130x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+bindsym $mod2+t exec urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
+bindsym $mod2+i exec urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
+bindsym $mod2+n exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
+bindsym $mod2+f exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
+#bindsym $mod2+a exec urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 107x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+# For lemon.
+#bindsym $mod2+t exec urxvt -name nil -g 102x26 &
+#bindsym $mod2+i exec urxvt -name irssi -g 102x35 -e irssi &
+#bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+#bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
+bindsym $mod2+a exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 
