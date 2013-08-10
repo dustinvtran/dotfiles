@@ -2,7 +2,6 @@
 
 # This is a script for cronjob.
 
-# Pgrep myprog PID.
 pgrep rssdler
 # If not running.
 if [ $? -ne 0 ]

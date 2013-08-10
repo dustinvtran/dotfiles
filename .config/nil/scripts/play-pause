@@ -2,14 +2,12 @@
 
 # This is a script that play/pauses ncmpcpp if mpv isn't running. If mpv is running, it play/pauses mpv and keeps ncmpcpp paused.
 
-# Pgrep PID.
 pgrep mpv
 # If not running.
 if [ $? -ne 0 ]
 then
     ncmpcpp toggle
 else
-# Else if running.
     echo "cycle pause" > ~/.config/nil/mpv-control
     ncmpcpp pause
 fi

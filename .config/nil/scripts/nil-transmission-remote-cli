@@ -3,7 +3,8 @@
 #
 # transmission-remote-cli
 # Name: nil
-# Description: Heavy interface modifications, default settings, and keybinds.
+# Description: This is a heavily modified version of fagga's transmission-remote-cli for
+#   interface changes, new default settings, and new keybinds.
 #
 
 # Note:  I don't want to bother with ~/.config/tra..-cli/settings.cfg since it won't let
