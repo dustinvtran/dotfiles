@@ -2,7 +2,6 @@
 
 # This is a script for a "dropdown" calendar.
 
-# Pgrep my program's PID.
 pgrep -f 'urxvt -name calendar'
 # If not running.
 if [ $? -ne 0 ]
