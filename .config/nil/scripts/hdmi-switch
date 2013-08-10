@@ -1,0 +1,25 @@
+#! /bin/bash
+
+# This is a script for a udev rule. It changes audio and video output triggered whenever HDMI1 is connected or disconnected.
+
+# Use 'udevadm monitor' to see whether the kernel changes (the necessary condition) and then see if and how long it takes for the udev trigger to pull through.
+
+export XAUTHORITY=/home/nil/.Xauthority
+export DISPLAY=:0
+
+hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
+alsa_dir=/home/nil/.config/nil/scripts
+asound_file=asound.hdmi-$hdmi_status
+
+## Change audio source.
+# Commented, because I'd rather do it manually through my 'audio-toggle' script.
+#if [[ -n $hdmi_status ]] && [[ -f "$alsa_dir/$asound_file" ]]; then
+#    ln -sf "$alsa_dir/$asound_file" /home/nil/.asoundrc
+#fi
+
+# Change display settings.
+if [ "${hdmi_status}" = connected ]; then
+    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+else
+    xrandr --output HDMI1 --off
+fi

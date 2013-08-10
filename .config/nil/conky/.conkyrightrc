@@ -1,0 +1,19 @@
+# Other Infos for Notifications/Statuses/Bitmap Icons:
+# * Volume
+# * Wifi Signal
+# * RAM Usage
+# * feh and Zathura (just like mpd and mpv)
+# * transmission
+#    notifications on torrent completions, auto changes (e.g. rss), etc.
+#        follow same method as irssi. on finish/start/whatever a file, make torrent client touch some file, and then have a script read from it.
+
+background yes
+out_to_console yes
+out_to_x no
+update_interval 1
+update_interval_on_battery 10
+
+# I need acpi for the battery portion, to indicate %.
+#^i(/home/nil/.config/nil/conky/bat_full_01.xbm) something_here_to_indicate_'100%'
+TEXT
+^fg(\#707070)${exec /home/nil/.config/nil/conky/irssi-notify}  ^i(/home/nil/.config/nil/conky/mail.xbm) ${execpi 120 python ~/.config/nil/conky/gmail1.py}${execpi 120 python ~/.config/nil/conky/gmail2.py} ^fg()

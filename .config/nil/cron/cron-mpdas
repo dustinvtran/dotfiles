@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# This is a script for cronjob.
+
+# Pgrep myprog PID.
+pgrep mpdas
+# If not running.
+if [ $? -ne 0 ]
+then
+   mpdas &
+fi

@@ -1,0 +1,8 @@
+background yes
+out_to_console yes
+out_to_x no
+update_interval 1
+update_interval_on_battery 10
+
+TEXT
+^fg(\#707070)${exec /home/nil/.config/nil/conky/now-playing-mpv}  ${exec /home/nil/.config/nil/conky/now-playing-mpd} ^fg()

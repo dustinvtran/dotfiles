@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# This is a script for cronjob.
+
+# I do this because occasionally xcape seems to break, and will stop working for a few seconds or sometimes not at all. It has variable success, and sometimes stops
+# working altogether in some applications, like irssi. I have noticed that manually killing and remaking the process fixes this.
+#set +e
+#pkill xcape
+#xcape -e 'Control_L=Escape' &
+#set -e
+
+#xcape
+# apparently pkill xcape && xcape will only pkill xcape and not have the next line read, nor will xcape on a separate line work. apparently this one works and doesn't
+# add a new process for xcape either, but I'm not sure if this solves the above noted problem.
+#
+# nope it didn't work
