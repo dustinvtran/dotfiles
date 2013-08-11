@@ -5,21 +5,22 @@
 batperc=$(acpi -b | sed -n "1p" | awk -F " " '{print $4}' | head -c3)
 batpercint=$(acpi -b | sed -n "1p" | awk -F "[% ]" '{print $4}' | head -c3)
 batstatus=$(acpi -b | sed -n "1p" | awk -F "[, ]" '{print $3}')
-lowbaticon='/home/nil/.config/nil/conky/xbm/bat_empty_02.xbm'
-midbaticon='/home/nil/.config/nil/conky/xbm/bat_low_02.xbm'
-highbaticon='/home/nil/.config/nil/conky/xbm/bat_full_02.xbm'
+default='#707070'
+bold='#adadad'
+highlight='#FF96A3'
 
-if [ $batpercint -lt 30 ]; then
-echo "^i($lowbaticon) $batstatus $batperc"
-elif [ $batpercint -lt 60 ]; then
-echo "^i($midbaticon) $batstatus $batperc"
-# This is a workaround for when acpi outputs 'Unknown, 99%' when it really means charged full at 100%.
-# This is like due to some hardware problem (laptop, surge protector, or otherwise). Too lazy to fix.
-elif [ $batpercint -eq 99 ]; then
-echo "^i($highbaticon) 100%"
-#
-elif [ $batpercint -lt 100 ]; then
-echo "^i($highbaticon) $batstatus $batperc"
+if [ "$batstatus" == "Charging" ]; then
+    echo "^fg($default)⮒ ^fg($bold)$batstatus ^fg($default)$batperc"
+elif [ $batpercint -lt 20 ]; then
+    echo "^fg($highlight)⮐ $batstatus $batperc"
+elif [ $batpercint -lt 50 ]; then
+    echo "^fg($default)⮑ ^fg($bold)$batstatus ^fg($default)$batperc"
+# The next elif is a workaround for when acpi outputs 'Unknown, 99%' when it really means charged full at 100%.
+# This is likely due to some hardware problem (laptop, surge protector, or otherwise). Too lazy to fix.
+elif [ "$batstatus" == "Unknown" ] && [ $batpercint -eq 99 ]; then
+    echo "^fg($default)⮎ 100%"
+elif [ $batstatus == "Discharging" ]; then
+    echo "^fg($default)⮏ ^fg($bold)$batstatus ^fg($default)$batpercint%"
 else
-echo "^i($highbaticon) $batperc%"
+    echo "^fg($default)⮎ $batperc%"
 fi

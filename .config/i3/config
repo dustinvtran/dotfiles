@@ -6,8 +6,7 @@
 # To-Do List {{{
 # -----------------------------------------------------------------------------
 
-# My Work Ethic:
-# For frequently used applications, I float them, often because they don't need to take the entire screen nor does it look pretty (particularly on my 27'' display). In fact, that becomes counter-intuitive to the tiling WM philosophy, since while you're using the full screen for an application, you could more effectively use that unneeded space for another application (much like how I orient my floating windows). Gaps are pretty and arguably helps efficiency (it keeps my eyes focused on key apps for example). This works both for 'casual use' and 'real work', as floating this way is efficient for both manners.
+# For notes and general document rambling, see the bottom section.
 
 ###############################################################################
 # To-Do
@@ -73,10 +72,10 @@ exec libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
 #exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
 #exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
 # [L] Use this if you only have laptop display.
-exec urxvt -name nil -g 85x24 &
-exec urxvt -name irssi -g 85x31 -e irssi &
-exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
-exec urxvt -name ranger -g 85x19 -e ranger &
+exec urxvt -name nil -g 102x26 &
+exec urxvt -name irssi -g 102x35 -e irssi &
+exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+exec urxvt -name ranger -g 102x21 -e ranger &
 exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
@@ -281,13 +280,9 @@ assign [class="^Zathura$"] =
 #for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move absolute position 1340px 845px
 #for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move absolute position 1950px 560px
 #for_window [class="^Gvim$"] floating enable,focus,move absolute position 1950px 40px
-#for_window [class="^feh$"] floating enable,focus,move absolute position 60px 150px
-#for_window [class="^mpv$"] floating enable,focus,move absolute position 60px 200px
-#for_window [class="^Zathura$"] floating enable,focus,move absolute position 280px 50px
-# Use these with your laptop and external display instead if you can't get absolute positioning to work in feh, mpv, and zathura.
-#for_window [class="^feh$"] floating enable,focus,move left 290px
-#for_window [class="^mpv$"] floating enable,focus,move left 300px
-#for_window [class="^Zathura$"] floating enable,focus,move left 300px
+#for_window [class="^feh$"] floating enable,focus,move absolute position center,move left 290px
+#for_window [class="^mpv$"] floating enable,focus,move absolute position center,move left 300px
+#for_window [class="^Zathura$"] floating enable,focus,move absolute position center,move left 300px
 # [L] Use this if you only have laptop display.
 for_window [class="^URxvt$" instance="^nil$"] floating enable,focus, move absolute position 70px 260px
 for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus, move absolute position 780px 165px
@@ -295,9 +290,9 @@ for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus, move ab
 for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus, move absolute position 780px 540px
 for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move absolute position 30px 560px
 for_window [class="^Gvim$"] floating enable,focus,move absolute position 30px 40px
-for_window [class="^feh$"] floating enable,focus
-for_window [class="^mpv$"] floating enable,focus
-for_window [class="^Zathura$"] floating enable,focus
+for_window [class="^feh$"] floating enable,focus, move absolute position center, move down 10px
+for_window [class="^mpv$"] floating enable,focus,move absolute position center, move down 10px
+for_window [class="^Zathura$"] floating enable,focus, move absolute position center, move down 10px
 
 # Shortcut Application focusing.
 bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
@@ -323,7 +318,7 @@ bindsym $mod2+Return exec urxvt
 #bindsym $mod2+f exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
 # [L] Use this if you only have laptop display.
 bindsym $mod2+t exec urxvt -name nil -g 102x26 &
-bindsym $mod2+i exec urxvt -name irssi -g 102x35 &
+bindsym $mod2+i exec urxvt -name irssi -g 102x35 -e irssi &
 bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
 bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
 bindsym $mod2+a exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
@@ -331,7 +326,7 @@ bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
-# Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months.
+# Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months. Clickable dzen flag and compton can solve both of these.
 for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 325px
 bindsym $mod+c exec bash ~/.config/nil/scripts/calendar-toggle
 
@@ -343,9 +338,30 @@ bindsym F10 exec amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute
 bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 
 # }}}
-# Archive - On Scratchpads {{{
+# Documentation {{{
 # -----------------------------------------------------------------------------
-# Documentation in case one ever wants to use a scratchpad.
+# On my work efficiency {{{
+# For frequently used applications, I float them, often because they don't need to take the entire screen nor does it look pretty (particularly on my 27'' display). In fact, that becomes counter-intuitive to the tiling WM philosophy, since while you're using the full screen for an application, you could more effectively use that unneeded space for another application (much like how I orient my floating windows). Gaps are pretty and arguably helps efficiency (it keeps my eyes focused on key apps for example). This works both for 'casual use' and 'real work', as floating this way is efficient for both manners.
+# }}}
+# On [L+E] Laptop + External Display versus [L] Laptop-only Display {{{
+# I use a setup of a 1366x768 display connected to an external one with 1920x1080. However, I don't always have the external display connected to the laptop. Hence, I noted necessary-to-change regions with [L=E] and [L], which I (un)comment correspondingly depending on whichever displays I have available. This is for personal usage. I have to configure the following apps (all of which are also (un)commented accordingly):
+# ~/.config/i3/config
+# ~/.config/nil/conky/.conkyrightrc
+# ~/.config/ranger/rifle.conf
+# ~/.config/zathura/zathurarc
+# ~/.irssi/config
+# ~/.mpv/config
+# nitrogen wallpaper
+# }}}
+# On panels {{{
+# You can pipe conky into i3bar, but the caveat is that you can't change text alignment in i3bar or conky alone. This means that in order to get all three text alignments (i.e., left, center, right), you have to use i3bar to displays the workspaces on one such alignment, and two other panels for the other two alignments. However, the problem is that i3bar takes up the entire dock, so when piping conky into dzen2 in your other two panels, you have to set specific resolutions in order to overlap your i3bar. This means you can't do something as simple as the -dock flag in dzen2.
+# This inevitably causes problems on certain apps and effects. When i3 restarts, i3bar is reissued, which causes it to overlap all your dzen2's, causing you to restart them. Also, Compton can have app shadows which clearly distinguish the panels when they're over them. There's even janky bugs like if you have mpv on fullscreen in one monitor, then moving between workspaces the second monitor will cause you to see the dzen2 bar on the other monitor to start flickering.
+# One should note that there is a old script called i3-wsbar which allows one to basically pipe the i3 info into dzen2, but basically the only thing this lets you do is not set the "i3bar" as -dock, and make it smaller/configurable based on dzen2 flags. Overall, this helps none of the problems above in my case, and will only solve the issue of i3bar overlapping the dzen2's when I restart i3. But I don't want to install roughly 5 python packages just to get the script running for that.
+# }}}
+# On floating window auto-movement {{{
+# 'move absolute position' is the best method since it configures the placement of your windows based on its top left corner pixel absolutely. For example, 'move position' will re-do its command if you restart i3! However, there's a caveat. With windows that have variable sizes (for example, feh, mpv, zathura), having position configured by its top left corner is hardly accurate. It should be done by moving its center, which solves this issue, but it isn't. Fortunately, move position is. To solve this, and also solve the problem of 'move position' moving your windows again, you can do a slight hack: 'move absolute position center,move position ...'. This moves your window back into the center before it moves it again! Hooray. In other words, this means 'move absolute position center,move position ...' is legitimately the best method, solving both movement on restart command and variable size windows. If the window isn't variable sized, I guess you can use 'move absolute position ...' too.
+# }}}
+# On scratchpads {{{
 # I decided to go full ricer and just leave the windows up on different workspaces, usually on my second monitor. Hence I only need to focus on them, as I no longer use a scratchpad. Scratchpads are good if you're limited on space (I am not), and don't want them preconfigured on another workspace. I also never liked the idea of having truly hidden applications until a keybind. Just feels weird when you want to poweroff, and you want to ensure that all main applications are closed beforehand.
 
 # These are applications always left running on the PC, and for which one only need to take a quick peek once in a while to do something on them. They also generally feel much nicer to use in compact floating windows, rather than the pervasive array of space if you just place them into their own workspace (which somehow feels even less productive).
@@ -360,7 +376,6 @@ bindsym F11 exec amixer set Master toggle | amixer set IEC958 toggle
 #bindsym $mod+m [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] scratchpad show
 #bindsym $mod+a [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^nil$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] scratchpad show
 #bindsym $mod+t [class="^URxvt$" instance="^irssi$"] move scratchpad, [class="^URxvt$" instance="^ncmpcpp$"] move scratchpad, [class="^URxvt$" instance="^tcli$"] move scratchpad, [instance="^nil$"] scratchpad show
-
-
+#}}}
 # vim:filetype=i3
 # }}}
