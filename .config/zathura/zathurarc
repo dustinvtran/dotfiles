@@ -1,5 +1,8 @@
-set window-height 1000
-set window-width 760
+" [L+E] Use this if you have both laptop and external display.
+"set window-height 1000
+"set window-width 760
+" [L] Use this if you only have laptop display.
+set window-height 700
 map ; focus_inputbar :
 map <C-j> navigate next
 map <C-k> navigate previous

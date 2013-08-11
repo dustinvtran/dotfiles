@@ -551,7 +551,7 @@ augroup END
 
 let mapleader = ","
 noremap ; :
-nnoremap x "_x
+noremap x "_x
 
 " Save.
 nnoremap <silent> <C-s> :silent update<CR>:echom ""<CR>:call LaTeXBuild()<CR>
