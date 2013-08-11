@@ -37,8 +37,9 @@ seek_time = "15"
 autocenter_mode = "yes"
 centered_cursor = "yes"
 #progressbar_look = "≫  "
-#progressbar_look = "»  "
-progressbar_look = "—  "
+#rogressbar_look = "»  "
+#progressbar_look = "—  "
+progressbar_look = "-- "
 header_visibility = "no"
 statusbar_visibility = "no"
 titles_visibility = "no"
@@ -48,4 +49,4 @@ follow_now_playing_lyrics = "yes"
 # Colors Definitions
 ###############################################################################
 
-#progressbar_color = "black"
+progressbar_color = "black"
