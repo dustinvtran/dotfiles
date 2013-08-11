@@ -13,7 +13,8 @@ if [ $batpercint -lt 30 ]; then
 echo "^i($lowbaticon) $batstatus $batperc"
 elif [ $batpercint -lt 60 ]; then
 echo "^i($midbaticon) $batstatus $batperc"
-# Temporary for now. Why does the acpi do Unknown 99%?
+# This is a workaround for when acpi outputs 'Unknown, 99%' when it really means charged full at 100%.
+# This is like due to some hardware problem (laptop, surge protector, or otherwise). Too lazy to fix.
 elif [ $batpercint -eq 99 ]; then
 echo "^i($highbaticon) 100%"
 #

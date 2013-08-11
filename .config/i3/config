@@ -59,25 +59,24 @@
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
 
-# I can't get separate text alignments to work out in conky, so I'm splitting dzen into 3: L, M, and R; with 2 different conkyrcs for M and R per display. Workspaces on L are shown on both displays via i3bar. Note the dzen2's are clearly resolution-specific, and will need configuring for HDMI/monitor hotplugs, etc.
-exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 910 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon'
-exec conky -c ~/.config/nil/conky/.conkyright2rc | dzen2 -w 910 -x 1010 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon'
+# [L+E] Use this if you have both laptop and external display.
+#exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 910 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon'
+#exec conky -c ~/.config/nil/conky/.conkyright2rc | dzen2 -w 910 -x 1010 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon'
 exec conky -c ~/.config/nil/conky/.conkyrc | dzen2 -w 100 -x 633 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1
 exec conky -c ~/.config/nil/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1
 exec firefox &
 exec gvim &
 exec libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
-# For uushi.
-exec urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
-exec urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
-exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
-exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
-#exec urxvt -name tcli  -font 'xft:uushi' -boldFont 'xft:uushi'-g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
-# For lemon.
-#exec urxvt -name nil -g 102x26 &
-#exec urxvt -name irssi -g 102x35 -e irssi &
-#exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-#exec urxvt -name ranger -g 102x21 -e ranger &
+# [L+E] Use this if you have both laptop and external display.
+#exec urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
+#exec urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
+#exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
+#exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
+# [L] Use this if you only have laptop display.
+exec urxvt -name nil -g 85x24 &
+exec urxvt -name irssi -g 85x31 -e irssi &
+exec urxvt -name ncmpcpp -g 85x9 -e ncmpcpp &
+exec urxvt -name ranger -g 85x19 -e ranger &
 exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
@@ -194,12 +193,6 @@ bindsym $mod2+1 workspace -
 bindsym $mod2+2 workspace =
 bindsym $mod2+3 workspace ⌯
 bindsym $mod2+4 workspace ﬩
-#bindsym $mod2+5 workspace 15
-#bindsym $mod2+6 workspace 16
-#bindsym $mod2+7 workspace 17
-#bindsym $mod2+8 workspace 18
-#bindsym $mod2+9 workspace 19
-#bindsym $mod2+0 workspace 20
 
 # Move focused container to workspace.
 bindsym $mod+Shift+1 move container to workspace i
@@ -216,12 +209,6 @@ bindsym $mod2+Shift+1 move container to workspace -
 bindsym $mod2+Shift+2 move container to workspace =
 bindsym $mod2+Shift+3 move container to workspace ⌯
 bindsym $mod2+Shift+4 move container to workspace ﬩
-#bindsym $mod2+Shift+5 move container to workspace 15
-#bindsym $mod2+Shift+6 move container to workspace 16
-#bindsym $mod2+Shift+7 move container to workspace 17
-#bindsym $mod2+Shift+8 move container to workspace 18
-#bindsym $mod2+Shift+9 move container to workspace 19
-#bindsym $mod2+Shift+0 move container to workspace 20
 
 # Force a consistent workspace # layout, so I can move it to that workspace without wondering whether it went to the right monitor.
 # I prefer this (dynamic tag creation plugin of Awesome) over default i3.
@@ -239,12 +226,6 @@ workspace - output HDMI1
 workspace = output HDMI1
 workspace ⌯ output HDMI1
 workspace ﬩ output HDMI1
-#workspace 15 output HDMI1
-#workspace 16 output HDMI1
-#workspace 17 output HDMI1
-#workspace 18 output HDMI1
-#workspace 19 output HDMI1
-#workspace 10 output HDMI1
 
 # i3bar Panel
 bar {
@@ -279,24 +260,44 @@ assign [class="^URxvt$" instance="^irssi$"] -
 assign [class="^URxvt$" instance="^ncmpcpp$"] -
 assign [class="^URxvt$" instance="^ranger$"] -
 assign [class="^URxvt$" instance="^tcli$"] i
-assign [class="^feh$"] -
-assign [class="^Firefox$"] ii
-assign [class="^Gimp$"] iv
 assign [class="^Gvim$"] i
+assign [class="^Firefox$"] ii
 assign [instance="VCLSalFrame"] iii
-assign [class="^mpv$"] -
-assign [class="^Zathura$"] -
+assign [class="^Gimp$"] iv
+# [L+E] Use this if you have both laptop and external display.
+#assign [class="^feh$"] -
+#assign [class="^mpv$"] -
+#assign [class="^Zathura$"] -
+# [L] Use this if you only have laptop display.
+assign [class="^feh$"] =
+assign [class="^mpv$"] =
+assign [class="^Zathura$"] =
 
 # Float, focus, and position application on startup.
+# [L+E] Use this if you have both laptop and external display.
 #for_window [class="^URxvt$" instance="^nil$"] floating enable,focus,move absolute position 1340px 550px
-for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move absolute position 1340px 175px
-for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move absolute position 1340px 40px
-for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move absolute position 1340px 845px
-for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move absolute position 1950px 560px
-for_window [class="^feh$"] floating enable,focus,move absolute position 60px 150px
-for_window [class="^Gvim$"] floating enable,focus,move absolute position 1950px 40px
-for_window [class="^mpv$"] floating enable,focus,move absolute position 60px 200px
-for_window [class="^Zathura$"] floating enable,focus,move absolute position 280px 50px
+#for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus,move absolute position 1340px 175px
+#for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus,move absolute position 1340px 40px
+#for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus,move absolute position 1340px 845px
+#for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move absolute position 1950px 560px
+#for_window [class="^Gvim$"] floating enable,focus,move absolute position 1950px 40px
+#for_window [class="^feh$"] floating enable,focus,move absolute position 60px 150px
+#for_window [class="^mpv$"] floating enable,focus,move absolute position 60px 200px
+#for_window [class="^Zathura$"] floating enable,focus,move absolute position 280px 50px
+# Use these with your laptop and external display instead if you can't get absolute positioning to work in feh, mpv, and zathura.
+#for_window [class="^feh$"] floating enable,focus,move left 290px
+#for_window [class="^mpv$"] floating enable,focus,move left 300px
+#for_window [class="^Zathura$"] floating enable,focus,move left 300px
+# [L] Use this if you only have laptop display.
+for_window [class="^URxvt$" instance="^nil$"] floating enable,focus, move absolute position 70px 260px
+for_window [class="^URxvt$" instance="^irssi$"] floating enable,focus, move absolute position 780px 165px
+for_window [class="^URxvt$" instance="^ncmpcpp$"] floating enable,focus, move absolute position 780px 35px
+for_window [class="^URxvt$" instance="^ranger$"] floating enable,focus, move absolute position 780px 540px
+for_window [class="^URxvt$" instance="^tcli$"] floating enable,focus,move absolute position 30px 560px
+for_window [class="^Gvim$"] floating enable,focus,move absolute position 30px 40px
+for_window [class="^feh$"] floating enable,focus
+for_window [class="^mpv$"] floating enable,focus
+for_window [class="^Zathura$"] floating enable,focus
 
 # Shortcut Application focusing.
 bindsym $mod+t [class="^URxvt$" instance="^nil$"] focus
@@ -304,28 +305,27 @@ bindsym $mod+i [class="^URxvt$" instance="^irssi$"] focus
 bindsym $mod+n [class="^URxvt$" instance="^ncmpcpp$"] focus
 bindsym $mod+f [class="^URxvt$" instance="^ranger$"] focus
 bindsym $mod+a [class="^URxvt$" instance="^tcli$"] focus
-bindsym $mod+e [class="^feh$"] focus
-bindsym $mod+g [class="^Gimp$"] focus
+bindsym $mod+w [class="^Gvim$"] focus
 bindsym $mod+o [instance="VCLSalFrame"] focus
+bindsym $mod+g [class="^Gimp$"] focus
+bindsym $mod+e [class="^feh$"] focus
 bindsym $mod+m [class="^mpv$"] focus
 bindsym $mod+z [class="^Zathura$"] focus
-bindsym $mod+w [class="^Gvim$"] focus
 bindsym $mod+q [class="^Firefox$"] focus
 bindsym $mod+Shift+i exec echo >> ~/.irssi/logs/fnotify
 
 # Shortcut Applications.
 bindsym $mod2+Return exec urxvt
-# For uushi.
-bindsym $mod2+t exec urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
-bindsym $mod2+i exec urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
-bindsym $mod2+n exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
-bindsym $mod2+f exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
-#bindsym $mod2+a exec urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 107x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
-# For lemon.
-#bindsym $mod2+t exec urxvt -name nil -g 102x26 &
-#bindsym $mod2+i exec urxvt -name irssi -g 102x35 -e irssi &
-#bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-#bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
+# [L+E] Use this if you have both laptop and external display.
+#bindsym $mod2+t exec urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
+#bindsym $mod2+i exec urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
+#bindsym $mod2+n exec urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
+#bindsym $mod2+f exec urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
+# [L] Use this if you only have laptop display.
+bindsym $mod2+t exec urxvt -name nil -g 102x26 &
+bindsym $mod2+i exec urxvt -name irssi -g 102x35 &
+bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
 bindsym $mod2+a exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
