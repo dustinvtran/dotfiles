@@ -417,11 +417,14 @@ alias df="df -h"                        # Display sizes in human readable format
 alias du="du -h -c"                     # Display sizes in human readable format, and total.
 alias mount="sudo mount"                # Don't require prepending sudo.
 alias umount="sudo umount"              # Don't require prepending sudo.
-alias poweroff="sudo poweroff"          # Don't require prepending sudo.
-alias reboot="sudo reboot"              # Don't require prepending sudo.
-alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also the best low power state.
 alias s="nocorrect sudo "               # Don't prompt me!
 alias zip="zip -r"                      # Zip recursively faget.
+
+# Power Management Controls.
+alias poweroff="sudo poweroff"          # Don't require prepending sudo.
+alias reboot="sudo reboot"              # Don't require prepending sudo.
+alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also the best low power suspension state.
+alias xsetd="xset dpms force off"       # Turn off display.
 
 # Custom commands.
 alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle" # Switch between HDMI and Laptop audio.

@@ -13,11 +13,11 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 ###############################################################################
-# Audio and video output
+# Initial System Settings
 ###############################################################################
 
+# Audio and Video Output
 xrandr | grep "HDMI1 connected"
-# If connected.
 if [ $? -eq 0 ]; then
     xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
     # Turned this off because I'd rather audio-toggle it manually, so it always defaults to USB DAC audio.
@@ -26,6 +26,14 @@ if [ $? -eq 0 ]; then
 else
     xrandr --output HDMI1 --off
     ln -sf "/home/nil/.config/nil/scripts/asound.hdmi-disconnected" /home/nil/.asoundrc
+fi
+
+# Inactivity Time to Turn Off Display
+batstatus=$(acpi -b | sed -n "1p" | awk -F "[, ]" '{print $3}')
+if [ "$batstatus" == "Discharging" ]; then
+    xset s 300
+else
+    xset s 1800
 fi
 
 ###############################################################################
