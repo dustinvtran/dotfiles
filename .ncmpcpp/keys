@@ -8,7 +8,6 @@
 # * Can bind a maximum of two keys per command.
 # * Keys can be defined with a character or a decimal value.
 # * A command can be disabled by binding it to 0.
-
 # Wishlist:
 # * Half-page up/downs (or 5j/k's).
 
