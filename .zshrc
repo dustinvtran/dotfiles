@@ -424,13 +424,22 @@ alias s="nocorrect sudo "               # Don't prompt me!
 alias zip="zip -r"                      # Zip recursively faget.
 
 # Custom commands.
-alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle"
-alias bd="bg && disown"
+alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle" # Switch between HDMI and Laptop audio.
+alias bd="bg && disown"                 # Best way to prevent terminal-launched app from dying when closing terminal.
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
-alias history='fc -l'
+alias history='fc -l'                   # See list of recently used commands.
+alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
+alias sv="sudo vim"
+
+# trash-cli aliases.
+alias tp="trash-put"
+alias tl="trash-list"
+alias tr="restore-trash"
+alias emptytrash="trash-empty"
+
+# Restart configs.
 alias so="exec zsh"
 alias xrdbx="xrdb ~/.Xresources"
-alias sv="sudo vim"
 
 # Directory navigation.
 alias ..='cd ..'

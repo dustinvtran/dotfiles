@@ -17,6 +17,7 @@
 # Low Priority:
 #   * Set all firefox popups to float more generally, rather than needing to xprop each individually.
 #       * read up on no-startup-id.
+#   * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
 #   * Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
 
 ###############################################################################

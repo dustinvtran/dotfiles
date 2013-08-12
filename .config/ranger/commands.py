@@ -4,15 +4,15 @@
 # Name: nil
 #
 
-# Note: This appends commands to the already written default ones.
+# Note: This appends (and overwrites) commands to the already written default ones.
 
 from ranger.api.commands import *
 
 class emptytrash(Command):
-    """:emptytrash
+    """:trash-empty
 
-    Empties the trash directory ~/.trash
+    Runs the command without requiring shell.
     """
 
     def execute(self):
-        self.fm.run("rm -rf /home/nil/.trash/{*,.[^.]*}")
+        self.fm.run("trash-empty")
