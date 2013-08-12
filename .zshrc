@@ -8,8 +8,6 @@
 
 # High Priority:
 #   * Deletearound not working.
-#   * slow split second startup (urxvt issue?).
-#   * Ctrl-I Doesn't work; also need a good keybind for it.
 #   * tab completion doesn't work on some commands (e.g. fasd commands).
 #   * tab completion menu colors for scp  are wonky/inverted.
 # Medium Priority:
@@ -17,14 +15,14 @@
 #   * have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
 #   * display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
 #   * make zle widget for 's/S' as your insert char function
+#   * When pressing <CR> while still in cmd mode (green), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
 # Low Priority:
-#   * Get working ip address function.
 #   * Reopen last closed client/application/window function.
 #       * E.g., it logs all the processes that disappear, and then it opens up the last line.
 #       * Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
 #           * which app (in the sense of /usr/share/applications)
 #   * all keybind/vim stuff lost during ssh session, wonky prompt
-#   * When pressing <CR> while still in cmd mode (green), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
+#   * Ctrl-I Doesn't work; also need a good keybind for it.
 
 # }}}
 # General Settings. {{{
@@ -423,14 +421,12 @@ alias poweroff="sudo poweroff"          # Don't require prepending sudo.
 alias reboot="sudo reboot"              # Don't require prepending sudo.
 alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also the best low power state.
 alias s="nocorrect sudo "               # Don't prompt me!
-alias date="date +'%A %B %e %l:%M %P'"  # A nicer date format.
-alias weather="weather 94704"           # Weather me.
 alias zip="zip -r"                      # Zip recursively faget.
 
 # Custom commands.
 alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle"
 alias bd="bg && disown"
-alias fonts="fc-cache -vf"              # Because 'fonts' is faster.
+alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'
 alias so="exec zsh"
 alias xrdbx="xrdb ~/.Xresources"
@@ -481,9 +477,9 @@ alias gp="git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
 
-# Manual mounter for now.
-alias mounte="mount /dev/sdb1 /media/External_Hard_Drive"
-alias umounte="umount /media/External_Hard_Drive"
+# Manual mounter.
+alias mountb="mount /dev/sdb1 /media/External_Hard_Drive"
+alias umountb="umount /media/External_Hard_Drive"
 
 ###############################################################################
 # Environment variables
@@ -498,17 +494,6 @@ export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod 
 ###############################################################################
 # Functions
 ###############################################################################
-
-# Echo external IP and what your NIC thinks your IP addresses are.
-exip () {
-    # gather external ip address
-    echo -n "Current External IP: "
-    curl -s -m 5 http://myip.dk | grep "ha4" | sed -e 's/.*ha4">//g' -e 's/<\/span>.*//g'
-}
-ips () {
-    # determine local IP address
-    ifconfig | grep "inet " | awk '{ print $2 }'
-}
 
 # A python-adapted calc program.
 alias calc='python -ic "from __future__ import division; from math import *; from random import *"'
