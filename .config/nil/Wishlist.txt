@@ -1,0 +1,242 @@
+This is a document which compiles a list of features that I would like on various applications I use regularly. This is
+ mainly for personal use, so I can keep track of features I desire.
+
+This is sorted alphabetically by application. Each item on the list is assigned toward a priority level depending how much I
+ personally want them to be implemented. Then each item in the Priority categories are themselves ranked in descending order
+ of subpriority.
+
+Firefox Addon: 4chan X Seaweed {{{
+-------------------------------------------------------------------------------
+
+High Priority:
+    * Can't open up thread with keybind 'Open thread in new tab'.
+    * Working watch list.
+    * Mouse drag-hold adjustable image like RES; better yet, a keyboard adjustable one.
+    * Ability to keyboard hint-click replies to posts.
+           'Quote Hash Navigation' can do this partially, but it only moves to that post, not opens up the inline post like the arrow does; also it is prevalent on all quotes, which is unnecessary for this purpose.
+
+Medium Priority:
+    * Working autopager (this saves two keybinds, is more convenient, and doesn't deal with "should i wait or open new page in tab which requires 2 more keybinds" dilemma).
+        Can't navigate to last thread on a board's page (and subsequently keyboard-open its thread).
+    * Keybind to open up corresponding archive link to board.
+
+Low Priority:
+    * Have <C-j>/<C-k> navigate between threads on the board index, and navigate between posts on a thread page (this saves two keybinds since I never nagivate between two posts on the board index).
+        At the very least, the ability to unbind c-j/k on comments page, preventing it from going  to home page.
+    * When J/K navigating between posts and when hitting K at the top most post, have it deselect (this saves a keybind). This allows you to select the OP and expand his/her image.
+    * Have the extra info when hovering over a post be shown when you're selecting it through keyboard navigation, i.e., the image file name, its size and resolution, and the google and iqdb links.
+
+}}}
+Firefox Addon: Pentadactyl {{{
+-------------------------------------------------------------------------------
+
+ Tab Options Plugin:
+   * I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
+ Better native GUI support:
+   * True Bookmark support.
+       * No -folder option when adding bookmarks through :bmark.
+       * Better navigation through :bmarks, c.f., through folders with GUI.
+       * E.g., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
+ * Better way to work with recently closed tabs/windows and view them, as well as bunch of "back"'s history, instead of showing Menu Bar and navigating from there.
+   * Same with history dialog.
+ Navigation:
+   * An actually useful way to use caret mode.
+   * Navigate between multiple scrollbars on the same tab, e.g., on feedly.
+   * I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
+   * I can't hint out of the popup windows, e.g., when editing entries in MAL.
+ Interface:
+   * Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
+   * Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
+   * Not clear when I'm in text edit mode during cmd-line, and how to escape it.
+ Misc:
+   * No support for <Leader><Leader> (though <Leader>,> works.
+
+}}}
+Firefox Addon: Reddit Enhancement Suite {{{
+-------------------------------------------------------------------------------
+
+    * Open comments in new (unfocused) tab.
+    * Hide child comments, not hide the parent comment as well.
+    * Keyboard adjustable image, not just mouse drag-hold adjustable.
+    * Prefetch all images like 4chanx.
+    * Refocus frame movement like 4chanx, where if you scroll normally, then start navigating between threads or posts, it automoves that keyboard cursor to whichever ones are seen on your current display.
+
+}}}
+i3 {{{
+-------------------------------------------------------------------------------
+
+Panel/Workspaces:
+    ** Non-# order, e.g., alphabetical or customizable.
+    ** Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
+    * Can't add a black outline to the panel.
+    * Image icon/non-UTF name support.
+    * Different styles for focused workspace, e.g., a triangle at the top left, etc.
+    * Better true panel support for dzen2.
+        E.g., don't require so many manual dzen2's depending on separate text alignments.
+        E.g., dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv.
+        E.g., when restarting, the nondocked dzen2's get overlapped because i3bar restarts.
+Windows:
+    ** When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+    * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
+       also a keybind to be able to toggle that border.)
+    * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
+ - Floating:
+    * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
+       * As a subset, this means I can't move to the next monitor with hl.
+    * Somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution.
+       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
+    * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
+    * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
+       can toggle hide them all away (can only do one at a time currently).
+    * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
+       windows, like scratchpad terminals).
+Misc:
+    * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
+    * Right-click desktop with options.
+    * When changing workspaces and back, the w3m image preview in ranger is gone.
+
+}}}
+irssi {{{
+-------------------------------------------------------------------------------
+
+irssi:
+    * Inline embedded images when displaying an image link (in the same way ranger uses w3m).
+    * Integrated search function that highlights the search parameter and scrolls through the buffer for you like a normal <C-f> would in other IRC clients. /lastlog is terrible and outputs all the results, resulting in clunky chat window.
+    * awl: Collapse channels to a tab bar much like firefox with a bunch of ellipses and clear answers for the ends.
+    * True mouse support, e.g., clickable links (not just (shift+ with mouse.pl)drag+copy), clickable window names, maybe context menus for something.
+    * C-# and C-j as separate keys.
+Advanced Window List:
+    * Ability to condense channel texts from just left to right, instead of cutting down the middle.
+    * Better centered text than that with the awl_display_header.
+OpenURL:
+    * Ability for multiple urls in one line.
+    * Ability for urls in /me commands.
+    * Ability for urls that I post (yes I'm conceited enough to recheck my links heh).
+vim_mode:
+    * maps with <CR>/<C-j> don't work.
+uberprompt:
+    * show without indicating its status at the beginning. '/prompt set -only $' only works temporarily until I hit another ex command. Would require some more extensive scripting to rid this feature.
+
+}}}
+libreoffice {{{
+-------------------------------------------------------------------------------
+
+    keyboard navigation and normal/insert mode a la vim
+
+}}}
+mpv {{{
+-------------------------------------------------------------------------------
+
+Medium Priority:
+    * Fast forward/rewind unsyncs audio with video; have to +5/-5 to resync.
+    * Have the only one running instance add new files with a playlist, not the temp workaround in my scope.sh (also no-fixed-vo doesn't work instead)
+          In general, do playlist things that MPC-HC can do, such as if no playlist exists, automatically play next file in the same directory.
+    * When at end of file, freeze at last frame instead of a blackout that keep-open does. It does this on some files but not all. Somehow mandate this for those that reach a black screen.
+
+Low Priority:
+    * A "go back to last place before last time seek was done" keybind, in case of accidentally hitting chapter skips or something.
+    * Hotkey that can toggle screen size between 100% and whatever my preferred is.
+    * View (and access) list of recently opened files.
+    * For screenshot-template, have the file extension displayed with a - instead of a . Currently, one can only include .filetype or omit it altogether.
+
+}}}
+ncmpcpp {{{
+-------------------------------------------------------------------------------
+
+    * Turn selected/highlighted item attribute to bold, not reverse.
+    * When holding spacebar to add music to playlist, don't add the last one at end of list multiple times.
+    * Display album art on another window or when I prompt for it.
+    * Half-page up/downs (or 5j/k's).
+
+}}}
+Ranger {{{
+-------------------------------------------------------------------------------
+
+Medium Priority:
+    * Have transfers show an ETA and other such details like what file is currently being copied and what has already been copied, not just a progress bar.
+    * More color choices, like irssi can.
+
+Low Priority:
+    * Always open ranger at its last closed location, instead of being forced to do '' at startup.
+    * Choose what files are pasted first when copying a bunch of them.
+    * Enhanced out-of-console previews: activate video previews (just some snapshot much like w3m for images, or better yet, several snapshots and it cycling through them), txt previews from an embeddable gvim or vim one (i.e. not just pager).
+    * w3img shows a piece of its bottom occasionally, although it resets when I teleport to another folder.
+        Did i affect this when editing the interface scripts, or was it always like this?
+
+}}}
+rssdler {{{
+-------------------------------------------------------------------------------
+
+Low Priority:
+    * Don't exit the rssdler process on errors, e.g., connection lost. (Forced to run a cron job to keep it up)
+
+}}}
+scrot {{{
+-------------------------------------------------------------------------------
+
+    * Scrot just an app, or just one monitor.
+
+}}}
+Transmission {{{
+-------------------------------------------------------------------------------
+
+Medium Priority:
+    * >3 file priorities.
+    * Strange queue behavior: when moving to new queue positions, the bottom ones previously active (and now moved away to no longer be active) continue to be active regardless, while the moved queue are still queued/inactive. I have to pause/replay the moved active torrent to make it inactive and let transmission start the new queued torrent.
+    * Preserve queue order on exit.
+
+Low Priority:
+    * Built-in RSS, meaning in particular that 3rd party RSS dlers can only download to watch directory, and not set each torrent hit to change its default download directory, or force them to queue on top (a feature uTorrent has).
+        User-made script for this exists for queueing to top; as for different download directories, can run custom script to move particular RSS downloaded torrent files after the torrent completes.
+    * >1 watch directory, and subsequently the default download directory depending on the watch directory or if torrent opened into Transmission directly.
+    * Custom tags/labels for custom filtering.
+    * No need to use Firefox plugin to start magnets into Transmission.
+    * Don't require killing transmission-daemon before editing settings.json.
+
+}}}
+Transmission-remote-cli {{{
+-------------------------------------------------------------------------------
+
+High Priority:
+    * Set default download location from transmission-remote-cli client.
+    * Add a timeout so the selected item attribute resets.
+        Afterwards, set that BOLD thing to REVERSE, so it's like ncmpcpp.
+
+Low Priority:
+    * Somehow allow ranger to open containing folder of torrent.
+    * Huge huge input lag when the file list is enormous (lagged on rahxephon with ~1000 files).
+    * When i queue up/down when already at top/bottom, they add weird stats to my uploads (only happens when downloading).
+
+}}}
+urxvt/Xresources {{{
+-------------------------------------------------------------------------------
+
+Medium Priority:
+    * Have j/k scroll up/down the buffer during vicmd.
+
+Low Priority:
+    * Single quotes don't work in comments.
+
+}}}
+Vim {{{
+-------------------------------------------------------------------------------
+
+EasyMotion:
+    * This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
+    * I want to f/F's to be case-insensitive, but smartcase when I do capitalize.
+    I can do this by setting it to the EasyMotion n/N commands, whilst allowing a one key argument for the find. This also makes it easier in case I screw up so I can cycle with n/N.
+    * Remap operator mode's t/T to <Nop> without affecting f/F's operator mode. Of course, I can always map the t/T to some other obscure keys and just forget about them, but it leaves me with peace of mind to know that whatever two keys they are, they're <Nop>'d.
+    * Include the fold title as part of search.
+NERDTree:
+    * I want you as a Toggle, but I also want you to always autotree node to CWD.
+    * 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
+Misc:
+    * Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
+
+}}}
+Zathura {{{
+-------------------------------------------------------------------------------
+
+Low Priority:
+    * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page.
+       E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
