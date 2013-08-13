@@ -3,59 +3,6 @@
 # ~/.config/i3/config
 # Name: nil
 #
-# To-Do List {{{
-# -----------------------------------------------------------------------------
-
-# For notes and general document rambling, see the bottom section.
-
-###############################################################################
-# To-Do
-###############################################################################
-
-# Medium Priority:
-#   * ncmcpp reissues for_window occasionally, causing it to focus (which is annoying if you're in the middle of typing and cause ncmpcpp to do something).
-# Low Priority:
-#   * Set all firefox popups to float more generally, rather than needing to xprop each individually.
-#       * read up on no-startup-id.
-#   * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
-#   * Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
-
-###############################################################################
-# Wishlist
-###############################################################################
-# ** are notated for high priority, features that are worth looking at other WMs for.
-
-# Panel/Workspaces:
-#   ** Non-# order, e.g., alphabetical or customizable.
-#   ** Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
-#   * Can't add a black outline to the panel.
-#   * Image icon/non-UTF name support.
-#   * Different styles for focused workspace, e.g., a triangle at the top left, etc.
-#   * Better true panel support for dzen2.
-#       E.g., don't require so many manual dzen2's depending on separate text alignments.
-#       E.g., dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv.
-#       E.g., when restarting, the nondocked dzen2's get overlapped because i3bar restarts.
-# Windows:
-#   ** When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
-#   * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
-#       also a keybind to be able to toggle that border.)
-#   * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
-# - Floating:
-#   * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
-#       * As a subset, this means I can't move to the next monitor with hl.
-#   * Somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution.
-#       for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
-#   * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
-#   * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
-#       can toggle hide them all away (can only do one at a time currently).
-#   * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
-#       windows, like scratchpad terminals).
-# Misc:
-#   * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
-#   * Right-click desktop with options.
-#   * When changing workspaces and back, the w3m image preview in ranger is gone.
-
-# }}}
 # Startup Applications {{{
 # -----------------------------------------------------------------------------
 
@@ -169,7 +116,7 @@ bindsym $mod+Shift+l move right
 # Reload the configuration file, Restart i3 inplace (preserves layout/session).
 bindsym $mod+Shift+c reload
 # Be wary. This one ruins dzen2 and for_window positions.
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec "pkill conky"; restart
 # exit i3 (logs you out of your X session)
 bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 

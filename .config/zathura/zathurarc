@@ -4,10 +4,6 @@
 " Name: nil
 "
 
-" Wishlist:
-" * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page.
-"       E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
-
 " [L+E] Use this if you have both laptop and external display.
 "set window-height 1000
 "set window-width 760

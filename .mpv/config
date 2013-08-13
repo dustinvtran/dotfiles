@@ -17,12 +17,3 @@ osd-duration=2000
 osd-font='HelveticaNeueCom 45 Lt'
 osd-font-size=40
 screenshot-template=/home/nil/nil/Media/Pictures/Screenshots/mpv/%f_%p_%tm-%td-%ty
-
-# Wishlist:
-# * Hotkey that can toggle screen size to 100% and whatever my preferred is.
-# * View (and access) list of recently opened files.
-# * Have the only one running instance add new files with a playlist, not the temp workaround in my scope.sh (also no-fixed-vo doesn't work instead)
-#   Do playlist things that MPC-HC can do, such as if no playlist exists, automatically play next file in the same directory.
-# * When at end of file, freeze at last frame instead of a blackout that keep-open does. It does this on some files but not all. Somehow mandate this.
-# * For screenshot-template, have the file extension displayed with a - instead of a . Currently,
-#   one can only include .filetype or omit it altogether.

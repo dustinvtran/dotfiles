@@ -3,28 +3,6 @@
 # ~/.zshrc
 # Name: nil
 #
-# To-Do List {{{
-# -----------------------------------------------------------------------------
-
-# High Priority:
-#   * Deletearound not working.
-#   * tab completion doesn't work on some commands (e.g. fasd commands).
-#   * tab completion menu colors for scp  are wonky/inverted.
-# Medium Priority:
-#   * Better ls and grep colors, and better ls style.
-#   * have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
-#   * display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
-#   * make zle widget for 's/S' as your insert char function
-#   * When pressing <CR> while still in cmd mode (green), the directory stays the cmd-color. I would like the color to reset back to the default (red) before <CR> is hit, so that it's /always/ the default (red) unless I'm in cmd mode (blue).
-# Low Priority:
-#   * Reopen last closed client/application/window function.
-#       * E.g., it logs all the processes that disappear, and then it opens up the last line.
-#       * Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
-#           * which app (in the sense of /usr/share/applications)
-#   * all keybind/vim stuff lost during ssh session, wonky prompt
-#   * Ctrl-I Doesn't work; also need a good keybind for it.
-
-# }}}
 # General Settings. {{{
 # -----------------------------------------------------------------------------
 
@@ -426,19 +404,13 @@ alias reboot="sudo reboot"              # Don't require prepending sudo.
 alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also the best low power suspension state.
 alias xsetd="xset dpms force off"       # Turn off display.
 
-# Custom commands.
+# Miscellaneous custom commands.
 alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle" # Switch between HDMI and Laptop audio.
 alias bd="bg && disown"                 # Best way to prevent terminal-launched app from dying when closing terminal.
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'                   # See list of recently used commands.
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias sv="sudo vim"
-
-# trash-cli aliases.
-alias tp="trash-put"
-alias tl="trash-list"
-alias tr="restore-trash"
-alias emptytrash="trash-empty"
 
 # Restart configs.
 alias so="exec zsh"
@@ -452,35 +424,10 @@ alias -- -='cd -'
 alias -- --='cd -2'
 alias -- ---='cd -3'
 
-# Pacman/Packer aliases.
-alias p="sudo pacman"
-alias pa="packer --noedit"
-alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
-alias pqs="pacman -Qs"
-alias prns="sudo pacman -Rns"
-alias pr="sudo pacman -R"
-alias ps="packer --noedit -S"
-alias psyu="packer --noedit -Syu"
-alias pss="packer -Ss"
-
 # System-dotfile backups.
 alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/system-dotfiles/package-list"
 alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
-
-# CLI Applications
-alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-alias pipes="~/.config/nil/scripts/pipes.sh"
-alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
-alias tcli="~/.config/nil/scripts/nil-transmission-remote-cli"
-
-# Application Opening
-l() { nocorrect f -e libreoffice "$@" & }
-m() { nocorrect f -e mplayer2 "$@" & }
-alias nitrogen="nitrogen &"
-alias v="nocorrect f -e gvim -B viminfo"
-alias virtualbox="virtualbox &"
-z() { nocorrect f -e zathura "$@" & }
 
 # le git.
 alias ga="git add -f"
@@ -492,6 +439,35 @@ alias gs="git show --name-only"
 # Manual mounter.
 alias mountb="mount /dev/sdb1 /media/External_Hard_Drive"
 alias umountb="umount /media/External_Hard_Drive"
+
+# Pacman/Packer aliases.
+alias p="sudo pacman"
+alias pa="packer --noedit"
+alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
+alias pqs="pacman -Qs"
+alias prns="sudo pacman -Rns"
+alias pr="sudo pacman -R"
+alias ps="packer --noedit -S"
+alias psyu="packer --noedit -Syu"
+alias pss="packer -Ss"
+
+# trash-cli aliases.
+alias tp="trash-put"
+alias tl="trash-list"
+alias tr="restore-trash"
+alias emptytrash="trash-empty"
+
+# CLI Applications
+alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
+alias pipes="~/.config/nil/scripts/pipes.sh"
+alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
+alias tcli="~/.config/nil/scripts/nil-transmission-remote-cli"
+
+# Application Opening
+l() { nocorrect f -e libreoffice "$@" & }
+m() { nocorrect f -e mplayer2 "$@" & }
+alias v="nocorrect f -e gvim -B viminfo"
+z() { nocorrect f -e zathura "$@" & }
 
 ###############################################################################
 # Environment variables

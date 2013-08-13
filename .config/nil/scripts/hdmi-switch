@@ -15,7 +15,7 @@ asound_file=asound.hdmi-$hdmi_status
 #    ln -sf "$alsa_dir/$asound_file" /home/nil/.asoundrc
 #fi
 
-# Change display output
+# Change display output.
 if [ "${hdmi_status}" = connected ]; then
     xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
 else

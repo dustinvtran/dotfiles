@@ -27,30 +27,6 @@
 "   * Jumps in same buffer without changing pages. (same problem in Vim)
 "   * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
 
-"##############################################################################
-" Wishlist
-"##############################################################################
-
-" Tab Options Plugin:
-"   * I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
-" Better native GUI support:
-"   * True Bookmark support.
-"       * No -folder option when adding bookmarks through :bmark.
-"       * Better navigation through :bmarks, c.f., through folders with GUI.
-"       * E.g., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
-" * Better way to work with recently closed tabs/windows and view them, as well as bunch of "back"'s history, instead of showing Menu Bar and navigating from there.
-"   * Same with history dialog.
-" Navigation:
-"   * An actually useful way to use caret mode.
-"   * Navigate between multiple scrollbars on the same tab, e.g., on feedly.
-"   * I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
-"   * I can't hint out of the popup windows, e.g., when editing entries in MAL.
-" Interface:
-"   * Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
-"   * Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
-"   * Not clear when I'm in text edit mode during cmd-line, and how to escape it.
-" Misc:
-"   * No support for <Leader><Leader> (though <Leader>,> works.
 
 " }}}
 " Settings {{{
@@ -110,7 +86,7 @@ set showtabline=always
 set titlestring=
 set hlfind
 set passkeys+=reddit.com:JKeqcCaswb<CR>
-set passkeys+=boards.4chan.org:JK<C-j><C-k>eqQ<C-w>cC<CR>
+set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 " Tab-Options Plugin.
