@@ -8,22 +8,18 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+HDMI to DVI adapter.
+
 Awesome
-    * Change workspace names.
-    * Panel.
-    * Make separate tags for second screen and use mod4 for them.
     * Dynamic tags.
-    * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically.
-    * rule_any not working.
-    * fnotify echo not working.
+    * Panel widgets.
+    * Make separate tags for second screen and use mod4 for them.
+    * Determine how floating windows float on top of tiling or not, etc.
+    * See i3 wishlist and config.
+    * Widget libraries, etc. like Daze for panel.
     * Have the workspaces icons turn sideways on focus.
         Find how to set the workspaces to change icons like that.
         Find the appropriate icons.
-    * Border thickness and color.
-    * Should I re-do Compton shadows?
-    * See i3 wishlist and config.
-    * Context menu.
-    * Backup and uninstall i3.
 
 Conky/Dzen
     * mail
@@ -33,6 +29,7 @@ Conky/Dzen
 
 irssi
     * Highlights with people with a mode show the thing on the right, not left-aligned.
+    * Have people notify with a message when they go away/unaway.
 
 ranger
     * Have the bottom file size arrows be gray.
@@ -40,6 +37,9 @@ ranger
 
 Seagate External Harddrive
     * Get it working.
+
+Theme
+    * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
 
 xmodmap/xcape
     * Set alt_r as emdash.
@@ -55,6 +55,14 @@ Android/iPad USB Connection
     * android: shows up on lsusb but not fdisk -l (hence it won't be automounted).
     * ipad: nope.
 
+Awesome
+    * rule_any not working.
+    * Everything not moved right on startup.
+    * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically. Same with calendar, which changes position depending on which tag I open it in lol.
+    * Revamp menu.
+    * Backup and uninstall i3, conky-cli, and dzen2.
+    * Setup dual screen wallpapers with beautiful and uninstall nitrogen.
+
 cron
     * xcape cron not working.
 
@@ -63,6 +71,7 @@ conky
         If the file name is too long (e.g. if X has > Y characters), have it cut off.
     * mpd
         If the song name is too long (e.g. if X has > Y characters), have it cut off.
+        Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
     * volume: have a keybind to check current volume, or to pop up the display for a few seconds
         Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
     * Right-aligned dzens should be cut off from the left not the right.
@@ -127,6 +136,11 @@ Firefox
     * Autoopen all tabs on startup.
     * flash: fullscreen toggles away once i hit something else.
     * Display notifications on primary desktop, not HDMI (e.g. download finished, gmail checker notifier, autopager notification of not loading, etc.).
+
+Firefox Addon: Pentadactyl
+    * Better font to distinguish upper cases in hint mode.
+    * <C-v> not pasting emdashes correctly.
+    * Have searches show # of hits.
 
 git
     * Learn the other commands so you can do things like rename git commits, add things, etc.
