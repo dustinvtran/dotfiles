@@ -4,6 +4,7 @@
 -- Name: nil
 --
 -- Initial Settings {{{
+-------------------------------------------------------------------------------
 
 --#############################################################################
 -- Libraries
@@ -52,6 +53,15 @@ editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod1"
 modkey2 = "Mod4"
+
+-- }}}
+-- Dialogs {{{
+-------------------------------------------------------------------------------
+
+--#############################################################################
+-- Tags & Layouts
+--#############################################################################
+
 local layouts =
 {
     awful.layout.suit.floating,
@@ -59,16 +69,9 @@ local layouts =
     awful.layout.suit.tile.left,
 }
 
--- }}}
--- Dialogs {{{
-
---#############################################################################
--- Tags
---#############################################################################
-
 tags = {
 names  = { 1, 2, 3, 4, 5, 6, 7, 8, 9 },
-layout = { layouts[1], layouts[2], layouts[1], layouts[1], layouts[1],
+layout = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
           layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
@@ -80,7 +83,6 @@ end
 -- Menus
 --#############################################################################
 
--- Create a laucher widget and a main menu
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
@@ -98,6 +100,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- }}}
 -- Wibox {{{
+-------------------------------------------------------------------------------
+
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
@@ -138,15 +142,14 @@ for s = 1, screen.count() do
 end
 -- }}}
 -- Mappings {{{
+-------------------------------------------------------------------------------
 
 --#############################################################################
 -- Mouse
 --#############################################################################
 
 root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
 
 --#############################################################################
@@ -154,10 +157,6 @@ root.buttons(awful.util.table.join(
 --#############################################################################
 
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
-
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -168,7 +167,6 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -198,14 +196,32 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
-    -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end),
+    -- Main Applications
+    awful.key({ modkey, }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
+    awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 129x18 -e /home/nil/.config/nil/scripts/nil-transmission-remote-cli", { instance = "tcli" }) end),
+    awful.key({ modkey, }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
+    awful.key({ modkey, }, "o", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "" }) end),
+    -- [L+E] Use this if you have both laptop and external display.
+    --awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
+    --awful.key({ modkey, }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
+    --awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    --awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
+    -- [L] Use this if you only have laptop display.
+    awful.key({ modkey, }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
+    awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
+    awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
+    awful.key({ modkey, }, "m", function () run_or_raise("", { class = "mpv" }) end),
+    awful.key({ modkey, }, "e", function () run_or_raise("", { class = "feh" }) end),
+    awful.key({ modkey, }, "z", function () run_or_raise("", { class = "Zathura" }) end),
 
-    -- Newly added additions.
+    -- Media Keys
     awful.key({ }, "F6", function () awful.util.spawn_with_shell("bash ~/.config/nil/scripts/play-pause") end),
     awful.key({ }, "F9", function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
-    awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end)
+    awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end),
+    awful.key({ modkey }, "c", function () awful.util.spawn("bash /home/nil/.config/nil/scripts/calendar-toggle") end),
+    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn("echo >> /home/nil/.irssi/logs/fnotify") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -269,61 +285,81 @@ root.keys(globalkeys)
 
 -- }}}
 -- Rules {{{
+-------------------------------------------------------------------------------
+
 awful.rules.rules = {
-    -- All clients will match this rule.
     { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons } },
+    --{ rule_any = { name = "Options for Menu Editor", name = "Firefox Preferences", name = "Page Info", name = "Tab Mix Plus Options", name = "Library" },
+      --properties = { floating = true } },
     { rule = { class = "Gvim" },
-      properties = { floating = true } },
-    { rule = { name = "tcli" },
-      properties = { tag = tags[1][1], floating = true } },
-    ---- Set Firefox to always map on tags number 2 of screen 1.
+      properties = { floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=30, y=40}) end },
+    { rule = { instance = "tcli" },
+      properties = { tag = tags[1][1], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=30, y=560}) end },
      { rule = { class = "Firefox" },
-      properties = { tag = tags[1][2] } },
-    { rule = { class = "libreoffice-calc" },
-      properties = { tag = tags[1][3] } },
+      properties = { tag = tags[1][2], switchtotag = true } },
+    { rule = { instance = "VCLSalFrame" },
+      properties = { tag = tags[1][3], switchtotag = true } },
     { rule = { class = "gimp" },
-      properties = { tag = tags[1][4], floating = true } },
+      properties = { tag = tags[1][4], floating = true, switchtotag = true } },
+    { rule = { instance = "calendar" },
+      properties = { floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=683, y=15}) end },
     -- [L+E] Use this if you have both laptop and external display.
-    --{ rule = { name = "irssi" },
-      --properties = { tag = tags[2][1], floating = true } },
-    --{ rule = { name = "nil" },
-      --properties = { tag = tags[2][1], floating = true } },
-    --{ rule = { name = "ncmpcpp" },
-      --properties = { tag = tags[2][1], floating = true } },
-    --{ rule = { name = "ranger" },
-      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { instance = "irssi" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=175}) end },
+    --{ rule = { instance = "nil" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=550}) end },
+    --{ rule = { instance = "ncmpcpp" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=40}) end },
+    --{ rule = { instance = "ranger" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=845}) end },
     --{ rule = { class = "feh" },
-      --properties = { tag = tags[2][1], floating = true } },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=0, y=0}) end },
     --{ rule = { class = "mpv" },
-      --properties = { tag = tags[2][1], floating = true } },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=0, y=0}) end },
     --{ rule = { class = "Zathura" },
-      --properties = { tag = tags[2][1], floating = true } },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=0, y=0}) end },
     -- [L] Use this if you only have laptop display.
-    { rule = { name = "irssi" },
-      properties = { tag = tags[1][5], floating = true } },
-    { rule = { name = "nil" },
-      properties = { tag = tags[1][5], floating = true } },
-    { rule = { name = "ncmpcpp" },
-      properties = { tag = tags[1][5], floating = true } },
-    { rule = { name = "ranger" },
-      properties = { tag = tags[1][5], floating = true } },
+    { rule = { instance = "irssi" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=780, y=165}) end },
+    { rule = { instance = "nil" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=70, y=260}) end },
+    { rule = { instance = "ncmpcpp" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=780, y=35}) end },
+    { rule = { instance = "ranger" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=780, y=540}) end },
     { rule = { class = "feh" },
-      properties = { tag = tags[1][9], floating = true } },
+      properties = { tag = tags[1][9], floating = true, switchtotag = true },
+      callback = awful.placement.centered },
     { rule = { class = "mpv" },
-      properties = { tag = tags[1][9], floating = true } },
+      properties = { tag = tags[1][9], floating = true, switchtotag = true },
+      callback = awful.placement.centered },
     { rule = { class = "Zathura" },
-      properties = { tag = tags[1][9], floating = true } },
---temp just for this session. remove before restarting pc
-    { rule = { name = "transmission" },
-      properties = { tag = tags[1][1], floating = true } },
+      properties = { tag = tags[1][9], floating = true, switchtotag = true },
+      callback = awful.placement.centered },
 }
 -- }}}
 -- Signals {{{
+-------------------------------------------------------------------------------
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
@@ -394,9 +430,56 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
--- Autostart {{{
 
+-- }}}
+-- Functions {{{
+------------------------------------------------------------------------------
+
+-- Run or Raise: Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If multiple, it cycles through them.
+function run_or_raise(cmd, properties)
+   local clients = client.get()
+   local focused = awful.client.next(0)
+   local findex = 0
+   local matched_clients = {}
+   local n = 0
+   for i, c in pairs(clients) do
+      if match(properties, c) then
+         n = n + 1
+         matched_clients[n] = c
+         if c == focused then
+            findex = n
+         end
+      end
+   end
+   if n > 0 then
+      local c = matched_clients[1]
+      if 0 < findex and findex < n then
+         c = matched_clients[findex+1]
+      end
+      local ctags = c:tags()
+      if #ctags == 0 then
+         local curtag = awful.tag.selected()
+         awful.client.movetotag(curtag, c)
+      else
+         awful.tag.viewonly(ctags[1])
+      end
+      client.focus = c
+      c:raise()
+      return
+   end
+   awful.util.spawn(cmd)
+end
+
+function match (table1, table2)
+   for k, v in pairs(table1) do
+      if table2[k] ~= v and not table2[k]:find(v) then
+         return false
+      end
+   end
+   return true
+end
+
+-- Run program only when starting Awesome for the first time, but not when it restarts.
 function run_once(cmd)
   findme = cmd
   firstspace = cmd:find(" ")
@@ -405,6 +488,10 @@ function run_once(cmd)
   end
   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
+
+-- }}}
+-- Startup Applications {{{
+-------------------------------------------------------------------------------
 
 -- Maybe put these ones in xinitrc somehow too?
 run_once("firefox")
