@@ -3,30 +3,6 @@
 -- ~/.config/awesome/rc.lua
 -- Name: nil
 --
--- To-Do List {{{
--- ----------------------------------------------------------------------------
-
---#############################################################################
--- To-Do
---#############################################################################
-
--- High Priority:
---  * Dynamic tags.
---  * Make separate tags to second screen and use mod4 for them.
---  * Application properties not all working, but mpv's is.
---  * Install shadows with xcompmgr.
--- Medium Priority:
--- Low Priority:
-
---#############################################################################
--- Wishlist
---#############################################################################
-
--- Misc:
---  * Resize floating windows without flickering.
---  * Restart awesome without flickering.
-
--- }}}
 -- Initial Settings {{{
 
 --#############################################################################
@@ -92,8 +68,8 @@ local layouts =
 
 tags = {
 names  = { 1, 2, 3, 4, 5, 6, 7, 8, 9 },
-layout = { layouts[1], layouts[2], layouts[2], layouts[2], layouts[2],
-          layouts[2], layouts[2], layouts[2], layouts[2] }
+layout = { layouts[1], layouts[2], layouts[1], layouts[1], layouts[1],
+          layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
 for s = 1, screen.count() do
@@ -301,31 +277,50 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "feh" },
-      properties = { tag = tags[2][1], floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-     { rule = { class = "Firefox" },
-      properties = { tag = tags[1][2] } },
-    { rule = { class = "gimp" },
-      properties = { tag = tags[1][4], floating = true } },
     { rule = { class = "Gvim" },
-      properties = { tag = tags[1][1], floating = true } },
-    { rule = { name = "irssi" },
-      properties = { tag = tags[2][1], floating = true } },
-    --{ rule = { class = "libreoffice-calc" },
-      --properties = { tag = tags[1][3] } },
-    { rule = { class = "mpv" },
-      properties = { tag = tags[2][1], floating = true } },
-    --{ rule = { name = "nil" },
-      --properties = { tag = tags[2][1], floating = true } },
-    { rule = { name = "ncmpcpp" },
-      properties = { tag = tags[2][1], floating = true } },
-    { rule = { name = "ranger" },
-      properties = { tag = tags[2][1], floating = true } },
+      properties = { floating = true } },
     { rule = { name = "tcli" },
       properties = { tag = tags[1][1], floating = true } },
+    ---- Set Firefox to always map on tags number 2 of screen 1.
+     { rule = { class = "Firefox" },
+      properties = { tag = tags[1][2] } },
+    { rule = { class = "libreoffice-calc" },
+      properties = { tag = tags[1][3] } },
+    { rule = { class = "gimp" },
+      properties = { tag = tags[1][4], floating = true } },
+    -- [L+E] Use this if you have both laptop and external display.
+    --{ rule = { name = "irssi" },
+      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { name = "nil" },
+      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { name = "ncmpcpp" },
+      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { name = "ranger" },
+      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { class = "feh" },
+      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { class = "mpv" },
+      --properties = { tag = tags[2][1], floating = true } },
+    --{ rule = { class = "Zathura" },
+      --properties = { tag = tags[2][1], floating = true } },
+    -- [L] Use this if you only have laptop display.
+    { rule = { name = "irssi" },
+      properties = { tag = tags[1][5], floating = true } },
+    { rule = { name = "nil" },
+      properties = { tag = tags[1][5], floating = true } },
+    { rule = { name = "ncmpcpp" },
+      properties = { tag = tags[1][5], floating = true } },
+    { rule = { name = "ranger" },
+      properties = { tag = tags[1][5], floating = true } },
+    { rule = { class = "feh" },
+      properties = { tag = tags[1][9], floating = true } },
+    { rule = { class = "mpv" },
+      properties = { tag = tags[1][9], floating = true } },
     { rule = { class = "Zathura" },
-      properties = { tag = tags[2][1], floating = true } },
+      properties = { tag = tags[1][9], floating = true } },
+--temp just for this session. remove before restarting pc
+    { rule = { name = "transmission" },
+      properties = { tag = tags[1][1], floating = true } },
 }
 -- }}}
 -- Signals {{{
@@ -414,11 +409,18 @@ end
 -- Maybe put these ones in xinitrc somehow too?
 run_once("firefox")
 run_once("gvim")
+run_once("libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods")
+-- [L+E] Use this if you have both laptop and external display.
+--run_once("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24")
+--run_once("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi")
+--run_once("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp")
+--run_once("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger")
+-- [L] Use this if you only have laptop display.
 run_once("urxvt -name nil -g 85x24")
-run_once("urxvt -name irssi -g 85x31 -e irssi")
-run_once("urxvt -name ncmpcpp -g 85x9 -e ncmpcpp")
-run_once("urxvt -name ranger -g 85x19 -e ranger")
-run_once("urxvt -name tcli -g 108x16 -e ~/.config/nil/scripts/nil-transmission-remote-cli")
+run_once("urxvt -name irssi -g 102x35 -e irssi")
+run_once("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp")
+run_once("urxvt -name ranger -g 102x21 -e ranger")
+run_once("urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli")
 -- Terminal commands I haven't put in xinitrc yet.
 run_once("dropboxd")
 run_once("rssdler -d")

@@ -396,7 +396,9 @@ alias du="du -h -c"                     # Display sizes in human readable format
 alias mount="sudo mount"                # Don't require prepending sudo.
 alias umount="sudo umount"              # Don't require prepending sudo.
 alias s="nocorrect sudo "               # Don't prompt me!
-alias zip="zip -r"                      # Zip recursively faget.
+# The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
+# as first.
+zip() { cd "${1%/*}" && builtin zip -r "${1##*/}" "${1##*/}" && cd -; }
 
 # Power Management Controls.
 alias poweroff="sudo poweroff"          # Don't require prepending sudo.
@@ -460,7 +462,7 @@ alias emptytrash="trash-empty"
 # CLI Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
 alias pipes="~/.config/nil/scripts/pipes.sh"
-alias scrot="scrot -c -d 5 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
+alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
 alias tcli="~/.config/nil/scripts/nil-transmission-remote-cli"
 
 # Application Opening

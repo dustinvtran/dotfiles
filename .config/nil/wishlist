@@ -1,26 +1,34 @@
-This is a document which compiles a list of features that I would like on various applications I use regularly. This is
+This is a document which compiles a list of features that I would like on various applications I have used. This is
  mainly for personal use, so I can keep track of features I desire.
 
 This is sorted alphabetically by application. Each item on the list is assigned toward a priority level depending how much I
  personally want them to be implemented. Then each item in the Priority categories are themselves ranked in descending order
  of subpriority.
 
+Awesome {{{
+-------------------------------------------------------------------------------
+
+Low Priority
+    * Resize floating windows without flickering.
+    * Restart awesome without flickering.
+
+}}}
 Firefox Addon: 4chan X Seaweed {{{
 -------------------------------------------------------------------------------
 
-High Priority:
+High Priority
     * Can't open up thread with keybind 'Open thread in new tab'.
     * Working watch list.
     * Mouse drag-hold adjustable image like RES; better yet, a keyboard adjustable one.
     * Ability to keyboard hint-click replies to posts.
            'Quote Hash Navigation' can do this partially, but it only moves to that post, not opens up the inline post like the arrow does; also it is prevalent on all quotes, which is unnecessary for this purpose.
 
-Medium Priority:
+Medium Priority
     * Working autopager (this saves two keybinds, is more convenient, and doesn't deal with "should i wait or open new page in tab which requires 2 more keybinds" dilemma).
         Can't navigate to last thread on a board's page (and subsequently keyboard-open its thread).
     * Keybind to open up corresponding archive link to board.
 
-Low Priority:
+Low Priority
     * Have <C-j>/<C-k> navigate between threads on the board index, and navigate between posts on a thread page (this saves two keybinds since I never nagivate between two posts on the board index).
         At the very least, the ability to unbind c-j/k on comments page, preventing it from going  to home page.
     * When J/K navigating between posts and when hitting K at the top most post, have it deselect (this saves a keybind). This allows you to select the OP and expand his/her image.
@@ -65,24 +73,29 @@ Firefox Addon: Reddit Enhancement Suite {{{
 i3 {{{
 -------------------------------------------------------------------------------
 
-Panel/Workspaces:
-    ** Non-# order, e.g., alphabetical or customizable.
-    ** Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
-    * Can't add a black outline to the panel.
-    * Image icon/non-UTF name support.
-    * Different styles for focused workspace, e.g., a triangle at the top left, etc.
+High Priority:
+    * Slightly more advanced panel customizability.
+        Non-# order, e.g., alphabetical or customizable.
+        Different styles for focused workspace, e.g., have them animate, turn sideways, have a triangle instead of turn completely different colors, or do /something/ different.
+        Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
+        Can't add a black outline to the panel. The first workspace isn't completely covered when focused this way.
+     * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+
+Medium Priority:
+    * Slightly more advanced panel customizability.
+        Image icon/non-UTF name support.
     * Better true panel support for dzen2.
         E.g., don't require so many manual dzen2's depending on separate text alignments.
         E.g., dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv.
         E.g., when restarting, the nondocked dzen2's get overlapped because i3bar restarts.
-Windows:
-    ** When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
-    * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And
-       also a keybind to be able to toggle that border.)
-    * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
- - Floating:
+    * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And also a
+        keybind to be able to toggle that border.)
     * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
        * As a subset, this means I can't move to the next monitor with hl.
+    * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
+
+Low Priority:
+    * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
     * Somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution.
        for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
     * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
@@ -90,8 +103,6 @@ Windows:
        can toggle hide them all away (can only do one at a time currently).
     * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
        windows, like scratchpad terminals).
-Misc:
-    * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
     * Right-click desktop with options.
     * When changing workspaces and back, the w3m image preview in ranger is gone.
 
@@ -155,6 +166,7 @@ Ranger {{{
 Medium Priority:
     * Have transfers show an ETA and other such details like what file is currently being copied and what has already been copied, not just a progress bar.
     * More color choices, like irssi can.
+    * Allow .zshrc things to run through, such as aliases and functions, when you use :shell commands, not just for interactive shells.
 
 Low Priority:
     * Always open ranger at its last closed location, instead of being forced to do '' at startup.

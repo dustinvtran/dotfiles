@@ -642,6 +642,7 @@ noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 "##############################################################################
 
 colorscheme nil
+set background=light
 syntax enable
 set guioptions=
 set notitle
