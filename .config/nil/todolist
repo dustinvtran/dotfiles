@@ -9,22 +9,21 @@ Highest Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
-    Tags
+    * Change workspace names.
+    * Panel.
+    * Make separate tags for second screen and use mod4 for them.
     * Dynamic tags.
-    * Make separate tags to second screen and use mod4 for them.
+    * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically.
+    * rule_any not working.
+    * fnotify echo not working.
     * Have the workspaces icons turn sideways on focus.
         Find how to set the workspaces to change icons like that.
         Find the appropriate icons.
-    Misc
-    * Border sizes and color.
-    * Panel.
-    * Application properties not all working, but mpv's is.
-        auto move to location.
-    Keybinds
-    * Keybinds to move to workspace, to move application to workspace.
-    * Application focusing.
-    * Keybinds to spawn apps.
-    * Global media keys.
+    * Border thickness and color.
+    * Should I re-do Compton shadows?
+    * See i3 wishlist and config.
+    * Context menu.
+    * Backup and uninstall i3.
 
 Conky/Dzen
     * mail
@@ -44,6 +43,9 @@ Seagate External Harddrive
 
 xmodmap/xcape
     * Set alt_r as emdash.
+
+zsh
+    * See Unix question for better zip.
 
 }}}
 High Priority {{{

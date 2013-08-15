@@ -75,24 +75,27 @@ i3 {{{
 
 High Priority:
     * Slightly more advanced panel customizability.
-        Non-# order, e.g., alphabetical or customizable.
+        Non-integer order, e.g., alphabetical or UTF-8 icons.
         Different styles for focused workspace, e.g., have them animate, turn sideways, have a triangle instead of turn completely different colors, or do /something/ different.
-        Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
-        Can't add a black outline to the panel. The first workspace isn't completely covered when focused this way.
-     * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+        Can't add a black outline to the workspace panel. The first workspace icon isn't completely covered when focused this way.
+    * Single keybind to spawn app if doesn't exist, focus app if exist. This makes two keybinds in one.
+    * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
 
 Medium Priority:
     * Slightly more advanced panel customizability.
+        Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
         Image icon/non-UTF name support.
     * Better true panel support for dzen2.
         E.g., don't require so many manual dzen2's depending on separate text alignments.
         E.g., dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv.
         E.g., when restarting, the nondocked dzen2's get overlapped because i3bar restarts.
+    * Recall window sizes of things that don't size their own windows (mostly GUIs).
     * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And also a
         keybind to be able to toggle that border.)
     * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
        * As a subset, this means I can't move to the next monitor with hl.
     * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
+    * Prevent certain applications from stealing focus due to it re-issuing the for_window command, ncmpcpp in particular.
 
 Low Priority:
     * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.

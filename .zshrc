@@ -396,9 +396,6 @@ alias du="du -h -c"                     # Display sizes in human readable format
 alias mount="sudo mount"                # Don't require prepending sudo.
 alias umount="sudo umount"              # Don't require prepending sudo.
 alias s="nocorrect sudo "               # Don't prompt me!
-# The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
-# as first.
-zip() { cd "${1%/*}" && builtin zip -r "${1##*/}" "${1##*/}" && cd -; }
 
 # Power Management Controls.
 alias poweroff="sudo poweroff"          # Don't require prepending sudo.
@@ -487,5 +484,14 @@ export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod 
 
 # A python-adapted calc program.
 alias calc='python -ic "from __future__ import division; from math import *; from random import *"'
+
+# The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
+# as first.
+# Note: this doesn't work if zipping a folder in current directory.. see unix question.
+#zip() { cd "${1%/*}" && builtin zip -r "${1##*/}" "${1##*/}" && cd -; }
+#coolerzip () (
+    #cd $1:h &&
+    #zip -r $2:h.zip $2:h
+#)
 
 # }}}
