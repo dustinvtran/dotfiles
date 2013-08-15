@@ -18,6 +18,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
+--vicious = require("vicious")
 
 --#############################################################################
 -- Error Handling
@@ -47,7 +48,7 @@ end
 -- Variable Definitions
 --#############################################################################
 
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init("/home/nil/.config/awesome/themes/nil/theme.lua")
 terminal = "urxvt"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
@@ -70,9 +71,9 @@ local layouts =
 }
 
 tags = {
-names  = { 1, 2, 3, 4, 5, 6, 7, 8, 9 },
+names  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
 layout = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
-          layouts[1], layouts[1], layouts[1], layouts[1] }
+          layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
 for s = 1, screen.count() do
@@ -90,8 +91,17 @@ myawesomemenu = {
    { "quit", awesome.quit }
 }
 
+system = {
+   { "poweroff", "sudo poweroff" },
+   { "reboot", "sudo reboot" },
+   { "suspend", "sudo pm-suspend-hybrid" },
+   { "display off", "xset dpms force off" }
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+                                    { "system", system, beautiful.awesome_icon },
+                                    { "⮩ urxvt", terminal },
+                                    { "⮤ scrot", "scrot /home/nil/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png" }
                                   }
                         })
 
@@ -193,8 +203,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    --awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
+    --awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     -- Main Applications
     awful.key({ modkey, }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
@@ -221,7 +231,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
     awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end),
     awful.key({ modkey }, "c", function () awful.util.spawn("bash /home/nil/.config/nil/scripts/calendar-toggle") end),
-    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn("echo >> /home/nil/.irssi/logs/fnotify") end)
+    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -230,7 +240,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,           }, "space",  function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
@@ -238,9 +248,7 @@ clientkeys = awful.util.table.join(
         end)
 )
 
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it works on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
+-- Tags
 for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
@@ -274,6 +282,61 @@ for i = 1, 9 do
                       end
                   end))
 end
+globalkeys = awful.util.table.join(globalkeys,
+    awful.key({ modkey }, "0" ,
+              function ()
+                    local screen = mouse.screen
+                    local tag = awful.tag.gettags(screen)[10]
+                    if tag then
+                       awful.tag.viewonly(tag)
+                    end
+              end),
+    awful.key({ modkey, "Control" }, "0",
+              function ()
+                  local screen = mouse.screen
+                  local tag = awful.tag.gettags(screen)[10]
+                  if tag then
+                     awful.tag.viewtoggle(tag)
+                  end
+              end),
+    awful.key({ modkey, "Shift" }, "0",
+              function ()
+                  local tag = awful.tag.gettags(client.focus.screen)[10]
+                  if client.focus and tag then
+                      awful.client.movetotag(tag)
+                 end
+              end),
+    awful.key({ modkey, "Control", "Shift" }, "0",
+              function ()
+                  local tag = awful.tag.gettags(client.focus.screen)[10]
+                  if client.focus and tag then
+                      awful.client.toggletag(tag)
+                  end
+              end))
+-- Super+1-5 keys {{{
+--globalkeys = awful.util.table.join(globalkeys,
+    --awful.key({ modkey2 }, "1" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[11] if tag then awful.tag.viewonly(tag) end end),
+    --awful.key({ modkey2, "Control" }, "1", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[11] if tag then awful.tag.viewtoggle(tag) end end),
+    --awful.key({ modkey2, "Shift" }, "1", function () local tag = awful.tag.gettags(client.focus.screen)[11] if client.focus and tag then awful.client.movetotag(tag) end end),
+    --awful.key({ modkey2, "Control", "Shift" }, "1", function () local tag = awful.tag.gettags(client.focus.screen)[11] if client.focus and tag then awful.client.toggletag(tag) end end),
+    --awful.key({ modkey2 }, "2" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[12] if tag then awful.tag.viewonly(tag) end end),
+    --awful.key({ modkey2, "Control" }, "2", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[12] if tag then awful.tag.viewtoggle(tag) end end),
+    --awful.key({ modkey2, "Shift" }, "2", function () local tag = awful.tag.gettags(client.focus.screen)[12] if client.focus and tag then awful.client.movetotag(tag) end end),
+    --awful.key({ modkey2, "Control", "Shift" }, "2", function () local tag = awful.tag.gettags(client.focus.screen)[12] if client.focus and tag then awful.client.toggletag(tag) end end),
+    --awful.key({ modkey2 }, "3" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[13] if tag then awful.tag.viewonly(tag) end end),
+    --awful.key({ modkey2, "Control" }, "3", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[13] if tag then awful.tag.viewtoggle(tag) end end),
+    --awful.key({ modkey2, "Shift" }, "3", function () local tag = awful.tag.gettags(client.focus.screen)[13] if client.focus and tag then awful.client.movetotag(tag) end end),
+    --awful.key({ modkey2, "Control", "Shift" }, "3", function () local tag = awful.tag.gettags(client.focus.screen)[13] if client.focus and tag then awful.client.toggletag(tag) end end),
+    --awful.key({ modkey2 }, "4" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[14] if tag then awful.tag.viewonly(tag) end end),
+    --awful.key({ modkey2, "Control" }, "4", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[14] if tag then awful.tag.viewtoggle(tag) end end),
+    --awful.key({ modkey2, "Shift" }, "4", function () local tag = awful.tag.gettags(client.focus.screen)[14] if client.focus and tag then awful.client.movetotag(tag) end end),
+    --awful.key({ modkey2, "Control", "Shift" }, "4", function () local tag = awful.tag.gettags(client.focus.screen)[14] if client.focus and tag then awful.client.toggletag(tag) end end),
+    --awful.key({ modkey2 }, "5" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[15] if tag then awful.tag.viewonly(tag) end end),
+    --awful.key({ modkey2, "Control" }, "5", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[15] if tag then awful.tag.viewtoggle(tag) end end),
+    --awful.key({ modkey2, "Shift" }, "5", function () local tag = awful.tag.gettags(client.focus.screen)[15] if client.focus and tag then awful.client.movetotag(tag) end end),
+    --awful.key({ modkey2, "Control", "Shift" }, "5", function () local tag = awful.tag.gettags(client.focus.screen)[15] if client.focus and tag then awful.client.toggletag(tag) end end)
+--)
+-- }}}
 
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
@@ -294,8 +357,6 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    --{ rule_any = { name = "Options for Menu Editor", name = "Firefox Preferences", name = "Page Info", name = "Tab Mix Plus Options", name = "Library" },
-      --properties = { floating = true } },
     { rule = { class = "Gvim" },
       properties = { floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=30, y=40}) end },
@@ -304,8 +365,10 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=30, y=560}) end },
      { rule = { class = "Firefox" },
       properties = { tag = tags[1][2], switchtotag = true } },
+    --{ rule_any = { name = "Options for Menu Editor", name = "Firefox Preferences", name = "Page Info", name = "Tab Mix Plus Options", name = "Library" },
+      --properties = { floating = true } },
     { rule = { instance = "VCLSalFrame" },
-      properties = { tag = tags[1][3], switchtotag = true } },
+      properties = { floating = false, tag = tags[1][3], switchtotag = true } },
     { rule = { class = "gimp" },
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
     { rule = { instance = "calendar" },
@@ -347,13 +410,13 @@ awful.rules.rules = {
       properties = { tag = tags[1][5], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=780, y=540}) end },
     { rule = { class = "feh" },
-      properties = { tag = tags[1][9], floating = true, switchtotag = true },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
     { rule = { class = "mpv" },
-      properties = { tag = tags[1][9], floating = true, switchtotag = true },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
     { rule = { class = "Zathura" },
-      properties = { tag = tags[1][9], floating = true, switchtotag = true },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
 }
 -- }}}

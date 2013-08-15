@@ -20,7 +20,7 @@ High Priority
     * Can't open up thread with keybind 'Open thread in new tab'.
     * Working watch list.
     * Mouse drag-hold adjustable image like RES; better yet, a keyboard adjustable one.
-    * Ability to keyboard hint-click replies to posts.
+    * Ability to keyboard hint-click replies to posts, or at least hit a keybind that will open them up if they exist.
            'Quote Hash Navigation' can do this partially, but it only moves to that post, not opens up the inline post like the arrow does; also it is prevalent on all quotes, which is unnecessary for this purpose.
 
 Medium Priority
@@ -38,25 +38,24 @@ Low Priority
 Firefox Addon: Pentadactyl {{{
 -------------------------------------------------------------------------------
 
- Tab Options Plugin:
-   * I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
- Better native GUI support:
+High Priority
    * True Bookmark support.
-       * No -folder option when adding bookmarks through :bmark.
-       * Better navigation through :bmarks, c.f., through folders with GUI.
-       * E.g., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
- * Better way to work with recently closed tabs/windows and view them, as well as bunch of "back"'s history, instead of showing Menu Bar and navigating from there.
-   * Same with history dialog.
- Navigation:
-   * An actually useful way to use caret mode.
+       No -folder option when adding bookmarks through :bmark.
+       Better navigation through :bmarks, c.f., through folders with GUI.
+       E.g., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
+   * Better native GUI support: Better way to work with recently closed tabs/windows and view them, as well as bunch of "back"'s history, instead of showing Menu Bar and navigating from there.
+       Same with history dialog.
+   * An actually useful way to nagivate with caret mode. Possibly where caret starts at center of screen instead of wherever. I dunno, something. Right now trying to cp+paste with it is just terrible.
    * Navigate between multiple scrollbars on the same tab, e.g., on feedly.
    * I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
    * I can't hint out of the popup windows, e.g., when editing entries in MAL.
- Interface:
-   * Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
-   * Better caret support. Possibly where caret starts at center of screen instead of wherever. I dunno something. Right now trying to cp+paste with it is just terrible.
+
+Medium Priority
+   * Tab Options Plugin: I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
    * Not clear when I'm in text edit mode during cmd-line, and how to escape it.
- Misc:
+
+Low Priority
+   * Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
    * No support for <Leader><Leader> (though <Leader>,> works.
 
 }}}
@@ -96,6 +95,7 @@ Medium Priority:
        * As a subset, this means I can't move to the next monitor with hl.
     * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
     * Prevent certain applications from stealing focus due to it re-issuing the for_window command, ncmpcpp in particular.
+    * Modular config files, e.g., having theming parts of config optionally in another file so that you can interchange them easily by citing a different file path to import from in the ~/.config/i3/config file.
 
 Low Priority:
     * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
@@ -216,6 +216,9 @@ High Priority:
     * Set default download location from transmission-remote-cli client.
     * Add a timeout so the selected item attribute resets.
         Afterwards, set that BOLD thing to REVERSE, so it's like ncmpcpp.
+
+Medium Priority:
+    * Mouse support.
 
 Low Priority:
     * Somehow allow ranger to open containing folder of torrent.
