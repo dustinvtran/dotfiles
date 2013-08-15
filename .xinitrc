@@ -65,6 +65,6 @@ xrdb -merge ~/.Xresources
 ###############################################################################
 
 case $1 in
-    awesome) exec awesome ;;
-    *) exec i3 ;;
+    i3) exec i3 ;;
+    *) exec awesome ;;
 esac

@@ -200,6 +200,7 @@ for_window [title="^Library$"] floating enable
 for_window [title="^Firefox Preferences$"] floating enable
 for_window [title="^Options for Menu Editor$"] floating enable
 for_window [title="^Tab Mix Plus Options$"] floating enable
+for_window [title="Page Info"] floating enable
 
 # Assign application to workspace on startup.
 assign [class="^URxvt$" instance="^nil$"] -

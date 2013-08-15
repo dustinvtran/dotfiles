@@ -2,8 +2,8 @@
 
 # This displays mpd now playing info if mpd is running, and if play or pause.
 
-so=`mpc current -f %title%`
-art=`mpc current -f %artist%`
+so=$(mpc current -f %title%)
+art=$(mpc current -f %artist%)
 default='#707070'
 bold='#adadad'
 

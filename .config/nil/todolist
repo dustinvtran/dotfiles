@@ -8,37 +8,50 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-Seagate External Harddrive
-    * Get it working.
-
-Conky/dzen
-    * mail
-        Get script as notification working.
-        Change gmail's xbm.
-    * mpv
-        Somehow grep with regexp and gray any parts of the filenames in [...]
-
-i3
+Awesome
+    Tags
+    * Dynamic tags.
+    * Make separate tags to second screen and use mod4 for them.
     * Have the workspaces icons turn sideways on focus.
         Find how to set the workspaces to change icons like that.
         Find the appropriate icons.
+    Misc
+    * Border sizes and color.
+    * Panel.
+    * Application properties not all working, but mpv's is.
+        auto move to location.
+    Keybinds
+    * Keybinds to move to workspace, to move application to workspace.
+    * Application focusing.
+    * Keybinds to spawn apps.
+    * Global media keys.
+
+Conky/Dzen
+    * mail
+        so much Loading...
+    * mpv
+        Somehow grep with regexp and gray any parts of the filenames in [...]
+
+irssi
+    * Highlights with people with a mode show the thing on the right, not left-aligned.
 
 ranger
     * Have the bottom file size arrows be gray.
     * combine status bar and titlebar with left side as file path, right side with file size, directory size, free space; all on the bottom.
 
-Firefox
-    * RES: Get keybinds working.
+Seagate External Harddrive
+    * Get it working.
 
 xmodmap/xcape
     * Set alt_r as emdash.
 
-vim
-    * Style powerline like phallus', particularly the wonky looking nerdtree.
-
 }}}
 High Priority {{{
 -------------------------------------------------------------------------------
+
+Android/iPad USB Connection
+    * android: shows up on lsusb but not fdisk -l (hence it won't be automounted).
+    * ipad: nope.
 
 cron
     * xcape cron not working.
@@ -50,29 +63,34 @@ conky
         If the song name is too long (e.g. if X has > Y characters), have it cut off.
     * volume: have a keybind to check current volume, or to pop up the display for a few seconds
         Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
-    * irssi
-        Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
-    * skype
-    * Add clickables into dzen.
     * Right-aligned dzens should be cut off from the left not the right.
+
+mpv
+    * How to navigate playlist.
 
 mount
     * Get an automounter that doesn't suck.
 
-Android/iPad USB Connection
-    * android: shows up on lsusb but not fdisk -l (hence it won't be automounted).
-    * ipad: nope.
+Firefox Addon: Pentadactyl
+    * Using digits autogoes to a url page. stahp. let them use google.
+    * Google search suggestions aren't working. unless i specifically go to 'g'.
+    * Have '/' searches show the # of results.
+    * Toggled scrollbar doesn't always work.
+      * They also don't show up until refreshed page.
+    * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
+    * Having trouble escaping text edit mode.
 
-laptop
+Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
 
-vim
+Vim
+    * Style powerline like phallus', particularly the wonky looking nerdtree.
     LaTeX
         * Start external command in background.. needed for compiling and opening pdf files.
         * Allow rubber to compile filenames with spaces.
         * Get error parser (rubber-info) and autobuild.
-    Plugins
-        * Ctrl-P: get it working.
+    * NERDTree: Better keyboard shortcuts for navigation.
+    * Ctrl-P: Get it working.
     * The load last file doesn't really work as intended, but it does load *some* last files.
     * Something weird with having to press the <ENTER> prompt when opening and certain files.
 
@@ -85,8 +103,14 @@ zsh
 Medium Priority {{{
 -------------------------------------------------------------------------------
 
-awesome
-    * Migrate over.
+Conky/Dzen
+    * mail: Change the xbm to the real unicode font.
+    * battery: On single digit %< it also shows the comma.
+    * irssi
+        Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
+            Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
+    * skype
+    * Add clickables (or keybindables?) into dzen.
 
 feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
@@ -95,6 +119,7 @@ feh
 Firefox
     * 4chanx/pentadactyl: it goes to home if 4chanx doesn't do anything, especially when it's still loading
     * Style MAL and forum CSS.
+    * Wait for RES to update so it works again.
     * whatcd/torrent-invites: 33% (50 posts,25 rep), 55% (150 posts, 75 rep), browse regularly for bibliotik
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.
     * Autoopen all tabs on startup.
@@ -118,9 +143,6 @@ libreoffice
     * Inserted rows have different font/formatting.
         seems to be a problem with current files only. would have to type each row manually to transfer
 
-mpv
-    * How to navigate playlist.
-
 ncmpcpp
     * Incremental seek like with mpv.
     * Somehow play everything as the playlist (clear, then add them).
@@ -133,8 +155,6 @@ plex
 ranger
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
     * Set up specific file associations, e.g., .json for gvim, .ts for smplayer.
-    * Have those console commands (!) automatically be given a space.
-    * Learn all the :scout commands.
 
 SD Card
     * Doesn't read it.
@@ -154,16 +174,14 @@ urxvt
 vim
     * Change up colors for terminal vim.
     * Type lime/uushi encodings with ctrl+shift.
-    Plugins
-        * Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
-        * NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
-        * NERDTree: see stuff.
-        * SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
-        * Powerline: change colors for all modes to suit colorscheme
-        * Repeat: not working with Surround.
-        * Snippets: Fix the auto-reload command to not be so computation heavy.
-        *  How to do snippets inside a snippet? Or perhaps manage more carefully if not.
-        * YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
+    * Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
+    * NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
+    * SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
+    * Powerline: Change colors for all modes to suit colorscheme.
+    * Repeat: Not working with Surround.
+    * Snippets: Fix the auto-reload command to not be so computation heavy.
+    * Snippets: How to do snippets inside a snippet? Or perhaps manage more carefully if not.
+    * YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
 
 zsh
     * Hind cleaner format for ls -l in terminal.
@@ -187,6 +205,15 @@ Audio
 laptop vs laptop+external
     * Add script that changes all to [L+E] if connected, and [L] all if disconnected. add a line in hdmi.rules.
 
+Firefox Addon: Pentadactyl
+    * normal <C-j> goes to home page if it's assigned to do nothing else at that issue of command, e.g., if it's unbinded, for example, in 4chan thread pages.
+    * g not always working on reddit
+    * $ not working in google
+    * uushi
+    * Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
+    * Jumps in same buffer without changing pages. (same problem in Vim)
+    * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
+
 i3
     * Set all firefox popups to float more generally, rather than needing to xprop each individually.
         * Read up on no-startup-id.
@@ -206,6 +233,12 @@ irssi
     * anames: spacing goes crazy if there's a user with a long name.
     * vim_mode: Remove that annoying operator shit, or append it to the right like in vim.
     * pubmsg_me shows one extra character for long names, i.e., when i'm highlighted.
+
+ranger
+    * Add a :zip command that does as desired.
+    * Have those console commands (!) automatically be given a space.
+    * Learn all the :scout commands.
+    * Prevent certain things from causing ranger window to blink for really quick output, e.g., atool unpacking or emptying trash, if they're shorter than half a second.
 
 vim
     LaTeX
@@ -234,6 +267,7 @@ zsh
             which app (in the sense of /usr/share/applications)
     * All keybind/vim stuff lost during ssh session, wonky prompt.
     * Ctrl-I Doesn't work; also need a good keybind for it.
+    * Get nzip to just be zip. Something wrong when trying to do this; like a nested command.
 
 }}}
 Misc {{{

@@ -3,34 +3,7 @@
 " ~/.pentadactylrc
 " Name: nil
 "
-" To-Do List {{{
-" -----------------------------------------------------------------------------
-
-"##############################################################################
-" To-Do
-"##############################################################################
-
-" High Priority:
-"   * using digits autogoes to a url page. stahp. let them use google.
-"   * google search suggestions aren't working. unless i specifically go to 'g'
-"   * Have '/' searches show the # of results.
-"   * toggled scrollbar doesn't always work
-"     * they also don't show up until refreshed page
-"   * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
-"   * Having trouble escaping text edit mode.
-" Low Priority:
-"   * normal <C-j> goes to home page if it's assigned to do nothing else at that issue of command, e.g., if it's unbinded, for example, in 4chan thread pages.
-"   * g not always working on reddit
-"   * $ not working in google
-"   * uushi
-"   * Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
-"   * Jumps in same buffer without changing pages. (same problem in Vim)
-"   * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
-
-
-" }}}
-" Settings {{{
-" -----------------------------------------------------------------------------
+" Settings {{{ " -----------------------------------------------------------------------------
 
 loadplugins '\.(js|penta)$'
 group user
@@ -368,7 +341,7 @@ command mal -nargs=* -js userContext.searchMal(args)
 
 " Most used generic ones.
 map -modes=n -builtin s :define<Space>
-map -modes=n -builtin S :giki<Space>
+map -modes=n -builtin S :tabopen! word<Space>
 
 "##############################################################################
 " Edit in external editor, with filetype syntax!
