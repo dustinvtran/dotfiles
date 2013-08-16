@@ -20,7 +20,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 require("bashets")
 require("eminent")
-vicious = require("vicious")
+local vicious = require("vicious")
 
 --#############################################################################
 -- Error Handling
@@ -50,7 +50,6 @@ end
 -- Variable Definitions
 --#############################################################################
 
-beautiful.init("/home/nil/.config/awesome/themes/nil/theme.lua")
 terminal = "urxvt"
 editor = "gvim"
 editor_cmd = terminal .. " -e " .. editor
@@ -62,7 +61,7 @@ modkey2 = "Mod4"
 -------------------------------------------------------------------------------
 
 --#############################################################################
--- Tags & Layouts
+-- Tags, Layouts, & Wallpapers
 --#############################################################################
 
 local layouts =
@@ -78,20 +77,20 @@ layout = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
           layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
+beautiful.init("/home/nil/.config/awesome/themes/nil/theme.lua")
+
 for s = 1, screen.count() do
- tags[s] = awful.tag(tags.names, s, tags.layout)
+    if s < 2 then
+        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+    else
+        gears.wallpaper.maximized(beautiful.wallpaper2, s, true)
+    end
+    tags[s] = awful.tag(tags.names, s, tags.layout)
 end
 
 --#############################################################################
 -- Menus
 --#############################################################################
-
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", awesome.quit }
-}
 
 system = {
    { "poweroff", "sudo poweroff" },
@@ -100,22 +99,34 @@ system = {
    { "display off", "xset dpms force off" }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "system", system, beautiful.awesome_icon },
-                                    { "⮩ urxvt", terminal },
-                                    { "⮤ scrot", "scrot /home/nil/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png" }
-                                  }
-                        })
-
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+mymainmenu = awful.menu({ items = {
+     { "system", system, beautiful.awesome_icon },
+     { "⮩ urxvt", terminal },
+     { "⮤ scrot", "scrot /home/nil/nil/Media/Pictures/Screenshots/scrot/%Y-%m-%d-%T.png" }
+     }
+})
 
 -- }}}
 -- Wibox {{{
 -------------------------------------------------------------------------------
 
+--#############################################################################
+-- Clock Widget
+--#############################################################################
+
 mytextclock = awful.widget.textclock("                 <span font='lemon'>⮖ %I:%M %p</span>")
 -- %l:%M %P
+
+--#############################################################################
+-- Battery Widget
+--#############################################################################
+
+batwidget = wibox.widget.textbox()
+--bashets.register("date.sh", {widget = batwidget, format = ' $1'})
+
+--#############################################################################
+-- mpd Widget
+--#############################################################################
 
 mpdwidget = wibox.widget.textbox()
 vicious.register(mpdwidget, vicious.widgets.mpd,
@@ -129,8 +140,9 @@ return '⮕ <span color="#adadad">Paused:</span> '.. args["{Title}"]..'<span col
        end
    end, 1)
 
-batwidget = wibox.widget.textbox()
---bashets.register("date.sh", {widget = batwidget, format = ' $1'})
+--#############################################################################
+-- Volume Widget
+--#############################################################################
 
 volwidget = wibox.widget.textbox()
 vicious.register(volwidget, vicious.widgets.volume,
@@ -166,10 +178,10 @@ volbar = "<span color='#adadad'></span><span color='#707070'>---------- </span>"
 
 end, 1, "Master")
 
---bashets.start()
+--#############################################################################
+-- Tag List & Layout
+--#############################################################################
 
-mywibox = {}
-mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
@@ -179,7 +191,14 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
                     awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
                     )
+mylayoutbox = {}
 
+--#############################################################################
+-- Widget Creation
+--#############################################################################
+
+mywibox = {}
+--bashets.start()
 for s = 1, screen.count() do
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -205,6 +224,7 @@ for s = 1, screen.count() do
     layout:set_right(right_layout)
     mywibox[s]:set_widget(layout)
 end
+
 -- }}}
 -- Mappings {{{
 -------------------------------------------------------------------------------
@@ -217,8 +237,13 @@ root.buttons(awful.util.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
 
+clientbuttons = awful.util.table.join(
+    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+    awful.button({ modkey }, 1, awful.mouse.client.move),
+    awful.button({ modkey }, 3, awful.mouse.client.resize))
+
 --#############################################################################
--- Keybindings
+-- Keybindings: Layout Navigation & Manipulation
 --#############################################################################
 
 globalkeys = awful.util.table.join(
@@ -233,24 +258,10 @@ globalkeys = awful.util.table.join(
             if client.focus then client.focus:raise() end
         end),
 
-    -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
-
-    -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Shift"   }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -261,7 +272,18 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey2,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey2, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
-    -- Main Applications
+--#############################################################################
+-- Keybindings: Awesome
+--#############################################################################
+
+    awful.key({ modkey, "Shift"   }, "r", awesome.restart),
+    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+
+--#############################################################################
+-- Keybindings: Applications
+--#############################################################################
+
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
     awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey, }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
@@ -280,7 +302,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "e", function () run_or_raise("", { class = "feh" }) end),
     awful.key({ modkey, }, "z", function () run_or_raise("", { class = "Zathura" }) end),
 
-    -- Media Keys
+--#############################################################################
+-- Keybindings: Media Keys
+--#############################################################################
+
     awful.key({ }, "F6", function () awful.util.spawn_with_shell("play-pause") end),
     awful.key({ }, "F9", function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
@@ -289,21 +314,27 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end)
 )
 
+--#############################################################################
+-- Keybindings: ?
+--#############################################################################
+
 clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,           }, "d",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Shift"   }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "space",  function (c) c.ontop = not c.ontop            end),
-    awful.key({ modkey,           }, "m",
-        function (c)
-            c.maximized_horizontal = not c.maximized_horizontal
-            c.maximized_vertical   = not c.maximized_vertical
-        end)
+    awful.key({ modkey, "Shift"   }, "space",  awful.client.floating.toggle                     )
+    --,awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    --awful.key({ modkey,           }, "m",
+        --function (c)
+            --c.maximized_horizontal = not c.maximized_horizontal
+            --c.maximized_vertical   = not c.maximized_vertical
+        --end)
 )
 
--- Tags
+--#############################################################################
+-- Keybindings: Tags
+--#############################################################################
+
 for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
@@ -393,12 +424,7 @@ globalkeys = awful.util.table.join(globalkeys,
 --)
 -- }}}
 
-clientbuttons = awful.util.table.join(
-    awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
-
--- Set keys
+-- Set the keys.
 root.keys(globalkeys)
 
 -- }}}
@@ -555,7 +581,11 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Functions {{{
 ------------------------------------------------------------------------------
 
--- Run or Raise: Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If multiple, it cycles through them.
+--#############################################################################
+-- Run or Raise Function
+--#############################################################################
+-- Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If multiple, it cycles through them.
+
 function run_or_raise(cmd, properties)
    local clients = client.get()
    local focused = awful.client.next(0)
@@ -590,6 +620,11 @@ function run_or_raise(cmd, properties)
    awful.util.spawn(cmd)
 end
 
+--#############################################################################
+-- Match Function
+--#############################################################################
+-- This is necessary for the run or raise function.
+
 function match (table1, table2)
    for k, v in pairs(table1) do
       if table2[k] ~= v and not table2[k]:find(v) then
@@ -599,7 +634,11 @@ function match (table1, table2)
    return true
 end
 
+--#############################################################################
+-- Run Once Function
+--#############################################################################
 -- Run program only when starting Awesome for the first time, but not when it restarts.
+
 function run_once(cmd)
   findme = cmd
   firstspace = cmd:find(" ")
@@ -613,21 +652,23 @@ end
 -- Startup Applications {{{
 -------------------------------------------------------------------------------
 
--- Maybe put these ones in xinitrc somehow too?
 run_once("firefox")
 run_once("gvim")
 run_once("libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods")
+
 -- [L+E] Use this if you have both laptop and external display.
 --run_once("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24")
 --run_once("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi")
 --run_once("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp")
 --run_once("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger")
+
 -- [L] Use this if you only have laptop display.
 run_once("urxvt -name nil -g 85x24")
 run_once("urxvt -name irssi -g 102x35 -e irssi")
 run_once("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp")
 run_once("urxvt -name ranger -g 102x21 -e ranger")
 run_once("urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli")
+
 -- Terminal commands I haven't put in xinitrc yet.
 run_once("dropboxd")
 run_once("rssdler -d")

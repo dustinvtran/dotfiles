@@ -8,8 +8,6 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-HDMI to DVI adapter.
-
 Awesome
     * Panel widgets.
         Get nu on workspaces and layout icon only. Lemon the rest.
@@ -44,9 +42,6 @@ Theme
 xmodmap/xcape
     * Set alt_r as emdash.
 
-zsh
-    * See Unix question for better zip.
-
 }}}
 High Priority {{{
 -------------------------------------------------------------------------------
@@ -56,17 +51,21 @@ Android/iPad USB Connection
     * ipad: nope.
 
 Awesome
-    * Setup dual screen wallpapers with beautiful and uninstall nitrogen.
     * Use "shared tags" module to have a distinct set of tags for each screen, and keybind mod4 for those ones.
-    * Setup volume widget; see user contributed widgets.
+    * Widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
     * alt+shift hjkl to move floating window.
     * rule_any not working.
     * Eminent mouse scroll through tags not working.
     * Everything not moved right on startup.
     * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically. Same with calendar, which changes position depending on which tag I open it in lol.
     * Revamp menu, all with icons like ahoka's.
-    * Backup and uninstall i3, conky-cli, and dzen2.
+    * When clicking away from menu, have it hide just like it does with Escape.
+    * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors.
+    * Backup and uninstall conky-cli, and dzen2.
     * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
+    * Put all startup commands in xinitrc.
+    * Hide cursor if it doesn't move for >=5 seconds.
+    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
 
 cron
     * xcape cron not working.
@@ -103,7 +102,6 @@ Vim
 zsh
     * Deletearound not working.
     * Tab completion doesn't work on some commands (e.g. fasd commands).
-    * Tab completion menu colors for scp  are wonky/inverted.
 
 }}}
 Medium Priority {{{
@@ -130,9 +128,6 @@ Firefox Addon: Pentadactyl
 
 git
     * Learn the other commands so you can do things like rename git commits, add things, etc.
-
-i3
-    * ncmcpp reissues for_window occasionally, causing it to focus (which is annoying if you're in the middle of typing and cause ncmpcpp to do something).
 
 irssi
     * Write in color with <C-c>, but this is escape, which toggles nil-vim_mode..
@@ -168,6 +163,9 @@ Webcam, Mic
 skype
     * Install.
 
+trash-cli
+    * Have it show other properties, such as file size.
+
 urxvt
     * Separate ^J and <CR>, so you can bind them in irssi, and not do workarounds in the rest either.
         same for S-spacebar, C-c
@@ -187,7 +185,7 @@ vim
     * YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
 
 zsh
-    * Hind cleaner format for ls -l in terminal.
+    * Make cleaner format for ls -l in terminal.
     * Better ls and grep colors, and better ls style.
     * Have it autoopen files that arent commands in the respective application (e.g. gvim, mplayer, etc).
     * Display the red dots while waiting for long commands as well, e.g., cp large files, pl, etc.
@@ -216,12 +214,6 @@ Firefox Addon: Pentadactyl
     * Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
     * Jumps in same buffer without changing pages. (same problem in Vim)
     * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
-
-i3
-    * Set all firefox popups to float more generally, rather than needing to xprop each individually.
-        * Read up on no-startup-id.
-    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
-    * Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
 
 irssi
     * Set adv_windowlist so that all the channels are only on one line, and the middles get ellipses, like browser tabs.
@@ -264,13 +256,8 @@ vim
     * vim fold text styling. donri is coming up with a plugin for a nice one.
 
 zsh
-    * Reopen last closed client/application/window function.
-        * E.g., it logs all the processes that disappear, and then it opens up the last line.
-        * Some smart WMs can already do this: gnome-shell already keeps track of what windows belong to
-            which app (in the sense of /usr/share/applications)
     * All keybind/vim stuff lost during ssh session, wonky prompt.
-    * Ctrl-I Doesn't work; also need a good keybind for it.
-    * Get nzip to just be zip. Something wrong when trying to do this; like a nested command.
+    * Tab completion menu colors for scp  are wonky/inverted.
 
 }}}
 Misc {{{
@@ -321,7 +308,7 @@ anime:
 Manga:
     >8s
     PTWs
-library:
+Literature:
     remake the manually edited list of light novels
 Visual Novels:
     PTWs
@@ -379,4 +366,3 @@ Medium Priority:
             Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
     * skype
     * Add clickables (or keybindables?) into dzen.
-
