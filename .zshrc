@@ -46,7 +46,7 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
-fasd_cache="$HOME/.config/nil/cache/.fasd-init-cache"
+fasd_cache="$HOME/.cache/.fasd-init-cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
     fasd --init auto >| "$fasd_cache"
 fi
@@ -59,7 +59,7 @@ unset fasd_cache
 
 # Zsh's completion can benefit from caching. Set the directory in which to
 # load/store the caches.
-CACHEDIR="/home/nil/.config/nil/cache/zsh-cache"
+CACHEDIR="$HOME/.cache/zsh-cache"
 
 # Use (advanced) completion functionality.
 autoload -U compinit
@@ -423,9 +423,9 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # System-dotfile backups.
-alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/.config/nil/system-dotfiles/package-list"
-alias systemctlx="systemctl --all > ~/.config/nil/system-dotfiles/systemctl"
-alias crontablx="crontab -l > ~/.config/nil/system-dotfiles/nil"
+alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/system-dotfiles/package-list"
+alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
+alias crontablx="crontab -l > ~/system-dotfiles/nil"
 
 # le git.
 alias ga="git add -f"

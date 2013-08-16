@@ -8,6 +8,6 @@ if [ $? -ne 0 ]
 then
     ncmpcpp toggle
 else
-    echo "cycle pause" > ~/.config/nil/config/mpv-control
+    echo "cycle pause" > ~/bin/config/mpv-control
     ncmpcpp pause
 fi
