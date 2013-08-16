@@ -9,9 +9,10 @@ bold='#adadad'
 
 #line=$(mpc current)
 
-#if [ -n "$line" ] && [ "`mpc | grep "^\[paused\]"`" != "" ]; then
 if [ "`mpc | grep "^\[paused\]"`" != "" ]; then
     echo -n "^fg($default)⮕ ^fg($bold)Paused: ^fg($default)$so ^fg($bold)by ^fg($default)$art"
-    else
+    elif [ "`mpc | grep "^\[playing\]"`" != "" ]; then
     echo -n "^fg($default)⮕ ^fg($bold)Playing: ^fg($default)$so ^fg($bold)by ^fg($default)$art"
+    else
+    echo -n "^fg($default)⮕ [^fg($bold)mpd stopped^fg($default)]"
 fi

@@ -8,7 +8,7 @@
 #autofit=1200
 # [L] Use this if you only have laptop display.
 autofit-larger=90%x90%
-input-file=/home/nil/.config/nil/scripts/mpv-control
+input-file=/home/nil/bin/config/mpv-control
 #fullscreen
 gapless-audio
 keep-open

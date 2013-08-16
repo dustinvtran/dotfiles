@@ -66,6 +66,7 @@ Awesome
     * Put all startup commands in xinitrc.
     * Hide cursor if it doesn't move for >=5 seconds.
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
+    * On top ain't working.
 
 cron
     * xcape cron not working.
@@ -351,7 +352,6 @@ High Priority:
     * mpv
         If the file name is too long (e.g. if X has > Y characters), have it cut off.
     * mpd
-        Add a condition if mpd is stopped.
         If the song name is too long (e.g. if X has > Y characters), have it cut off.
         Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
     * volume: have a keybind to check current volume, or to pop up the display for a few seconds
@@ -366,3 +366,5 @@ Medium Priority:
             Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
     * skype
     * Add clickables (or keybindables?) into dzen.
+::<: ( '
+ ') !!
