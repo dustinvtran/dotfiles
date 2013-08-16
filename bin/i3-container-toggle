@@ -4,7 +4,7 @@
 
 # Wish List: Make the container toggle slightly more sophisticated, in that the first choice is always tabbed layout (like how toggle split is always first horizontal); then it activates stacking only if you're already in tabbed mode (though I don't really see how to do this, as this relies on the bash script somehow identifying what container layout I'm currently in).
 
-TOGGLE=~/.config/nil/.i3containertoggle
+TOGGLE=~/.config/nil/config/.i3containertoggle
 
 if [ ! -e $TOGGLE ]; then
     touch $TOGGLE

@@ -50,4 +50,5 @@ follow_now_playing_lyrics = "yes"
 # Colors Definitions
 ###############################################################################
 
-#progressbar_color = "black"
+#progressbar_color = "green"
+#progressbar_elapsed_color = "black"

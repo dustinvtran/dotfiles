@@ -4,6 +4,5 @@ out_to_console yes
 update_interval 10
 update_interval_on_battery 30
 
-#^fg(\#707070)^i(/home/nil/.config/nil/conky/xbm/clock.xbm) ^fg(\#707070)${time %l:%M %P}
 TEXT
 ^fg(\#707070)⮖ ${time %l:%M %P}

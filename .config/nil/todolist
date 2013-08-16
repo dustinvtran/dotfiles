@@ -11,21 +11,21 @@ Highest Priority {{{
 HDMI to DVI adapter.
 
 Awesome
-    * Dynamic tags.
     * Panel widgets.
-    * Make separate tags for second screen and use mod4 for them.
-    * Determine how floating windows float on top of tiling or not, etc.
-    * See i3 wishlist and config.
-    * Widget libraries, etc. like Daze for panel.
-    * Have the workspaces icons turn sideways on focus.
+        Get nu on workspaces and layout icon only. Lemon the rest.
+        Get bashets running to implement widgets.
+            Clock widget.
+                How to truly center-align clock widget.
+                Clock widget not accepting some % variables.
+                Last letter of textclock widget is gray..
+            irssi-notify
+            mail-notify: use vicious.widgets.gmail
+            now-playing-mpv
+            battery
+    * Dropdown widgets using Naughty or whatever: Calendar, Music Now Playing.
+    * Have the tag icons turn sideways on focus, e.g., have them change tag names on focus.
         Find how to set the workspaces to change icons like that.
         Find the appropriate icons.
-
-Conky/Dzen
-    * mail
-        so much Loading...
-    * mpv
-        Somehow grep with regexp and gray any parts of the filenames in [...]
 
 irssi
     * Highlights with people with a mode show the thing on the right, not left-aligned.
@@ -56,25 +56,20 @@ Android/iPad USB Connection
     * ipad: nope.
 
 Awesome
+    * Setup dual screen wallpapers with beautiful and uninstall nitrogen.
+    * Use "shared tags" module to have a distinct set of tags for each screen, and keybind mod4 for those ones.
+    * Setup volume widget; see user contributed widgets.
+    * alt+shift hjkl to move floating window.
     * rule_any not working.
+    * Eminent mouse scroll through tags not working.
     * Everything not moved right on startup.
     * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically. Same with calendar, which changes position depending on which tag I open it in lol.
-    * Revamp menu.
+    * Revamp menu, all with icons like ahoka's.
     * Backup and uninstall i3, conky-cli, and dzen2.
-    * Setup dual screen wallpapers with beautiful and uninstall nitrogen.
+    * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
 
 cron
     * xcape cron not working.
-
-conky
-    * mpv
-        If the file name is too long (e.g. if X has > Y characters), have it cut off.
-    * mpd
-        If the song name is too long (e.g. if X has > Y characters), have it cut off.
-        Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
-    * volume: have a keybind to check current volume, or to pop up the display for a few seconds
-        Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
-    * Right-aligned dzens should be cut off from the left not the right.
 
 mpv
     * How to navigate playlist.
@@ -114,15 +109,6 @@ zsh
 Medium Priority {{{
 -------------------------------------------------------------------------------
 
-Conky/Dzen
-    * mail: Change the xbm to the real unicode font.
-    * battery: On single digit %< it also shows the comma.
-    * irssi
-        Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
-            Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
-    * skype
-    * Add clickables (or keybindables?) into dzen.
-
 feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
     * Keybind it better.
@@ -160,8 +146,9 @@ libreoffice
         seems to be a problem with current files only. would have to type each row manually to transfer
 
 ncmpcpp
-    * Incremental seek like with mpv.
     * Somehow play everything as the playlist (clear, then add them).
+    * Get progress bar elapsed color to work.
+    * Incremental seek like with mpv.
     * If it idles for longer than 10 seconds, have it automatically go to playlist view.
     * Clean up keys.
 
@@ -367,3 +354,29 @@ possible solutions:
 
 }}}
 }}}
+Highest Priority:
+    * mail
+        so much Loading...
+    * mpv
+        Somehow grep with regexp and gray any parts of the filenames in [...]
+
+High Priority:
+    * mpv
+        If the file name is too long (e.g. if X has > Y characters), have it cut off.
+    * mpd
+        Add a condition if mpd is stopped.
+        If the song name is too long (e.g. if X has > Y characters), have it cut off.
+        Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
+    * volume: have a keybind to check current volume, or to pop up the display for a few seconds
+        Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
+    * Right-aligned dzens should be cut off from the left not the right.
+
+Medium Priority:
+    * mail: Change the xbm to the real unicode font.
+    * battery: On single digit %< it also shows the comma.
+    * irssi
+        Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
+            Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
+    * skype
+    * Add clickables (or keybindables?) into dzen.
+

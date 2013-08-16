@@ -7,4 +7,4 @@ update_interval 1
 update_interval_on_battery 10
 
 TEXT
-${exec /home/nil/.config/nil/conky/scripts/now-playing-mpv}${exec /home/nil/.config/nil/conky/scripts/now-playing-mpd} ^fg()
+${exec now-playing-mpv}${exec now-playing-mpd} ^fg()

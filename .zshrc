@@ -404,7 +404,6 @@ alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also th
 alias xsetd="xset dpms force off"       # Turn off display.
 
 # Miscellaneous custom commands.
-alias audio-toggle="bash ~/.config/nil/scripts/audio-toggle" # Switch between HDMI and Laptop audio.
 alias bd="bg && disown"                 # Best way to prevent terminal-launched app from dying when closing terminal.
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'                   # See list of recently used commands.
@@ -458,25 +457,13 @@ alias emptytrash="trash-empty"
 
 # CLI Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-alias pipes="~/.config/nil/scripts/pipes.sh"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
-alias tcli="~/.config/nil/scripts/nil-transmission-remote-cli"
 
 # Application Opening
 l() { nocorrect f -e libreoffice "$@" & }
 m() { nocorrect f -e mplayer2 "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
-
-###############################################################################
-# Environment variables
-###############################################################################
-
-export EDITOR=gvim
-
-# Open all man pages in Vim, under uneditable settings.
-# Adding 'q' as the universal CLI shortcut for exit.
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'nnoremap q :q<CR>' -\""
 
 ###############################################################################
 # Functions

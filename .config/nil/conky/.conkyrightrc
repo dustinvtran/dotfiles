@@ -17,7 +17,7 @@ update_interval_on_battery 10
 
 # [L+E] Use this if you have both laptop and external display.
 # TEXT
-#${exec /home/nil/.config/nil/conky/scripts/irssi-notify}${execi 90 /home/nil/.config/nil/conky/scripts/mail-notify}${exec /home/nil/.config/nil/conky/scripts/battery} ^fg()
+#${exec irssi-notify}${execi 90 mail-notify}${exec battery} ^fg()
 # [L] Use this if you only have laptop display.
 TEXT
-${exec /home/nil/.config/nil/conky/scripts/irssi-notify}${execi 90 /home/nil/.config/nil/conky/scripts/mail-notify}${exec /home/nil/.config/nil/conky/scripts/now-playing-mpv}${exec /home/nil/.config/nil/conky/scripts/now-playing-mpd}  ${exec /home/nil/.config/nil/conky/scripts/battery} ^fg()
+${exec irssi-notify}${execi 90 mail-notify}${exec now-playing-mpv}${exec now-playing-mpd}  ${exec battery} ^fg()

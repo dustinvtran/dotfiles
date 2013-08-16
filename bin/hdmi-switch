@@ -6,7 +6,7 @@ export XAUTHORITY=/home/nil/.Xauthority
 export DISPLAY=:0
 
 hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
-alsa_dir=/home/nil/.config/nil/scripts
+alsa_dir=/home/nil/.config/nil/config
 asound_file=asound.hdmi-$hdmi_status
 
 # Change audio output.

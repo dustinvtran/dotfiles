@@ -24,7 +24,7 @@ exec urxvt -name nil -g 85x24 &
 exec urxvt -name irssi -g 102x35 -e irssi &
 exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
 exec urxvt -name ranger -g 102x21 -e ranger &
-exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+exec urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 # These terminal commands should be placed in .xinitrc.
 exec dropboxd &
 exec rssdler -d &
@@ -49,7 +49,7 @@ bindsym $mod+d kill
 # Change container layout.
 # One toggles splitv/splith, and the other toggles stacking/tabbed.
 #bindsym $mod+e layout toggle split
-bindsym $mod+s exec bash ~/.config/nil/scripts/i3-container-toggle
+bindsym $mod+s exec bash i3-container-toggle
 
 # Split in horizontal/vertical orientation.
 bindsym $mod+x split h
@@ -269,17 +269,17 @@ bindsym $mod2+t exec urxvt -name nil -g 85x24 &
 bindsym $mod2+i exec urxvt -name irssi -g 102x35 -e irssi &
 bindsym $mod2+n exec urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
 bindsym $mod2+f exec urxvt -name ranger -g 102x21 -e ranger &
-bindsym $mod2+a exec urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli &
+bindsym $mod2+a exec urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 bindsym $mod2+w exec gvim
 bindsym $mod2+q exec firefox
 
 # A desultory, haphazard method for a calendar "dropdown" (which actually works quite well).
 # Problems: No dropdown animation. No click/hoverable feature. No click/keybinds to move to different months. Clickable dzen flag and compton can solve both of these.
 for_window [class="^URxvt$" instance="^calendar$"] floating enable move up 325px
-bindsym $mod+c exec bash ~/.config/nil/scripts/calendar-toggle
+bindsym $mod+c exec calendar-toggle
 
 # Media Keys.
-bindsym F6 exec bash ~/.config/nil/scripts/play-pause
+bindsym F6 exec play-pause
 # PCM affects HDMI, Master affects Analog.
 bindsym F9 exec amixer set Master 2%- unmute | amixer set PCM 2%- unmute
 bindsym F10 exec amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute
