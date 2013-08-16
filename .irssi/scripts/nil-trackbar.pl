@@ -1,4 +1,4 @@
-# I just uncommented that one line for utf-8 support.
+# I just uncommented that one line for utf-8 support and changed the - to an emdash.
 
 # trackbar.pl
 #

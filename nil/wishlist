@@ -72,7 +72,16 @@ Firefox Addon: Reddit Enhancement Suite {{{
 i3 {{{
 -------------------------------------------------------------------------------
 
-High Priority:
+Things that were still on todolist for it.
+Medium Priority
+    * ncmcpp reissues for_window occasionally, causing it to focus (which is annoying if you're in the middle of typing and cause ncmpcpp to do something).
+Low Priority
+    * Set all firefox popups to float more generally, rather than needing to xprop each individually.
+        * Read up on no-startup-id.
+    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
+    * Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
+
+High Priority
     * Slightly more advanced panel customizability.
         Non-integer order, e.g., alphabetical or UTF-8 icons.
         Different styles for focused workspace, e.g., have them animate, turn sideways, have a triangle instead of turn completely different colors, or do /something/ different.
@@ -80,7 +89,7 @@ High Priority:
     * Single keybind to spawn app if doesn't exist, focus app if exist. This makes two keybinds in one.
     * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
 
-Medium Priority:
+Medium Priority
     * Slightly more advanced panel customizability.
         Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
         Image icon/non-UTF name support.
@@ -97,7 +106,7 @@ Medium Priority:
     * Prevent certain applications from stealing focus due to it re-issuing the for_window command, ncmpcpp in particular.
     * Modular config files, e.g., having theming parts of config optionally in another file so that you can interchange them easily by citing a different file path to import from in the ~/.config/i3/config file.
 
-Low Priority:
+Low Priority
     * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
     * Somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution.
        for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.

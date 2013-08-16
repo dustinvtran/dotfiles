@@ -27,9 +27,6 @@ git
 grub
 gvim
 htop
-i3-git
-i3lock
-i3status
 icedtea-web-java7
 irssi
 jre7-openjdk
@@ -45,7 +42,6 @@ mpd
 mpdas
 mpv-git
 ncmpcpp
-nitrogen
 ntfs-3g
 ntp
 openssh
@@ -83,7 +79,6 @@ transmission-cli
 transmission-remote-cli-git
 trash-cli
 ttf-dejavu
-ttf-inconsolata
 ttf-monaco
 ttf-ms-fonts
 ttf-vista-fonts

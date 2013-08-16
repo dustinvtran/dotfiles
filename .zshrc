@@ -374,7 +374,7 @@ bindkey -M vicmd '^[[5~' nop                    # PgUp
 bindkey -M vicmd '^[[6~' nop                    # PgDn
 
 # }}}
-# Alias, Environment Variables, & Functions {{{
+# Alias & Functions {{{
 # -----------------------------------------------------------------------------
 
 ###############################################################################
@@ -457,7 +457,7 @@ alias emptytrash="trash-empty"
 
 # CLI Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
-alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screenshots/%Y-%m-%d-%T.png"
+alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screenshots/scrot/%Y-%m-%d-%T.png"
 
 # Application Opening
 l() { nocorrect f -e libreoffice "$@" & }
@@ -474,11 +474,10 @@ alias calc='python -ic "from __future__ import division; from math import *; fro
 
 # The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
 # as first.
-# Note: this doesn't work if zipping a folder in current directory.. see unix question.
-#zip() { cd "${1%/*}" && builtin zip -r "${1##*/}" "${1##*/}" && cd -; }
-#coolerzip () (
-    #cd $1:h &&
-    #zip -r $2:h.zip $2:h
-#)
+zip () (
+    name="$(basename -- "$1")"
+    cd "$(dirname -- "$1")" &&
+    command zip -r "$name.zip" "$name"
+)
 
 # }}}
