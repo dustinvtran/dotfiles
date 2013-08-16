@@ -18,7 +18,9 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
---vicious = require("vicious")
+require("bashets")
+require("eminent")
+vicious = require("vicious")
 
 --#############################################################################
 -- Error Handling
@@ -73,7 +75,7 @@ local layouts =
 tags = {
 names  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
 layout = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
-          layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+          layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
 }
 
 for s = 1, screen.count() do
@@ -112,11 +114,62 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Wibox {{{
 -------------------------------------------------------------------------------
 
--- Create a textclock widget
-mytextclock = awful.widget.textclock()
+mytextclock = awful.widget.textclock("                 <span font='lemon'>⮖ %I:%M %p</span>")
+-- %l:%M %P
 
--- Create a wibox for each screen and add it
+mpdwidget = wibox.widget.textbox()
+vicious.register(mpdwidget, vicious.widgets.mpd,
+   function (widget, args)
+       if args["{state}"] == "Stop" then
+           return "⮕ [<span color='#adadad'>mpd stopped</span>]"
+       elseif args["{state}"] == "Pause" then
+return '⮕ <span color="#adadad">Paused:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
+       else
+   return '⮕ <span color="#adadad">Playing:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
+       end
+   end, 1)
+
+batwidget = wibox.widget.textbox()
+--bashets.register("date.sh", {widget = batwidget, format = ' $1'})
+
+volwidget = wibox.widget.textbox()
+vicious.register(volwidget, vicious.widgets.volume,
+function (widget, args)
+  if (args[2] ~= "♩" ) then
+            if tonumber(args[1]) > 99 then
+volbar = "<span color='#adadad'>----------</span><span color='#707070'> </span>"
+elseif tonumber(args[1]) > 90 then
+                volbar = "<span color='#adadad'>---------</span><span color='#707070'>- </span>"
+            elseif tonumber(args[1]) > 80 then
+                volbar = "<span color='#adadad'>--------</span><span color='#707070'>-- </span>"
+            elseif tonumber(args[1]) > 70 then
+                volbar = "<span color='#adadad'>-------</span><span color='#707070'>--- </span>"
+            elseif tonumber(args[1]) > 60 then
+                volbar = "<span color='#adadad'>------</span><span color='#707070'>---- </span>"
+            elseif tonumber(args[1]) > 50 then
+                volbar = "<span color='#adadad'>-----</span><span color='#707070'>----- </span>"
+            elseif tonumber(args[1]) > 40 then
+                volbar = "<span color='#adadad'>----</span><span color='#707070'>------ </span>"
+            elseif tonumber(args[1]) > 30 then
+                volbar = "<span color='#adadad'>---</span><span color='#707070'>------- </span>"
+            elseif tonumber(args[1]) > 20 then
+                volbar = "<span color='#adadad'>--</span><span color='#707070'>-------- </span>"
+            elseif tonumber(args[1]) > 10 then
+                volbar = "<span color='#adadad'>-</span><span color='#707070'>--------- </span>"
+else
+volbar = "<span color='#adadad'></span><span color='#707070'>---------- </span>"
+            end
+     return '⮜ '.. volbar ..' '
+  else
+     return '⮜ [<span color="#adadad">mute</span>]'
+  end
+
+end, 1, "Master")
+
+--bashets.start()
+
 mywibox = {}
+mylayoutbox = {}
 mytaglist = {}
 mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 1, awful.tag.viewonly),
@@ -128,26 +181,28 @@ mytaglist.buttons = awful.util.table.join(
                     )
 
 for s = 1, screen.count() do
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- Create a taglist widget
+    mylayoutbox[s] = awful.widget.layoutbox(s)
+    mylayoutbox[s]:buttons(awful.util.table.join(
+                           awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
+                           awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
+                           awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
+                           awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
-
-    -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
 
-    -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
+    left_layout:add(mylayoutbox[s])
 
-    -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+    --right_layout:add(volwidget)
+    right_layout:add(mpdwidget)
+    right_layout:add(batwidget)
 
-    -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(mytextclock)
     layout:set_right(right_layout)
-
     mywibox[s]:set_widget(layout)
 end
 -- }}}
@@ -203,12 +258,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    --awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    --awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey2,           }, "space", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey2, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     -- Main Applications
     awful.key({ modkey, }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
-    awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 129x18 -e /home/nil/.config/nil/scripts/nil-transmission-remote-cli", { instance = "tcli" }) end),
+    awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey, }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey, }, "o", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "" }) end),
     -- [L+E] Use this if you have both laptop and external display.
@@ -226,11 +281,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "z", function () run_or_raise("", { class = "Zathura" }) end),
 
     -- Media Keys
-    awful.key({ }, "F6", function () awful.util.spawn_with_shell("bash ~/.config/nil/scripts/play-pause") end),
+    awful.key({ }, "F6", function () awful.util.spawn_with_shell("play-pause") end),
     awful.key({ }, "F9", function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
     awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end),
-    awful.key({ modkey }, "c", function () awful.util.spawn("bash /home/nil/.config/nil/scripts/calendar-toggle") end),
+    awful.key({ modkey }, "c", function () awful.util.spawn("calendar-toggle") end),
     awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end)
 )
 
@@ -418,6 +473,8 @@ awful.rules.rules = {
     { rule = { class = "Zathura" },
       properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
+    { rule = { name = "dzen" },
+      properties = { ontop = true } },
 }
 -- }}}
 -- Signals {{{
@@ -570,7 +627,7 @@ run_once("urxvt -name nil -g 85x24")
 run_once("urxvt -name irssi -g 102x35 -e irssi")
 run_once("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp")
 run_once("urxvt -name ranger -g 102x21 -e ranger")
-run_once("urxvt -name tcli -g 129x18 -e ~/.config/nil/scripts/nil-transmission-remote-cli")
+run_once("urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli")
 -- Terminal commands I haven't put in xinitrc yet.
 run_once("dropboxd")
 run_once("rssdler -d")
