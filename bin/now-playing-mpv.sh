@@ -2,9 +2,6 @@
 
 # This displays mpv's now playing filename if mpv is running. Most of it was written by frau (see github).
 
-default='#707070'
-bold='#adadad'
-
 function get_file_playing() {
   video_extensions=( mkv avi mp4 ogm mov flv wmv ts m2ts )
   mpv_pid=$(echo $mpv_pid | sed 's/ //g')
@@ -41,7 +38,7 @@ case "$1" in
     echo "/me is watching $(get_file_playing) -mpv-" ;;
   *)
     #get_file_playing
-    echo -n "^fg($default)⮓ $(get_file_playing)  "
+    echo -n "⮓ $(get_file_playing)"
 esac
 
 # vim:ft=sh

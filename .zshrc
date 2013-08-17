@@ -436,6 +436,7 @@ alias gs="git show --name-only"
 
 # Manual mounter.
 alias mountb="mount /dev/sdb1 /media/External_Hard_Drive"
+alias mountc="mount /dev/sdc1 /media/External_Hard_Drive"
 alias umountb="umount /media/External_Hard_Drive"
 
 # Pacman/Packer aliases.

@@ -8,6 +8,7 @@ autocutsel
 awesome-git
 bashets
 cairo-infinality-ultimate
+calibre
 compton-git
 conky-cli
 cups
@@ -51,6 +52,7 @@ plexmediaserver
 pm-utils
 ppp
 pygtk
+python2-gobject
 qt4
 ranger-git
 rssdler
@@ -78,7 +80,9 @@ tor-browser-en
 transmission-cli
 transmission-remote-cli-git
 trash-cli
+ttf-baekmuk
 ttf-dejavu
+ttf-kochi-substitute
 ttf-monaco
 ttf-ms-fonts
 ttf-vista-fonts
@@ -91,6 +95,7 @@ w3m
 wireless_tools
 wpa_actiond
 wpa_supplicant
+wqy-bitmapfont
 xcape-git
 xf86-input-synaptics
 xf86-video-intel

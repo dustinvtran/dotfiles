@@ -8,7 +8,6 @@
 
 line=$(tail -n 1 /home/nil/.irssi/logs/fnotify)
 secondword=$(tail -n 1 /home/nil/.irssi/logs/fnotify | awk -F " " '{print $2}')
-highlight='#FF96A3'
 
 if [ -n "${line}" ]; then
     if [[ $line != \#* ]]; then
@@ -18,5 +17,5 @@ if [ -n "${line}" ]; then
     else
         nick=$(tail -n 1 /home/nil/.irssi/logs/fnotify | awk -F " " '{print $3}')
     fi
-    echo "^fg($highlight) ⮜ $nick  "
+    echo "⮜ $nick"
 fi
