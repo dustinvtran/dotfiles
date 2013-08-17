@@ -1,0 +1,4 @@
+#! /bin/bash
+
+echo "playlist_next weak" > ~/bin/config/mpv-control
+echo 'show_text "${filename}"' > ~/bin/config/mpv-control

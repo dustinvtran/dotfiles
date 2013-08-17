@@ -19,6 +19,7 @@ Awesome
             How to truly center-align clock widget.
             Last letter of textclock widget is gray on last several tags. The fuck?
         mail-notify: use vicious.widgets.gmail
+        irssi-notify: query nick isn't working.
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
         Find the appropriate icons.
@@ -26,6 +27,9 @@ Awesome
 
 Seagate External Harddrive
     * Get it working.
+
+mpv
+    * Set gvim to execute that script on leave
 
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
@@ -59,6 +63,7 @@ Awesome
     * On top ain't working.
     * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
     * Make sure mod4 works for second display tags.
+    * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -80,9 +85,6 @@ Laptop
 
 mount
     * Get an automounter that doesn't suck.
-
-mpv
-    * How to navigate playlist: add/remove/etc.
 
 Vim
     * Style powerline like phallus', particularly the wonky looking nerdtree.

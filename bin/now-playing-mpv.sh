@@ -38,7 +38,7 @@ case "$1" in
     echo "/me is watching $(get_file_playing) -mpv-" ;;
   *)
     #get_file_playing
-    echo -n "⮓ $(get_file_playing)"
+    echo -n "  ⮓ $(get_file_playing)"
 esac
 
 # vim:ft=sh

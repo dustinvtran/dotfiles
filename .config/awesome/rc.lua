@@ -126,9 +126,9 @@ mpdwidget = wibox.widget.textbox()
 mpvwidget = wibox.widget.textbox()
 bashets.register("battery.sh", {
     widget = batwidget,
-    format = '<span font="lemon">  $1 <span color="#adadad">$2</span> $3</span>',
+    format = '<span font="lemon">$1 <span color="#adadad">$2</span> $3</span>',
     --if $2 | grep < 20
-    --format = '<span font="lemon" color=#FF96A3">  $1',
+    --format = '<span font="lemon" color=#FF96A3">$1',
     update_time = 1,
     separator = " | "})
 bashets.register("clock.sh", {
@@ -137,24 +137,24 @@ bashets.register("clock.sh", {
     update_time = 60, separator = "nil"})
 bashets.register("irssi-notify.sh", {
     widget = irssiwidget,
-    format = '<span font="lemon" color="#FF96A3">  $1</span>',
+    format = '<span font="lemon" color="#FF96A3">$1</span>',
     update_time = 1,
     separator = "nil"})
 bashets.register("mail-notify.sh", {
     widget = mailwidget,
-    format = '<span font="lemon" color="#FF96A3">  $1</span>',
+    format = '<span font="lemon" color="#FF96A3">$1</span>',
     update_time = 90,
     separator = "nil"})
 bashets.register("now-playing-mpd.sh", {
     widget = mpdwidget,
-    format = '<span font="lemon">  $1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
+    format = '<span font="lemon">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
     --if $2 | grep stoppped
     --format = '<span font="lemon">  $1<span color="#adadad">$2</span>$3</span>',
     update_time = 1,
     separator = " | "})
 bashets.register("now-playing-mpv.sh", {
     widget = mpvwidget,
-    format = '<span font="lemon">  $1</span>',
+    format = '<span font="lemon">$1</span>',
     update_time = 1,
     separator = "nil"})
 bashets.start()
