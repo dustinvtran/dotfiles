@@ -3,6 +3,7 @@
 # ~/.config/ranger/colorschemes/nil.py
 # Name: nil
 
+# Note: I changed the interface for titlebar and statusbar, and so some conditions are added/removed accordingly.
 # Parameters:
 # bg/fg: black, blue, cyan, green, magenta, red, white, yellow, default
 # attr: normal, bold, blink, reverse, underline, invisible
@@ -78,24 +79,6 @@ class Default(ColorScheme):
                 else:
                     fg = magenta
 
-        elif context.in_titlebar:
-            if context.hostname:
-                #fg = context.bad and red or green
-                #fg = context.bad and red or default
-                fg = black
-                #attr |= bold
-            elif context.directory:
-                #fg = blue
-                fg = red
-                #attr |= bold
-            elif context.tab:
-                if context.good:
-                    bg = green
-                    #attr |= bold
-            elif context.link:
-                fg = cyan
-                #attr |= bold
-
         elif context.in_statusbar:
             if context.permissions:
                 if context.good:
@@ -103,12 +86,14 @@ class Default(ColorScheme):
                 elif context.bad:
                     #fg = magenta
                     fg = red
+            elif context.directory:
+                fg = red
+            if context.space:
+                fg = white
             if context.marked:
-                #attr |= bold | reverse
                 fg = yellow
             if context.message:
                 if context.bad:
-                    #attr |= bold
                     fg = red
             if context.loaded:
                 bg = self.progress_bar_color

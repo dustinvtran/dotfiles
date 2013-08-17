@@ -7,7 +7,8 @@
 !##############################################################################
 ! Global Colorscheme Notes
 !##############################################################################
-! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl, website css), gvim, awesome, conky, calendar, zsh, alsi.
+! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl, website css), gvim, awesome, zsh, alsi.
+! temp: calendar, conky
 
 ! White (a snow white):         #f9f9f9
 ! Black (a faded black):        #707070
@@ -97,29 +98,24 @@ URxvt*cursorUnderline: true
 ! Keybindings
 !##############################################################################
 
-! Keybindings.
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
 ! Somehow map it to some obscure key, and then map that key via Vim.
 !URxvt.keysym.S-space: command: \033[1~
-
-! No, dont go to ISO mode for S-C.
 URxvt.iso14755: False
 
 !##############################################################################
 ! Various Settings
 !##############################################################################
 
-! urxvt perl extensions:
 URxvt.perl-ext-common: default,matcher
 
 ! Enable clickable links.
 URxvt.matcher.button: 1
 URxvt.urlLauncher: /usr/bin/firefox
 
-! Highlight to end of last character, not the full line (particularly
-! more convenient for yanking).
+! Highlight to end of last character, not the full line (particularly more convenient for yanking).
 ! Not working.
-URxvt.highlightSelection: true
+!URxvt.highlightSelection: true
 
 ! vim: ft=xdefaults

@@ -677,7 +677,5 @@ run_once("transmission-daemon")
 -- }}}
 -- Temp Middle & Right Widgets for Panel{{{
 -- Change theme.lua font to lemon. Uncomment the wibox additions.
-awful.util.spawn_with_shell("pkill conky")
-awful.util.spawn_with_shell("conky -c ~/.config/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1")
-awful.util.spawn_with_shell("conky -c ~/.config/conky/.conkyrc | dzen2 -w 100 -x 633 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1")
+awful.util.spawn_with_shell("pkill conky; conky -c ~/.config/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1 &; conky -c ~/.config/conky/.conkyrc | dzen2 -w 100 -x 633 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1 &")
 -- }}}

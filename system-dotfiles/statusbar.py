@@ -1,6 +1,8 @@
 # Changelog:
 # Commented out a bunch of lines related to the right side. A few I commented out the original line and added some changes.
 # Commented out all lines adding tothe left side.
+# Added everything that deals with left.add. It's all taken from titlebar.py while replacing bar.add with left.add.
+# Replaced _calc_bar with titlebar's so I get the shrinking effect if file path length is too long.
 
 # Copyright (C) 2009-2013  Roman Zimbelmann <hut@lavabit.com>
 # This software is distributed under the terms of the GNU GPL version 3.
@@ -107,8 +109,10 @@ class StatusBar(Widget):
         bar = Bar('in_statusbar')
         self._get_left_part(bar)
         self._get_right_part(bar)
-        bar.shrink_by_removing(self.wid)
-
+        try:
+            bar.shrink_from_the_left(self.wid)
+        except ValueError:
+            bar.shrink_by_removing(self.wid)
         self.result = bar.combine()
 
     def _draw_message(self):
@@ -184,6 +188,24 @@ class StatusBar(Widget):
 
             #left.add(strftime(self.timeformat,
                     #localtime(stat.st_mtime)), 'mtime')
+
+        pathway = self.fm.thistab.pathway
+        if self.settings.tilde_in_titlebar and \
+                self.fm.thisdir.path.startswith(self.fm.home_path):
+            pathway = pathway[self.fm.home_path.count('/')+1:]
+            left.add('~/', 'directory', fixed=True)
+
+        for path in pathway:
+            if path.is_link:
+                clr = 'link'
+            else:
+                clr = 'directory'
+
+            left.add(path.basename, clr, directory=path)
+            left.add('/', clr, fixed=True, directory=path)
+
+        if self.fm.thisfile is not None:
+            left.add(self.fm.thisfile.basename, 'file')
 
         if target.vcs:
             if target.vcsbranch:
@@ -264,8 +286,8 @@ class StatusBar(Widget):
             right.add(' -> ' + dest, 'link', how)
         else:
             if self.settings.display_size_in_status_bar and target.infostring:
-                right.add(target.infostring.replace(" ", ""))
-                right.add(" » ", "space")
+                right.add("  " + target.infostring.replace(" ", ""))
+                right.add(" »", "space")
 
         if self.column is None:
             return
@@ -287,15 +309,17 @@ class StatusBar(Widget):
 
         if target.marked_items:
             if len(target.marked_items) == len(target.files):
-                right.add(human_readable(target.disk_usage, separator=''))
+                #right.add(human_readable(target.disk_usage, separator=''))
+                right.add(" " + human_readable(target.disk_usage, separator=''))
             else:
                 sumsize = sum(f.size for f in target.marked_items if not
                         f.is_directory or f._cumulative_size_calculated)
-                right.add(human_readable(sumsize, separator=''))
+                #right.add(human_readable(sumsize, separator=''))
+                right.add(" " + human_readable(sumsize, separator=''))
             right.add("/" + str(len(target.marked_items)))
         else:
             #right.add(human_readable(target.disk_usage, separator='') + " sum")
-            right.add(human_readable(target.disk_usage, separator=''))
+            right.add(" " + human_readable(target.disk_usage, separator=''))
             try:
                 free = get_free_space(target.mount_path)
             except OSError:
