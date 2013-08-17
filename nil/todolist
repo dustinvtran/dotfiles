@@ -8,6 +8,10 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+Alsi
+    * Do the lpf thing with the name at top.
+    * Maybe switch to screenfetch.
+
 Awesome
     * Panel widgets.
         Get nu on workspaces and layout icon only. Lemon the rest.
@@ -21,17 +25,16 @@ Awesome
             now-playing-mpv
             battery
     * Dropdown widgets using Naughty or whatever: Calendar, Music Now Playing.
-    * Have the tag icons turn sideways on focus, e.g., have them change tag names on focus.
-        Find how to set the workspaces to change icons like that.
+    * Have the tag icons turn sideways on focus.
+        Find how to change tag name when focused.
         Find the appropriate icons.
 
 irssi
     * Highlights with people with a mode show the thing on the right, not left-aligned.
-    * Have people notify with a message when they go away/unaway.
 
 ranger
-    * Have the bottom file size arrows be gray.
-    * combine status bar and titlebar with left side as file path, right side with file size, directory size, free space; all on the bottom.
+    * Not sure if I really like the directory placement there. Decide and then system-dotfile it. Then alter or not in nil.theme.
+    * Remove the titlebar altogether.
 
 Seagate External Harddrive
     * Get it working.
@@ -71,12 +74,6 @@ Awesome
 cron
     * xcape cron not working.
 
-mpv
-    * How to navigate playlist.
-
-mount
-    * Get an automounter that doesn't suck.
-
 Firefox Addon: Pentadactyl
     * Using digits autogoes to a url page. stahp. let them use google.
     * Google search suggestions aren't working. unless i specifically go to 'g'.
@@ -88,6 +85,12 @@ Firefox Addon: Pentadactyl
 
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
+
+mount
+    * Get an automounter that doesn't suck.
+
+mpv
+    * How to navigate playlist.
 
 Vim
     * Style powerline like phallus', particularly the wonky looking nerdtree.
@@ -153,7 +156,7 @@ plex
 
 ranger
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
-    * Set up specific file associations, e.g., .json for gvim, .ts for smplayer.
+    * Set up specific file associations, e.g., .json for gvim, .ts for smplayer, .gif for firefox.
 
 SD Card
     * Doesn't read it.
@@ -224,7 +227,6 @@ irssi
     * OpenURL: never lose focus when opening url and firefox is on a focused workspace.
     * <C-v> not pasting (a urxvt issue).
     * vim_mode: Have yank/paste go to the clipboard.
-    * Learn how to navigate between different server msgs/queries.
     * anames: Add a bunch of whitespace to the first column.
     * anames: spacing goes crazy if there's a user with a long name.
     * vim_mode: Remove that annoying operator shit, or append it to the right like in vim.
@@ -360,11 +362,9 @@ High Priority:
 
 Medium Priority:
     * mail: Change the xbm to the real unicode font.
-    * battery: On single digit %< it also shows the comma.
+    * battery: On single digit %, it also shows the comma.
     * irssi
         Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
             Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
     * skype
     * Add clickables (or keybindables?) into dzen.
-::<: ( '
- ') !!

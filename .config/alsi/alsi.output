@@ -1,12 +1,12 @@
 #!/usr/bin/perl
 
 [
+    {OTHER    => '%s%snil@arch'},
     {OS       => '%sOS:%s %s'},
     {KERNEL   => '%sKernel:%s %s'},
-    {USERNAME => '%sUser:%s %s'},
-    {HOSTNAME => '%sHost:%s %s'},
     {PACKAGES => '%sPackages:%s %s'},
     {HARDCODED => ""},
+
     {WM_DE    => '%s%s:%s %s'},
     {OTHER    => '%sShell:%s zsh'},
     {OTHER    => '%sEditor:%s vim'},
@@ -14,7 +14,7 @@
 
     {HARDCODED => ""},
     {CPU        => '%sCPU:%s %s'},
-    {RAM        => '%sRAM:%s %s'},
     {OTHER      => '%sGraphics:%s Intel HD Graphics 3000'},
+    {RAM        => '%sRAM:%s %s'},
     {PARTITIONS => undef},
 ]
