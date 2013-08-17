@@ -1,3 +1,5 @@
+# Commented and added things in the update_size function.
+
 # Copyright (C) 2009-2013  Roman Zimbelmann <hut@lepus.uberspace.de>
 # This software is distributed under the terms of the GNU GPL version 3.
 
