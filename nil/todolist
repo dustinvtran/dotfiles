@@ -8,10 +8,6 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-Alsi
-    * Do the lpf thing with the name at top.
-    * Maybe switch to screenfetch.
-
 Awesome
     * Panel widgets.
         Get nu on workspaces and layout icon only. Lemon the rest.
@@ -29,12 +25,8 @@ Awesome
         Find how to change tag name when focused.
         Find the appropriate icons.
 
-irssi
-    * Highlights with people with a mode show the thing on the right, not left-aligned.
-
 ranger
-    * Not sure if I really like the directory placement there. Decide and then system-dotfile it. Then alter or not in nil.theme.
-    * Remove the titlebar altogether.
+    * Not sure if I really like the directory placement there.
 
 Seagate External Harddrive
     * Get it working.
@@ -220,6 +212,7 @@ Firefox Addon: Pentadactyl
     * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
 
 irssi
+    * Pubmsghighlight, e.g., "text + highlight", have an extra letter in their names.
     * Set adv_windowlist so that all the channels are only on one line, and the middles get ellipses, like browser tabs.
     * List top channels and sort by name or # users
     * See ban list of channels like in hexchat.
