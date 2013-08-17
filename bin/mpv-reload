@@ -1,0 +1,5 @@
+#! /bin/bash
+
+echo "playlist_clear" > ~/bin/config/mpv-control
+echo 'loadlist "/home/nil/.mpv/playlist" append' > ~/bin/config/mpv-control
+echo 'show_text "Reloaded"' > ~/bin/config/mpv-control
