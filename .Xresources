@@ -71,24 +71,29 @@ URxvt*borderColor: #f9f9f9
 ! Fonts
 !##############################################################################
 
-!URxvt*font: xft:uushi
-!URxvt*boldFont: xft:uushi
-URxvt*font: xft:lemon
-URxvt*boldFont: xft:lemon
-
-! Since urxvt ignores fontconfig settings.
-Xft.autohint: 0
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
 Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+
+URxvt*font: xft:lemon:pixelsize=11:antialias=false,\
+            [codeset=JISX0208]xft:Kochi Gothic,\
+            [codeset=KSC5601]xft:Baekmuk Dotum,\
+            xft:WenQuanYi Bitmap Song
+URxvt*boldFont: xft:lemon:pixelsize=11:antialias=false,\
+            [codeset=JISX0208]xft:Kochi Gothic,\
+            [codeset=KSC5601]xft:Baekmuk Dotum,\
+            xft:WenQuanYi Bitmap Song
+URxvt*imFont: -*-Kochi Gothic-medium-r-normal--11-140-*-*-*-*-*-*
 
 !##############################################################################
 ! Scrolling and Cursor
 !##############################################################################
 
-URxvt*saveLines: 12000
+URxvt*saveLines: 10000
 URxvt*scrollstyle: plain
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
@@ -108,9 +113,9 @@ URxvt.iso14755: False
 ! Various Settings
 !##############################################################################
 
-URxvt.perl-ext-common: default,matcher
+!URxvt.perl-lib: /home/nil/.config/urxvt
+URxvt.perl-ext: default,matcher
 
-! Enable clickable links.
 URxvt.matcher.button: 1
 URxvt.urlLauncher: /usr/bin/firefox
 

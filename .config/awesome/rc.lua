@@ -18,7 +18,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
-require("bashets")
+local bashets = require("bashets")
 require("eminent")
 local vicious = require("vicious")
 
@@ -72,20 +72,23 @@ local layouts =
 }
 
 tags = {
-names  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
-layout = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
-          layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] }
+names1  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
+layout1 = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
+          layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
+names2  = { "i", "ii", "iii", "iv", "v" },
+layout2 = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
 }
 
 beautiful.init("/home/nil/.config/awesome/themes/nil/theme.lua")
 
 for s = 1, screen.count() do
-    if s < 2 then
-        gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+    if (s == 1) then
+            tags[s] = awful.tag(tags.names1, s, tags.layout1)
+            gears.wallpaper.maximized(beautiful.wallpaper1, s, true)
     else
-        gears.wallpaper.maximized(beautiful.wallpaper2, s, true)
+            tags[s] = awful.tag(tags.names2, s, tags.layout2)
+            gears.wallpaper.maximized(beautiful.wallpaper2, s, true)
     end
-    tags[s] = awful.tag(tags.names, s, tags.layout)
 end
 
 --#############################################################################
@@ -111,34 +114,83 @@ mymainmenu = awful.menu({ items = {
 -------------------------------------------------------------------------------
 
 --#############################################################################
--- Clock Widget
+-- Bashets Widgets: Battery, Clock, Irssi Notification, Mail Notification, mpv
 --#############################################################################
 
-mytextclock = awful.widget.textclock("                 <span font='lemon'>⮖ %I:%M %p</span>")
--- %l:%M %P
-
---#############################################################################
--- Battery Widget
---#############################################################################
-
+bashets.set_script_path("/home/nil/bin/")
 batwidget = wibox.widget.textbox()
---bashets.register("date.sh", {widget = batwidget, format = ' $1'})
+clockwidget = wibox.widget.textbox()
+irssiwidget = wibox.widget.textbox()
+mailwidget = wibox.widget.textbox()
+mpdwidget = wibox.widget.textbox()
+mpvwidget = wibox.widget.textbox()
+bashets.register("battery.sh", {
+    widget = batwidget,
+    format = '<span font="lemon">  $1 <span color="#adadad">$2</span> $3</span>',
+    --if $2 | grep < 20
+    --format = '<span font="lemon" color=#FF96A3">  $1',
+    update_time = 1,
+    separator = " | "})
+bashets.register("clock.sh", {
+    widget = clockwidget,
+    format = '<span font="lemon">$1</span>',
+    update_time = 60, separator = "nil"})
+bashets.register("irssi-notify.sh", {
+    widget = irssiwidget,
+    format = '<span font="lemon" color="#FF96A3">  $1</span>',
+    update_time = 1,
+    separator = "nil"})
+bashets.register("mail-notify.sh", {
+    widget = mailwidget,
+    format = '<span font="lemon" color="#FF96A3">  $1</span>',
+    update_time = 90,
+    separator = "nil"})
+bashets.register("now-playing-mpd.sh", {
+    widget = mpdwidget,
+    format = '<span font="lemon">  $1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
+    --if $2 | grep stoppped
+    --format = '<span font="lemon">  $1<span color="#adadad">$2</span>$3</span>',
+    update_time = 1,
+    separator = " | "})
+bashets.register("now-playing-mpv.sh", {
+    widget = mpvwidget,
+    format = '<span font="lemon">  $1</span>',
+    update_time = 1,
+    separator = "nil"})
+bashets.start()
+
+--#############################################################################
+-- Mail Widget
+--#############################################################################
+
+--mailwidget = wibox.widget.textbox()
+--gmail_t = awful.tooltip({ objects = { mailwidget },})
+
+----mygmailimg = wibox.widget.imagebox()
+----mygmailimg.image = image("/home/nil/.config/conky/mail.xbm")
+
+--vicious.register(mailwidget, vicious.widgets.gmail,
+                --function (widget, args)
+                    --gmail_t:set_text(args["{subject}"])
+                    ----gmail_t:add_to_object(mygmailimg)
+                    --return args["{count}"]
+                 --end, 90)
 
 --#############################################################################
 -- mpd Widget
 --#############################################################################
 
-mpdwidget = wibox.widget.textbox()
-vicious.register(mpdwidget, vicious.widgets.mpd,
-   function (widget, args)
-       if args["{state}"] == "Stop" then
-           return "⮕ [<span color='#adadad'>mpd stopped</span>]"
-       elseif args["{state}"] == "Pause" then
-return '⮕ <span color="#adadad">Paused:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
-       else
-   return '⮕ <span color="#adadad">Playing:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
-       end
-   end, 1)
+--mpdwidget = wibox.widget.textbox()
+--vicious.register(mpdwidget, vicious.widgets.mpd,
+   --function (widget, args)
+       --if args["{state}"] == "Stop" then
+           --return "⮕ [<span color='#adadad'>mpd stopped</span>]"
+       --elseif args["{state}"] == "Pause" then
+--return '⮕ <span color="#adadad">Paused:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
+       --else
+   --return '⮕ <span color="#adadad">Playing:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
+       --end
+   --end, 1)
 
 --#############################################################################
 -- Volume Widget
@@ -198,7 +250,6 @@ mylayoutbox = {}
 --#############################################################################
 
 mywibox = {}
---bashets.start()
 for s = 1, screen.count() do
     mylayoutbox[s] = awful.widget.layoutbox(s)
     mylayoutbox[s]:buttons(awful.util.table.join(
@@ -215,13 +266,16 @@ for s = 1, screen.count() do
 
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(volwidget)
+    right_layout:add(mailwidget)
+    right_layout:add(irssiwidget)
+    right_layout:add(mpvwidget)
     right_layout:add(mpdwidget)
     right_layout:add(batwidget)
 
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
-    --layout:set_middle(mytextclock)
-    --layout:set_right(right_layout)
+    layout:set_middle(clockwidget)
+    layout:set_right(right_layout)
     mywibox[s]:set_widget(layout)
 end
 
@@ -298,8 +352,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
     awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
-    awful.key({ modkey, }, "m", function () run_or_raise("", { class = "mpv" }) end),
+    awful.key({ modkey, }, "b", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
     awful.key({ modkey, }, "e", function () run_or_raise("", { class = "feh" }) end),
+    awful.key({ modkey, }, "m", function () run_or_raise("", { class = "mpv" }) end),
     awful.key({ modkey, }, "z", function () run_or_raise("", { class = "Zathura" }) end),
 
 --#############################################################################
@@ -446,8 +501,11 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=30, y=560}) end },
      { rule = { class = "Firefox" },
       properties = { tag = tags[1][2], switchtotag = true } },
-    --{ rule_any = { name = "Options for Menu Editor", name = "Firefox Preferences", name = "Page Info", name = "Tab Mix Plus Options", name = "Library" },
-      --properties = { floating = true } },
+    { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options", "Library"} },
+      properties = { floating = true },
+      callback = awful.placement.centered },
+    { rule_any = { instance = {"plugin-container"} },
+     properties = { floating = true } },
     { rule = { instance = "VCLSalFrame" },
       properties = { floating = false, tag = tags[1][3], switchtotag = true } },
     { rule = { class = "gimp" },
@@ -490,17 +548,11 @@ awful.rules.rules = {
     { rule = { instance = "ranger" },
       properties = { tag = tags[1][5], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=780, y=540}) end },
-    { rule = { class = "feh" },
+    { rule_any = { class = {"feh", "Calibre-ebook-viewer", "mpv", "Zathura"} },
       properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
-    { rule = { class = "mpv" },
-      properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      callback = awful.placement.centered },
-    { rule = { class = "Zathura" },
-      properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      callback = awful.placement.centered },
-    { rule = { name = "dzen" },
-      properties = { ontop = true } },
+    --{ rule = { name = "dzen" },
+      --properties = { ontop = true } },
 }
 -- }}}
 -- Signals {{{
@@ -677,5 +729,5 @@ run_once("transmission-daemon")
 -- }}}
 -- Temp Middle & Right Widgets for Panel{{{
 -- Change theme.lua font to lemon. Uncomment the wibox additions.
-awful.util.spawn_with_shell("pkill conky; conky -c ~/.config/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1 &; conky -c ~/.config/conky/.conkyrc | dzen2 -w 100 -x 633 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1 &")
+--awful.util.spawn_with_shell("pkill conky; conky -c ~/.config/conky/.conkyrightrc | dzen2 -w 632 -x 734 -y 3 -ta r -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1 &; conky -c ~/.config/conky/.conkyrc | dzen2 -w 100 -x 633 -y 3 -ta c -fg '#707070' -bg '#f9f9f9' -fn 'lemon' -xs 1 &")
 -- }}}

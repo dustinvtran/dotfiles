@@ -11,22 +11,18 @@ Highest Priority {{{
 Awesome
     * Panel widgets.
         Get nu on workspaces and layout icon only. Lemon the rest.
-        Get bashets running to implement widgets.
-            Clock widget.
-                How to truly center-align clock widget.
-                Clock widget not accepting some % variables.
-                Last letter of textclock widget is gray..
-            irssi-notify
-            mail-notify: use vicious.widgets.gmail
-            now-playing-mpv
-            battery
-    * Dropdown widgets using Naughty or whatever: Calendar, Music Now Playing.
+        Bashets
+            Apply if conditions from a grep, so that all colors and formatting works correctly.
+                mpd: stopped
+                battery: low
+        Clock widget
+            How to truly center-align clock widget.
+            Last letter of textclock widget is gray on last several tags. The fuck?
+        mail-notify: use vicious.widgets.gmail
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
         Find the appropriate icons.
-
-ranger
-    * Not sure if I really like the directory placement there.
+    * Dropdown widgets using Naughty or whatever: Calendar, Music Now Playing.
 
 Seagate External Harddrive
     * Get it working.
@@ -46,22 +42,26 @@ Android/iPad USB Connection
     * ipad: nope.
 
 Awesome
-    * Use "shared tags" module to have a distinct set of tags for each screen, and keybind mod4 for those ones.
     * Widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
-    * alt+shift hjkl to move floating window.
-    * rule_any not working.
-    * Eminent mouse scroll through tags not working.
     * Everything not moved right on startup.
     * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically. Same with calendar, which changes position depending on which tag I open it in lol.
+    * Shift centered floating windows relative, e.g., down and/or to the left.
     * Revamp menu, all with icons like ahoka's.
     * When clicking away from menu, have it hide just like it does with Escape.
-    * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors.
+    * alt+shift hjkl to move floating window.
+    * Eminent mouse scroll through tags not working.
+    * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
     * Backup and uninstall conky-cli, and dzen2.
-    * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
     * Put all startup commands in xinitrc.
+    * Give separate panel widgets and stuff for each screen (in the for s=1 screencount part).
     * Hide cursor if it doesn't move for >=5 seconds.
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
     * On top ain't working.
+    * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
+    * Make sure mod4 works for second display tags.
+
+Compton
+    * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
 
 cron
     * xcape cron not working.
@@ -82,7 +82,7 @@ mount
     * Get an automounter that doesn't suck.
 
 mpv
-    * How to navigate playlist.
+    * How to navigate playlist: add/remove/etc.
 
 Vim
     * Style powerline like phallus', particularly the wonky looking nerdtree.
@@ -148,7 +148,6 @@ plex
 
 ranger
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
-    * Set up specific file associations, e.g., .json for gvim, .ts for smplayer, .gif for firefox.
 
 SD Card
     * Doesn't read it.
@@ -267,8 +266,7 @@ grub
 laptop
     battery saving implementations, though my battery is at 67% full and laptop is dying anyways
 login manager
-    boot into X as normally, but first overlayed by a floating terminal asking for password; if fail, then repeat ask, with prompt saying that 'reboot' and 'poweroff' as passwords work; if success, then resume normally. And then whenever I close/open the lid, it does that same terminal function.
-    I can issue that close/open lid condition using acpid.
+    boot into X as normally, but first overlayed by a floating terminal asking for password; if fail, then repeat ask, with prompt saying that 'reboot' and 'poweroff' as passwords work; if success, then resume normally. And then whenever I close/open the lid, it does that same terminal function.  I can issue that close/open lid condition using acpid.
 system
     have time sync faster on boot
     recheck and sync the keys and colors on all apps; clean their configs
@@ -336,7 +334,19 @@ possible solutions:
     the drive is physically broken and in disrepair
 
 }}}
+On [L+E] Laptop + External Display versus [L] Laptop-only Display {{{
+I use a setup of a 1366x768 display connected to an external one with 1920x1080. However, I don't always have the external
+display connected to the laptop. Hence, I noted necessary-to-change regions with [L+E] and [L], which I (un)comment
+correspondingly depending on whichever displays I have available. This is for personal usage. I have to configure the
+following apps (all of which are also (un)commented accordingly):
+    * ~/.config/awesome/rc.lua
+    * ~/.config/ranger/rifle.conf
+    * ~/.config/zathura/zathurarc
+    * ~/.irssi/config
+    * ~/.mpv/config
 }}}
+}}}
+for conky scripts {{{
 Highest Priority:
     * mail
         so much Loading...
@@ -361,3 +371,4 @@ Medium Priority:
             Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
     * skype
     * Add clickables (or keybindables?) into dzen.
+}}}

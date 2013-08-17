@@ -13,8 +13,7 @@
 #gmail1=$(python gmail1.py)
 #gmail2=$(python gmail2.py)
 #icon='/home/nil/.config/nil/conky/mail.xbm'
-#highlight='#FF96A3'
 
 #if [ $gmail1 -gt 0 ] || [ $gmail2 -gt 0 ]; then
-    #echo "^fg($highlight)^i($icon) $gmail1$gmail2  "
+    #echo "^i($icon) $gmail1$gmail2"
 #fi
