@@ -10,7 +10,6 @@ bashets
 cairo-infinality-ultimate
 calibre
 compton-git
-conky-cli
 cups
 cups-filters
 dialog
@@ -25,6 +24,7 @@ foo2zjs
 freetype2-infinality-ultimate
 gimp-git
 git
+gparted
 grub
 gvim
 htop
@@ -52,7 +52,6 @@ plexmediaserver
 pm-utils
 ppp
 pygtk
-python2-gobject
 qt4
 ranger-git
 rssdler

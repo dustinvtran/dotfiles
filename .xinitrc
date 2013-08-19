@@ -52,11 +52,9 @@ xbacklight -set 100 &
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
 xmodmap -e 'add Control = Control_L'
-xcape -e 'Control_L=Escape'
 xmodmap -e 'keycode 135 = Super_R'
-#xmodmap -e 'keycode 108 = Alt_R'
-#xmodmap -e 'add Alt = Alt_R'
-#xcape -e 'Alt_R=emdash'
+xmodmap -e 'keycode 255 = emdash'
+xcape -e 'Control_L=Escape;Alt_R=emdash'
 xrdb -merge ~/.Xresources
 
 ###############################################################################

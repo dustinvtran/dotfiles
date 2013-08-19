@@ -63,8 +63,8 @@ set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 " Tab-Options Plugin.
-set tabclose=right,opener,left,previous
-set tabopen=link:end,orphan:end,external:end
+set tabclose=opener,right,left,previous
+set tabopen=link:groupright,orphan:groupright,external:end
 " This is the same as my EasyMotion's default except that now 'h' is at the far-left, so it indexes properly.
 set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
 " I have no idea why this one resets back to true once in a while.
@@ -259,6 +259,7 @@ map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<C
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
+map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/<CR>
 map -modes=n -builtin <Leader>ii :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>
