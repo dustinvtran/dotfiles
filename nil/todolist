@@ -32,7 +32,6 @@ Theme
         Follow ricing guide.
 
 byzanz
-    * Test it out.
     * rc.lua menu picture for it.
 
 pacaur
@@ -217,6 +216,7 @@ Firefox Addon: Pentadactyl
     * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
 
 irssi
+    * Set vim_mode command to open corresponding log of the current channel in vim, so you can browse through the log.
     * Pubmsghighlight, e.g., "text + highlight", have an extra letter in their names.
     * Set adv_windowlist so that all the channels are only on one line, and the middles get ellipses, like browser tabs.
     * List top channels and sort by name or # users
