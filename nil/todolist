@@ -26,13 +26,11 @@ Awesome
     * Dropdown widgets using Naughty or whatever: Calendar, Music Now Playing.
 
 Seagate External Harddrive
-    * Get it working.
+    * In testing.
 
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
-
-xmodmap/xcape
-    * Set alt_r as emdash.
+        Follow ricing guide.
 
 }}}
 High Priority {{{
@@ -52,15 +50,16 @@ Awesome
     * alt+shift hjkl to move floating window.
     * Eminent mouse scroll through tags not working.
     * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
-    * Backup and uninstall conky-cli, and dzen2.
     * Put all startup commands in xinitrc.
     * Give separate panel widgets and stuff for each screen (in the for s=1 screencount part).
     * Hide cursor if it doesn't move for >=5 seconds.
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
     * On top ain't working.
+        Set Library on top of Firefox always.
     * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
     * Make sure mod4 works for second display tags.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
+    * Use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -112,7 +111,6 @@ Firefox
     * Wait for RES to update so it works again.
     * whatcd/torrent-invites: 33% (50 posts,25 rep), 55% (150 posts, 75 rep), browse regularly for bibliotik
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.
-    * Autoopen all tabs on startup.
     * flash: fullscreen toggles away once i hit something else.
     * Display notifications on primary desktop, not HDMI (e.g. download finished, gmail checker notifier, autopager notification of not loading, etc.).
 
@@ -163,8 +161,9 @@ trash-cli
 urxvt
     * Separate ^J and <CR>, so you can bind them in irssi, and not do workarounds in the rest either.
         same for S-spacebar, C-c
-    * Fallback japanese font, somehow a little larger similar to gvim's output.
     * urxvt-perls: c-v as paste (eg for irssi), url clicker+keyboard select.
+    * Make sure all the fallback weeaboo fonts work.
+    * It renders emdashes with a gray..?
 
 vim
     * Change up colors for terminal vim.
@@ -229,6 +228,9 @@ ranger
     * Learn all the :scout commands.
     * Prevent certain things from causing ranger window to blink for really quick output, e.g., atool unpacking or emptying trash, if they're shorter than half a second.
 
+urxvt
+    * Fallback japanese fonts still render some blurry.
+
 vim
     LaTeX
         * Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
@@ -258,8 +260,6 @@ Misc {{{
 -------------------------------------------------------------------------------
 
 set up github old dotfiles repo, and firefox styles repo
-terminal decorations
-    pipes, matrix-y shit, dna, cowsay and variants, space invaders, game of life.
 grub
     rename menu entries
 laptop

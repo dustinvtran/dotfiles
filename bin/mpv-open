@@ -1,6 +1,7 @@
 #! /bin/bash
 
-# This is my solution to efficient playlist navigation in mpv. It makes use of ranger to add files to the playlist, and vim to rearrange items on the list.
+# This is my solution to efficient playlist navigation in mpv. It makes use of ranger to add files to the playlist, and vim
+# to rearrange items on the list.
 #
 # WHAT IT DOES:
 #   * Pause ncmpcpp, e.g., if it's playing while I open mpv.

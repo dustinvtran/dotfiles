@@ -73,7 +73,7 @@ local layouts =
 
 tags = {
 names1  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
-layout1 = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
+layout1 = { layouts[1], layouts[2], layouts[2], layouts[2], layouts[1],
           layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
 names2  = { "i", "ii", "iii", "iv", "v" },
 layout2 = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
@@ -264,6 +264,15 @@ for s = 1, screen.count() do
     left_layout:add(mytaglist[s])
     left_layout:add(mylayoutbox[s])
 
+    --local center_layout = wibox.widget.base.make_widget()
+    --center_layout.fit = function(_, width, height) return width, height end
+    --center_layout.draw = function(_, wibox, cr, width, height)
+        --local w, h = stuff:fit(width, height)
+        --local x = (width - w) / 2
+        --wibox.layout.base.draw_widget(wibox, cr, stuff, x, 0, w, height)
+    --end
+    --center_layout:add(clockwidget)
+
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(volwidget)
     right_layout:add(mailwidget)
@@ -275,6 +284,7 @@ for s = 1, screen.count() do
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(clockwidget)
+    --layout:set_middle(center_layout)
     layout:set_right(right_layout)
     mywibox[s]:set_widget(layout)
 end
@@ -548,11 +558,14 @@ awful.rules.rules = {
     { rule = { instance = "ranger" },
       properties = { tag = tags[1][5], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=780, y=540}) end },
-    { rule_any = { class = {"feh", "Calibre-ebook-viewer", "mpv", "Zathura"} },
+    { rule_any = { class = {"feh", "mpv", "Zathura"} },
       properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
-    --{ rule = { name = "dzen" },
-      --properties = { ontop = true } },
+    { rule = { class = "Calibre-ebook-viewer", name = "E-book Viewer" },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      callback = awful.placement.centered },
+    { rule = { name = "dzen" },
+      properties = { ontop = true } },
 }
 -- }}}
 -- Signals {{{
