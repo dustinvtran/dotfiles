@@ -459,7 +459,7 @@ alias emptytrash="trash-empty"
 # CLI Applications
 alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
-alias lel="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
+alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
 # Application Opening
 l() { nocorrect f -e libreoffice "$@" & }

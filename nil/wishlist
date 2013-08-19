@@ -142,23 +142,23 @@ Low Priority
 irssi {{{
 -------------------------------------------------------------------------------
 
-irssi:
+High Priority
+    * Integrated search function that highlights the search parameter and scrolls through the buffer for you like a normal <C-f> would in other IRC clients. /lastlog is terrible and outputs all the results, resulting in clunky chat window. Then keybind them with ? and / modes in vim_mode.
+
+Medium Priority
     * Inline embedded images when displaying an image link (in the same way ranger uses w3m).
-    * Integrated search function that highlights the search parameter and scrolls through the buffer for you like a normal <C-f> would in other IRC clients. /lastlog is terrible and outputs all the results, resulting in clunky chat window.
-    * awl: Collapse channels to a tab bar much like firefox with a bunch of ellipses and clear answers for the ends.
     * True mouse support, e.g., clickable links (not just (shift+ with mouse.pl)drag+copy), clickable window names, maybe context menus for something.
+    * Advanced Window List: Collapse channels to a tab bar much like firefox with a bunch of ellipses and clear answers for the ends.
+    * vim_mode: maps with <CR>/<C-j> don't work.
+
+Low Priority
+    * Advanced Window List: Ability to condense channel texts from just left to right, instead of cutting down the middle.
+    * Advanced Window List: Better centered text than that with the awl_display_header.
     * C-# and C-j as separate keys.
-Advanced Window List:
-    * Ability to condense channel texts from just left to right, instead of cutting down the middle.
-    * Better centered text than that with the awl_display_header.
-OpenURL:
-    * Ability for multiple urls in one line.
-    * Ability for urls in /me commands.
-    * Ability for urls that I post (yes I'm conceited enough to recheck my links heh).
-vim_mode:
-    * maps with <CR>/<C-j> don't work.
-uberprompt:
-    * show without indicating its status at the beginning. '/prompt set -only $' only works temporarily until I hit another ex command. Would require some more extensive scripting to rid this feature.
+    * OpenURL: Ability for multiple urls in one line.
+    * OpenURL: Ability for urls in /me commands.
+    * OpenURL: Ability for urls that I post (yes I open my own links heh).
+    * uberprompt: show without indicating its status at the beginning. '/prompt set -only $' only works temporarily until I hit another ex command. Would require some more extensive scripting to rid this feature.
 
 }}}
 libreoffice {{{
@@ -296,4 +296,5 @@ Zathura {{{
 
 Low Priority:
     * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page.
-       E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
+
+E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.

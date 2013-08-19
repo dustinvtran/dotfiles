@@ -19,6 +19,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local bashets = require("bashets")
+local center = require("center")
 require("eminent")
 local vicious = require("vicious")
 
@@ -106,7 +107,7 @@ mymainmenu = awful.menu({ items = {
      { "system", system, beautiful.awesome_icon },
      { "⮩ urxvt", terminal },
      { "⮤ scrot", "scrot /home/nil/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png" },
-     { "? byzanz", "cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 5 nil.gif" },
+     { "? byzanz", "byzanz-record -c -d 10 nil.gif" },
      }
 })
 
@@ -265,15 +266,6 @@ for s = 1, screen.count() do
     left_layout:add(mytaglist[s])
     left_layout:add(mylayoutbox[s])
 
-    --local center_layout = wibox.widget.base.make_widget()
-    --center_layout.fit = function(_, width, height) return width, height end
-    --center_layout.draw = function(_, wibox, cr, width, height)
-        --local w, h = stuff:fit(width, height)
-        --local x = (width - w) / 2
-        --wibox.layout.base.draw_widget(wibox, cr, stuff, x, 0, w, height)
-    --end
-    --center_layout:add(clockwidget)
-
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(volwidget)
     right_layout:add(mailwidget)
@@ -282,11 +274,11 @@ for s = 1, screen.count() do
     right_layout:add(mpdwidget)
     right_layout:add(batwidget)
 
-    local layout = wibox.layout.align.horizontal()
+    local layout = center.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(clockwidget)
-    --layout:set_middle(center_layout)
     layout:set_right(right_layout)
+
     mywibox[s]:set_widget(layout)
 end
 
