@@ -13,6 +13,17 @@ Low Priority
     * Restart awesome without flickering.
 
 }}}
+byzanz {{{
+-------------------------------------------------------------------------------
+
+High Priority
+    * Allow filename to take in timestamps, as scrot does.
+
+Low Priority
+    * Capture just one window without needing to specify dimensions.
+    * Allow argument to take a file path, instead of being forced to alias a 'cd ... && byzanz-record ... && cd-' command.
+
+}}}
 Calibre {{{
 -------------------------------------------------------------------------------
 
@@ -216,7 +227,8 @@ Low Priority:
 scrot {{{
 -------------------------------------------------------------------------------
 
-    * Scrot just an app, or just one monitor.
+Medium Priority
+    * Scrot just one window, or just one display.
 
 }}}
 Transmission {{{

@@ -29,7 +29,7 @@ sub-text-font-size=50
 #########################################################
 
 input-file=/home/nil/bin/config/mpv-control
-screenshot-template=/home/nil/nil/Media/Pictures/Screenshots/mpv/%f_%p_%tm-%td-%ty
+screenshot-template=/home/nil/nil/Media/Pictures/Screencaps/mpv/%f_%p_%tm-%td-%ty
 
 #########################################################
 # Miscellaneous

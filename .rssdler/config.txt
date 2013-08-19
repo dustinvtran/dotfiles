@@ -16,7 +16,6 @@ minSize = 10
 maxSize = 0
 log = 3
 logFile = /home/nil/.rssdler/rssdlerlog.log
-#verbose = 5
 verbose = 3
 scanMins = 5
 sleepTime = 5

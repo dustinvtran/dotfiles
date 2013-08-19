@@ -6,8 +6,10 @@
 # * Mapped ; to :.
 # * Renamed 'Insert' to '%2 %Knil %1%g⮀%K ~ %N%r⮀%N '.
 # * Renamed '%_Command%_' to '%4 %Knil %1%b⮀%K ~ %N%r⮀%N '.
-#   Note: I'm not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
-# * Commented out <C-w>j/k so that I can use <C-w> without waiting for the timeout (mapping them to <Nop> in vim_moderc didn't work).
+#   Note: I'm not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But
+#   whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
+# * Commented out <C-w>j/k so that I can use <C-w> without waiting for the timeout (mapping them to <Nop> in vim_moderc
+# didn't work).
 #
 
 =pod

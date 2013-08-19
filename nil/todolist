@@ -19,11 +19,10 @@ Awesome
             How to truly center-align clock widget.
             Last letter of textclock widget is gray on last several tags. The fuck?
         mail-notify: use vicious.widgets.gmail
-        irssi-notify: query nick isn't working.
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
         Find the appropriate icons.
-    * Dropdown widgets using Naughty or whatever: Calendar, Music Now Playing.
+    * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
 Seagate External Harddrive
     * In testing.
@@ -31,6 +30,12 @@ Seagate External Harddrive
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
+
+byzanz
+    * Test it out.
+    * rc.lua menu picture for it.
+
+pacaur
 
 }}}
 High Priority {{{
@@ -195,6 +200,9 @@ Audio
         * set udev rule on headphone jack into amp
             changes audio-source to headphones if i plugged in, monitor if i plugged out (and if monitor not there, then last resort as laptop)
             pkill mpd    mpd ~/.config/mpd/mpd.conf &    mpdas &
+
+Awesome
+    * irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat.
 
 laptop vs laptop+external
     * Add script that changes all to [L+E] if connected, and [L] all if disconnected. add a line in hdmi.rules.
