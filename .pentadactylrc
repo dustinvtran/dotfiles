@@ -55,7 +55,7 @@ set passkeys+=reddit.com:JKeqcCaswb<CR>
 set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
-" This is the same as my EasyMotion's, that 'h' is at the far-left, so it indexes properly.
+" This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly.
 set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
 
 " }}}
@@ -66,8 +66,8 @@ map , <Leader>
 map -modes=n -builtin ; :
 map -modes=n -builtin j 5j
 map -modes=n -builtin k 5k
-map -modes=n -builtin J l
-map -modes=n -builtin K h
+map -modes=n -builtin J 3l
+map -modes=n -builtin K 3h
 map -modes=n -builtin <C-j> <C-d>
 map -modes=n -builtin <C-k> <C-u>
 map -modes=c -builtin <C-j> <Down>

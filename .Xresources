@@ -7,8 +7,8 @@
 !##############################################################################
 ! Global Colorscheme Notes
 !##############################################################################
-! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl, website css), gvim, awesome,
-! zsh, alsi, calendar.
+! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl, website css), vim
+! (colorscheme, powerline), awesome, zsh, alsi, calendar.
 
 ! White (a snow white):         #f9f9f9
 ! Black (a faded black):        #707070
