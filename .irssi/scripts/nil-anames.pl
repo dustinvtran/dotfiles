@@ -1,7 +1,8 @@
 #
 # Standard anames.pl, but changed for nicer integration with my right-aligned format.
 # Changelog:
-# * Ew changed too much and am too lazy to note the line differences. Just use a diff parser with the original in comparison.
+# * Ew changed too much and am too lazy to note the line differences. Just use a diff parser with the original in
+# comparison.
 #
 
 # anames.pl

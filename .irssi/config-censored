@@ -19,31 +19,8 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
-    autoconnect = "yes";
-  },
-  {
-    address = "irc.twice-irc.de";
-    chatnet = "TwiceIRC";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
     autoconnect = "no";
   },
-  {
-    address = "irc.unixhub.net";
-    chatnet = "unixhub";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-    autoconnect = "no";
-  },
-  {
-    address = "irc.what.cd";
-    chatnet = "whatcd";
-    port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
-  }
 );
 
 chatnets = {
@@ -60,17 +37,6 @@ chatnets = {
     nick = "nil-";
     autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
   };
-  TwiceIRC = {
-    type = "IRC";
-    nick = "nil";
-    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
-  };
-  unixhub = {
-    type = "IRC";
-    nick = "nil";
-    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
-  };
-  whatcd = { type = "IRC"; nick = "nil"; };
 };
 
 channels = (
@@ -78,23 +44,6 @@ channels = (
   { name = "#TheAnime"; chatnet = "Rizon"; autojoin = "yes"; },
   { name = "#/g/summer"; chatnet = "Rizon"; autojoin = "yes"; },
   { name = "#rice"; chatnet = "Rizon"; autojoin = "yes"; },
-  { name = "#2DPD"; chatnet = "Rizon"; autojoin = "no"; },
-  { name = "#/g/sicp"; chatnet = "Rizon"; autojoin = "no"; },
-  { name = "#/g/technology"; chatnet = "Rizon"; autojoin = "no"; },
-  { name = "#pantsumen"; chatnet = "Rizon"; autojoin = "no"; },
-  { name = "#archlinux"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#archlinux-offtopic"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#bash"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#geekhack"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#irssi"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "##math"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#reddit-buildapc"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#reddit-mfa"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#vim"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#zsh"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#i3"; chatnet = "TwiceIRC"; autojoin = "no"; },
-  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "no"; },
-  { name = "#what.cd-invites"; chatnet = "whatcd"; autojoin = "no"; }
 );
 
 aliases = {
@@ -103,7 +52,6 @@ aliases = {
   GRUB = "away rawr! (grubs and eats)";
   WI = "whois";
   WW = "whowas";
-  M = "msg";
   Q = "query";
   T = "topic";
 };

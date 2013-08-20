@@ -34,9 +34,10 @@ theme.wallpaper1 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/sti
 theme.wallpaper2 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/still_spring_desktop_unwatermarked.jpg"
 theme.icon_theme = nil
 
--- Extras
-theme.tag_font      = "nu"
+-- Extras to add in.
+theme.tag_font  = "nu"
 theme.bold      = "#adadad"
 
 return theme
+
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80

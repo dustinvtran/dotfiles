@@ -6,9 +6,8 @@
 # Name: nil
 #
 
-# Note: Only difference is that I commented out mediainfo. I use mediainfo manually,
-# and like seeing the full mkv name instead of a blip of mediainfo. Instead, I keybinded
-# 'i' to see the full mediainfo result.
+# Note: Only difference is that I commented out mediainfo. I use mediainfo manually, and like seeing the full mkv name
+# instead of a blip of mediainfo. Instead, I keybinded 'i' to see the full mediainfo result.
 
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its

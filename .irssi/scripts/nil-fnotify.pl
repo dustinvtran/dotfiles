@@ -1,7 +1,4 @@
-#
-# nil-fnotify
-# only modified line 58 (on original) to ~/.irssi/logs/fnotify
-#
+# I only modified line 58 (on original), setting the directory to ~/.irssi/logs/fnotify.
 
 # todo: grap topic changes
 

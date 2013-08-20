@@ -1,4 +1,5 @@
-# Just changed the default values line. I added a few hundred emojis, all of which are taken from Shou's text_replace.py for weechat (see github) on 8/16/13. Order of emojis are defaults, then Shou's appended. Then I put my favorites on top.
+# Just changed the default values line. I added a few hundred emojis, all of which are taken from Shou's text_replace.py
+# for weechat (see github) on 8/16/13. Order of emojis are defaults, then Shou's appended, then I put my favorites on top.
 
 use strict;
 use vars qw($VERSION %IRSSI);

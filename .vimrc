@@ -88,7 +88,7 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size, but not for console Vim.
 if has("gui_running")
-  set lines=49 columns=129
+  set lines=49 columns=127
 endif
 
 " Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!

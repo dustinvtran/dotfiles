@@ -1,9 +1,11 @@
-This is a document which compiles a list of features that I would like on various applications I have used. This is
- mainly for personal use, so I can keep track of features I desire.
+This is a document which compiles a list of features that I would like on various
+ applications I have used. This is mainly for personal use, so I can keep track
+ of features I desire.
 
-This is sorted alphabetically by application. Each item on the list is assigned toward a priority level depending how much I
- personally want them to be implemented. Then each item in the Priority categories are themselves ranked in descending order
- of subpriority.
+This is sorted alphabetically by application. Each item on the list is assigned
+ toward a priority level depending how much I personally want them to be
+ implemented. Then each item in the Priority categories are themselves ranked
+ in descending order of subpriority.
 
 Awesome {{{
 -------------------------------------------------------------------------------
@@ -18,10 +20,10 @@ byzanz {{{
 
 High Priority
     * Allow filename to take in timestamps, as scrot does.
+    * Allow argument to take a file path, instead of being forced to alias a 'cd ... && byzanz-record ... && cd-' command. This also means menu commands like awesome cannot take a file path, only interactive shells.
 
 Low Priority
     * Capture just one window without needing to specify dimensions.
-    * Allow argument to take a file path, instead of being forced to alias a 'cd ... && byzanz-record ... && cd-' command.
 
 }}}
 Calibre {{{

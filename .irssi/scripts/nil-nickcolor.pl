@@ -1,8 +1,6 @@
-#
 # Standard nickcolor.pl, but changed to allow for indented/right-aligned nicks.
 # Changelog:
 # * Commented out line 108 on the original and added the next line.
-#
 
 use strict;
 use Irssi 20020101.0250 ();

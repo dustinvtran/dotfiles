@@ -1,7 +1,7 @@
 #! /bin/bash
 
-# As my mail notification system, this displays two unread mail counts if either is greater than
-# zero. The unread mail counts are outputted by two gmail scripts, each of which monitor a
+# As my mail notification system, this displays two unread mail counts if either is greater than zero. The unread mail
+# counts are outputted by two gmail scripts, each of which monitor a
 # different account.
 
 # Some bugs:
