@@ -146,6 +146,7 @@ irssi {{{
 
 High Priority
     * Integrated search function that highlights the search parameter and scrolls through the buffer for you like a normal <C-f> would in other IRC clients. /lastlog is terrible and outputs all the results, resulting in clunky chat window. Then keybind them with ? and / modes in vim_mode.
+        At the very least, some way to open up the current log within vim, and then browse it from there.
 
 Medium Priority
     * Inline embedded images when displaying an image link (in the same way ranger uses w3m).

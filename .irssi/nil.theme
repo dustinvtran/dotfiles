@@ -167,7 +167,7 @@ formats = {
 
     # General Messages.
     # pubmsg replaced by nil-nickcolor.pl's.
-    #pubmsg = "{pubmsgnick $2 {pubnick \00309$[-11]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00305$[-9]0}}$1";
     own_msg = "{ownmsgnick $2 {ownnick %W$[-9]0}}$1";
     own_msg_channel = "{ownmsgnick {ownnick $[-9]0$3}{msgchannel $1}}$2";
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-9]2}}$1";
@@ -182,8 +182,6 @@ formats = {
     # Last line in /names.
     # No longer using /names. Using /anames instead.
     #endofnames = "             Total of {hilight $1} nicks: {comment {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normal}";
-
-    pubmsg = "{pubmsgnick $2 {pubnick \00305$[-9]0}}$1";
   };
 
   ###############################################################################
@@ -196,26 +194,14 @@ formats = {
     action_private_query = "{pvtaction_query $[-9]0}$2";
     action_public = "{pubaction $[-9]0}$1";
 
-    # Change modes.
-    chanmode_change = "%M{nick $[-11]2} %Y→ {mode $1}";
-    server_chanmode_change = "$M{nick $[-11]2} %Y→ {netsplit ServerMode} {mode $1}";
+    # Server messages.
+    topic = "      %rtopic %K» %|%B$1";
+    topic_info = "%B{nick $[-11]0}%n %K» %nset the topic";
+    channel_created = "%r{$channel $[-11]0}%n %K» %ncreated on %r$1";
+    channel_mode = "%B{channick $[-11]2}%n %K» %nset {$channelhilight $0} $1";
+    chanmode_change = "%B{channick $[-11]2}%n %K» %r$1";
+    channel_synced = "%r{$channel $[-11]0}%n %K» %nsynced in %C{hilight $1} %nseconds";
+    server_chanmode_change = " mode %K»%n {channick $1}";
+    usermode_change = "%B%|{nick $[-11]1} %K» %r{mode $0}";
   };
 };
-
-###############################################################################
-# Default formatting for server messages.
-###############################################################################
-
-#formats = {
-#"fe-common/core" = {
-#join = "{channick_hilight $0} {chanhost_hilight $1} has joined {channel $2}%N";
-#part = "{channick $0} {chanhost $1} has left {channel $2}%N";
-#quit = "{channick $0} {chanhost $1} has quit {reason $2}%N";
-#quit_once = "{channel $3} {channick $0} {chanhost $1} has quit {reason $2}%N";
-#nick_changed = "{channick $0} is now known as {channick_hilight $1}%N";
-#};
-#"fe-common/irc" = {
-#chanmode_change = "mode/{channelhilight $0} {mode $1} by {nick $2}";
-#server_chanmode_change = "{netsplit ServerMode}/{channelhilight $0} {mode $1} by {nick $2}";
-#};
-#};

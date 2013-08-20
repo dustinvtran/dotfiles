@@ -20,6 +20,7 @@ map <C-r> /reload
 map : <Nop>
 map ; <Nop>
 map <Leader>n /anames
+map <Leader>t /topic
 map <Leader>1 /window 1
 map <Leader>2 /window 2
 map <Leader>3 /window 3
