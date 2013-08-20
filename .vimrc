@@ -19,12 +19,12 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'msanders/snipmate.vim'
-Bundle 'nil-/nil'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'skammer/vim-css-color'
 "Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'file:///home/nil/.vim/bundle/nil'
 filetype plugin on
 
 " System Settings.
