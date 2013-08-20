@@ -1,9 +1,7 @@
-screenies. on other apps:
+These are config files for a laptop + external monitor setup. On other apps:
 
 * mpv, feh, and zathura take up my first display's left space when one of the three is running.
 * firefox, gimp, and libreoffice are always open on my second display's other workspaces.
-
-For vim files, see [nil](https://github.com/nil-/nil).
 
 ##first display
 ![screeny1](http://a.pomf.se/5Wg1.png)
