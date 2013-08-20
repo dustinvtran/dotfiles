@@ -392,16 +392,13 @@ set guioptions=
 set notitle
 set guifont=lemon
 let g:Powerline_symbols="fancy"
+" I overwrote the default theme and colorscheme files because it keeps failing to load if I use nil.vim instead.
 set laststatus=2
 set noshowmode
 call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('lineinfo')
-" In the default theme I did the following:
-" Theme: Removed    \ , ['raw.name', '%{Powerline#Functions#GetShortPath(4)}']
-" Colors: Changed   \ 'n': ['white', 'darkgreen'],
-"         to        \ 'n': ['white', 'gray1'],
 
 "##############################################################################
 " Ctrl-P
