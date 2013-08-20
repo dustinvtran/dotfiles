@@ -11,7 +11,6 @@ Highest Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
-    * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Bashets
         Apply if conditions from a grep, so that all colors and formatting works correctly.
             mpd: stopped
@@ -20,6 +19,7 @@ Awesome
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
         Find the appropriate icons.
+    * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
 Seagate External Harddrive
@@ -28,8 +28,6 @@ Seagate External Harddrive
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
-
-erm, that dropbox notification. howd that happen??
 
 }}}
 High Priority {{{
@@ -59,6 +57,7 @@ Awesome
     * Make sure mod4 works for second display tags.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
     * Use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
+    * erm, that dropbox notification. Modify it.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -91,6 +90,9 @@ Vim
     * Ctrl-P: Get it working.
     * The load last file doesn't really work as intended, but it does load *some* last files.
     * Something weird with having to press the <ENTER> prompt when opening and certain files.
+
+xinitrc
+    * tcli not starting up, even if I put it in rc.lua. What??
 
 zsh
     * Deletearound not working.
@@ -262,6 +264,7 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
+Optimize boot time.
 set up github old dotfiles repo, and firefox styles repo
 grub
     rename menu entries
@@ -275,7 +278,7 @@ system
     purge of all system dotfiles from old packages
     complete wish/todolists.txt
     place all dotfiles into .config! (while removing their '.')
-Master: linux (coreultis, ssh/scp, curl, wget, systemd, udev, cron), zsh, vim, irssi.
+Master: linux (coreultis, ssh/scp, curl, wget, systemd, udev, cron), zsh, vim, irssi, archlinux things (initramfs).
     see 'devices' for other mastery apps to do
 Keyboard Layout: Tutorials.
     L/R Shift training wheels, finger optimizing (e.g. 'rf').
@@ -341,6 +344,7 @@ I use a setup of a 1366x768 display connected to an external one with 1920x1080.
 display connected to the laptop. Hence, I noted necessary-to-change regions with [L+E] and [L], which I (un)comment
 correspondingly depending on whichever displays I have available. This is for personal usage. I have to configure the
 following apps (all of which are also (un)commented accordingly):
+    * ~/.xinitrc
     * ~/.config/awesome/rc.lua
     * ~/.config/ranger/rifle.conf
     * ~/.config/zathura/zathurarc
