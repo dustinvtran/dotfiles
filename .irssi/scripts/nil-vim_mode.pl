@@ -2751,8 +2751,8 @@ sub got_key {
     } elsif ($mode == M_INS) {
 
         if ($key == 3) { # Ctrl-C enters command mode
-            _update_mode(M_CMD);
-            _stop();
+            #_update_mode(M_CMD);
+            #_stop();
             return;
 
         } elsif ($key == 10) { # enter.

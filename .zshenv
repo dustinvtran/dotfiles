@@ -1,5 +1,4 @@
 #
-# zsh environment variables
 # ~/.zshenv
 # Name: nil
 #

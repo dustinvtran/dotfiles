@@ -6,7 +6,6 @@
 # General Settings. {{{
 # -----------------------------------------------------------------------------
 
-# Some sane settings.
 setopt auto_name_dirs
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -33,7 +32,10 @@ setopt correct
 # underscore (such as many of Zsh's shell functions).
 CORRECT_IGNORE='_*'
 
+###############################################################################
 # History.
+###############################################################################
+
 HISTSIZE=1000
 SAVEHIST=${HISTSIZE}
 HISTFILE=~/.zshinfo
@@ -46,6 +48,12 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
+###############################################################################
+# Cache
+###############################################################################
+
+CACHEDIR="$HOME/.cache/zsh-cache"
+
 fasd_cache="$HOME/.cache/.fasd-init-cache"
 if [ "$(command -v fasd)" -nt "$fasd_cache" -o ! -s "$fasd_cache" ]; then
     fasd --init auto >| "$fasd_cache"
@@ -56,10 +64,6 @@ unset fasd_cache
 # }}}
 # Completion. {{{
 # -----------------------------------------------------------------------------
-
-# Zsh's completion can benefit from caching. Set the directory in which to
-# load/store the caches.
-CACHEDIR="$HOME/.cache/zsh-cache"
 
 # Use (advanced) completion functionality.
 autoload -U compinit
@@ -295,7 +299,6 @@ zle -N yank-x-selection
 # The Vim setup. {{{
 # -----------------------------------------------------------------------------
 
-# Vi(m) baby.
 bindkey -v
 
 # Disable flow control. Specifically, ensure that ctrl-s does not stop
@@ -463,7 +466,7 @@ alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record 
 
 # Application Opening
 l() { nocorrect f -e libreoffice "$@" & }
-m() { nocorrect f -e mplayer2 "$@" & }
+m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
