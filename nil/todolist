@@ -177,7 +177,7 @@ vim
     * Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
     * NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
     * SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
-    * Powerline: Change colors for all modes to suit colorscheme.
+    * Powerline: Tweak colors even more.
     * Repeat: Not working with Surround.
     * Snippets: Fix the auto-reload command to not be so computation heavy.
     * Snippets: How to do snippets inside a snippet? Or perhaps manage more carefully if not.
