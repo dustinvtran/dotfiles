@@ -381,12 +381,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "d",      function (c) c:kill()                         end),
     awful.key({ modkey,           }, "space",  function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey, "Shift"   }, "space",  awful.client.floating.toggle                     )
-    --,awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    --awful.key({ modkey,           }, "m",
-        --function (c)
-            --c.maximized_horizontal = not c.maximized_horizontal
-            --c.maximized_vertical   = not c.maximized_vertical
-        --end)
 )
 
 --#############################################################################
@@ -642,7 +636,8 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 --#############################################################################
 -- Run or Raise Function
 --#############################################################################
--- Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If multiple, it cycles through them.
+-- Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If
+-- multiple, it cycles through them.
 
 function run_or_raise(cmd, properties)
    local clients = client.get()

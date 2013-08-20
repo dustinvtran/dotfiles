@@ -12,4 +12,4 @@ For vim files, see [nil](https://github.com/nil-/nil).
 ![screeny2](http://a.pomf.se/0Uq1.png)
 
 ##laptop by itself
-![screeny2](http://a.pomf.se/3Zp7.gif)
+![screeny3](http://a.pomf.se/3Zp7.gif)

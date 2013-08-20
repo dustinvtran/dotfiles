@@ -7,9 +7,11 @@
 # * Renamed 'Insert' to '%2 %Knil %1%g⮀%K ~ %N%r⮀%N '.
 # * Renamed '%_Command%_' to '%4 %Knil %1%b⮀%K ~ %N%r⮀%N '.
 #   Note: I'm not using uberprompt since I can't find a way to turn off its default prompt status ([$*$uber]). But
-#   whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.)
+#   whatever, the current ex commands are all useless so I don't mind missing the Ex mode for now.
 # * Commented out <C-w>j/k so that I can use <C-w> without waiting for the timeout (mapping them to <Nop> in vim_moderc
 # didn't work).
+# * Commented out two lines underneath "Ctrl-C enters command mode", so that I can still use beautiful color formatting.
+#   Why the vim_mode developer did this I have no idea.
 #
 
 =pod
