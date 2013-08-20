@@ -1,11 +1,9 @@
-This is a document which compiles a list of features that I would like on various
- applications I have used. This is mainly for personal use, so I can keep track
- of features I desire.
+This is a document which compiles a list of features that I would like on various applications I have used. This is mainly
+ for personal use, so I can keep track of features I desire.
 
-This is sorted alphabetically by application. Each item on the list is assigned
- toward a priority level depending how much I personally want them to be
- implemented. Then each item in the Priority categories are themselves ranked
- in descending order of subpriority.
+This is sorted alphabetically by application. Each item on the list is assigned toward a priority level depending how much
+ I personally want them to be implemented. Then each item in the Priority categories are themselves ranked in descending
+ order of subpriority.
 
 Awesome {{{
 -------------------------------------------------------------------------------
@@ -73,6 +71,7 @@ High Priority
    * I can't hint out of the popup windows, e.g., when editing entries in MAL.
 
 Medium Priority
+    * Ability to toggle scrollbar without needing to refresh page in order to see it.
    * Tab Options Plugin: I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
    * Not clear when I'm in text edit mode during cmd-line, and how to escape it.
 
@@ -280,6 +279,9 @@ Low Priority:
 }}}
 Vim {{{
 -------------------------------------------------------------------------------
+
+Low Priority
+    * Stop being so goddamn slow when scrolling through long lines and with syntax on. Setting max syntax through column shouldn't be an issue to begin with.
 
 EasyMotion:
     * This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.

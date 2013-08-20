@@ -6,14 +6,6 @@
 " Settings {{{
 " -----------------------------------------------------------------------------
 
-loadplugins '\.(js|penta)$'
-group user
-
-unmap!
-iunmap!
-tunmap!
-cunmap!
-
 "##############################################################################
 " Styles
 "##############################################################################
@@ -63,85 +55,12 @@ set passkeys+=reddit.com:JKeqcCaswb<CR>
 set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
-" This is the same as my EasyMotion's default except that now 'h' is at the far-left, so it indexes properly.
+" This is the same as my EasyMotion's, that 'h' is at the far-left, so it indexes properly.
 set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
-" I have no idea why this one resets back to true once in a while.
-set! general.smoothScroll=false
-
-" }}}
-" Unmappings {{{
-" -----------------------------------------------------------------------------
-" These are keys that are useless for me, and I accidentally hit.
-
-map -modes=n,t * <Nop>
-map -modes=n,t # <Nop>
-map -modes=n,t <Home> <Nop>
-map -modes=n,t <PageUp> <Nop>
-map -modes=n,t <PageDown> <Nop>
-map -modes=n,t <End> <Nop>
-map -modes=n,t <Up> <Nop>
-map -modes=n,t <Left> <Nop>
-map -modes=n,t <Right> <Nop>
-map -modes=n,t <Down> <Nop>
-map -modes=n <C-]> <Nop>
-map -modes=n B <Nop>
-map -modes=n D <Nop>
-map -modes=n R <Nop>
-map -modes=n <C-i> <Nop>
-map -modes=n <C-u> <Nop>
-map -modes=n <C-y> <Nop>
-map -modes=n <C-n> <Nop>
-map -modes=n <C-p> <Nop>
-map -modes=n gf <Nop>
-map -modes=n gh <Nop>
-map -modes=n -builtin gs gf
-map -modes=n,t,i <C-q> <Nop>
-
-map -modes=c <C-c> <Nop>
-map -modes=c <C-]> <Nop>
-map -modes=c <Up> <Nop>
-map -modes=c <Down> <Nop>
-map -modes=c <S-Up> <Nop>
-map -modes=c <S-Down> <Nop>
-map -modes=c <PageDown> <Nop>
-map -modes=c <PageUp> <Nop>
-
-map -modes=i <C-[> <Nop>
-map -modes=i <C-d> <Nop>
-map -modes=i <C-i> <Nop>
-map -modes=i <C-h> <Nop>
-
-" Mozilla/Browser commands.
-map -modes=i,n <C-r> <Nop>
-map -modes=i,c <C-g> <Nop>
-map -modes=n <C-w> <Nop>
-map -modes=n <Tab> <Nop>
-map -modes=i <Home> <Nop>
-map -modes=i <PageUp> <Nop>
-map -modes=i <PageDown> <Nop>
-map -modes=i <End> <Nop>
-map -modes=n <Space> <Nop>
-map -modes=i,n <F5> <Nop>
-" My alternatives aren't currently working. When they do, Nop these to get used to the others.
-"map -modes=i,c <Left> <Nop>
-"map -modes=i,c <Right> <Nop>
-"map -modes=i <Up> <Nop>
-"map -modes=i <Down> <Nop>
-
-" Text Edit mde.
-map -modes=t <C-a> <Nop>
-map -modes=t <C-x> <Nop>
-map -modes=t $ <Nop>
-map -modes=t t <Nop>
-map -modes=t T <Nop>
 
 " }}}
 " Mappings {{{
 " -----------------------------------------------------------------------------
-
-"##############################################################################
-" General
-"##############################################################################
 
 map , <Leader>
 map -modes=n -builtin ; :
@@ -161,75 +80,48 @@ map -modes=n -builtin 0 g0
 map -modes=n -builtin $ g$
 map -modes=n -builtin y Y
 map -modes=n -builtin Y y
-" Jumps. They don't quite work yet.
+map -modes=n -builtin i gi
+map -modes=n -builtin e ;
+map -modes=n -builtin <C-f> g;b
 "map -modes=n -builtin <C-p> <C-i>
 "map -modes=n <C-o> <Nop>
 map -modes=n -builtin <C-r> :rehash<CR>
-map -modes=n -builtin <C-1> :buffer 1<CR>
-map -modes=n -builtin <C-2> :buffer 2<CR>
-map -modes=n -builtin <C-3> :buffer 3<CR>
-map -modes=n -builtin <C-4> :buffer 4<CR>
-map -modes=n -builtin <C-5> :buffer 5<CR>
-map -modes=n -builtin <C-6> :buffer 6<CR>
-map -modes=n -builtin <C-7> :buffer 7<CR>
-map -modes=n -builtin <C-8> :buffer 8<CR>
-map -modes=n -builtin <C-9> :buffer 9<CR>
-map -modes=n -builtin <Leader>1 :tabattach 1<CR>
-map -modes=n -builtin <Leader>2 :tabattach 2<CR>
-map -modes=n -builtin <Leader>3 :tabdetach<CR>
-map -modes=n -builtin <Leader>p <C-V><C-S-p>
-
-" Let these work normally. <C-b>, <C-c>, and <C-x> work by default.
+map -modes=n -builtin <C-s> <C-c>
+map -modes=i,c -builtin <C-f> <C-T>
+map -modes=n -builtin <C-t> :tabopen!<Space>
 map -modes=n,i,c,t -builtin <C-a> <pass>
 map -modes=i -builtin <C-i> <pass>
 map -modes=i,c -builtin <C-v> <pass>
 map -modes=i,c -builtin <C-z> <pass>
-
-" Instead of save page, it stops loading page.
-map -modes=n -builtin <C-s> <C-c>
-
-" GUI dialogs & stuff.
 map -modes=n -builtin <C-e> :dialog places<CR>
 map -modes=n -builtin <C-d> :dialog addons<CR>
 map -modes=n -builtin <C-p> :dialog preferences<CR>
 map -modes=n -builtin <C-y> :dialog downloads<CR>
 map -modes=n -builtin <C-S-p> :dialog print<CR>
 map -modes=n -builtin <C-w>  :tabopen about:sync-tabs<CR>
-
-"map -modes=n -builtin <Leader>st :set guioptions!=r<CR>
+map -modes=n -builtin <Leader>1 :buffer 1<CR>
+map -modes=n -builtin <Leader>2 :buffer 2<CR>
+map -modes=n -builtin <Leader>3 :buffer 3<CR>
+map -modes=n -builtin <Leader>4 :buffer 4<CR>
+map -modes=n -builtin <Leader>5 :buffer 5<CR>
+map -modes=n -builtin <Leader>6 :buffer 6<CR>
+map -modes=n -builtin <Leader>7 :buffer 7<CR>
+map -modes=n -builtin <Leader>8 :buffer 8<CR>
+map -modes=n -builtin <Leader>9 :buffer 9<CR>
+map -modes=n -builtin <Leader>0 :buffer 10<CR>
+map -modes=n -builtin <Leader><Space> :set hlfind!<CR>
+map -modes=n -builtin \1 :tabattach 1<CR>
+map -modes=n -builtin \2 :tabattach 2<CR>
+map -modes=n -builtin \3 :tabdetach<CR>
+map -modes=n -builtin <Leader>p <C-V><C-S-p>
 map -modes=n -builtin <Leader>st :set guioptions!=s<CR>
-
-" [e]xtended hints.
-map -modes=n -builtin e ;
-
-" Stay in hints mode with everything sent to background tabs.
-map -modes=n -builtin <C-f> g;b
-
-" Text Edit Mode. How ingenious! Mapped to my Vim cmd-line default.
-map -modes=i,c -builtin <C-f> <C-T>
-
-" Clear cmd-line messages and search highlights.
-" Mapping this to <Esc> causes funky issues with caret mode, but fuck it. I don't use that anyways.
-map -modes=n -builtin <Esc> /3u1<CR>:<CR>
-
-" Enter last input box you went to, otherwise go to first!
-map -modes=n -builtin i gi
-
-" For the rarer Caret mode.
-map -modes=n -builtin I i
-
-" A temporary fix for caret mode. Only con is that it doesn't tell you that you yanked and what you yanked.
-map -modes=caret -builtin y <C-v><C-c>
-
-" Bookmark support in pentadactyl sucks. Use native GUI for now.
 map -modes=n -builtin a <C-v><C-d>
+map -modes=n gf <Nop>
+map -modes=n <C-q> <Nop>
 
-" Open tab in background.
-map -modes=n -builtin <C-t> :tabopen!<Space>
-
-"##############################################################################
-" Bookmarks
-"##############################################################################
+" }}}
+" Bookmarks {{{
+" -----------------------------------------------------------------------------
 
 " huehuehue
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
@@ -252,12 +144,22 @@ map -modes=n -builtin <Leader>rp :tabopen! http://www.reddit.com/r/buildapc<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
-" Media pages.
+" Community Websites
+map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
+map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
+map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
+map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#category%2FAssociates<CR>
+map -modes=n -builtin <Leader>h :tabopen! http://geekhack.org/index.php<CR>
+map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
+map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
+map -modes=n -builtin <Leader>sc :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTI5NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
+map -modes=n -builtin <Leader>ss :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTM2Mi9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
+map -modes=n -builtin <Leader>k :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
+
+" Media pages.
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
-map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
 map -modes=n -builtin <Leader>b :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g :tabopen! http://www.goodreads.com/<CR>
 map -modes=n -builtin <Leader>ii :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>
@@ -268,27 +170,14 @@ map -modes=n -builtin <Leader>y :tabopen! http://rateyourmusic.com/~nilin<CR>
 map -modes=n -builtin <Leader>l :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " Documents.
-map -modes=n -builtin <Leader>d :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
 map -modes=n -builtin <Leader>t :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
 map -modes=n -builtin <Leader>x :tabopen! http://localhost:32400/manage/<CR>
+
+" Misc
 map -modes=n -builtin <Leader>w :tabopen! https://www.google.com/search?q=weather<CR>
-
-" Other sites.
-map -modes=n -builtin <Leader>e :tabopen! http://www.ebay.com/<CR>
-map -modes=n -builtin <Leader>f :tabopen! http://cloud.feedly.com/#category%2FAssociates<CR>
-map -modes=n -builtin <Leader>k :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
-
-" Forums.
-map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
-map -modes=n -builtin <Leader>sc :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTI5NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
-map -modes=n -builtin <Leader>ss :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTM2Mi9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
-"map -modes=n -builtin <Leader>fh :tabopen! http://hypebeast.com/forums<CR>
-"map -modes=n -builtin <Leader>u :tabopen! http://supertalk.superfuture.com/<CR>
-"map -modes=n -builtin <Leader>h :tabopen! http://www.head-fi.org/f/<CR>
-"map -modes=n -builtin <Leader>? :tabopen! http://geekhack.org/index.php<CR>
 
 " }}}
 " Functions & Macros {{{

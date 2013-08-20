@@ -37,7 +37,5 @@ screenshot-template=/home/nil/nil/Media/Pictures/Screencaps/mpv/%f_%p_%tm-%td-%t
 
 alang=Japanese,ja,jpn,jap,es,spa,en,eng
 slang=Japanese,ja,jpn,jap,English,en,eng,Spanish,es,spa
-#fullscreen
 gapless-audio
-#keep-open
 no-input-default-bindings

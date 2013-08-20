@@ -1,20 +1,17 @@
-This is a document which compiles a list of things that I still have to configure
- or do. This is purely for personal (and documented) use, so I can keep track of
- features I desire and when I complete them.
+This is a document which compiles a list of things that I still have to configure or do. This is purely for personal (and
+ documented) use, so I can keep track of features I desire and when I complete them.
 
-Each to-do item for an application is assigned toward a priority level depending
- on how much I personally want them to be implemented. Then in the Priority
- categories, each application is sorted by alphabetical order. Then each item for
- an application is itself ranked by descending order of subpriority.
+Each to-do item for an application is assigned toward a priority level depending on how much I personally want them to be
+ implemented. Then in the Priority categories, each application is sorted by alphabetical order. Then each item for an
+ application is itself ranked by descending order of subpriority.
 
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
-    * Bashets
-        Apply if conditions from a grep, so that all colors and formatting works correctly.
-            mpd: stopped
-            battery: low
+    * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
+        mpd: stopped
+        battery: low
     * mail-notify: use vicious.widgets.gmail
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
@@ -43,21 +40,13 @@ Awesome
     * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically. Same with calendar, which changes position depending on which tag I open it in lol.
     * Shift centered floating windows relative, e.g., down and/or to the left.
     * Revamp menu, all with icons like ahoka's.
-    * When clicking away from menu, have it hide just like it does with Escape.
-    * alt+shift hjkl to move floating window.
-    * Eminent mouse scroll through tags not working.
-    * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
-    * Put all startup commands in xinitrc.
     * Give separate panel widgets and stuff for each screen (in the for s=1 screencount part).
-    * Hide cursor if it doesn't move for >=5 seconds.
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
     * On top ain't working.
         Set Library on top of Firefox always.
-    * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
     * Make sure mod4 works for second display tags.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
     * Use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
-    * erm, that dropbox notification. Modify it.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -69,10 +58,7 @@ Firefox Addon: Pentadactyl
     * Using digits autogoes to a url page. stahp. let them use google.
     * Google search suggestions aren't working. unless i specifically go to 'g'.
     * Have '/' searches show the # of results.
-    * Toggled scrollbar doesn't always work.
-      * They also don't show up until refreshed page.
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
-    * Having trouble escaping text edit mode.
 
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
@@ -83,13 +69,11 @@ mount
 Vim
     * Style powerline like phallus', particularly the wonky looking nerdtree.
     LaTeX
-        * Start external command in background.. needed for compiling and opening pdf files.
         * Allow rubber to compile filenames with spaces.
         * Get error parser (rubber-info) and autobuild.
-    * NERDTree: Better keyboard shortcuts for navigation.
+    * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
     * Ctrl-P: Get it working.
-    * The load last file doesn't really work as intended, but it does load *some* last files.
-    * Something weird with having to press the <ENTER> prompt when opening and certain files.
+    * Load multiple files so you can <C-e> right away.
 
 xinitrc
     * tcli not starting up, even if I put it in rc.lua. What??
@@ -101,6 +85,15 @@ zsh
 }}}
 Medium Priority {{{
 -------------------------------------------------------------------------------
+
+Awesome
+    * When clicking away from menu, have it hide just like it does with Escape.
+    * alt+shift hjkl to move floating window.
+    * Eminent mouse scroll through tags not working.
+    * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
+    * Hide cursor if it doesn't move for >=5 seconds.
+    * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
+    * erm, that dropbox notification. Modify it.
 
 feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
@@ -124,7 +117,6 @@ git
     * Learn the other commands so you can do things like rename git commits, add things, etc.
 
 irssi
-    * Write in color with <C-c>, but this is escape, which toggles nil-vim_mode..
     * Do stuff like /whois, <c-r>, and /nicklist while being able to remove all that text when i no longer want to see it.
         * A status window works for this, but it doesn't include /names. How to?
     * OpenURL: weird error stuff on some urls, and sometimes don't load full url
@@ -207,7 +199,6 @@ Firefox Addon: Pentadactyl
     * normal <C-j> goes to home page if it's assigned to do nothing else at that issue of command, e.g., if it's unbinded, for example, in 4chan thread pages.
     * g not always working on reddit
     * $ not working in google
-    * uushi
     * Function to tabdetach if there's not a 2nd Firefox window, tabattach to the other window if there is (this compounds 3 keys into one (:taba 1,:taba 2,:tabd).
     * Jumps in same buffer without changing pages. (same problem in Vim)
     * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
@@ -247,13 +238,12 @@ vim
     * C-o and C-p (C-I) not really working as intended. Have it so that it jumps around only in the current file, not whereever.
         * Stuff about jump lists vs normal motion.
     * Jump to paragraphs? One that includes <br><br> for html.
-    * Clear error (one great use of this would be for folding so it doesn't output errors when none exists.
-    * Enter url function.
+    * Clear error (one great use of this would be for folding so it doesn't output errors when none exists).
     * If in same workspace as another Vim file, somehow combine the two into one Vim window, with it split.
     * Reloading vim doesn't work for everything, namely newly omitted mappings and settings.
     * Fix $...$ in case there are none.
     * Have cursor position returned to exact position (i.e. column) not just line position.
-    * The "jump to next/last sentence" doesn't always work as intended.
+    * The "jump to next/last sentence" doesn't always work as intended. Do them better, along with paragraph.
     * vim fold text styling. donri is coming up with a plugin for a nice one.
 
 zsh
@@ -287,17 +277,16 @@ Keyboard Layout: Tutorials.
 Random Shit {{{
 -------------------------------------------------------------------------------
 
-    - Always leave some version of firefox and libreoffice in the background in order to take away any startup.
-    - A backup of your system, as well as a perfect sync into a bootable USB on-the-go.
-        1. An automated backup of your entire system and config files without superfluous backups of media material.
-        2. Moreover, can be used as a carry-around USB which literally boots into your system with everything perfectly set in place.
-        3. Have anything changed on the carry-around USB organized into one single folder, for which you can then take it and implement it into your desktop system at later points.
-        4. Have the carry-around USB and desktop system config continuously sync, rather than daily.
-        1/2. rsync your entire system save for the superfluous material (media folders, etc.).
-        3. Don't know yet, but you can always note of this manually.
-        4. Don't know yet, but such programs exist.
-        -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
-    - Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
+- A backup of your system, as well as a perfect sync into a bootable USB on-the-go.
+    1. An automated backup of your entire system and config files without superfluous backups of media material.
+    2. Moreover, can be used as a carry-around USB which literally boots into your system with everything perfectly set in place.
+    3. Have anything changed on the carry-around USB organized into one single folder, for which you can then take it and implement it into your desktop system at later points.
+    4. Have the carry-around USB and desktop system config continuously sync, rather than daily.
+    1/2. rsync your entire system save for the superfluous material (media folders, etc.).
+    3. Don't know yet, but you can always note of this manually.
+    4. Don't know yet, but such programs exist.
+    -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
+- Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
 
 }}}
 exthd {{{
