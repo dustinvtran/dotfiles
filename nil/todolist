@@ -15,9 +15,6 @@ Awesome
             Apply if conditions from a grep, so that all colors and formatting works correctly.
                 mpd: stopped
                 battery: low
-        Clock widget
-            How to truly center-align clock widget.
-            Last letter of textclock widget is gray on last several tags. The fuck?
         mail-notify: use vicious.widgets.gmail
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
