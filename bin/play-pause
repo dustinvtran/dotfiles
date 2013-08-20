@@ -1,6 +1,7 @@
 #! /bin/bash
 
-# This is a script that play/pauses ncmpcpp if mpv isn't running. If mpv is running, it play/pauses mpv and keeps ncmpcpp paused.
+# This is a script that play/pauses ncmpcpp if mpv isn't running. If mpv is running, it play/pauses mpv and keeps ncmpcpp
+# paused.
 
 pgrep mpv
 # If not running.

@@ -4,8 +4,6 @@
 # Name: nil
 #
 
-# Note: This appends (and overwrites) commands to the already written default ones.
-
 from ranger.api.commands import *
 
 class emptytrash(Command):

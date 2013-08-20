@@ -18,11 +18,12 @@
 # for me automatically triggers mpv-reload, which reloads the playlist. That's it!
 #
 # WHAT ISN'T PERFECT:
-#   1. mpv won't auto-reload the playlist so you have to do it manually. I've automated it on exiting gvim, but you otherwise
-# have to reload it manually if straight from mpv.
+#   1. mpv won't auto-reload the playlist so you have to do it manually. I've automated it on exiting gvim, but you
+# otherwise have to reload it manually if straight from mpv.
 #   2. To reload without losing your mpv position, you're forced to use reload with append. But to keep the playlist order
 # correct, you have to delete all previous items before and including your current playing file in the playlist. Hence,
-# backwards navigation isn't very comprehensive since you keep removing all your shit (and must do this manually, mind you).
+# backwards navigation isn't very comprehensive since you keep removing all your shit (and must do this manually, mind
+# you).
 
 ncmpcpp pause
 if [ $(pgrep mpv) -ne 0 ]

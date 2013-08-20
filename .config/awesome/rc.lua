@@ -104,10 +104,10 @@ system = {
 }
 
 mymainmenu = awful.menu({ items = {
-     { "system", system, beautiful.awesome_icon },
+     { "⮪ system", system, beautiful.awesome_icon },
      { "⮩ urxvt", terminal },
      { "⮤ scrot", "scrot /home/nil/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png" },
-     { "? byzanz", "byzanz-record -c -d 10 nil.gif" },
+     { "⮤ byzanz", "byzanz-record -c -d 10 nil.gif" },
      }
 })
 
@@ -233,7 +233,7 @@ volbar = "<span color='#adadad'></span><span color='#707070'>---------- </span>"
 end, 1, "Master")
 
 --#############################################################################
--- Tag List & Layout
+-- Tag List & Layout Widgets
 --#############################################################################
 
 mytaglist = {}
@@ -342,7 +342,7 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
-    awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
+    awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey, }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey, }, "o", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "" }) end),
     -- [L+E] Use this if you have both laptop and external display.
