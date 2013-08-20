@@ -4,8 +4,6 @@
 # Name: nil
 #
 
-# Note: The filepaths don't require escaping special characters.
-
 #########################################################
 [global]
 #########################################################

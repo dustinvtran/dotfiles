@@ -129,8 +129,6 @@ settings = {
     openurl_max_urls = "99";
     vim_mode_start_cmd = "yes";
     vim_mode_map_leader = ",";
-    logresume_channel_lines = "75";
-    logresume_query_lines = "25";
     trackbar_string = "—";
   };
   "irc/core" = { alternate_nick = "nil"; };

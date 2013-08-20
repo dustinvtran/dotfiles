@@ -1,5 +1,4 @@
 script load adv_windowlist.pl
-script load logresume.pl
 script load mouse.pl
 script load nil-anames.pl
 script load nil-emojis.pl
