@@ -1,4 +1,4 @@
--- This is taken from the archlinux forum:
+-- This is taken from the archlinux forums:
 -- https://bbs.archlinux.org/viewtopic.php?id=141304
 
 local setmetatable = setmetatable

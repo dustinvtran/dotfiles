@@ -1,0 +1,243 @@
+#
+# irssi dotfile
+# ~/.irssi/config
+# Name: nil
+#
+
+servers = (
+  {
+    address = "irc.rizon.net";
+    chatnet = "Rizon";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "yes";
+  },
+  {
+    address = "irc.twice-irc.de";
+    chatnet = "TwiceIRC";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.unixhub.net";
+    chatnet = "unixhub";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.what.cd";
+    chatnet = "whatcd";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
+  }
+);
+
+chatnets = {
+  Rizon = {
+    type = "IRC";
+    nick = "nil";
+    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
+    max_kicks = "1";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  freenode = {
+    type = "IRC";
+    nick = "nil-";
+    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
+  };
+  TwiceIRC = {
+    type = "IRC";
+    nick = "nil";
+    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
+  };
+  unixhub = {
+    type = "IRC";
+    nick = "nil";
+    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
+  };
+  whatcd = { type = "IRC"; nick = "nil"; };
+};
+
+channels = (
+  { name = "#critics-conn"; chatnet = "Rizon"; autojoin = "yes"; },
+  { name = "#TheAnime"; chatnet = "Rizon"; autojoin = "yes"; },
+  { name = "#/g/summer"; chatnet = "Rizon"; autojoin = "yes"; },
+  { name = "#rice"; chatnet = "Rizon"; autojoin = "yes"; },
+  { name = "#2DPD"; chatnet = "Rizon"; autojoin = "no"; },
+  { name = "#/g/sicp"; chatnet = "Rizon"; autojoin = "no"; },
+  { name = "#/g/technology"; chatnet = "Rizon"; autojoin = "no"; },
+  { name = "#pantsumen"; chatnet = "Rizon"; autojoin = "no"; },
+  { name = "#archlinux"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#archlinux-offtopic"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#bash"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#geekhack"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#irssi"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "##math"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#reddit-buildapc"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#reddit-mfa"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#vim"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#zsh"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#i3"; chatnet = "TwiceIRC"; autojoin = "no"; },
+  { name = "#unixhub"; chatnet = "unixhub"; autojoin = "no"; },
+  { name = "#what.cd-invites"; chatnet = "whatcd"; autojoin = "no"; }
+);
+
+aliases = {
+  BUSY = "away rawr! (busy)";
+  SLEEP = "away rawr! (sleep)";
+  GRUB = "away rawr! (grubs and eats)";
+  WI = "whois";
+  WW = "whowas";
+  M = "msg";
+  Q = "query";
+  T = "topic";
+};
+
+statusbar = {
+  items = {
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+    away = "{sbaway $A}";
+    more = "··m··";
+  };
+
+  default = {
+    window = { disabled = "yes"; };
+    topic = { disabled = "yes"; };
+    window_inact = { disabled = "yes"; };
+
+    prompt = {
+      items = {
+        barstart = { priority = "100"; };
+        vim_mode = { };
+        input = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        away = { alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+      position = "100";
+    };
+
+    top_empty_line = { placement = "top"; items = { }; position = "100"; };
+    bottom_empty_line = { placement = "bottom"; };
+
+    awl_0 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+settings = {
+  core = {
+    real_name = ":3";
+    user_name = "nil";
+    nick = "nil";
+    timestamp_format = "%H:%M";
+    settings_autosave = "no";
+    log_timestamp = "%m/%d %H:%M:%S";
+    awaylog_file = "~/.irssi/logs/away.log";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = {
+    theme = "nil";
+    use_status_window = "no";
+    autolog = "yes";
+    autolog_path = "~/.irssi/logs/%Y/$tag/$0.%m.log";
+    term_charset = "utf-8";
+    show_names_on_join = "no";
+  };
+  "perl/core/scripts" = {
+    awl_block = "13";
+    awl_sbar_maxlength = "no";
+    awl_display_key = "%w$H $C  $S";
+    awl_display_key_active = "%r$H $C  $S";
+    # [L+E] Use this if you have both laptop and external display.
+    #awl_display_header = "                 ";
+    # [L] Use this if you only have laptop display.
+    awl_display_header = "                           ";
+    awl_placement = "top";
+    openurl_app_http = "/usr/bin/firefox -new-tab $1 >/dev/null 2>&1";
+    openurl_max_urls = "99";
+    vim_mode_start_cmd = "yes";
+    vim_mode_map_leader = ",";
+    logresume_channel_lines = "75";
+    logresume_query_lines = "25";
+    trackbar_string = "—";
+  };
+  "irc/core" = { alternate_nick = "nil"; };
+};
+hilights = (
+  { text = "nil"; nick = "yes"; word = "yes"; fullword = "yes"; },
+  { text = "nil-"; nick = "yes"; word = "yes"; fullword = "yes"; }
+);
+keyboard = (
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm "; },
+  #{ key = "^J"; id = "forward_history"; data = ""; }
+  { key = "^N"; id = "forward_history"; data = ""; },
+  { key = "^K"; id = "backward_history"; data = ""; }
+);
+logs = { };
+windows = {
+  1 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#critics-conn";
+        tag = "Rizon";
+      }
+    );
+  };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#TheAnime";
+        tag = "Rizon";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#rice";
+        tag = "Rizon";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#/g/summer";
+        tag = "Rizon";
+      }
+    );
+  };
+};
+mainwindows = { 4 = { first_line = "2"; lines = "31"; }; };
