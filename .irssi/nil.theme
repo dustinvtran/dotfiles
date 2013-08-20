@@ -177,7 +177,7 @@ formats = {
     pubmsg_hilight_channel = "{pubmsghinick $0 $[-11]1$4{msgchannel $2}}$3";
     pubmsg_channel = "{pubmsgnick {pubnick %g$[-11]0}$2}$1";
     msg_private_query = "{privmsgnick $[-11]0}$2";
-    new_topic = "        %ctopic %Y= %|%B'$2' %non %b$1%n%K [set by {nick %y$0}]";
+    new_topic = "      %ctopic %Y= %|%B'$2' %non %b$1%n%K [set by {nick %y$0}]";
 
     # Last line in /names.
     # No longer using /names. Using /anames instead.

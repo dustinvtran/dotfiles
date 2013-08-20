@@ -398,6 +398,10 @@ call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fileformat')
 call Pl#Theme#RemoveSegment('fileencoding')
 call Pl#Theme#RemoveSegment('lineinfo')
+" In the default theme I did the following:
+" Theme: Removed    \ , ['raw.name', '%{Powerline#Functions#GetShortPath(4)}']
+" Colors: Changed   \ 'n': ['white', 'darkgreen'],
+"         to        \ 'n': ['white', 'gray1'],
 
 "##############################################################################
 " Ctrl-P
@@ -408,7 +412,13 @@ let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
-set wildignore+=*.doc,*.docx,*.db,*.epub,*.exe,*.flac,*.lnk,*.mkv,*.mobi,*.mp3,*.pdf,*.ods,*.xlsx
+set wildignore+=*.doc,*.docx,*.ods,*.xlsx
+set wildignore+=*.db,*.epub,*.lnk,*.mobi,*.pdf
+set wildignore=.git,*.pyc,*.pyo,*.exe,*.dll,*.obj,*.o,*.a,*.lib,*.so,*.dylib
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+set wildignore+=*.flac,*.mp3
+set wildignore+=*.mkv
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
 "##############################################################################
 " EasyMotion

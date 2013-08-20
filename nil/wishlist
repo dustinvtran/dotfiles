@@ -178,6 +178,7 @@ High Priority
 Medium Priority:
     Playlist Navigation/Management
         * If no playlist exists, automatically play next file in the same directory (like MPC-HC).
+            See https://github.com/mpv-player/mpv/issues/132.
         * Better default support for playlist navigation and management.
         * Have only one running instance of mpv where opening other files only add append them to the present playlist (note: no-fixed-vo doesn't do this).
             Luckily my own solution is good enough that I don't care /that/ much about these features.

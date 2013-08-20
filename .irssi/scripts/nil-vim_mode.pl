@@ -782,10 +782,10 @@ my $commands
      "\x02" => { char => '<C-B>', func => \&cmd_ctrl_b, type => C_NORMAL,
                  no_operator => 1 },
      # window switching
-     #"\x17j" => { char => '<C-W>j', func => \&cmd_ctrl_wj, type => C_NORMAL,
-                  #no_operator => 1 },
-     #"\x17k" => { char => '<C-W>k', func => \&cmd_ctrl_wk, type => C_NORMAL,
-                  #no_operator => 1 },
+#     "\x17j" => { char => '<C-W>j', func => \&cmd_ctrl_wj, type => C_NORMAL,
+#                  no_operator => 1 },
+#     "\x17k" => { char => '<C-W>k', func => \&cmd_ctrl_wk, type => C_NORMAL,
+#                  no_operator => 1 },
      "\x1e"  => { char => '<C-^>',  func => \&cmd_ctrl_6,  type => C_NORMAL,
                   no_operator => 1 },
      # misc
@@ -2646,10 +2646,12 @@ sub vim_mode_cmd {
 
     my $mode_str = '';
     if ($mode == M_INS) {
+#        $mode_str = 'Insert';
         $mode_str = '%2 %Knil %1%g⮀%K ~ %N%r⮀%N ';
     } elsif ($mode == M_EX) {
         $mode_str = '%_Ex%_';
     } else {
+#        $mode_str = '%_Command%_';
         $mode_str = '%4 %Knil %1%b⮀%K ~ %N%r⮀%N ';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
@@ -2753,8 +2755,8 @@ sub got_key {
     } elsif ($mode == M_INS) {
 
         if ($key == 3) { # Ctrl-C enters command mode
-            #_update_mode(M_CMD);
-            #_stop();
+#            _update_mode(M_CMD);
+#            _stop();
             return;
 
         } elsif ($key == 10) { # enter.
