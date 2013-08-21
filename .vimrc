@@ -67,9 +67,8 @@ set cursorline                               " Cursor Highlight, Color
 set number                                   " Show absolute number for cursor line.
 set relativenumber                           " Line numbers relative to cursor line.
 set cmdwinheight=1                           " Self-explanatory.
-set synmaxcol=128                            " Avoid slow ass scrolling on long lines.
 set ttyscroll=3                              " Speeds up screen redrawing.
-set lazyredraw                               " To avoid scroll lag.
+set lazyredraw                               " To avoid scroll lag on long ass lines.
 set scrolloff=10                             " Minimum # of lines shown above/below cursor.
 set splitbelow                               " Split windows as expected.
 set splitright

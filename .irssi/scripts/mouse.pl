@@ -41,11 +41,11 @@ my @mouse_xterm_combo = (3, 0, 0); # 0:button 1:x 2:y
 my @mouse_xterm_previous; # previous contents of mouse_xterm_combo
 
 sub mouse_enable {
-	print STDERR "\e[?1000h"; # start tracking 
+	print STDERR "\e[?1000h"; # start tracking
 }
 
 sub mouse_disable {
-	print STDERR "\e[?1000l"; # stop tracking 
+	print STDERR "\e[?1000l"; # stop tracking
 }
 
 # Handle mouse event (button press or release)
