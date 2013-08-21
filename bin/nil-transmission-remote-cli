@@ -19,7 +19,7 @@
 #    * Never show filter or sort order on bottom bar.
 # - Keyboard Shortcuts
 #    * Swapped J/K to queue down/up instead of up/down respectively (contrary to what
-#   this script says, they do the opposite..though I don't know why).
+#   the default says, it did the opposite..).
 #    * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
 #    * Added Ctrl-l to open file in the file list.
 # - Default Settings
@@ -31,7 +31,8 @@
 #    * Stripped attributes in draw_ratio for the eta+ratio part.
 #    * Removed reverse from  draw_torrents_stats.
 #    * Flipped color in self.torrentname_is_progressbar.
-#    * Reduced the # of items in self_sort_options and draw_options_dialog, since my small transmission window would crash when using these keys otherwise.
+#    * Reduced the # of items in self_sort_options and draw_options_dialog, since my small transmission window would
+#    crash when using these keys otherwise.
 
 
 ########################################################################

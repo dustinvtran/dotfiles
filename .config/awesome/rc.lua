@@ -168,15 +168,15 @@ bashets.start()
 --mailwidget = wibox.widget.textbox()
 --gmail_t = awful.tooltip({ objects = { mailwidget },})
 
-----mygmailimg = wibox.widget.imagebox()
-----mygmailimg.image = image("/home/nil/.config/conky/mail.xbm")
+--mygmailimg = wibox.widget.imagebox()
+----mygmailimg.image = image("/home/nil/.config/awesome/themes/nil/widgets/mail.xbm")
 
 --vicious.register(mailwidget, vicious.widgets.gmail,
                 --function (widget, args)
                     --gmail_t:set_text(args["{subject}"])
                     ----gmail_t:add_to_object(mygmailimg)
                     --return args["{count}"]
-                 --end, 90)
+                 --[[end, 90)]]
 
 --#############################################################################
 -- mpd Widget
