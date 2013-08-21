@@ -29,6 +29,13 @@ Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
 
+configure airline
+    add an arrow to filename, and reformat the +
+    how does it handle statuslines on inactive windows, e.g., nerd or another?
+    change color of middle bar to a lighter white
+
+learn how to git refernce, and add more lines like that one dude
+
 }}}
 High Priority {{{
 -------------------------------------------------------------------------------
@@ -118,7 +125,7 @@ feh
 
 Firefox
     * 4chanx/pentadactyl: it goes to home if 4chanx doesn't do anything, especially when it's still loading
-    * Style MAL and forum CSS.
+    * Style MAL and forum CSS, addon manager css.
     * Wait for RES to update so it works again.
     * whatcd/torrent-invites: 33% (50 posts,25 rep), 55% (150 posts, 75 rep), browse regularly for bibliotik
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.
@@ -177,7 +184,6 @@ vim
     * Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
     * NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
     * SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
-    * Powerline: Tweak colors even more.
     * Repeat: Not working with Surround.
     * Snippets: Fix the auto-reload command to not be so computation heavy.
     * Snippets: How to do snippets inside a snippet? Or perhaps manage more carefully if not.

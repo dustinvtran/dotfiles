@@ -11,12 +11,12 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'benjifisher/matchit.zip'
+Bundle 'bling/vim-airline'
 Bundle 'bufexplorer.zip'
 Bundle 'dahu/MarkMyWords'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdcommenter'
@@ -382,7 +382,7 @@ noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 
 "##############################################################################
-" Colors/Powerline
+" Colors & Airline
 "##############################################################################
 
 colorscheme nil
@@ -391,21 +391,36 @@ syntax enable
 set guioptions=
 set notitle
 set guifont=lemon
-let g:Powerline_symbols="fancy"
-" I overwrote the default theme and colorscheme files because it keeps failing to load if I use nil.vim instead.
 set laststatus=2
 set noshowmode
-call Pl#Theme#RemoveSegment('mode_indicator')
-call Pl#Theme#RemoveSegment('fileformat')
-call Pl#Theme#RemoveSegment('fileencoding')
-call Pl#Theme#RemoveSegment('lineinfo')
+let g:airline_left_sep='⮀'
+let g:airline_right_sep='⮂'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_theme='solarized'
+"let g:airline_section_c='%f%m'
+let g:airline_section_x=''
+let g:airline_section_y="%{strlen(&filetype)>0?&filetype:''}"
+let g:airline_section_z='%p%%'
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V·L',
+  \ '' : 'V·B',
+  \ 's'  : 'S',
+  \ 'S'  : 'S·L',
+  \ '' : 'S·B',
+  \ }
 
 "##############################################################################
 " Ctrl-P
 "##############################################################################
 
 let g:ctrlp_map = '<C-f>'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1

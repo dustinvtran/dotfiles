@@ -9,11 +9,9 @@
 #Exception BrokenPipeError: BrokenPipeError(32, 'Broken pipe') in <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'> ignored
 # Also, the big problem is the blinking, and that it stays on Loading... for so long. Can't it just keep the output?
 
-#echo "Loading... "
-#gmail1=$(python gmail1.py)
-#gmail2=$(python gmail2.py)
-#icon='/home/nil/.config/nil/conky/mail.xbm'
+gmail1=$(gmail1.py)
+gmail2=$(gmail2.py)
 
-#if [ $gmail1 -gt 0 ] || [ $gmail2 -gt 0 ]; then
-    #echo "  ^i($icon) $gmail1$gmail2"
-#fi
+if [ $gmail1 -gt 0 ] || [ $gmail2 -gt 0 ]; then
+    echo "  icon $gmail1$gmail2"
+fi
