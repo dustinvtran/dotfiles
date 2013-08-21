@@ -19,9 +19,6 @@ Awesome
     * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
-Seagate External Harddrive
-    * In testing.
-
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
@@ -69,11 +66,17 @@ Firefox Addon: Pentadactyl
     * Have '/' searches show the # of results.
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
+irssi
+    * Learn how to use DCC stuff.
+
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
 
 mount
     * Get an automounter that doesn't suck.
+
+transmission-remote-cli
+    * Keybind two commands to queue move guys down to the bottom, or at least move down 5 times.
 
 Vim
     LaTeX
@@ -135,6 +138,7 @@ irssi
         * A status window works for this, but it doesn't include /names. How to?
     * OpenURL: weird error stuff on some urls, and sometimes don't load full url
     * Display some type of % sign when not at bottom of text.
+    * Mouse: Remove everything except what gives you scroll support. Shift+drag click is annoying, and just like in terminal I like the combo of mouse scrolls+drag click meaning highlight text.
 
 ncmpcpp
     * Somehow play everything as the playlist (clear, then add them).
@@ -201,6 +205,7 @@ Audio
 Awesome
     * irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat.
     * alt+shift hjkl to move floating window.
+    * Do modal keybindings, so you can effectively keybind hjkl and move through tiling windows more effectively than having ones only go to resizing.
 
 laptop vs laptop+external
     * Add script that changes all to [L+E] if connected, and [L] all if disconnected. add a line in hdmi.rules.
@@ -298,45 +303,6 @@ Random Shit {{{
     4. Don't know yet, but such programs exist.
     -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
 - Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
-
-}}}
-exthd {{{
-anime:
-    >8s
-    PTWs
-Manga:
-    >8s
-    PTWs
-Literature:
-    remake the manually edited list of light novels
-Visual Novels:
-    PTWs
-Music:
-    move to Drive
-films, TV, VG: to-do
-
-* something seems really wrong with its read/writing.
-    transmission and ranger keep freezing due to external harddrive
-    be very skimpy on how you're using the extHD for now, e.g. only read/copy but never download/seed into it
-temporary
-    downloading everything local for now
-    changed mpd dir
-    iptorrents: using deluge for the moment, prns and delete .config/deluge afterwards
-        use deluge &
-    bcg: nothing seeding
-
-* step1: archive videos there and watch
-   some skippy playback, hopefully this will smoothen itself out. this seems to be a limitation with the read/writes on usb 2.0, but then again, i was perfectly fine before on linux and windows
-   videos freeze entirely on certain portions and corrupt on copy back to new harddrive
-        THIS IS THE third time ive lost data on the drive and the second time i reformatted it to ntfs. i need to be more cautious..
-            next time: reformat to ntfs, just copy a few videos on it (with full backups), play them back and copy; see if both of these operations work
-                this seems to be a physical hard drive problem, since it also has the input/output error when copying files, the thing i was dealing with on ntfs. if it's broken, leave it on ntfs and let someone else play with it from the family to see if it works for them. also tell parents you need to buy another one
-step2: move music and library
-step3: torrent there (dl and seed) without freezing transmission/ranger and allowing for umount on reboot without having to kill transmission-daemon
-
-possible solutions:
-    seagate drive not compatible with ext4, so switch to that weird ambiguous one. i dont see how this is theoretically possible though.
-    the drive is physically broken and in disrepair
 
 }}}
 On [L+E] Laptop + External Display versus [L] Laptop-only Display {{{

@@ -52,8 +52,6 @@ end
 --#############################################################################
 
 terminal = "urxvt"
-editor = "gvim"
-editor_cmd = terminal .. " -e " .. editor
 modkey = "Mod1"
 modkey2 = "Mod4"
 
@@ -312,16 +310,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey, }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey, }, "o", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "" }) end),
+
     -- [L+E] Use this if you have both laptop and external display.
     --awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
     --awful.key({ modkey, }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
     --awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     --awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
+
     -- [L] Use this if you only have laptop display.
     awful.key({ modkey, }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
     awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
     awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
+
     awful.key({ modkey, }, "b", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
     awful.key({ modkey, }, "e", function () run_or_raise("", { class = "feh" }) end),
     awful.key({ modkey, }, "m", function () run_or_raise("", { class = "mpv" }) end),
@@ -457,26 +458,49 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = clientkeys,
                      buttons = clientbuttons } },
+
+--#############################################################################
+-- Workspace 1
+--#############################################################################
+
     { rule = { class = "Gvim" },
       properties = { floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=30, y=40}) end },
     { rule = { instance = "tcli" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=30, y=560}) end },
+
+--#############################################################################
+-- Workspace 2
+--#############################################################################
+
      { rule = { class = "Firefox" },
       properties = { tag = tags[1][2], switchtotag = true } },
-    { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options", "Library"} },
+    { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options",
+                 "Library"} },
       properties = { floating = true },
       callback = awful.placement.centered },
     { rule_any = { instance = {"plugin-container"} },
      properties = { floating = true } },
+
+--#############################################################################
+-- Workspace 3
+--#############################################################################
+
     { rule = { instance = "VCLSalFrame" },
       properties = { floating = false, tag = tags[1][3], switchtotag = true } },
+
+--#############################################################################
+-- Workspace 4
+--#############################################################################
+
     { rule = { class = "gimp" },
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
-    { rule = { instance = "calendar" },
-      properties = { floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=683, y=15}) end },
+
+--#############################################################################
+-- Workspace 1([L+E]) or Workspace 5 ([L])
+--#############################################################################
+
     -- [L+E] Use this if you have both laptop and external display.
     --{ rule = { instance = "irssi" },
       --properties = { tag = tags[2][1], floating = true, switchtotag = true },
@@ -499,6 +523,10 @@ awful.rules.rules = {
     --{ rule = { class = "Zathura" },
       --properties = { tag = tags[2][1], floating = true, switchtotag = true },
       --callback = function(c) c:geometry({x=0, y=0}) end },
+    --{ rule = { class = "Calibre-ebook-viewer" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=0, y=0}) end },
+
     -- [L] Use this if you only have laptop display.
     { rule = { instance = "irssi" },
       properties = { tag = tags[1][5], floating = true, switchtotag = true },
@@ -512,12 +540,17 @@ awful.rules.rules = {
     { rule = { instance = "ranger" },
       properties = { tag = tags[1][5], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=780, y=540}) end },
-    { rule_any = { class = {"feh", "mpv", "Zathura"} },
+    { rule_any = { class = {"feh", "mpv", "Zathura", "Calibre-ebook-viewer"} },
       properties = { tag = tags[1][10], floating = true, switchtotag = true },
       callback = awful.placement.centered },
-    { rule = { class = "Calibre-ebook-viewer", name = "E-book Viewer" },
-      properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      callback = awful.placement.centered },
+
+--#############################################################################
+-- Miscellaneous
+--#############################################################################
+
+    { rule = { instance = "calendar" },
+      properties = { floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=683, y=15}) end },
     { rule = { name = "dzen" },
       properties = { ontop = true } },
 }
@@ -525,9 +558,7 @@ awful.rules.rules = {
 -- Signals {{{
 -------------------------------------------------------------------------------
 
--- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
-    -- Enable sloppy focus
     c:connect_signal("mouse::enter", function(c)
         if awful.layout.get(c.screen) ~= awful.layout.suit.magnifier
             and awful.client.focus.filter(c) then
@@ -536,11 +567,6 @@ client.connect_signal("manage", function (c, startup)
     end)
 
     if not startup then
-        -- Set the windows at the slave,
-        -- i.e. put it at the end of others instead of setting it master.
-        -- awful.client.setslave(c)
-
-        -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
             awful.placement.no_overlap(c)
             awful.placement.no_offscreen(c)
@@ -549,7 +575,6 @@ client.connect_signal("manage", function (c, startup)
 
     local titlebars_enabled = false
     if titlebars_enabled and (c.type == "normal" or c.type == "dialog") then
-        -- buttons for the titlebar
         local buttons = awful.util.table.join(
                 awful.button({ }, 1, function()
                     client.focus = c
@@ -563,12 +588,10 @@ client.connect_signal("manage", function (c, startup)
                 end)
                 )
 
-        -- Widgets that are aligned to the left
         local left_layout = wibox.layout.fixed.horizontal()
         left_layout:add(awful.titlebar.widget.iconwidget(c))
         left_layout:buttons(buttons)
 
-        -- Widgets that are aligned to the right
         local right_layout = wibox.layout.fixed.horizontal()
         right_layout:add(awful.titlebar.widget.floatingbutton(c))
         right_layout:add(awful.titlebar.widget.maximizedbutton(c))
@@ -576,14 +599,12 @@ client.connect_signal("manage", function (c, startup)
         right_layout:add(awful.titlebar.widget.ontopbutton(c))
         right_layout:add(awful.titlebar.widget.closebutton(c))
 
-        -- The title goes in the middle
         local middle_layout = wibox.layout.flex.horizontal()
         local title = awful.titlebar.widget.titlewidget(c)
         title:set_align("center")
         middle_layout:add(title)
         middle_layout:buttons(buttons)
 
-        -- Now bring it all together
         local layout = wibox.layout.align.horizontal()
         layout:set_left(left_layout)
         layout:set_right(right_layout)

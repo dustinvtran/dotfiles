@@ -25,6 +25,9 @@ theme.border_marked = "#91231c"
 theme.layout_floating = "/home/nil/.config/awesome/themes/nil/layouts/floating.png"
 theme.layout_tile = "/home/nil/.config/awesome/themes/nil/layouts/tile.png"
 theme.layout_tileleft = "/home/nil/.config/awesome/themes/nil/layouts/tileleft.png"
+--theme.layout_floating = " ⮛ "
+--theme.layout_tile = " ⮘ "
+--theme.layout_tileleft = " ⮙ "
 
 theme.menu_submenu_icon = "/home/nil/.config/awesome/themes/nil/submenu.png"
 theme.menu_height = 15
