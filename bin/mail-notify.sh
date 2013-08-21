@@ -13,5 +13,5 @@ gmail1=$(gmail1.py)
 gmail2=$(gmail2.py)
 
 if [ $gmail1 -gt 0 ] || [ $gmail2 -gt 0 ]; then
-    echo "  icon $gmail1$gmail2"
+    echo "  ⮣ $gmail1$gmail2"
 fi

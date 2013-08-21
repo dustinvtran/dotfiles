@@ -12,13 +12,10 @@ Awesome
     * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
         mpd: stopped
         battery: low
-    * mail-notify: use vicious.widgets.gmail or get bashets working
-        script: so much Loading...
     * Have the tag icons turn sideways on focus.
         Find how to change tag name when focused.
         Find the appropriate icons.
-    * mpv
-        Somehow grep with regexp and gray any parts of the filenames in [...]
+    * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
     * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
@@ -28,13 +25,6 @@ Seagate External Harddrive
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
-
-configure airline
-    add an arrow to filename, and reformat the +
-    how does it handle statuslines on inactive windows, e.g., nerd or another?
-    change color of middle bar to a lighter white
-
-learn how to git refernce, and add more lines like that one dude
 
 }}}
 High Priority {{{
@@ -138,7 +128,7 @@ Firefox Addon: Pentadactyl
     * <C-v> not pasting emdashes correctly.
 
 git
-    * Learn the other commands so you can do things like rename git commits, add things, etc.
+    * Learn the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
 
 irssi
     * Do stuff like /whois, <c-r>, and /nicklist while being able to remove all that text when i no longer want to see it.
@@ -248,6 +238,9 @@ urxvt
     * Fallback japanese fonts still render some blurry.
 
 vim
+    Airline: Add an arrow to filename, and reformat the +.
+    Airline: Customize how it handles statuslines on inactive windows, e.g., nerd or another.
+    Airline: change color of middle bar to a lighter white.
     LaTeX
         * Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
             Which ones should be via LaTeX and others via vim?
