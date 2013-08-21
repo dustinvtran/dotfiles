@@ -162,39 +162,6 @@ bashets.register("now-playing-mpv.sh", {
 bashets.start()
 
 --#############################################################################
--- Mail Widget
---#############################################################################
-
---mailwidget = wibox.widget.textbox()
---gmail_t = awful.tooltip({ objects = { mailwidget },})
-
---mygmailimg = wibox.widget.imagebox()
-----mygmailimg.image = image("/home/nil/.config/awesome/themes/nil/widgets/mail.xbm")
-
---vicious.register(mailwidget, vicious.widgets.gmail,
-                --function (widget, args)
-                    --gmail_t:set_text(args["{subject}"])
-                    ----gmail_t:add_to_object(mygmailimg)
-                    --return args["{count}"]
-                 --[[end, 90)]]
-
---#############################################################################
--- mpd Widget
---#############################################################################
-
---mpdwidget = wibox.widget.textbox()
---vicious.register(mpdwidget, vicious.widgets.mpd,
-   --function (widget, args)
-       --if args["{state}"] == "Stop" then
-           --return "⮕ [<span color='#adadad'>mpd stopped</span>]"
-       --elseif args["{state}"] == "Pause" then
---return '⮕ <span color="#adadad">Paused:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
-       --else
-   --return '⮕ <span color="#adadad">Playing:</span> '.. args["{Title}"]..'<span color="#adadad"> by </span>'.. args["{Artist}"]..' '
-       --end
-   --end, 1)
-
---#############################################################################
 -- Volume Widget
 --#############################################################################
 
