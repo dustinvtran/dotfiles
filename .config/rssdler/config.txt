@@ -1,6 +1,6 @@
 #
 # rssdler dotfile
-# ~/.rssdler/config.txt
+# ~/.config/rssdler/config.txt
 # Name: nil
 #
 

@@ -9,6 +9,7 @@
 "set window-width 760
 " [L] Use this if you only have laptop display.
 set window-height 700
+
 map ; focus_inputbar :
 map <C-j> scroll half-down
 map <C-k> scroll half-up
