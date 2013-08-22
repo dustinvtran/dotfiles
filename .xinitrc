@@ -38,7 +38,7 @@ autocutsel -selection PRIMARY -fork
 compton -b
 dropboxd &
 mpd ~/.config/mpd/mpd.conf
-rssdler -d
+rssdler -c ~/.config/rssdler/config.txt -d
 synclient touchpadoff=0
 syndaemon -k -i 1 -d
 transmission-daemon &
@@ -59,6 +59,7 @@ mpdas &
 firefox &
 gvim &
 libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
+urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 # [L+E] Use this if you have both laptop and external display.
 #urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
 #urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
@@ -69,7 +70,6 @@ urxvt -name nil -g 85x24 &
 urxvt -name irssi -g 102x35 -e irssi &
 urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
 urxvt -name ranger -g 102x21 -e ranger &
-urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 
 ###############################################################################
 # Desktop Environment/Window Manager
