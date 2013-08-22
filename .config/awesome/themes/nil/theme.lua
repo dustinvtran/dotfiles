@@ -33,6 +33,7 @@ theme.menu_submenu_icon = "/home/nil/.config/awesome/themes/nil/submenu.png"
 theme.menu_height = 15
 theme.menu_width  = 100
 
+--theme.wallpaper1 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/strawberry_morning_desktop-unwatermarked.jpg"
 theme.wallpaper1 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/still_spring_desktop_unwatermarked.jpg"
 theme.wallpaper2 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/still_spring_desktop_unwatermarked.jpg"
 theme.icon_theme = nil
