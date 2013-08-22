@@ -9,8 +9,8 @@ Awesome {{{
 -------------------------------------------------------------------------------
 
 Low Priority
-    * Resize floating windows without flickering.
     * Restart awesome without flickering.
+    * Resize floating windows without flickering.
 
 }}}
 byzanz {{{
@@ -83,10 +83,13 @@ Low Priority
 Firefox Addon: Reddit Enhancement Suite {{{
 -------------------------------------------------------------------------------
 
+High Priority
     * Open comments in new (unfocused) tab.
     * Hide child comments, not hide the parent comment as well.
-    * Keyboard adjustable image, not just mouse drag-hold adjustable.
     * Prefetch all images like 4chanx.
+
+Medium Priority
+    * Keyboard adjustable image, not just mouse drag-hold adjustable.
     * Refocus frame movement like 4chanx, where if you scroll normally, then start navigating between threads or posts, it automoves that keyboard cursor to whichever ones are seen on your current display.
 
 }}}
@@ -166,7 +169,8 @@ Low Priority
 libreoffice {{{
 -------------------------------------------------------------------------------
 
-    keyboard navigation and normal/insert mode a la vim
+High Priority
+    * Modal editing, and keybind navigation a la vim
 
 }}}
 mpv {{{
@@ -198,8 +202,11 @@ Low Priority:
 ncmpcpp {{{
 -------------------------------------------------------------------------------
 
-    * Turn selected/highlighted item attribute to bold, not reverse.
+Medium Priority
     * When holding spacebar to add music to playlist, don't add the last one at end of list multiple times.
+
+Low Priority
+    * Turn selected/highlighted item attribute to bold, not reverse.
     * Display album art on another window or when I prompt for it.
     * Half-page up/downs (or 5j/k's).
 
@@ -231,7 +238,7 @@ scrot {{{
 -------------------------------------------------------------------------------
 
 Medium Priority
-    * Scrot just one window, or just one display.
+    * Scrot just one window, or just one display, or just set some pixel argument to specify how much to capture.
 
 }}}
 Transmission {{{
@@ -261,10 +268,8 @@ High Priority:
     * Add a timeout so the selected item attribute resets.
         Afterwards, set that BOLD thing to REVERSE, so it's like ncmpcpp.
 
-Medium Priority:
-    * Mouse support.
-
 Low Priority:
+    * Mouse support.
     * Somehow allow ranger to open containing folder of torrent.
     * Huge huge input lag when the file list is enormous (lagged on rahxephon with ~1000 files).
     * When i queue up/down when already at top/bottom, they add weird stats to my uploads (only happens when downloading).
@@ -283,19 +288,16 @@ Low Priority:
 Vim {{{
 -------------------------------------------------------------------------------
 
+Medium Priority
+    * EasyMotion: This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
+    * EasyMotion: Allow f/F's to be case-insensitive, but smartcase when I do capitalize.
+        (Maybe I can already do this by setting it to the EasyMotion n/N commands, whilst allowing a one key argument for the find. This also makes it easier in case I screw up so I can cycle with n/N.)
+    * NERDTree: I want you as a Toggle, but I also want you to always autotree node to CWD.
+
 Low Priority
     * Stop being so goddamn slow when scrolling through long lines and with syntax on. Setting max syntax through column shouldn't be an issue to begin with.
-
-EasyMotion:
-    * This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
-    * I want to f/F's to be case-insensitive, but smartcase when I do capitalize.
-    I can do this by setting it to the EasyMotion n/N commands, whilst allowing a one key argument for the find. This also makes it easier in case I screw up so I can cycle with n/N.
-    * Remap operator mode's t/T to <Nop> without affecting f/F's operator mode. Of course, I can always map the t/T to some other obscure keys and just forget about them, but it leaves me with peace of mind to know that whatever two keys they are, they're <Nop>'d.
-    * Include the fold title as part of search.
-NERDTree:
-    * I want you as a Toggle, but I also want you to always autotree node to CWD.
-    * 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
-Misc:
+    * EasyMotion: Include the fold title as part of search.
+    * NERDTree: 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
     * Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
 }}}
@@ -303,6 +305,4 @@ Zathura {{{
 -------------------------------------------------------------------------------
 
 Low Priority:
-    * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page.
-
-E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
+    * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page. E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
