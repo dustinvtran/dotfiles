@@ -101,6 +101,7 @@ Awesome
     * When clicking away from menu, have it hide just like it does with Escape.
     * Eminent mouse scroll through tags not working.
     * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
+    * Have alt+hjkl move correspodingly for floating windows, not just counter or clockwise.
     * Hide cursor if it doesn't move for >=5 seconds.
     * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
     * erm, that dropbox notification. Modify it.

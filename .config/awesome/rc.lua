@@ -36,7 +36,6 @@ end
 do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true
 
@@ -148,7 +147,7 @@ bashets.register("mail-notify.sh", {
 bashets.register("now-playing-mpd.sh", {
     widget = mpdwidget,
     format = '<span font="lemon">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
-    --if $2 | grep stoppped
+    --if $2 | grep stopped
     --format = '<span font="lemon">  $1<span color="#adadad">$2</span>$3</span>',
     update_time = 1,
     separator = " | "})
@@ -266,90 +265,75 @@ clientbuttons = awful.util.table.join(
 )
 
 --#############################################################################
--- Keybindings: Layout Navigation & Manipulation
+-- Keybindings: General Focusing & Layout Manipulation
 --#############################################################################
 
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "j",
-        function ()
-            awful.client.focus.byidx( 1)
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ modkey,           }, "k",
-        function ()
-            awful.client.focus.byidx(-1)
-            if client.focus then client.focus:raise() end
-        end),
-
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
-
-    awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey2,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey2, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,         }, "j",
+        function () awful.client.focus.byidx( 1) if client.focus then client.focus:raise() end end),
+    awful.key({ modkey,         }, "k",
+        function () awful.client.focus.byidx(-1) if client.focus then client.focus:raise() end end),
+    awful.key({ modkey,         }, "space", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift" }, "space", function () awful.layout.inc(layouts, -1) end),
 
 --#############################################################################
 -- Keybindings: Awesome
 --#############################################################################
 
-    awful.key({ modkey, "Shift"   }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Shift" }, "r", awesome.restart),
+    awful.key({ modkey, "Shift" }, "q", awesome.quit),
 
 --#############################################################################
--- Keybindings: Applications
+-- Keybindings: Widget Dialogs
 --#############################################################################
 
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
-    awful.key({ modkey, }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
-    awful.key({ modkey, }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey, }, "o", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "" }) end),
+    awful.key({ modkey,         }, "c", function () awful.util.spawn("calendar-toggle") end),
+    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end),
+
+--#############################################################################
+-- Keybindings: Application Focusing & Spawning
+--#############################################################################
+
+    awful.key({ modkey }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
+    awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
+    awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
+    awful.key({ modkey }, "r", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
-    --awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
-    --awful.key({ modkey, }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
-    --awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    --awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
+    --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
+    --awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
+    --awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
 
     -- [L] Use this if you only have laptop display.
-    awful.key({ modkey, }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
-    awful.key({ modkey, }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
-    awful.key({ modkey, }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    awful.key({ modkey, }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
+    awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
+    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
+    awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
-    awful.key({ modkey, }, "b", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
-    awful.key({ modkey, }, "e", function () run_or_raise("", { class = "feh" }) end),
-    awful.key({ modkey, }, "m", function () run_or_raise("", { class = "mpv" }) end),
-    awful.key({ modkey, }, "z", function () run_or_raise("", { class = "Zathura" }) end),
+    awful.key({ modkey }, "b", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
+    awful.key({ modkey }, "e", function () run_or_raise("", { class = "feh"                  }) end),
+    awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"                  }) end),
+    awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura"              }) end),
 
 --#############################################################################
 -- Keybindings: Media Keys
 --#############################################################################
 
-    awful.key({ }, "F6", function () awful.util.spawn_with_shell("play-pause") end),
-    awful.key({ }, "F9", function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
+    awful.key({ }, "F6",  function () awful.util.spawn_with_shell("play-pause") end),
+    awful.key({ }, "F9",  function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
-    awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end),
-    awful.key({ modkey }, "c", function () awful.util.spawn("calendar-toggle") end),
-    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end)
+    awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end)
 )
 
 --#############################################################################
--- Keybindings: ?
+-- Keybindings: Client Manipulation
 --#############################################################################
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey, "Shift"   }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey,           }, "d",      function (c) c:kill()                         end),
-    awful.key({ modkey,           }, "space",  function (c) c.ontop = not c.ontop            end),
-    awful.key({ modkey, "Shift"   }, "space",  awful.client.floating.toggle                     )
+    awful.key({ modkey }, "d", function (c) c:kill()              end),
+    awful.key({ modkey }, "o", function (c) c.ontop = not c.ontop end)
 )
 
 --#############################################################################
