@@ -9,11 +9,11 @@
 #########################################################
 
 downloadDir = /home/nil/Dropbox
-workingDir = /home/nil/.rssdler
+workingDir = /home/nil/.config/rssdler
 minSize = 10
 maxSize = 0
 log = 3
-logFile = /home/nil/.rssdler/rssdlerlog.log
+logFile = /home/nil/.config/rssdler/rssdlerlog.log
 verbose = 3
 scanMins = 5
 sleepTime = 5

@@ -3,7 +3,7 @@
 # ~/.zshrc
 # Name: nil
 #
-# General Settings. {{{
+# General Settings {{{
 # -----------------------------------------------------------------------------
 
 setopt auto_name_dirs
@@ -62,7 +62,7 @@ source "$fasd_cache"
 unset fasd_cache
 
 # }}}
-# Completion. {{{
+# Completion {{{
 # -----------------------------------------------------------------------------
 
 # Use (advanced) completion functionality.
@@ -107,7 +107,7 @@ zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
 # }}}
-# Appearance & Prompt Style. {{{
+# Appearance & Prompt Style {{{
 # -----------------------------------------------------------------------------
 
 # Enable colors (necessary for prompt).
@@ -151,7 +151,7 @@ zle-line-init () {
 zle -N zle-line-init
 
 # }}}
-# zle widgets. {{{
+# zle widgets {{{
 # -----------------------------------------------------------------------------
 # The ZLE widges are all followed by "zle -<MODE> <NAME>" and bound below in the "Key Bindings" section.
 
@@ -296,7 +296,7 @@ yank-x-selection () {
 zle -N yank-x-selection
 
 # }}}
-# The Vim setup. {{{
+# The Vim setup {{{
 # -----------------------------------------------------------------------------
 
 bindkey -v
@@ -319,7 +319,7 @@ bindkey -M viins "^?" backward-delete-char      # i_Backspace
 bindkey -M viins '^[[3~' delete-char            # i_Delete
 bindkey -M viins '^[[Z' reverse-menu-complete   # i_SHIFT-Tab
 
-# Vim insert mode mappings I don't use but nice to have.
+# Vim insert mode mappings I don't use but are nice to have.
 bindkey -M viins "^A" beginning-of-line         # i_CTRL-A
 bindkey -M viins "^E" end-of-line               # i_CTRL-E
 bindkey -M viins "^N" down-line-or-history      # i_CTRL-N
@@ -432,7 +432,7 @@ alias crontablx="crontab -l > ~/system-dotfiles/nil"
 
 # le git.
 alias ga="git add -f"
-alias gc="git commit -a -m"         # Don't forget to add quotes.
+alias gc="git commit -a -m"
 alias gp="git push -u origin master"
 alias gr="git rm --cached"
 alias gs="git show --name-only"
