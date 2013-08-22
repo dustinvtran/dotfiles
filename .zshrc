@@ -443,12 +443,10 @@ alias mountc="mount /dev/sdc1 /media/External_Hard_Drive"
 alias umountb="umount /media/External_Hard_Drive"
 
 # Pacman/Packer aliases.
-alias p="sudo pacman"
-alias pa="packer --noedit"
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias pqs="pacman -Qs"
-alias prns="sudo pacman -Rns"
 alias pr="sudo pacman -R"
+alias prcns="sudo pacman -Rcns"
 alias ps="packer --noedit -S"
 alias psyu="packer --noedit -Syu"
 alias pss="packer -Ss"

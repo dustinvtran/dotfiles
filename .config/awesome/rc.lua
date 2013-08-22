@@ -262,7 +262,8 @@ root.buttons(awful.util.table.join(
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
+    awful.button({ modkey }, 3, awful.mouse.client.resize)
+)
 
 --#############################################################################
 -- Keybindings: Layout Navigation & Manipulation
@@ -477,18 +478,17 @@ awful.rules.rules = {
      { rule = { class = "Firefox" },
       properties = { tag = tags[1][2], switchtotag = true } },
     { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options",
-                 "Library"} },
+                 "Library"},
+                   instance = {"plugin-container"} },
       properties = { floating = true },
       callback = awful.placement.centered },
-    { rule_any = { instance = {"plugin-container"} },
-     properties = { floating = true } },
 
 --#############################################################################
 -- Workspace 3
 --#############################################################################
 
     { rule = { instance = "VCLSalFrame" },
-      properties = { floating = false, tag = tags[1][3], switchtotag = true } },
+      properties = { tag = tags[1][3], floating = false, switchtotag = true } },
 
 --#############################################################################
 -- Workspace 4

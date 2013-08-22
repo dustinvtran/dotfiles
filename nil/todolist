@@ -1,4 +1,4 @@
-This is a document which compiles a list of things that I still have to configure or do. This is purely for personal (and
+This is a document which compiles a list of tasks that I still have to complete. This is purely for personal (and
  documented) use, so I can keep track of features I desire and when I complete them.
 
 Each to-do item for an application is assigned toward a priority level depending on how much I personally want them to be
@@ -18,10 +18,19 @@ Awesome
     * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
     * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
+    * Give separate panel widgets and stuff for each screen (in the for s=1 screencount part).
+    * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
+    * Make sure mod4 works for second display tags.
 
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
+
+irssi
+    * Learn how to use DCC stuff and join #bookz.
+    * Get a way to set a vim mode map to do "3 ", and another for "1,1 "
+    * hostserv not showing up in time for login.
+    * bouncer
 
 }}}
 High Priority {{{
@@ -33,17 +42,12 @@ Android/iPad USB Connection
 
 Awesome
     * Widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
-    * Everything not moved right on startup.
-    * 'tcli' not obeying geometry on startup. Seems to work if I activate it on a different tag and I don't see it automatically. Same with calendar, which changes position depending on which tag I open it in lol.
-    * Shift centered floating windows relative, e.g., down and/or to the left.
+    * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
     * Revamp menu, all with icons like ahoka's.
-    * Give separate panel widgets and stuff for each screen (in the for s=1 screencount part).
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
     * On top ain't working.
         Set Library on top of Firefox always.
-    * Make sure mod4 works for second display tags.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
-    * Use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
     Panel Scripts
         * mpv
             If the file name is too long (e.g. if X has > Y characters), have it cut off.
@@ -52,7 +56,7 @@ Awesome
             Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
         * volume: have a keybind to check current volume, or to pop up the display for a few seconds
             Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
-        * Right-aligned dzens should be cut off from the left not the right.
+        * Right-aligned panel widgets should be cut off from the left not the right.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -66,17 +70,11 @@ Firefox Addon: Pentadactyl
     * Have '/' searches show the # of results.
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
-irssi
-    * Learn how to use DCC stuff.
-
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
 
 mount
     * Get an automounter that doesn't suck.
-
-transmission-remote-cli
-    * Keybind two commands to queue move guys down to the bottom, or at least move down 5 times.
 
 Vim
     LaTeX
@@ -98,6 +96,7 @@ Medium Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
+    * Maybe use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
     * When clicking away from menu, have it hide just like it does with Escape.
     * Eminent mouse scroll through tags not working.
     * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
@@ -155,6 +154,9 @@ ranger
 
 SD Card
     * Doesn't read it.
+
+transmission-remote-cli
+    * Keybind two commands to queue move guys down to the bottom, or at least move down 5 times.
 
 Webcam, Mic
     * Get them working.
@@ -219,6 +221,7 @@ Firefox Addon: Pentadactyl
     * set tabmove to move to 1st position, if it's already in last position (similarly for first to last)
 
 irssi
+    * Some way to highlight all text, so you can see text underneath spoilers without requiring to use mouse.
     * Set vim_mode command to open corresponding log of the current channel in vim, so you can browse through the log.
     * Pubmsghighlight, e.g., "text + highlight", have an extra letter in their names.
     * Set adv_windowlist so that all the channels are only on one line, and the middles get ellipses, like browser tabs.
@@ -304,17 +307,5 @@ Random Shit {{{
     -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
 - Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
 
-}}}
-On [L+E] Laptop + External Display versus [L] Laptop-only Display {{{
-I use a setup of a 1366x768 display connected to an external one with 1920x1080. However, I don't always have the external
-display connected to the laptop. Hence, I noted necessary-to-change regions with [L+E] and [L], which I (un)comment
-correspondingly depending on whichever displays I have available. This is for personal usage. I have to configure the
-following apps (all of which are also (un)commented accordingly):
-    * ~/.xinitrc
-    * ~/.config/awesome/rc.lua
-    * ~/.config/ranger/rifle.conf
-    * ~/.config/zathura/zathurarc
-    * ~/.irssi/config
-    * ~/.mpv/config
 }}}
 }}}
