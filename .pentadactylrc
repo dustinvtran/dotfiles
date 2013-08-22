@@ -57,6 +57,8 @@ set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly.
 set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
+" Holy fuck this guy keeps resetting itself otherwise.
+set! general.smoothScroll=false
 
 " }}}
 " Mappings {{{
@@ -116,6 +118,7 @@ map -modes=n -builtin \3 :tabdetach<CR>
 map -modes=n -builtin <Leader>p <C-V><C-S-p>
 map -modes=n -builtin <Leader>st :set guioptions!=s<CR>
 map -modes=n -builtin a <C-v><C-d>
+map -modes=n gs gf
 map -modes=n gf <Nop>
 map -modes=n <C-q> <Nop>
 
