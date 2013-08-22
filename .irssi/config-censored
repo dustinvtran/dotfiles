@@ -9,18 +9,20 @@ servers = (
     address = "irc.rizon.net";
     chatnet = "Rizon";
     port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
     autoconnect = "yes";
   },
   {
     address = "irc.freenode.net";
     chatnet = "freenode";
     port = "6667";
-    use_ssl = "no";
-    ssl_verify = "no";
     autoconnect = "no";
   },
+  {
+    address = "irc.undernet.org";
+    chatnet = "undernet";
+    port = "6667";
+    autoconnect = "no";
+  }
 );
 
 chatnets = {
@@ -37,13 +39,14 @@ chatnets = {
     nick = "nil-";
     autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
   };
+  undernet = { type = "IRC"; };
 };
 
 channels = (
   { name = "#critics-conn"; chatnet = "Rizon"; autojoin = "yes"; },
   { name = "#TheAnime"; chatnet = "Rizon"; autojoin = "yes"; },
   { name = "#/g/summer"; chatnet = "Rizon"; autojoin = "yes"; },
-  { name = "#rice"; chatnet = "Rizon"; autojoin = "yes"; },
+  { name = "#rice"; chatnet = "Rizon"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -94,6 +97,14 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_1 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -131,7 +142,13 @@ settings = {
     vim_mode_map_leader = ",";
     trackbar_string = "—";
   };
-  "irc/core" = { alternate_nick = "nil"; };
+  "irc/core" = { alternate_nick = "nil"; skip_motd = "yes"; };
+  "irc/dcc" = {
+    dcc_autorename = "yes";
+    dcc_autoget = "yes";
+    dcc_download_path = "~/nil/Media/Literature/IRC-bookz";
+    dcc_autoaccept_lowports = "yes";
+  };
 };
 hilights = (
   { text = "nil"; nick = "yes"; word = "yes"; fullword = "yes"; },
