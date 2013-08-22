@@ -17,7 +17,7 @@ Doing the opposite already becomes counter-intuitive to the tiling WM philosophy
 
 ## Window Management
 
-[*gif indicating a bunch of focus movement and some keybind navigation*]
+(*gif indicating a bunch of focus movement and some keybind navigation*)
 
 For window navigation within  a workspace, I have keybinds to focus each one of my main applications (and the keybind spawns the app if it doesn't already exist). This makes it easy to move exactly where I want to go. Say I'm editing a file in Vim in one workspace, and now suddenly I want to browse my IRC client. Simple. `alt+i` instantly focuses irssi, I move around a bit or respond to someone, and then I `alt+w` to go back to editing my file in Vim. Two keybinds does the job that multiple, such as navigating to said workspace and then to the designated application, otherwise.
 
@@ -31,7 +31,7 @@ With all these keybinds in place, I honestly only ever require a mouse for the p
 
 ## The (Current) Layout
 
-[*picture with left side blank*]
+(*picture with left side blank*)
 
 On the larger display, I have (from top to bottom) ncmpcpp, irssi, blank terminal, and ranger, with a lot of empty space indicated on the left. This is for incidental applications, ones which are positioned there in the occasion when they're running: mpv, feh, calibre-ebook-viewer, and zathura. This allows me to use all applications in only the small windows that they're needed in, allowing a lot of room for useless gaps and wallpaper gawking. Media players—whether ranging from video or ebook to pictures—are all give their ample, needed space through that left region. Never are two ever running at the same time, so they're all allowed to grab the same position.
 
