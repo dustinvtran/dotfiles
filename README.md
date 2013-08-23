@@ -1,4 +1,4 @@
-For general documentation, see `~/nil`.
+For general documentation, see `~/doc`. Scripts are in `~/bin`, and edited system configs are in `~/system-dotfiles`.
 
 ##first display
 ![screeny1](http://a.pomf.se/5Wg1.png)

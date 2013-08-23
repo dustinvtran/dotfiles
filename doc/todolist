@@ -27,8 +27,12 @@ Theme
         Follow ricing guide.
 
 irssi
-    * Waiting for Rizon BNC. hostserv not showing up in time for login other.
+    * Configure BNC, and check out its settings.
+        Log in as nil, with host shown before channel joins.
+        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot?
+        other things?
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
+    remove folders, /doc, media
 
 Work Method
     * Finish a final draft.
@@ -42,11 +46,11 @@ Android/iPad USB Connection
     * ipad: nope.
 
 Awesome
-    * Widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
+    * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
     * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
-    * Revamp menu, all with icons like ahoka's.
+    * Revamp menu, all with cute icons.
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
-    * On top ain't working.
+    * On top ain't working as I want it to.
         Set Library on top of Firefox always.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
     Panel Scripts
@@ -86,7 +90,7 @@ Vim
     * Load multiple files so you can <C-e> right away.
 
 xinitrc
-    * tcli not starting up, even if I put it in rc.lua. What??
+    * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
 
 zsh
     * Deletearound not working.

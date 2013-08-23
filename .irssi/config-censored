@@ -6,34 +6,31 @@
 
 servers = (
   {
-    address = "irc.rizon.net";
-    chatnet = "Rizon";
-    port = "6667";
+    address = "RizonBNC.us.rizon.net";
+    chatnet = "rizon";
+    port = "12345";
     autoconnect = "yes";
+    use_ssl = "yes";
+    password = "nil:-censored-";
   },
   {
     address = "irc.freenode.net";
     chatnet = "freenode";
     port = "6667";
     autoconnect = "no";
+    use_ssl = "yes";
   },
   {
     address = "irc.undernet.org";
     chatnet = "undernet";
     port = "6667";
     autoconnect = "no";
+    use_ssl = "no";
   }
 );
 
 chatnets = {
-  Rizon = {
-    type = "IRC";
-    nick = "nil";
-    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
+  rizon = { type = "IRC"; };
   freenode = {
     type = "IRC";
     nick = "nil-";
@@ -43,20 +40,20 @@ chatnets = {
 };
 
 channels = (
-  { name = "#critics-conn"; chatnet = "Rizon"; autojoin = "yes"; },
-  { name = "#TheAnime"; chatnet = "Rizon"; autojoin = "yes"; },
-  { name = "#/g/summer"; chatnet = "Rizon"; autojoin = "yes"; },
-  { name = "#rice"; chatnet = "Rizon"; autojoin = "yes"; }
+  { name = "#critics-conn"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#/g/summer"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#rice"; chatnet = "rizon"; autojoin = "yes"; }
 );
 
 aliases = {
-  BUSY = "away rawr! (busy)";
-  SLEEP = "away rawr! (sleep)";
-  GRUB = "away rawr! (grubs and eats)";
-  WI = "whois";
-  WW = "whowas";
-  Q = "query";
-  T = "topic";
+  busy = "away rawr! (busy)";
+  sleep = "away rawr! (sleep)";
+  grub = "away rawr! (grubs and eats)";
+  wi = "whois";
+  ww = "whowas";
+  q = "query";
+  t = "topic";
 };
 
 statusbar = {
@@ -97,14 +94,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      placement = "top";
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -138,9 +127,10 @@ settings = {
     awl_placement = "top";
     openurl_app_http = "/usr/bin/firefox -new-tab $1 >/dev/null 2>&1";
     openurl_max_urls = "99";
+    trackbar_string = "—";
+    trackbar_style = "%w";
     vim_mode_start_cmd = "yes";
     vim_mode_map_leader = ",";
-    trackbar_string = "—";
   };
   "irc/core" = { alternate_nick = "nil"; skip_motd = "yes"; };
   "irc/dcc" = {
