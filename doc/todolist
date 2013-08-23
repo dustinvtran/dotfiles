@@ -31,8 +31,8 @@ irssi
         Log in as nil, with host shown before channel joins.
         How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot?
         other things?
+    * SSL
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
-    remove folders, /doc, media
 
 Work Method
     * Finish a final draft.

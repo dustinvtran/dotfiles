@@ -426,7 +426,7 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # System-dotfile backups.
-alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/system-dotfiles/package-list"
+alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/doc/package-list"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/system-dotfiles/nil"
 
