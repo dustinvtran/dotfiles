@@ -294,8 +294,8 @@ globalkeys = awful.util.table.join(
 -- Keybindings: Application Focusing & Spawning
 --#############################################################################
 
-    awful.key({ modkey }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim" }) end),
+    awful.key({ modkey }, "Return", function () awful.util.spawn(terminal)                end),
+    awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim"       }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey }, "r", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
@@ -482,7 +482,7 @@ awful.rules.rules = {
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
 
 --#############################################################################
--- Workspace 1([L+E]) or Workspace 5 ([L])
+-- Workspace 1 ([L+E]) or Workspace 5 ([L])
 --#############################################################################
 
     -- [L+E] Use this if you have both laptop and external display.
