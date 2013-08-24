@@ -8,7 +8,14 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+kernel panics after i did dhcpcd wlan0, while with netctl. It will do this once I start wlan0-Dustin, which works perfectly now after I uninstalled and then installed netctl again. How do I fix this?
+    Just removed dhcpcd then reinstalled.
+zshinfo corrupt history file
+
 Awesome
+    * Give separate panel widgets for each screen (in the for s=1 screencount part).
+    * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
+    * Set second display tags to be 11-15, and have mod4 navigate to them.
     * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
         mpd: stopped
         battery: low
@@ -18,21 +25,19 @@ Awesome
     * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
     * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
-    * Give separate panel widgets and stuff for each screen (in the for s=1 screencount part).
-    * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
-    * Make sure mod4 works for second display tags.
 
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
 
 irssi
-    * Configure BNC, and check out its settings.
-        Log in as nil, with host shown before channel joins.
+    * Configure BNC, and check out other settings.
         How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot?
-        other things?
-    * SSL
+        Check out other settings.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
+
+try out that lpf thing he said
+xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
 
 Work Method
     * Finish a final draft.
@@ -145,7 +150,8 @@ irssi
     * OpenURL: weird error stuff on some urls, and sometimes don't load full url
     * Display some type of % sign when not at bottom of text.
     * Mouse: Remove everything except what gives you scroll support. Shift+drag click is annoying, and just like in terminal I like the combo of mouse scrolls+drag click meaning highlight text.
-    * Register username on Undernet, do nick/vhosts/BNC for all servers.
+    * Do nick/vhosts/BNC for all servers.
+    * IRC: SSL cerificate path and SSL_verify.
 
 ncmpcpp
     * Somehow play everything as the playlist (clear, then add them).

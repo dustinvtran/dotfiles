@@ -30,7 +30,10 @@ servers = (
 );
 
 chatnets = {
-  rizon = { type = "IRC"; };
+  rizon = {
+   type = "IRC";
+   nick = "nil";
+  };
   freenode = {
     type = "IRC";
     nick = "nil-";
@@ -121,9 +124,9 @@ settings = {
     awl_display_key = "%w$H $C  $S";
     awl_display_key_active = "%r$H $C  $S";
     # [L+E] Use this if you have both laptop and external display.
-    #awl_display_header = "                 ";
+    awl_display_header = "                 ";
     # [L] Use this if you only have laptop display.
-    awl_display_header = "                           ";
+    #awl_display_header = "                           ";
     awl_placement = "top";
     openurl_app_http = "/usr/bin/firefox -new-tab $1 >/dev/null 2>&1";
     openurl_max_urls = "99";

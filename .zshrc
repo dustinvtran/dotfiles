@@ -391,7 +391,7 @@ alias mkdir='nocorrect mkdir'
 alias sudo='nocorrect sudo'
 
 # Default flags.
-alias ping="ping -c 5"                  # Ping 5 packets, not unlimited.
+alias ping="ping -c 5 www.google.com"   # The only reason I ever use ping.
 alias crontab="EDITOR=vim crontab"      # Since crontab doesn't work with gvim/detached editors.
 alias cp="nocorrect cp -Rv"             # Ensure that cp is always recursive and verbose.
 alias df="df -h"                        # Display sizes in human readable format.
@@ -426,7 +426,7 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # System-dotfile backups.
-alias plx="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) > ~/doc/package-list"
+alias plx="echo 'This lists any installed packages that are not in base/base-devel, and as such were likely installed manually by the user.\n' > ~/doc/package-list && comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) >> ~/doc/package-list"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/system-dotfiles/nil"
 
@@ -458,7 +458,7 @@ alias tr="restore-trash"
 alias emptytrash="trash-empty"
 
 # CLI Applications
-alias alsi="clear && alsi -a -c1=white -c2=unboldblue"
+alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
