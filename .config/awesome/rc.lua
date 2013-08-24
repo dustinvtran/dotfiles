@@ -116,7 +116,7 @@ mymainmenu = awful.menu({ items = {
 -- Bashets Widgets: Battery, Clock, Irssi Notification, Mail Notification, mpv
 --#############################################################################
 
-bashets.set_script_path("/home/nil/.config/awesome/widgets")
+bashets.set_script_path("/home/nil/.config/awesome/widgets/")
 batwidget = wibox.widget.textbox()
 clockwidget = wibox.widget.textbox()
 irssiwidget = wibox.widget.textbox()

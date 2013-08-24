@@ -12,10 +12,13 @@ Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl ena
 
 Also, zshinfo corrupt lol.
 
+try out that lpf thing he said
+xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
+
 Awesome
+    * Set second display tags to be 11-15, and have mod4 navigate to them.
     * Give separate panel widgets for each screen (in the for s=1 screencount part).
     * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
-    * Set second display tags to be 11-15, and have mod4 navigate to them.
     * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
         mpd: stopped
         battery: low
@@ -31,13 +34,9 @@ Theme
         Follow ricing guide.
 
 irssi
-    * Configure BNC, and check out other settings.
-        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot?
-        Check out other settings.
+    * Configure BNC.
+        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot? How does it manage massive logs when I was gone for, e.g., days?
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
-
-try out that lpf thing he said
-xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
 
 Work Method
     * Finish a final draft.
@@ -211,6 +210,9 @@ zsh
 }}}
 Low Priority {{{
 -------------------------------------------------------------------------------
+
+audio-output
+    * Don't require restarting applications, e.g., mpd, firefox, but don't force-kill and restart them.
 
 Audio
     * Can't change volume with alsamixer and usb DAC; i can change all volumes in their own app save for ncmpcpp's.

@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# This is a script that switches among three audio outputs depending on the argument.
+
+if [ $1 == "laptop" ]; then
+    ln -sf ~/bin/config/asound.laptop ~/.asoundrc
+    echo "You're using the Laptop audio."
+elif [ $1 == "hdmi" ]; then
+    ln -sf ~/bin/config/asound.hdmi ~/.asoundrc
+    echo "You're using the HDMI audio."
+elif [ $1 == "usb" ]; then
+    ln -sf ~/bin/config/asound.usb ~/.asoundrc
+    echo "You're using the usb audio."
+fi
