@@ -8,9 +8,9 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-kernel panics after i did dhcpcd wlan0, while with netctl. It will do this once I start wlan0-Dustin, which works perfectly now after I uninstalled and then installed netctl again. How do I fix this?
-    Just removed dhcpcd then reinstalled.
-zshinfo corrupt history file
+Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
+
+Also, zshinfo corrupt lol.
 
 Awesome
     * Give separate panel widgets for each screen (in the for s=1 screencount part).
