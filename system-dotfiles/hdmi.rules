@@ -1,1 +1,1 @@
-SUBSYSTEM=="drm", ACTION=="change", RUN+="/bin/bash /bin/hdmi-switch"
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/bin/bash /bin/udev-hdmi-switch"

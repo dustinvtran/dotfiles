@@ -4,19 +4,11 @@ dev-cdrom.device           loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-disk...VLJJ4KUJ.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...SZ707447.device loaded active   plugged   hp_CDDVDW_TS-U633F
-dev-disk...7\x2d0:0.device loaded active   plugged   JD_FIREFLY
-dev-disk...x2dpart1.device loaded active   plugged   JD_FIREFLY
 dev-disk...b5e3861e.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-disk...x2dpart1.device loaded active   plugged   Hitachi_HTS725050A9A364
-dev-disk...H_201210.device loaded active   plugged   JD_FIREFLY
-dev-disk...d0:0:0:0.device loaded active   plugged   JD_FIREFLY
-dev-disk...x2dpart1.device loaded active   plugged   JD_FIREFLY
-dev-disk...44\x2d00.device loaded active   plugged   JD_FIREFLY
 dev-disk...0649093b.device loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda.device             loaded active   plugged   Hitachi_HTS725050A9A364
 dev-sda1.device            loaded active   plugged   Hitachi_HTS725050A9A364
-dev-sdb.device             loaded active   plugged   JD_FIREFLY
-dev-sdb1.device            loaded active   plugged   JD_FIREFLY
 dev-sr0.device             loaded active   plugged   hp_CDDVDW_TS-U633F
 dev-ttyS0.device           loaded active   plugged   /dev/ttyS0
 dev-ttyS1.device           loaded active   plugged   /dev/ttyS1
@@ -26,8 +18,6 @@ sys-devi...nd-card1.device loaded active   plugged   Schiit_USB_Audio_Device
 sys-devi...nd-card0.device loaded active   plugged   5 Series/3400 Series Chipset High Definition Audio
 sys-devi...net-eth0.device loaded active   plugged   RTL8111/8168 PCI Express Gigabit Ethernet controller
 sys-devi...et-wlan0.device loaded active   plugged   BCM4313 802.11b/g/n Wireless LAN Controller
-sys-devi...sdb-sdb1.device loaded active   plugged   JD_FIREFLY
-sys-devi...lock-sdb.device loaded active   plugged   JD_FIREFLY
 sys-devi...sda-sda1.device loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devi...lock-sda.device loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devi...lock-sr0.device loaded active   plugged   hp_CDDVDW_TS-U633F
@@ -58,12 +48,13 @@ colord.service             loaded active   running   Manage, Install and Generat
 cronie.service             loaded active   running   Periodic Command Scheduler
 cups.service               loaded active   running   CUPS Printing Service
 dbus.service               loaded active   running   D-Bus System Message Bus
+dhcpcd@eth0.service        loaded active   running   dhcpcd on eth0
 dmeventd.service           loaded inactive dead      Device-mapper event daemon
 emergency.service          loaded inactive dead      Emergency Shell
 httpd.service              error  inactive dead      httpd.service
 lvmetad.service            loaded inactive dead      LVM2 metadata daemon
 net-auto-wireless.service  error  inactive dead      net-auto-wireless.service
-netctl-auto@wlan0.service  loaded failed   failed    Automatic wireless network connection using netctl profiles
+netctl-auto@wlan0.service  error  failed   failed    netctl-auto@wlan0.service
 ntpd.service               loaded active   running   Network Time Service
 plexmediaserver.service    loaded active   running   Plex Media Server for Linux
 plymouth-quit-wait.service error  inactive dead      plymouth-quit-wait.service
@@ -135,5 +126,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-131 loaded units listed.
+122 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.

@@ -116,7 +116,7 @@ mymainmenu = awful.menu({ items = {
 -- Bashets Widgets: Battery, Clock, Irssi Notification, Mail Notification, mpv
 --#############################################################################
 
-bashets.set_script_path("/home/nil/bin/")
+bashets.set_script_path("/home/nil/.config/awesome/widgets")
 batwidget = wibox.widget.textbox()
 clockwidget = wibox.widget.textbox()
 irssiwidget = wibox.widget.textbox()
@@ -448,12 +448,21 @@ awful.rules.rules = {
 -- Workspace 1
 --#############################################################################
 
+    -- [L+E] Use this if you have both laptop and external display.
     { rule = { class = "Gvim" },
       properties = { floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=30, y=40}) end },
+      callback = function(c) c:geometry({x=1950, y=40}) end },
     { rule = { instance = "tcli" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=30, y=560}) end },
+      callback = function(c) c:geometry({x=1950, y=560}) end },
+
+    -- [L] Use this if you only have laptop display.
+    --{ rule = { class = "Gvim" },
+      --properties = { floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=30, y=40}) end },
+    --{ rule = { instance = "tcli" },
+      --properties = { tag = tags[1][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=30, y=560}) end },
 
 --#############################################################################
 -- Workspace 2
