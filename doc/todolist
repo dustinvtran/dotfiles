@@ -10,8 +10,6 @@ Highest Priority {{{
 
 Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
 
-Also, zshinfo corrupt lol.
-
 try out that lpf thing he said
 xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
 
@@ -32,14 +30,6 @@ Awesome
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
-
-irssi
-    * Configure BNC.
-        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot? How does it manage massive logs when I was gone for, e.g., days?
-    * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
-
-Work Method
-    * Finish a final draft.
 
 }}}
 High Priority {{{
@@ -79,6 +69,11 @@ Firefox Addon: Pentadactyl
     * Have '/' searches show the # of results.
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
+irssi
+    * Configure BNC.
+        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot? How does it manage massive logs when I was gone for, e.g., days?
+    * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
+
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
 
@@ -99,6 +94,9 @@ xinitrc
 zsh
     * Deletearound not working.
     * Tab completion doesn't work on some commands (e.g. fasd, git).
+
+Work Method
+    * Finish a final draft.
 
 }}}
 Medium Priority {{{
