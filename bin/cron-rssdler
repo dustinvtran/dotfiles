@@ -4,7 +4,6 @@
 
 pgrep rssdler
 # If not running.
-if [ $? -ne 0 ]
-then
-   rssdler -c /home/nil/.config/rssdler/config.txt -d &
+if [ $? -ne 0 ]; then
+   rssdler -c /home/nil/.config/rssdler/config.txt -d
 fi

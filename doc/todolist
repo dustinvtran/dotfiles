@@ -8,15 +8,12 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
-
-try out that lpf thing he said
-xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
-
 Awesome
-    * Set second display tags to be 11-15, and have mod4 navigate to them.
-    * Give separate panel widgets for each screen (in the for s=1 screencount part).
     * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
+    * Maybe change all applications to sizes from awesome instead.
+    * Give separate panel widgets for each screen (in the for s=1 screencount part).
+    * Move mouse to center of screen of new focused tag.
+
     * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
         mpd: stopped
         battery: low
@@ -26,10 +23,28 @@ Awesome
     * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
     * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
     * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
+    * Try rodentbane for mouse movement with keyobard.
+
+    * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
+
+ranger
+    * mpv not opening on the first ranger startup from boot.
+    * not the right audio on startup.
+    * Glitches when moving to firefox sometimes.
 
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
+
+Small Issues
+    Awesome
+        * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
+    Wifi
+        Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
+    try out that lpf thing he said
+    xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
+    cron
+        * errr, rssdler wasn't running for quite a while and while mpdas was running (I think?), it didnt scrobble?. are the jobs working? or are the scripts faulty? I think it's the scripts, as indicated by running cron-rssdler and it not doing anything.
 
 }}}
 High Priority {{{

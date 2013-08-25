@@ -70,11 +70,11 @@ local layouts =
 }
 
 tags = {
-names1  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
-layout1 = { layouts[1], layouts[2], layouts[2], layouts[2], layouts[1],
-          layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
-names2  = { "i", "ii", "iii", "iv", "v" },
-layout2 = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
+    names1  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
+    layout1 = { layouts[1], layouts[2], layouts[2], layouts[2], layouts[1],
+              layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
+    names2  = { "i", "ii", "iii", "iv", "v" },
+    layout2 = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
 }
 
 beautiful.init("/home/nil/.config/awesome/themes/nil/theme.lua")
@@ -232,7 +232,7 @@ for s = 1, screen.count() do
 
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(volwidget)
-    right_layout:add(mailwidget)
+    --right_layout:add(mailwidget)
     right_layout:add(irssiwidget)
     right_layout:add(mpvwidget)
     right_layout:add(mpdwidget)
@@ -298,7 +298,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim"       }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey }, "r", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
+    awful.key({ modkey }, "l", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
     awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
@@ -312,8 +312,8 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
-    awful.key({ modkey }, "b", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
-    awful.key({ modkey }, "e", function () run_or_raise("", { class = "feh"                  }) end),
+    awful.key({ modkey }, "e", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
+    awful.key({ modkey }, "h", function () run_or_raise("", { class = "feh"                  }) end),
     awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"                  }) end),
     awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura"              }) end),
 
@@ -344,7 +344,7 @@ for i = 1, 9 do
     globalkeys = awful.util.table.join(globalkeys,
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = mouse.screen
+                        local screen = 1
                         local tag = awful.tag.gettags(screen)[i]
                         if tag then
                            awful.tag.viewonly(tag)
@@ -352,7 +352,7 @@ for i = 1, 9 do
                   end),
         awful.key({ modkey, "Control" }, "#" .. i + 9,
                   function ()
-                      local screen = mouse.screen
+                      local screen = 1
                       local tag = awful.tag.gettags(screen)[i]
                       if tag then
                          awful.tag.viewtoggle(tag)
@@ -376,7 +376,7 @@ end
 globalkeys = awful.util.table.join(globalkeys,
     awful.key({ modkey }, "0" ,
               function ()
-                    local screen = mouse.screen
+                    local screen = 1
                     local tag = awful.tag.gettags(screen)[10]
                     if tag then
                        awful.tag.viewonly(tag)
@@ -384,7 +384,7 @@ globalkeys = awful.util.table.join(globalkeys,
               end),
     awful.key({ modkey, "Control" }, "0",
               function ()
-                  local screen = mouse.screen
+                  local screen = 1
                   local tag = awful.tag.gettags(screen)[10]
                   if tag then
                      awful.tag.viewtoggle(tag)
@@ -404,30 +404,39 @@ globalkeys = awful.util.table.join(globalkeys,
                       awful.client.toggletag(tag)
                   end
               end))
--- Super+1-5 keys {{{
---globalkeys = awful.util.table.join(globalkeys,
-    --awful.key({ modkey2 }, "1" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[11] if tag then awful.tag.viewonly(tag) end end),
-    --awful.key({ modkey2, "Control" }, "1", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[11] if tag then awful.tag.viewtoggle(tag) end end),
-    --awful.key({ modkey2, "Shift" }, "1", function () local tag = awful.tag.gettags(client.focus.screen)[11] if client.focus and tag then awful.client.movetotag(tag) end end),
-    --awful.key({ modkey2, "Control", "Shift" }, "1", function () local tag = awful.tag.gettags(client.focus.screen)[11] if client.focus and tag then awful.client.toggletag(tag) end end),
-    --awful.key({ modkey2 }, "2" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[12] if tag then awful.tag.viewonly(tag) end end),
-    --awful.key({ modkey2, "Control" }, "2", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[12] if tag then awful.tag.viewtoggle(tag) end end),
-    --awful.key({ modkey2, "Shift" }, "2", function () local tag = awful.tag.gettags(client.focus.screen)[12] if client.focus and tag then awful.client.movetotag(tag) end end),
-    --awful.key({ modkey2, "Control", "Shift" }, "2", function () local tag = awful.tag.gettags(client.focus.screen)[12] if client.focus and tag then awful.client.toggletag(tag) end end),
-    --awful.key({ modkey2 }, "3" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[13] if tag then awful.tag.viewonly(tag) end end),
-    --awful.key({ modkey2, "Control" }, "3", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[13] if tag then awful.tag.viewtoggle(tag) end end),
-    --awful.key({ modkey2, "Shift" }, "3", function () local tag = awful.tag.gettags(client.focus.screen)[13] if client.focus and tag then awful.client.movetotag(tag) end end),
-    --awful.key({ modkey2, "Control", "Shift" }, "3", function () local tag = awful.tag.gettags(client.focus.screen)[13] if client.focus and tag then awful.client.toggletag(tag) end end),
-    --awful.key({ modkey2 }, "4" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[14] if tag then awful.tag.viewonly(tag) end end),
-    --awful.key({ modkey2, "Control" }, "4", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[14] if tag then awful.tag.viewtoggle(tag) end end),
-    --awful.key({ modkey2, "Shift" }, "4", function () local tag = awful.tag.gettags(client.focus.screen)[14] if client.focus and tag then awful.client.movetotag(tag) end end),
-    --awful.key({ modkey2, "Control", "Shift" }, "4", function () local tag = awful.tag.gettags(client.focus.screen)[14] if client.focus and tag then awful.client.toggletag(tag) end end),
-    --awful.key({ modkey2 }, "5" , function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[15] if tag then awful.tag.viewonly(tag) end end),
-    --awful.key({ modkey2, "Control" }, "5", function () local screen = mouse.screen local tag = awful.tag.gettags(screen)[15] if tag then awful.tag.viewtoggle(tag) end end),
-    --awful.key({ modkey2, "Shift" }, "5", function () local tag = awful.tag.gettags(client.focus.screen)[15] if client.focus and tag then awful.client.movetotag(tag) end end),
-    --awful.key({ modkey2, "Control", "Shift" }, "5", function () local tag = awful.tag.gettags(client.focus.screen)[15] if client.focus and tag then awful.client.toggletag(tag) end end)
---)
--- }}}
+for i = 1, 5 do
+    globalkeys = awful.util.table.join(globalkeys,
+        awful.key({ modkey2 }, "#" .. i + 9,
+                  function ()
+                        local screen = 2
+                        local tag = awful.tag.gettags(screen)[i]
+                        if tag then
+                           awful.tag.viewonly(tag)
+                        end
+                  end),
+        awful.key({ modkey2, "Control" }, "#" .. i + 9,
+                  function ()
+                      local screen = 2
+                      local tag = awful.tag.gettags(screen)[i]
+                      if tag then
+                         awful.tag.viewtoggle(tag)
+                      end
+                  end),
+        awful.key({ modkey2, "Shift" }, "#" .. i + 9,
+                  function ()
+                      local tag = awful.tag.gettags(client.focus.screen)[i]
+                      if client.focus and tag then
+                          awful.client.movetotag(tag)
+                     end
+                  end),
+        awful.key({ modkey2, "Control", "Shift" }, "#" .. i + 9,
+                  function ()
+                      local tag = awful.tag.gettags(client.focus.screen)[i]
+                      if client.focus and tag then
+                          awful.client.toggletag(tag)
+                      end
+                  end))
+end
 
 -- Set the keys.
 root.keys(globalkeys)
@@ -512,13 +521,16 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=0, y=0}) end },
     { rule = { class = "mpv" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=0, y=0}) end },
+      callback = awful.placement.centered,
+      --callback = awful.client.moveresize(  0,  16,   0,   0)
+      },
+      --callback = function(c) c:geometry({x=60, y=200}) end },
     { rule = { class = "Zathura" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=0, y=0}) end },
     { rule = { class = "Calibre-ebook-viewer" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=0, y=0}) end },
+      callback = function(c) c:geometry({x=275, y=40,width = 800 , height = 1020}) end },
 
     -- [L] Use this if you only have laptop display.
     --{ rule = { instance = "irssi" },
@@ -533,9 +545,12 @@ awful.rules.rules = {
     --{ rule = { instance = "ranger" },
       --properties = { tag = tags[1][5], floating = true, switchtotag = true },
       --callback = function(c) c:geometry({x=780, y=540}) end },
-    --{ rule_any = { class = {"feh", "mpv", "Zathura", "Calibre-ebook-viewer"} },
+    --{ rule_any = { class = {"feh", "mpv", "Zathura" } },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
       --callback = awful.placement.centered },
+    --{ rule = { class = "Calibre-ebook-viewer" },
+      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({width = 700 , height = 725}) end },
 
 --#############################################################################
 -- Miscellaneous
