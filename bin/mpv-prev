@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # This is a script set as a keybind in mpv. It allows me to do multiple commands simultaneously.
-# Note: Using ";" directly in input.conf keybinds does not always work.
+# Note: This is a workaround since applying ";" directly in input.conf keybinds does not always work.
 
 echo "playlist_prev weak" > ~/bin/config/mpv-control
 echo 'show_text "${filename}"' > ~/bin/config/mpv-control

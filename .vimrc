@@ -97,7 +97,7 @@ augroup misc
     " Remove any trailing whitespace in the file.
     autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
     " Auto-open last file if invoked without arguments.
-    autocmd VimEnter * nested if
+    autocmd GUIEnter * nested if
       \ argc() == 0 &&
       \ bufname("%") == "" &&
       \ bufname("2" + 0) != "" |

@@ -1,4 +1,5 @@
-This lists any installed packages that are not in base/base-devel, and as such were likely installed manually by the user.
+This lists any installed packages that are not in the base or base-devel group, and are hence likely installed manually by
+ me.
 
 acpi
 alsa-utils

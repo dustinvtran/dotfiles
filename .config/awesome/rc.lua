@@ -521,10 +521,7 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=0, y=0}) end },
     { rule = { class = "mpv" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = awful.placement.centered,
-      --callback = awful.client.moveresize(  0,  16,   0,   0)
-      },
-      --callback = function(c) c:geometry({x=60, y=200}) end },
+      callback = function(c) c:geometry({x=65, y=200}) end },
     { rule = { class = "Zathura" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=0, y=0}) end },
