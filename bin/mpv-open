@@ -3,38 +3,49 @@
 # This is my solution to efficient playlist navigation in mpv. It makes use of ranger to add files to the playlist, and vim
 # to rearrange items on the list.
 #
-# WHAT IT DOES:
-#   * Pause ncmpcpp, e.g., if it's playing while I open mpv.
-#   * If mpv isn't running, take all arguments and place them into a new playlist; then mpv plays from that list.
-#   * If mpv is running, take all arguments and append them into the current playlist.
-#   * Incidentally, it also gives the desired functionality of only one running instance of mpv.
-#
-# WHAT IT MEANS:
-# This is the default mpv command for my rifle.conf. This allows me to open any number of selected videos from ranger and
+# WHAT THIS DOES:
+# This is the default mpv command for my rifle.conf. This allows me to take any number of selected videos from ranger and
 # directly append them to this playlist. This solves the dilemma of trying to add files to a playlist within a non-GUI,
 # non-slaved video player. It's even faster than GUI's because you're adding everything via ranger keybinds (!).
 #
-# I can then rearrange the playlist (add, remove, reorder, "save as") by directly editing the playlist file; leaving vim
-# for me automatically triggers mpv-reload, which reloads the playlist. That's it!
+# I can then rearrange the playlist (add, remove, reorder, "save as") by directly editing the playlist file; an
+# autocommand set in vim reloads the playlist on exit. That's it!
 #
 # WHAT ISN'T PERFECT:
-#   1. mpv won't auto-reload the playlist so you have to do it manually. I've automated it on exiting gvim, but you
-# otherwise have to reload it manually if straight from mpv.
-#   2. To reload without losing your mpv position, you're forced to use reload with append. But to keep the playlist order
-# correct, you have to delete all previous items before and including your current playing file in the playlist. Hence,
-# backwards navigation isn't very comprehensive since you keep removing all your shit (and must do this manually, mind
-# you).
+# * You can't keep any videos in the playlist up to your currently playing file. Your currently playing file will also not
+# show in the playlist editor, although it's technically the first item in the list.
+# * If you add the currently playing file into the playlist, it removes everything up to and including it. This solves the
+# dilemma of reloading the playlist without appending the currently playing file again, but it also means you can't add
+# another instance of the currently playing file later on in the playlist.
 
-ncmpcpp pause
-if [ $(pgrep mpv) -ne 0 ]
-then
+playlist=~/.mpv/playlist
+file=$(~/bin/notme/now-playing-mpv)
+unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
+
+# If mpv isn't running.
+if [ $(pgrep mpv) -ne 0 ]; then
+    # Pause mpd, e.g., if I open mpv while mpd is still playing.
+    ncmpcpp pause
+    # Place all arguments into new playlist.
     rm ~/.mpv/playlist
     for i in "$@"; do
-        echo "$i" >> ~/.mpv/playlist
+        echo "$i" >> $playlist
     done
-    mpv --playlist ~/.mpv/playlist
+    # Play mpv off that playlist.
+    mpv --playlist $playlist
+# If mpv is running.
 else
+    # Append all arguments into current playlist.
     for i in "$@"; do
-        echo "$i" >> ~/.mpv/playlist
+        echo "$i" >> $playlist
     done
+    # If currently playing file exists in playlist.
+    if [ $(grep -F "$file" $playlist | wc -l) -ne 0 ]; then
+        # Remove all lines up to and including the first occurrence of the currently playing filename.
+        sed -i "0,/$unregexfile/d" $playlist
+    fi
+    # Reload playlist by clearing it, then appending all files from the newly modified list.
+    echo "playlist_clear" > ~/bin/config/mpv-control
+    echo 'loadlist "/home/nil/.mpv/playlist" append' > ~/bin/config/mpv-control
+    echo 'show_text "Playlist updated."' > ~/bin/config/mpv-control
 fi

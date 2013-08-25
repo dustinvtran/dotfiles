@@ -1,8 +1,17 @@
 #! /bin/bash
 
-# This is a script set as a keybind in mpv. It allows me to do multiple commands simultaneously.
-# Note: Using ";" directly in input.conf keybinds does not always work.
+# This is an automated script set in mpv, which is run whenever I exit the mpv playlist editor.
 
+playlist=~/.mpv/playlist
+file=$(~/bin/notme/now-playing-mpv)
+unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
+
+# If currently playing file exists in playlist.
+if [ $(grep -F "$file" $playlist | wc -l) -ne 0 ]; then
+    # Remove all lines up to and including the first occurrence of the currently playing filename.
+    sed -i "0,/$unregexfile/d" $playlist
+fi
+# Reload playlist by clearing it, then appending all files from the newly modified list.
 echo "playlist_clear" > ~/bin/config/mpv-control
 echo 'loadlist "/home/nil/.mpv/playlist" append' > ~/bin/config/mpv-control
-echo 'show_text "Reloaded"' > ~/bin/config/mpv-control
+echo 'show_text "Playlist updated."' > ~/bin/config/mpv-control

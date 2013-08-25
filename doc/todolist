@@ -13,6 +13,7 @@ Awesome
     * Maybe change all applications to sizes from awesome instead.
     * Give separate panel widgets for each screen (in the for s=1 screencount part).
     * Move mouse to center of screen of new focused tag.
+        Do something like switchtotag in the keybinds.
 
     * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
         mpd: stopped
@@ -39,11 +40,11 @@ Small Issues
         Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
     cron
         * Changed scripts, check to see if it works. cron-mpdas doesn't seem to run in the background; hopefully does this matter?
-    ranger
-        * mpv not opening on the first ranger startup from boot.
-            Changed the route to systematic one. Hopefully this helps it.
     * Glitches when moving to firefox sometimes.
     * xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
+
+mpv
+    * Should I add a kill mpv + mpv-open option? Should I add focus?
 
 }}}
 High Priority {{{
