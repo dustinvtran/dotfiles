@@ -13,10 +13,10 @@
 xrandr | grep "HDMI1 connected"
 if [ $? -eq 0 ]; then
     xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
-    ln -sf /home/nil/.config/nil/scripts/asound.usb /home/nil/.asoundrc
+    ln -sf /home/nil/bin/config/asound.usb /home/nil/.asoundrc
 else
     xrandr --output HDMI1 --off
-    ln -sf /home/nil/.config/nil/scripts/asound.usb /home/nil/.asoundrc
+    ln -sf /home/nil/bin/config/asound.usb /home/nil/.asoundrc
 fi
 
 # Inactivity Time to Turn Off Display

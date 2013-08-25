@@ -27,10 +27,6 @@ Awesome
 
     * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
 
-ranger
-    * mpv not opening on the first ranger startup from boot.
-    * not the right audio on startup.
-    * Glitches when moving to firefox sometimes.
 
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
@@ -41,10 +37,13 @@ Small Issues
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
     Wifi
         Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
-    try out that lpf thing he said
-    xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
     cron
-        * errr, rssdler wasn't running for quite a while and while mpdas was running (I think?), it didnt scrobble?. are the jobs working? or are the scripts faulty? I think it's the scripts, as indicated by running cron-rssdler and it not doing anything.
+        * Changed scripts, check to see if it works. cron-mpdas doesn't seem to run in the background; hopefully does this matter?
+    ranger
+        * mpv not opening on the first ranger startup from boot.
+            Changed the route to systematic one. Hopefully this helps it.
+    * Glitches when moving to firefox sometimes.
+    * xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
 
 }}}
 High Priority {{{
@@ -76,7 +75,7 @@ Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
 
 cron
-    * xcape cron not working.
+    * Do I still need an xcape cronjob?
 
 Firefox Addon: Pentadactyl
     * Using digits autogoes to a url page. stahp. let them use google.
@@ -158,10 +157,9 @@ git
 irssi
     * Get a way to set a vim mode map to do "3 ", and another for "1,1 "
     * Do stuff like /whois, <c-r>, and /nicklist while being able to remove all that text when i no longer want to see it.
-        * A status window works for this, but it doesn't include /names. How to?
+    * A status window works for this, but it doesn't include /names. How to?
     * OpenURL: weird error stuff on some urls, and sometimes don't load full url
     * Display some type of % sign when not at bottom of text.
-    * Mouse: Remove everything except what gives you scroll support. Shift+drag click is annoying, and just like in terminal I like the combo of mouse scrolls+drag click meaning highlight text.
     * Do nick/vhosts/BNC for all servers.
     * IRC: SSL cerificate path and SSL_verify.
 
