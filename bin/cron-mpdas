@@ -4,7 +4,6 @@
 
 pgrep mpdas
 # If not running.
-if [ $? -ne 0 ]
-then
+if [ $? -ne 0 ]; then
    mpdas &
 fi

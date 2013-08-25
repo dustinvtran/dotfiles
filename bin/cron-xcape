@@ -8,7 +8,7 @@
 # this.
 #set +e
 #pkill xcape
-#xcape -e 'Control_L=Escape' &
+#xcape -e 'Control_L=Escape'
 #set -e
 
 #xcape
