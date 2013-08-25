@@ -1,9 +1,16 @@
 #! /bin/bash
 
-# This is a script for cronjob.
+# This is a script for cronjob which keeps the specified program always running.
 
-pgrep rssdler
-# If not running.
-if [ $? -ne 0 ]; then
-   rssdler -c /home/nil/.config/rssdler/config.txt -d
+export DISPLAY=:0
+
+program="rssdler"
+command=$(rssdler -c /home/nil/.config/rssdler/config.txt -d)
+
+if ps ax | grep -v grep | grep $program > /dev/null
+    then
+        exit
+    else
+    $command
 fi
+exit

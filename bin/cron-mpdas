@@ -1,9 +1,16 @@
 #! /bin/bash
 
-# This is a script for cronjob.
+# This is a script for cronjob which keeps the specified program always running.
 
-pgrep mpdas
-# If not running.
-if [ $? -ne 0 ]; then
-   mpdas &
-fi
+#export DISPLAY=:0
+
+#program="mpdas"
+#command=$(mpdas &)
+
+#if ps ax | grep -v grep | grep $program > /dev/null
+    #then
+        #exit
+    #else
+    #$command
+#fi
+#exit
