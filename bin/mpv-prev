@@ -4,4 +4,4 @@
 # Note: This is a workaround since applying ";" directly in input.conf keybinds does not always work.
 
 echo "playlist_prev weak" > ~/bin/config/mpv-control
-#echo 'show_text "${filename}"' > ~/bin/config/mpv-control
+echo 'show_text "${filename}"' > ~/bin/config/mpv-control

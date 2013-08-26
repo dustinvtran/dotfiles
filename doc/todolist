@@ -167,7 +167,6 @@ irssi
     * Get a way to set a vim mode map to do "3 ", and another for "1,1 "
     * Do stuff like /whois, <c-r>, and /nicklist while being able to remove all that text when i no longer want to see it.
     * A status window works for this, but it doesn't include /names. How to?
-    * OpenURL: weird error stuff on some urls, and sometimes don't load full url
     * Display some type of % sign when not at bottom of text.
     * Do nick/vhosts/BNC for all servers.
     * IRC: SSL cerificate path and SSL_verify.
