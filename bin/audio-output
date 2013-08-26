@@ -10,5 +10,5 @@ elif [ $1 == "hdmi" ]; then
     echo "You're using the HDMI audio."
 elif [ $1 == "usb" ]; then
     ln -sf ~/bin/config/asound.usb ~/.asoundrc
-    echo "You're using the usb audio."
+    echo "You're using the USB audio."
 fi

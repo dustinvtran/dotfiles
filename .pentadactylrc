@@ -241,12 +241,10 @@ map -modes=n -builtin S :tabopen! word<Space>
 javascript <<EOF
 function editExternallyWithFiletype() {
     var save_editor = options["editor"];
-    var filetype = editExternallyFiletype();
+    var filetype = websiteFiletypes();
     console.log(filetype)
-    // Insert the :setf command before any existing +cmd, as there can be only one such argument.
     options["editor"] = options["editor"].replace(/ "\+/, " \"+setf " + filetype + "|")
     if (options["editor"] == save_editor) {
-        // The 'editor' setting doesn't yet contain a passed +cmd; append it.
         options["editor"] += " \"+setf " + filetype + "\"";
     }
     editor.editFieldExternally();
@@ -254,17 +252,23 @@ function editExternallyWithFiletype() {
 }
 EOF
 javascript <<EOF
-function editExternallyFiletype() {
+function websiteFiletypes() {
     var host = buffer.URL.host
     switch(host.replace(/^www\./, "")) {
         case "github.com":
-        if (! buffer.URL.path.match("/wiki/"))
-        return "markdown";
+            if (! buffer.URL.path.match("/wiki/"))
+                return "markdown";
+        case "myanimelist.net":
+            return "bbcode";
+        case "reddit.com":
+            return "markdown";
         case "stackoverflow.com":
-        return "markdown";
+            return "markdown";
     }
     if (host.match(/.*\.4chan\.org$/))
         return "4chan";
+    if (host.match(/.*\.wordpress\.com$/))
+        return "html";
 }
 EOF
 map -modes=i -builtin <C-e> -javascript editExternallyWithFiletype()
