@@ -1,10 +1,9 @@
 #! /bin/bash
 
-# This is a script that play/pauses ncmpcpp if mpv isn't running. If mpv is running, it play/pauses mpv and keeps ncmpcpp
-# paused.
+# This is a script set as a global keybind. It play/pauses ncmpcpp if mpv isn't running, and play/pauses mpv if it is
+# running (while keeping ncmpcpp paused).
 
 pgrep mpv
-# If not running.
 if [ $? -ne 0 ]
 then
     ncmpcpp toggle

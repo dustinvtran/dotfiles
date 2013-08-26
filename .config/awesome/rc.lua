@@ -232,7 +232,7 @@ for s = 1, screen.count() do
 
     local right_layout = wibox.layout.fixed.horizontal()
     --right_layout:add(volwidget)
-    --right_layout:add(mailwidget)
+    right_layout:add(mailwidget)
     right_layout:add(irssiwidget)
     right_layout:add(mpvwidget)
     right_layout:add(mpdwidget)
@@ -498,6 +498,8 @@ awful.rules.rules = {
 
     { rule = { class = "gimp" },
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
+    { rule = { class = "VirtualBox" },
+      properties = { tag = tags[1][4], floating = false, switchtotag = true } },
 
 --#############################################################################
 -- Workspace 1 ([L+E]) or Workspace 5 ([L])

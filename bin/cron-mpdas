@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# This is a script for cronjob which keeps the specified program always running.
+# This is a script for a cronjob which keeps the specified program always running.
 
-export DISPLAY=:0
+#export DISPLAY=:0
 
-program="mpdas"
-command=$(mpdas &)
+#program="mpdas"
+#command=$(mpdas &)
 
 #if ps ax | grep -v grep | grep $program > /dev/null
     #then
