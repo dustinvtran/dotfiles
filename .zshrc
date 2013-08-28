@@ -426,7 +426,7 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # System-dotfile backups.
-alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and are hence likely installed manually by\n me.\n' > ~/doc/package-list && comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) >> ~/doc/package-list"
+alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by\n me.\n' > ~/doc/package-list && comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) >> ~/doc/package-list"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/system-dotfiles/nil"
 
