@@ -10,7 +10,6 @@ Highest Priority {{{
 
 Awesome
     * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
-    * Give separate panel widgets for each screen (in the for s=1 screencount part).
     * Move mouse to center of screen of new focused tag.
         Do something like switchtotag in the keybinds.
     * Applications not shifting correctly between monitors and #s.
@@ -29,7 +28,6 @@ Awesome
 
     * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
 
-
 Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
@@ -37,19 +35,15 @@ Theme
 Small Issues
     Awesome
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
-            Using non-git doesn't solve the issue.
-            Currently having no effect: awesome, no internet. Also no effect: awesome, eth0 restarted after no internet on startup. Well, actually it seems to be taking its toll once I restarted transmission, and interwebz started being more frequent.
+            It seems to be taking its toll once I due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general?
     Wifi
-        Okay, so I uninstalled netctl, have dhcpcd installed, and have set systemctl enable dhcpcd@eth0. This seems to work without any crashes... for now. Later, try to figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
-    cron
-        * Changed scripts, check to see if it works. cron-mpdas doesn't seem to run in the background; hopefully does this matter?
+        Okay, netctl and dhcpcd are installed, and I've set systemctl enable dhcpcd@eth0. This works without any crashes. Figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
+    * cron: cron-mpdas doesn't seem to run in the background; hopefully does this matter?
     * Glitches when moving to firefox sometimes.
-    * xset maybe not working. its still at 10 minutes. maybe i need to set some other things too, like cycle
-    Vim
-        * first error on load with ctrlp
+    * Applied 'xset -dpms' to turn off dpms. Hopefully that changes the xset blank time correctly.
 
 mpv
-    * Does it work across multiple directories? Or maybe it was the save later?
+    * Does >/< across multiple directories?
     * Should I add a kill mpv + mpv-open option? Should I add focus?
 
 }}}
@@ -110,6 +104,9 @@ Vim
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
     * Ctrl-P: Get it working.
     * Load multiple files so you can <C-e> right away.
+
+virtualbox
+    * not fullscreen because of panel
 
 xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??

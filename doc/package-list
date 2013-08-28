@@ -1,4 +1,4 @@
-This lists any installed packages that are not in the base or base-devel group, and are hence likely installed manually by
+This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by
  me.
 
 acpi
@@ -18,7 +18,6 @@ cups
 cups-filters
 dialog
 dropbox
-dzen2
 fasd
 feh
 firefox
@@ -88,7 +87,6 @@ ttf-kochi-substitute
 ttf-monaco
 ttf-ms-fonts
 ttf-vista-fonts
-udisks
 unrar
 unzip
 vicious-git

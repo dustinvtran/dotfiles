@@ -225,24 +225,38 @@ for s = 1, screen.count() do
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
     mywibox[s] = awful.wibox({ position = "top", screen = s })
+    if (s == 1) then
+        local left_layout = wibox.layout.fixed.horizontal()
+        left_layout:add(mytaglist[s])
+        left_layout:add(mylayoutbox[s])
 
-    local left_layout = wibox.layout.fixed.horizontal()
-    left_layout:add(mytaglist[s])
-    left_layout:add(mylayoutbox[s])
+        local right_layout = wibox.layout.fixed.horizontal()
+        --right_layout:add(volwidget)
+        right_layout:add(mailwidget)
+        right_layout:add(irssiwidget)
+        -- [L] Use this if you only have laptop display.
+        --right_layout:add(mpvwidget)
+        --right_layout:add(mpdwidget)
+        right_layout:add(batwidget)
 
-    local right_layout = wibox.layout.fixed.horizontal()
-    --right_layout:add(volwidget)
-    right_layout:add(mailwidget)
-    right_layout:add(irssiwidget)
-    right_layout:add(mpvwidget)
-    right_layout:add(mpdwidget)
-    right_layout:add(batwidget)
+        layout = center.horizontal()
+        layout:set_left(left_layout)
+        layout:set_middle(clockwidget)
+        layout:set_right(right_layout)
+    else
+        local left_layout = wibox.layout.fixed.horizontal()
+        left_layout:add(mytaglist[s])
+        left_layout:add(mylayoutbox[s])
 
-    local layout = center.horizontal()
-    layout:set_left(left_layout)
-    layout:set_middle(clockwidget)
-    layout:set_right(right_layout)
+        local right_layout = wibox.layout.fixed.horizontal()
+        right_layout:add(mpvwidget)
+        right_layout:add(mpdwidget)
 
+        layout = center.horizontal()
+        layout:set_left(left_layout)
+        layout:set_middle(clockwidget)
+        layout:set_right(right_layout)
+    end
     mywibox[s]:set_widget(layout)
 end
 
@@ -332,6 +346,7 @@ globalkeys = awful.util.table.join(
 --#############################################################################
 
 clientkeys = awful.util.table.join(
+    awful.key({ modkey, "Shift" }, "f", function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey }, "d", function (c) c:kill()              end),
     awful.key({ modkey }, "o", function (c) c.ontop = not c.ontop end)
 )
