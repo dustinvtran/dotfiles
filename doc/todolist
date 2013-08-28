@@ -71,6 +71,7 @@ Awesome
         * volume: have a keybind to check current volume, or to pop up the display for a few seconds
             Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
         * Right-aligned panel widgets should be cut off from the left not the right.
+    * Can't fullscreen VirtualBox, even with the function.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -104,9 +105,6 @@ Vim
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
     * Ctrl-P: Get it working.
     * Load multiple files so you can <C-e> right away.
-
-virtualbox
-    * not fullscreen because of panel
 
 xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
