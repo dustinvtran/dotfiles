@@ -4,15 +4,7 @@
 " Name: nil
 "
 
-" [L+E] Use this if you have both laptop and external display.
-set window-height 1000
-set window-width 760
-" [L] Use this if you only have laptop display.
-"set window-height 700
-
 map ; focus_inputbar :
-map <C-j> scroll half-down
-map <C-k> scroll half-up
-map J navigate next
-map K navigate previous
+map <C-j> navigate next
+map <C-k> navigate previous
 map <C-s> toggle_statusbar

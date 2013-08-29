@@ -14,7 +14,7 @@ Awesome
         Do something like switchtotag in the keybinds.
     * Applications not shifting correctly between monitors and #s.
 
-    * Maybe change all applications to sizes from awesome instead.
+    * Maybe change all applications to sizes from awesome instead, i.e., feh in rifle.conf.
     * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
         mpd: stopped
         battery: low
