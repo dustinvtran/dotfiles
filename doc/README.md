@@ -45,7 +45,6 @@ Given that I'm a top pleb using a $400 laptop, I make do with a larger display a
 
 * `~/.config/awesome/rc.lua`
 * `~/.config/ranger/rifle.conf`
-* `~/.config/zathura/zathurarc`
 * `~/.irssi/config`
 * `~/.mpv/config`
 * `~/.xinitrc`

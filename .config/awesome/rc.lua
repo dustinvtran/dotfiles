@@ -541,10 +541,10 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=65, y=200}) end },
     { rule = { class = "Zathura" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=0, y=0}) end },
+      callback = function(c) c:geometry({x=300, y=50, width=760, height=1000}) end },
     { rule = { class = "Calibre-ebook-viewer" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=275, y=40,width = 800 , height = 1020}) end },
+      callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
 
     -- [L] Use this if you only have laptop display.
     --{ rule = { instance = "irssi" },
@@ -559,12 +559,15 @@ awful.rules.rules = {
     --{ rule = { instance = "ranger" },
       --properties = { tag = tags[1][5], floating = true, switchtotag = true },
       --callback = function(c) c:geometry({x=780, y=540}) end },
-    --{ rule_any = { class = {"feh", "mpv", "Zathura" } },
+    --{ rule_any = { class = {"feh", "mpv" } },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
       --callback = awful.placement.centered },
+    --{ rule = { class = "Zathura" },
+      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({height = 700}) end },
     --{ rule = { class = "Calibre-ebook-viewer" },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({width = 700 , height = 725}) end },
+      --callback = function(c) c:geometry({width = 700, height = 725}) end },
 
 --#############################################################################
 -- Miscellaneous
