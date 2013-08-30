@@ -46,6 +46,9 @@ mpv
     * Does >/< across multiple directories?
     * Should I add a kill mpv + mpv-open option? Should I add focus?
 
+work-related
+    * When redoing pdf, zathura doesn't reload unless I move the page a bit.
+
 }}}
 High Priority {{{
 -------------------------------------------------------------------------------
@@ -99,8 +102,8 @@ mount
 
 Vim
     * Make or use some syntax file for your todolists.
+    * VimEnter on auto-open last file makes manpager wonky, but wouldn't work with GUIEnter.
     LaTeX
-        * Allow rubber to compile filenames with spaces.
         * Get error parser (rubber-info) and autobuild.
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
     * Ctrl-P: Get it working.
@@ -177,6 +180,7 @@ plex
     * Get the server working.
 
 ranger
+    * Set djvu to not show any preview.
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
 
 SD Card
@@ -306,7 +310,7 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
-set up github old dotfiles repo, and firefox styles repo
+set up github old dotfiles repo, firefox styles repo, and latex template repo
 grub
     rename menu entries
 laptop

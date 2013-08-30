@@ -1123,10 +1123,14 @@ autocmd ColorScheme * if g:colors_name != "solarized" | silent! aunmenu Solarize
 "
 " vim:foldmethod=marker:foldlevel=0
 "}}}
-hi LineNr    guifg=#f9f9f9 guibg=#FF96A3
-hi CursorLineNr guifg=#FF96A3 guibg=#f9f9f9
-hi Folded    guifg=#707070 guibg=#abd8a5 gui=italic
-hi Normal    guifg=#707070  guibg=#f9f9f9
-hi CursorLine guibg=#e0e0e0
-" This last one is bad because it also hides listchars. Whatever, I don't ever use them.. I think.
-hi NonText    guifg=#f9f9f9  guibg=#f9f9f9
+hi LineNr       guifg=#f9f9f9   guibg=#FF96A3
+hi CursorLineNr guifg=#FF96A3   guibg=#f9f9f9
+hi Folded       guifg=#707070   guibg=#abd8a5 gui=italic
+hi Normal       guifg=#707070   guibg=#f9f9f9
+hi CursorLine                   guibg=#e0e0e0
+hi texStatement                 guibg=#f9f9f9
+hi texMathZoneX                 guibg=#f9f9f9
+hi texMathMatcher               guibg=#f9f9f9
+hi texRefLabel                  guibg=#f9f9f9
+" This next one is bad because it also hides listchars. Whatever, I don't ever use them.. I think.
+hi NonText      guifg=#f9f9f9   guibg=#f9f9f9

@@ -288,6 +288,9 @@ Low Priority:
 Vim {{{
 -------------------------------------------------------------------------------
 
+High Priority
+    * rubber: Compile files with spaces in their name.
+
 Medium Priority
     * EasyMotion: This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
     * EasyMotion: Allow f/F's to be case-insensitive, but smartcase when I do capitalize.
