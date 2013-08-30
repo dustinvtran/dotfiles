@@ -6,8 +6,8 @@
 # Name: nil
 #
 
-# Note: Only difference is that I commented out mediainfo. I use mediainfo manually, and like seeing the full mkv name
-# instead of a blip of mediainfo. Instead, I keybinded 'i' to see the full mediainfo result.
+# Note: Only difference is that I commented out mediainfo and pdf previews. I prefer to see their full file name instead
+# of small blips.
 
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its
@@ -63,9 +63,9 @@ case "$extension" in
     rar)
         try unrar -p- lt "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
-    pdf)
-        try pdftotext -l 10 -nopgbrk -q "$path" - && \
-            { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
+    #pdf)
+        #try pdftotext -l 10 -nopgbrk -q "$path" - && \
+            #{ dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
     # BitTorrent Files
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;
@@ -85,8 +85,8 @@ case "$mimetype" in
     image/*)
         img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
     # Display information about media files:
-    video/* | audio/*)
-        exiftool "$path" && exit 5
+    #video/* | audio/*)
+        #exiftool "$path" && exit 5
         # Use sed to remove spaces so the output fits into the narrow window
         #try mediainfo "$path" && { dump | trim | sed 's/  \+:/: /;';  exit 5; } || exit 1;;
 esac

@@ -97,7 +97,7 @@ augroup misc
     " Remove any trailing whitespace in the file.
     autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
     " Auto-open last file if invoked without arguments.
-    autocmd GUIEnter * nested if
+    autocmd VimEnter * nested if
       \ argc() == 0 &&
       \ bufname("%") == "" &&
       \ bufname("2" + 0) != "" |
@@ -553,7 +553,7 @@ endfunction
 
 augroup tex_only
     autocmd!
-    autocmd FileType tex nnoremap <buffer> <silent> $ :call ParityDollarSign()<CR>
+    autocmd FileType tex nnoremap <buffer> <silent> # :call ParityDollarSign()<CR>
 augroup END
 
 "##############################################################################
@@ -605,7 +605,7 @@ let g:tex_flavor = "latex"
 augroup latex
     autocmd!
     autocmd FileType plaintex,tex call Macros()
-    autocmd FileType plaintex,tex nnoremap <silent> <Leader>o :call OpenPDF()<CR>
+    autocmd FileType plaintex,tex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
 augroup END
 
 function! Macros()
@@ -632,9 +632,9 @@ function! LaTeXBuild()
 " pdflatex for TeX Live doesn't support aux directory, only output-dir.
         "silent !start /min pdflatex -aux-directory="/home/nil/.vim/auxiliary" "%" &
 " rubber doesn't accept spaces in file names. And since I don't get a minimixed window prompt for linux, don't do silent for now.
-         "silent !rubber -d "%" &
-         !rubber -d "%" &
-         silent !rubber --clean "%" &
+         "silent !rubber -d "%:p" &
+         !rubber -d "%:p"
+         silent !rubber --clean "%:p" &
     endif
 endfunction
 
