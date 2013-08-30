@@ -48,6 +48,7 @@ mpv
 
 work-related
     * When redoing pdf, zathura doesn't reload unless I move the page a bit.
+    * Vim: LaTeX: Autobuild.
 
 }}}
 High Priority {{{
@@ -103,11 +104,7 @@ mount
 Vim
     * Make or use some syntax file for your todolists.
     * VimEnter on auto-open last file makes manpager wonky, but wouldn't work with GUIEnter.
-    LaTeX
-        * Get error parser (rubber-info) and autobuild.
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
-    * Ctrl-P: Get it working.
-    * Load multiple files so you can <C-e> right away.
 
 xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
@@ -133,6 +130,7 @@ Awesome
     * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
     * erm, that dropbox notification. Modify it.
     Panel Scripts
+        Bashets font: err, it sucks on playing japanese/fallbacks. use fallback fonts.
         * battery: On single digit %, it also shows the comma.
         * irssi
             Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
@@ -216,6 +214,7 @@ vim
     * Snippets: Fix the auto-reload command to not be so computation heavy.
     * Snippets: How to do snippets inside a snippet? Or perhaps manage more carefully if not.
     * YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
+    * vim fold text styling. donri is coming up with a plugin for a nice one.
 
 zsh
     * Make cleaner format for ls -l in terminal.
@@ -300,7 +299,7 @@ vim
     * Fix $...$ in case there are none.
     * Have cursor position returned to exact position (i.e. column) not just line position.
     * The "jump to next/last sentence" doesn't always work as intended. Do them better, along with paragraph.
-    * vim fold text styling. donri is coming up with a plugin for a nice one.
+    * Load multiple files so you can <C-e> right away.
 
 zsh
     * All keybind/vim stuff lost during ssh session, wonky prompt.
