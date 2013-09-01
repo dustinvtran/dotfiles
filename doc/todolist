@@ -53,7 +53,6 @@ work-related
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
     * Vim: LaTeX: Autobuild.
         First, need to be able to compile in background. But & fails for both pdflatex and rubber?
-    * udev: blanktime not working?
 
 }}}
 High Priority {{{
