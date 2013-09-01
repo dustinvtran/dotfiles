@@ -46,9 +46,14 @@ mpv
     * Does >/< across multiple directories?
     * Should I add a kill mpv + mpv-open option? Should I add focus?
 
+pentadactyl
+    * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
+
 work-related
-    * When redoing pdf, zathura doesn't reload unless I move the page a bit.
+    * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
     * Vim: LaTeX: Autobuild.
+        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+    * udev: blanktime not working?
 
 }}}
 High Priority {{{
@@ -100,6 +105,9 @@ Laptop
 
 mount
     * Get an automounter that doesn't suck.
+
+ranger
+    * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
 
 Vim
     * Make or use some syntax file for your todolists.

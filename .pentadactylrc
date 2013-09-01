@@ -180,8 +180,11 @@ map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inb
 map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
 map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 
-" Misc
+" Misc.
 map -modes=n -builtin <Leader>w  :tabopen! https://www.google.com/search?q=weather<CR>
+
+" School Coursepages.
+map -modes=n -builtin <Leader>v :tabopen! stat243 | statc206a | math221 | math228a | statc205a<CR>
 
 " }}}
 " Functions & Macros {{{
