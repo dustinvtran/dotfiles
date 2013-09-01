@@ -629,10 +629,9 @@ endfunction
 " Temporary.
 function! LaTeXBuild()
     if &filetype=='tex'
-" pdflatex for TeX Live doesn't support aux directory, only output-dir.
-        "silent !start /min pdflatex -aux-directory="/home/nil/.vim/auxiliary" "%" &
-" rubber doesn't accept spaces in file names. And since I don't get a minimixed window prompt for linux, don't do silent for now.
+" Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info.
          "silent !rubber -d "%:p" &
+         "!(pdflatex -output-directory="%:p:h" "%:p") &
          !rubber -d "%:p"
          silent !rubber --clean "%:p" &
     endif
@@ -666,15 +665,6 @@ endfunction
 "##############################################################################
 " LaTeX Auto-Compile & Error Parser
 "##############################################################################
-" Enable auto-compile current document.
-"
-" Enable rubber-info to parse log for errors/warnings.
-"augroup rubber
-    "autocmd!
-    "autocmd FileType tex set makeprg=rubber-info\ t.log
-    "autocmd FileType tex set errorformat=%f:%l:\ %m
-"augroup END
-" Other: latexmk (more updated; not user-friendly, no log parser/bad error support, incomplete displays), rubber (outdated, incomplete displays).
 "
 "augroup AutorunTexbuild
     "autocmd!
