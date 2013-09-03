@@ -41,6 +41,7 @@ Small Issues
     * cron: cron-mpdas doesn't seem to run in the background; hopefully does this matter?
     * Glitches when moving to firefox sometimes.
     * Applied 'xset -dpms' to turn off dpms. Hopefully that changes the xset blank time correctly.
+    * Err, the udev rule still doesn't always apply udev-blank-time, even if I just give it one line. Maybe this is true for hdmi-switch too.
 
 mpv
     * Does >/< across multiple directories?

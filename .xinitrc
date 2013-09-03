@@ -22,9 +22,9 @@ fi
 # Inactivity Time to Turn Off Display
 batstatus=$(acpi -b | sed -n "1p" | awk -F "[, ]" '{print $3}')
 if [ "$batstatus" == "Discharging" ]; then
-    xset s 300 300
+    xset -dpms; xset s 300 300
 else
-    xset s 1800 1800
+    xset -dpms; xset s 1800 1800
 fi
 
 ###############################################################################
