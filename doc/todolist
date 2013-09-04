@@ -36,12 +36,12 @@ Small Issues
     Awesome
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
             It seems to be taking its toll once I due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general?
-    Wifi
-        Okay, netctl and dhcpcd are installed, and I've set systemctl enable dhcpcd@eth0. This works without any crashes. Figure out what the fuck is causing the kernel panic when going wireless with dhcpcd and netctl.
+    * Wifi
+        Installed: netctl, dhcpcd, ifplugd, wireless_wpa.
+        ifplugd systemctl works. wireless_wpa systemctl works, but I turned it off because that shit's ugly if I have wireless profiles up.
+            The problem lies in these exact circumstances: Start wlan0-Dustin profile. Once it starts connecting (pings successfully and such) a few seconds to a few minutes later, kernel panic. This occurs with or without ifplugd/dhcpcd@eth0 services.
     * cron: cron-mpdas doesn't seem to run in the background; hopefully does this matter?
     * Glitches when moving to firefox sometimes.
-    * Applied 'xset -dpms' to turn off dpms. Hopefully that changes the xset blank time correctly.
-    * Err, the udev rule still doesn't always apply udev-blank-time, even if I just give it one line. Maybe this is true for hdmi-switch too.
 
 mpv
     * Does >/< across multiple directories?
@@ -206,6 +206,7 @@ trash-cli
     * Have it show other properties, such as file size.
 
 urxvt
+    * Change urxvt settings without requiring to restart application.
     * Separate ^J and <CR>, so you can bind them in irssi, and not do workarounds in the rest either.
         same for S-spacebar, C-c
     * urxvt-perls: c-v as paste (eg for irssi), url clicker+keyboard select.
@@ -316,6 +317,7 @@ zathura
 zsh
     * All keybind/vim stuff lost during ssh session, wonky prompt.
     * Tab completion menu colors for scp  are wonky/inverted.
+    * Maybe use vim, or at least vim buffer navigation, when I do --help and I the output suggestions are larger than the buffer.
 
 }}}
 Misc {{{

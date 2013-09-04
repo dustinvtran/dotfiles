@@ -398,7 +398,6 @@ alias df="df -h"                        # Display sizes in human readable format
 alias du="du -h -c"                     # Display sizes in human readable format, and total.
 alias mount="sudo mount"                # Don't require prepending sudo.
 alias umount="sudo umount"              # Don't require prepending sudo.
-alias s="nocorrect sudo "               # Don't prompt me!
 
 # Power Management Controls.
 alias poweroff="sudo poweroff"          # Don't require prepending sudo.
@@ -468,6 +467,9 @@ l() { nocorrect f -e libreoffice "$@" & }
 m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
+
+# School SSH
+alias sshb="ssh -X s243-10@arwen.berkeley.edu"
 
 ###############################################################################
 # Functions
