@@ -32,14 +32,10 @@ Theme
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
 
-Small Issues
+Some Issues
     Awesome
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
             It seems to be taking its toll once I due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general?
-    * Wifi
-        Installed: netctl, dhcpcd, ifplugd, wireless_wpa.
-        ifplugd systemctl works. wireless_wpa systemctl works, but I turned it off because that shit's ugly if I have wireless profiles up.
-            The problem lies in these exact circumstances: Start wlan0-Dustin profile. Once it starts connecting (pings successfully and such) a few seconds to a few minutes later, kernel panic. This occurs with or without ifplugd/dhcpcd@eth0 services.
     * cron: cron-mpdas doesn't seem to run in the background; hopefully does this matter?
     * Glitches when moving to firefox sometimes.
 
