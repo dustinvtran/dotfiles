@@ -234,9 +234,11 @@ for s = 1, screen.count() do
         --right_layout:add(volwidget)
         right_layout:add(mailwidget)
         right_layout:add(irssiwidget)
+
         -- [L] Use this if you only have laptop display.
-        --right_layout:add(mpvwidget)
-        --right_layout:add(mpdwidget)
+        right_layout:add(mpvwidget)
+        right_layout:add(mpdwidget)
+
         right_layout:add(batwidget)
 
         layout = center.horizontal()
@@ -315,16 +317,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "l", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
-    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
-    awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
-    awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
+    --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
+    --awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
+    --awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
 
     -- [L] Use this if you only have laptop display.
-    --awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
-    --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
-    --awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
+    awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
+    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
+    awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
     awful.key({ modkey }, "e", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
     awful.key({ modkey }, "h", function () run_or_raise("", { class = "feh"                  }) end),
@@ -473,20 +475,20 @@ awful.rules.rules = {
 --#############################################################################
 
     -- [L+E] Use this if you have both laptop and external display.
-    { rule = { class = "Gvim" },
-      properties = { floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1950, y=40}) end },
-    { rule = { instance = "tcli" },
-      properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1950, y=560}) end },
-
-    -- [L] Use this if you only have laptop display.
     --{ rule = { class = "Gvim" },
       --properties = { floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=30, y=40}) end },
+      --callback = function(c) c:geometry({x=1950, y=40}) end },
     --{ rule = { instance = "tcli" },
       --properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=30, y=560}) end },
+      --callback = function(c) c:geometry({x=1950, y=560}) end },
+
+    -- [L] Use this if you only have laptop display.
+    { rule = { class = "Gvim" },
+      properties = { floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=30, y=40}) end },
+    { rule = { instance = "tcli" },
+      properties = { tag = tags[1][1], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=30, y=560}) end },
 
 --#############################################################################
 -- Workspace 2
@@ -521,53 +523,53 @@ awful.rules.rules = {
 --#############################################################################
 
     -- [L+E] Use this if you have both laptop and external display.
-    { rule = { instance = "irssi" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1340, y=175}) end },
-    { rule = { instance = "nil" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1340, y=550}) end },
-    { rule = { instance = "ncmpcpp" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1340, y=40}) end },
-    { rule = { instance = "ranger" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1340, y=845}) end },
-    { rule = { class = "feh" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=0, y=0}) end },
-    { rule = { class = "mpv" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=65, y=200}) end },
-    { rule = { class = "Zathura" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
-    { rule = { class = "Calibre-ebook-viewer" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
+    --{ rule = { instance = "irssi" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=175}) end },
+    --{ rule = { instance = "nil" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=550}) end },
+    --{ rule = { instance = "ncmpcpp" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=40}) end },
+    --{ rule = { instance = "ranger" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=1340, y=845}) end },
+    --{ rule = { class = "feh" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=0, y=0}) end },
+    --{ rule = { class = "mpv" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=65, y=200}) end },
+    --{ rule = { class = "Zathura" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
+    --{ rule = { class = "Calibre-ebook-viewer" },
+      --properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
 
     -- [L] Use this if you only have laptop display.
-    --{ rule = { instance = "irssi" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=780, y=165}) end },
-    --{ rule = { instance = "nil" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=70, y=260}) end },
-    --{ rule = { instance = "ncmpcpp" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=780, y=35}) end },
-    --{ rule = { instance = "ranger" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=780, y=540}) end },
-    --{ rule_any = { class = {"feh", "mpv" } },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = awful.placement.centered },
-    --{ rule = { class = "Zathura" },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({height = 700}) end },
-    --{ rule = { class = "Calibre-ebook-viewer" },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({width = 700, height = 725}) end },
+    { rule = { instance = "irssi" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=780, y=165}) end },
+    { rule = { instance = "nil" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=70, y=260}) end },
+    { rule = { instance = "ncmpcpp" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=780, y=35}) end },
+    { rule = { instance = "ranger" },
+      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=780, y=540}) end },
+    { rule_any = { class = {"feh", "mpv" } },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      callback = awful.placement.centered },
+    { rule = { class = "Zathura" },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({height = 700}) end },
+    { rule = { class = "Calibre-ebook-viewer" },
+      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({width = 700, height = 725}) end },
 
 --#############################################################################
 -- Miscellaneous
