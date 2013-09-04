@@ -541,7 +541,7 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=65, y=200}) end },
     { rule = { class = "Zathura" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=300, y=50, width=760, height=1000}) end },
+      callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
     { rule = { class = "Calibre-ebook-viewer" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },

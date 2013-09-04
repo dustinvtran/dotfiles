@@ -145,6 +145,7 @@ Awesome
                 Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
         * skype
         * Add clickables (or keybindables?) into dzen.
+    * When youtube video is a url in firefox, have play-pause cycle pause that, not mpv or ncmpcpp instead.
 
 feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
@@ -309,6 +310,9 @@ vim
     * The "jump to next/last sentence" doesn't always work as intended. Do them better, along with paragraph.
     * Load multiple files so you can <C-e> right away.
 
+zathura
+    * When Page Uping midway on first page, go to top. Analogous for Page down on last page.
+
 zsh
     * All keybind/vim stuff lost during ssh session, wonky prompt.
     * Tab completion menu colors for scp  are wonky/inverted.
@@ -317,7 +321,7 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
-set up github old dotfiles repo, firefox styles repo, and latex template repo
+set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets).
 grub
     rename menu entries
 laptop

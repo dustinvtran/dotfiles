@@ -97,12 +97,13 @@ augroup misc
     " Remove any trailing whitespace in the file.
     autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
     " Auto-open last file if invoked without arguments.
-    autocmd VimEnter * nested if
-      \ argc() == 0 &&
-      \ bufname("%") == "" &&
-      \ bufname("2" + 0) != "" |
-      \   exe "normal! `0" |
-      \ endif
+    " Currently bugged when trying to use Vim also as manpager.
+    "autocmd VimEnter * nested if
+      "\ argc() == 0 &&
+      "\ bufname("%") == "" &&
+      "\ bufname("2" + 0) != "" |
+      "\   exe "normal! `0" |
+      "\ endif
     " Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!
     autocmd BufWritePost $myvimrc nested source $myvimrc
     autocmd BufWritePost $myvimrc set formatoptions-=c formatoptions-=t formatoptions-=q formatoptions+=r formatoptions+=o formatoptions+=l
