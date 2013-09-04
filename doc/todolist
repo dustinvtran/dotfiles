@@ -50,6 +50,8 @@ work-related
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
     * Vim: LaTeX: Autobuild.
         First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+    * awesome starts a little too early, not getting wallpaper every time
+    * urxvt open commands not working
 
 }}}
 High Priority {{{
@@ -248,9 +250,6 @@ Awesome
     * irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat.
     * alt+shift hjkl to move floating window.
     * Do modal keybindings, so you can effectively keybind hjkl and move through tiling windows more effectively than having ones only go to resizing.
-
-laptop vs laptop+external
-    * Add script that changes all to [L+E] if connected, and [L] all if disconnected. add a line in hdmi.rules.
 
 Firefox Addon: Pentadactyl
     * normal <C-j> goes to home page if it's assigned to do nothing else at that issue of command, e.g., if it's unbinded, for example, in 4chan thread pages.

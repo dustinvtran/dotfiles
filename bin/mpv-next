@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # This is a script set as a keybind in mpv. It allows me to do multiple commands simultaneously.
 # Note: This is a workaround since applying ";" directly in input.conf keybinds does not always work.

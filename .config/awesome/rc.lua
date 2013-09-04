@@ -484,11 +484,11 @@ awful.rules.rules = {
 
     -- [L] Use this if you only have laptop display.
     --{ rule = { class = "Gvim" },
-      --properties = { floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=30, y=40}) end },
+    --  properties = { floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({x=30, y=40}) end },
     --{ rule = { instance = "tcli" },
-      --properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=30, y=560}) end },
+    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({x=30, y=560}) end },
 
 --#############################################################################
 -- Workspace 2
@@ -550,26 +550,26 @@ awful.rules.rules = {
 
     -- [L] Use this if you only have laptop display.
     --{ rule = { instance = "irssi" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=780, y=165}) end },
+    --  properties = { tag = tags[1][5], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({x=780, y=165}) end },
     --{ rule = { instance = "nil" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=70, y=260}) end },
+    --  properties = { tag = tags[1][5], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({x=70, y=260}) end },
     --{ rule = { instance = "ncmpcpp" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=780, y=35}) end },
+    --  properties = { tag = tags[1][5], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({x=780, y=35}) end },
     --{ rule = { instance = "ranger" },
-      --properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({x=780, y=540}) end },
+    --  properties = { tag = tags[1][5], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({x=780, y=540}) end },
     --{ rule_any = { class = {"feh", "mpv" } },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = awful.placement.centered },
+    --  properties = { tag = tags[1][10], floating = true, switchtotag = true },
+    --  callback = awful.placement.centered },
     --{ rule = { class = "Zathura" },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({height = 700}) end },
+    --  properties = { tag = tags[1][10], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({height = 700}) end },
     --{ rule = { class = "Calibre-ebook-viewer" },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({width = 700, height = 725}) end },
+    --  properties = { tag = tags[1][10], floating = true, switchtotag = true },
+    --  callback = function(c) c:geometry({width = 700, height = 725}) end },
 
 --#############################################################################
 -- Miscellaneous

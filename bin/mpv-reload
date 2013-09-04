@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # This is an automated script set in mpv, which is run whenever I exit the mpv playlist editor.
 

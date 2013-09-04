@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # This is a script for a udev rule. It changes the display's blank time, triggered whenever power_supply is connected
 # or disconnected.

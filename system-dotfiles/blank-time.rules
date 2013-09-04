@@ -1,2 +1,0 @@
-SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", RUN+="/home/nil/bin/udev-blank-time"
-SUBSYSTEM=="power_supply", ATTR{status}=="Charging", RUN+="/home/nil/bin/udev-blank-time"

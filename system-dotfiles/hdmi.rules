@@ -1,1 +1,1 @@
-SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/nil/bin/udev-hdmi-switch"
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/home/nil/bin/udev-hdmi"
