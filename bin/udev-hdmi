@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# This is a script for a udev rule. It changes certain settings, triggered whenever HDMI1 is connected or disconnected.
+
+export XAUTHORITY=/home/nil/.Xauthority
+export DISPLAY=:0
+
+hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
+alsa_dir=/home/nil/bin/config
+
+# Set audio output.
+# Commented, because I'd rather do this manually through my 'audio-output' script.
+#if [ "$hdmi_status" = connected ]; then
+#   ln -sf $alsa_dir/asound.hdmi /home/nil/.asoundrc
+#else
+#   ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
+#fi
+
+# Set video output.
+if [ "$hdmi_status" = connected ]; then
+    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+else
+    xrandr --output HDMI1 --off
+fi
+
+# Change certain program settings.
+# The seds will comment/uncomment lines of certain dotfiles.
+    # -i: Writes directly into input file.
+    # -e: Each a separate command on the input file.
+    # -e '' First argument: Specifies the match range by a regexp pattern: from lines matching [L] (or [L+E]) to the
+    # next empty line.
+    # -e '' /b: Exclude the first and last matched lines from the upcoming substitution.
+    # -e '' s/: Replace all inside matched lines by a regexp pattern: adding or removing a comment mark.
+# Then I kill and reload certain applications which need to restart; then I restart awesome.
+if [ "$hdmi_status" = connected ]; then
+    sed -i -e '/^    -- \[L+E\]/,/^$/ { /^    -- \[L+E\]/b; /^$/b; s/^    --/    / }'             \
+           -e '/^    -- \[L\]/,/^$/ { /^    -- \[L\]/b; /^$/b; s/^    /    --/ }'                 \
+           -e '/^        -- \[L\]/,/^$/ { /^        -- \[L\]/b; /^$/b; s/^        /        --/ }' \
+           /home/nil/.config/awesome/rc.lua
+    sed -i -e '/^# \[L+E\]/,/^$/ { /^# \[L+E\]/b; /^$/b; s/^#// }' \
+           -e '/^# \[L\]/,/^$/ { /^# \[L\]/b; /^$/b; s/^/#/ }'     \
+           /home/nil/.config/ranger/rifle.conf
+    sed -i -e '/^    # \[L+E\]/,/^$/ { /^    # \[L+E\]/b; /^$/b; s/^    #/    / }' \
+           -e '/^    # \[L\]/,/^$/ { /^    # \[L\]/b; /^$/b; s/^    /    #/ }'     \
+           /home/nil/.irssi/config
+    sed -i -e '/^    # \[L+E\]/,/^$/ { /    # \[L+E\]/b; /^$/b; s/^    #/    / }' \
+           -e '/^    # \[L\]/,/^$/ { /    # \[L\]/b; /^$/b; s/^    /    #/ }'     \
+           /home/nil/.irssi/config-censored
+    sed -i -e '/^# \[L+E\]/,/^$/ { /^# \[L+E\]/b; /^$/b; s/^#// }' \
+           -e '/^# \[L\]/,/^$/ { /^# \[L\]/b; /^$/b; s/^/#/ }'     \
+           /home/nil/.mpv/config
+    sed -i -e '/^# \[L+E\]/,/^$/ { /^# \[L+E\]/b; /^$/b; s/^#// }' \
+           -e '/^# \[L\]/,/^$/ { /^# \[L\]/b; /^$/b; s/^/#/ }'     \
+           /home/nil/.xinitrc
+    #pkill -f "urxvt -name nil"; pkill irssi; pkill ncmpcpp; pkill ranger
+    #urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
+    #urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
+    #urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
+    #urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
+    echo 'awesome.restart()' | awesome-client &
+else
+    sed -i -e '/^    -- \[L+E\]/,/^$/ { /^    -- \[L+E\]/b; /^$/b; s/^    /    --/ }'             \
+           -e '/^    -- \[L\]/,/^$/ { /^    -- \[L\]/b; /^$/b; s/^    --/    / }'                 \
+           -e '/^        -- \[L\]/,/^$/ { /^        -- \[L\]/b; /^$/b; s/^        --/        / }' \
+           /home/nil/.config/awesome/rc.lua
+    sed -i -e '/^# \[L+E\]/,/^$/ { /^# \[L+E\]/b; /^$/b; s/^/#/ }' \
+           -e '/^# \[L\]/,/^$/ { /^# \[L\]/b; /^$/b; s/^#// }'     \
+           /home/nil/.config/ranger/rifle.conf
+    sed -i -e '/^    # \[L+E\]/,/^$/ { /^    # \[L+E\]/b; /^$/b; s/^    /    #/ }' \
+           -e '/^    # \[L\]/,/^$/ { /^    # \[L\]/b; /^$/b; s/^    #/    / }'     \
+           /home/nil/.irssi/config
+    sed -i -e '/^    # \[L+E\]/,/^$/ { /^    # \[L+E\]/b; /^$/b; s/^    /    #/ }' \
+           -e '/^    # \[L\]/,/^$/ { /^    # \[L\]/b; /^$/b; s/^    #/    / }'     \
+           /home/nil/.irssi/config-censored
+    sed -i -e '/^# \[L+E\]/,/^$/ { /^# \[L+E\]/b; /^$/b; s/^/#/ }' \
+           -e '/^# \[L\]/,/^$/ { /^# \[L\]/b; /^$/b; s/^#// }'     \
+           /home/nil/.mpv/config
+    sed -i -e '/^# \[L+E\]/,/^$/ { /^# \[L+E\]/b; /^$/b; s/^/#/ }' \
+           -e '/^# \[L\]/,/^$/ { /^# \[L\]/b; /^$/b; s/^#// }'     \
+           /home/nil/.xinitrc
+    #pkill -f "urxvt -name nil"; pkill irssi; pkill ncmpcpp; pkill ranger
+    #urxvt -name nil -g 85x24 &
+    #urxvt -name irssi -g 102x35 -e irssi &
+    #urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+    #urxvt -name ranger -g 102x21 -e ranger &
+    echo 'awesome.restart()' | awesome-client &
+fi

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # This is my solution to efficient playlist navigation in mpv. It makes use of ranger to add files to the playlist, and vim
 # to rearrange items on the list.
