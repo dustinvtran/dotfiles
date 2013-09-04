@@ -438,9 +438,10 @@ alias gr="git rm --cached"
 alias gs="git show --name-only"
 
 # Manual mounter.
-alias mountb="mount /dev/sdb1 /media/External_Hard_Drive"
-alias mountc="mount /dev/sdc1 /media/External_Hard_Drive"
-alias umountb="umount /media/External_Hard_Drive"
+alias mountb="mount /dev/sdb1 /media/sdb1"
+alias mountc="mount /dev/sdc1 /media/sdc1"
+alias umountb="umount /media/sdb1"
+alias umountc="umount /media/sdc1"
 
 # Pacman/Packer aliases.
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
