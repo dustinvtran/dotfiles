@@ -35,11 +35,10 @@ pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
 
 udev-hdmi
-    * Finish the commenting if conditions.
-    * Omit the awesome restart for xinitrc, or have it issued later.
-    * Will udev automatically load up on startup, making my initial system settings in .xinitrc useless? If so, also write that into your udev- script comments.
-    * awesome starts a little too early, not getting wallpaper every time
-    * urxvt open commands not working
+    * I think udev automatically loads up on startup, so I took out my initial system settings in .xinitrc. If not, change back.
+    * Omit the awesome restart for xinitrc, or have it issued later?
+    * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
+    * urxvt open commands not working.
 
 Vim
     * LaTeX: Autobuild.
