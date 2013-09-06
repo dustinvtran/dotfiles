@@ -391,13 +391,15 @@ alias mkdir='nocorrect mkdir'
 alias sudo='nocorrect sudo'
 
 # Default flags.
-alias ping="ping -c 5 www.google.com"   # The only reason I ever use ping.
-alias crontab="EDITOR=vim crontab"      # Since crontab doesn't work with gvim/detached editors.
-alias cp="nocorrect cp -Rv"             # Ensure that cp is always recursive and verbose.
-alias df="df -h"                        # Display sizes in human readable format.
-alias du="du -h -c"                     # Display sizes in human readable format, and total.
-alias mount="sudo mount"                # Don't require prepending sudo.
-alias umount="sudo umount"              # Don't require prepending sudo.
+alias ping="ping -c 5 www.google.com"      # The only reason I ever use ping.
+alias crontab="EDITOR=vim crontab"         # Since crontab doesn't work with gvim/detached editors.
+alias cp="nocorrect cp -Rv"                # Ensure that cp is always recursive and verbose.
+alias df="df -h"                           # Display sizes in human readable format.
+alias du="du -h -c"                        # Display sizes in human readable format, and total.
+alias mount="sudo mount"                   # Don't require prepending sudo.
+alias umount="sudo umount"                 # Don't require prepending sudo.
+alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots) and without
+                                           # splash startup.
 
 # Power Management Controls.
 alias poweroff="sudo poweroff"          # Don't require prepending sudo.

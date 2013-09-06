@@ -40,7 +40,6 @@ libreoffice-en-US
 libreoffice-gnome
 libreoffice-writer
 librsvg
-libxp
 mediainfo
 mesa
 mpc
@@ -88,9 +87,6 @@ wqy-bitmapfont
 xcape-git
 xf86-input-synaptics
 xf86-video-intel
-xorg-fonts-100dpi
-xorg-fonts-75dpi
-xorg-fonts-type1
 xorg-server
 xorg-server-utils
 xorg-utils
