@@ -9,52 +9,48 @@ Highest Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
-    * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
-    * Move mouse to center of screen of new focused tag.
-        Do something like switchtotag in the keybinds.
-    * Applications not shifting correctly between monitors and #s.
-
-    * Maybe change all applications to sizes from awesome instead, i.e., feh in rifle.conf.
-    * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
-        mpd: stopped
-        battery: low
-    * Have the tag icons turn sideways on focus.
-        Find how to change tag name when focused.
-        Find the appropriate icons.
-    * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
-    * Get nu on workspaces and layout icon only. Lemon the rest (widgets and menu).
-    * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
-    * Try rodentbane for mouse movement with keyobard.
-
-    * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
-
-Theme
-    * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
-        Follow ricing guide.
-
-Some Issues
-    Awesome
+    Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
             It seems to be taking its toll once I due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general?
-    * cron: cron-mpdas doesn't seem to run in the background; hopefully does this matter?
-    * Glitches when moving to firefox sometimes.
+        * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
+        * Move mouse to center of screen of new focused tag.
+            Do something like switchtotag in the keybinds.
+        * Applications not shifting correctly between monitors and #s.
+        * Try rodentbane for mouse movement with keybard.
+    Appearance
+        * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
+            mpd: stopped
+            battery: low
+        * Have the tag icons turn sideways on focus.
+            Find how to change tag name when focused.
+            Find the appropriate icons.
+        * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
+        * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
+        * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
-mpv
-    * Does >/< across multiple directories?
-    * Should I add a kill mpv + mpv-open option? Should I add focus?
+cron
+   * cron-mpdas doesn't seem to run in the background; hopefully does this matter?
 
 pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
 
-work-related
-    * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
-    * Vim: LaTeX: Autobuild.
-        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+udev-hdmi
+    * Finish the commenting if conditions.
+    * Omit the awesome restart for xinitrc, or have it issued later.
+    * Will udev automatically load up on startup, making my initial system settings in .xinitrc useless? If so, also write that into your udev- script comments.
     * awesome starts a little too early, not getting wallpaper every time
     * urxvt open commands not working
-    Matlab
-        * Vim mode?
-    * R: default settings, vim mode?
+
+Vim
+    * LaTeX: Autobuild.
+        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+
+Zathura
+    * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
+
+Theme
+    * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
+        Follow ricing guide.
 
 }}}
 High Priority {{{
@@ -70,7 +66,7 @@ Awesome
     * Revamp menu, all with cute icons.
     * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
         Do the same for zathura and feh.
-    * On top ain't working as I want it to.
+    * Set alt+o to not do "on top", but to focus window that's below it, which would then put it on top.
         Set Library on top of Firefox always.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
     Panel Scripts
@@ -83,6 +79,8 @@ Awesome
             Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
         * Right-aligned panel widgets should be cut off from the left not the right.
     * Can't fullscreen VirtualBox, even with the function.
+    * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
+    * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -108,8 +106,19 @@ Laptop
 mount
     * Get an automounter that doesn't suck.
 
+mpv
+    * Does >/< across multiple directories?
+    * Should I add a kill mpv + mpv-open option in rifle.conf? Should I make mpv auto-focus?
+
 ranger
     * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
+
+readline
+    * Matlab: Add.
+    * matlab: Hide welcome/copyright/version message via tail output.
+    * Add color to inputs of python, R, Matlab to determine what mode you're in.
+    * Add more vim keybindings like ones I did for zle widgets. Possibly even sync the two.
+        Use github for suggestions.
 
 Vim
     * Make or use some syntax file for your todolists.
@@ -162,6 +171,7 @@ Firefox
     * flash: fullscreen toggles away once i hit something else.
     * Display notifications on primary desktop, not HDMI (e.g. download finished, gmail checker notifier, autopager notification of not loading, etc.).
     * Don't have middle click on webpage go to last opened tab.
+    * Screen glitches when moving to firefox sometimes.
 
 Firefox Addon: Pentadactyl
     * Have searches show # of hits.

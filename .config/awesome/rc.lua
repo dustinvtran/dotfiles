@@ -50,7 +50,7 @@ end
 -- Variable Definitions
 --#############################################################################
 
-terminal = "urxvt"
+terminal = "urxvt -name term"
 modkey = "Mod1"
 modkey2 = "Mod4"
 
@@ -311,6 +311,7 @@ globalkeys = awful.util.table.join(
 --#############################################################################
 
     awful.key({ modkey }, "Return", function () awful.util.spawn(terminal)                end),
+    awful.key({ modkey }, "r", function () run_or_raise(terminal, { instance = "term"  }) end),
     awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim"       }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
