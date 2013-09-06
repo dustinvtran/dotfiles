@@ -515,6 +515,8 @@ awful.rules.rules = {
 
     { rule = { class = "gimp" },
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
+    { rule = { name = "MATLAB" },
+      properties = { tag = tags[1][4], floating = false, switchtotag = true } },
     { rule = { class = "VirtualBox" },
       properties = { tag = tags[1][4], floating = false, switchtotag = true } },
 

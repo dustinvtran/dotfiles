@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # This displays mpv's now playing filename if mpv is running. Most of it was written by frau (see github).
 

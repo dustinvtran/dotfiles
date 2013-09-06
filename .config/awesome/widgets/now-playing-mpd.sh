@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # This displays mpd now playing info if mpd is running.
 
