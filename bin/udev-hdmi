@@ -11,7 +11,7 @@ alsa_dir=/home/nil/bin/config
 # Set audio output.
 # Commented, because I'd rather do this manually through my 'audio-output' script.
 #if [ "$hdmi_status" = connected ]; then
-#   ln -sf $alsa_dir/asound.hdmi /home/nil/.asoundrc
+#   ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
 #else
 #   ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
 #fi

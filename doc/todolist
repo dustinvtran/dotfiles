@@ -52,6 +52,12 @@ work-related
         First, need to be able to compile in background. But & fails for both pdflatex and rubber?
     * awesome starts a little too early, not getting wallpaper every time
     * urxvt open commands not working
+    Matlab
+        * Various settings, including appearance.
+        * Set font as lemon.
+        * Vim mode?
+        * Set default editor to open as Vim.
+    * R: default settings, vim mode?
 
 }}}
 High Priority {{{
@@ -65,7 +71,8 @@ Awesome
     * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
     * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
     * Revamp menu, all with cute icons.
-    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
+    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
+        Do the same for zathura and feh.
     * On top ain't working as I want it to.
         Set Library on top of Firefox always.
     * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
@@ -157,6 +164,7 @@ Firefox
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.
     * flash: fullscreen toggles away once i hit something else.
     * Display notifications on primary desktop, not HDMI (e.g. download finished, gmail checker notifier, autopager notification of not loading, etc.).
+    * Don't have middle click on webpage go to last opened tab.
 
 Firefox Addon: Pentadactyl
     * Have searches show # of hits.
@@ -197,10 +205,14 @@ transmission-remote-cli
 Webcam, Mic
     * Get them working.
 
+ranger
+    * When mounting extHD while with ranger up and shown the empty links already, have it load and preview them without requiring restart.
+
 skype
     * Install.
 
 trash-cli
+    * Delete trash things for external hard drives.
     * Have it show other properties, such as file size.
 
 urxvt

@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # As my mail notification system, this displays 3 unread mail counts if any is greater than zero. The unread mail
 # counts are outputted by scripts ~/bin/mailX.py, each of which monitor a different account.

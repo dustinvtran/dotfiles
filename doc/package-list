@@ -1,6 +1,7 @@
 This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by
  me.
 
+matlab-r2012b ("make install")
 acpi
 alsa-utils
 alsi
@@ -39,6 +40,7 @@ libreoffice-en-US
 libreoffice-gnome
 libreoffice-writer
 librsvg
+libxp
 mediainfo
 mesa
 mpc
@@ -86,6 +88,9 @@ wqy-bitmapfont
 xcape-git
 xf86-input-synaptics
 xf86-video-intel
+xorg-fonts-100dpi
+xorg-fonts-75dpi
+xorg-fonts-type1
 xorg-server
 xorg-server-utils
 xorg-utils
