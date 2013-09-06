@@ -33,6 +33,7 @@ fi
     # -e '' s/: Replace all inside matched lines by a regexp pattern: adding or removing a comment mark.
 # Then I kill and reload certain applications which need to restart; then I restart awesome.
 if [ "$hdmi_status" = connected ]; then
+#if [ "$hdmi_status" = connected ] && [ needs commenting ]; then
     sed -i -e '/^    -- \[L+E\]/,/^$/ { /^    -- \[L+E\]/b; /^$/b; s/^    --/    / }'             \
            -e '/^    -- \[L\]/,/^$/ { /^    -- \[L\]/b; /^$/b; s/^    /    --/ }'                 \
            -e '/^        -- \[L\]/,/^$/ { /^        -- \[L\]/b; /^$/b; s/^        /        --/ }' \
@@ -59,6 +60,7 @@ if [ "$hdmi_status" = connected ]; then
     #urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
     echo 'awesome.restart()' | awesome-client &
 else
+#elif [ needs commenting ]; then
     sed -i -e '/^    -- \[L+E\]/,/^$/ { /^    -- \[L+E\]/b; /^$/b; s/^    /    --/ }'             \
            -e '/^    -- \[L\]/,/^$/ { /^    -- \[L\]/b; /^$/b; s/^    --/    / }'                 \
            -e '/^        -- \[L\]/,/^$/ { /^        -- \[L\]/b; /^$/b; s/^        --/        / }' \

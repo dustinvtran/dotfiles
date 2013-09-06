@@ -294,6 +294,8 @@ yank-x-selection () {
     print -rn -- $CUTBUFFER | xsel -ip;
 }
 zle -N yank-x-selection
+autoload edit-command-line
+zle -N edit-command-line
 
 # }}}
 # The Vim setup {{{
@@ -314,12 +316,20 @@ stty eof undef
 # availability of any '^[...' mappings, so use this instead.)
 KEYTIMEOUT=1
 
-# Vim insert mode mappings.
+###############################################################################
+# Insert mode
+###############################################################################
+
 bindkey -M viins "^?" backward-delete-char      # i_Backspace
 bindkey -M viins '^[[3~' delete-char            # i_Delete
 bindkey -M viins '^[[Z' reverse-menu-complete   # i_SHIFT-Tab
 
-# Vim insert mode mappings I don't use but are nice to have.
+# Custom mappings I use everywhere.
+bindkey -M viins "^J" vim-down-line-or-history  # i_CTRL-J
+bindkey -M viins "^K" vim-up-line-or-history    # i_CTRL-K
+bindkey -M viins '^V' append-x-selection        # i_CTRL-V
+
+# I don't use these but they're Vim defaults I may as well keep.
 bindkey -M viins "^A" beginning-of-line         # i_CTRL-A
 bindkey -M viins "^E" end-of-line               # i_CTRL-E
 bindkey -M viins "^N" down-line-or-history      # i_CTRL-N
@@ -332,19 +342,13 @@ bindkey -M viins "^W" backward-kill-word        # i_CTRL-W
 bindkey -M viins "^[[7~" vi-beginning-of-line   # i_Home
 bindkey -M viins "^[[8~" vi-end-of-line         # i_End
 
-# Custom Vim insert mode mappings I use everywhere.
-bindkey -M viins '^V' append-x-selection        # i_CTRL-V
-bindkey -M viins "^J" vim-down-line-or-history  # i_CTRL-J
-bindkey -M viins "^K" vim-up-line-or-history    # i_CTRL-K
-bindkey -M viins '^[[5~' nop                    # i_PgUp
-bindkey -M viins '^[[6~' nop                    # i_PgDn
-
-# Editing the line in veritable Vim.
-autoload edit-command-line
-zle -N edit-command-line
+# Edit current line in veritable Vim.
 bindkey -M viins "^O" edit-command-line         # i_CTRL-I
 
-# Vim normal mode mappings.
+###############################################################################
+# Normal mode
+###############################################################################
+
 bindkey -M vicmd "ca" change-around             # ca
 bindkey -M vicmd "ci" change-in                 # ci
 bindkey -M vicmd "cc" vi-change-whole-line      # cc
@@ -354,27 +358,21 @@ bindkey -M vicmd "dd" kill-whole-line           # dd
 bindkey -M vicmd "gg" beginning-of-buffer-or-history # gg
 bindkey -M vicmd "G" end-of-buffer-or-history   # G
 bindkey -M vicmd "^R" redo                      # CTRL-R
-#Temporary until I can get them to scroll the buffer.
 #Note zshrc cannot physically do this, but urxvt itself cannot detect vicmd/viins apart..
-bindkey -M vicmd "j" nop                        # j
-bindkey -M vicmd "k" nop                        # k
+#bindkey -M vicmd "j" SCROLL DAMMIT!!            # j
+#bindkey -M vicmd "k" SCROLL DAMMIT!!            # k
 
-# Vim normal mode mappings I don't use but nice to have.
-bindkey -M vicmd "^E" vi-add-eol                # CTRL-E
-bindkey -M vicmd "g~" vi-oper-swap-case         # g~
-bindkey -M vicmd "ga" what-cursor-position      # ga
-
-# Custom Vim normal mode mappings I use everywhere.
+# Custom mappings I use everywhere.
 bindkey -M vicmd 'p' append-x-selection         # p
 bindkey -M vicmd 'P' prepend-x-selection        # P
 bindkey -M vicmd 'y' yank-x-selection           # y
 #bindkey -M vicmd 'Y' yank-to-end-x-selection    # Y
 bindkey -M vicmd "z" vi-substitute              # z
-bindkey -M vicmd '^?' nop                       # Backspace
-bindkey -M vicmd '^[[3~' nop                    # Delete
-bindkey -M vicmd '^[[2~' nop                    # Insert
-bindkey -M vicmd '^[[5~' nop                    # PgUp
-bindkey -M vicmd '^[[6~' nop                    # PgDn
+
+# I don't use these but they're Vim defaults I may as well keep.
+bindkey -M vicmd "^E" vi-add-eol                # CTRL-E
+bindkey -M vicmd "g~" vi-oper-swap-case         # g~
+bindkey -M vicmd "ga" what-cursor-position      # ga
 
 # }}}
 # Alias & Functions {{{
@@ -398,19 +396,23 @@ alias df="df -h"                           # Display sizes in human readable for
 alias du="du -h -c"                        # Display sizes in human readable format, and total.
 alias mount="sudo mount"                   # Don't require prepending sudo.
 alias umount="sudo umount"                 # Don't require prepending sudo.
-alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots) and without
-                                           # splash startup.
+
+# Computing Environment default flags.
+alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots), hide splash
+                                           # startup.
+alias R="R --no-save -q"                   # Never save workspace image, hide startup message.
+alias python="python -q"                   # Hide startup message.
 
 # Power Management Controls.
-alias poweroff="sudo poweroff"          # Don't require prepending sudo.
-alias reboot="sudo reboot"              # Don't require prepending sudo.
-alias suspend="sudo pm-suspend-hybrid"  # Don't require prepending sudo. Also the best low power suspension state.
-alias xsetd="xset dpms force off"       # Turn off display.
+alias poweroff="sudo poweroff"             # Don't require prepending sudo.
+alias reboot="sudo reboot"                 # Don't require prepending sudo.
+alias suspend="sudo pm-suspend-hybrid"     # Don't require prepending sudo. Also the best low power suspension state.
+alias xsetd="xset dpms force off"          # Turn off display.
 
 # Miscellaneous custom commands.
-alias bd="bg && disown"                 # Best way to prevent terminal-launched app from dying when closing terminal.
+alias bd="bg && disown"                    # Best way to prevent terminal-launched app from dying when closing terminal.
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
-alias history='fc -l'                   # See list of recently used commands.
+alias history='fc -l'                      # See list of recently used commands.
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias sv="sudo vim"
 
@@ -476,9 +478,6 @@ alias sshb="ssh -X s243-10@arwen.berkeley.edu"
 ###############################################################################
 # Functions
 ###############################################################################
-
-# A python-adapted calc program.
-alias calc='python -ic "from __future__ import division; from math import *; from random import *"'
 
 # The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
 # as first.
