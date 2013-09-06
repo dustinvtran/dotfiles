@@ -9,23 +9,10 @@
 # Initial System Settings
 ###############################################################################
 
-# Audio and Video Output
-xrandr | grep "HDMI1 connected"
-if [ $? -eq 0 ]; then
-    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
-    ln -sf /home/nil/bin/config/asound.usb /home/nil/.asoundrc
-else
-    xrandr --output HDMI1 --off
-    ln -sf /home/nil/bin/config/asound.usb /home/nil/.asoundrc
-fi
-
-# Inactivity Time to Turn Off Display
-batstatus=$(acpi -b | sed -n "1p" | awk -F "[, ]" '{print $3}')
-if [ "$batstatus" == "Discharging" ]; then
-    xset -dpms; xset s 300 300
-else
-    xset -dpms; xset s 1800 1800
-fi
+# HDMI
+~/bin/udev-hdmi
+# Power Supply
+~/bin/udev-power-supply
 
 ###############################################################################
 # Commands & Daemons
@@ -65,10 +52,10 @@ urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
 urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
 
 # [L] Use this if you only have laptop display.
-#####urxvt -name nil -g 85x24 &
-#####urxvt -name irssi -g 102x35 -e irssi &
-#####urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-#####urxvt -name ranger -g 102x21 -e ranger &
+#urxvt -name nil -g 85x24 &
+#urxvt -name irssi -g 102x35 -e irssi &
+#urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+#urxvt -name ranger -g 102x21 -e ranger &
 
 urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 
