@@ -12,7 +12,7 @@
 autofit=1200
 
 # [L] Use this if you only have laptop display.
-#####autofit-larger=90%x90%
+#autofit-larger=90%x90%
 
 #########################################################
 # OSD & Non-ASS Subtitle Rendering
