@@ -65,10 +65,10 @@ urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
 urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
 
 # [L] Use this if you only have laptop display.
-#urxvt -name nil -g 85x24 &
-#urxvt -name irssi -g 102x35 -e irssi &
-#urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-#urxvt -name ranger -g 102x21 -e ranger &
+#####urxvt -name nil -g 85x24 &
+#####urxvt -name irssi -g 102x35 -e irssi &
+#####urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
+#####urxvt -name ranger -g 102x21 -e ranger &
 
 urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 
