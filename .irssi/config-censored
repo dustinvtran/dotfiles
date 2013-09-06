@@ -122,7 +122,7 @@ settings = {
     awl_display_header = "                   ";
 
     # [L] Use this if you only have laptop display.
-    #awl_display_header = "                           ";
+    #####awl_display_header = "                           ";
 
     awl_display_key = "%w$H $C  $S";
     awl_display_key_active = "%r$H $C  $S";
