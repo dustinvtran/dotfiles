@@ -1,7 +1,6 @@
 This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by
  me.
 
-matlab-r2012b ("make install")
 acpi
 alsa-utils
 alsi
@@ -40,6 +39,7 @@ libreoffice-en-US
 libreoffice-gnome
 libreoffice-writer
 librsvg
+matlab r-2012b ("make install")
 mediainfo
 mesa
 mpc

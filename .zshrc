@@ -410,7 +410,10 @@ alias -- --='cd -2'
 alias -- ---='cd -3'
 
 # Manual file backups.
-alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by\n me.\n\nmatlab-r2012b (\"make install\")' > ~/doc/package-list && comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) >> ~/doc/package-list"
+alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
+installed manually by\n me.\n' > ~/doc/package-list\
+&& (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
+&& echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/system-dotfiles/nil"
 
@@ -447,25 +450,28 @@ alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
-# School SSH
-alias sshb="ssh -X s243-10@arwen.berkeley.edu"
-
 ###############################################################################
 # Functions
 ###############################################################################
 
 # The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
 # as first.
-zip() (
+zip() {
     name="$(basename -- "$1")"
     cd "$(dirname -- "$1")" &&
     command zip -r "$name.zip" "$name"
-)
+}
 
 # Application Opening
 l() { nocorrect f -e libreoffice "$@" & }
 m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
+
+# School SSH
+alias sshb="ssh -X s243-10@arwen.berkeley.edu"
+function scpb() {
+    scp $1 s243-10@arwen.berkeley.edu:~/$2
+}
 
 # }}}

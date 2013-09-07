@@ -18,12 +18,13 @@
 # dilemma of reloading the playlist without appending the currently playing file again, but it also means you can't add
 # another instance of the currently playing file later on in the playlist.
 
-playlist=~/.mpv/playlist
-file=$(~/bin/notme/now-playing-mpv)
+playlist="~/.mpv/playlist"
+file="~/bin/notme/now-playing-mpv"
 unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 
+pgrep mpv
 # If mpv isn't running.
-if [ $(pgrep mpv) -ne 0 ]; then
+if [ $? -ne 0 ]; then
     # Pause mpd, e.g., if I open mpv while mpd is still playing.
     ncmpcpp pause
     # Place all arguments into new playlist.
