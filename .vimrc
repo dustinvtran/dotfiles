@@ -337,17 +337,18 @@ nnoremap <Leader>b {
 "##############################################################################
 
 " Buffers
-" See BufExplorer/NERDTree>
+" See BufExplorer.
 
 " Windows
-" See BufExplorer/NERDTree>
-noremap <silent> <C-w> :q<CR>
+nnoremap          <C-x> <C-w>s
+nnoremap          <C-v> <C-w>v
+noremap  <silent> <C-w> :q<CR>
 noremap! <silent> <C-w> :q<CR>
-noremap <silent> <F1> <C-w>+
-noremap <silent> <F2> <C-w>-
-noremap <silent> <F3> <C-w>>
-noremap <silent> <F4> <C-w><
-noremap <silent> <F5> <C-w>=
+noremap           <F1>  <C-w>+
+noremap           <F2>  <C-w>-
+noremap           <F3>  <C-w>>
+noremap           <F4>  <C-w><
+noremap           <F5>  <C-w>=
 function! MarkWindowSwap()
     let g:markedWinNum = winnr()
 endfunction
@@ -360,14 +361,16 @@ function! DoWindowSwap()
     exe curNum . "wincmd w"
     exe 'hide buf' markedBuf
 endfunction
-nnoremap <silent> <Leader>m :call MarkWindowSwap()<CR>
+nnoremap <silent> <Leader>m         :call MarkWindowSwap()<CR>
 nnoremap <silent> <Leader><Leader>m :call DoWindowSwap()<CR>
-nnoremap <c-h> <C-w>W
-nnoremap <c-l> <C-w>w
+nnoremap          <c-h>             <C-w>W
+nnoremap          <c-l>             <C-w>w
 
 " Tabs
-nnoremap <silent> H :tabp<CR>
-nnoremap <silent> L :tabn<CR>
+noremap  <silent> <C-t> :tabe<CR>
+noremap! <silent> <C-t> :tabe<CR>
+nnoremap <silent> H     :tabp<CR>
+nnoremap <silent> L     :tabn<CR>
 
 " }}}
 " Plugins {{{
@@ -378,10 +381,6 @@ nnoremap <silent> L :tabn<CR>
 "##############################################################################
 
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
-nnoremap <silent> <C-x> <C-w>s:silent BufExplorer<CR>
-nnoremap <silent> <C-v> <C-w>v:silent BufExplorer<CR>
-noremap <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
-noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 
 "##############################################################################
 " Colors & Airline

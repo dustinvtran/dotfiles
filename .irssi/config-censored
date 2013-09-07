@@ -12,31 +12,11 @@ servers = (
     autoconnect = "yes";
     use_ssl = "yes";
     password = "nil:-censored-";
-  },
-  {
-    address = "irc.freenode.net";
-    chatnet = "freenode";
-    port = "6667";
-    autoconnect = "no";
-    use_ssl = "yes";
-  },
-  {
-    address = "irc.undernet.org";
-    chatnet = "undernet";
-    port = "6667";
-    autoconnect = "no";
-    use_ssl = "no";
   }
 );
 
 chatnets = {
   rizon = { type = "IRC"; nick = "nil"; };
-  freenode = {
-    type = "IRC";
-    nick = "nil-";
-    autosendcmd = "/msg nickserv IDENTIFY -censored-; /window goto nickserv; /window close";
-  };
-  undernet = { type = "IRC"; };
 };
 
 channels = (

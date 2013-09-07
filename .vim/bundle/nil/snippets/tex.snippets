@@ -1,5 +1,6 @@
 # 'il' stands for inline snippets.
 # Document
+snippet document
 	\begin{document}
 	${1}
 	\end{document}
@@ -183,10 +184,13 @@ snippet convention
 	\end{convention}
 	${2}
 snippet exercise
-	\begin{exercise}%${1}{{{
-	    [${2}] ${3}
+	\begin{exercise}%${1:num}{{{
+	    [$1] ${2}
 	\end{exercise}
-	${4}
+	\begin{proof}
+	${3}
+	\end{proof}
+	%}}}
 snippet question
 	\begin{question}
 	    ${1}
