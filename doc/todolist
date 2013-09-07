@@ -8,6 +8,9 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+* Check after bootup: I think udev automatically loads up on startup, so I took out my initial system settings in .xinitrc. If not, change back.
+* Check after bootup: Do I need to omit the awesome restart for xinitrc?
+
 Awesome
     Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
@@ -35,8 +38,6 @@ pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
 
 udev-hdmi
-    * I think udev automatically loads up on startup, so I took out my initial system settings in .xinitrc. If not, change back.
-    * Omit the awesome restart for xinitrc, or have it issued later?
     * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
     * urxvt open commands not working.
 
@@ -108,6 +109,7 @@ mount
 mpv
     * Does >/< across multiple directories?
     * Should I add a kill mpv + mpv-open option in rifle.conf? Should I make mpv auto-focus?
+    * Stream youtube into here.
 
 ranger
     * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
@@ -286,6 +288,7 @@ irssi
     * See ban list of channels like in hexchat.
     * Set -> mode so that when you do something like +ao, it only shows the designated nick once, not twice.
     * OpenURL: never lose focus when opening url and firefox is on a focused workspace.
+    * OpenURL: second+ lines of long urls are not underlined and blued.
     * <C-v> not pasting (a urxvt issue).
     * vim_mode: Have yank/paste go to the clipboard.
     * anames: Add a bunch of whitespace to the first column.

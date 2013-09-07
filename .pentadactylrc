@@ -174,7 +174,7 @@ map -modes=n -builtin <Leader>y  :tabopen! http://rateyourmusic.com/~nilin<CR>
 map -modes=n -builtin <Leader>l  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " Documents.
-map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
+map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/2/#inbox | https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
 map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
