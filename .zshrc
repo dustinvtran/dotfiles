@@ -17,23 +17,10 @@ setopt extendedglob
 setopt interactivecomments
 setopt nobeep
 setopt nocheckjobs
-
-# Do not consider "/" a word character. One benefit of this is that when
-# hitting ctrl-w in insert mode (which deletes the word before the cursor) just
-# before a filesystem path, it only removes the last item of the path and not
-# the entire thing.
-WORDCHARS=${WORDCHARS//\/}
-
-# Autocorrection. Note there is a correct_all but it's often too persistent.
 setopt correct
-# Autocorrection for git.
-#git config --global help.autocorrect 1
-# When offering typo corrections, do not propose anything which starts with an
-# underscore (such as many of Zsh's shell functions).
-CORRECT_IGNORE='_*'
 
 ###############################################################################
-# History.
+# History
 ###############################################################################
 
 HISTSIZE=1000
@@ -107,23 +94,12 @@ zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
 # }}}
-# Appearance & Prompt Style {{{
+# Prompt Style {{{
 # -----------------------------------------------------------------------------
-
-# Enable colors (necessary for prompt).
-autoload -U colors && colors
-
-# ls colors.
-alias ls='ls -a --color'
-alias lsa='ls -lah --color'
-
-# grep colors.
-alias grep='grep --color'
-
-# Prompt Style.
 # This changes PS1 dynamically depending on insert or command mode.
-PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
 
+autoload -U colors && colors
+PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
 
 zle-keymap-select () {
 if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
@@ -324,12 +300,12 @@ bindkey -M viins "^?" backward-delete-char      # i_Backspace
 bindkey -M viins '^[[3~' delete-char            # i_Delete
 bindkey -M viins '^[[Z' reverse-menu-complete   # i_SHIFT-Tab
 
-# Custom mappings I use everywhere.
+# Non-Vim default mappings I use everywhere.
 bindkey -M viins "^J" vim-down-line-or-history  # i_CTRL-J
 bindkey -M viins "^K" vim-up-line-or-history    # i_CTRL-K
 bindkey -M viins '^V' append-x-selection        # i_CTRL-V
 
-# I don't use these but they're Vim defaults I may as well keep.
+# Vim defaults I don't use but I may as well keep.
 bindkey -M viins "^A" beginning-of-line         # i_CTRL-A
 bindkey -M viins "^E" end-of-line               # i_CTRL-E
 bindkey -M viins "^N" down-line-or-history      # i_CTRL-N
@@ -343,7 +319,7 @@ bindkey -M viins "^[[7~" vi-beginning-of-line   # i_Home
 bindkey -M viins "^[[8~" vi-end-of-line         # i_End
 
 # Edit current line in veritable Vim.
-bindkey -M viins "^O" edit-command-line         # i_CTRL-I
+bindkey -M viins "^E" edit-command-line         # i_CTRL-I
 
 ###############################################################################
 # Normal mode
@@ -362,14 +338,14 @@ bindkey -M vicmd "^R" redo                      # CTRL-R
 #bindkey -M vicmd "j" SCROLL DAMMIT!!            # j
 #bindkey -M vicmd "k" SCROLL DAMMIT!!            # k
 
-# Custom mappings I use everywhere.
+# Non-Vim default mappings I use everywhere.
 bindkey -M vicmd 'p' append-x-selection         # p
 bindkey -M vicmd 'P' prepend-x-selection        # P
 bindkey -M vicmd 'y' yank-x-selection           # y
 #bindkey -M vicmd 'Y' yank-to-end-x-selection    # Y
 bindkey -M vicmd "z" vi-substitute              # z
 
-# I don't use these but they're Vim defaults I may as well keep.
+# Vim defaults I don't use but I may as well keep.
 bindkey -M vicmd "^E" vi-add-eol                # CTRL-E
 bindkey -M vicmd "g~" vi-oper-swap-case         # g~
 bindkey -M vicmd "ga" what-cursor-position      # ga
@@ -381,6 +357,11 @@ bindkey -M vicmd "ga" what-cursor-position      # ga
 ###############################################################################
 # Alias
 ###############################################################################
+
+# Colors.
+alias ls='ls -a --color'
+alias lsl='ls -lah --color'
+alias grep='grep --color'
 
 # Disable autocorrection for these.
 alias ln="nocorrect ln"
@@ -428,7 +409,7 @@ alias -- -='cd -'
 alias -- --='cd -2'
 alias -- ---='cd -3'
 
-# System-dotfile backups.
+# Manual file backups.
 alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by\n me.\n\nmatlab-r2012b (\"make install\")' > ~/doc/package-list && comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort) >> ~/doc/package-list"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 alias crontablx="crontab -l > ~/system-dotfiles/nil"
@@ -446,31 +427,25 @@ alias mountc="mount /dev/sdc1 /media/sdc1"
 alias umountb="umount /media/sdb1"
 alias umountc="umount /media/sdc1"
 
-# Pacman/Packer aliases.
+# Package management.
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
-alias pqs="pacman -Qs"
-alias pr="sudo pacman -R"
-alias prcns="sudo pacman -Rcns"
-alias ps="packer --noedit -S"
-alias psyu="packer --noedit -Syu"
-alias pss="packer -Ss"
+alias pQs="pacman -Qs"
+alias pR="sudo pacman -R"
+alias pRcns="sudo pacman -Rcns"
+alias pS="packer --noedit -S"
+alias pSyu="packer --noedit -Syu"
+alias pSs="packer -Ss"
 
-# trash-cli aliases.
+# trash-cli.
 alias tp="trash-put"
 alias tl="trash-list"
 alias tr="restore-trash"
 alias emptytrash="trash-empty"
 
-# CLI Applications
+# CLI Applications.
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
-
-# Application Opening
-l() { nocorrect f -e libreoffice "$@" & }
-m() { nocorrect f -e mpv "$@" & }
-alias v="nocorrect f -e gvim -B viminfo"
-z() { nocorrect f -e zathura "$@" & }
 
 # School SSH
 alias sshb="ssh -X s243-10@arwen.berkeley.edu"
@@ -481,10 +456,16 @@ alias sshb="ssh -X s243-10@arwen.berkeley.edu"
 
 # The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
 # as first.
-zip () (
+zip() (
     name="$(basename -- "$1")"
     cd "$(dirname -- "$1")" &&
     command zip -r "$name.zip" "$name"
 )
+
+# Application Opening
+l() { nocorrect f -e libreoffice "$@" & }
+m() { nocorrect f -e mpv "$@" & }
+alias v="nocorrect f -e gvim -B viminfo"
+z() { nocorrect f -e zathura "$@" & }
 
 # }}}

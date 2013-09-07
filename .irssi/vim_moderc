@@ -12,8 +12,6 @@ map h /window prev
 map l /window next
 map <C-h> /window move prev
 map <C-l> /window move next
-map 0 /window 1
-map $ /window 4
 map <c-e> /window last
 map <C-w> /window close
 map <C-r> /reload

@@ -25,7 +25,7 @@ else
     xrandr --output HDMI1 --off
 fi
 
-# Set certain program settings.
+# Set certain application settings.
 # Explanation:
 # * The if/elif conditions state if HDMI is conn./disconn. and lplusecommented is not/is a null string, respectively.
     # lplusecommented: prints out the first line after # [L+E] in .xinitrc if it doesn't start with #, empty otherwise.
