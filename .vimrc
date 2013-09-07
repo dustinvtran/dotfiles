@@ -98,12 +98,14 @@ augroup misc
     autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
     " Auto-open last file if invoked without arguments.
     " Currently bugged when trying to use Vim also as manpager.
-    "autocmd VimEnter * nested if
-      "\ argc() == 0 &&
-      "\ bufname("%") == "" &&
-      "\ bufname("2" + 0) != "" |
-      "\   exe "normal! `0" |
-      "\ endif
+    if has('gui_running')
+    autocmd VimEnter * nested if
+      \ argc() == 0 &&
+      \ bufname("%") == "" &&
+      \ bufname("2" + 0) != "" |
+      \   exe "normal! `0" |
+      \ endif
+    endif
     " Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!
     autocmd BufWritePost $myvimrc nested source $myvimrc
     autocmd BufWritePost $myvimrc set formatoptions-=c formatoptions-=t formatoptions-=q formatoptions+=r formatoptions+=o formatoptions+=l
@@ -385,7 +387,12 @@ noremap! <silent> <C-t> :tabe<CR>:silent BufExplorer<CR>
 " Colors & Airline
 "##############################################################################
 
-colorscheme nil
+" Temporary until I can get solarized working for terminal.
+if has('gui_running')
+    colorscheme nil
+else
+    colorscheme bclear
+endif
 set background=light
 syntax enable
 set guioptions=
@@ -393,10 +400,10 @@ set notitle
 set guifont=lemon
 set laststatus=2
 set noshowmode
+let g:airline_theme='solarized'
 let g:airline_left_sep='⮀'
 let g:airline_right_sep='⮂'
 let g:airline#extensions#whitespace#enabled = 0
-let g:airline_theme='solarized'
 "let g:airline_section_c='%f%m'
 let g:airline_section_x=''
 let g:airline_section_y="%{strlen(&filetype)>0?&filetype:''}"

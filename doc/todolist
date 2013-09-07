@@ -10,6 +10,8 @@ Highest Priority {{{
 
 * Check after bootup: I think udev automatically loads up on startup, so I took out my initial system settings in .xinitrc. If not, change back.
 * Check after bootup: Do I need to omit the awesome restart for xinitrc?
+cron
+   * See if the cronjob/scripts are working. mpdas seems to be defunct. What about reboot?
 
 Awesome
     Functionality
@@ -31,9 +33,6 @@ Awesome
         * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
         * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
-cron
-   * cron-mpdas doesn't seem to run in the background; hopefully does this matter?
-
 pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
 
@@ -48,9 +47,11 @@ Vim
 Zathura
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
 
-Theme
+Misc
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
+    * Fork transmissionremotecli properlyso people can use your own more professionally
+    * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
 
 }}}
 High Priority {{{
@@ -99,6 +100,7 @@ irssi
         How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot? How does it manage massive logs when I was gone for, e.g., days?
     * Quitting with /away doesn't show away in sb although I'm still away.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
+    * Alias > to automatically expand to C-c3>.
 
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
@@ -123,7 +125,6 @@ readline
 
 Vim
     * Make or use some syntax file for your todolists.
-    * VimEnter on auto-open last file makes manpager wonky, but wouldn't work with GUIEnter.
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
 
 xinitrc

@@ -2,15 +2,12 @@
 
 # This is a script for a cronjob which keeps the specified program always running.
 
-#export DISPLAY=:0
+export DISPLAY=:0
 
-#program="mpdas"
-#command=$(mpdas &)
+program="mpdas"
+command="mpdas &"
 
-#if ps ax | grep -v grep | grep $program > /dev/null
-    #then
-        #exit
-    #else
-    #$command
-#fi
-#exit
+pgrep $program
+if [ $? -ne 0 ]; then
+    $command
+fi

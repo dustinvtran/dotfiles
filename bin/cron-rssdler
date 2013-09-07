@@ -5,12 +5,9 @@
 export DISPLAY=:0
 
 program="rssdler"
-command=$(rssdler -c /home/nil/.config/rssdler/config.txt -d)
+command="rssdler -c /home/nil/.config/rssdler/config.txt -d"
 
-if ps ax | grep -v grep | grep $program > /dev/null
-    then
-        exit
-    else
+pgrep $program
+if [ $? -ne 0 ]; then
     $command
 fi
-exit
