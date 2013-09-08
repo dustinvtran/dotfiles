@@ -119,7 +119,7 @@ settings = {
     dcc_autoaccept_lowports = "yes";
     dcc_autoget = "yes";
     dcc_autorename = "yes";
-    dcc_download_path = "~/nil/Media/Literature/IRC-bookz";
+    dcc_download_path = "~/nil/Media/Literature/[Backlog]/IRC-bookz";
   };
 };
 hilights = (
