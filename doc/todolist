@@ -8,6 +8,8 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+mpv-open not working?????
+
 Awesome
     Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
@@ -203,6 +205,7 @@ plex
 ranger
     * Set djvu to not show any preview.
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
+    * When usind Dt to see trash list, have it ask if you want to clear the trash list also.
 
 SD Card
     * Doesn't read it.

@@ -2,8 +2,8 @@
 
 # This is an automated script set in mpv, which is run whenever I exit the mpv playlist editor.
 
-playlist="~/.mpv/playlist"
-file="~/bin/notme/now-playing-mpv"
+playlist=~/.mpv/playlist
+file=$(~/bin/notme/now-playing-mpv)
 unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 
 # If currently playing file exists in playlist.
