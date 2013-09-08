@@ -17,5 +17,5 @@ if [ -n "${line}" ]; then
     else
         nick=$(tail -n 1 /home/nil/.irssi/logs/fnotify | awk -F " " '{print $3}')
     fi
-    echo "  ⮜ $nick"
+    echo " ⮜ $nick "
 fi

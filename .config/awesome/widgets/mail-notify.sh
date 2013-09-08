@@ -8,5 +8,5 @@ mail2=$(mail2.py)
 mail3=$(mail3.py)
 
 if [ $mail1 -gt 0 ] || [ $mail2 -gt 0 ] || [ $mail3 -gt 0 ]; then
-    echo "  ⮣ $mail1$mail2$mail3"
+    echo " ⮣ $mail1$mail2$mail3 "
 fi

@@ -2,10 +2,14 @@
 # Ranger colorscheme
 # ~/.config/ranger/colorschemes/nil.py
 # Name: nil
+#
 
-# Note: I changed the interface for titlebar and statusbar, and so some conditions are added/removed accordingly.
+# Note: I changed the interface for titlebar and statusbar, and so some conditions are added/removed accordingly,
+#   particularly in context.in_statusbar.
 # Parameters:
+# conditions: See ranger documentation.
 # bg/fg: black, blue, cyan, green, magenta, red, white, yellow, default
+#     You can also specify the color value by the corresponding 256 number.
 # attr: normal, bold, blink, reverse, underline, invisible
 
 from ranger.gui.colorscheme import ColorScheme
@@ -34,45 +38,28 @@ class Default(ColorScheme):
                     fg = yellow
                 if context.audio:
                     fg = cyan
-                # Else (e.g. video).
                 else:
                     fg = magenta
             if context.container:
                 fg = red
             if context.directory:
-                #attr |= bold
                 fg = blue
-                #fg = white
-            # These files are finicky, as it also colors things like *.txts and
-            #   random rc/config files.
             elif context.executable and not \
                     any((context.media, context.container,
                         context.fifo, context.socket)):
-                #attr |= bold
-                #fg = green
-                fg = default
+                fg = green
             if context.socket:
                 fg = magenta
-                #attr |= bold
             if context.fifo or context.device:
                 fg = yellow
-                #if context.device:
-                    #attr |= bold
             if context.link:
                 fg = context.good and cyan or magenta
             if context.tag_marker and not context.selected:
-                #attr |= bold
-                if fg in (red, magenta):
-                    fg = white
-                else:
-                    fg = red
+                fg = red
             if not context.selected and (context.cut or context.copied):
-                #fg = black
                 attr |= bold
-            if context.main_column:
-                if context.marked:
-                    #attr |= bold
-                    fg = yellow
+            if context.main_column and context.marked:
+                fg = yellow
             if context.badinfo:
                 if attr & reverse:
                     bg = magenta
@@ -80,18 +67,10 @@ class Default(ColorScheme):
                     fg = magenta
 
         elif context.in_statusbar:
-            if context.permissions:
-                if context.good:
-                    fg = cyan
-                elif context.bad:
-                    #fg = magenta
-                    fg = red
-            elif context.directory:
+            if context.directory:
                 fg = red
             if context.space:
                 fg = white
-            if context.marked:
-                fg = yellow
             if context.message:
                 if context.bad:
                     fg = red
