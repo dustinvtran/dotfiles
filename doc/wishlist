@@ -218,7 +218,6 @@ Medium Priority:
     * Allow .zshrc things to run through, such as aliases and functions, when you use :shell commands, not just for interactive shells.
 
 Low Priority:
-    * Always open ranger at its last closed location, instead of being forced to do '' at startup.
     * Choose what files are pasted first when copying a bunch of them.
     * Enhanced out-of-console previews: activate video previews (just some snapshot much like w3m for images, or better yet, several snapshots and it cycling through them), txt previews from an embeddable gvim or vim one (i.e. not just pager).
     * w3img shows a piece of its bottom occasionally, although it resets when I teleport to another folder.

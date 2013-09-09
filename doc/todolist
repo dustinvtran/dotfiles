@@ -52,7 +52,8 @@ Misc
         Follow ricing guide.
     * Fork transmissionremotecli properlyso people can use your own more professionally
     * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
-    * Airbears connection.
+    * Turning off pc with mounted things.
+    * Can I connect to Airbears without resetting/etc.?
 
 }}}
 High Priority {{{
@@ -91,6 +92,7 @@ Awesome
         * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
         * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
         * Try rodentbane for mouse movement with keybard.
+        * Resizing with touchpad is too difficult.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -211,6 +213,7 @@ plex
     * Get the server working.
 
 ranger
+    * Set it to auto-open last directory as hut stated in the Q&A.
     * Set djvu to not show any preview.
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
     * When using Dt to see trash list, have it ask if you want to clear the trash list also.
