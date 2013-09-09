@@ -17,6 +17,7 @@ map <C-w> /window close
 map <C-r> /reload
 map : <Nop>
 map ; <Nop>
+map <Leader>c /set colors toggle
 map <Leader>n /anames
 map <Leader>t /topic
 map <Leader>1 /window 1

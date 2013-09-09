@@ -139,11 +139,11 @@ bashets.register("irssi-notify.sh", {
     format = '<span font="lemon" color="#FF96A3">$1</span>',
     update_time = 1,
     separator = "nil"})
-bashets.register("mail-notify.sh", {
-    widget = mailwidget,
-    format = '<span font="lemon" color="#FF96A3">$1</span>',
-    update_time = 90,
-    separator = "nil"})
+--bashets.register("mail-notify.sh", {
+    --widget = mailwidget,
+    --format = '<span font="lemon" color="#FF96A3">$1</span>',
+    --update_time = 90,
+    --separator = "nil"})
 bashets.register("now-playing-mpd.sh", {
     widget = mpdwidget,
     format = '<span font="lemon">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
@@ -232,7 +232,7 @@ for s = 1, screen.count() do
 
         local right_layout = wibox.layout.fixed.horizontal()
         --right_layout:add(volwidget)
-        right_layout:add(mailwidget)
+        --right_layout:add(mailwidget)
         right_layout:add(irssiwidget)
 
         -- [L] Use this if you only have laptop display.

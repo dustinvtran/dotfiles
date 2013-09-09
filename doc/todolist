@@ -8,17 +8,17 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-mpv-open not working?????
-
 Awesome
     Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
-            It seems to be taking its toll once I due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general?
+            It seems to be taking its toll once I due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general? It's definitely something in rc.lua, since using default solves this issue.
+                Removed all the extra libraries and the whole widget bar, and it worked.
+                Now just gonna try removing mail-notify. Can't tell without more downloads.
+
         * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
         * Move mouse to center of screen of new focused tag.
             Do something like switchtotag in the keybinds.
-        * Applications not shifting correctly between monitors and #s.
-        * Try rodentbane for mouse movement with keybard.
+        * Applications not shifting correctly between monitors and #s, what with absolute positions. Maybe add movetoscreeen or something? see mod4+control+j function in the default rc.lua and add it to your keybinds
     Appearance
         * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
             mpd: stopped
@@ -26,15 +26,15 @@ Awesome
         * Have the tag icons turn sideways on focus.
             Find how to change tag name when focused.
             Find the appropriate icons.
-        * mpv: Somehow grep with regexp and gray any parts of the filenames in [...]
-        * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
-        * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
 
 cron
    * See if the cronjob/scripts are working. mpdas seems to be defunct. What about reboot?
 
 pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
+
+transmission
+    * occasionally small pieces corrupt? lolwat? how do i solve this?
 
 udev-hdmi
     * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
@@ -63,14 +63,20 @@ Android/iPad USB Connection
     * ipad: nope.
 
 Awesome
-    * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
-    * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
-    * Revamp menu, all with cute icons.
-    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
-        Do the same for zathura and feh.
-    * Set alt+o to not do "on top", but to focus window that's below it, which would then put it on top.
-        Set Library on top of Firefox always.
-    * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
+    Appearance
+        * mpv: Somehow grep with regexp and gray any parts of the filenames in [...] maybe by sedding them and adding the separator variable.
+        * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
+        * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
+    General
+        * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
+        * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
+        * Revamp menu, all with cute icons.
+        * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
+            Do the same for zathura and feh.
+        * Set alt+o to not do "on top", but to focus window that's below it, which would then put it on top.
+            Set Library on top of Firefox always.
+        * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
+        * For things like gimp, have the extra dialog folders show appropriately on the right workspace (this includes the right monitor). For example, GIMP's save dialog appears on my external display.
     Panel Scripts
         * mpv
             If the file name is too long (e.g. if X has > Y characters), have it cut off.
@@ -80,9 +86,11 @@ Awesome
         * volume: have a keybind to check current volume, or to pop up the display for a few seconds
             Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
         * Right-aligned panel widgets should be cut off from the left not the right.
-    * Can't fullscreen VirtualBox, even with the function.
-    * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
-    * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
+    Misc
+        * Can't fullscreen VirtualBox, even with the function.
+        * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
+        * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
+        * Try rodentbane for mouse movement with keybard.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -186,7 +194,7 @@ git
 
 irssi
     * Get a way to set a vim mode map to do "3 ", and another for "1,1 "
-    * Do stuff like /whois, <c-r>, and /nicklist while being able to remove all that text when i no longer want to see it.
+    * Do stuff like /whois, <c-r>, ,n and /nicklist while being able to remove all that text when i no longer want to see it.
     * A status window works for this, but it doesn't include /names. How to?
     * Display some type of % sign when not at bottom of text.
     * Do nick/vhosts/BNC for all servers.
@@ -205,7 +213,7 @@ plex
 ranger
     * Set djvu to not show any preview.
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
-    * When usind Dt to see trash list, have it ask if you want to clear the trash list also.
+    * When using Dt to see trash list, have it ask if you want to clear the trash list also.
 
 SD Card
     * Doesn't read it.
@@ -342,7 +350,7 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
-set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets).
+set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets), how i sort my media.
 grub
     rename menu entries
 laptop
