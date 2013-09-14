@@ -3,7 +3,7 @@ This is a document which compiles a list of features that I would like on variou
 
 This is sorted alphabetically by application. Each item on the list is assigned toward a priority level depending how much
  I personally want them to be implemented. Then each item in the Priority categories are themselves ranked in descending
- order of subpriority.
+ order of subpriority. Oh, I also have a feature wishlist of websites I regularly browse at the end.
 
 Awesome {{{
 -------------------------------------------------------------------------------
@@ -267,6 +267,7 @@ High Priority:
 
 Low Priority:
     * Mouse support.
+    * move location of several downloaded locations at once, similar to 'highlight' in torrents' file lists.
     * Somehow allow ranger to open containing folder of torrent.
     * Huge huge input lag when the file list is enormous (lagged on rahxephon with ~1000 files).
     * When i queue up/down when already at top/bottom, they add weird stats to my uploads (only happens when downloading).
@@ -306,3 +307,11 @@ Zathura {{{
 
 Low Priority:
     * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page. E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
+
+}}}
+Website: StyleForum Classifieds {{{
+
+High Priority
+    * Budget restrictions, search engine, item classifications, more immediately clear whether active listing or not.
+
+}}}

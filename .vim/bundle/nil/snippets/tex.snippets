@@ -9,6 +9,11 @@ snippet begin
 	\begin{${1:env}}
 	    ${2}
 	\end{$1}
+# Code
+snippet verbatim
+	\begin{verbatim}
+	${1}
+	\end{verbatim}
 # Align snippet align
 snippet align
 	\begin{align*}
@@ -51,7 +56,7 @@ snippet \[
 	    \[${1}\]
 # Enumerate
 snippet enumerate
-	\begin{enumerate}[(a)]\vspace{-1em}
+	\begin{enumerate}[(a)]\vspace{-1ex}
 	    \item ${1}
 	    \item ${2}
 	\end{enumerate}

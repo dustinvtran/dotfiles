@@ -7,6 +7,7 @@ Each to-do item for an application is assigned toward a priority level depending
 
 Highest Priority {{{
 -------------------------------------------------------------------------------
+what is net-auto-wireless.service? do i need that? do systemctl restart ... | grep net
 
 Awesome
     Functionality
@@ -28,13 +29,17 @@ Awesome
             Find the appropriate icons.
 
 cron
-   * See if the cronjob/scripts are working. mpdas seems to be defunct. What about reboot?
+   * See if the cronjob/scripts are working. mpdas seems to be defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>.
+
+mpv-open
+    * occasionally getting these weird blank sed files in ~/.mpv.
 
 pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
 
 transmission
-    * occasionally small pieces corrupt? lolwat? how do i solve this?
+    * Occasionally corrupt pieces of files in Transmission downloading. Is this transmission's fault or mine??
+        For now, you'll have to check each torrent after it finishes individually.
 
 udev-hdmi
     * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
@@ -43,6 +48,11 @@ udev-hdmi
 Vim
     * LaTeX: Autobuild.
         First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+    * If in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
+        !R -e "library(knitr); knit('%:p')"
+        !rubber -d "%:r".tex
+        silent !rubber --clean "%:r".tex &
+    * Note that you uncommented that one part from NERDCommenter.vim.
 
 Zathura
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
@@ -50,10 +60,13 @@ Zathura
 Misc
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
-    * Fork transmissionremotecli properlyso people can use your own more professionally
+    * Fork transmissionremotecli properly so people can use your own more professionally
     * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
-    * Turning off pc with mounted things.
-    * Can I connect to Airbears without resetting/etc.?
+    * Turning off pc with mounted things without doing manually, e.g., kill ranger on the directory, transmission-da, and mpd.
+    * Connect to Airbears without resetting.
+    * Zathura: Manage pdfs with tabs, while with keybinds to detach/attach.
+    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
+       current command works fine but it adds knitr things twice.
 
 }}}
 High Priority {{{
@@ -217,11 +230,13 @@ ranger
     * Set djvu to not show any preview.
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
     * When using Dt to see trash list, have it ask if you want to clear the trash list also.
+    * When renaming, allow some way to already have the current name to modify (e.g., when trying to rename long file names but only a portion of it).
 
 SD Card
     * Doesn't read it.
 
 transmission-remote-cli
+    * Set default download location setting.
     * Keybind two commands to queue move guys down to the bottom, or at least move down 5 times.
 
 Webcam, Mic
@@ -257,6 +272,10 @@ vim
     * Snippets: How to do snippets inside a snippet? Or perhaps manage more carefully if not.
     * YankStack: not cycling all the time, never cycling when I paste, screws a shitload of my vimrc behavior.
     * vim fold text styling. donri is coming up with a plugin for a nice one.
+
+Zathura
+    * Keybind >/< to go through all possible readable documents within that directory.
+    * Maybe some to go up/down directories too. I don't need anything too fancy; just these four shortcuts are good enough.
 
 zsh
     * Make cleaner format for ls -l in terminal.
@@ -353,7 +372,7 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
-set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets), how i sort my media.
+set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets,search engines), how i sort my media.
 grub
     rename menu entries
 laptop

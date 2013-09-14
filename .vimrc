@@ -294,6 +294,7 @@ noremap <C-k> <C-u>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 nnoremap K i<CR><Esc>k$
+vnoremap K <Esc>i<CR><Esc>k$gv
 nnoremap <C-a> ggVG
 nnoremap <silent> <C-e> :silent e#<CR>
 nnoremap <Space> za
@@ -474,7 +475,10 @@ nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 " NERDCommenter
 "##############################################################################
 
-vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
+augroup nerdcommentdammit
+    autocmd!
+    autocmd VimEnter * vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
+augroup END
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment
 " For commenting Snippets plugin.
@@ -613,10 +617,12 @@ augroup latex
     autocmd!
     autocmd FileType plaintex,tex call Macros()
     autocmd FileType plaintex,tex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
+    autocmd BufNewFile,BufRead *.Rtex set filetype=tex
 augroup END
 
 function! Macros()
     inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
+    inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
     inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 

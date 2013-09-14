@@ -191,6 +191,7 @@ map -modes=n -builtin <Leader>243g  :tabopen! stat243g<CR>
 map -modes=n -builtin <Leader>243p  :tabopen! stat243p<CR>
 map -modes=n -builtin <Leader>243b  :tabopen! stat243b<CR>
 map -modes=n -builtin <Leader>206   :tabopen! statc206a<CR>
+map -modes=n -builtin <Leader>260   :tabopen! stat260<CR>
 map -modes=n -builtin <Leader>221   :tabopen! math221<CR>
 map -modes=n -builtin <Leader>205   :tabopen! statc205a<CR>
 map -modes=n -builtin <Leader>228   :tabopen! math228a<CR>
