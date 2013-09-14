@@ -5,7 +5,7 @@
 #
 
 # Note:
-# * Commented out lines with no changes are simply the default settings or notes.
+# * Commented out lines are simply the default settings or notes.
 # * Symbol stylings to consider for the pipe column: = > < | · * (blank) # + - . _ → » « ⮂ ⮀
 
 #default_color = "-1";
@@ -14,7 +14,7 @@ replaces = { "[]" = "%g$*%n"; };
 
 abstracts = {
   ###############################################################################
-  # General Settings.
+  # General Settings
   ###############################################################################
 
   line_start = "";

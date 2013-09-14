@@ -394,6 +394,7 @@ alias xsetd="xset dpms force off"          # Turn off display.
 alias bd="bg && disown"                    # Best way to prevent terminal-launched app from dying when closing terminal.
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'                      # See list of recently used commands.
+alias psc="ps -C"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias sv="sudo vim"
 
@@ -422,7 +423,7 @@ alias ga="git add -f"
 alias gc="git commit -a -m"
 alias gp="git push -u origin master"
 alias gr="git rm --cached"
-alias gs="git show --name-only"
+alias gs="git status"
 
 # Manual mounter.
 alias mountb="mount /dev/sdb1 /media/sdb1"

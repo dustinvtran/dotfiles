@@ -11,12 +11,11 @@ hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
 lplusecommented=$(grep -A 1 "^ *# \[L+E\]" /home/nil/.xinitrc | grep -v "^ *# \[L+E\]" | grep "^ *#")
 
 # Set audio output.
-# Commented, because I'd rather do this manually through my 'audio-output' script.
-#if [ "$hdmi_status" = connected ]; then
-#   ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
-#else
-#   ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
-#fi
+if [ "$hdmi_status" = connected ]; then
+   ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
+else
+   ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
+fi
 
 # Set video output.
 if [ "$hdmi_status" = connected ]; then
