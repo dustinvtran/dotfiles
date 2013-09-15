@@ -451,6 +451,9 @@ alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
+# Fuck the GRE.
+alias powerprep="cd '/home/nil/.wine/drive_c/Program Files (x86)/ETS/POWERPREP II' && (wine cmd /c launch.bat &) && cd -"
+
 ###############################################################################
 # Functions
 ###############################################################################
