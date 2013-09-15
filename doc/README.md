@@ -6,7 +6,7 @@ This documents my modus operandi, the god-endorsed efficiency that everyone and 
 
 * Keep your hands on the keyboard all the time, every time.
 * If it can be done faster, it will be done faster.
-* Synchronized keybinds. Have as many mappings perform roughly the same operation across all applications.
+* Universal keybinds. Have as many mappings perform roughly the same operation across all applications.
 * Organization—and thus competent but never obtuse minimalism—is paramount to capable learning.
 * Your desktop should be as non-intrusive as possible. If you constantly need to resize windows and/or adjust the layout, you're doing it wrong.
 * Always look *fabulous*.
@@ -35,12 +35,12 @@ I could have already performed 4-5 keybinds in the time it takes to move my hand
 
 [*picture with left side blank*]
 
-On the larger display, I have (from top to bottom) ncmpcpp, irssi, blank terminal, and ranger, with a lot of empty space indicated on the left. This is for incidental applications, ones which are positioned there in the occasion when they're running: mpv, feh, calibre-ebook-viewer, and zathura. This allows me to use all applications in only the small windows that they're needed in, allowing a lot of room for useless gaps and wallpaper gawking. Media players—whether ranging from video or ebook to pictures—are all given their ample, needed space through that left region. Never are two ever running at the same time, so they're all allowed to use the same position.
+On the larger display, I have (from top to bottom) ncmpcpp, irssi, blank terminal, and ranger, with a lot of empty space indicated on the left. This allows me to use all applications in only the small windows that they're needed in, allowing a lot of room for useless gaps and wallpaper gawking. The left empty space is for incidental media applications, ones which are positioned there on the occasion that they're running: mpv, feh, calibre-ebook-viewer, and zathura. Media players—whether ranging from video or ebook to pictures—are all given their ample, needed space through that left region. Never are two ever running at the same time, so they're all allowed to use the same position.
 
-On the laptop's display, I have vim and nil-transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces.
+On the laptop's display, I have vim and nil-transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces (in fullscreen, since unlike other applications, they *do* require as much space as possible for the teeny tiny display).
 
 ## Working with a Dynamic Set of Displays
 
 Given that I'm a top pleb using a $400 laptop, I make do with a larger display at home. I primarily use that setup: a 1366x768 display connected to a 1920x1080 external one. To accommodate situations where I'm on the go (and thus without the external monitor), I note certain lines in certain dotfiles with `[L+E]` and `[L]`. These lines are (un)commented appropriately depending on whichever displays I have available.
 
-But this is a pain in the butt to go in and change each dotfile correspondingly. To automate this procedure, I set a script that does the (un)commenting, and then I use it with udev, which is triggered whenever HDMI output is (dis)connected (see `~/bin/udev-hdmi` for more info).
+But this is a pain in the butt to go in and change each dotfile correspondingly. To automate this procedure, I set a script that does the (un)commenting, and then I use it with udev, which is triggered whenever HDMI output is (dis)connected (see `~/bin/udev-hdmi` for more info). Hence, once setup, you can simply hotplug away and your layouts will be preconfigured as necessary. This definitely beats having to turn off xrandr's hdmi, then re-editing your WM dotfile, then,...
