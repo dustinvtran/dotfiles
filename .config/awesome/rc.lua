@@ -281,14 +281,22 @@ clientbuttons = awful.util.table.join(
 )
 
 --#############################################################################
--- Keybindings: General Focusing & Layout Manipulation
+-- Keybindings: Directional Focusing & Layout Manipulation
 --#############################################################################
 
 globalkeys = awful.util.table.join(
-    awful.key({ modkey,         }, "j",
-        function () awful.client.focus.byidx( 1) if client.focus then client.focus:raise() end end),
-    awful.key({ modkey,         }, "k",
-        function () awful.client.focus.byidx(-1) if client.focus then client.focus:raise() end end),
+    awful.key({ modkey }, "j", function () awful.client.focus.bydirection("down")
+        if client.focus then client.focus:raise() end
+    end),
+    awful.key({ modkey }, "k", function () awful.client.focus.bydirection("up")
+        if client.focus then client.focus:raise() end
+    end),
+    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left")
+        if client.focus then client.focus:raise() end
+    end),
+    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right")
+        if client.focus then client.focus:raise() end
+    end),
     awful.key({ modkey,         }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift" }, "space", function () awful.layout.inc(layouts, -1) end),
 
@@ -315,7 +323,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim"       }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey }, "l", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
+    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
     awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
@@ -333,6 +341,24 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "h", function () run_or_raise("", { class = "feh"                  }) end),
     awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"                  }) end),
     awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura"              }) end),
+
+--#############################################################################
+-- Keybindings: Manual Window Resizing & Movement
+--#############################################################################
+
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.moveresize(  0,  20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "h", function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize( 20,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "j", function () awful.client.moveresize(  0,   1,   0,   0) end),
+    awful.key({ modkey, "Control" }, "k", function () awful.client.moveresize(  0,  -1,   0,   0) end),
+    awful.key({ modkey, "Control" }, "h", function () awful.client.moveresize( -1,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "l", function () awful.client.moveresize(  1,   0,   0,   0) end),
+
+    awful.key({ modkey            }, "=", function () awful.client.moveresize(  0,   0, -40, -40) end),
+    awful.key({ modkey            }, "-", function () awful.client.moveresize(  0,   0,  40,  40) end),
+    awful.key({ modkey, "Control" }, "=", function () awful.client.moveresize(  0,   0,  -1,  -1) end),
+    awful.key({ modkey, "Control" }, "-", function () awful.client.moveresize(  0,   0,   1,   1) end),
 
 --#############################################################################
 -- Keybindings: Media Keys
