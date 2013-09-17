@@ -346,19 +346,23 @@ globalkeys = awful.util.table.join(
 -- Keybindings: Manual Window Resizing & Movement
 --#############################################################################
 
+    awful.key({ modkey, "Shift"   }, "h", function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.moveresize(  0,  20,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.moveresize(  0, -20,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "h", function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize( 20,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "h", function () awful.client.moveresize( -1,   0,   0,   0) end),
     awful.key({ modkey, "Control" }, "j", function () awful.client.moveresize(  0,   1,   0,   0) end),
     awful.key({ modkey, "Control" }, "k", function () awful.client.moveresize(  0,  -1,   0,   0) end),
-    awful.key({ modkey, "Control" }, "h", function () awful.client.moveresize( -1,   0,   0,   0) end),
     awful.key({ modkey, "Control" }, "l", function () awful.client.moveresize(  1,   0,   0,   0) end),
 
-    awful.key({ modkey            }, "=", function () awful.client.moveresize(  0,   0, -40, -40) end),
-    awful.key({ modkey            }, "-", function () awful.client.moveresize(  0,   0,  40,  40) end),
-    awful.key({ modkey, "Control" }, "=", function () awful.client.moveresize(  0,   0,  -1,  -1) end),
-    awful.key({ modkey, "Control" }, "-", function () awful.client.moveresize(  0,   0,   1,   1) end),
+    awful.key({ modkey            }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
+    awful.key({ modkey            }, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
+    awful.key({ modkey            }, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
+    awful.key({ modkey            }, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
+    awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(  0,   0,  -1,   0) end),
+    awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,   0,   0,   1) end),
+    awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0,   0,   0,  -1) end),
+    awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize(  0,   0,   1,   0) end),
 
 --#############################################################################
 -- Keybindings: Media Keys
