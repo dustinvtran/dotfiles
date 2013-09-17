@@ -281,46 +281,57 @@ clientbuttons = awful.util.table.join(
 )
 
 --#############################################################################
--- Keybindings: Directional Focusing & Layout Manipulation
+-- Keybindings: Awesome & Layout Manipulation
 --#############################################################################
 
 globalkeys = awful.util.table.join(
-    awful.key({ modkey }, "j", function () awful.client.focus.bydirection("down")
-        if client.focus then client.focus:raise() end
-    end),
-    awful.key({ modkey }, "k", function () awful.client.focus.bydirection("up")
-        if client.focus then client.focus:raise() end
-    end),
-    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left")
-        if client.focus then client.focus:raise() end
-    end),
-    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right")
-        if client.focus then client.focus:raise() end
-    end),
+    awful.key({ modkey, "Shift" }, "r", awesome.restart),
+    awful.key({ modkey, "Shift" }, "q", awesome.quit),
     awful.key({ modkey,         }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift" }, "space", function () awful.layout.inc(layouts, -1) end),
 
 --#############################################################################
--- Keybindings: Awesome
+-- Keybindings: Directional Focusing, Manual Window Movement, & Resizing
 --#############################################################################
 
-    awful.key({ modkey, "Shift" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift" }, "q", awesome.quit),
+    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left")
+        if client.focus then client.focus:raise() end end),
+    awful.key({ modkey }, "j", function () awful.client.focus.bydirection("down")
+        if client.focus then client.focus:raise() end end),
+    awful.key({ modkey }, "k", function () awful.client.focus.bydirection("up")
+        if client.focus then client.focus:raise() end end),
+    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right")
+        if client.focus then client.focus:raise() end end),
 
---#############################################################################
--- Keybindings: Widget Dialogs
---#############################################################################
+    awful.key({ modkey, "Shift"   }, "h",     function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "j",     function () awful.client.moveresize(  0,  20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "k",     function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "l",     function () awful.client.moveresize( 20,   0,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "Up",    function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "h",     function () awful.client.moveresize( -1,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "j",     function () awful.client.moveresize(  0,   1,   0,   0) end),
+    awful.key({ modkey, "Control" }, "k",     function () awful.client.moveresize(  0,  -1,   0,   0) end),
+    awful.key({ modkey, "Control" }, "l",     function () awful.client.moveresize(  1,   0,   0,   0) end),
 
-    awful.key({ modkey,         }, "c", function () awful.util.spawn("calendar-toggle") end),
-    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end),
+    awful.key({ modkey            }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
+    awful.key({ modkey            }, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
+    awful.key({ modkey            }, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
+    awful.key({ modkey            }, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
+    awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(  0,   0,  -1,   0) end),
+    awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,   0,   0,   1) end),
+    awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0,   0,   0,  -1) end),
+    awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize(  0,   0,   1,   0) end),
 
 --#############################################################################
 -- Keybindings: Application Focusing & Spawning
 --#############################################################################
 
     awful.key({ modkey }, "Return", function () awful.util.spawn(terminal)                end),
-    awful.key({ modkey }, "r", function () run_or_raise(terminal, { instance = "term"  }) end),
-    awful.key({ modkey }, "w", function () run_or_raise("gvim", { class = "Gvim"       }) end),
+    awful.key({ modkey }, "r", function () run_or_raise(terminal,  { instance = "term" }) end),
+    awful.key({ modkey }, "w", function () run_or_raise("gvim",    { class = "Gvim"    }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
@@ -343,26 +354,11 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura"              }) end),
 
 --#############################################################################
--- Keybindings: Manual Window Resizing & Movement
+-- Keybindings: Widget Dialogs
 --#############################################################################
 
-    awful.key({ modkey, "Shift"   }, "h", function () awful.client.moveresize(-20,   0,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.moveresize(  0,  20,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.moveresize(  0, -20,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "l", function () awful.client.moveresize( 20,   0,   0,   0) end),
-    awful.key({ modkey, "Control" }, "h", function () awful.client.moveresize( -1,   0,   0,   0) end),
-    awful.key({ modkey, "Control" }, "j", function () awful.client.moveresize(  0,   1,   0,   0) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.client.moveresize(  0,  -1,   0,   0) end),
-    awful.key({ modkey, "Control" }, "l", function () awful.client.moveresize(  1,   0,   0,   0) end),
-
-    awful.key({ modkey            }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
-    awful.key({ modkey            }, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
-    awful.key({ modkey            }, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
-    awful.key({ modkey            }, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
-    awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(  0,   0,  -1,   0) end),
-    awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,   0,   0,   1) end),
-    awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0,   0,   0,  -1) end),
-    awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize(  0,   0,   1,   0) end),
+    awful.key({ modkey,         }, "c", function () awful.util.spawn("calendar-toggle") end),
+    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end),
 
 --#############################################################################
 -- Keybindings: Media Keys
@@ -371,7 +367,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "F6",  function () awful.util.spawn_with_shell("play-pause") end),
     awful.key({ }, "F9",  function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
-    awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle") end)
+    awful.key({ }, "F11", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle"     ) end)
 )
 
 --#############################################################################
@@ -380,8 +376,8 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "f", function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey }, "d", function (c) c:kill()              end),
-    awful.key({ modkey }, "o", function (c) c.ontop = not c.ontop end)
+    awful.key({ modkey          }, "d", function (c) c:kill()                         end),
+    awful.key({ modkey          }, "o", function (c) c.ontop = not c.ontop            end)
 )
 
 --#############################################################################
@@ -486,7 +482,6 @@ for i = 1, 5 do
                   end))
 end
 
--- Set the keys.
 root.keys(globalkeys)
 
 -- }}}
@@ -546,13 +541,11 @@ awful.rules.rules = {
 
     { rule = { class = "gimp" },
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
-    { rule = { name = "MATLAB" },
-      properties = { tag = tags[1][4], floating = false, switchtotag = true } },
     { rule = { class = "VirtualBox" },
       properties = { tag = tags[1][4], floating = false, switchtotag = true } },
 
 --#############################################################################
--- Workspace 1 ([L+E]) or Workspace 5 ([L])
+-- Workspace 1 ([L+E]) or Workspace 5 & 10 ([L])
 --#############################################################################
 
     -- [L+E] Use this if you have both laptop and external display.
@@ -611,8 +604,6 @@ awful.rules.rules = {
     { rule = { instance = "calendar" },
       properties = { floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=683, y=15}) end },
-    { rule = { name = "dzen" },
-      properties = { ontop = true } },
 }
 -- }}}
 -- Signals {{{
@@ -685,7 +676,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Run or Raise Function
 --#############################################################################
 -- Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If
--- multiple, it cycles through them.
+-- there exist multiple designated clients, it cycles through them.
 
 function run_or_raise(cmd, properties)
    local clients = client.get()
