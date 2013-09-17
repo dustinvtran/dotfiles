@@ -163,7 +163,7 @@ map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats
 
 " Media pages.
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>am :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
+map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>g  :tabopen! http://www.goodreads.com/<CR>
 map -modes=n -builtin <Leader>ii :tabopen! http://www.imdb.com/user/ur33286458/ratings?start=1&view=compact&sort=your_ratings:desc&defaults=1&my_ratings=restrict&defaults=1&my_ratings=restrict<CR>

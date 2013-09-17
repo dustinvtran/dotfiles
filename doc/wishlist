@@ -246,7 +246,8 @@ High Priority
     * >3 file priorities.
 
 Medium Priority:
-    * Strange queue behavior: when moving to new queue positions, the bottom ones previously active (and now moved away to no longer be active) continue to be active regardless, while the moved queue are still queued/inactive. I have to pause/replay the moved active torrent to make it inactive and let transmission start the new queued torrent.
+    * Wonky queue behavior: Sometimes the order is reversed or prioritized by descending age instead, but this isn't indicated visibly. That is, when you have an item at a higher queue order than another, sometimes it still goes down the list and doesn't look at the higher one.
+    * Strange queue behavior: When moving to new queue positions, the bottom ones previously active (and now moved away to no longer be active) continue to be active regardless, while the moved queue are still queued/inactive. I have to pause/replay the moved active torrent to make it inactive and let transmission start the new queued torrent.
 
 Low Priority:
     * Built-in RSS, meaning in particular that 3rd party RSS dlers can only download to watch directory, and not set each torrent hit to change its default download directory, or force them to queue on top (a feature uTorrent has).
