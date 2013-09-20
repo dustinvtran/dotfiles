@@ -60,6 +60,7 @@ Misc
     * Zathura: Manage pdfs with tabs, while with keybinds to detach/attach.
     * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
        current command works fine but it adds knitr things twice.
+    * latex: what's with the .out files? why rubber no clean??
 
 virtualbox
     * Err, Windows 8 died on me.
@@ -78,6 +79,7 @@ Awesome
         * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
         * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
     General
+        * Have the directional focusings go across monitors too.
         * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
         * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
         * Revamp menu, all with cute icons.
@@ -101,6 +103,7 @@ Awesome
         * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
         * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
         * Try rodentbane for the occasionally necessary mouse movement with keyboard.
+        * Add left+right click as move window.
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
@@ -139,7 +142,9 @@ ranger
     * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
 
 readline
+    * Ctrl-v paste.
     * Matlab: Add.
+    * Change less pager to vim, e.g., for R.
     * matlab: Hide welcome/copyright/version message via tail output.
     * Add color to inputs of python, R, Matlab to determine what mode you're in.
     * Add more vim keybindings like ones I did for zle widgets. Possibly even sync the two.

@@ -22,6 +22,7 @@
 #   the default says, it did the opposite..).
 #    * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
 #    * Added Ctrl-l to open file in the file list.
+#    * Added Shift-Home/Shift-End to move queue position of currently selected file to top/bottom respectively.
 # - Default Settings
 #    * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
 #    * Set 'compact_list' to be true by default.
@@ -672,6 +673,18 @@ class Transmission:
         request.send_request()
         self.wait_for_torrentlist_update()
 
+    def move_top_queue_position(self, torrent_id):
+        request = TransmissionRequest(self.host, self.port, self.path, 'queue-move-top', 1,
+                                          {'ids': [torrent_id]})
+        request.send_request()
+        self.wait_for_torrentlist_update()
+
+    def move_bottom_queue_position(self, torrent_id):
+        request = TransmissionRequest(self.host, self.port, self.path, 'queue-move-bottom', 1,
+                                          {'ids': [torrent_id]})
+        request.send_request()
+        self.wait_for_torrentlist_update()
+
     def toggle_turtle_mode(self):
         self.set_option('alt-speed-enabled', not self.status_cache['alt-speed-enabled'])
 
@@ -933,6 +946,8 @@ class Interface:
             ord('-'):               self.bandwidth_priority,
             ord('J'):               self.J_key,
             ord('K'):               self.K_key,
+            curses.KEY_SEND:        self.JJ_key,
+            curses.KEY_SHOME:       self.KK_key,
             ord('p'):               self.pause_unpause_torrent,
             ord('P'):               self.pause_unpause_all_torrent,
             ord('v'):               self.verify_torrent,
@@ -1237,6 +1252,18 @@ class Interface:
             #self.move_queue('up')
             self.move_queue('down')
 
+    def JJ_key(self, c):
+        if self.selected_torrent > -1 and self.details_category_focus == 1:
+            self.move_to_next_directory_in_filelist()
+        else:
+            self.move_queue('bottom')
+
+    def KK_key(self, c):
+        if self.selected_torrent > -1 and self.details_category_focus == 1:
+            self.move_to_previous_directory_in_filelist()
+        else:
+            self.move_queue('top')
+
     def right_key(self, c):
         if self.focus > -1 and self.selected_torrent == -1:
             self.enter_key(c)
@@ -1354,6 +1381,10 @@ class Interface:
                 server.increase_queue_position(self.torrents[self.focus]['id'])
             elif direction == 'down' and self.focus > -1:
                 server.decrease_queue_position(self.torrents[self.focus]['id'])
+            elif direction == 'top' and self.focus > -1:
+                server.move_top_queue_position(self.torrents[self.focus]['id'])
+            elif direction == 'bottom' and self.focus > -1:
+                server.move_bottom_queue_position(self.torrents[self.focus]['id'])
 
 
     def pause_unpause_torrent(self, c):
