@@ -522,9 +522,8 @@ awful.rules.rules = {
 
      { rule = { class = "Firefox" },
       properties = { tag = tags[1][2], switchtotag = true } },
-    { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options",
-                 "Library"},
-                   instance = {"plugin-container"} },
+     { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options",
+                  "Library"}, instance = {"plugin-container"} },
       properties = { floating = true },
       callback = awful.placement.centered },
 
