@@ -34,6 +34,8 @@
 #    * Flipped color in self.torrentname_is_progressbar.
 #    * Reduced the # of items in self_sort_options and draw_options_dialog, since my small transmission window would
 #    crash when using these keys otherwise.
+# - Help Menu
+#    * Added some documentation on new/removed keybinds.
 
 
 ########################################################################
@@ -2735,6 +2737,8 @@ class Interface:
     def list_key_bindings(self):
         title = 'Help Menu'
         message = "           F1/?  Show this help\n" + \
+                  "            j/k  Move down/up in file or torrent list\n" + \
+                  "       Ctrl+j/k  Move down/up 5 times in file or torrent list\n" + \
                   "            u/d  Adjust maximum global upload/download rate\n" + \
                   "            U/D  Adjust maximum upload/download rate for focused torrent\n" + \
                   "              L  Set seed ratio limit for focused torrent\n" + \
@@ -2750,7 +2754,8 @@ class Interface:
 
         # Queue was implemented in Transmission v2.4
         if server.get_rpc_version() >= 14 and self.details_category_focus != 1:
-            message += "            J/K  Increase/decrease Queue Position for focused torrent\n"
+  	    message += "            J/K  Move focused torrent up or down in the queue\n" + \
+  	               " Shift+HOME/END  Move focused torrent to top or bottom of the queue\n"
         else:
             message += "            J/K  Jump to next/previous directory\n"
         # Torrent list
@@ -2758,7 +2763,7 @@ class Interface:
             message += "              /  Search in torrent list\n" + \
                        "              f  Filter torrent list\n" + \
                        "              s  Sort torrent list\n" \
-                       "    Enter/Right  View torrent's details\n" + \
+                       "        Right/l  View torrent's details\n" + \
                        "              o  Configuration options\n" + \
                        "              t  Toggle turtle mode\n" + \
                        "              C  Toggle compact list mode\n" + \
@@ -2792,6 +2797,7 @@ class Interface:
                     if self.focus_detaillist > -1:
                         message += "     Left/Right  Decrease/Increase file priority\n"
                     message += "        Up/Down  Select file\n" + \
+                               "         Ctrl+l  Open selected file with file viewer\n" + \
                                "          Space  Select/Deselect focused file\n" + \
                                "              a  Select/Deselect all files\n" + \
                                "              A  Select/Deselect directory\n" + \

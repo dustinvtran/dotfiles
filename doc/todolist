@@ -237,7 +237,8 @@ SD Card
 
 transmission-remote-cli
     * Set default download location setting.
-    * Keybind two commands to queue move guys down to the bottom, or at least move down 5 times.
+    * Add better documentation in help messages.
+    * Have a keybind that sets all active downloads/seeding (basically, non-paused) to the bottom of queue position. And even more advanced, have those ones all sorted by completion rather than arbitrarily. E.g., Seeds above, then highest % downloads sorted descending. Also consider automating this on entering tcli.
 
 Webcam, Mic
     * Get them working.
