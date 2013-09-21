@@ -410,12 +410,24 @@ alias -- -='cd -'
 alias -- --='cd -2'
 alias -- ---='cd -3'
 
-# Manual file backups.
-alias groupsx="groups > ~/system-dotfiles/groups"
+# Manual file backups into ~/doc.
 alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
-installed manually by\n me.\n' > ~/system-dotfiles/package-list\
+installed manually by\n me. See ~/.zshrc for the command. \n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/system-dotfiles/package-list"
+alias catalog=" ( find '/media/sdb1/Anime' -type d -not -path '*/\[Backlog\]/*'\
+        | sed -e 's/^\/media\/sdb1\///'\
+        | sed -e 's/\[Backlog\]/\[aaBacklog\]/' -e 's/\[Films\]/\[aaFilms\]/'\
+        && echo 'Anime/[aaBacklog]/[Completed]\nAnime/[aaBacklog]/...\nAnime/[aaBacklog]/[Completed]/...' )\
+        | sort\
+        | sed -e 's/\[aaBacklog\]/\[Backlog\]/' -e 's/\[aaFilms\]/\[Films\]/'\
+        | sed -e '1i This lists the entire directory structure of my Media folder (just Anime for now) excluding my\
+ massive backlog. Why\n archive my Media directory names, you say? Because its so pretty and autistic of me I simply must.\
+ See ~/.zshrc for the\n command.\n'\
+        > ~/doc/media-catalog"
+
+# Manual file backups into ~/system-dotfiles.
+alias groupsx="groups > ~/system-dotfiles/groups"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 
 # le git.
@@ -475,7 +487,12 @@ z() { nocorrect f -e zathura "$@" & }
 # School SSH
 alias sshb="ssh -X s243-10@arwen.berkeley.edu"
 function scpb() {
-    scp $1 s243-10@arwen.berkeley.edu:~/$2
+    scp -r $1 s243-10@arwen.berkeley.edu:~/$2
+}
+
+# Tablet SSH.
+function scpt() {
+    scp -r $1 mobile@192.168.1.115:/var/mobile/Applications/$2
 }
 
 # }}}

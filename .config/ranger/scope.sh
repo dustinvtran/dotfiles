@@ -6,8 +6,9 @@
 # Name: nil
 #
 
-# Note: Only difference is that I commented out mediainfo and pdf previews. I prefer to see their full file name instead
-# of small blips.
+# Note: Only difference is that I commented out lines for archive extensions, pdfs, video/audio previews. I prefer to see
+# their full file name rather than useless small blips. If I wanted to access 'mediainfo' for video/audio, for example,
+# I'd the run the command instead.
 
 # ranger supports enhanced previews.  If the option "use_preview_script"
 # is set to True and this file exists, this script will be called and its
@@ -54,14 +55,14 @@ highlight() { command highlight "$@"; test $? = 0 -o $? = 141; }
 
 case "$extension" in
     # Archive extensions:
-    7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
-    rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
-        try als "$path" && { dump | trim; exit 0; }
-        try acat "$path" && { dump | trim; exit 3; }
-        try bsdtar -lf "$path" && { dump | trim; exit 0; }
-        exit 1;;
-    rar)
-        try unrar -p- lt "$path" && { dump | trim; exit 0; } || exit 1;;
+    #7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
+    #rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
+    #    try als "$path" && { dump | trim; exit 0; }
+    #    try acat "$path" && { dump | trim; exit 3; }
+    #    try bsdtar -lf "$path" && { dump | trim; exit 0; }
+    #    exit 1;;
+    #rar)
+    #    try unrar -p- lt "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
     #pdf)
         #try pdftotext -l 10 -nopgbrk -q "$path" - && \
