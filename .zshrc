@@ -412,9 +412,9 @@ alias -- ---='cd -3'
 
 # Manual file backups into ~/doc.
 alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
-installed manually by\n me. See ~/.zshrc for the command. \n' > ~/doc/package-list\
+installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
-&& echo 'matlab r-2012b (\"make install\")') | sort >> ~/system-dotfiles/package-list"
+&& echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list"
 alias catalog=" ( find '/media/sdb1/Anime' -type d -not -path '*/\[Backlog\]/*'\
         | sed -e 's/^\/media\/sdb1\///'\
         | sed -e 's/\[Backlog\]/\[aaBacklog\]/' -e 's/\[Films\]/\[aaFilms\]/'\
