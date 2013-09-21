@@ -3,7 +3,6 @@
 This documents the file paths for the system files I edited above, as well as a short description if unclear.
 
 * `groups`: The `groups` command echo'd into a file.
-* `package-list`: See `.zshrc` for the command. It's made to list all manually installed packages.
 * `systemctl`: The `systemctl` command echo'd into a file.
 * `/etc/fstab`
 * `/etc/grub`

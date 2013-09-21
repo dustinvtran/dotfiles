@@ -1,0 +1,3 @@
+This lists any installed packages that are not in the base or base-devel group, and hence are likely installed manually by
+ me. See ~/.zshrc for the command. 
+
