@@ -55,12 +55,21 @@ Misc
         Follow ricing guide.
     * Fork transmissionremotecli properly so people can use your own more professionally
     * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
-    * Turning off pc with mounted things without doing manually, e.g., kill ranger on the directory, transmission-da, and mpd.
+    * pkill ranger; pkill transmission-da; pkill mpd, then umountb and reboot. Automate this.
     * Connect to Airbears without resetting.
     * Zathura: Manage pdfs with tabs, while with keybinds to detach/attach.
     * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
        current command works fine but it adds knitr things twice.
     * latex: what's with the .out files? why rubber no clean??
+
+media-catalog
+    * Sort [ first character, and have whitespace take higher priority than decimals, without needing to do this manually.
+    * Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
+        I've worked around this for now by echo'ing them directly from the .zshrc command.
+    * specify up to levels for certain things, to avoid massive musics for instance
+
+mpv-open
+    * Err not working anymore.
 
 virtualbox
     * Err, Windows 8 died on me.
@@ -391,6 +400,8 @@ Learn all them linux commands, archlinux niche functions, etc.
 Keyboard Layout: Tutorials.
     L/R Shift training wheels, finger optimizing (e.g. 'rf').
     B&D Colemak&HHKB Style.
+Software Program Ideas
+    * Parser to automate directory name formats as in my Media README which does it even for [Backlog] by parsing through specific websites' APIs. Then if I rate it >=8 from another website, it'll move from [Backlog] to Collection, and if I rate <8, it'll move to [Completed]. Include metadata files that have dates, author, etc.
 
 Random Shit {{{
 -------------------------------------------------------------------------------
