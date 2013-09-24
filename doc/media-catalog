@@ -1,13 +1,15 @@
-This lists the entire directory structure of my ~/nil/Media folder, which is a collection of all titles I rate >=8/10.
- It also stores my massive backlogs within each medium, but I omit them here. Why archive my Media directory structure, you
- say? Because its so pretty and autistic of me I simply must. When youre a consumer, there ought to be a competent way to
- organize your collection. See ~/.zshrc for the command.
+This lists the entire directory structure of my ~/nil/Media folder, which is a collection of all titles I rate >=8/10 and
+ their affiliated installments. It also stores my massive backlogs within each medium, but I omit them here. Why archive
+ my Media directory structure, you ask? Because its so pretty and autistic of me I simply must. When youre a consumer,
+ there ought to be a competent way to organize your collection. See ~/.zshrc for the command.
 
 Anime
 Anime/[Backlog]
 Anime/[Backlog]/...
 Anime/[Backlog]/[Completed]
 Anime/[Backlog]/[Completed]/...
+Anime/[Backlog]/[Summer 2013]
+Anime/[Backlog]/[Summer 2013]/...
 Anime/[Films]
 Anime/[Films]/Byousoku 5 Centimeter (2007)
 Anime/[Films]/Cowboy Bebop - Tengoku no Tobira (2001)
@@ -83,8 +85,8 @@ Anime/Seikai (1999-05)/Summary Specials
 Anime/Seirei no Moribito (2007)
 Anime/Suzumiya Haruhi no Yuutsu (2006-09)
 Anime/Suzumiya Haruhi no Yuutsu (2006-09)/Spinoffs
-Anime/Suzumiya Haruhi no Yuutsu (2006-09)/Spinoffs/Nyoro-n Churuya-san (2009)
-Anime/Suzumiya Haruhi no Yuutsu (2006-09)/Spinoffs/Suzumiya Haruhi-chan no Yuutsu (2009)
+Anime/Suzumiya Haruhi no Yuutsu (2006-09)/Spinoffs/Nyoro-n Churuya-san
+Anime/Suzumiya Haruhi no Yuutsu (2006-09)/Spinoffs/Suzumiya Haruhi-chan no Yuutsu
 Anime/Yojouhan Shinwa Taikei (2010)
 Anime/Yojouhan Shinwa Taikei (2010)/Specials
 Anime/Yokohama Kaidashi Kikou (1998-03)
@@ -209,7 +211,6 @@ Manga/Ookami to Koushinryou (2007-1X)
 Manga/Pumpkin and Mayonnaise (1998)
 Manga/Saraiya Goyou (2006-10)
 Manga/Sayonara Zetsubou Sensei (2005-12)
-Manga/Sayonara Zetsubou Sensei (2005-12)/Sayonara Zetsubou Sensei
 Manga/Yokohama Kaidashi Kikou (1994-06)
 
 Music
