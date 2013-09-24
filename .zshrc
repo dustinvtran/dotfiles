@@ -396,6 +396,7 @@ alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp r
 alias history='fc -l'                      # See list of recently used commands.
 alias psc="ps -C"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
+alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
 
 # Restart configs.
@@ -418,37 +419,40 @@ installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-lis
 alias catalog=" ( find '/media/sdb1' -type d -not -path '*/\[Backlog\]/*'\
         | sed -e 's/^\/media\/sdb1\///' -e '/^\/media\/sdb1/d'\
         | sed -e 's/\[Backlog\]/\[aaBacklog\]/' -e 's/\[Films\]/\[aaFilms\]/'\
-        && echo 'Anime/[aaBacklog]/[Completed]
-Anime/[aaBacklog]/...
+        && echo 'Anime/[aaBacklog]/...
+Anime/[aaBacklog]/[Completed]
 Anime/[aaBacklog]/[Completed]/...
-Films/[aaBacklog]/[Completed]
+Anime/[aaBacklog]/[Summer 2013]
+Anime/[aaBacklog]/[Summer 2013]/...
 Films/[aaBacklog]/...
+Films/[aaBacklog]/[Completed]
 Films/[aaBacklog]/[Completed]/...
-Literature/[aaBacklog]/[Completed]
 Literature/[aaBacklog]/...
+Literature/[aaBacklog]/[Completed]
 Literature/[aaBacklog]/[Completed]/...
-Manga/[aaBacklog]/[Completed]
 Manga/[aaBacklog]/...
+Manga/[aaBacklog]/[Completed]
 Manga/[aaBacklog]/[Completed]/...
-Music/[aaBacklog]/[Completed]
 Music/[aaBacklog]/...
+Music/[aaBacklog]/[Completed]
 Music/[aaBacklog]/[Completed]/...
-TV/[aaBacklog]/[Completed]
 TV/[aaBacklog]/...
+TV/[aaBacklog]/[Completed]
 TV/[aaBacklog]/[Completed]/...
-Video Games/[aaBacklog]/[Completed]
 Video Games/[aaBacklog]/...
+Video Games/[aaBacklog]/[Completed]
 Video Games/[aaBacklog]/[Completed]/...
-Visual Novels/[aaBacklog]/[Completed]
 Visual Novels/[aaBacklog]/...
+Visual Novels/[aaBacklog]/[Completed]
 Visual Novels/[aaBacklog]/[Completed]/...' )\
         | sort\
         | sed -e 's/\[aaBacklog\]/\[Backlog\]/' -e 's/\[aaFilms\]/\[Films\]/'\
         | sed -e 's/^\(Anime\|Films\|Literature\|Manga\|Music\|TV\|Video Games\|Visual Novels\)$/\n&/'\
         | sed -e '1i This lists the entire directory structure of my ~/nil/Media folder, which is a collection\
- of all titles I rate >=8/10.\n It also stores my massive backlogs within each medium, but I omit them here. Why\
- archive my Media directory structure, you\n say? Because its so pretty and autistic of me I simply must. When\
- youre a consumer, there ought to be a competent way to\n organize your collection. See ~/.zshrc for the command.'\
+ of all titles I rate >=8/10 and\n their affiliated installments. It also stores my massive backlogs within each\
+ medium, but I omit them here. Why archive\n my Media directory structure, you ask? Because its so pretty and\
+ autistic of me I simply must. When youre a consumer,\n there ought to be a competent way to organize your\
+ collection. See ~/.zshrc for the command.'\
         > ~/doc/media-catalog"
 
 # Manual file backups into ~/system-dotfiles.
@@ -516,8 +520,9 @@ function scpb() {
 }
 
 # Tablet SSH.
+# The obtuse folder directory is to copy manga files directly into my tablet reader.
 function scpt() {
-    scp -r $1 mobile@192.168.1.115:/var/mobile/Applications/$2
+    scp -r $1 mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/$2
 }
 
 # }}}

@@ -11,7 +11,7 @@ Highest Priority {{{
 Awesome
     Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
-            It seems to be taking its toll due to transmission bandwidth. Is this specific to transmission or when I use too much internet in general? It seems solved when removing mail-notify, so..err, why?
+            This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
         * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
         * Move mouse to center of screen of new focused tag.
             Do something like switchtotag in the keybinds.
@@ -49,6 +49,7 @@ Vim
 
 Zathura
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
+    * Have <Leader>tab turn off the highlight, not just Esc.
 
 Misc
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
@@ -69,7 +70,7 @@ media-catalog
     * specify up to levels for certain things, to avoid massive musics for instance
 
 mpv-open
-    * Err not working anymore.
+    * Err not working anymore? But it does?
 
 virtualbox
     * Err, Windows 8 died on me.
@@ -402,6 +403,7 @@ Keyboard Layout: Tutorials.
     B&D Colemak&HHKB Style.
 Software Program Ideas
     * Parser to automate directory name formats as in my Media README which does it even for [Backlog] by parsing through specific websites' APIs. Then if I rate it >=8 from another website, it'll move from [Backlog] to Collection, and if I rate <8, it'll move to [Completed]. Include metadata files that have dates, author, etc.
+    * When copying latex things from pdf to text, have it convert all the unicode to the appropriate \LaTeX command.
 
 Random Shit {{{
 -------------------------------------------------------------------------------

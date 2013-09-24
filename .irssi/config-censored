@@ -23,7 +23,7 @@ channels = (
   { name = "#critics-conn"; chatnet = "rizon"; autojoin = "yes"; },
   { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
   { name = "#/g/summer"; chatnet = "rizon"; autojoin = "yes"; },
-  #{ name = "#rice"; chatnet = "rizon"; autojoin = "yes"; }
+  { name = "#rice"; chatnet = "rizon"; autojoin = "yes"; }
 );
 
 aliases = {

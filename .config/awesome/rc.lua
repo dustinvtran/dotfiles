@@ -162,39 +162,39 @@ bashets.start()
 -- Volume Widget
 --#############################################################################
 
-volwidget = wibox.widget.textbox()
-vicious.register(volwidget, vicious.widgets.volume,
-function (widget, args)
-  if (args[2] ~= "♩" ) then
-            if tonumber(args[1]) > 99 then
-volbar = "<span color='#adadad'>----------</span><span color='#707070'> </span>"
-elseif tonumber(args[1]) > 90 then
-                volbar = "<span color='#adadad'>---------</span><span color='#707070'>- </span>"
-            elseif tonumber(args[1]) > 80 then
-                volbar = "<span color='#adadad'>--------</span><span color='#707070'>-- </span>"
-            elseif tonumber(args[1]) > 70 then
-                volbar = "<span color='#adadad'>-------</span><span color='#707070'>--- </span>"
-            elseif tonumber(args[1]) > 60 then
-                volbar = "<span color='#adadad'>------</span><span color='#707070'>---- </span>"
-            elseif tonumber(args[1]) > 50 then
-                volbar = "<span color='#adadad'>-----</span><span color='#707070'>----- </span>"
-            elseif tonumber(args[1]) > 40 then
-                volbar = "<span color='#adadad'>----</span><span color='#707070'>------ </span>"
-            elseif tonumber(args[1]) > 30 then
-                volbar = "<span color='#adadad'>---</span><span color='#707070'>------- </span>"
-            elseif tonumber(args[1]) > 20 then
-                volbar = "<span color='#adadad'>--</span><span color='#707070'>-------- </span>"
-            elseif tonumber(args[1]) > 10 then
-                volbar = "<span color='#adadad'>-</span><span color='#707070'>--------- </span>"
-else
-volbar = "<span color='#adadad'></span><span color='#707070'>---------- </span>"
-            end
-     return '⮜ '.. volbar ..' '
-  else
-     return '⮜ [<span color="#adadad">mute</span>]'
-  end
-
-end, 1, "Master")
+--volwidget = wibox.widget.textbox()
+--vicious.register(volwidget, vicious.widgets.volume,
+--function (widget, args)
+--  if (args[2] ~= "♩" ) then
+--            if tonumber(args[1]) > 99 then
+--volbar = "<span color='#adadad'>----------</span><span color='#707070'> </span>"
+--elseif tonumber(args[1]) > 90 then
+--                volbar = "<span color='#adadad'>---------</span><span color='#707070'>- </span>"
+--            elseif tonumber(args[1]) > 80 then
+--                volbar = "<span color='#adadad'>--------</span><span color='#707070'>-- </span>"
+--            elseif tonumber(args[1]) > 70 then
+--                volbar = "<span color='#adadad'>-------</span><span color='#707070'>--- </span>"
+--            elseif tonumber(args[1]) > 60 then
+--                volbar = "<span color='#adadad'>------</span><span color='#707070'>---- </span>"
+--            elseif tonumber(args[1]) > 50 then
+--                volbar = "<span color='#adadad'>-----</span><span color='#707070'>----- </span>"
+--            elseif tonumber(args[1]) > 40 then
+--                volbar = "<span color='#adadad'>----</span><span color='#707070'>------ </span>"
+--            elseif tonumber(args[1]) > 30 then
+--                volbar = "<span color='#adadad'>---</span><span color='#707070'>------- </span>"
+--            elseif tonumber(args[1]) > 20 then
+--                volbar = "<span color='#adadad'>--</span><span color='#707070'>-------- </span>"
+--            elseif tonumber(args[1]) > 10 then
+--                volbar = "<span color='#adadad'>-</span><span color='#707070'>--------- </span>"
+--else
+--volbar = "<span color='#adadad'></span><span color='#707070'>---------- </span>"
+--            end
+--     return '⮜ '.. volbar ..' '
+--  else
+--     return '⮜ [<span color="#adadad">mute</span>]'
+--  end
+--
+--end, 1, "Master")
 
 --#############################################################################
 -- Tag List & Layout Widgets
