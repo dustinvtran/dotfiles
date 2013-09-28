@@ -520,9 +520,11 @@ function scpb() {
 }
 
 # Tablet SSH.
-# The obtuse folder directory is to copy manga files directly into my tablet reader.
+# The obtuse folder directory is to copy manga files directly into my comic reader app, and the crazy parameters are "all
+# but last" argument and "last" argument respectively. This will allow one to copy multiple files/directories
+# simultaneously, for example.
 function scpt() {
-    scp -r $1 mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/$2
+    scp -r ${@:1:$(($#-1))} mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/${@: -1}
 }
 
 # }}}

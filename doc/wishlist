@@ -171,6 +171,23 @@ High Priority
     * Modal editing, and keybind navigation a la vim
 
 }}}
+mcomix {{{
+-------------------------------------------------------------------------------
+
+High Priority
+    * Have smart scrolling with j/k not jump scrolling so discretely, e.g., have it scroll continuously as with normal scrolling, while still allowing for the smart component.
+    * Keybinds to seek -/+ 5 pages, -/+ 20 pages, -/+ 50 pages.
+
+Medium Priority
+    * Left/right scrolling won't work with <Shift>j/<Shift>k.
+
+Low Priority
+    * Bug: Map <Primary>p to preferences, which will work if I also map p to osd-bar.
+    * Multiple keybinds to the same command.
+    * Mouse gestures (c.f. MangaMeeya).
+    * Don't require killing mcomix before editing settings.
+
+}}}
 mpv {{{
 -------------------------------------------------------------------------------
 

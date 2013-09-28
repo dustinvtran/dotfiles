@@ -348,10 +348,11 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
-    awful.key({ modkey }, "e", function () run_or_raise("", { class = "Calibre-ebook-viewer" }) end),
-    awful.key({ modkey }, "h", function () run_or_raise("", { class = "feh"                  }) end),
-    awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"                  }) end),
-    awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura"              }) end),
+    -- temp
+    --awful.key({ modkey }, "m", function () run_or_raise("", { class = {"Calibre-ebook-viewer", "feh", "Mcomix", "mpv"} }) end),
+    --awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"   }) end),
+    awful.key({ modkey }, "m", function () run_or_raise("", { class = "Mcomix"  }) end),
+    awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura" }) end),
 
 --#############################################################################
 -- Keybindings: Widget Dialogs
@@ -560,18 +561,21 @@ awful.rules.rules = {
     { rule = { instance = "ranger" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=1340, y=845}) end },
+    { rule = { class = "Calibre-ebook-viewer" },
+      properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
     { rule = { class = "feh" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=0, y=0}) end },
+    { rule = { class = "Mcomix" },
+      properties = { tag = tags[2][1], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
     { rule = { class = "mpv" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=65, y=200}) end },
     { rule = { class = "Zathura" },
       properties = { tag = tags[2][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
-    { rule = { class = "Calibre-ebook-viewer" },
-      properties = { tag = tags[2][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
 
     -- [L] Use this if you only have laptop display.
     --{ rule = { instance = "irssi" },
@@ -586,15 +590,15 @@ awful.rules.rules = {
     --{ rule = { instance = "ranger" },
       --properties = { tag = tags[1][5], floating = true, switchtotag = true },
       --callback = function(c) c:geometry({x=780, y=540}) end },
-    --{ rule_any = { class = {"feh", "mpv" } },
+    --{ rule = { class = "Calibre-ebook-viewer" },
+      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      --callback = function(c) c:geometry({width = 700, height = 725}) end },
+    --{ rule_any = { class = {"feh", "Mcomix, "mpv"} },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
       --callback = awful.placement.centered },
     --{ rule = { class = "Zathura" },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
       --callback = function(c) c:geometry({height = 700}) end },
-    --{ rule = { class = "Calibre-ebook-viewer" },
-      --properties = { tag = tags[1][10], floating = true, switchtotag = true },
-      --callback = function(c) c:geometry({width = 700, height = 725}) end },
 
 --#############################################################################
 -- Miscellaneous
