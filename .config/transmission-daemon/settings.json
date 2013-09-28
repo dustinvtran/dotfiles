@@ -25,7 +25,7 @@
     "peer-congestion-algorithm": "", 
     "peer-id-ttl-hours": 6, 
     "peer-limit-global": 240, 
-    "peer-limit-per-torrent": 60, 
+    "peer-limit-per-torrent": 601, 
     "peer-port": 51413, 
     "peer-port-random-high": 65535, 
     "peer-port-random-low": 49152, 

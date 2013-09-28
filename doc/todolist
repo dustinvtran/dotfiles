@@ -9,6 +9,7 @@ Highest Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
+        * Set keybind to cycle multiple class hits.
     Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
             This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
@@ -57,7 +58,6 @@ Misc
     * Fork transmissionremotecli properly so people can use your own more professionally
     * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
     * pkill ranger; pkill transmission-da; pkill mpd, then umountb and reboot. Automate this.
-    * Connect to Airbears without resetting.
     * Zathura: Manage pdfs with tabs, while with keybinds to detach/attach.
     * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
        current command works fine but it adds knitr things twice.
@@ -236,6 +236,7 @@ plex
     * Get the server working.
 
 ranger
+    * Have the l keybind for unpack work on multiply selected items, doing it sequentially.
     * Set it to auto-open last directory as hut stated in the Q&A.
     * Set djvu to not show any preview.
     * Set vim as a (read-only) pager so mediainfo can navigate with it.
