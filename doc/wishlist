@@ -175,16 +175,20 @@ mcomix {{{
 -------------------------------------------------------------------------------
 
 High Priority
-    * Have smart scrolling with j/k not jump scrolling so discretely, e.g., have it scroll continuously as with normal scrolling, while still allowing for the smart component.
+    * Have smart scrolling with j/k not jump scroll so discretely, e.g., have it scroll continuously as with normal scrolling, while still allowing for the smart component.
     * Keybinds to seek -/+ 5 pages, -/+ 20 pages, -/+ 50 pages.
+    * Customizable mouse keybinds: have rightclick go to previous page instead of context menu, double left click toggle fullscreen, another to toggle GUI, etc.
 
 Medium Priority
+    * If I save+quit a file while it's fullscreen, have it fullscreen on startup whether or not I set that to be default in general.
+    * When fullscreening, have it automatically go to dual view, and then when exiting, have it exit dual view.
     * Left/right scrolling won't work with <Shift>j/<Shift>k.
+    * Allow to remove certain default keybindings in keybindings.conf, without being auto-added in again when starting up Mcomix.
 
 Low Priority
     * Bug: Map <Primary>p to preferences, which will work if I also map p to osd-bar.
     * Multiple keybinds to the same command.
-    * Mouse gestures (c.f. MangaMeeya).
+    * Advanced mouse gestures (c.f. MangaMeeya).
     * Don't require killing mcomix before editing settings.
 
 }}}

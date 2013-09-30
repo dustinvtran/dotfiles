@@ -22,7 +22,7 @@
 #   the default says, it did the opposite..).
 #    * Added Ctrl-j/k to move up/down 5 times in the torrent list and file list.
 #    * Added Ctrl-l to open file in the file list.
-#    * Added Shift-Home/Shift-End to move queue position of currently selected file to top/bottom respectively.
+#    * Changed Home/Shift-End to move queue position of currently selected file to top/bottom respectively.
 # - Default Settings
 #    * Changed 'xdg-open %%s' to 'rifle %%s', since I prefer ranger's file-opener.
 #    * Set 'compact_list' to be true by default.

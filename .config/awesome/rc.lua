@@ -350,8 +350,8 @@ globalkeys = awful.util.table.join(
 
     -- temp
     --awful.key({ modkey }, "m", function () run_or_raise("", { class = {"Calibre-ebook-viewer", "feh", "Mcomix", "mpv"} }) end),
-    --awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"   }) end),
-    awful.key({ modkey }, "m", function () run_or_raise("", { class = "Mcomix"  }) end),
+    awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"   }) end),
+    --awful.key({ modkey }, "m", function () run_or_raise("", { class = "Mcomix"  }) end),
     awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura" }) end),
 
 --#############################################################################
