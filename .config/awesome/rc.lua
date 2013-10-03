@@ -593,7 +593,7 @@ awful.rules.rules = {
     --{ rule = { class = "Calibre-ebook-viewer" },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
       --callback = function(c) c:geometry({width = 700, height = 725}) end },
-    --{ rule_any = { class = {"feh", "Mcomix, "mpv"} },
+    --{ rule_any = { class = { "feh", "Mcomix", "mpv" } },
       --properties = { tag = tags[1][10], floating = true, switchtotag = true },
       --callback = awful.placement.centered },
     --{ rule = { class = "Zathura" },
