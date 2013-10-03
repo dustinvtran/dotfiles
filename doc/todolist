@@ -28,52 +28,29 @@ Awesome
 cron
    * See if the cronjob/scripts are working. mpdas seems to be defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>.
 
-pentadactyl
-    * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
-
-transmission
-    * Occasionally corrupt pieces of files in Transmission downloading. Is this transmission's fault or mine??
-        For now, you'll have to check each torrent after it finishes individually.
-
 udev-hdmi
     * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
     * urxvt open commands not working.
 
-Vim
-    * LaTeX: Autobuild.
-        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
-    * If in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
-        !R -e "library(knitr); knit('%:p')"
-        !rubber -d "%:r".tex
-        silent !rubber --clean "%:r".tex &
-    * Note that you uncommented that one part from NERDCommenter.vim.
-
 Zathura
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
     * Have <Leader>tab turn off the highlight, not just Esc.
+
+R
+    * Install benchmark.
+    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
+       current command works fine but it adds knitr things twice.
+
+readline
+    * Ctrl-v paste.
 
 Misc
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
     * Fork transmissionremotecli properly so people can use your own more professionally
     * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
-    * pkill ranger; pkill transmission-da; pkill mpd, then umountb and reboot. Automate this.
     * Zathura: Manage pdfs with tabs, while with keybinds to detach/attach.
-    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
-       current command works fine but it adds knitr things twice.
     * latex: what's with the .out files? why rubber no clean??
-
-media-catalog
-    * Sort [ first character, and have whitespace take higher priority than decimals, without needing to do this manually.
-    * Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
-        I've worked around this for now by echo'ing them directly from the .zshrc command.
-    * specify up to levels for certain things, to avoid massive musics for instance
-
-mpv-open
-    * Err not working anymore? But it does?
-
-virtualbox
-    * Err, Windows 8 died on me.
 
 }}}
 High Priority {{{
@@ -137,6 +114,14 @@ irssi
 Laptop
     * Way to disable fan, esp. for lectures if it's too loud.
 
+media-catalog
+    * Sort [ first character, and have whitespace take higher priority than decimals, without needing to do this manually.
+        I have to do this manually for now.
+    * Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
+        I've worked around this for now by echo'ing them directly from the .zshrc command.
+    * specify up to levels for certain things, to avoid massive musics for instance
+        I have to delete them manually for now.
+
 mount
     * Get an automounter that doesn't suck.
 
@@ -148,11 +133,14 @@ mpv
     * Should I add a kill mpv + mpv-open option in rifle.conf? Should I make mpv auto-focus?
     * Stream youtube into here.
 
+pentadactyl
+    * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
+
 ranger
     * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
+    * mpv-open: Sometimes it doesn't work? Maybe have ranger show the error if it doesn't open.
 
 readline
-    * Ctrl-v paste.
     * Matlab: Add.
     * Change less pager to vim, e.g., for R.
     * matlab: Hide welcome/copyright/version message via tail output.
@@ -160,9 +148,23 @@ readline
     * Add more vim keybindings like ones I did for zle widgets. Possibly even sync the two.
         Use github for suggestions.
 
+transmission
+    * Occasionally corrupt pieces of files in Transmission downloading. Is this transmission's fault or mine??
+        For now, you'll have to check each torrent after it finishes individually.
+
 Vim
+    * LaTeX: Autobuild.
+        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+    * If in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
+        !R -e "library(knitr); knit('%:p')"
+        !rubber -d "%:r".tex
+        silent !rubber --clean "%:r".tex &
+    * Note that you uncommented that one part from NERDCommenter.vim.
     * Make or use some syntax file for your todolists.
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
+
+virtualbox
+    * Err, Windows 8 died on me.
 
 xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
@@ -171,8 +173,9 @@ zsh
     * Deletearound not working.
     * Tab completion doesn't work on some commands (e.g. fasd, git).
 
-Work Method
-    * Finish a final draft.
+Misc
+    * WorkMethod: Finish final draft.
+    * pkill ranger; pkill transmission-da; pkill mpd, then umountb and reboot. Automate this.
 
 }}}
 Medium Priority {{{
