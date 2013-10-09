@@ -30,10 +30,10 @@ link = http://www.nyaa.eu/?page=rss
 #directory =
 #regExTrue =
 #regExFalse =
-download1 = (Commie.*Monogatari)
-download1False = (396p|480p)
-download2 = HorribleSubs.*(Coppelion|Diamond|Galilei|Gundam|Kill|Kyoukai|(g|G)iga|Monochrome|Monogatari|Nagi|Outbreak|Pupa|Samurai|Yozakura)
-download2False = (360p|480p|1080p)
+download1 = (Anime-Koi.*Coppelion|UTW.*Kyoukai|Commie.*(Kill|Kyousougiga|Monogatari)|Anime-Koi.*Outbreak|Cthuko.*Yozakura)
+download1False = ((396|480)p|mp4)
+download2 = HorribleSubs.*(Galilei|Samurai|Pupa)
+download2False = (360|400|480|1080)p
 
 #########################################################
 #[tpb]

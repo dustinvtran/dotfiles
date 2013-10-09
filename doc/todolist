@@ -204,6 +204,7 @@ feh
 Firefox
     * 4chanx/pentadactyl: it goes to home if 4chanx doesn't do anything, especially when it's still loading
     * Style MAL and forum CSS, addon manager css.
+    * MAL: Set up wikipedia+MAL API so that you can autoadd all tags.
     * Wait for RES to update so it works again.
     * whatcd/torrent-invites: 33% (50 posts,25 rep), 55% (150 posts, 75 rep), browse regularly for bibliotik
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.

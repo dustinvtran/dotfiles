@@ -183,14 +183,12 @@ map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 map -modes=n -builtin <Leader>w  :tabopen! https://www.google.com/search?q=weather<CR>
 
 " School Coursepages.
-map -modes=n -builtin <Leader>v     :tabopen! stat243g | stat243p | stat243b | statc206a | math221 | math228a | statc205a<CR>
 map -modes=n -builtin <Leader>243g  :tabopen! stat243g<CR>
 map -modes=n -builtin <Leader>243p  :tabopen! stat243p<CR>
 map -modes=n -builtin <Leader>243b  :tabopen! stat243b<CR>
 map -modes=n -builtin <Leader>243y  :tabopen! stat243y<CR>
 map -modes=n -builtin <Leader>206   :tabopen! statc206a<CR>
 map -modes=n -builtin <Leader>221   :tabopen! math221<CR>
-map -modes=n -builtin <Leader>205   :tabopen! statc205a<CR>
 map -modes=n -builtin <Leader>228a  :tabopen! math228a<CR>
 map -modes=n -builtin <Leader>228p  :tabopen! math228ap<CR>
 

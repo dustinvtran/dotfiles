@@ -329,6 +329,12 @@ Low Priority:
     * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page. E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
 
 }}}
+Website: Anything with a Search Engine {{{
+
+High Priority
+    * F'kin regex functionality.
+
+}}}
 Website: StyleForum Classifieds {{{
 
 High Priority
