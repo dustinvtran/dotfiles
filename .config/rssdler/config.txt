@@ -29,11 +29,11 @@ link = http://www.nyaa.eu/?page=rss
 #minSize =
 #directory =
 #regExTrue =
-#regExFalse =
+regExFalse = (([1-4]?[0-9]{2}p|mp4)
 download1 = (Anime-Koi.*Coppelion|UTW.*Kyoukai|Commie.*(Kill|Kyousougiga|Monogatari)|Anime-Koi.*Outbreak|Cthuko.*Yozakura)
-download1False = ((396|480)p|mp4)
+download1False = %(regExFalse)s
 download2 = HorribleSubs.*(Galilei|Samurai|Pupa)
-download2False = (360|400|480|1080)p
+download2False = (1080p|%(regExFalse)s)
 
 #########################################################
 #[tpb]
