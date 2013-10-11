@@ -206,12 +206,11 @@ Medium Priority:
         * Have only one running instance of mpv where opening other files only add append them to the present playlist (note: no-fixed-vo doesn't do this).
             Luckily my own solution is good enough that I don't care /that/ much about these features.
     * Allow to reduce osd_border_size but without reducing the size of the fangs for the chapter markers.
-    * Fast forward/rewind unsyncs audio with video; have to +5/-5 to resync.
+
+Low Priority:
     * Let keep-open work if at end of last file, but not prevent say, automatic segwaying into the next file on the playlist. This offers the normal behavior in GUIs: automatic movement into next files in playlists but not closing its application once done playing all files.
     * When at end of file, freeze at last frame instead of a blackout that keep-open does. It does this on some files but not all. Somehow mandate this for those that reach a black screen.
     * Compound commands don't work for everything. Luckily, I can cheat/work around this by making scripts which pipe into my Fifo with them.
-
-Low Priority:
     * A "go back to last place before last time seek was done" keybind, in case of accidentally hitting chapter skips or something.
     * Hotkey that can toggle screen size between 100% and whatever my preferred is.
     * View (and access) list of recently opened files.

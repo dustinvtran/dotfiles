@@ -1,0 +1,8 @@
+#
+# Python dotfile
+# ~/.pythonrc
+# Name: nil
+#
+
+# Default modules.
+import numpy as np

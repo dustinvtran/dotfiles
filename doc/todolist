@@ -175,7 +175,7 @@ zsh
 
 Misc
     * WorkMethod: Finish final draft.
-    * pkill ranger; pkill transmission-da; pkill mpd, then umountb and reboot. Automate this.
+    * pkill ranger; pause all torrents in transmission-client; pkill mpd, then umountb and reboot. Automate this.
 
 }}}
 Medium Priority {{{
@@ -228,6 +228,9 @@ irssi
     * Display some type of % sign when not at bottom of text.
     * Do nick/vhosts/BNC for all servers.
     * IRC: SSL cerificate path and SSL_verify.
+
+mpv
+    * Configure autosync to never go out during fast forward, e.g., with --mc or whatever.
 
 ncmpcpp
     * Somehow play everything as the playlist (clear, then add them).
