@@ -57,6 +57,7 @@ plexmediaserver
 pm-utils
 ppp
 pygtk
+python-numpy
 qt4
 r
 ranger-git
@@ -82,8 +83,6 @@ unzip
 vicious-git
 virtualbox
 w3m
-wine
-wine_gecko
 wireless_tools
 wpa_actiond
 wpa_supplicant

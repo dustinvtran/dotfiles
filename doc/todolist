@@ -98,6 +98,9 @@ Compton
 cron
     * Do I still need an xcape cronjob?
 
+firefox
+    * RES shortcuts all gone. Re-import.
+
 Firefox Addon: Pentadactyl
     * Using digits autogoes to a url page. stahp. let them use google.
     * Google search suggestions aren't working. unless i specifically go to 'g'.
