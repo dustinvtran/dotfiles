@@ -492,6 +492,10 @@ alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
+# temp
+alias wifi="sudo systemctl restart netctl-auto@wlan0.service"
+alias mpdf="mpd ~/.config/mpd/mpd.conf"
+
 ###############################################################################
 # Functions
 ###############################################################################

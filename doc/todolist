@@ -9,48 +9,25 @@ Highest Priority {{{
 -------------------------------------------------------------------------------
 
 Awesome
-        * Set keybind to cycle multiple class hits.
     Functionality
         * Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
             This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
+        * Set keybind to cycle multiple class hits (e.g. mpv, mcomix, ...).
         * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
         * Move mouse to center of screen of new focused tag.
             Do something like switchtotag in the keybinds.
         * Applications not shifting correctly between monitors and #s, what with absolute positions. Maybe add movetoscreeen or something? see mod4+control+j function in the default rc.lua and add it to your keybinds
-    Appearance
-        * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
-            mpd: stopped
-            battery: low
-        * Have the tag icons turn sideways on focus.
-            Find how to change tag name when focused.
-            Find the appropriate icons.
 
 cron
    * See if the cronjob/scripts are working. mpdas seems to be defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>.
 
-udev-hdmi
-    * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
-    * urxvt open commands not working.
-
-Zathura
-    * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
-    * Have <Leader>tab turn off the highlight, not just Esc.
-
-R
-    * Install benchmark.
-    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
-       current command works fine but it adds knitr things twice.
-
-readline
-    * Ctrl-v paste.
+urxvt
+    * urxvt-perls: c-v as paste (eg for irssi), url clicker+keyboard select.
+    readline
+        * Ctrl-v paste.
 
 Misc
-    * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
-        Follow ricing guide.
-    * Fork transmissionremotecli properly so people can use your own more professionally
-    * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
-    * Zathura: Manage pdfs with tabs, while with keybinds to detach/attach.
-    * latex: what's with the .out files? why rubber no clean??
+    * Get back to Colemak.
 
 }}}
 High Priority {{{
@@ -62,6 +39,12 @@ Android/iPad USB Connection
 
 Awesome
     Appearance
+        * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
+            mpd: stopped
+            battery: low
+        * Have the tag icons turn sideways on focus.
+            Find how to change tag name when focused.
+            Find the appropriate icons.
         * mpv: Somehow grep with regexp and gray any parts of the filenames in [...] maybe by sedding them and adding the separator variable.
         * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
         * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
@@ -97,9 +80,6 @@ Compton
 
 cron
     * Do I still need an xcape cronjob?
-
-firefox
-    * RES shortcuts all gone. Re-import.
 
 Firefox Addon: Pentadactyl
     * Using digits autogoes to a url page. stahp. let them use google.
@@ -139,6 +119,10 @@ mpv
 pentadactyl
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
 
+R
+    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
+       current command works fine but it adds knitr things twice.
+
 ranger
     * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
     * mpv-open: Sometimes it doesn't work? Maybe have ranger show the error if it doesn't open.
@@ -162,9 +146,14 @@ Vim
         !R -e "library(knitr); knit('%:p')"
         !rubber -d "%:r".tex
         silent !rubber --clean "%:r".tex &
+        * If I can't do this and am relying on R code, just have Vim not try to auto-compile .Rtex.
     * Note that you uncommented that one part from NERDCommenter.vim.
     * Make or use some syntax file for your todolists.
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
+
+udev-hdmi
+    * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
+    * urxvt open commands not working.
 
 virtualbox
     * Err, Windows 8 died on me.
@@ -172,13 +161,22 @@ virtualbox
 xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
 
+Zathura
+    * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
+    * Have <Leader>tab turn off the highlight, not just Esc.
+
 zsh
     * Deletearound not working.
     * Tab completion doesn't work on some commands (e.g. fasd, git).
 
 Misc
-    * WorkMethod: Finish final draft.
+    * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
+        Follow ricing guide.
     * pkill ranger; pause all torrents in transmission-client; pkill mpd, then umountb and reboot. Automate this.
+    * Fork transmissionremotecli properly so people can use your own more professionally
+    * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
+    * WorkMethod: Finish final draft.
+    * latex: what's with the .out files? why rubber no clean??
 
 }}}
 Medium Priority {{{
@@ -232,6 +230,9 @@ irssi
     * Do nick/vhosts/BNC for all servers.
     * IRC: SSL cerificate path and SSL_verify.
 
+mcomix
+    * have right click show osd-bar as in mpv, but how else to do context menu?
+
 mpv
     * Configure autosync to never go out during fast forward, e.g., with --mc or whatever.
 
@@ -265,6 +266,7 @@ Webcam, Mic
     * Get them working.
 
 ranger
+    * Don't have it preview .srts, which makes it when browsing through a list of movies with .srts each to them.
     * When mounting extHD while with ranger up and shown the empty links already, have it load and preview them without requiring restart.
 
 skype
@@ -278,7 +280,6 @@ urxvt
     * Change urxvt settings without requiring to restart application.
     * Separate ^J and <CR>, so you can bind them in irssi, and not do workarounds in the rest either.
         same for S-spacebar, C-c
-    * urxvt-perls: c-v as paste (eg for irssi), url clicker+keyboard select.
     * what is this alt+s urxvtperl business with scrollback? can i use it for searching, especially in irssi/terminal?
     * Make sure all the fallback weeaboo fonts work.
     * It renders emdashes with a gray..?
@@ -384,6 +385,7 @@ vim
 
 zathura
     * When Page Uping midway on first page, go to top. Analogous for Page down on last page.
+    * Manage pdfs with tabs, while with keybinds to detach/attach.
 
 zsh
     * All keybind/vim stuff lost during ssh session, wonky prompt.
