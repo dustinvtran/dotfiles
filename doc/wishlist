@@ -186,6 +186,7 @@ Medium Priority
     * Allow to remove certain default keybindings in keybindings.conf, without being auto-added in again when starting up Mcomix.
 
 Low Priority
+    * Change size of osd-bar/progress bar to not cover so much.
     * Bug: Map <Primary>p to preferences, which will work if I also map p to osd-bar.
     * Multiple keybinds to the same command.
     * Advanced mouse gestures (c.f. MangaMeeya).
@@ -332,6 +333,21 @@ Website: Anything with a Search Engine {{{
 
 High Priority
     * F'kin regex functionality.
+
+}}}
+Website: Goodreads {{{
+
+High Priority
+    * >5 ratings on rating scale.
+
+Low Priority
+    * Ability to remove sections of profile to clean it up.
+
+}}}
+Website: MangaTraders {{{
+
+Medium Priority
+    * When downloading a file but not being able to download because the connection limit is reached, don't strikethrough the file.
 
 }}}
 Website: StyleForum Classifieds {{{

@@ -51,7 +51,7 @@ set showstatuslinks=command
 set showtabline=always
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:JKeqcCaswb<CR>
+set passkeys+=reddit.com:JKe+-qcCaswb<CR>
 set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
@@ -122,6 +122,7 @@ map -modes=n -builtin a <C-v><C-d>
 map -modes=n gs :viewsource<CR>
 map -modes=n gf <Nop>
 map -modes=n <C-q> <Nop>
+map -modes=n <F7> <Nop>
 
 " }}}
 " Bookmarks {{{
@@ -157,8 +158,9 @@ map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%2FA
 map -modes=n -builtin <Leader>h  :tabopen! http://geekhack.org/index.php<CR>
 map -modes=n -builtin <Leader>d  :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
-map -modes=n -builtin <Leader>sp :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTM1NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
 map -modes=n -builtin <Leader>sc :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTI5NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
+map -modes=n -builtin <Leader>sp :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTM1NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
+map -modes=n -builtin <Leader>sd :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTMwMy9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " Media pages.
