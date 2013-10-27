@@ -266,16 +266,44 @@ function! InsertChar(count)
 		call inputrestore()
 	endtry
 endfunction
-" Have to do autocmd for now, because of weird YankStack.
-augroup fuck_you_yankstack
-    autocmd!
-    autocmd VimEnter * nnoremap s :<C-U>call InsertChar(v:count1)<CR>
-    autocmd VimEnter * nnoremap S l:<C-U>call InsertChar(v:count1)<CR>
-augroup END
 
 " }}}
 " Mappings {{{
 " -----------------------------------------------------------------------------
+
+"##############################################################################
+" Colemak
+"##############################################################################
+
+noremap n gj|noremap N J|noremap <C-n> <C-d>|cnoremap <C-n> <Down>
+noremap e gk|noremap E i<CR><Esc>k$|vnoremap K <Esc>i<CR><Esc>k$gv|noremap <C-e> <C-u>|cnoremap <C-e> <Up>
+augroup farkin_easymotion
+    autocmd!
+    autocmd VimEnter * noremap t l
+    autocmd VimEnter * noremap s h
+augroup END
+
+noremap k n|noremap K N
+noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap <silent> <C-h> :silent e#<CR>
+augroup fuck_you_yankstack
+    autocmd!
+    autocmd VimEnter * nnoremap l :<C-U>call InsertChar(v:count1)<CR>
+    autocmd VimEnter * nnoremap l l:<C-U>call InsertChar(v:count1)<CR>
+augroup END
+augroup farkin_easymotion2
+    autocmd!
+    autocmd VimEnter * nnoremap j xph
+augroup END
+
+noremap gn j
+noremap ge k
+noremap <silent> <C-s> :silent update<CR>:call LaTeXBuild()<CR>
+noremap! <silent> <C-s> <Esc>:silent update<CR>:call LaTeXBuild()<CR>
+"nnoremap <c-s> <C-w>W
+"nnoremap <c-t> <C-w>w
+nnoremap <silent> S :tabp<CR>
+nnoremap <silent> T :tabn<CR>
+" ctrl p
 
 "##############################################################################
 " General
@@ -283,20 +311,7 @@ augroup END
 
 let mapleader = ","
 noremap ; :
-noremap <silent> <C-s> :silent update<CR>:call LaTeXBuild()<CR>
-noremap! <silent> <C-s> <Esc>:silent update<CR>:call LaTeXBuild()<CR>
-noremap <silent> j gj
-noremap <silent> k gk
-noremap gj j
-noremap gk k
-noremap <C-j> <C-d>
-noremap <C-k> <C-u>
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
-nnoremap K i<CR><Esc>k$
-vnoremap K <Esc>i<CR><Esc>k$gv
 nnoremap <C-a> ggVG
-nnoremap <silent> <C-e> :silent e#<CR>
 nnoremap <Space> za
 nnoremap <silent> <Leader><Space> :set hlsearch!<CR>
 vnoremap < <gv
@@ -318,18 +333,8 @@ nnoremap z s
 vnoremap z s
 noremap Q @
 nnoremap ' '.
-augroup farkin_easymotion
-    autocmd!
-    autocmd VimEnter * nnoremap t xph
-augroup END
-noremap W )
-noremap B (
-noremap E )hh
-noremap gE (hh
-onoremap W )
-onoremap B (
-onoremap E )hh
-onoremap gE (hh
+noremap W )|onoremap W )
+noremap B (|onoremap B (
 nnoremap <Leader>w }
 nnoremap <Leader>b {
 
@@ -364,14 +369,10 @@ function! DoWindowSwap()
 endfunction
 nnoremap <silent> <Leader>m         :call MarkWindowSwap()<CR>
 nnoremap <silent> <Leader><Leader>m :call DoWindowSwap()<CR>
-nnoremap          <c-h>             <C-w>W
-nnoremap          <c-l>             <C-w>w
 
 " Tabs
 noremap  <silent> <C-t> :tabe<CR>
 noremap! <silent> <C-t> :tabe<CR>
-nnoremap <silent> H     :tabp<CR>
-nnoremap <silent> L     :tabn<CR>
 
 " }}}
 " Plugins {{{
@@ -427,6 +428,12 @@ let g:airline_mode_map = {
 "##############################################################################
 
 let g:ctrlp_map = '<C-f>'
+let g:ctrlp_prompt_mappings = {
+\ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+\ 'PrtSelectMove("k")':   ['<c-e>', '<up>'],
+\ 'PrtHistory(-1)':       [''],
+\ 'PrtCurEnd()':          [''],
+\ }
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = ''
 let g:ctrlp_clear_cache_on_exit = 0
@@ -444,7 +451,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 "##############################################################################
 
 " Homerow optimized, then tweaked by personal preference.
-let g:EasyMotion_keys = 'jklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBYh'
+let g:EasyMotion_keys = 'hneiotsradluygpfwqkmvc;xzbjEIOTSRAHDLUYGPFWQKMVCXZBJ'
 " I require only two EasyMotion keybinds for all my nifty teleportation: f/F. The 'f/F' defaults are set for normal/visual
 " modes, and the 't/T' defaults are set for operator mode (primarily d/c/y).
 let g:EasyMotion_mapping_f = 'f'

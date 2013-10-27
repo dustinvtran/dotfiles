@@ -301,14 +301,14 @@ bindkey -M viins '^[[3~' delete-char            # i_Delete
 bindkey -M viins '^[[Z' reverse-menu-complete   # i_SHIFT-Tab
 
 # Non-Vim default mappings I use everywhere.
-bindkey -M viins "^J" vim-down-line-or-history  # i_CTRL-J
-bindkey -M viins "^K" vim-up-line-or-history    # i_CTRL-K
+bindkey -M viins "^N" vim-down-line-or-history  # i_CTRL-N
+bindkey -M viins "^E" vim-up-line-or-history    # i_CTRL-E
 bindkey -M viins '^V' append-x-selection        # i_CTRL-V
 
 # Vim defaults I don't use but I may as well keep.
 bindkey -M viins "^A" beginning-of-line         # i_CTRL-A
-bindkey -M viins "^E" end-of-line               # i_CTRL-E
-bindkey -M viins "^N" down-line-or-history      # i_CTRL-N
+#bindkey -M viins "^E" end-of-line               # i_CTRL-E
+bindkey -M viins "^K" down-line-or-history      # i_CTRL-N
 bindkey -M viins "^P" up-line-or-history        # i_CTRL-P
 bindkey -M viins "^H" backward-delete-char      # i_CTRL-H
 bindkey -M viins "^B" _history-complete-newer   # i_CTRL-B
@@ -319,7 +319,7 @@ bindkey -M viins "^[[7~" vi-beginning-of-line   # i_Home
 bindkey -M viins "^[[8~" vi-end-of-line         # i_End
 
 # Edit current line in veritable Vim.
-bindkey -M viins "^E" edit-command-line         # i_CTRL-I
+bindkey -M viins "^H" edit-command-line         # i_CTRL-I
 
 ###############################################################################
 # Normal mode
@@ -334,9 +334,13 @@ bindkey -M vicmd "dd" kill-whole-line           # dd
 bindkey -M vicmd "gg" beginning-of-buffer-or-history # gg
 bindkey -M vicmd "G" end-of-buffer-or-history   # G
 bindkey -M vicmd "^R" redo                      # CTRL-R
+
+# Colemak.
+bindkey -M vicmd "s" backward-char              # i_s
+bindkey -M vicmd "t" forward-char               # i_t
 #Note zshrc cannot physically do this, but urxvt itself cannot detect vicmd/viins apart..
-#bindkey -M vicmd "j" SCROLL DAMMIT!!            # j
-#bindkey -M vicmd "k" SCROLL DAMMIT!!            # k
+#bindkey -M vicmd "n" SCROLL DAMMIT!!            # n
+#bindkey -M vicmd "e" SCROLL DAMMIT!!            # e
 
 # Non-Vim default mappings I use everywhere.
 bindkey -M vicmd 'p' append-x-selection         # p
@@ -346,7 +350,7 @@ bindkey -M vicmd 'y' yank-x-selection           # y
 bindkey -M vicmd "z" vi-substitute              # z
 
 # Vim defaults I don't use but I may as well keep.
-bindkey -M vicmd "^E" vi-add-eol                # CTRL-E
+bindkey -M vicmd "^H" vi-add-eol                # CTRL-E
 bindkey -M vicmd "g~" vi-oper-swap-case         # g~
 bindkey -M vicmd "ga" what-cursor-position      # ga
 

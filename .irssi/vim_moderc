@@ -1,25 +1,23 @@
-map j <C-e>
-map k <C-y>
-map <C-j> <C-d>
-map <CR> <C-d>
+map n <C-e>
+map e <C-y>
 map <C-n> <C-d>
-map <C-k> <C-u>
+map <C-e> <C-u>
 map gg /scrollback home
 map G /scrollback end
-map H h
-map L l
-map h /window prev
-map l /window next
-map <C-h> /window move prev
-map <C-l> /window move next
-map <c-e> /window last
+map S h
+map T l
+map s /window prev
+map t /window next
+map <C-s> /window move prev
+map <C-t> /window move next
+map <c-h> /window last
 map <C-w> /window close
 map <C-r> /reload
 map : <Nop>
 map ; <Nop>
 map <Leader>c /set colors toggle
-map <Leader>n /anames
-map <Leader>t /topic
+map <Leader>k /anames
+map <Leader>j /topic
 map <Leader>1 /window 1
 map <Leader>2 /window 2
 map <Leader>3 /window 3

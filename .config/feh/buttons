@@ -1,0 +1,22 @@
+#
+# feh mouse keybinds
+# ~/.config/feh/buttons
+# Name: nil
+#
+
+#########################################################
+# Mouse Gestures
+#########################################################
+
+next 1
+prev 2
+menu 3
+reload
+pan
+blur
+rotate
+zoom
+zoom_in
+zoom_out
+
+# vim:filetype=conf

@@ -294,35 +294,35 @@ globalkeys = awful.util.table.join(
 -- Keybindings: Directional Focusing, Manual Window Movement, & Resizing
 --#############################################################################
 
-    awful.key({ modkey }, "h", function () awful.client.focus.bydirection("left")
+    awful.key({ modkey }, "n", function () awful.client.focus.bydirection("down")
         if client.focus then client.focus:raise() end end),
-    awful.key({ modkey }, "j", function () awful.client.focus.bydirection("down")
+    awful.key({ modkey }, "e", function () awful.client.focus.bydirection("up")
         if client.focus then client.focus:raise() end end),
-    awful.key({ modkey }, "k", function () awful.client.focus.bydirection("up")
+    awful.key({ modkey }, "s", function () awful.client.focus.bydirection("left")
         if client.focus then client.focus:raise() end end),
-    awful.key({ modkey }, "l", function () awful.client.focus.bydirection("right")
+    awful.key({ modkey }, "t", function () awful.client.focus.bydirection("right")
         if client.focus then client.focus:raise() end end),
 
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.client.moveresize(-20,   0,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "j",     function () awful.client.moveresize(  0,  20,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "k",     function () awful.client.moveresize(  0, -20,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.client.moveresize( 20,   0,   0,   0) end),
-    awful.key({ modkey, "Shift"   }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "n",     function () awful.client.moveresize(  0,  20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "e",     function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "s",     function () awful.client.moveresize(-20,   0,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "t",     function () awful.client.moveresize( 20,   0,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "Down",  function () awful.client.moveresize(  0,  20,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "Up",    function () awful.client.moveresize(  0, -20,   0,   0) end),
+    awful.key({ modkey, "Shift"   }, "Left",  function () awful.client.moveresize(-20,   0,   0,   0) end),
     awful.key({ modkey, "Shift"   }, "Right", function () awful.client.moveresize( 20,   0,   0,   0) end),
-    awful.key({ modkey, "Control" }, "h",     function () awful.client.moveresize( -1,   0,   0,   0) end),
-    awful.key({ modkey, "Control" }, "j",     function () awful.client.moveresize(  0,   1,   0,   0) end),
-    awful.key({ modkey, "Control" }, "k",     function () awful.client.moveresize(  0,  -1,   0,   0) end),
-    awful.key({ modkey, "Control" }, "l",     function () awful.client.moveresize(  1,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "n",     function () awful.client.moveresize(  0,   1,   0,   0) end),
+    awful.key({ modkey, "Control" }, "e",     function () awful.client.moveresize(  0,  -1,   0,   0) end),
+    awful.key({ modkey, "Control" }, "s",     function () awful.client.moveresize( -1,   0,   0,   0) end),
+    awful.key({ modkey, "Control" }, "t",     function () awful.client.moveresize(  1,   0,   0,   0) end),
 
-    awful.key({ modkey            }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
     awful.key({ modkey            }, "Down",  function () awful.client.moveresize(  0,   0,   0,  20) end),
     awful.key({ modkey            }, "Up",    function () awful.client.moveresize(  0,   0,   0, -20) end),
+    awful.key({ modkey            }, "Left",  function () awful.client.moveresize(  0,   0, -20,   0) end),
     awful.key({ modkey            }, "Right", function () awful.client.moveresize(  0,   0,  20,   0) end),
-    awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(  0,   0,  -1,   0) end),
     awful.key({ modkey, "Control" }, "Down",  function () awful.client.moveresize(  0,   0,   0,   1) end),
     awful.key({ modkey, "Control" }, "Up",    function () awful.client.moveresize(  0,   0,   0,  -1) end),
+    awful.key({ modkey, "Control" }, "Left",  function () awful.client.moveresize(  0,   0,  -1,   0) end),
     awful.key({ modkey, "Control" }, "Right", function () awful.client.moveresize(  0,   0,   1,   0) end),
 
 --#############################################################################
@@ -330,29 +330,29 @@ globalkeys = awful.util.table.join(
 --#############################################################################
 
     awful.key({ modkey }, "Return", function () awful.util.spawn(terminal)                end),
-    awful.key({ modkey }, "r", function () run_or_raise(terminal,  { instance = "term" }) end),
+    awful.key({ modkey }, "l", function () run_or_raise(terminal,  { instance = "term" }) end),
     awful.key({ modkey }, "w", function () run_or_raise("gvim",    { class = "Gvim"    }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
+    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
     awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
-    awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
-    awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
 
     -- [L] Use this if you only have laptop display.
-    --awful.key({ modkey }, "t", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
+    --awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
     --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
-    --awful.key({ modkey }, "n", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    --awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
     -- temp
     --awful.key({ modkey }, "m", function () run_or_raise("", { class = {"Calibre-ebook-viewer", "feh", "Mcomix", "mpv"} }) end),
     awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"   }) end),
     --awful.key({ modkey }, "m", function () run_or_raise("", { class = "Mcomix"  }) end),
-    awful.key({ modkey }, "s", function () run_or_raise("", { class = "Zathura" }) end),
+    awful.key({ modkey }, "r", function () run_or_raise("", { class = "Zathura" }) end),
 
 --#############################################################################
 -- Keybindings: Widget Dialogs

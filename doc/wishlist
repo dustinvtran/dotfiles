@@ -31,6 +31,13 @@ High Priority
     * Remove entire GTK interface and leave just the document if desired.
 
 }}}
+feh {{{
+-------------------------------------------------------------------------------
+
+Medium Priority
+    * Allow pan+next to be set to left mouse click, where you pan if you click+drag moving around, and next otherwise.
+
+}}}
 Firefox Addon: 4chan X Seaweed {{{
 -------------------------------------------------------------------------------
 
@@ -169,6 +176,7 @@ libreoffice {{{
 
 High Priority
     * Modal editing, and keybind navigation a la vim
+    * Keybinds to append/prepend text instead of wiping a cell on a keypress to insert characters.
 
 }}}
 mcomix {{{
