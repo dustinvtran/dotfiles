@@ -56,7 +56,7 @@ set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly.
-set hintkeys="hjklfdsaguiotrewqnmvcpxzbyKLFDSAHGUIOTREWQNMVCPXZBY"
+set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
 " Holy fuck this guy keeps resetting itself otherwise.
 set! general.smoothScroll=false
 
@@ -64,39 +64,58 @@ set! general.smoothScroll=false
 " Mappings {{{
 " -----------------------------------------------------------------------------
 
+"##############################################################################
+" Colemak
+"##############################################################################
+
+map -modes=n -builtin n 5j
+map -modes=n -builtin e 5k
+map -modes=n -builtin N 3l
+map -modes=n -builtin E 3h
+map -modes=n -builtin <C-n> <C-d>
+map -modes=n -builtin <C-e> <C-u>
+map -modes=c -builtin <C-n> <Down>
+map -modes=c -builtin <C-e> <Up>
+map -modes=n -builtin s gT
+map -modes=n -builtin t gt
+map <silent> -modes=n -builtin <C-s> :tabmove -1<CR>
+map <silent> -modes=n -builtin <C-t> :tabmove +1<CR>
+map -modes=n -builtin j ;
+map -modes=n -builtin <C-h> :dialog places<CR>
+map -modes=n -builtin S H
+map -modes=n -builtin T L
+map -modes=n -builtin <C-l> <C-c>
+map -modes=n -builtin o t
+map -modes=n -builtin O T
+map -modes=n -builtin h o
+map -modes=n -builtin H O
+map -modes=n -builtin <C-h> :tabopen!<Space>
+map -modes=n -builtin k n
+map -modes=n -builtin K N
+" two searches
+" edit externally
+
+"##############################################################################
+" General
+"##############################################################################
+
 map , <Leader>
 map -modes=n -builtin ; :
-map -modes=n -builtin j 5j
-map -modes=n -builtin k 5k
-map -modes=n -builtin J 3l
-map -modes=n -builtin K 3h
-map -modes=n -builtin <C-j> <C-d>
-map -modes=n -builtin <C-k> <C-u>
-map -modes=c -builtin <C-j> <Down>
-map -modes=c -builtin <C-k> <Up>
-map -modes=n -builtin h gT
-map -modes=n -builtin l gt
-map <silent> -modes=n -builtin <C-h> :tabmove -1<CR>
-map <silent> -modes=n -builtin <C-l> :tabmove +1<CR>
 map -modes=n -builtin 0 g0
 map -modes=n -builtin $ g$
 map -modes=n -builtin y Y
 map -modes=n -builtin Y y
 map -modes=n -builtin Q @
 map -modes=n -builtin i gi
-map -modes=n -builtin e ;
 map -modes=n -builtin <C-f> g;b
 "map -modes=n -builtin <C-p> <C-i>
 "map -modes=n <C-o> <Nop>
 map -modes=n -builtin <C-r> :rehash<CR>
-map -modes=n -builtin <C-s> <C-c>
 map -modes=i,c -builtin <C-f> <C-T>
-map -modes=n -builtin <C-t> :tabopen!<Space>
 map -modes=n,i,c,t -builtin <C-a> <pass>
 map -modes=i -builtin <C-i> <pass>
 map -modes=i,c -builtin <C-v> <pass>
 map -modes=i,c -builtin <C-z> <pass>
-map -modes=n -builtin <C-e> :dialog places<CR>
 map -modes=n -builtin <C-d> :dialog addons<CR>
 map -modes=n -builtin <C-p> :dialog preferences<CR>
 map -modes=n -builtin <C-y> :tabopen about:downloads<CR>
@@ -245,8 +264,8 @@ command ani -nargs=* -js userContext.searchAni(args)
 command mal -nargs=* -js userContext.searchMal(args)
 
 " Most used generic ones.
-map -modes=n -builtin s :define<Space>
-map -modes=n -builtin S :tabopen! word<Space>
+map -modes=n -builtin l :define<Space>
+map -modes=n -builtin L :tabopen! word<Space>
 
 "##############################################################################
 " Edit in external editor, with filetype syntax!
@@ -285,7 +304,7 @@ function websiteFiletypes() {
         return "html";
 }
 EOF
-map -modes=i -builtin <C-e> -javascript editExternallyWithFiletype()
+map -modes=i -builtin <C-h> -javascript editExternallyWithFiletype()
 
 "##############################################################################
 " Macros

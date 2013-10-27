@@ -5,6 +5,12 @@
 "
 
 map ; focus_inputbar :
-map <C-j> navigate next
-map <C-k> navigate previous
-map <C-s> toggle_statusbar
+map n scroll down
+map e scroll up
+map s scroll left
+map t scroll right
+map k search next
+map K search previous
+map <C-n> navigate next
+map <C-e> navigate previous
+map <C-a> toggle_statusbar

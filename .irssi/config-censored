@@ -130,9 +130,8 @@ hilights = (
 );
 keyboard = (
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; },
-  #{ key = "^J"; id = "forward_history"; data = ""; }
   { key = "^N"; id = "forward_history"; data = ""; },
-  { key = "^K"; id = "backward_history"; data = ""; }
+  { key = "^E"; id = "backward_history"; data = ""; }
 );
 logs = { };
 windows = {

@@ -28,8 +28,9 @@ synclient touchpadoff=0
 syndaemon -k -i 1 -d
 transmission-daemon &
 xbacklight -set 100
+setxkbmap -variant colemak
 xmodmap -e 'remove Lock = Caps_Lock'
-xmodmap -e 'keysym Caps_Lock = Control_L'
+xmodmap -e 'keycode 66 = Control_L'
 xmodmap -e 'add Control = Control_L'
 xmodmap -e 'keycode 135 = Super_R'
 xmodmap -e 'keycode 255 = emdash'

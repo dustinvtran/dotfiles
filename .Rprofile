@@ -5,6 +5,7 @@
 #
 
 # Default libraries.
+#library(fields)
 library(knitr)
 library(rbenchmark)
 
@@ -33,4 +34,24 @@ knitme <- function(num) {
     command <- paste("rubber --into='", filedir, "' --clean '", filenameout, "'", sep = "")
     system(command)
 }
+
+# List the top ranked objects with the largest size.
+ls.sizes <- function(howMany = 10, minSize = 1){
+        pf <- parent.frame()
+        obj <- ls(pf) # or ls(sys.frame(-1))
+        objSizes <- sapply(obj, function(x) {
+        object.size(get(x, pf))})
+        # or sys.frame(-4) to get out of FUN, lapply(), sapply() and sizes()
+        objNames <- names(objSizes)
+        howmany <- min(howMany, length(objSizes))
+        ord <- order(objSizes, decreasing = TRUE)
+        objSizes <- objSizes[ord][1:howMany]
+        objSizes <- objSizes[objSizes > minSize]
+        objSizes <- matrix(objSizes, ncol = 1)
+        rownames(objSizes) <- objNames[ord][1:length(objSizes)]
+        colnames(objSizes) <- "bytes"
+        cat('object')
+        print(format(objSizes, justify = "right", width = 11), quote = FALSE)
+}
+
 # vim:filetype=conf

@@ -12,9 +12,9 @@ lplusecommented=$(grep -A 1 "^ *# \[L+E\]" /home/nil/.xinitrc | grep -v "^ *# \[
 
 # Set audio output.
 if [ "$hdmi_status" = connected ]; then
-   ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
+    ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
 else
-   ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
+    ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
 fi
 
 # Set video output.

@@ -25,11 +25,25 @@ I set keybinds to focus each of my main applications, and the same keybind spawn
 
 My window manger's properties are also set in order to specify each application's position on the screen. Their geometry is also automagically set, either from their own configuration files or from a command line flag. This makes every application on startup already placed into position, and already sized correctly. Who needs tiling—a manually adjusted affair—when I already have the exact layout and sizes in mind? With all windows already setup to your OCD bastardized needs, and a minimal set of keys to navigate through the windows, this is not only efficient but ridiculously easy to use and learn.
 
+## Efficient Keyboard
+
+[on my 'nest' setup with colemak, and how i've only changed hjkl keys to nest in normal mode for everything.]
+Before explaining my keybinds,
+
 ## Keybinds
 
 Vim. Vim always. Every one of my applications follow roughly the same idea, with `hjkl` taking the forefront in movement, and other essential Vim keys (e.g., `d`, `y`, `p`, `<Leader>`) taking analogous traits. This makes my keybinds universal across all platforms, and efficient through sane keybinds located near or on the home row. With everything Vimified, it's hard not to gloat at just how easy and efficient everything becomes, anything ranging from window manager keybinds to something as niche as torrent client keybinds.
 
 I could have already performed 4-5 keybinds in the time it takes to move my hand from my keyboard to my mouse; so why bother with it when you don't need to? With all these mappings in place, I honestly only ever require a mouse for the few occasions in Firefox (pentadactyl utterly fails on me when navigating through popup links or Javascript), and in GUI apps like libreoffice and gimp.
+
+## Applications
+
+[explanation of all the applications and keybinds etc. do subsection with each app and a picture of it]
+Apps: awesome, pentadactyl, irssi, calibre-ebook-viewer, feh, ranger, vim, zshrc, libreoffice, ncmpcpp, mcomix, mpv, tcli, zathura
+
+### Libreoffice
+
+changes are minimal. just removed bunch of toolbars. added ctrl+nest/NEST, ctrl+g/G
 
 ## The (Current) Layout
 
