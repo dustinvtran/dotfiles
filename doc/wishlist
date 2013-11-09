@@ -337,6 +337,26 @@ Low Priority:
     * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page. E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
 
 }}}
+Web App: Google Calendar {{{
+
+High Priority
+    * Better fucking Tasks functionality:
+        * Have the ability to view multiple tasks lists simultaneously, with this option for both the calendars (just like you can click on and off for multiple calendars) and the task lists. Without this option, I'm currently forced to use only one task list (otherwise I'd have to recheck multiple lists over and over, and I could easily forget something). But then in order to organize things efficiently, I use indented tasks, which only allows one sorting option. I would then only use multiple task lists if those two sections of my life were extremely discrete and demanded the schism while fully understanding that I cannot combine the two (e.g. my anime blog task list and my work life task list). Ultimately, it's a shitty life trying to adapt to all the limitations here, and so you'd be better off at not integrating your task/todo list into your calendar at the moment.
+            * Collapsible tasks grouped under subtasks.
+            * Allow indentation still when sorted under due date. Without this, I'm forced to stick with my own order.
+        * Import/export/share tasks.
+        * Reminders (SMS, email, popup) for tasks.
+        * Recurring tasks (e.g. to do something every week like Groceries).
+    * Vim-able modal keybinding.
+        * At the very least, customizable keybinds for what's already available.
+
+Medium Priority
+    * Larger expansions of long text strings as titles of tasks or events.
+
+Low Priority
+    * Sort calendars.
+
+}}}
 Website: Anything with a Search Engine {{{
 
 High Priority
@@ -362,5 +382,14 @@ Website: StyleForum Classifieds {{{
 
 High Priority
     * Budget restrictions, search engine, item classifications, more immediately clear whether active listing or not, and certain key phrases that everyone uses, like "closet cleaning".
+    * Implement embedded, auto-loaded images on the classified forum posts, not require some stupid pop-up image that takes forever to load because the image servers are so slow.
+
+}}}
+Website: Youtube {{{
+
+High Priority
+    * Stahp losing buffer when you move to new seek position.
+    * Load the entire playback even while the video is paused.
+    * Store the entire buffer into cache so you can replay a video without requiring to buffer all over again.
 
 }}}

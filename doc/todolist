@@ -18,13 +18,17 @@ Awesome
         Do something like switchtotag in the keybinds.
     * Applications not shifting correctly between monitors and #s, what with absolute positions. Maybe add movetoscreeen or something? see mod4+control+j function in the default rc.lua and add it to your keybinds
 
+Colemak
+    * convert: vim (nerdtree, bufexplorer)
+    * scrolling up/down in docs, e.g., r doc
+    * Re-arrange any keybinds (e.g. dealing with ctrl s across multiple applications).
+    * Right alt not working.
+
 cron
-   * See if the cronjob/scripts are working. mpdas seems to be defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>. rssdler isn't always downloading
+   * Fix the cronjobs. mpdas simply goes defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>. rssdler isn't always downloading
 
 urxvt
-    * urxvt-perls: c-v as paste (eg for irssi), url clicker+keyboard select.
-    readline
-        * Ctrl-v paste.
+    * urxvt-perls: c-v as paste (eg for irssi and readline), url clicker+keyboard select.
 
 skype/mic
     * usb audio output should always be set to 50. it resets. putting it in udev-hdmi is not the right way since you only put up the usb when about to speak
@@ -33,9 +37,16 @@ skype/mic
     * awesome: how to deal with notifications.
     * best interface/cli?
 
-Colemak
-    * convert: vim (nerdtree, bufexplorer)
-    * Re-arrange any keybinds.
+Time Management
+    * Decide on the best way to deal with your task list versus your calendar things. Google Calendar is best at deadlines and shit, but has terrible functionality for managing tasks.
+        * Maybe keep the to do list strictly for completing tasks, while the calendar has time-related events, notifications, and deadlines. But Google Tasks has better storing functionality and mobile support.
+            * Best way to manage Google subtasks.
+    * Get accustomed to Google Calendar keyboard shortcuts and functions.
+    * Migrate fully without a todolist.txt anymore.
+    * Do the same for mobile.
+
+mobile
+    * make sure mobile firefox bookmarks are saved.
 
 }}}
 High Priority {{{
@@ -83,11 +94,8 @@ Awesome
         * Try rodentbane for the occasionally necessary mouse movement with keyboard.
         * Add left+right click as move window.
 
-Compton
-    * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
-
 cron
-    * Do I still need an xcape cronjob?
+    * Get up an xcape cronjob. It still goes funky at times.
 
 Firefox Addon: Pentadactyl
     * Using digits autogoes to a url page. stahp. let them use google.
@@ -113,9 +121,6 @@ media-catalog
     * specify up to levels for certain things, to avoid massive musics for instance
         I have to delete them manually for now.
 
-mount
-    * Get an automounter that doesn't suck.
-
 mpv-open
     * occasionally getting these weird blank sed files in ~/.mpv.
 
@@ -125,11 +130,8 @@ mpv
     * Stream youtube into here.
 
 pentadactyl
+    * Better way to deal with bookmarks..
     * Somehow always have backups of pentadactyl.txt in case I close it when window no longer exists (hence losing all my text edits).
-
-R
-    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
-       current command works fine but it adds knitr things twice.
 
 ranger
     * If scope shows preview and cuts off filename where <50% Of filename is shown, don't have it show a preview.
@@ -148,13 +150,8 @@ transmission
         For now, you'll have to check each torrent after it finishes individually.
 
 Vim
-    * LaTeX: Autobuild.
-        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
-    * If in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
-        !R -e "library(knitr); knit('%:p')"
-        !rubber -d "%:r".tex
-        silent !rubber --clean "%:r".tex &
-        * If I can't do this and am relying on R code, just have Vim not try to auto-compile .Rtex.
+    * latex $..$ not working anymore.
+    * Fix 'df' and 'ct' (basically omap) til-ing.
     * Note that you uncommented that one part from NERDCommenter.vim.
     * Make or use some syntax file for your todolists.
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
@@ -171,7 +168,7 @@ xinitrc
 
 Zathura
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
-    * Have <Leader>tab turn off the highlight, not just Esc.
+    * Have <Leader><Space> turn off the highlight, not just Esc.
 
 zsh
     * Deletearound not working.
@@ -180,7 +177,7 @@ zsh
 Misc
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
-    * pkill ranger; pause all torrents in transmission-client; pkill mpd, then umountb and reboot. Automate this.
+    * pkill ranger; pause all torrents in transmission-client; pkill mpd; then umountb and reboot. Automate this.
     * Fork transmissionremotecli properly so people can use your own more professionally
     * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
     * WorkMethod: Finish final draft.
@@ -273,6 +270,7 @@ Webcam, Mic
     * Get them working.
 
 ranger
+    * Make pdfs and djvus the same color.
     * Don't have it preview .srts, which makes it when browsing through a list of movies with .srts each to them.
     * When mounting extHD while with ranger up and shown the empty links already, have it load and preview them without requiring restart.
 
@@ -289,6 +287,13 @@ urxvt
     * It renders emdashes with a gray..?
 
 vim
+    * LaTeX: Autobuild.
+        First, need to be able to compile in background. But & fails for both pdflatex and rubber?
+    * If in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
+        !R -e "library(knitr); knit('%:p')"
+        !rubber -d "%:r".tex
+        silent !rubber --clean "%:r".tex &
+        * If I can't do this and am relying on R code, just have Vim not try to auto-compile .Rtex.
     * Change up colors for terminal vim.
     * Type lime/uushi encodings with ctrl+shift.
     * Anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
@@ -326,6 +331,9 @@ Audio
             changes audio-source to headphones if i plugged in, monitor if i plugged out (and if monitor not there, then last resort as laptop)
             pkill mpd    mpd ~/.config/mpd/mpd.conf &    mpdas &
 
+Compton
+    * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
+
 Awesome
     * irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat.
     * Eminent mouse scroll through tags not working.
@@ -355,6 +363,13 @@ irssi
     * anames: spacing goes crazy if there's a user with a long name.
     * vim_mode: Remove that annoying operator shit, or append it to the right like in vim.
     * pubmsg_me shows one extra character for long names, i.e., when i'm highlighted.
+
+mount
+    * Get an automounter that doesn't suck.
+
+R
+    * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.
+       current command works fine but it adds knitr things twice.
 
 ranger
     * Add a :zip command that does as desired.

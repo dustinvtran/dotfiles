@@ -381,6 +381,7 @@ alias df="df -h"                           # Display sizes in human readable for
 alias du="du -h -c"                        # Display sizes in human readable format, and total.
 alias mount="sudo mount"                   # Don't require prepending sudo.
 alias umount="sudo umount"                 # Don't require prepending sudo.
+alias youtube-dl="youtube-dl -citk --max-quality FORMAT --extract-audio --audio-format mp3" # Download with audio and things.
 
 # Computing Environment default flags.
 alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots), hide splash
@@ -529,6 +530,10 @@ function scpb() {
 # can scp multiple files/directories simultaneously, if desired.
 function scpt() {
     scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
+}
+# This one goes to my pdf reader app.
+function scpp() {
+    scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
 }
 
 # }}}

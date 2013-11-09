@@ -4,13 +4,33 @@
 " Name: nil
 "
 
-map ; focus_inputbar :
+"########################################################
+" Navigation
+"########################################################
+
 map n scroll down
 map e scroll up
-map s scroll left
-map t scroll right
-map k search next
-map K search previous
+map N scroll right
+map E scroll left
 map <C-n> navigate next
 map <C-e> navigate previous
+
+map k search next
+map K search previous
+
+"########################################################
+" Viewing Tweaks
+"########################################################
+
+map r adjust_window width
+map o rotate
+
+"########################################################
+" Display Info
+"########################################################
+
+map ; focus_inputbar :
 map <C-a> toggle_statusbar
+"map F toggle_statusbar
+
+" vim:filetype=vim

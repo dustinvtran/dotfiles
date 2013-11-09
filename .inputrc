@@ -14,10 +14,8 @@ $if mode=vi
     "G": end-of-line
     # Insert mode.
     set keymap vi-insert
-    "\C-a": beginning-of-line
-    "\C-e": end-of-line
-    "\C-j": next-history
-    "\C-k": previous-history
+    "\C-n": next-history
+    "\C-e": previous-history
     "\C-l": clear-screen
 $endif
 

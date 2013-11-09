@@ -288,7 +288,7 @@ noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap
 augroup fuck_you_yankstack
     autocmd!
     autocmd VimEnter * nnoremap l :<C-U>call InsertChar(v:count1)<CR>
-    autocmd VimEnter * nnoremap l l:<C-U>call InsertChar(v:count1)<CR>
+    autocmd VimEnter * nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
 augroup END
 augroup farkin_easymotion2
     autocmd!
@@ -299,8 +299,8 @@ noremap gn j
 noremap ge k
 noremap <silent> <C-s> :silent update<CR>:call LaTeXBuild()<CR>
 noremap! <silent> <C-s> <Esc>:silent update<CR>:call LaTeXBuild()<CR>
-"nnoremap <c-s> <C-w>W
-"nnoremap <c-t> <C-w>w
+nnoremap <Leader>s <C-w>W
+nnoremap <Leader>t <C-w>w
 nnoremap <silent> S :tabp<CR>
 nnoremap <silent> T :tabn<CR>
 " ctrl p

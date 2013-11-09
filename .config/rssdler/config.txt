@@ -30,7 +30,7 @@ link = http://www.nyaa.eu/?page=rss
 #directory =
 #regExTrue =
 regExFalse = (([1-4]?[0-9]{2}p|mp4)
-download1 = (Anime-Koi.*Coppelion|UTW.*Kyoukai|Commie.*(Kill|Kyousougiga|Monogatari|Galilei|Samurai)|Cthuko.*Yozakura)
+download1 = (Anime-Koi.*Coppelion|UTW.*Kyoukai|Underwater.*Kill|Commie.*(Kyousougiga|Monogatari|Galilei|Samurai)|Cthuko.*Yozakura)
 download1False = %(regExFalse)s
 download2 = HorribleSubs.*(Pupa)
 download2False = (1080p|%(regExFalse)s)

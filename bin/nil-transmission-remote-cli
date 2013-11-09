@@ -976,7 +976,7 @@ class Interface:
             curses.ascii.ctrl(ord('b')): self.movement_keys,
             ord("\t"):              self.move_in_details,
             curses.KEY_BTAB:        self.move_in_details,
-            ord('l'):               self.move_in_details,
+            #ord('l'):               self.move_in_details,
             ord('c'):               self.move_in_details,
             ord('C'):               self.toggle_compact_torrentlist,
             ord('s'):               self.file_pritority_or_switch_details,

@@ -57,7 +57,6 @@ URxvt*color15 : #505050
 
 URxvt*background: #f9f9f9
 URxvt*foreground: #707070
-URxvt*cursorColor: #f9f9f9
 URxvt*colorUL: #9693b5
 URxvt*borderColor: #f9f9f9
 
