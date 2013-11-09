@@ -51,8 +51,8 @@ set showstatuslinks=command
 set showtabline=always
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:JKe+-qcCaswb<CR>
-set passkeys+=boards.4chan.org:JK<C-j><C-k>DemMqQ<C-w>cC<CR>
+set passkeys+=reddit.com:NEx+-qcCaswb<CR>
+set passkeys+=boards.4chan.org:NE<C-n><C-e>DxmMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly.
@@ -81,15 +81,15 @@ map -modes=n -builtin t gt
 map <silent> -modes=n -builtin <C-s> :tabmove -1<CR>
 map <silent> -modes=n -builtin <C-t> :tabmove +1<CR>
 map -modes=n -builtin j ;
-map -modes=n -builtin <C-h> :dialog places<CR>
+map -modes=n -builtin <C-b> :dialog places<CR>
 map -modes=n -builtin S H
 map -modes=n -builtin T L
-map -modes=n -builtin <C-l> <C-c>
 map -modes=n -builtin o t
 map -modes=n -builtin O T
+map -modes=n -builtin <C-o> :tabopen!<Space>
 map -modes=n -builtin h o
 map -modes=n -builtin H O
-map -modes=n -builtin <C-h> :tabopen!<Space>
+map -modes=n -builtin <C-r> <C-c>
 map -modes=n -builtin k n
 map -modes=n -builtin K N
 " two searches
@@ -110,7 +110,7 @@ map -modes=n -builtin i gi
 map -modes=n -builtin <C-f> g;b
 "map -modes=n -builtin <C-p> <C-i>
 "map -modes=n <C-o> <Nop>
-map -modes=n -builtin <C-r> :rehash<CR>
+map -modes=n -builtin <C-S-r> :rehash<CR>
 map -modes=i,c -builtin <C-f> <C-T>
 map -modes=n,i,c,t -builtin <C-a> <pass>
 map -modes=i -builtin <C-i> <pass>
@@ -142,6 +142,8 @@ map -modes=n gs :viewsource<CR>
 map -modes=n gf <Nop>
 map -modes=n <C-q> <Nop>
 map -modes=n <F7> <Nop>
+map -modes=i <C-s> <Nop>
+map -modes=i <C-n> <Nop>
 
 " }}}
 " Bookmarks {{{
@@ -158,14 +160,13 @@ map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
 map -modes=n -builtin <Leader>4w :tabopen! http://boards.4chan.org/w/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
-map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/frugalmalefashion<CR>
-map -modes=n -builtin <Leader>rc :tabopen! http://www.reddit.com/r/bicycling+bikeporn<CR>
+map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
 map -modes=n -builtin <Leader>ru :tabopen! http://www.reddit.com/r/unixporn<CR>
+map -modes=n -builtin <Leader>rc :tabopen! http://www.reddit.com/r/bicycling+bikeporn<CR>
 map -modes=n -builtin <Leader>rb :tabopen! http://www.reddit.com/r/battlestations<CR>
 map -modes=n -builtin <Leader>rt :tabopen! http://www.reddit.com/r/math<CR>
-map -modes=n -builtin <Leader>rd :tabopen! http://www.reddit.com/r/android<CR>
 map -modes=n -builtin <Leader>rp :tabopen! http://www.reddit.com/r/buildapc<CR>
-map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/anime<CR>
+map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
 " Community Websites
@@ -177,9 +178,6 @@ map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%2FA
 map -modes=n -builtin <Leader>h  :tabopen! http://geekhack.org/index.php<CR>
 map -modes=n -builtin <Leader>d  :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
-map -modes=n -builtin <Leader>sc :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTI5NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
-map -modes=n -builtin <Leader>sp :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTM1NS9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
-map -modes=n -builtin <Leader>sd :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELzExNTMwMy9GaWx0ZXIlNUJvcmRlcl9ieSU1RC9DbGFzc2lmaWVkLmJ1bXBfYXQvcGFnZS8w/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " Media pages.
@@ -195,6 +193,7 @@ map -modes=n -builtin <Leader>y  :tabopen! http://rateyourmusic.com/~nilin<CR>
 map -modes=n -builtin <Leader>l  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " Documents.
+map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/0/#inbox | https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/2/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>

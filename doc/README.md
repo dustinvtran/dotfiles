@@ -39,7 +39,7 @@ I could have already performed 4-5 keybinds in the time it takes to move my hand
 ## Applications
 
 [explanation of all the applications and keybinds etc. do subsection with each app and a picture of it]
-Apps: awesome, pentadactyl, irssi, calibre-ebook-viewer, feh, ranger, vim, zshrc, libreoffice, ncmpcpp, mcomix, mpv, tcli, zathura
+Apps: awesome, firefox (pentadactyl, incl: 4chan and RES keybinds)), irssi, calibre-ebook-viewer, feh, ranger, vim, zshrc, libreoffice, ncmpcpp, mcomix, mpv, tcli, zathura
 
 ### Libreoffice
 
