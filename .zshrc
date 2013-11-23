@@ -379,6 +379,7 @@ alias crontab="EDITOR=vim crontab"         # Since crontab doesn't work with gvi
 alias cp="nocorrect cp -Rv"                # Ensure that cp is always recursive and verbose.
 alias df="df -h"                           # Display sizes in human readable format.
 alias du="du -h -c"                        # Display sizes in human readable format, and total.
+alias mpd="mpd ~/.config/mpd/mpd.conf"     # Default directory for configuration files.
 alias mount="sudo mount"                   # Don't require prepending sudo.
 alias umount="sudo umount"                 # Don't require prepending sudo.
 alias youtube-dl="youtube-dl -citk --max-quality FORMAT --extract-audio --audio-format mp3" # Download with audio and things.
@@ -403,6 +404,7 @@ alias psc="ps -C"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
+alias wifi="sudo systemctl restart netctl-auto@wlan0.service"
 
 # Restart configs.
 alias so="exec zsh"
@@ -496,10 +498,6 @@ alias emptytrash="trash-empty"
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
-
-# temp
-alias wifi="sudo systemctl restart netctl-auto@wlan0.service"
-alias mpdf="mpd ~/.config/mpd/mpd.conf"
 
 ###############################################################################
 # Functions

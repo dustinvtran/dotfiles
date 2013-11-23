@@ -89,7 +89,8 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size, but not for console Vim.
 if has("gui_running")
-  set lines=49 columns=127
+  "set lines=49 columns=127
+  set lines=65 columns=127
 endif
 
 augroup misc
@@ -398,7 +399,8 @@ set background=light
 syntax enable
 set guioptions=
 set notitle
-set guifont=lemon
+"set guifont=lemon
+set guifont=ProFont\ Italic\ 10
 set laststatus=2
 set noshowmode
 let g:airline_theme='solarized'
@@ -513,12 +515,12 @@ let NERDTreeShowHidden=1
 " Set Color
 "##############################################################################
 
-augroup color_scheme
-    autocmd!
-    autocmd VimEnter * silent SetColors all
-augroup END
-nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
-nnoremap <silent> <Leader>r :call NextColor(1)<CR>
+"augroup color_scheme
+"    autocmd!
+"    autocmd VimEnter * silent SetColors all
+"augroup END
+"nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
+"nnoremap <silent> <Leader>r :call NextColor(1)<CR>
 
 "##############################################################################
 " Snipmate
