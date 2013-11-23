@@ -8,6 +8,12 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+monitor broke
+    rclua, xinitrc, udev-hdmi, vimrc
+    firefox popups too big
+    vim - uushi not working
+    deal with window layout, e.g., the media
+
 Awesome
     *** Fix mail-notify!!
         Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
@@ -37,16 +43,8 @@ skype/mic
     * awesome: how to deal with notifications.
     * best interface/cli?
 
-Time Management
-    * Decide on the best way to deal with your task list versus your calendar things. Google Calendar is best at deadlines and shit, but has terrible functionality for managing tasks.
-        * Maybe keep the to do list strictly for completing tasks, while the calendar has time-related events, notifications, and deadlines. But Google Tasks has better storing functionality and mobile support.
-            * Best way to manage Google subtasks.
-    * Get accustomed to Google Calendar keyboard shortcuts and functions.
-    * Migrate fully without a todolist.txt anymore.
-    * Do the same for mobile.
-
-mobile
-    * make sure mobile firefox bookmarks are saved.
+media lists
+    * figure out how to sort, e.g., pull out from a section and place into a file, and have sed sort by every 7th row or something
 
 }}}
 High Priority {{{
@@ -109,9 +107,6 @@ irssi
     * Quitting with /away doesn't show away in sb although I'm still away.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
     * Alias > to automatically expand to C-c3>.
-
-Laptop
-    * Way to disable fan, esp. for lectures if it's too loud.
 
 media-catalog
     * Sort [ first character, and have whitespace take higher priority than decimals, without needing to do this manually.
@@ -264,10 +259,8 @@ SD Card
 transmission-remote-cli
     * Set default download location setting.
     * Add better documentation in help messages.
+    * Can't see cursor anymore when typing, e.g., moving location of file.
     * Have a keybind that sets all active downloads/seeding (basically, non-paused) to the bottom of queue position. And even more advanced, have those ones all sorted by completion rather than arbitrarily. E.g., Seeds above, then highest % downloads sorted descending. Also consider automating this on entering tcli.
-
-Webcam, Mic
-    * Get them working.
 
 ranger
     * Make pdfs and djvus the same color.
@@ -385,6 +378,7 @@ vim
     Airline: Customize how it handles statuslines on inactive windows, e.g., nerd or another.
     Airline: change color of middle bar to a lighter white.
     LaTeX
+        * Allow to <Tab> between the $..$.
         * Configure inoreabbrev,snippets,surround instead of in-LaTeX macros.
             Which ones should be via LaTeX and others via vim?
         * Check out surround's macros for auto-completing text like 'div id=' but when you don't want to include an id, it takes it away from the tab.

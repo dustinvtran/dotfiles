@@ -18,11 +18,15 @@ else
 fi
 
 # Set video output.
-if [ "$hdmi_status" = connected ]; then
-    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
-else
-    xrandr --output HDMI1 --off
-fi
+#if [ "$hdmi_status" = connected ]; then
+#    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
+#else
+#    xrandr --output HDMI1 --off
+#fi
+xrandr --output LVDS1 --off
+
+# temp mount since i do this permanently now
+mount /dev/sdb1 /media/sdb1
 
 # Set certain application settings.
 # Explanation:
