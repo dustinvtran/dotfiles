@@ -5,9 +5,10 @@
 #
 
 # Default libraries.
-#library(fields)
+library(fields)
 library(knitr)
 library(rbenchmark)
+library(VGAM)
 
 # Hard code the US repo for CRAN.
 r <- getOption("repos")

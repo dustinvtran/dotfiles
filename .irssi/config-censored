@@ -20,7 +20,7 @@ chatnets = {
 };
 
 channels = (
-  { name = "#critics-conn"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#qd"; chatnet = "rizon"; autojoin = "yes"; },
   { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
   { name = "#/g/summer"; chatnet = "rizon"; autojoin = "yes"; },
   { name = "#rice"; chatnet = "rizon"; autojoin = "yes"; }
@@ -140,7 +140,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#critics-conn";
+        name = "#qd";
         tag = "Rizon";
       }
     );

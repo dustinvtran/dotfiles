@@ -12,7 +12,7 @@
     "blocklist-url": "http://www.example.com/blocklist", 
     "cache-size-mb": 4, 
     "dht-enabled": true, 
-    "download-dir": "/home/nil/nil/Media/Anime/[Backlog]/[Fall 2013]", 
+    "download-dir": "/home/nil/nil/Media/Films/[Backlog]", 
     "download-queue-enabled": true, 
     "download-queue-size": 5, 
     "encryption": 1, 

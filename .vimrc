@@ -401,6 +401,7 @@ set guioptions=
 set notitle
 "set guifont=lemon
 set guifont=ProFont\ Italic\ 10
+"set guifont=GohuFont\ 10
 set laststatus=2
 set noshowmode
 let g:airline_theme='solarized'
