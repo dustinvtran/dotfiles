@@ -51,7 +51,7 @@ set showstatuslinks=command
 set showtabline=always
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:NEx+-qcCaswb<CR>
+set passkeys+=reddit.com:NEx+-qcCarwb<CR>
 set passkeys+=boards.4chan.org:NE<C-n><C-e>DxmMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
@@ -153,9 +153,10 @@ map -modes=i <C-n> <Nop>
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
+map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/tv/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
-map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
+map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
 map -modes=n -builtin <Leader>4w :tabopen! http://boards.4chan.org/w/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
@@ -170,27 +171,29 @@ map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
 " Community Websites
-map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
-map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
-map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
 map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
 map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%2FAssociates<CR>
-map -modes=n -builtin <Leader>h  :tabopen! http://geekhack.org/index.php<CR>
+map -modes=n -builtin <Leader>h  :tabopen! https://github.com/nil-<CR>
 map -modes=n -builtin <Leader>d  :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " temp
-map -modes=n -builtin <Leader>n nyaa kill la kill | nyaa galilei | nyaa kyousougiga | nyaa monogatari | nyaa coppelion | nyaa flamenco | nyaa kanata | nyaa yozakura<CR>
+map -modes=n -builtin <Leader>n :tabopen! nyaa kill la kill | nyaa galilei | nyaa kyousougiga | nyaa monogatari | nyaa coppelion | nyaa flamenco | nyaa kanata | nyaa yozakura<CR>
 
-" Media pages.
+" Media
+map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
+map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
+map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
+map -modes=n -builtin <Leader>aq  :tabopen! http://myanimelist.net/clubs.php?cid=40485<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
-map -modes=n -builtin <Leader>g  :tabopen! http://www.goodreads.com/<CR>
+map -modes=n -builtin <Leader>gn :tabopen! http://www.goodreads.com/<CR>
+map -modes=n -builtin <Leader>gp :tabopen! https://www.goodreads.com/user/show/7207396-nil<CR>
 map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/tv_films.html<CR>
-map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Video%20Game%20List.html<CR>
-map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/Visual%20Novel%20List.html<CR>
+map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/video_games.html<CR>
+map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/visual_novels.html<CR>
 map -modes=n -builtin <Leader>y  :tabopen! http://rateyourmusic.com/~nilin<CR>
 map -modes=n -builtin <Leader>l  :tabopen! http://www.last.fm/user/nil1729<CR>
 
@@ -295,6 +298,8 @@ function websiteFiletypes() {
         case "github.com":
             if (! buffer.URL.path.match("/wiki/"))
                 return "markdown";
+        case "goodreads.com":
+            return "html";
         case "myanimelist.net":
             return "bbcode";
         case "reddit.com":

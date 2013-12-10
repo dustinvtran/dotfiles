@@ -339,6 +339,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
     awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
+    awful.key({ modkey }, "k", function () run_or_raise("skype",    { class = "Skype"    }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
     awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
@@ -558,6 +559,12 @@ awful.rules.rules = {
       properties = { tag = tags[1][4], floating = true, switchtotag = true } },
     { rule = { class = "VirtualBox" },
       properties = { tag = tags[1][4], floating = false, switchtotag = true } },
+    { rule = { class = "Skype" },
+      properties = { tag = tags[1][4], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=60, y=40}) end },
+     { rule_any = { class = {"Skype"}, role = {"ConversationsWindow"} },
+      properties = { floating = true },
+      callback = function(c) c:geometry({x=300, y=40}) end },
 
 --#############################################################################
 -- Workspace 1 ([L+E]) or Workspace 5 & 10 ([L])
@@ -640,8 +647,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=65, y=200}) end },
     { rule = { class = "Zathura" },
-      properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
+      properties = { tag = tags[1][2], floating = true, switchtotag = true },
+      callback = function(c) c:geometry({x=1000, y=42, width=780, height=1016}) end },
 
 --#############################################################################
 -- Miscellaneous
@@ -649,7 +656,7 @@ awful.rules.rules = {
 
     { rule = { instance = "calendar" },
       properties = { floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=683, y=15}) end },
+      callback = function(c) c:geometry({x=450, y=15}) end },
 }
 -- }}}
 -- Signals {{{

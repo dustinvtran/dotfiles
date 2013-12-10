@@ -72,11 +72,19 @@ Xft.autohint: false
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
-URxvt*font: xft:lemon:pixelsize=11:antialias=false,\
+!URxvt*font: xft:lemon:pixelsize=11:antialias=false,\
+!            [codeset=JISX0208]xft:Kochi Gothic,\
+!            [codeset=KSC5601]xft:Baekmuk Dotum,\
+!            xft:WenQuanYi Bitmap Song
+!URxvt*boldFont: xft:lemon:pixelsize=11:antialias=false,\
+!            [codeset=JISX0208]xft:Kochi Gothic,\
+!            [codeset=KSC5601]xft:Baekmuk Dotum,\
+!            xft:WenQuanYi Bitmap Song
+URxvt*font: xft:uushi:pixelsize=11:antialias=false,\
             [codeset=JISX0208]xft:Kochi Gothic,\
             [codeset=KSC5601]xft:Baekmuk Dotum,\
             xft:WenQuanYi Bitmap Song
-URxvt*boldFont: xft:lemon:pixelsize=11:antialias=false,\
+URxvt*boldFont: xft:uushi:pixelsize=11:antialias=false,\
             [codeset=JISX0208]xft:Kochi Gothic,\
             [codeset=KSC5601]xft:Baekmuk Dotum,\
             xft:WenQuanYi Bitmap Song

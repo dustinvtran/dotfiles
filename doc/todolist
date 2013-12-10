@@ -9,10 +9,15 @@ Highest Priority {{{
 -------------------------------------------------------------------------------
 
 monitor broke
-    rclua, xinitrc, udev-hdmi, vimrc
+    files changed: rclua, xinitrc, udev-hdmi, vimrc, xresources
     firefox popups too big
     vim - uushi not working
     deal with window layout, e.g., the media
+    move skype with the rule_any thing
+    em/alt, as well as pasting it more generally
+
+file directories
+    managing Others in nil/Dropbox or nil/nil?
 
 Awesome
     *** Fix mail-notify!!
@@ -280,6 +285,7 @@ urxvt
     * It renders emdashes with a gray..?
 
 vim
+    * Use different fonts for different languages, e.g., similar to how urxvt has fallback font.
     * LaTeX: Autobuild.
         First, need to be able to compile in background. But & fails for both pdflatex and rubber?
     * If in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
