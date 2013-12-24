@@ -17,7 +17,7 @@ map : <Nop>
 map ; <Nop>
 map <Leader>c /set colors toggle
 map <Leader>n /anames
-map <Leader>j /topic
+map <Leader>t /topic
 map <Leader>1 /window 1
 map <Leader>2 /window 2
 map <Leader>3 /window 3

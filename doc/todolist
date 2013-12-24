@@ -8,6 +8,9 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+temp settings for vacation
+    udev-hdmi: changed display
+
 monitor broke
     files changed: rclua, xinitrc, udev-hdmi, vimrc, xresources
     firefox popups too big

@@ -12,7 +12,10 @@ lplusecommented=$(grep -A 1 "^ *# \[L+E\]" /home/nil/.xinitrc | grep -v "^ *# \[
 
 # Set audio output.
 if [ "$hdmi_status" = connected ]; then
-    ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
+    #ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
+    # temp setting for vacation
+    #ln -sf $alsa_dir/asound.hdmi /home/nil/.asoundrc
+    ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
 else
     ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
 fi
@@ -24,6 +27,8 @@ fi
 #    xrandr --output HDMI1 --off
 #fi
 xrandr --output LVDS1 --off
+# temp setting for vacation
+xrandr --output VGA1 --mode 1680x1050
 
 # temp mount since i do this permanently now
 mount /dev/sdb1 /media/sdb1
