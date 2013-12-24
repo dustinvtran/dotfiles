@@ -186,6 +186,7 @@ map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
 map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
 map -modes=n -builtin <Leader>aq  :tabopen! http://myanimelist.net/clubs.php?cid=40485<CR>
+map -modes=n -builtin <Leader>ad  :tabopen! http://myanimelist.net/clubs.php?cid=40791<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
@@ -205,14 +206,14 @@ map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 map -modes=n -builtin <Leader>w  :tabopen! https://www.google.com/search?q=weather<CR>
 
 " Documents.
-map -modes=n -builtin <Leader>cc :tabopen! https://www.google.com/calendar/<CR>
+map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/1/render<CR>
 map -modes=n -builtin <Leader>mm :tabopen! https://mail.google.com/mail/u/0/#inbox | https://mail.google.com/mail/u/1/#inbox | https://mail.google.com/mail/u/2/#inbox<CR>
-map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
-map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
+map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
+map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
 
 " Uni.
-map -modes=n -builtin <Leader>cl    :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
+map -modes=n -builtin <Leader>j     :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
 map -modes=n -builtin <Leader>243g  :tabopen! stat243g<CR>
 map -modes=n -builtin <Leader>243p  :tabopen! stat243p<CR>
 map -modes=n -builtin <Leader>243b  :tabopen! stat243b<CR>

@@ -5,10 +5,9 @@
 #
 
 # Default libraries.
-library(fields)
+#library(fields)
 library(knitr)
 library(rbenchmark)
-library(VGAM)
 
 # Hard code the US repo for CRAN.
 r <- getOption("repos")
@@ -22,9 +21,12 @@ knitme <- function(num) {
     if (num < 10) {
         num <- paste(0, num, sep = "")
     }
-    filedir <- "/home/nil/Dropbox/nil/Academics/Berkeley 2013 ZFall/Stat 243/Problem Sets"
-    filename <- paste(filedir, "/243-ps", num, ".Rtex", sep = "")
-    filenameout <- paste(filedir, "/243-ps", num, ".tex", sep = "")
+    #filedir <- "/home/nil/Dropbox/nil/Academics/Berkeley 2013 ZFall/Stat 243/problem-sets"
+    filedir <- "/home/nil/Dropbox/nil/Academics/Berkeley 2013 ZFall/Math 221/problem-sets"
+    #filename <- paste(filedir, "/243-ps", num, ".Rtex", sep = "")
+    #filenameout <- paste(filedir, "/243-ps", num, ".tex", sep = "")
+    filename <- paste(filedir, "/221-ps", num, ".Rtex", sep = "")
+    filenameout <- paste(filedir, "/221-ps", num, ".tex", sep = "")
     knit(filename, output = filenameout)
     # Workaround for bug from knitr, requiring me to delete some redundant line output in my .tex.
     command <- paste("sed -i '11,59d' '", filenameout, "'", sep = "")
