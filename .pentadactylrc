@@ -144,6 +144,9 @@ map -modes=n <C-q> <Nop>
 map -modes=n <F7> <Nop>
 map -modes=i <C-s> <Nop>
 map -modes=i <C-n> <Nop>
+map -modes=n,i <C-h> <Nop>
+map -modes=n ] QQ
+map -modes=n [ Qw
 
 " }}}
 " Bookmarks {{{

@@ -38,6 +38,12 @@ Medium Priority
     * Allow pan+next to be set to left mouse click, where you pan if you click+drag moving around, and next otherwise.
 
 }}}
+Firefox {{{
+
+Medium Priority
+    * An addon or something, where you can right click a link and use the wrapped text for a search engine. For example, so you don't have to highlight the linked text in order to right click then hit Wikipedia to search for the wiki article.
+
+}}}
 Firefox Addon: 4chan X Seaweed {{{
 -------------------------------------------------------------------------------
 
@@ -391,5 +397,14 @@ High Priority
     * Stahp losing buffer when you move to new seek position.
     * Load the entire playback even while the video is paused.
     * Store the entire buffer into cache so you can replay a video without requiring to buffer all over again.
+
+}}}
+Online Surveys {{{
+
+Survey Monkey
+-: can only do <=100 responses, can't export data to .csv, can't change layout that much.
+
+Google Form
+-: Can't track IP, default fonts are ugly, can't autoclose at a date and with custom end text, poor summary stats (not that this matters much).
 
 }}}

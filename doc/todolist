@@ -10,6 +10,8 @@ Highest Priority {{{
 
 temp settings for vacation
     udev-hdmi: changed display
+    zshrc
+    xinitrc
 
 monitor broke
     files changed: rclua, xinitrc, udev-hdmi, vimrc, xresources
