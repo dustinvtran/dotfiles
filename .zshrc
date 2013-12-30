@@ -527,11 +527,15 @@ function scpb() {
 # The obtuse folder directory is to copy manga files directly into my comic reader app. I specify "all arguments" so it
 # can scp multiple files/directories simultaneously, if desired.
 function scpt() {
-    scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
+    #scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
+    #temp setting for vacation
+    scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
 }
 # This one goes to my pdf reader app.
 function scpp() {
-    scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
+    #scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
+    #temp setting for vacation
+    scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
 }
 
 # }}}

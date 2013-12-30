@@ -29,6 +29,9 @@ fi
 xrandr --output LVDS1 --off
 # temp setting for vacation
 xrandr --output VGA1 --mode 1680x1050
+#xrandr --output VGA1 --mode 1680x1050 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of VGA1
+#xrandr --output HDMI1 --mode 1920x1080
+xrandr --output HDMI1 --off
 
 # temp mount since i do this permanently now
 mount /dev/sdb1 /media/sdb1

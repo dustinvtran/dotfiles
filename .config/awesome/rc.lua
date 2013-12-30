@@ -366,10 +366,15 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
 
     -- [L] Use this if you only have laptop display.
-    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
-    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
-    awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
+    --awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
+    --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
+    --awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
+     -- temp setting for vacation
+    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 80x20", { instance = "nil" }) end),
+    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 80x35 -e irssi", { instance = "irssi" }) end),
+    awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 80x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
+    awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 80x20 -e ranger", { instance = "ranger" }) end),
 
     -- temp
     --awful.key({ modkey }, "m", function () run_or_raise("", { class = {"Calibre-ebook-viewer", "feh", "Mcomix", "mpv"} }) end),
@@ -645,16 +650,16 @@ awful.rules.rules = {
      -- temp setting for vacation
     { rule = { instance = "irssi" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1140, y=175}) end },
+      callback = function(c) c:geometry({x=1140, y=170}) end },
     { rule = { instance = "nil" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1140, y=550}) end },
+      callback = function(c) c:geometry({x=1140, y=570}) end },
     { rule = { instance = "ncmpcpp" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=1140, y=40}) end },
     { rule = { instance = "ranger" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=1140, y=830}) end },
+      callback = function(c) c:geometry({x=1140, y=810}) end },
     --{ rule = { instance = "irssi" },
     --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=175}) end },
