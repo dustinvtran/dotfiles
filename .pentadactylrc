@@ -182,7 +182,7 @@ map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/mark
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " temp
-map -modes=n -builtin <Leader>n :tabopen! nyaa kill la kill | nyaa galilei | nyaa kyousougiga | nyaa monogatari | nyaa coppelion | nyaa flamenco | nyaa kanata | nyaa yozakura<CR>
+map -modes=n -builtin <Leader>n :tabopen! nyaa kill la kill | nyaa kyousougiga | nyaa monogatari | nyaa yozakura<CR>
 
 " Media
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
