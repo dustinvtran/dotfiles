@@ -138,7 +138,7 @@ map -modes=n -builtin \3 :tabdetach<CR>
 map -modes=n -builtin <Leader>p <C-V><C-S-p>
 map -modes=n -builtin <Leader>st :set guioptions!=s<CR>
 map -modes=n -builtin a <C-v><C-d>
-map -modes=n gs :viewsource<CR>
+"map -modes=n gs :viewsource<CR>
 map -modes=n gf <Nop>
 map -modes=n <C-q> <Nop>
 map -modes=n <F7> <Nop>
@@ -180,9 +180,6 @@ map -modes=n -builtin <Leader>h  :tabopen! https://github.com/nil-<CR>
 map -modes=n -builtin <Leader>d  :tabopen! https://github.com/nil-/dotfiles<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
-
-" temp
-map -modes=n -builtin <Leader>n :tabopen! nyaa kill la kill | nyaa kyousougiga | nyaa monogatari | nyaa yozakura<CR>
 
 " Media
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>

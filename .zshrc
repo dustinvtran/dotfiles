@@ -423,14 +423,17 @@ alias plx="echo 'This lists any installed packages that are not in the base or b
 installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list"
+# totally not sort ordered correctly, e.g., "X.5 " shown before "X - "
 alias catalog=" ( find '/media/sdb1' -type d -not -path '*/\[Backlog\]/*'\
         | sed -e 's/^\/media\/sdb1\///' -e '/^\/media\/sdb1/d'\
         | sed -e 's/\[Backlog\]/\[aaBacklog\]/' -e 's/\[Films\]/\[aaFilms\]/'\
         && echo 'Anime/[aaBacklog]/...
 Anime/[aaBacklog]/[Completed]
 Anime/[aaBacklog]/[Completed]/...
-Anime/[aaBacklog]/[Summer 2013]
-Anime/[aaBacklog]/[Summer 2013]/...
+Anime/[aaBacklog]/[Current]
+Anime/[aaBacklog]/[Current]/...
+Anime/[aaBacklog]/[Winter 2014]
+Anime/[aaBacklog]/[Winter 2014]/...
 Films/[aaBacklog]/...
 Films/[aaBacklog]/[Completed]
 Films/[aaBacklog]/[Completed]/...
@@ -440,6 +443,8 @@ Literature/[aaBacklog]/[Completed]/...
 Manga/[aaBacklog]/...
 Manga/[aaBacklog]/[Completed]
 Manga/[aaBacklog]/[Completed]/...
+Manga/[aaBacklog]/[Current]
+Manga/[aaBacklog]/[Current]/...
 Music/[aaBacklog]/...
 Music/[aaBacklog]/[Completed]
 Music/[aaBacklog]/[Completed]/...
@@ -527,15 +532,15 @@ function scpb() {
 # The obtuse folder directory is to copy manga files directly into my comic reader app. I specify "all arguments" so it
 # can scp multiple files/directories simultaneously, if desired.
 function scpt() {
-    #scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
+    scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
     #temp setting for vacation
-    scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
+    #scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
 }
 # This one goes to my pdf reader app.
 function scpp() {
-    #scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
+    scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
     #temp setting for vacation
-    scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
+    #scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
 }
 
 # }}}

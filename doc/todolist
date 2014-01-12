@@ -8,11 +8,6 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-temp settings for vacation
-    udev-hdmi: changed display
-    zshrc
-    xinitrc
-
 monitor broke
     files changed: rclua, xinitrc, udev-hdmi, vimrc, xresources
     firefox popups too big
@@ -23,6 +18,9 @@ monitor broke
 
 file directories
     managing Others in nil/Dropbox or nil/nil?
+
+mpd
+    when resetting mpd, kill and restart mpdas too
 
 Awesome
     *** Fix mail-notify!!
@@ -419,6 +417,13 @@ zsh
 }}}
 Misc {{{
 -------------------------------------------------------------------------------
+
+Notes
+temp settings for vacation
+    udev-hdmi: changed display
+    zshrc
+    xinitrc
+
 
 set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets,search engines), how i sort my media.
 grub
