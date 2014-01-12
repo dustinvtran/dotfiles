@@ -69,6 +69,4 @@ urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 # Desktop Environment/Window Manager
 ###############################################################################
 
-case $1 in
-    *) exec awesome ;;
-esac
+exec awesome

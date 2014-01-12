@@ -41,7 +41,7 @@
 # Defaults env_keep += "LANG LANGUAGE LINGUAS LC_* _XKB_CHARSET"
 ##
 ## Run X applications through sudo; HOME is used to find the
-## .Xauthority file.  Note that other programs use HOME to find   
+## .Xauthority file.  Note that other programs use HOME to find
 ## configuration files and this may lead to privilege escalation!
 # Defaults env_keep += "HOME"
 ##
@@ -85,8 +85,8 @@ root ALL=(ALL) ALL
 
 ## Uncomment to allow any user to run sudo if they know the password
 ## of the user they are running the command as (root by default).
- Defaults targetpw  # Ask for the password of the target user
- ALL ALL=(ALL) ALL  # WARNING: only use this together with 'Defaults targetpw'
+Defaults targetpw  # Ask for the password of the target user
+ALL ALL=(ALL) ALL  # WARNING: only use this together with 'Defaults targetpw'
 
 ## Read drop-in files from /etc/sudoers.d
 ## (the '#' here does not indicate a comment)
