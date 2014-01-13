@@ -106,7 +106,7 @@ system = {
 mymainmenu = awful.menu({ items = {
      { "⮪ system", system, beautiful.awesome_icon },
      { "⮩ urxvt", terminal },
-     { "⮤ scrot", "scrot /home/nil/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png" },
+     { "⮤ scrot", "scrot /home/nil/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png" },
      { "⮤ byzanz", "byzanz-record -c -d 10 nil.gif" },
      }
 })

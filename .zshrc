@@ -479,10 +479,10 @@ alias gr="git rm --cached"
 alias gs="git status"
 
 # Manual mounter.
-alias mountb="mount /dev/sdb1 /media/sdb1"
-alias mountc="mount /dev/sdc1 /media/sdc1"
-alias umountb="umount /media/sdb1"
-alias umountc="umount /media/sdc1"
+alias mountb="mount /dev/sdb1 /mnt/sdb1"
+alias mountc="mount /dev/sdc1 /mnt/sdc1"
+alias umountb="umount /mnt/sdb1"
+alias umountc="umount /mnt/sdc1"
 
 # Package management.
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
@@ -501,8 +501,8 @@ alias emptytrash="trash-empty"
 
 # CLI Applications.
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
-alias scrot="scrot -c -d 3 ~/nil/Media/Pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
-alias byzanz-record="cd ~/nil/Media/Pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
+alias scrot="scrot -c -d 3 ~/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
+alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
 ###############################################################################
 # Functions

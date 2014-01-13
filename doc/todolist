@@ -8,13 +8,15 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-monitor broke
-    files changed: rclua, xinitrc, udev-hdmi, vimrc, xresources
+laptop
+    optimize battery with CPU frequency scaling and stuff
+
+misc
     firefox popups too big
-    vim - uushi not working
+    vim: uushi not working
     deal with window layout, e.g., the media
     move skype with the rule_any thing
-    em/alt, as well as pasting it more generally
+    emdash/alt
 
 file directories
     managing Others in nil/Dropbox or nil/nil?
@@ -76,6 +78,7 @@ Awesome
     General
         * Have the directional focusings go across monitors too.
         * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
+            * have battery widget show ETA on hover
         * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
         * Revamp menu, all with cute icons.
         * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
@@ -224,7 +227,6 @@ Firefox
 Firefox Addon: Pentadactyl
     * Have searches show # of hits.
     * Better font to distinguish upper cases in hint mode.
-    * <C-v> not pasting emdashes correctly.
 
 git
     * Learn the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
@@ -285,7 +287,6 @@ urxvt
         same for S-spacebar, C-c
     * what is this alt+s urxvtperl business with scrollback? can i use it for searching, especially in irssi/terminal?
     * Make sure all the fallback weeaboo fonts work.
-    * It renders emdashes with a gray..?
 
 vim
     * Use different fonts for different languages, e.g., similar to how urxvt has fallback font.
