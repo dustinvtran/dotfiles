@@ -18,8 +18,7 @@
 # Commands & Daemons
 ###############################################################################
 
-autocutsel -fork
-autocutsel -selection PRIMARY -fork
+clipit &
 compton -b
 dropboxd &
 mpd ~/.config/mpd/mpd.conf
