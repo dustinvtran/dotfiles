@@ -33,6 +33,7 @@ xmodmap -e 'keycode 66 = Control_L'
 xmodmap -e 'add Control = Control_L'
 xmodmap -e 'keycode 135 = Super_R'
 xmodmap -e 'keycode 255 = emdash'
+xmodmap -e 'keycode 108 = Alt_R'
 xcape -e 'Control_L=Escape;Alt_R=emdash'
 xrdb -merge ~/.Xresources
 mpdas &
