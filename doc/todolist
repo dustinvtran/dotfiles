@@ -48,6 +48,8 @@ urxvt
 skype/mic
     * usb audio output should always be set to 50. it resets. putting it in udev-hdmi is not the right way since you only put up the usb when about to speak
         amixer -c 2 set Mic 9dB
+    * enable push to talk
+    * see how who talks in a group
     * awesome: Configure where to display it.
     * awesome: how to deal with notifications.
     * best interface/cli?
@@ -111,8 +113,7 @@ Firefox Addon: Pentadactyl
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
 irssi
-    * Configure BNC.
-        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot? How does it manage massive logs when I was gone for, e.g., days?
+    * Somehow have BNC log more than 500 lines in a continuous file by itself.
     * Quitting with /away doesn't show away in sb although I'm still away.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
     * Alias > to automatically expand to C-c3>.
