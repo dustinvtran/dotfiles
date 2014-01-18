@@ -119,14 +119,10 @@ irssi
     * Alias > to automatically expand to C-c3>.
 
 media-catalog
-    * Sort [ first character, and have whitespace take higher priority than decimals, without needing to do this manually.
-        I have to do this manually for now.
-        "\.[0-9] - "
-            move to next below line that doesn't share that pattern
     * Have 2001 Space Odyssey after everything in sort, not before [ characters.
-    * Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
+    * Automate this: Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
         I've worked around this for now by echo'ing them directly from the .zshrc command.
-    * specify up to levels for certain things, to avoid massive musics for instance
+    * Specify up to levels for certain things, to avoid massive musics for instance
         I have to delete them manually for now.
 
 mpv-open
