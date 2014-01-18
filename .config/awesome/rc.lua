@@ -376,10 +376,7 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 80x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 80x20 -e ranger", { instance = "ranger" }) end),
 
-    -- temp
-    --awful.key({ modkey }, "m", function () run_or_raise("", { class = {"Calibre-ebook-viewer", "feh", "Mcomix", "mpv"} }) end),
-    awful.key({ modkey }, "m", function () run_or_raise("", { class = "mpv"   }) end),
-    --awful.key({ modkey }, "m", function () run_or_raise("", { class = "Mcomix"  }) end),
+    awful.key({ modkey }, "m", function () run_or_raise("", { class = "Calibre-ebook-viewer" }, { class = "feh" }, { class = "Mcomix" }, { class = "mpv" }) end),
     awful.key({ modkey }, "r", function () run_or_raise("", { class = "Zathura" }) end),
 
 --#############################################################################
@@ -771,14 +768,26 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Runs a program if designated client is not found. If it is found, it focuses (raises) it and moves to that tag. If
 -- there exist multiple designated clients, it cycles through them.
 
-function run_or_raise(cmd, properties)
+-- This is taken from Awesome Wiki but modified to take extra rules similar to a "rule_any". In particular, I did this so
+-- I only require one keybind to focus any instance of "Calibre-ebook-viewer", "feh", "Mcomix", or "mpv". None of these
+-- media applications are up simultaneously as I only use one at a time. This makes it most efficient as I only require
+-- one keybind for accessing all media.
+-- Note: There should be a better way to code this so it is exactly like "rule_any" where it takes an infinite number of
+-- optional rules and not something hacky like the way I did things. Something to be coded in the match function, but I
+-- don't know Lua enough to know how to do this.
+
+function run_or_raise(cmd, properties, opt2, opt3, opt4, opt5)
    local clients = client.get()
    local focused = awful.client.next(0)
    local findex = 0
    local matched_clients = {}
    local n = 0
+   opt2 = opt2 or {instance="SOMETHING"}
+   opt3 = opt3 or {instance="SOMETHING"}
+   opt4 = opt4 or {instance="SOMETHING"}
+   opt5 = opt5 or {instance="SOMETHING"}
    for i, c in pairs(clients) do
-      if match(properties, c) then
+      if match(properties, c) or match(opt2, c) or match(opt3, c) or match(opt4, c) or match(opt5, c) then
          n = n + 1
          matched_clients[n] = c
          if c == focused then
