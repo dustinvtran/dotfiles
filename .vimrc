@@ -89,8 +89,8 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size, but not for console Vim.
 if has("gui_running")
-  "set lines=49 columns=127
-  set lines=65 columns=127
+  set lines=49 columns=127
+  "set lines=65 columns=127
 endif
 
 augroup misc
@@ -400,8 +400,9 @@ syntax enable
 set guioptions=
 set notitle
 "set guifont=lemon
-set guifont=ProFont\ Italic\ 10
+"set guifont=ProFont\ Italic\ 10
 "set guifont=GohuFont\ 10
+set guifont=Terminus\ 8
 set laststatus=2
 set noshowmode
 let g:airline_theme='solarized'
