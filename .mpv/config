@@ -1,0 +1,46 @@
+#
+# mpv general dotfile
+# ~/.mpv/config
+# Name: nil
+#
+
+#########################################################
+# Geometry
+#########################################################
+
+# [L+E] Use this if you have both laptop and external display.
+autofit=1200
+
+# [L] Use this if you only have laptop display.
+#autofit-larger=90%x90%
+
+#########################################################
+# OSD & Non-ASS Subtitle Rendering
+#########################################################
+
+osd-border-size=2
+osd-duration=2000
+osd-font='HelveticaNeueLT Com 45 Lt'
+sub-text-font='HelveticaNeueLT Com 45 Lt'
+osd-font-size=40
+sub-text-font-size=50
+
+#########################################################
+# Directories
+#########################################################
+
+input-file=/home/nil/bin/config/mpv-control
+screenshot-template=/home/nil/nil/media/pictures/screencaps/mpv/%f_%p_%tm-%td-%ty
+
+#########################################################
+# Miscellaneous
+#########################################################
+
+alang=Japanese,ja,jpn,jap,es,spa,en,eng
+slang=Japanese,ja,jpn,jap,English,en,eng,Spanish,es,spa
+autosync=30
+gapless-audio
+no-input-default-bindings
+
+## temp workaround
+vo=xv
