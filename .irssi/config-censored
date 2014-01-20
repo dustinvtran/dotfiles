@@ -1,0 +1,175 @@
+#
+# irssi dotfile
+# ~/.irssi/config
+# Name: nil
+#
+
+servers = (
+  {
+    address = "irc.rizon.net";
+    chatnet = "Rizon";
+    port = "6667";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = { rizon = { type = "IRC"; nick = "niltop"; }; };
+
+channels = (
+  { name = "#qd"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
+  #{ name = "#/g/summer"; chatnet = "rizon"; autojoin = "yes"; },
+  #{ name = "#rice"; chatnet = "rizon"; autojoin = "yes"; }
+);
+
+aliases = {
+  busy = "away rawr! (busy)";
+  sleep = "away rawr! (sleep)";
+  grub = "away rawr! (grubs and eats)";
+  wi = "whois";
+  ww = "whowas";
+  q = "query";
+};
+
+statusbar = {
+  items = {
+    barstart = "{sbstart}";
+    barend = "{sbend}";
+    topicbarstart = "{topicsbstart}";
+    topicbarend = "{topicsbend}";
+    away = "{sbaway $A}";
+    more = "··m··";
+  };
+
+  default = {
+    window = { disabled = "yes"; };
+    topic = { disabled = "yes"; };
+    window_inact = { disabled = "yes"; };
+
+    prompt = {
+      items = {
+        barstart = { priority = "100"; };
+        vim_mode = { };
+        input = { priority = "10"; };
+        more = { priority = "-1"; alignment = "right"; };
+        away = { alignment = "right"; };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+      position = "100";
+    };
+
+    top_empty_line = { placement = "top"; items = { }; position = "100"; };
+    bottom_empty_line = { placement = "bottom"; };
+
+    awl_0 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+settings = {
+  core = {
+    nick = "nil";
+    real_name = ":3";
+    user_name = "nil";
+    awaylog_file = "~/.irssi/logs/away.log";
+    log_timestamp = "%m/%d %H:%M:%S";
+    settings_autosave = "no";
+    timestamp_format = "%H:%M";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = {
+    autolog = "yes";
+    autolog_path = "~/.irssi/logs/%Y/$tag/$0.%m.log";
+    show_names_on_join = "no";
+    term_charset = "utf-8";
+    theme = "nil";
+    use_status_window = "no";
+  };
+  "perl/core/scripts" = {
+    awl_block = "13";
+    awl_sbar_maxlength = "no";
+
+    # [L+E] Use this if you have both laptop and external display.
+    #awl_display_header = "                   ";
+
+    # [L] Use this if you only have laptop display.
+    awl_display_header = "                                           ";
+
+    awl_display_key = "%w$H $C  $S";
+    awl_display_key_active = "%r$H $C  $S";
+    awl_placement = "top";
+    openurl_app_http = "/usr/bin/firefox -new-tab '$1' >/dev/null 2>&1";
+    openurl_max_urls = "99";
+    trackbar_string = "—";
+    trackbar_style = "%w";
+    vim_mode_start_cmd = "yes";
+    vim_mode_map_leader = ",";
+  };
+  "irc/core" = { alternate_nick = "nil"; skip_motd = "yes"; };
+  "irc/dcc" = {
+    dcc_autoaccept_lowports = "yes";
+    dcc_autoget = "yes";
+    dcc_autorename = "yes";
+    dcc_download_path = "~/nil/Media/Literature/[Backlog]/IRC-bookz";
+  };
+};
+hilights = (
+  { text = "nil"; nick = "yes"; word = "yes"; fullword = "yes"; },
+  { text = "nil-"; nick = "yes"; word = "yes"; fullword = "yes"; },
+  { text = "nilf"; nick = "yes"; word = "yes"; fullword = "yes"; },
+  { text = "nilk"; nick = "yes"; word = "yes"; fullword = "yes"; }
+);
+keyboard = (
+  { key = "meta-[M"; id = "command"; data = "mouse_xterm "; },
+  { key = "^N"; id = "forward_history"; data = ""; },
+  { key = "^E"; id = "backward_history"; data = ""; }
+);
+logs = { };
+windows = {
+  1 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#qd";
+        tag = "Rizon";
+      }
+    );
+  };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#TheAnime";
+        tag = "Rizon";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#rice";
+        tag = "Rizon";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#/g/summer";
+        tag = "Rizon";
+      }
+    );
+  };
+};
+mainwindows = { 4 = { first_line = "2"; lines = "31"; }; };
