@@ -8,25 +8,23 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-monitor broke
-    files changed: rclua, xinitrc, udev-hdmi, vimrc, xresources
+misc
     firefox popups too big
-    vim - uushi not working
+    vim: uushi not working
     deal with window layout, e.g., the media
     move skype with the rule_any thing
-    em/alt, as well as pasting it more generally
+    emdash/alt
 
 file directories
     managing Others in nil/Dropbox or nil/nil?
 
 mpd
-    when resetting mpd, kill and restart mpdas too
+    in the alias, set if statement of it mpdas defunct/not there, add mpdas & line too
 
 Awesome
     *** Fix mail-notify!!
         Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
         This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
-    * Set keybind to cycle multiple class hits (e.g. mpv, mcomix, ...).
     * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
     * Move mouse to center of screen of new focused tag.
         Do something like switchtotag in the keybinds.
@@ -36,7 +34,6 @@ Colemak
     * convert: vim (nerdtree, bufexplorer)
     * scrolling up/down in docs, e.g., r doc
     * Re-arrange any keybinds (e.g. dealing with ctrl s across multiple applications).
-    * Right alt not working.
 
 cron
    * Fix the cronjobs. mpdas simply goes defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>. rssdler isn't always downloading
@@ -47,6 +44,8 @@ urxvt
 skype/mic
     * usb audio output should always be set to 50. it resets. putting it in udev-hdmi is not the right way since you only put up the usb when about to speak
         amixer -c 2 set Mic 9dB
+    * enable push to talk
+    * see how who talks in a group
     * awesome: Configure where to display it.
     * awesome: how to deal with notifications.
     * best interface/cli?
@@ -58,9 +57,8 @@ media lists
 High Priority {{{
 -------------------------------------------------------------------------------
 
-Android/iPad USB Connection
-    * android: shows up on lsusb but not fdisk -l (hence it won't be automounted).
-    * ipad: nope.
+Android USB Connection
+    * shows up on lsusb but not fdisk -l
 
 Awesome
     Appearance
@@ -76,6 +74,7 @@ Awesome
     General
         * Have the directional focusings go across monitors too.
         * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
+            * have battery widget show ETA on hover
         * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
         * Revamp menu, all with cute icons.
         * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
@@ -86,9 +85,9 @@ Awesome
         * For things like gimp, have the extra dialog folders show appropriately on the right workspace (this includes the right monitor). For example, GIMP's save dialog appears on my external display.
     Panel Scripts
         * mpv
-            If the file name is too long (e.g. if X has > Y characters), have it cut off.
+            If the file name is too long (e.g. if X has > Y characters), truncate it.
         * mpd
-            If the song name is too long (e.g. if X has > Y characters), have it cut off.
+            If the song name is too long (e.g. if X has > Y characters), truncate it.
             Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
         * volume: have a keybind to check current volume, or to pop up the display for a few seconds
             Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
@@ -110,18 +109,16 @@ Firefox Addon: Pentadactyl
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
 irssi
-    * Configure BNC.
-        How to deal with playback buffer? Show it right away (for the log and for current viewing) or have it disabled until i msg the bot? How does it manage massive logs when I was gone for, e.g., days?
+    * Somehow have BNC log more than 500 lines in a continuous file by itself.
     * Quitting with /away doesn't show away in sb although I'm still away.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
     * Alias > to automatically expand to C-c3>.
 
 media-catalog
-    * Sort [ first character, and have whitespace take higher priority than decimals, without needing to do this manually.
-        I have to do this manually for now.
-    * Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
+    * Have 2001 Space Odyssey after everything in sort, not before [ characters.
+    * Automate this: Don't include [Backlog] subfolders and but do include them if they start with [...], like [Completed] and [Summer 2013].
         I've worked around this for now by echo'ing them directly from the .zshrc command.
-    * specify up to levels for certain things, to avoid massive musics for instance
+    * Specify up to levels for certain things, to avoid massive musics for instance
         I have to delete them manually for now.
 
 mpv-open
@@ -170,6 +167,7 @@ xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
 
 Zathura
+    * keybind for fullscreen
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
     * Have <Leader><Space> turn off the highlight, not just Esc.
 
@@ -180,15 +178,19 @@ zsh
 Misc
     * Change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
         Follow ricing guide.
-    * pkill ranger; pause all torrents in transmission-client; pkill mpd; then umountb and reboot. Automate this.
+    * Automate the following
+        * Unmounting: pkill ranger (sometimes); pause all torrents in transmission-client; pkill mpd; umountb
+        * Mounting: mountb; unpause all torrents in transmission-client; mpd (the alias); mpdas &
     * Fork transmissionremotecli properly so people can use your own more professionally
-    * Are comments in things like mpvopen show correctly linebreakwise on any computer? Is there a standard for this? Also for length of hashtag rows.
     * WorkMethod: Finish final draft.
     * latex: what's with the .out files? why rubber no clean??
 
 }}}
 Medium Priority {{{
 -------------------------------------------------------------------------------
+
+laptop
+    optimize battery with CPU frequency scaling and stuff
 
 Awesome
     * Maybe use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
@@ -224,10 +226,6 @@ Firefox
 Firefox Addon: Pentadactyl
     * Have searches show # of hits.
     * Better font to distinguish upper cases in hint mode.
-    * <C-v> not pasting emdashes correctly.
-
-git
-    * Learn the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
 
 irssi
     * Get a way to set a vim mode map to do "3 ", and another for "1,1 "
@@ -261,9 +259,6 @@ ranger
     * When using Dt to see trash list, have it ask if you want to clear the trash list also.
     * When renaming, allow some way to already have the current name to modify (e.g., when trying to rename long file names but only a portion of it).
 
-SD Card
-    * Doesn't read it.
-
 transmission-remote-cli
     * Set default download location setting.
     * Add better documentation in help messages.
@@ -285,7 +280,6 @@ urxvt
         same for S-spacebar, C-c
     * what is this alt+s urxvtperl business with scrollback? can i use it for searching, especially in irssi/terminal?
     * Make sure all the fallback weeaboo fonts work.
-    * It renders emdashes with a gray..?
 
 vim
     * Use different fonts for different languages, e.g., similar to how urxvt has fallback font.
@@ -418,18 +412,14 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
-Notes
 temp settings for vacation
     udev-hdmi: changed display
     zshrc
     xinitrc
 
-
 set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets,search engines), how i sort my media.
 grub
     rename menu entries
-laptop
-    battery saving implementations, though my battery is at 67% full and laptop is dying anyways
 login manager
     boot into X as normally, but first overlayed by a floating terminal asking for password; if fail, then repeat ask, with prompt saying that 'reboot' and 'poweroff' as passwords work; if success, then resume normally. And then whenever I close/open the lid, it does that same terminal function.  I can issue that close/open lid condition using acpid.
 Look at other people's dotfiles in github for ideas.
@@ -440,26 +430,21 @@ system
     Complete wish/todolists.
     Place all dotfiles into .config! (while removing their '.')
 Learn all them linux commands, archlinux niche functions, etc.
-Keyboard Layout: Tutorials.
-    L/R Shift training wheels, finger optimizing (e.g. 'rf').
-    B&D Colemak&HHKB Style.
+Keyboard: L/R Shift training wheels
+git: Learn the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
 Software Program Ideas
     * Parser to automate directory name formats as in my Media README which does it even for [Backlog] by parsing through specific websites' APIs. Then if I rate it >=8 from another website, it'll move from [Backlog] to Collection, and if I rate <8, it'll move to [Completed]. Include metadata files that have dates, author, etc.
     * When copying latex things from pdf to text, have it convert all the unicode to the appropriate \LaTeX command.
-
-Random Shit {{{
--------------------------------------------------------------------------------
-
-- A backup of your system, as well as a perfect sync into a bootable USB on-the-go.
-    1. An automated backup of your entire system and config files without superfluous backups of media material.
-    2. Moreover, can be used as a carry-around USB which literally boots into your system with everything perfectly set in place.
-    3. Have anything changed on the carry-around USB organized into one single folder, for which you can then take it and implement it into your desktop system at later points.
-    4. Have the carry-around USB and desktop system config continuously sync, rather than daily.
-    1/2. rsync your entire system save for the superfluous material (media folders, etc.).
-    3. Don't know yet, but you can always note of this manually.
-    4. Don't know yet, but such programs exist.
-    -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
-- Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
+    * A backup of your system, as well as a perfect sync into a bootable USB on-the-go.
+        1. An automated backup of your entire system and config files without superfluous backups of media material.
+        2. Moreover, can be used as a carry-around USB which literally boots into your system with everything perfectly set in place.
+        3. Have anything changed on the carry-around USB organized into one single folder, for which you can then take it and implement it into your desktop system at later points.
+        4. Have the carry-around USB and desktop system config continuously sync, rather than daily.
+        1/2. rsync your entire system save for the superfluous material (media folders, etc.).
+        3. Don't know yet, but you can always note of this manually.
+        4. Don't know yet, but such programs exist.
+        -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
+    * Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
 
 }}}
 }}}
