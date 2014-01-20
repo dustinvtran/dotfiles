@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "nu"
+theme.font          = "terminus 8"
 
 theme.bg_normal     = "#f9f9f9"
 theme.bg_focus      = "#707070"
@@ -33,12 +33,12 @@ theme.menu_submenu_icon = "/home/nil/.config/awesome/themes/nil/submenu.png"
 theme.menu_height = 15
 theme.menu_width  = 100
 
-theme.wallpaper1 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/strawberry_morning_desktop-unwatermarked.jpg"
-theme.wallpaper2 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/still_spring_desktop_unwatermarked.jpg"
+theme.wallpaper1 = "/home/nil/.config/awesome/themes/nil/strawberry_morning_desktop-unwatermarked.jpg"
+--theme.wallpaper2 = "/home/nil/nil/Media/Pictures/Wallpapers/fiftyfootshadows/still_spring_desktop_unwatermarked.jpg"
 theme.icon_theme = nil
 
 -- Extras to add in.
-theme.tag_font  = "nu"
+theme.tag_font  = "terminus 8"
 theme.bold      = "#adadad"
 
 return theme

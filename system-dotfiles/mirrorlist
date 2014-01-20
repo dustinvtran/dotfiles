@@ -1,59 +1,61 @@
 ##
 ## Arch Linux repository mirrorlist
 ## Sorted by mirror score from mirror status page
-## Generated on 2013-10-21
+## Generated on 2014-01-13
 ##
 
-## Score: 0.6, United States
-Server = http://mirrors.liquidweb.com/archlinux/$repo/os/$arch
-## Score: 0.8, United States
-Server = http://mirror.umd.edu/archlinux/$repo/os/$arch
+## Score: 0.5, United States
+Server = http://mirror.us.leaseweb.net/archlinux/$repo/os/$arch
 ## Score: 0.9, United States
 Server = http://archlinux.surlyjake.com/archlinux/$repo/os/$arch
 ## Score: 0.9, United States
-Server = http://mirror.rit.edu/archlinux/$repo/os/$arch
-## Score: 0.9, United States
-Server = http://lug.mtu.edu/archlinux/$repo/os/$arch
+Server = http://mirrors.liquidweb.com/archlinux/$repo/os/$arch
 ## Score: 1.0, United States
-Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
+Server = http://mirror.umd.edu/archlinux/$repo/os/$arch
 ## Score: 1.1, United States
-Server = http://mirror.us.leaseweb.net/archlinux/$repo/os/$arch
+Server = http://mirror.rit.edu/archlinux/$repo/os/$arch
 ## Score: 1.5, United States
-Server = http://cake.lib.fit.edu/archlinux/$repo/os/$arch
+Server = http://mirrors.cecsresearch.org/archlinux/$repo/os/$arch
 ## Score: 1.6, United States
 Server = http://mirror.nexcess.net/archlinux/$repo/os/$arch
 ## Score: 1.7, United States
-Server = http://mirrors.cat.pdx.edu/archlinux/$repo/os/$arch
+Server = http://cake.lib.fit.edu/archlinux/$repo/os/$arch
 ## Score: 1.7, United States
-Server = http://mirror.jmu.edu/pub/archlinux/$repo/os/$arch
-## Score: 1.7, United States
-Server = http://mirror.cc.columbia.edu/pub/linux/archlinux/$repo/os/$arch
+Server = http://lug.mtu.edu/archlinux/$repo/os/$arch
 ## Score: 1.8, United States
+Server = http://mirror.jmu.edu/pub/archlinux/$repo/os/$arch
+## Score: 1.8, United States
+Server = http://mirrors.cat.pdx.edu/archlinux/$repo/os/$arch
+## Score: 2.0, United States
 Server = http://mirrors.aggregate.org/archlinux/$repo/os/$arch
-## Score: 1.9, United States
-Server = http://www.gtlib.gatech.edu/pub/archlinux/$repo/os/$arch
-## Score: 2.2, United States
+## Score: 2.0, United States
+Server = http://mirror.cc.columbia.edu/pub/linux/archlinux/$repo/os/$arch
+## Score: 2.1, United States
 Server = http://arch.mirror.constant.com/$repo/os/$arch
-## Score: 3.1, United States
+## Score: 2.5, United States
+Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
+## Score: 2.7, United States
 Server = http://mirror.vtti.vt.edu/archlinux/$repo/os/$arch
-## Score: 3.6, United States
-Server = http://cosmos.cites.illinois.edu/pub/archlinux/$repo/os/$arch
-## Score: 4.0, United States
+## Score: 3.0, United States
 Server = http://mirrors.gigenet.com/archlinux/$repo/os/$arch
-## Score: 4.0, United States
+## Score: 3.1, United States
+Server = http://www.gtlib.gatech.edu/pub/archlinux/$repo/os/$arch
+## Score: 3.9, United States
+Server = http://cosmos.cites.illinois.edu/pub/archlinux/$repo/os/$arch
+## Score: 4.2, United States
 Server = http://mirrors.lax1.thegcloud.com/arch/$repo/os/$arch
-## Score: 4.4, United States
+## Score: 4.5, United States
+Server = http://mirror.ancl.hawaii.edu/linux/archlinux/$repo/os/$arch
+## Score: 4.9, United States
 Server = http://mirrors.rutgers.edu/archlinux/$repo/os/$arch
 ## Score: 6.8, United States
 Server = http://ftp.osuosl.org/pub/archlinux/$repo/os/$arch
-## Score: 8.2, United States
+## Score: 9.5, United States
 Server = http://mirror.metrocast.net/archlinux/$repo/os/$arch
-## Score: 11.4, United States
-Server = http://archlinux.supsec.org/$repo/os/$arch
-## Score: 14.2, United States
-Server = http://mirrors.xmission.com/archlinux/$repo/os/$arch
-## Score: 39.9, United States
-Server = http://mirror.ancl.hawaii.edu/linux/archlinux/$repo/os/$arch
-## Score: 99.8, United States
+## Score: 12.2, United States
 Server = http://ord.mirror.rackspace.com/archlinux/$repo/os/$arch
+## Score: 12.7, United States
+Server = http://dfw.mirror.rackspace.com/archlinux/$repo/os/$arch
+## Score: 91.9, United States
+Server = http://mirrors.xmission.com/archlinux/$repo/os/$arch
 
