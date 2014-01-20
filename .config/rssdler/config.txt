@@ -30,10 +30,10 @@ link = http://www.nyaa.eu/?page=rss
 #directory =
 #regExTrue =
 regExFalse = ([1-4]?[0-9]{2}p|mp4)
-download1 = (Commie.*Space Dandy)
+download1 = (Commie.*Space Dandy|Underwater.*Kill)
 download1False = %(regExFalse)s
-download2 = HorribleSubs.*(Nisekoi)
-download2False = (1080p|%(regExFalse)s)
+#download2 = HorribleSubs.*()
+#download2False = (1080p|%(regExFalse)s)
 
 #########################################################
 #[tpb]
