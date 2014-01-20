@@ -8,9 +8,6 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-laptop
-    optimize battery with CPU frequency scaling and stuff
-
 misc
     firefox popups too big
     vim: uushi not working
@@ -28,7 +25,6 @@ Awesome
     *** Fix mail-notify!!
         Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
         This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
-    * Set keybind to cycle multiple class hits (e.g. mpv, mcomix, ...).
     * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
     * Move mouse to center of screen of new focused tag.
         Do something like switchtotag in the keybinds.
@@ -171,6 +167,7 @@ xinitrc
     * tcli not starting up, even if I put it in rc.lua. It seems to take a while for transmission-daemon to load? What??
 
 Zathura
+    * keybind for fullscreen
     * When redoing pdf, zathura doesn't reload unless I move the page a bit; same happens for rubber or pdflatex.
     * Have <Leader><Space> turn off the highlight, not just Esc.
 
@@ -191,6 +188,9 @@ Misc
 }}}
 Medium Priority {{{
 -------------------------------------------------------------------------------
+
+laptop
+    optimize battery with CPU frequency scaling and stuff
 
 Awesome
     * Maybe use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
