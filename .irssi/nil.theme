@@ -167,7 +167,7 @@ formats = {
 
     # General Messages.
     # pubmsg replaced by nil-nickcolor.pl's.
-    pubmsg = "{pubmsgnick $2 {pubnick \00309$[-9]0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00313$[-9]0}}$1";
     own_msg = "{ownmsgnick $2 {ownnick %W$[-9]0}}$1";
     own_msg_channel = "{ownmsgnick {ownnick $[-9]0$3}{msgchannel $1}}$2";
     own_msg_private_query = "{ownprivmsgnick {ownprivnick $[-9]2}}$1";
