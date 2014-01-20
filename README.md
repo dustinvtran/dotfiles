@@ -10,8 +10,6 @@ On each machine, all files are always committed and pushed into their respective
 Thus all PCs share the common dotfiles in `master`, and they also use revision control for their machine-specific files on their respective branches. This is the best method to manage config files across multiple machines!
 
 ## misc
-This branch is for my laptop dotfiles, which holds all files from the master branch (common dotfiles to be shared across all machines) as well as machine-specific files for this laptop.
-
 For general documentation, see `~/doc`. Scripts are in `~/bin`, and edited system configs are in `~/system-dotfiles`.
 
 ##desktop - first display
