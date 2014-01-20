@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+[
+    {OTHER    => '%s%snil@arch'},
+    {OS       => '%sOS:%s %s'},
+    {KERNEL   => '%sKernel:%s %s'},
+    {PACKAGES => '%sPackages:%s %s'},
+    {HARDCODED => ""},
+
+    {WM_DE    => '%s%s:%s %s'},
+    {OTHER    => '%sShell:%s zsh'},
+    {OTHER    => '%sEditor:%s vim'},
+    {OTHER    => '%sTerminal:%s urxvt'},
+
+    {HARDCODED => ""},
+    {OTHER      => '%sModel:%s ASUS Zenbook UX31E-DH53'},
+    {CPU        => '%sCPU:%s %s'},
+    {OTHER      => '%sGraphics:%s Intel HD Graphics 3000'},
+    {RAM        => '%sRAM:%s %s'},
+    {PARTITIONS => undef},
+]

@@ -404,11 +404,11 @@ alias psc="ps -C"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
-alias wlan0="sudo systemctl restart netctl-auto@wlan0.service"
-alias wlp2s0="sudo systemctl restart netctl-auto@wlp2s0.service"
+alias wifi="sudo systemctl restart netctl-auto@wlan0.service"
 
 # Restart configs.
-alias so="xrdb ~/.Xresources; exec zsh"
+alias so="exec zsh"
+alias xrdbx="xrdb ~/.Xresources"
 
 # Directory navigation.
 alias ..='cd ..'
@@ -418,56 +418,65 @@ alias -- -='cd -'
 alias -- --='cd -2'
 alias -- ---='cd -3'
 
-# Make backup files ~/doc/package-list, ~/system-dotfiles/groups, ~/system-dotfiles/systemctl.
-alias backup="(groups > ~/system-dotfiles/groups) && (systemctl --all > ~/system-dotfiles/systemctl) &&\
-(echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
+# Manual file backups into ~/doc.
+alias plx="echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
 installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
-&& echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list)"
-
-# List directory structure of ~/nil/media.
-alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[backlog\]/*'\
+&& echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list"
+# totally not sort ordered correctly, e.g., "X.5 " shown before "X - "
+alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[Backlog\]/*'\
         | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/media\/sdb1/d'\
-        | sed -e 's/\[backlog\]/\[aabacklog\]/'\
-        && echo 'anime/[aabacklog]/...
-anime/[aabacklog]/[completed]
-anime/[aabacklog]/[completed]/...
-anime/[aabacklog]/[current]
-anime/[aabacklog]/[current]/...
-anime/[aabacklog]/[winter-2014]
-anime/[aabacklog]/[winter-2014]/...
-films/[aabacklog]/...
-films/[aabacklog]/[completed]
-films/[aabacklog]/[completed]/...
-literature/[aabacklog]/...
-literature/[aabacklog]/[completed]
-literature/[aabacklog]/[completed]/...
-manga/[aabacklog]/...
-manga/[aabacklog]/[completed]
-manga/[aabacklog]/[completed]/...
-manga/[aabacklog]/[current]
-manga/[aabacklog]/[current]/...
-music/[aabacklog]/...
-music/[aabacklog]/[completed]
-music/[aabacklog]/[completed]/...
-tv/[aabacklog]/...
-tv/[aabacklog]/[completed]
-tv/[aabacklog]/[completed]/...
-video games/[aabacklog]/...
-video games/[aabacklog]/[completed]
-video games/[aabacklog]/[completed]/...
-visual novels/[aabacklog]/...
-visual novels/[aabacklog]/[completed]
-visual novels/[aabacklog]/[completed]/...' )\
+        | sed -e 's/\[Backlog\]/\[aaBacklog\]/' -e 's/\[Films\]/\[aaFilms\]/'\
+        && echo 'anime/[aaBacklog]/...
+anime/[aaBacklog]/[Completed]
+anime/[aaBacklog]/[Completed]/...
+anime/[aaBacklog]/[Current]
+anime/[aaBacklog]/[Current]/...
+anime/[aaBacklog]/[Winter 2014]
+anime/[aaBacklog]/[Winter 2014]/...
+films/[aaBacklog]/...
+films/[aaBacklog]/[Completed]
+films/[aaBacklog]/[Completed]/...
+literature/[aaBacklog]/...
+literature/[aaBacklog]/[Completed]
+literature/[aaBacklog]/[Completed]/...
+manga/[aaBacklog]/...
+manga/[aaBacklog]/[Completed]
+manga/[aaBacklog]/[Completed]/...
+manga/[aaBacklog]/[Current]
+manga/[aaBacklog]/[Current]/...
+music/[aaBacklog]/...
+music/[aaBacklog]/[Completed]
+music/[aaBacklog]/[Completed]/...
+tv/[aaBacklog]/...
+tv/[aaBacklog]/[Completed]
+tv/[aaBacklog]/[Completed]/...
+video games/[aaBacklog]/...
+video games/[aaBacklog]/[Completed]
+video games/[aaBacklog]/[Completed]/...
+visual novels/[aaBacklog]/...
+visual novels/[aaBacklog]/[Completed]
+visual novels/[aaBacklog]/[Completed]/...' )\
         | sort\
-        | sed -e 's/\[aabacklog\]/\[backlog\]/'\
+        | sed -e 's/\[aaBacklog\]/\[Backlog\]/' -e 's/\[aaFilms\]/\[Films\]/'\
         | sed -e 's/^\(anime\|films\|literature\|manga\|music\|tv\|video games\|visual novels\)$/\n&/'\
         | sed -e '1i This lists the entire directory structure of my ~/nil/media folder, which is a collection\
  of all titles I rate >=8/10 and\n their affiliated installments. It also stores my massive backlogs within each\
  medium, but I omit them here. Why archive\n my media directory structure, you ask? Because its so pretty and\
- autistic of me I simply must. When you\x27re a consumer,\n there ought to be a competent way to organize your\
+ autistic of me I simply must. When youre a consumer,\n there ought to be a competent way to organize your\
  collection. See ~/.zshrc for the command.'\
         > ~/doc/media-catalog"
+
+# Manual file backups into ~/system-dotfiles.
+alias groupsx="groups > ~/system-dotfiles/groups"
+alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
+
+# le git.
+alias ga="git add -f"
+alias gc="git commit -a -m"
+alias gp="git push -u origin master"
+alias gr="git rm --cached"
+alias gs="git status"
 
 # Manual mounter.
 alias mountb="mount /dev/sdb1 /mnt/sdb1"
@@ -492,8 +501,8 @@ alias emptytrash="trash-empty"
 
 # CLI Applications.
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
-alias scrot="scrot -c -d 3 ~/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
-alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
+alias scrot="scrot -c -d 3 ~/nil/media/pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
+alias byzanz-record="cd ~/nil/media/pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
 ###############################################################################
 # Functions
@@ -513,14 +522,10 @@ m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
-# 2014 Spring Berkeley temp aliases
-#alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.35.205"
-alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.38.105"
-#alias sshb="ssh -X s135-879057@scf-ug01.berkeley.edu"
-#alias sshb="ssh -X s135-879057@arwen.berkeley.edu"
-alias sshb="ssh -X s135-879057@98.143.38.105"
+# School SSH
+alias sshb="ssh -X s243-10@arwen.berkeley.edu"
 function scpb() {
-    scp -r s135-879057@98.143.38.105:~/$1 $2
+    scp -r $1 s243-10@arwen.berkeley.edu:~/$2
 }
 
 # Tablet SSH.
