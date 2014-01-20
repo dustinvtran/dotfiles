@@ -473,8 +473,7 @@ alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 
 # le git.
 alias ga="git add -f"
-alias gc="git commit -a -m"
-alias gp="git push -u origin master"
+alias gc="git commit -am"
 alias gr="git rm --cached"
 alias gs="git status"
 
