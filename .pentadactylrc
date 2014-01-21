@@ -212,15 +212,9 @@ map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/0/#inb
 map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
 
 " Uni.
-map -modes=n -builtin <Leader>j     :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
-map -modes=n -builtin <Leader>243g  :tabopen! stat243g<CR>
-map -modes=n -builtin <Leader>243p  :tabopen! stat243p<CR>
-map -modes=n -builtin <Leader>243b  :tabopen! stat243b<CR>
-map -modes=n -builtin <Leader>243y  :tabopen! stat243y<CR>
-map -modes=n -builtin <Leader>206   :tabopen! statc206a<CR>
-map -modes=n -builtin <Leader>221   :tabopen! math221<CR>
-map -modes=n -builtin <Leader>228a  :tabopen! math228a<CR>
-map -modes=n -builtin <Leader>228p  :tabopen! math228ap<CR>
+map -modes=n -builtin <Leader>j    :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
+map -modes=n -builtin <Leader>1b   :tabopen! bspace<CR>
+map -modes=n -builtin <Leader>134  :tabopen! stat134<CR>
 
 " }}}
 " Functions & Macros {{{
