@@ -654,10 +654,14 @@ endfunction
 function! LaTeXBuild()
     if &filetype=='tex'
 " Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info.
-         "silent !rubber -d "%:p" &
-         "!(pdflatex -output-directory="%:p:h" "%:p") &
-         !rubber -d "%:p"
-         silent !rubber --clean "%:p" &
+        "if @% == "[0-9]+-lecture-[0-9]{2}.tex"
+        "    compile master
+        "else
+            "silent !rubber -d "%:p" &
+            "!(pdflatex -output-directory="%:p:h" "%:p") &
+            !rubber -d "%:p"
+            silent !rubber --clean "%:p" &
+        "endif
     endif
 endfunction
 

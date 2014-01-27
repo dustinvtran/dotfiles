@@ -215,6 +215,9 @@ map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inb
 map -modes=n -builtin <Leader>j    :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
 map -modes=n -builtin <Leader>sp   :tabopen! https://bspace.berkeley.edu/portal<CR>
 map -modes=n -builtin <Leader>134  :tabopen! stat134<CR>
+map -modes=n -builtin <Leader>135n :tabopen! stat135<CR>
+map -modes=n -builtin <Leader>135p :tabopen! stat135p<CR>
+map -modes=n -builtin <Leader>260  :tabopen! stat260<CR>
 
 " }}}
 " Functions & Macros {{{

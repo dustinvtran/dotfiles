@@ -500,8 +500,8 @@ alias emptytrash="trash-empty"
 
 # CLI Applications.
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
-alias scrot="scrot -c -d 3 ~/nil/media/pictures/Screencaps/scrot/%Y-%m-%d-%T.png"
-alias byzanz-record="cd ~/nil/media/pictures/Screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
+alias scrot="scrot -c -d 3 ~/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
+alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
 
 ###############################################################################
 # Functions
@@ -521,10 +521,12 @@ m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
-# School SSH
-alias sshb="ssh -X s243-10@arwen.berkeley.edu"
+# 2014 Spring Berkeley temp aliases
+alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.35.205"
+alias sshb="ssh -X s135-879057@scf-ug01.berkeley.edu"
+#alias sshb="ssh -X s135-879057@arwen.berkeley.edu"
 function scpb() {
-    scp -r $1 s243-10@arwen.berkeley.edu:~/$2
+    scp -r $1 s135-879057@arwen.berkeley.edu:~/$2
 }
 
 # Tablet SSH.
