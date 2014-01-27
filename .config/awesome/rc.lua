@@ -385,6 +385,7 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,         }, "c", function () awful.util.spawn("calendar-toggle") end),
     awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end),
+    awful.key({                 }, "Pause", function () awful.util.spawn("touchpad-toggle") end),
 
 --#############################################################################
 -- Keybindings: Media Keys
