@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# This script toggles the touchpad, primarily to be used as a keybind.
+
+synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
