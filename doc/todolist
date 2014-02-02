@@ -8,7 +8,7 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
-laptop: temp installed rdesktop and ipython for 2014 Spring course
+laptop: temp installed rdesktop, ipython, haskell-pandoc, python-jinja, and python-tornado for 2014 Spring course
 
 misc
     firefox popups too big

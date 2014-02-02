@@ -522,10 +522,11 @@ alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
 # 2014 Spring Berkeley temp aliases
+#alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.35.205"
 alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.38.105"
 #alias sshb="ssh -X s135-879057@scf-ug01.berkeley.edu"
-alias sshb="ssh -X s135-879057@98.143.38.105"
 #alias sshb="ssh -X s135-879057@arwen.berkeley.edu"
+alias sshb="ssh -X s135-879057@98.143.38.105"
 function scpb() {
     scp -r s135-879057@98.143.38.105:~/$1 $2
 }
