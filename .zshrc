@@ -471,12 +471,6 @@ visual novels/[aaBacklog]/[Completed]/...' )\
 alias groupsx="groups > ~/system-dotfiles/groups"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 
-# le git.
-alias ga="git add -f"
-alias gc="git commit -am"
-alias gr="git rm --cached"
-alias gs="git status"
-
 # Manual mounter.
 alias mountb="mount /dev/sdb1 /mnt/sdb1"
 alias mountc="mount /dev/sdc1 /mnt/sdc1"
