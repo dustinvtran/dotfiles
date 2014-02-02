@@ -1,0 +1,9 @@
+[user]
+       	email = barnacleboyii@gmail.com
+       	name = nil-
+[help]
+       	autocorrect = 1
+[alias]
+        rmc = rm --cached
+        sdiff = diff --diff-filter=M --stat --color master..desktop
+        slog = log --oneline --topo-order --graph
