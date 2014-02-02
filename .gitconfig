@@ -7,5 +7,7 @@
         desktop = !git pull origin master && git checkout desktop && git merge master
         laptop = !git pull origin master && git checkout laptop && git merge master
         rmc = rm --cached
-        sdiff = diff --diff-filter=M --stat --color
+        sdiff = diff --diff-filter=M --stat
         slog = log --oneline --topo-order --graph
+[color]
+        ui = true
