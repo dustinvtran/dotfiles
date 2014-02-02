@@ -1,5 +1,7 @@
 #!/bin/bash
 
-# This script toggles the touchpad, primarily to be used as a keybind.
+# This script toggles the touchpad, primarily to be used as a keybind. The second line is because it occasionally turns
+# off by itself when toggling touchpad.
 
 synclient TouchpadOff=$(synclient -l | grep -c 'TouchpadOff.*=.*0')
+syndaemon -k -i 1 -d
