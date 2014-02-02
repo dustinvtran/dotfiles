@@ -18,7 +18,7 @@ misc
     emdash/alt
 
 file directories
-    managing Others in nil/Dropbox or nil/nil?
+    managing ./other in nil/Dropbox or nil/nil?
 
 mpd
     in the alias, set if statement of it mpdas defunct/not there, add mpdas & line too
@@ -52,7 +52,7 @@ skype/mic
     * awesome: how to deal with notifications.
     * best interface/cli?
 
-media lists
+media-lists
     * figure out how to sort, e.g., pull out from a section and place into a file, and have sed sort by every 7th row or something
 
 }}}
@@ -111,8 +111,7 @@ Firefox Addon: Pentadactyl
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
 irssi
-    * Somehow have BNC log more than 500 lines in a continuous file by itself.
-    * Quitting with /away doesn't show away in sb although I'm still away.
+    * Quitting with /away doesn't show away in sb on new login, although I'm still away.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
     * Alias > to automatically expand to C-c3>.
 
@@ -448,5 +447,4 @@ Software Program Ideas
         -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
     * Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
 
-}}}
 }}}
