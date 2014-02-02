@@ -7,7 +7,7 @@ snippet document
 # \begin{}...\end{}
 snippet begin
 	\begin{${1:env}}
-	    ${2}
+	${2}
 	\end{$1}
 # Code
 snippet verbatim
@@ -29,19 +29,16 @@ snippet align=
 	${1} &= ${2} \\
 	${3} &= ${4}
 	\end{align*}
-	${5}
 snippet aligniff
 	\begin{align*}
 	${1} &\iff ${2} \\
 	${3} &\iff ${4}
 	\end{align*}
-	${5}
 snippet alignn
 	\begin{align${1:ed}}
 	${2} &= ${3} \\
 	${3} &= ${5}
 	\end{align$1}
-	${6}
 snippet array
 	\begin{array}{${1}}
 	${2}
@@ -50,20 +47,21 @@ snippet parray
 	\left(\begin{array}{@{}${1}@{}}
 	${2}
 	\end{array}\right)
-	${3}
 # Equation
 snippet equation
-	    \begin{equation}
-	    ${1}
-	    \end{equation}
+	\begin{equation}
+	${1}
+	\end{equation}
 # Unnumbered Equation
 snippet \[
-	\[${1}\]
+	\[
+	${1}
+	\]
 # Enumerate
 snippet enumerate
-	\begin{enumerate}[(a)]\vspace{-1ex}
-	    \item ${1}
-	    \item ${2}
+	\begin{enumerate}[(a)]
+	\item ${1}
+	\item ${2}
 	\end{enumerate}
 # Itemize
 snippet itemize
@@ -76,14 +74,12 @@ snippet matrix
 	\begin{${1:p/b/v/V/B/small}matrix}
 	${2}
 	\end{$1matrix}
-	${3}
 snippet ilmatrix
 	\begin{${1:p/b/v/V/B/small}matrix}${2}\end{$1matrix}${3}
 snippet pmatrix
 	\begin{pmatrix}
 	${1}
 	\end{pmatrix}
-	${2}
 # Cases
 snippet cases
 	\begin{cases}
@@ -110,107 +106,85 @@ snippet subs
 # Specific Theorems
 snippet definition
 	\begin{definition}
-	    ${1}
+	${1}
 	\end{definition}
-	${2}
 snippet conjecture
 	\begin{conjecture}
-	    ${1}
+	${1}
 	\end{conjecture}
-	${2}
 snippet problem
 	\begin{problem}
-	    ${1}
+	${1}
 	\end{problem}
-	${2}
 snippet lemma
 	\begin{lemma}
-	    ${1}
+	${1}
 	\end{lemma}
-	${2}
 snippet proposition
 	\begin{proposition}
-	    ${1}
+	${1}
 	\end{proposition}
-	${2}
 snippet property
 	\begin{property}
-	    ${1}
+	${1}
 	\end{property}
-	${2}
 snippet theorem
 	\begin{theorem}
-	    ${1}
+	${1}
 	\end{theorem}
-	${2}
 snippet corollary
 	\begin{corollary}
-	    ${1}
+	${1}
 	\end{corollary}
-	${2}
 snippet example
 	\begin{example}
-	    ${1}
+	${1}
 	\end{example}
-	${2}
 snippet examples
 	\begin{examples}
-	    ${1}
+	${1}
 	\end{examples}
-	${2}
 snippet remark
 	\begin{remark}
-	    ${1}
+	${1}
 	\end{remark}
-	${2}
 snippet algorithm
 	\begin{algorithm}
-	    ${1}
+	${1}
 	\end{algorithm}
-	${2}
 snippet procedure
 	\begin{procedure}
-	    ${1}
+	${1}
 	\end{procedure}
-	${2}
 snippet assumption
 	\begin{assumption}
-	    ${1}
+	${1}
 	\end{assumption}
-	${2}
 snippet claim
 	\begin{claim}
-	    ${1}
+	${1}
 	\end{claim}
-	${2}
 snippet fact
 	\begin{fact}
-	    ${1}
+	${1}
 	\end{fact}
-	${2}
 snippet convention
 	\begin{convention}
-	    ${1}
+	${1}
 	\end{convention}
-	${2}
 snippet exercise
 	\begin{exercise}%${1:num}{{{
-	    [$1] ${2}
+	[$1] ${2}
 	\end{exercise}
-	\begin{proof}
-	${3}
-	\end{proof}
 	%}}}
 snippet question
 	\begin{question}
-	    ${1}
+	${1}
 	\end{question}
-	${2}
 snippet answer
 	\begin{answer}
-	    ${1}
+	${1}
 	\end{answer}
-	${2}
 # Proof Environment.
 snippet proof
 	\begin{proof}
