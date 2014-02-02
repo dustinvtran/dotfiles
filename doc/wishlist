@@ -32,9 +32,8 @@ Calibre {{{
 -------------------------------------------------------------------------------
 
 High Priority
-    * More keybinds: Go to Table of Contents, Toggle toolbars, Dictionary type & look up (instead of highlighting then <C-l>).
+    * More keybinds: Go to Table of Contents, progress osd like with mpv's, toggle toolbars, Dictionary type & look up (instead of highlighting then <C-l>).
     * Hint mode to hit links with keypresses.
-    * Remove entire GTK interface and leave just the document if desired.
 
 }}}
 feh {{{

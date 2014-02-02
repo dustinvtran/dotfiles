@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Back</key>
+	<array>
+		<string>Shift+S</string>
+	</array>
+	<key>Document Bottom</key>
+	<array>
+		<string>Shift+G</string>
+		<string>End</string>
+	</array>
+	<key>Document Top</key>
+	<array>
+		<string>G</string>
+		<string>Home</string>
+	</array>
+	<key>Down</key>
+	<array>
+		<string>F1</string>
+	</array>
+	<key>Find next</key>
+	<array>
+		<string>K</string>
+	</array>
+	<key>Find previous</key>
+	<array>
+		<string>Shift+K</string>
+	</array>
+	<key>Focus Search</key>
+	<array>
+		<string>/</string>
+	</array>
+	<key>Forward</key>
+	<array>
+		<string>Shift+T</string>
+	</array>
+	<key>Fullscreen</key>
+	<array>
+		<string>F</string>
+	</array>
+	<key>Left</key>
+	<array>
+		<string>Left</string>
+		<string>Shift+E</string>
+	</array>
+	<key>Lookup word</key>
+	<array>
+		<string>L</string>
+	</array>
+	<key>Next Page</key>
+	<array>
+		<string>N</string>
+		<string>Down</string>
+	</array>
+	<key>Next Section</key>
+	<array>
+		<string>Ctrl+N</string>
+		<string>Ctrl+Down</string>
+	</array>
+	<key>Next occurrence</key>
+	<array>
+		<string>Ctrl+]</string>
+	</array>
+	<key>Previous Page</key>
+	<array>
+		<string>E</string>
+		<string>Up</string>
+	</array>
+	<key>Previous Section</key>
+	<array>
+		<string>Ctrl+E</string>
+		<string>Ctrl+Up</string>
+	</array>
+	<key>Quit</key>
+	<array>
+		<string>Q</string>
+	</array>
+	<key>Right</key>
+	<array>
+		<string>Right</string>
+		<string>Shift+N</string>
+	</array>
+	<key>Search online</key>
+	<array>
+		<string>Ctrl+L</string>
+	</array>
+	<key>Section Bottom</key>
+	<array>
+		<string>F2</string>
+	</array>
+	<key>Section Top</key>
+	<array>
+		<string>F3</string>
+	</array>
+	<key>Show metadata</key>
+	<array>
+		<string>I</string>
+	</array>
+	<key>Up</key>
+	<array>
+		<string>F4</string>
+	</array>
+</dict>
+</plist>
