@@ -45,7 +45,7 @@ xrdb -merge ~/.Xresources
 
 firefox &
 gvim &
-#libreoffice ~/Dropbox/nil/Aesthetics/Macros.ods &
+#libreoffice ~/Dropbox/nil/aesthetics/macros.ods &
 
 # [L+E] Use this if you have both laptop and external display.
 #urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
