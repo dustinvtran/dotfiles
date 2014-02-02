@@ -28,12 +28,13 @@ Low Priority
     * Capture just one window without needing to specify dimensions.
 
 }}}
-Calibre {{{
+calibre-ebook-viewer {{{
 -------------------------------------------------------------------------------
 
 High Priority
     * More keybinds: Go to Table of Contents, progress osd like with mpv's, toggle toolbars, Dictionary type & look up (instead of highlighting then <C-l>).
     * Hint mode to hit links with keypresses.
+    * Remove entire GTK interface similar to zathura.
 
 }}}
 feh {{{
