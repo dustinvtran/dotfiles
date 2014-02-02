@@ -18,7 +18,7 @@
 	</array>
 	<key>Down</key>
 	<array>
-		<string>F1</string>
+		<string>Down</string>
 	</array>
 	<key>Find next</key>
 	<array>
@@ -52,12 +52,10 @@
 	<key>Next Page</key>
 	<array>
 		<string>N</string>
-		<string>Down</string>
 	</array>
 	<key>Next Section</key>
 	<array>
 		<string>Ctrl+N</string>
-		<string>Ctrl+Down</string>
 	</array>
 	<key>Next occurrence</key>
 	<array>
@@ -66,12 +64,10 @@
 	<key>Previous Page</key>
 	<array>
 		<string>E</string>
-		<string>Up</string>
 	</array>
 	<key>Previous Section</key>
 	<array>
 		<string>Ctrl+E</string>
-		<string>Ctrl+Up</string>
 	</array>
 	<key>Quit</key>
 	<array>
@@ -88,11 +84,11 @@
 	</array>
 	<key>Section Bottom</key>
 	<array>
-		<string>F2</string>
+		<string>F1</string>
 	</array>
 	<key>Section Top</key>
 	<array>
-		<string>F3</string>
+		<string>F2</string>
 	</array>
 	<key>Show metadata</key>
 	<array>
@@ -100,7 +96,7 @@
 	</array>
 	<key>Up</key>
 	<array>
-		<string>F4</string>
+		<string>Up</string>
 	</array>
 </dict>
 </plist>
