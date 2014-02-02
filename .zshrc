@@ -425,7 +425,7 @@ installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-lis
 # totally not sort ordered correctly, e.g., "X.5 " shown before "X - "
 alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[Backlog\]/*'\
         | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/mnt\/sdb1/d'\
-        | sed -e 's/\[Backlog\]/\[aaBacklog\]/' -e 's/\[Films\]/\[aaFilms\]/'\
+        | sed -e 's/\[Backlog\]/\[aaBacklog\]/'\
         && echo 'anime/[aaBacklog]/...
 anime/[aaBacklog]/[Completed]
 anime/[aaBacklog]/[Completed]/...
@@ -457,7 +457,7 @@ visual novels/[aaBacklog]/...
 visual novels/[aaBacklog]/[Completed]
 visual novels/[aaBacklog]/[Completed]/...' )\
         | sort\
-        | sed -e 's/\[aaBacklog\]/\[Backlog\]/' -e 's/\[aaFilms\]/\[Films\]/'\
+        | sed -e 's/\[aaBacklog\]/\[Backlog\]/'\
         | sed -e 's/^\(anime\|films\|literature\|manga\|music\|tv\|video games\|visual novels\)$/\n&/'\
         | sed -e '1i This lists the entire directory structure of my ~/nil/media folder, which is a collection\
  of all titles I rate >=8/10 and\n their affiliated installments. It also stores my massive backlogs within each\
