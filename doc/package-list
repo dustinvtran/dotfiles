@@ -21,6 +21,7 @@ flashplugin
 fontconfig-infinality-ultimate
 freetype2-infinality-ultimate
 gimp
+gnome-themes-standard
 grub
 gvim
 htop
@@ -36,6 +37,7 @@ lib32-intel-dri
 libevdev
 libreoffice-calc
 libreoffice-writer
+lxappearance
 matlab r-2012b ("make install")
 mcomix
 mediainfo
