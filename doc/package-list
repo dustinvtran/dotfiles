@@ -28,6 +28,7 @@ freetype2-infinality-ultimate
 gcc-fortran
 gimp-git
 git
+gnome-themes-standard
 grub
 gvim
 htop
@@ -35,11 +36,13 @@ icedtea-web-java7
 ifplugd
 irssi
 jre7-openjdk
+libcaca
 libreoffice-calc
 libreoffice-en-US
 libreoffice-gnome
 libreoffice-writer
 librsvg
+lxappearance
 matlab r-2012b ("make install")
 mcomix
 mediainfo
@@ -48,6 +51,7 @@ mpc
 mpd
 mpdas
 mpv-git
+mumble
 ncmpcpp
 ntfs-3g
 ntp
