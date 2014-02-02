@@ -404,7 +404,8 @@ alias psc="ps -C"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
-alias wifi="sudo systemctl restart netctl-auto@wlan0.service"
+alias wlan0="sudo systemctl restart netctl-auto@wlan0.service"
+alias wlp2r0="sudo systemctl restart netctl-auto@wlp2s0.service"
 
 # Restart configs.
 alias so="xrdb ~/.Xresources; exec zsh"
@@ -422,9 +423,8 @@ alias plx="echo 'This lists any installed packages that are not in the base or b
 installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list"
-# totally not sort ordered correctly, e.g., "X.5 " shown before "X - "
 alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[Backlog\]/*'\
-        | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/mnt\/sdb1/d'\
+        | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/media\/sdb1/d'\
         | sed -e 's/\[Backlog\]/\[aaBacklog\]/'\
         && echo 'anime/[aaBacklog]/...
 anime/[aaBacklog]/[Completed]
@@ -470,12 +470,6 @@ visual novels/[aaBacklog]/[Completed]/...' )\
 alias groupsx="groups > ~/system-dotfiles/groups"
 alias systemctlx="systemctl --all > ~/system-dotfiles/systemctl"
 
-# le git.
-alias ga="git add -f"
-alias gc="git commit -am"
-alias gr="git rm --cached"
-alias gs="git status"
-
 # Manual mounter.
 alias mountb="mount /dev/sdb1 /mnt/sdb1"
 alias mountc="mount /dev/sdc1 /mnt/sdc1"
@@ -520,10 +514,14 @@ m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
-# School SSH
-alias sshb="ssh -X s243-10@arwen.berkeley.edu"
+# 2014 Spring Berkeley temp aliases
+#alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.35.205"
+alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.38.105"
+#alias sshb="ssh -X s135-879057@scf-ug01.berkeley.edu"
+#alias sshb="ssh -X s135-879057@arwen.berkeley.edu"
+alias sshb="ssh -X s135-879057@98.143.38.105"
 function scpb() {
-    scp -r $1 s243-10@arwen.berkeley.edu:~/$2
+    scp -r s135-879057@98.143.38.105:~/$1 $2
 }
 
 # Tablet SSH.
