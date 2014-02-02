@@ -8,6 +8,9 @@ artwiz-fonts
 atool
 babl-git
 bashets
+cairo-infinality-ultimate
+calibre
+clipit
 compton-git
 dialog
 dropbox
@@ -15,15 +18,22 @@ fasd
 feh
 firefox
 flashplugin
+fontconfig-infinality-ultimate
+freetype2-infinality-ultimate
 gimp
 grub
 gvim
 htop
 icedtea-web-java7
 ifplugd
+ipython
 irssi
 iw
+lib32-cairo-infinality-ultimate
+lib32-fontconfig-infinality-ultimate
+lib32-freetype2-infinality-ultimate
 lib32-intel-dri
+libevdev
 libreoffice-calc
 libreoffice-writer
 matlab r-2012b ("make install")
@@ -38,10 +48,13 @@ ncmpcpp
 ntp
 openssh
 packer
-parcellite
 pm-utils
+python-jinja
+python-tornado
 r
 ranger-git
+rdesktop
+rsync
 rubber
 rxvt-unicode
 scrot
