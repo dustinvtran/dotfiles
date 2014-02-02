@@ -4,8 +4,8 @@
 [help]
        	autocorrect = 1
 [alias]
-        desktop = !git pull origin master && git checkout desktop && git merge master
-        laptop = !git pull origin master && git checkout laptop && git merge master
+        desktop = !git checkout master && git pull origin master && git checkout desktop && git merge master
+        laptop = !git checkout master && git pull origin master && git checkout laptop && git merge master
         rmc = rm --cached
         sdiff = diff --diff-filter=M --stat --color
         slog = log --oneline --topo-order --graph
