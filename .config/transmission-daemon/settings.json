@@ -1,11 +1,11 @@
 {
-    "alt-speed-down": 700, 
+    "alt-speed-down": 100, 
     "alt-speed-enabled": false, 
     "alt-speed-time-begin": 540, 
     "alt-speed-time-day": 127, 
     "alt-speed-time-enabled": false, 
     "alt-speed-time-end": 1020, 
-    "alt-speed-up": 700, 
+    "alt-speed-up": 100, 
     "bind-address-ipv4": "0.0.0.0", 
     "bind-address-ipv6": "::", 
     "blocklist-enabled": false, 

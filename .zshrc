@@ -407,8 +407,7 @@ alias sv="sudo vim"
 alias wifi="sudo systemctl restart netctl-auto@wlan0.service"
 
 # Restart configs.
-alias so="exec zsh"
-alias xrdbx="xrdb ~/.Xresources"
+alias so="xrdb ~/.Xresources; exec zsh"
 
 # Directory navigation.
 alias ..='cd ..'
