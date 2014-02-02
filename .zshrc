@@ -405,7 +405,7 @@ alias rm='echo "This is not the command you are looking for."; false' #Never use
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
 alias wlan0="sudo systemctl restart netctl-auto@wlan0.service"
-alias wlp2r0="sudo systemctl restart netctl-auto@wlp2s0.service"
+alias wlp2s0="sudo systemctl restart netctl-auto@wlp2s0.service"
 
 # Restart configs.
 alias so="xrdb ~/.Xresources; exec zsh"
