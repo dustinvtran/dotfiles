@@ -48,7 +48,7 @@
     "rpc-url": "/transmission/", 
     "rpc-username": "", 
     "rpc-whitelist": "127.0.0.1", 
-    "rpc-whitelist-enabled": true, 
+    "rpc-whitelist-enabled": false, 
     "scrape-paused-torrents-enabled": true, 
     "script-torrent-done-enabled": false, 
     "script-torrent-done-filename": "", 
