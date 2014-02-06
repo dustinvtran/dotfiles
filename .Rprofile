@@ -15,15 +15,16 @@ r["CRAN"] <- "http://cran.us.r-project.org"
 options(repos = r)
 rm(r)
 
-# This is an aliased function that knits and compiles my problem sets, all in one step requiring just the problem set #.
-knitme <- function(num) {
+# This is an aliased function that knits and compiles my problem sets, all in one step requiring just the couse and
+# problem set #.
+knitme <- function(course,num) {
     # Knit using just the problem set #.
     if (num < 10) {
         num <- paste(0, num, sep = "")
     }
-    filedir <- "/home/nil/Dropbox/nil/academics/berkeley-2014-spring/stat-135/problem-sets"
-    filename <- paste(filedir, "/135-ps", num, ".Rtex", sep = "")
-    filenameout <- paste(filedir, "/135-ps", num, ".tex", sep = "")
+    filedir <- paste("/home/nil/Dropbox/nil/academics/berkeley-2014-spring/stat-", course, "/problem-sets", sep = "")
+    filename <- paste(filedir, "/", course, "-ps", num, ".Rtex", sep = "")
+    filenameout <- paste(filedir, "/", course, "-ps", num, ".tex", sep = "")
     knit(filename, output = filenameout)
     # Workaround for bug from knitr, requiring me to delete some redundant line output in my .tex.
     command <- paste("sed -i '12,60d' '", filenameout, "'", sep = "")
