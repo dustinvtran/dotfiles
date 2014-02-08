@@ -196,7 +196,9 @@ mcomix {{{
 
 High Priority
     * Precise Seeking: Keybinds to seek -/+ 5 pages, -/+ 20 pages, -/+ 50 pages.
-        * Allow <Shift>s/t to be the ff Prev/Next Page keybinds instead of using <Primary>s/t
+        * Allow <Shift>s/t to be the ff Prev/Next Page keybinds instead of using <Primary>s/t. The latter don't work!
+    * Allow <Shift>n/e to scroll right/left instead of using <Primary>s/t. The latter don't work!
+    * If I save+quit a file, allow mcomix to save a cache for every file I do this to, not always go to that progress on that file when I try to open and read another file.
     * Customizable mouse keybinds: have rightclick go to previous page instead of context menu, double left click toggle fullscreen, another to toggle GUI, etc.
     * Have smart scrolling with j/k not jump scroll so discretely, e.g., have it scroll continuously as with normal scrolling, while still allowing for the smart component.
 
