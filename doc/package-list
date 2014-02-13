@@ -30,6 +30,7 @@ gimp-git
 git
 gnome-themes-standard
 grub
+guvcview
 gvim
 htop
 icedtea-web-java7
@@ -70,6 +71,7 @@ rubber
 rxvt-unicode
 scrot
 skype
+skype-call-recorder
 syslog-ng
 terminus-font
 texlive-core
