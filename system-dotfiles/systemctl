@@ -74,6 +74,7 @@ systemd-readahead-done.service                                                  
 systemd-readahead-replay.service                                                                                 loaded inactive dead      Replay Read-Ahead Data
 systemd-remount-fs.service                                                                                       loaded active   exited    Remount Root and Kernel File Systems
 systemd-shutdownd.service                                                                                        loaded inactive dead      Delayed Shutdown Service
+systemd-suspend.service                                                                                          loaded inactive dead      Suspend
 systemd-sysctl.service                                                                                           loaded active   exited    Apply Kernel Variables
 systemd-tmpfiles-clean.service                                                                                   loaded inactive dead      Cleanup of Temporary Directories
 systemd-tmpfiles-setup-dev.service                                                                               loaded active   exited    Create static device nodes in /dev
@@ -118,9 +119,11 @@ remote-fs-pre.target                                                            
 remote-fs.target                                                                                                 loaded active   active    Remote File Systems
 rescue.target                                                                                                    loaded inactive dead      Rescue Mode
 shutdown.target                                                                                                  loaded inactive dead      Shutdown
+sleep.target                                                                                                     loaded inactive dead      Sleep
 slices.target                                                                                                    loaded active   active    Slices
 sockets.target                                                                                                   loaded active   active    Sockets
 sound.target                                                                                                     loaded active   active    Sound Card
+suspend.target                                                                                                   loaded active   active    Suspend
 swap.target                                                                                                      loaded active   active    Swap
 sysinit.target                                                                                                   loaded active   active    System Initialization
 timers.target                                                                                                    loaded active   active    Timers
@@ -132,5 +135,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-128 loaded units listed.
+131 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.
