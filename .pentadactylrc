@@ -218,7 +218,7 @@ map -modes=n -builtin <Leader>134  :tabopen! stat134<CR>
 map -modes=n -builtin <Leader>135n :tabopen! stat135<CR>
 map -modes=n -builtin <Leader>135p :tabopen! stat135p<CR>
 map -modes=n -builtin <Leader>151p :tabopen! stat151p<CR>
-map -modes=n -builtin <Leader>260  :tabopen! stat260<CR>
+map -modes=n -builtin <Leader>227  :tabopen! eecs227<CR>
 
 " }}}
 " Functions & Macros {{{
