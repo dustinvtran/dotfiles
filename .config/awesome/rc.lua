@@ -356,7 +356,7 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/Aesthetics/Macros.ods", { instance = "VCLSalFrame" }) end),
+    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/aesthetics/macros.ods", { instance = "VCLSalFrame" }) end),
     awful.key({ modkey }, "k", function () run_or_raise("skype",    { class = "Skype"    }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
