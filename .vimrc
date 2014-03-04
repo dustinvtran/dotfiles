@@ -633,6 +633,9 @@ augroup END
 function! Macros()
     inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
     inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
+    inoreabbrev tit <c-r>=<sid>Expr('ttt', '\textit')<cr>
+    inoreabbrev rm <c-r>=<sid>Expr('rm', '\mathrm')<cr>
+    inoreabbrev bb <c-r>=<sid>Expr('bb', '\mathbb')<cr>
     inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 

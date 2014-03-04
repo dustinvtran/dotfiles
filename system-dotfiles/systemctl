@@ -24,13 +24,12 @@ dev-ttyS1.device                                                                
 dev-ttyS2.device                                                                                                      loaded active   plugged   /dev/ttyS2
 dev-ttyS3.device                                                                                                      loaded active   plugged   /dev/ttyS3
 sys-devices-pci0000:00-0000:00:02.0-backlight-acpi_video0.device                                                      loaded active   plugged   /sys/devices/pci0000:00/0000:00:02.0/backlight/acpi_video0
-sys-devices-pci0000:00-0000:00:1a.0-usb1-1\x2d1-1\x2d1.1-1\x2d1.1:1.0-host5-target5:0:0-5:0:0:0-block-sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
-sys-devices-pci0000:00-0000:00:1a.0-usb1-1\x2d1-1\x2d1.1-1\x2d1.1:1.0-host5-target5:0:0-5:0:0:0-block-sdb.device      loaded active   plugged   ST4000DM000-1F2168
-sys-devices-pci0000:00-0000:00:1a.0-usb1-1\x2d1-1\x2d1.2-1\x2d1.2.3-1\x2d1.2.3:1.2-sound-card2.device                 loaded active   plugged   Webcam C270
+sys-devices-pci0000:00-0000:00:1a.0-usb1-1\x2d1-1\x2d1.1-1\x2d1.1:1.0-host9-target9:0:0-9:0:0:0-block-sdb-sdb1.device loaded active   plugged   ST4000DM000-1F2168
+sys-devices-pci0000:00-0000:00:1a.0-usb1-1\x2d1-1\x2d1.1-1\x2d1.1:1.0-host9-target9:0:0-9:0:0:0-block-sdb.device      loaded active   plugged   ST4000DM000-1F2168
+sys-devices-pci0000:00-0000:00:1a.0-usb1-1\x2d1-1\x2d1.2-1\x2d1.2.1-1\x2d1.2.1:1.0-sound-card1.device                 loaded active   plugged   Schiit_USB_Audio_Device
 sys-devices-pci0000:00-0000:00:1b.0-sound-card0.device                                                                loaded active   plugged   5 Series/3400 Series Chipset High Definition Audio
 sys-devices-pci0000:00-0000:00:1c.0-0000:01:00.0-net-eth0.device                                                      loaded active   plugged   RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
 sys-devices-pci0000:00-0000:00:1c.1-0000:02:00.0-bcma0:0-net-wlan0.device                                             loaded active   plugged   BCM4313 802.11bgn Wireless Network Adapter
-sys-devices-pci0000:00-0000:00:1d.0-usb2-2\x2d1-2\x2d1.1-2\x2d1.1:1.0-sound-card3.device                              loaded active   plugged   Q1U dynamic microphone
 sys-devices-pci0000:00-0000:00:1f.2-ata1-host0-target0:0:0-0:0:0:0-block-sda-sda1.device                              loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devices-pci0000:00-0000:00:1f.2-ata1-host0-target0:0:0-0:0:0:0-block-sda.device                                   loaded active   plugged   Hitachi_HTS725050A9A364
 sys-devices-pci0000:00-0000:00:1f.2-ata2-host1-target1:0:0-1:0:0:0-block-sr0.device                                   loaded active   plugged   hp_CDDVDW_TS-U633F
@@ -73,7 +72,7 @@ net-auto-wireless.service                                                       
 netctl-auto@wlan0.service                                                                                             loaded active   running   Automatic wireless network connection using netctl profiles
 netctl-ifplugd@eth0.service                                                                                           loaded active   running   Automatic wired network connection using netctl profiles
 ntpd.service                                                                                                          loaded active   running   Network Time Service
-plexmediaserver.service                                                                                               loaded failed   failed    Plex Media Server for Linux
+plexmediaserver.service                                                                                               loaded active   running   Plex Media Server for Linux
 plymouth-quit-wait.service                                                                                            not-found inactive dead      plymouth-quit-wait.service
 plymouth-start.service                                                                                                not-found inactive dead      plymouth-start.service
 rescue.service                                                                                                        loaded inactive dead      Rescue Shell
@@ -151,5 +150,5 @@ LOAD   = Reflects whether the unit definition was properly loaded.
 ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
 SUB    = The low-level unit activation state, values depend on unit type.
 
-147 loaded units listed.
+146 loaded units listed.
 To show all installed unit files use 'systemctl list-unit-files'.
