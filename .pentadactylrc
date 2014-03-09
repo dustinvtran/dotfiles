@@ -181,6 +181,7 @@ map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/mark
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
 " Media
+map -modes=n -builtin <Leader>n  :tabopen! https://dl.dropboxusercontent.com/u/30753123/website/index.html<CR>
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
 map -modes=n -builtin <Leader>ac :tabopen! http://myanimelist.net/clubs.php?cid=2913<CR>
