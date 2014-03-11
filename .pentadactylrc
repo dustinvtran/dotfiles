@@ -192,9 +192,9 @@ map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-
 map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>gn :tabopen! http://www.goodreads.com/<CR>
 map -modes=n -builtin <Leader>gp :tabopen! https://www.goodreads.com/user/show/7207396-nil<CR>
-map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/tv-films.html<CR>
-map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/video-games.html<CR>
-map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/List/visual-novels.html<CR>
+map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/tv-films.html<CR>
+map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/video-games.html<CR>
+map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/visual-novels.html<CR>
 map -modes=n -builtin <Leader>y  :tabopen! http://rateyourmusic.com/~nilin<CR>
 map -modes=n -builtin <Leader>l  :tabopen! http://www.last.fm/user/nil1729<CR>
 
