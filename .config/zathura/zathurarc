@@ -24,6 +24,8 @@ map K search previous
 
 map r adjust_window width
 map o rotate
+map f toggle_fullscreen
+map F follow
 
 "########################################################
 " Display Info
