@@ -1,17 +1,17 @@
 This lists the entire directory structure of my ~/nil/media folder, which is a collection of all titles I rate >=8/10 and
  their affiliated installments. It also stores my massive backlogs within each medium, but I omit them here. Why archive
- my media directory structure, you ask? Because its so pretty and autistic of me I simply must. When youre a consumer,
+ my media directory structure, you ask? Because its so pretty and autistic of me I simply must. When you're a consumer,
  there ought to be a competent way to organize your collection. See ~/.zshrc for the command.
 
 anime
-anime/[Backlog]
-anime/[Backlog]/...
-anime/[Backlog]/[Completed]
-anime/[Backlog]/[Completed]/...
-anime/[Backlog]/[Current]
-anime/[Backlog]/[Current]/...
-anime/[Backlog]/[Winter 2014]
-anime/[Backlog]/[Winter 2014]/...
+anime/[backlog]
+anime/[backlog]/...
+anime/[backlog]/[completed]
+anime/[backlog]/[completed]/...
+anime/[backlog]/[current]
+anime/[backlog]/[current]/...
+anime/[backlog]/[winter-2014]
+anime/[backlog]/[winter-2014]/...
 anime/Aria (2005-08)
 anime/Aria (2005-08)/Aria the Animation
 anime/Aria (2005-08)/Aria the Natural
@@ -87,7 +87,7 @@ anime/Shinseiki Evangelion (1995-97)
 anime/Shinseiki Evangelion (1995-97)/End of Evangelion
 anime/Shoujo Kakumei Utena (1997-99)
 anime/Shoujo Kakumei Utena (1997-99)/Adolescence Mokushiroku
-anime/Shoujo Kakumei Utena (1997-99)/Grimripper
+anime/Shoujo Kakumei Utena (1997-99)/DVD release
 anime/Suzumiya Haruhi (2006-10)
 anime/Suzumiya Haruhi (2006-10)/Suzumiya Haruhi no Shoushitsu
 anime/Tenshi no Tamago (1985)
@@ -99,23 +99,25 @@ anime/Yojouhan Shinwa Taikei (2010)/Specials
 
 films
 films/2001 - A Space Odyssey (1968)
-films/[Backlog]
-films/[Backlog]/...
-films/[Backlog]/[Completed]
-films/[Backlog]/[Completed]/...
+films/[backlog]
+films/[backlog]/...
+films/[backlog]/[completed]
+films/[backlog]/[completed]/...
 films/A Beautiful Mind (2001)
 films/A Clockwork Orange (1971)
-films/Alice in Wonderland (1951)
 films/Amadeus (1984)
 films/American Psycho (2000)
 films/Annie Hall (1977)
+films/Barry Lyndon (1975)
 films/Barton Fink (1991)
 films/Blade Runner (1982)
+films/Chinatown (1974)
 films/Dead Poets Society (1989)
 films/Fight Club (1999)
 films/Full Metal Jacket (1987)
 films/Goodfellas (1990)
 films/Hannah and Her Sisters (1986)
+films/Lawrence of Arabia (1962)
 films/Les Miserables (1998)
 films/Miller's Crossing (1990)
 films/Moneyball (2011)
@@ -129,6 +131,7 @@ films/Raise the Red Lantern (1991)
 films/Ran (1985)
 films/Saving Private Ryan (1998)
 films/Schindler's List (1993)
+films/Seppuku (1962)
 films/Serenity (2005)
 films/The Big Lebowski (1998)
 films/The Departed (2006)
@@ -145,10 +148,10 @@ films/True Grit (2010)
 films/When Harry Met Sally (1989)
 
 literature
-literature/[Backlog]
-literature/[Backlog]/...
-literature/[Backlog]/[Completed]
-literature/[Backlog]/[Completed]/...
+literature/[backlog]
+literature/[backlog]/...
+literature/[backlog]/[completed]
+literature/[backlog]/[completed]/...
 literature/Fiction
 literature/Fiction/Adventures of Huckleberry Finn (1884)
 literature/Fiction/After Dark (2004)
@@ -210,12 +213,12 @@ literature/Short Stories/Author - HP Lovecraft (1890-1937)
 literature/Short Stories/The Lottery (1948)
 
 manga
-manga/[Backlog]
-manga/[Backlog]/...
-manga/[Backlog]/[Completed]
-manga/[Backlog]/[Completed]/...
-manga/[Backlog]/[Current]
-manga/[Backlog]/[Current]/...
+manga/[backlog]
+manga/[backlog]/...
+manga/[backlog]/[completed]
+manga/[backlog]/[completed]/...
+manga/[backlog]/[current]
+manga/[backlog]/[current]/...
 manga/Aria (2001-08)
 manga/Aria (2001-08)/1 - Aqua
 manga/Aria (2001-08)/2 - Aria
@@ -228,12 +231,13 @@ manga/not simple (2004-05)
 manga/Pumpkin and Mayonnaise (1998)
 manga/Solanin (2005)
 manga/Yokohama Kaidashi Kikou (1994-06)
+/mnt/sdb1
 
 music
-music/[Backlog]
-music/[Backlog]/...
-music/[Backlog]/[Completed]
-music/[Backlog]/[Completed]/...
+music/[backlog]
+music/[backlog]/...
+music/[backlog]/[completed]
+music/[backlog]/[completed]/...
 music/Classical
 music/Classical/Bach - Air on the G String (1902)
 music/Classical/Byron Janis - Prokofiev & Rachmaninoff, Piano Concerti [V0]
@@ -616,12 +620,57 @@ music/Rock/The Beach Boys - Pet Sounds (1966)
 music/Rock/The Beatles - Abbey Road (1969)
 music/Rock/The Beatles - Rubber Soul (1965)
 music/Rock/The Velvet Underground & Nico - The Velvet Underground & Nico (1967)
+.Trash
+.Trash/1000
+.Trash/1000/files
+.Trash/1000/files/Alien (1979)
+.Trash/1000/files/All About Eve (1950)
+.Trash/1000/files/All Quiet on the Western Front
+.Trash/1000/files/Apocalypse Now (1979)
+.Trash/1000/files/A Streetcar Named Desire (1951)
+.Trash/1000/files/Bicycle Thieves (1948) 720p BRRip _sujaidr
+.Trash/1000/files/comedy
+.Trash/1000/files/crime
+.Trash/1000/files/crime_1
+.Trash/1000/files/drama
+.Trash/1000/files/epic or war
+.Trash/1000/files/Fantasia (1940)
+.Trash/1000/files/Grease (1978)
+.Trash/1000/files/Kirara_[Taiyo]
+.Trash/1000/files/musical
+.Trash/1000/files/mystery
+.Trash/1000/files/Naked Lunch (1991)
+.Trash/1000/files/[nonA] Sayonara Zetsubou Sensei (BD 1024x576 x264 FLAC)
+.Trash/1000/files/Paths of Glory (1957)
+.Trash/1000/files/Paths of Glory (1957)/Other
+.Trash/1000/files/romance
+.Trash/1000/files/scifi
+.Trash/1000/files/Singin in the Rain (1952)
+.Trash/1000/files/sports
+.Trash/1000/files/The Dark Knight (2008)
+.Trash/1000/files/The Killing.1956.CRITERION.BRRip.XviD-VLiS
+.Trash/1000/files/The Wolf Of Wall Street 2013 720p DVDScr x264 6CH Pimp4003
+.Trash/1000/files/western
+.Trash/1000/files/Yakitate_Japan_v13[SC]
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c105
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c106
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c107
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c108
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c109
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c110
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c111
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c112
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c113
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c113/Yakitate-v13c113
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c114
+.Trash/1000/files/Yakitate_Japan_v13[SC]/Yakitate-v13c114/Yakitate-v13c114
+.Trash/1000/info
 
 tv
-tv/[Backlog]
-tv/[Backlog]/...
-tv/[Backlog]/[Completed]
-tv/[Backlog]/[Completed]/...
+tv/[backlog]
+tv/[backlog]/...
+tv/[backlog]/[completed]
+tv/[backlog]/[completed]/...
 tv/Arrested Development (2003-13)
 tv/Arrested Development (2003-13)/Season 1
 tv/Arrested Development (2003-13)/Season 2
@@ -630,12 +679,6 @@ tv/Arrested Development (2003-13)/Season 4
 tv/Band of Brothers (2001)
 tv/Firefly (2002-03)
 tv/Freaks and Geeks (1999-00)
-tv/Game of Thrones (2011-1X)
-tv/Game of Thrones (2011-1X)/Season 1
-tv/Game of Thrones (2011-1X)/Season 2
-tv/Game of Thrones (2011-1X)/Season 3
-tv/Game of Thrones (2011-1X)/Season 4
-tv/The Twilight Zone (1959-64)
 tv/Whose Line Is It Anyways? (1998-1X)
 tv/Whose Line Is It Anyways? (1998-1X)/Season 1
 tv/Whose Line Is It Anyways? (1998-1X)/Season 2
@@ -646,32 +689,30 @@ tv/Whose Line Is It Anyways? (1998-1X)/Season 6
 tv/Whose Line Is It Anyways? (1998-1X)/Season 7
 tv/Whose Line Is It Anyways? (1998-1X)/Season 8
 tv/Whose Line Is It Anyways? (1998-1X)/Season 9
-
-video games
-video games/[Backlog]
-video games/[Backlog]/...
-video games/[Backlog]/[Completed]
-video games/[Backlog]/[Completed]/...
-video games/Chrono Trigger (1995)
-video games/EarthBound (1994)
-video games/Elder Scrolls V - Skyrim (2012)
-video games/Final Fantasy VII (1997)
-video games/Grand Theft Auto 3 - Vice City (2001)
-video games/Guild Wars 2 (2012-1X)
-video games/Half-Life (1998)
-video games/Legend of Zelda - Majora's Mask (2000)
-video games/Legend of Zelda - Ocarina of Time (1998)
-video games/Mario Kart 64 (1996)
-video games/Metal Gear Solid (1998)
-video games/Metal Gear Solid 3 - Snake Eater (2004)
-video games/Mother 3 (2006)
-video games/Pokemon Red and Blue (1996)
-video games/Shadow of the Colossus (2005)
-video games/StarCraft (1998)
-video games/World of Warcraft (2004-1X)
-
-visual novels
-visual novels/[Backlog]
-visual novels/[Backlog]/...
-visual novels/[Backlog]/[Completed]
-visual novels/[Backlog]/[Completed]/...
+video-games
+video games/[backlog]/...
+video-games/[backlog]
+video games/[backlog]/[completed]
+video games/[backlog]/[completed]/...
+video-games/Chrono Trigger (1995)
+video-games/EarthBound (1994)
+video-games/Elder Scrolls V - Skyrim (2012)
+video-games/Final Fantasy VII (1997)
+video-games/Grand Theft Auto 3 - Vice City (2001)
+video-games/Guild Wars 2 (2012-1X)
+video-games/Half-Life (1998)
+video-games/Legend of Zelda - Majora's Mask (2000)
+video-games/Legend of Zelda - Ocarina of Time (1998)
+video-games/Mario Kart 64 (1996)
+video-games/Metal Gear Solid (1998)
+video-games/Metal Gear Solid 3 - Snake Eater (2004)
+video-games/Mother 3 (2006)
+video-games/Pokemon Red and Blue (1996)
+video-games/Shadow of the Colossus (2005)
+video-games/StarCraft (1998)
+video-games/World of Warcraft (2004-1X)
+visual-novels
+visual novels/[backlog]/...
+visual-novels/[backlog]
+visual novels/[backlog]/[completed]
+visual novels/[backlog]/[completed]/...
