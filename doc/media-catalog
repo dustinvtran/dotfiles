@@ -1,17 +1,17 @@
 This lists the entire directory structure of my ~/nil/media folder, which is a collection of all titles I rate >=8/10 and
  their affiliated installments. It also stores my massive backlogs within each medium, but I omit them here. Why archive
- my media directory structure, you ask? Because its so pretty and autistic of me I simply must. When youre a consumer,
+ my media directory structure, you ask? Because its so pretty and autistic of me I simply must. When you're a consumer,
  there ought to be a competent way to organize your collection. See ~/.zshrc for the command.
 
 anime
-anime/[Backlog]
-anime/[Backlog]/...
-anime/[Backlog]/[Completed]
-anime/[Backlog]/[Completed]/...
-anime/[Backlog]/[Current]
-anime/[Backlog]/[Current]/...
-anime/[Backlog]/[Winter 2014]
-anime/[Backlog]/[Winter 2014]/...
+anime/[backlog]
+anime/[backlog]/...
+anime/[backlog]/[completed]
+anime/[backlog]/[completed]/...
+anime/[backlog]/[current]
+anime/[backlog]/[current]/...
+anime/[backlog]/[winter-2014]
+anime/[backlog]/[winter-2014]/...
 anime/Aria (2005-08)
 anime/Aria (2005-08)/Aria the Animation
 anime/Aria (2005-08)/Aria the Natural
@@ -87,7 +87,7 @@ anime/Shinseiki Evangelion (1995-97)
 anime/Shinseiki Evangelion (1995-97)/End of Evangelion
 anime/Shoujo Kakumei Utena (1997-99)
 anime/Shoujo Kakumei Utena (1997-99)/Adolescence Mokushiroku
-anime/Shoujo Kakumei Utena (1997-99)/Grimripper
+anime/Shoujo Kakumei Utena (1997-99)/DVD release
 anime/Suzumiya Haruhi (2006-10)
 anime/Suzumiya Haruhi (2006-10)/Suzumiya Haruhi no Shoushitsu
 anime/Tenshi no Tamago (1985)
@@ -99,23 +99,25 @@ anime/Yojouhan Shinwa Taikei (2010)/Specials
 
 films
 films/2001 - A Space Odyssey (1968)
-films/[Backlog]
-films/[Backlog]/...
-films/[Backlog]/[Completed]
-films/[Backlog]/[Completed]/...
+films/[backlog]
+films/[backlog]/...
+films/[backlog]/[completed]
+films/[backlog]/[completed]/...
 films/A Beautiful Mind (2001)
 films/A Clockwork Orange (1971)
-films/Alice in Wonderland (1951)
 films/Amadeus (1984)
 films/American Psycho (2000)
 films/Annie Hall (1977)
+films/Barry Lyndon (1975)
 films/Barton Fink (1991)
 films/Blade Runner (1982)
+films/Chinatown (1974)
 films/Dead Poets Society (1989)
 films/Fight Club (1999)
 films/Full Metal Jacket (1987)
 films/Goodfellas (1990)
 films/Hannah and Her Sisters (1986)
+films/Lawrence of Arabia (1962)
 films/Les Miserables (1998)
 films/Miller's Crossing (1990)
 films/Moneyball (2011)
@@ -129,6 +131,7 @@ films/Raise the Red Lantern (1991)
 films/Ran (1985)
 films/Saving Private Ryan (1998)
 films/Schindler's List (1993)
+films/Seppuku (1962)
 films/Serenity (2005)
 films/The Big Lebowski (1998)
 films/The Departed (2006)
@@ -145,10 +148,10 @@ films/True Grit (2010)
 films/When Harry Met Sally (1989)
 
 literature
-literature/[Backlog]
-literature/[Backlog]/...
-literature/[Backlog]/[Completed]
-literature/[Backlog]/[Completed]/...
+literature/[backlog]
+literature/[backlog]/...
+literature/[backlog]/[completed]
+literature/[backlog]/[completed]/...
 literature/Fiction
 literature/Fiction/Adventures of Huckleberry Finn (1884)
 literature/Fiction/After Dark (2004)
@@ -210,12 +213,12 @@ literature/Short Stories/Author - HP Lovecraft (1890-1937)
 literature/Short Stories/The Lottery (1948)
 
 manga
-manga/[Backlog]
-manga/[Backlog]/...
-manga/[Backlog]/[Completed]
-manga/[Backlog]/[Completed]/...
-manga/[Backlog]/[Current]
-manga/[Backlog]/[Current]/...
+manga/[backlog]
+manga/[backlog]/...
+manga/[backlog]/[completed]
+manga/[backlog]/[completed]/...
+manga/[backlog]/[current]
+manga/[backlog]/[current]/...
 manga/Aria (2001-08)
 manga/Aria (2001-08)/1 - Aqua
 manga/Aria (2001-08)/2 - Aria
@@ -228,400 +231,15 @@ manga/not simple (2004-05)
 manga/Pumpkin and Mayonnaise (1998)
 manga/Solanin (2005)
 manga/Yokohama Kaidashi Kikou (1994-06)
+/mnt/sdb1
 
 music
-music/[Backlog]
-music/[Backlog]/...
-music/[Backlog]/[Completed]
-music/[Backlog]/[Completed]/...
-music/Classical
-music/Classical/Bach - Air on the G String (1902)
-music/Classical/Byron Janis - Prokofiev & Rachmaninoff, Piano Concerti [V0]
-music/Classical/Faure - Requiem in D Minor (1888)
-music/Classical/Furtwangler - Symphonie No.9 (1954)
-music/Classical/Janacek - Sinfonietta (1926)
-music/Classical/Kleiber - Symphonie Nr.5 (1975)
-music/Classical/Mozart - 3 Piano Sonatas - KV309, 310, & 311 (1985)
-music/Classical/Mozart - Piano Sonatas KV331 & 332 (1984)
-music/Classical/Mozart - Piano Sonatas KV331 & 332 (1984)/Disc 1
-music/Classical/Mozart - Piano Sonatas KV331 & 332 (1984)/Disc 2
-music/Classical/Mozart - Piano Sonatas KV331 & 332 (1984)/Disc 3
-music/Classical/Mozart - Piano Sonatas KV331 & 332 (1984)/Disc 4
-music/Classical/Mozart - Piano Sonatas KV331 & 332 (1984)/Disc 5
-music/Classical/Mozart - Requiem Mass in D Minor (1791)
-music/Classical/Pollini - Etudes Op.10 & Op.25 (1972)
-music/Classical/Rachmaninoff - Piano Concerto No.2 (1900-01)
-music/Classical/Satie - Gymnopedies (1888)
-music/Classical/Schubert - Winterreise (1828)
-music/Classical/Weingartner - Symphonie No.7, in A Major (1935-37)
-music/Electronic
-music/Hip Hop
-music/Jazz
-music/Jazz/Art Blakey and The Jazz Messengers - Moanin' (1959)
-music/Jazz/Charles Mingus - Blues & Roots (1960)
-music/Jazz/Charles Mingus - The Black Saint and the Sinner Lady (1963)
-music/Jazz/Charles Mingus - The Black Saint and the Sinner Lady (1963)/Charles Mingus - 1963 - The Black Saint and the Sinner Lady [FLAC]
-music/Jazz/Chet Baker - Chet Baker Sings (1954)
-music/Jazz/Duke Ellington - Blues in Orbit (1960)
-music/Jazz/John Coltrane - A Love Supreme (1965)
-music/Jazz/John Coltrane - Giant Steps (1960)
-music/Jazz/John Coltrane - My Favorite Things (1961)
-music/Jazz/John Coltrane - My Favorite Things (1961)/John Coltrane - My Favorite Things (1961) [Jazz][mp3 320][h33t][schon55]
-music/Jazz/John Coltrane - My Favorite Things (1961)/John Coltrane - My Favorite Things (1961) [Jazz][mp3 320][h33t][schon55]/Scans
-music/Jazz/Lee Morgan - The Sidewinder (1964)
-music/Jazz/Stan Getz & Joao Gilberto - Getz Gilberto (1964)
-music/Jazz/Yusef Lateef - Eastern Sounds (1961)
-music/OST
-music/OST/Amadeus (1984)
-music/OST/Amadeus (1984)/Artworks
-music/OST/Amadeus (1984)/Disc 1
-music/OST/Amadeus (1984)/Disc 2
-music/OST/Arakawa Under the Bridge
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge ED Single - Sakasama Bridge [Suneohair]
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge ED Single - Sakasama Bridge [Suneohair]/Scans
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge OP Single - Venus to Jesus [Etsuko Yakushimaru]
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge OP Single - Venus to Jesus [Etsuko Yakushimaru]/Scans
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge Original Soundtrack
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge Original Soundtrack/Scans
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge x Bridge Drama CD 1
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge x Bridge Drama CD 1/Scans
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge x Bridge ED Single - Akai Coat [Suneohair]
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge x Bridge ED Single - Akai Coat [Suneohair]/Scans
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge x Bridge OP Single - COSMOS vs ALIEN [Etsuko Yakushimaru]
-music/OST/Arakawa Under the Bridge/Arakawa Under The Bridge x Bridge OP Single - COSMOS vs ALIEN [Etsuko Yakushimaru]/Scan
-music/OST/Aria
-music/OST/Aria/ARIA ~ Piano Collection ~ Stagione
-music/OST/Aria/ARIA ~ Piano Collection ~ Stagione/Scans
-music/OST/Aria/ARIA The ANIMATION Drama CD I - BLUE
-music/OST/Aria/ARIA The ANIMATION Drama CD I - BLUE/Scans
-music/OST/Aria/ARIA The ANIMATION Drama CD III - ORANGE
-music/OST/Aria/ARIA The ANIMATION Drama CD III - ORANGE/Scans
-music/OST/Aria/ARIA The ANIMATION Drama CD II - RED
-music/OST/Aria/ARIA The ANIMATION Drama CD II - RED/Scans
-music/OST/Aria/ARIA The ANIMATION DVD Box Set Drama CD
-music/OST/Aria/ARIA The ANIMATION ED - Rainbow [ROUND TABLE featuring NINO]
-music/OST/Aria/ARIA The ANIMATION ED - Rainbow [ROUND TABLE featuring NINO]/Scans
-music/OST/Aria/ARIA The ANIMATION OP - Undine [makino yui]
-music/OST/Aria/ARIA The ANIMATION OP - Undine [makino yui]/Scans
-music/OST/Aria/ARIA The ANIMATION Original Soundtrack
-music/OST/Aria/ARIA The ANIMATION Original Soundtrack/Scans
-music/OST/Aria/ARIA The ANIMATION Perfect Guidebook Special Appendix Drama CD
-music/OST/Aria/ARIA The ANIMATION Perfect Guidebook Special Appendix Drama CD/Scans
-music/OST/Aria/ARIA The BOX
-music/OST/Aria/ARIA The BOX/Disc 1
-music/OST/Aria/ARIA The BOX/Disc 2
-music/OST/Aria/ARIA The BOX/Disc 3
-music/OST/Aria/ARIA The NATURAL Drama CD I
-music/OST/Aria/ARIA The NATURAL Drama CD II
-music/OST/Aria/ARIA The NATURAL Drama CD II/Scans
-music/OST/Aria/ARIA The NATURAL Drama CD I/Scans
-music/OST/Aria/ARIA The NATURAL DVD Box Set Drama CD
-music/OST/Aria/ARIA The NATURAL ED - Natsumachi [ROUND TABLE featuring NINO]
-music/OST/Aria/ARIA The NATURAL ED - Natsumachi [ROUND TABLE featuring NINO]/Scans
-music/OST/Aria/ARIA The NATURAL OP - Euforia [makino yui]
-music/OST/Aria/ARIA The NATURAL OP - Euforia [makino yui]/Scans
-music/OST/Aria/ARIA The NATURAL Original Soundtrack due
-music/OST/Aria/ARIA The NATURAL Original Soundtrack due/Scans
-music/OST/Aria/ARIA The NATURAL Perfect Guidebook Special Appendix Drama CD
-music/OST/Aria/ARIA The NATURAL Perfect Guidebook Special Appendix Drama CD/Scans
-music/OST/Aria/ARIA The NATURAL VOCAL SONG COLLECTION
-music/OST/Aria/ARIA The NATURAL VOCAL SONG COLLECTION/Scans
-music/OST/Aria/ARIA The ORIGINATION Drama CD III - Hana
-music/OST/Aria/ARIA The ORIGINATION Drama CD III - Hana/Scans
-music/OST/Aria/ARIA The ORIGINATION Drama CD II - Tsuki
-music/OST/Aria/ARIA The ORIGINATION Drama CD II - Tsuki/Scans
-music/OST/Aria/ARIA The ORIGINATION Drama CD I - Yuki
-music/OST/Aria/ARIA The ORIGINATION Drama CD I - Yuki/Scans
-music/OST/Aria/ARIA The ORIGINATION ED - Kin no Nami Sen no Nami [Akino Arai]
-music/OST/Aria/ARIA The ORIGINATION ED - Kin no Nami Sen no Nami [Akino Arai]/Scans
-music/OST/Aria/ARIA The ORIGINATION OP - Spirale [Makino Yui]
-music/OST/Aria/ARIA The ORIGINATION OP - Spirale [Makino Yui]/Scans
-music/OST/Aria/ARIA The ORIGINATION Original Soundtrack
-music/OST/Aria/ARIA The ORIGINATION Original Soundtrack/Scans
-music/OST/Aria/ARIA The ORIGINATION Perfect Guidebook Special Appendix Drama CD
-music/OST/Aria/ARIA The ORIGINATION Perfect Guidebook Special Appendix Drama CD/Scans
-music/OST/Aria/ARIA The ORIGINATION PIANO COLLECTION II
-music/OST/Aria/ARIA The ORIGINATION PIANO COLLECTION II/Scans
-music/OST/Aria/ARIA The OVA ~ARIETTA~ OP&ED
-music/OST/Aria/ARIA The OVA ~ARIETTA~ OP&ED/Scans
-music/OST/Aria/ARIA The STATION Due COUR.1
-music/OST/Aria/ARIA The STATION Due COUR.1/Disc1
-music/OST/Aria/ARIA The STATION Due COUR.1/Disc2
-music/OST/Aria/ARIA The STATION Due COUR.1/Scans
-music/OST/Aria/ARIA The STATION Due COUR.2
-music/OST/Aria/ARIA The STATION Due COUR.2/Disc1
-music/OST/Aria/ARIA The STATION Due COUR.2/Disc2
-music/OST/Aria/ARIA The STATION Due COUR.2/Scans
-music/OST/Aria/ARIA The STATION Due COUR.3
-music/OST/Aria/ARIA The STATION Due COUR.3/Disc1
-music/OST/Aria/ARIA The STATION Due COUR.3/Disc2
-music/OST/Aria/ARIA The STATION Due COUR.3/Scans
-music/OST/Aria/ARIA The STATION Due COUR.4
-music/OST/Aria/ARIA The STATION Due COUR.4/Disc1
-music/OST/Aria/ARIA The STATION Due COUR.4/Disc2
-music/OST/Aria/ARIA The STATION Due COUR.4/Scans
-music/OST/Aria/ARIA The STATION Neo VENEZIA INFORMALE
-music/OST/Aria/ARIA The STATION Neo VENEZIA INFORMALE/Disc1
-music/OST/Aria/ARIA The STATION Neo VENEZIA INFORMALE/Disc2
-music/OST/Aria/ARIA The STATION Neo VENEZIA INFORMALE/Scans
-music/OST/Aria/ARIA The STATION Tricolore COUR.1
-music/OST/Aria/ARIA The STATION Tricolore COUR.1/Disc1
-music/OST/Aria/ARIA The STATION Tricolore COUR.1/Disc2
-music/OST/Aria/ARIA The STATION Tricolore COUR.1/Scans
-music/OST/Aria/ARIA The STATION Tricolore COUR.2
-music/OST/Aria/ARIA The STATION Tricolore COUR.2/Disc1
-music/OST/Aria/ARIA The STATION Tricolore COUR.2/Disc2
-music/OST/Aria/ARIA The STATION Tricolore COUR.2/Scans
-music/OST/Aria/ARIA The STATION Tricolore COUR.3
-music/OST/Aria/ARIA The STATION Tricolore COUR.3/Disc1
-music/OST/Aria/ARIA The STATION Tricolore COUR.3/Disc2
-music/OST/Aria/ARIA The STATION Tricolore COUR.3/Scans
-music/OST/Aria/ARIA The STATION Tricolore COUR.4
-music/OST/Aria/ARIA The STATION Tricolore COUR.4/Disc1
-music/OST/Aria/ARIA The STATION Tricolore COUR.4/Disc2
-music/OST/Aria/ARIA The STATION Tricolore COUR.4/Scans
-music/OST/Aria/HIMAWARI - Kawai Eri Tribute
-music/OST/Aria/HIMAWARI - Kawai Eri Tribute/Scans
-music/OST/Aria/PS2 ARIA The NATURAL OP&ED - BLUE BLUE WAVE [KAORI]
-music/OST/Aria/PS2 ARIA The NATURAL OP&ED - BLUE BLUE WAVE [KAORI]/Scans
-music/OST/Aria/PS2 ARIA The NATURAL ~Tooi Kioku no Mirage~ Original Soundtrack
-music/OST/Aria/PS2 ARIA The NATURAL ~Tooi Kioku no Mirage~ Original Soundtrack/DISC1
-music/OST/Aria/PS2 ARIA The NATURAL ~Tooi Kioku no Mirage~ Original Soundtrack/DISC2
-music/OST/Aria/PS2 ARIA The NATURAL ~Tooi Kioku no Mirage~ Original Soundtrack/Scans
-music/OST/Aria/PS2 ARIA The ORIGINATION -Aoi Hoshi no Il Cielo- OP&ED Single - graceful way
-music/OST/Aria/PS2 ARIA The ORIGINATION -Aoi Hoshi no Il Cielo- OP&ED Single - graceful way/Scans
-music/OST/Maria Holic Music Collection [FLAC]
-music/OST/Maria Holic Music Collection [FLAC]/DJ CD - Web Radio Ame no Kisaki Housou-bu DJCD Dai Ichi Kan Amaki Kashi no Yuuwaku ~ Hanseikai no Shirabe
-music/OST/Maria Holic Music Collection [FLAC]/DJ CD - Web Radio Ame no Kisaki Housou-bu DJCD Dai Ichi Kan Amaki Kashi no Yuuwaku ~ Hanseikai no Shirabe/Scans
-music/OST/Maria Holic Music Collection [FLAC]/Drama CD - Maria Holic (2008)
-music/OST/Maria Holic Music Collection [FLAC]/Drama CD - Maria Holic (2008)/Scans
-music/OST/Maria Holic Music Collection [FLAC]/Drama CD - Maria Holic (2009)
-music/OST/Maria Holic Music Collection [FLAC]/Drama CD - Maria Holic (2009)/Scans
-music/OST/Maria Holic Music Collection [FLAC]/S1 Character Song CD - SU-KON-BU
-music/OST/Maria Holic Music Collection [FLAC]/S1 Character Song CD - SU-KON-BU/Scans
-music/OST/Maria Holic Music Collection [FLAC]/S1 ED Single - Kimi ni, Mune Kyun
-music/OST/Maria Holic Music Collection [FLAC]/S1 ED Single - Kimi ni, Mune Kyun/Scans
-music/OST/Maria Holic Music Collection [FLAC]/S1 OP Single - HANAJI
-music/OST/Maria Holic Music Collection [FLAC]/S1 OP Single - HANAJI/Scans
-music/OST/Maria Holic Music Collection [FLAC]/S1 OST - Maria Holic Soundtrack no Kikikata - Kouhen
-music/OST/Maria Holic Music Collection [FLAC]/S1 OST - Maria Holic Soundtrack no Kikikata - Kouhen/Scans
-music/OST/Maria Holic Music Collection [FLAC]/S1 OST - Maria Holic Soundtrack no Kikikata - Zenpen
-music/OST/Maria Holic Music Collection [FLAC]/S1 OST - Maria Holic Soundtrack no Kikikata - Zenpen/Scans
-music/OST/Maria Holic Music Collection [FLAC]/S2 BD1 Bonus CD - Ryouchou-sensei no Kayou Hit Channel ~Dai-ichi no Yoru~
-music/OST/Maria Holic Music Collection [FLAC]/S2 BD2 Bonus CD - Ryouchou-sensei no Kayou Hit Channel ~Dai-ni no Yoru~
-music/OST/Maria Holic Music Collection [FLAC]/S2 BD3 Bonus CD - Ryouchou-sensei no Kayou Hit Channel ~Dai-san no Yoru~
-music/OST/Maria Holic Music Collection [FLAC]/S2 BD4 Bonus CD - Ryouchou-sensei no Kayou Hit Channel ~Dai-shi no Yoru~
-music/OST/Maria Holic Music Collection [FLAC]/S2 BD5 Bonus CD - Ryouchou-sensei no Kayou Hit Channel ~Dai-go no Yoru~
-music/OST/Maria Holic Music Collection [FLAC]/S2 BD6 Bonus CD - Ryouchou-sensei no Kayou Hit Channel ~Dai-roku no Yoru~
-music/OST/Maria Holic Music Collection [FLAC]/S2 OP ED Album - Runrunriru Ranranrara ' Dou ni mo Tomaranai
-music/OST/Maria Holic Music Collection [FLAC]/S2 OP ED Album - Runrunriru Ranranrara ' Dou ni mo Tomaranai/Scans
-music/OST/Monogatari
-music/OST/Monogatari/Bakemonogatari
-music/OST/Monogatari/Bakemonogatari/Drama - Hyakumonogatari
-music/OST/Monogatari/Bakemonogatari/Drama - Hyakumonogatari/Scans
-music/OST/Monogatari/Bakemonogatari/Drama - Hyakumonogatari/Script
-music/OST/Monogatari/Bakemonogatari/ED - Kimi no Shiranai Monogatari
-music/OST/Monogatari/Bakemonogatari/ED - Kimi no Shiranai Monogatari/Scans
-music/OST/Monogatari/Bakemonogatari/OP 1 - staple stable
-music/OST/Monogatari/Bakemonogatari/OP 1 - staple stable/Scans
-music/OST/Monogatari/Bakemonogatari/OP 2 - Kaerimichi
-music/OST/Monogatari/Bakemonogatari/OP 2 - Kaerimichi/Scans
-music/OST/Monogatari/Bakemonogatari/OP 3 - ambivalent world
-music/OST/Monogatari/Bakemonogatari/OP 3 - ambivalent world/Scans
-music/OST/Monogatari/Bakemonogatari/OP 4 - Ren'ai Circulation
-music/OST/Monogatari/Bakemonogatari/OP 4 - Ren'ai Circulation/Scans
-music/OST/Monogatari/Bakemonogatari/OP 5 - sugar sweet nightmare
-music/OST/Monogatari/Bakemonogatari/OP 5 - sugar sweet nightmare/Scans
-music/OST/Monogatari/Bakemonogatari/OST
-music/OST/Monogatari/Bakemonogatari/OST - Ongaku Zenshuu Songs＆Soundtracks
-music/OST/Monogatari/Bakemonogatari/OST - Ongaku Zenshuu Songs＆Soundtracks/Disc 1
-music/OST/Monogatari/Bakemonogatari/OST - Ongaku Zenshuu Songs＆Soundtracks/Disc 2
-music/OST/Monogatari/Bakemonogatari/OST - Ongaku Zenshuu Songs＆Soundtracks/Scans
-music/OST/Monogatari/Bakemonogatari/OST/Scans
-music/OST/Monogatari/Bakemonogatari Portable Special Content CD [FLAC]
-music/OST/Monogatari/Nekomonogatari
-music/OST/Monogatari/Nekomonogatari/kieru daydream & Atogatari [FLAC]
-music/OST/Monogatari/Nekomonogatari/kieru daydream & Atogatari [FLAC]/Scan
-music/OST/Monogatari/Nekomonogatari/kieru daydream & Atogatari [FLAC]/Scan/ピンナップ
-music/OST/Monogatari/Nekomonogatari/kieru daydream & Atogatari [FLAC]/Scan/キャラクターデザイン渡辺明夫描き下ろしデジパック仕様
-music/OST/Monogatari/Nekomonogatari/kieru daydream & Atogatari [FLAC]/Scan/特製ブックレット
-music/OST/Monogatari/Nekomonogatari/perfect slumbers & Nekomonogatari (Kuro) Music Collection [FLAC]
-music/OST/Monogatari/Nekomonogatari/perfect slumbers & Nekomonogatari (Kuro) Music Collection [FLAC]/Scans
-music/OST/Monogatari/Nisemonogatari
-music/OST/Monogatari/Nisemonogatari/[ASL] ClariS - Nisemonogatari ED - Naisho no Hanashi [FLAC] [w Scans]
-music/OST/Monogatari/Nisemonogatari/[ASL] ClariS - Nisemonogatari ED - Naisho no Hanashi [FLAC] [w Scans]/Scans
-music/OST/Monogatari/Nisemonogatari/[ASL] Kitamura Eri - Nisemonogatari OP2 - Marshmallow Justice [FLAC] [w Scans]
-music/OST/Monogatari/Nisemonogatari/[ASL] Kitamura Eri - Nisemonogatari OP2 - Marshmallow Justice [FLAC] [w Scans]/Scans
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Futakotome & Nisemonogatari Gekiban Ongakushuu Sono Ichi [FLAC] [w Scans]
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Futakotome & Nisemonogatari Gekiban Ongakushuu Sono Ichi [FLAC] [w Scans]/Scans
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Futakotome & Nisemonogatari Gekiban Ongakushuu Sono Ichi [FLAC] [w Scans]/Scans/エンドカードピンナップ
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Futakotome & Nisemonogatari Gekiban Ongakushuu Sono Ichi [FLAC] [w Scans]/Scans/特製ブックレット
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Nisemonogatari Ongaku Shuu Sono Ni & Atogatari [FLAC] [w Scans]
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Nisemonogatari Ongaku Shuu Sono Ni & Atogatari [FLAC] [w Scans]/Scans
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Tsukihi Phoenix Hakkin Disco & Nisemonogatari Gekiban Ongakushuu Sono San [FLAC] [w Scans]
-music/OST/Monogatari/Nisemonogatari/[ASL] Various Artists - Tsukihi Phoenix Hakkin Disco & Nisemonogatari Gekiban Ongakushuu Sono San [FLAC] [w Scans]/Scans
-music/OST/Monogatari/Nisemonogatari/Naisho no Hanashi (Anime CD Cover Edition) [FLAC]
-music/OST/Monogatari/Nisemonogatari/Naisho no Hanashi (Anime CD Cover Edition) [FLAC]/Scans
-music/OST/Monogatari/Nisemonogatari/Nisemonogatari Music Collection IV & Atogatari [FLAC]
-music/OST/Monogatari/Nisemonogatari/Nisemonogatari Music Collection IV & Atogatari [FLAC]/Scans
-music/OST/Mushishi
-music/OST/Mushishi/Mushinone - Mushishi Soundtrack Daiichidan Part 1
-music/OST/Mushishi/Mushinone - Mushishi Soundtrack Daiichidan Part 1/Scans
-music/OST/Mushishi/Mushinone - Mushishi Soundtrack Daiichidan Part 2
-music/OST/Mushishi/Mushinone - Mushishi Soundtrack Daiichidan Part 2/Scans
-music/OST/Mushishi/Mushishi OP ~ The Sore Feet Song [Ally Kerr]
-music/OST/Ookami to Koushinryou
-music/OST/Ookami to Koushinryou/[LonE] Ookami to Koushinryou - Tonari ni iruyo (FLAC)
-music/OST/Ookami to Koushinryou/[LonE] Ookami to Koushinryou - Tonari ni iruyo (FLAC)/Scans
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf ED Single - Ringo Hiyori ~The Wolf Whistling Song (FLAC)
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf ED Single - Ringo Hiyori ~The Wolf Whistling Song (FLAC)/Scans
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf II ED Single - Perfect World (FLAC)
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf II ED Single - Perfect World (FLAC)/Scans
-music/OST/Ookami to Koushinryou/[LonE]  Spice and Wolf II OP Single - Mitsu no Yoake [Arai Akino] (FLAC)
-music/OST/Ookami to Koushinryou/[LonE]  Spice and Wolf II OP Single - Mitsu no Yoake [Arai Akino] (FLAC)/Scans
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf II Original Soundtrack (FLAC)
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf II Original Soundtrack (FLAC)/Scans
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf OP Single - Tabi no Tochuu [Kiyoura Natsumi] (FLAC)
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf OP Single - Tabi no Tochuu [Kiyoura Natsumi] (FLAC)/Scans
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf Original Soundtrack - Ookami to Tabi no Ongaku (FLAC)
-music/OST/Ookami to Koushinryou/[LonE] Spice and Wolf Original Soundtrack - Ookami to Tabi no Ongaku (FLAC)/Scans
-music/OST/Ookami to Koushinryou/Spice and Wolf II - Wolf's Spicy-Radio 2 (Radio Drama DJCD)
-music/OST/Ookami to Koushinryou/Spice and Wolf II - Wolf's Spicy-Radio 2 (Radio Drama DJCD)/CD 1
-music/OST/Ookami to Koushinryou/Spice and Wolf II - Wolf's Spicy-Radio 2 (Radio Drama DJCD)/CD 2
-music/OST/Ookami to Koushinryou/Spice and Wolf II - Wolf's Spicy-Radio 2 (Radio Drama DJCD)/Scans
-music/OST/Ookami to Koushinryou/Spice and Wolf - Ookami to Kohaku Shoku no Yuuutsu (Drama CD)
-music/OST/Ookami to Koushinryou/Spice and Wolf - Ookami to Kohaku Shoku no Yuuutsu (Drama CD)/Scans
-music/OST/Ookami to Koushinryou/Spice and Wolf - Ookami to Momo no Hachimitsu Duke (Radio CD)
-music/OST/Ookami to Koushinryou/Spice and Wolf - Ookami to Momo no Hachimitsu Duke (Radio CD)/Scans
-music/OST/Ookami to Koushinryou/Spice and Wolf - Umi wo Wataru Kaze OST (Nintendo DS)
-music/OST/Ookami to Koushinryou/Spice and Wolf - Umi wo Wataru Kaze OST (Nintendo DS)/Scans
-music/OST/Ookami to Koushinryou/Spice and Wolf - Wolf's Spicy-Radio 1 (Radio Drama DJCD)
-music/OST/Ookami to Koushinryou/Spice and Wolf - Wolf's Spicy-Radio 1 (Radio Drama DJCD)/CD 1
-music/OST/Ookami to Koushinryou/Spice and Wolf - Wolf's Spicy-Radio 1 (Radio Drama DJCD)/CD 2
-music/OST/Ookami to Koushinryou/Spice and Wolf - Wolf's Spicy-Radio 1 (Radio Drama DJCD)/Scans
-music/OST/Shoujo Kakumei Utena
-music/OST/Shoujo Kakumei Utena/Disc 01 - Zettai Shinka Kakumei Zenya
-music/OST/Shoujo Kakumei Utena/Disc 02 - VIRTUAL STAR Hasseigaku
-music/OST/Shoujo Kakumei Utena/Disc 03 - Tainai Tokei Toshi ORRERY
-music/OST/Shoujo Kakumei Utena/Disc 04 - Tenshi Souzou Sunawachi Hikari
-music/OST/Shoujo Kakumei Utena/Disc 05 - Engage Toi à Mes Côtés DISC.1
-music/OST/Shoujo Kakumei Utena/Disc 06 - Engage Toi à Mes Côtés DISC.2
-music/OST/Shoujo Kakumei Utena/Disc 07 - Reijin NIRVANA Raiga ~BOKU no ANDROGYNOUS~
-music/OST/Shoujo Kakumei Utena/Disc 08 - Bara Tamago Sosei Roku SOFIA -Chuusei yo Yomigaere!-
-music/OST/Shoujo Kakumei Utena/Disc 09 - ADOLESCENCE RUSH
-music/OST/Shoujo Kakumei Utena/Disc 10 - Zettai Unmei Butoukai -UTENA In The CLUB-
-music/OST/Suzumiya Haruhi
-music/OST/Suzumiya Haruhi/[AY] Suzumiya Haruhi no Yuutsu - Haruhi no Tsumeawase ~Geki Chuu Kashuu Shinguruu~
-music/OST/Suzumiya Haruhi/[AY] Suzumiya Haruhi no Yuutsu - Haruhi no Tsumeawase ~Geki Chuu Kashuu Shinguruu~/Scans
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Gensou
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Gensou/Scans
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Shoushitsu ED Single - Yasashii Boukyaku
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Shoushitsu ED Single - Yasashii Boukyaku/Scans
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Yakusoku ED Theme Single - Sekai ga Yumemiru Yume no Naka
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Yakusoku ED Theme Single - Sekai ga Yumemiru Yume no Naka/Scans
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Yuuutsu Imaginary ENOZ featuring HARUHI
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Yuuutsu Imaginary ENOZ featuring HARUHI/Scans
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Yuuutsu New Character Song Vol.4 Koizumi Itsuki
-music/OST/Suzumiya Haruhi/[LonE] Suzumiya Haruhi no Yuuutsu New Character Song Vol.4 Koizumi Itsuki/Scans
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Nyoroon Churuya-san~ Image Song Sono 1 - Chichi kara Umareta Daisenpai
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Nyoroon Churuya-san~ Image Song Sono 1 - Chichi kara Umareta Daisenpai/Scans
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Nyoroon Churuya-san~ Image Song Sono 2 - Gugure!
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Nyoroon Churuya-san~ Image Song Sono 2 - Gugure!/Scans
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Nyoroon Churuya-san~ Image Song Sono 3 - Kono Sumochi kara no Sotsukyou
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Nyoroon Churuya-san~ Image Song Sono 3 - Kono Sumochi kara no Sotsukyou/Scans
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Suzumiya Haruhi-chan no Yuuutsu~ OP ED Single - Ima made no Arasuji
-music/OST/Suzumiya Haruhi/[LonE] YouTube Anime ~Suzumiya Haruhi-chan no Yuuutsu~ OP ED Single - Ima made no Arasuji/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi-chan no Yuuutsu & Nyoroon Churuya-sanTokusei Soundtrack CD
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 1 - Haruhi Suzumiya
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 1 - Haruhi Suzumiya/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 2 - Yuki Nagato
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 2 - Yuki Nagato/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 3 - Mikuru Asahina
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 3 - Mikuru Asahina/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 4 - Tsuruya-san
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 4 - Tsuruya-san/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 5 - Ryoko Asakura
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 5 - Ryoko Asakura/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 6 - Kyon's Sister
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 6 - Kyon's Sister/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 7 - Emiri Kimidori
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 7 - Emiri Kimidori/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 8 - Koizumi Itsuki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 8 - Koizumi Itsuki/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 9 - Kyon
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 Character Single Vol 9 - Kyon/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD1 Bonus Disc - Soundtrack 01 Radio​ Bangumi 02
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD1 Bonus Disc - Soundtrack 01 Radio​ Bangumi 02/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD2 Bonus Disc - Soundtrack 02 Radio​ Bangumi 03
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD2 Bonus Disc - Soundtrack 02 Radio​ Bangumi 03/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD3 Bonus Disc - Soundtrack 03 Radio​ Bangumi 04
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD3 Bonus Disc - Soundtrack 03 Radio​ Bangumi 04/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD4 Bonus Disc - Soundtrack 04 Radio​ Bangumi 05
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD4 Bonus Disc - Soundtrack 04 Radio​ Bangumi 05/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD5 Bonus Disc - Soundtrack 05 Radio​ Bangumi 06
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD5 Bonus Disc - Soundtrack 05 Radio​ Bangumi 06/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD6 Bonus Disc -  Soundtrack 06 Radio​ Bangumi 07
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD6 Bonus Disc -  Soundtrack 06 Radio​ Bangumi 07/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD7 Bonus Disc - Soundtrack 07 Radio​ Bangumi 08
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 DVD7 Bonus Disc - Soundtrack 07 Radio​ Bangumi 08/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 ED Single - Hare Hare Yukai
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 ED Single - Hare Hare Yukai/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 OP Single - Bouken Desho Desho
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2006 OP Single - Bouken Desho Desho/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 1 - Haruhi Suzumiya
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 1 - Haruhi Suzumiya/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 2 - Yuki Nagato
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 2 - Yuki Nagato/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 3 - Mikuru Asahina
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 3 - Mikuru Asahina/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 5 - Kyon
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 5 - Kyon/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 6 - Tsuruya-san
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 6 - Tsuruya-san/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 7 - Taniguchi
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 Character Single Vol 7 - Taniguchi/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD1 Bonus -  SOS-Dan no Meikyoku Album Dai-1-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD2 Bonus - SOS-Dan no Meikyoku Album Dai-2-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD3 Bonus - SOS-Dan no Meikyoku Album Dai-3-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD4 Bonus - SOS-Dan no Meikyoku Album Dai-4-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD5 Bonus - SOS-Dan no Meikyoku Album Dai-5-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD6 Bonus  - SOS-Dan no Meikyoku Album Dai-6-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD7 Bonus - SOS-Dan no Meikyoku Album Dai-7-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu  2009 DVD8 Bonus - SOS-Dan no Meikyoku Album Dai-8-Ki
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 ED Single - Tomare!
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 ED Single - Tomare!/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 OP Single - Super Driver!
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu 2009 OP Single - Super Driver!/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Episode​ 00​ DVD Bonus Disc - 00 Soundtrack​ Radio​ Bangumi 01
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Episode​ 00​ DVD Bonus Disc - 00 Soundtrack​ Radio​ Bangumi 01/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Feature - The Disappearence of Haruhi Suzumiya OST
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Feature - The Disappearence of Haruhi Suzumiya OST/Disc 1
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Feature - The Disappearence of Haruhi Suzumiya OST/Disc 2
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Feature - The Disappearence of Haruhi Suzumiya OST/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu - Haruhi no Chokuretsu and Haruhi no Heiretsu Mini Vocal
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu - Haruhi no Chokuretsu and Haruhi no Heiretsu Mini Vocal/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu - Haruhi no Gekido Mini Vocal
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu - Haruhi no Gekido Mini Vocal/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu - Haruhi no Kioku
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Radio OP2 - Saikyo Pare Parade
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Radio OP2 - Saikyo Pare Parade/Scans
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Remix CD - NON-STOP MEGA MIX
-music/OST/Suzumiya Haruhi/Suzumiya Haruhi no Yuutsu Remix CD - NON-STOP MEGA MIX/Scans
-music/OST/The Legend of Zelda - The Wind Waker
-music/OST/The Legend of Zelda - The Wind Waker/LoZWW - Disc 1
-music/OST/The Legend of Zelda - The Wind Waker/LoZWW - Disc 2
-music/Rock
-music/Rock/Radiohead - OK Computer (1997)
-music/Rock/The Beach Boys - Pet Sounds (1966)
-music/Rock/The Beatles - Abbey Road (1969)
-music/Rock/The Beatles - Rubber Soul (1965)
-music/Rock/The Velvet Underground & Nico - The Velvet Underground & Nico (1967)
 
 tv
-tv/[Backlog]
-tv/[Backlog]/...
-tv/[Backlog]/[Completed]
-tv/[Backlog]/[Completed]/...
+tv/[backlog]
+tv/[backlog]/...
+tv/[backlog]/[completed]
+tv/[backlog]/[completed]/...
 tv/Arrested Development (2003-13)
 tv/Arrested Development (2003-13)/Season 1
 tv/Arrested Development (2003-13)/Season 2
@@ -630,12 +248,6 @@ tv/Arrested Development (2003-13)/Season 4
 tv/Band of Brothers (2001)
 tv/Firefly (2002-03)
 tv/Freaks and Geeks (1999-00)
-tv/Game of Thrones (2011-1X)
-tv/Game of Thrones (2011-1X)/Season 1
-tv/Game of Thrones (2011-1X)/Season 2
-tv/Game of Thrones (2011-1X)/Season 3
-tv/Game of Thrones (2011-1X)/Season 4
-tv/The Twilight Zone (1959-64)
 tv/Whose Line Is It Anyways? (1998-1X)
 tv/Whose Line Is It Anyways? (1998-1X)/Season 1
 tv/Whose Line Is It Anyways? (1998-1X)/Season 2
@@ -646,32 +258,30 @@ tv/Whose Line Is It Anyways? (1998-1X)/Season 6
 tv/Whose Line Is It Anyways? (1998-1X)/Season 7
 tv/Whose Line Is It Anyways? (1998-1X)/Season 8
 tv/Whose Line Is It Anyways? (1998-1X)/Season 9
-
-video games
-video games/[Backlog]
-video games/[Backlog]/...
-video games/[Backlog]/[Completed]
-video games/[Backlog]/[Completed]/...
-video games/Chrono Trigger (1995)
-video games/EarthBound (1994)
-video games/Elder Scrolls V - Skyrim (2012)
-video games/Final Fantasy VII (1997)
-video games/Grand Theft Auto 3 - Vice City (2001)
-video games/Guild Wars 2 (2012-1X)
-video games/Half-Life (1998)
-video games/Legend of Zelda - Majora's Mask (2000)
-video games/Legend of Zelda - Ocarina of Time (1998)
-video games/Mario Kart 64 (1996)
-video games/Metal Gear Solid (1998)
-video games/Metal Gear Solid 3 - Snake Eater (2004)
-video games/Mother 3 (2006)
-video games/Pokemon Red and Blue (1996)
-video games/Shadow of the Colossus (2005)
-video games/StarCraft (1998)
-video games/World of Warcraft (2004-1X)
-
-visual novels
-visual novels/[Backlog]
-visual novels/[Backlog]/...
-visual novels/[Backlog]/[Completed]
-visual novels/[Backlog]/[Completed]/...
+video-games
+video games/[backlog]/...
+video-games/[backlog]
+video games/[backlog]/[completed]
+video games/[backlog]/[completed]/...
+video-games/Chrono Trigger (1995)
+video-games/EarthBound (1994)
+video-games/Elder Scrolls V - Skyrim (2012)
+video-games/Final Fantasy VII (1997)
+video-games/Grand Theft Auto 3 - Vice City (2001)
+video-games/Guild Wars 2 (2012-1X)
+video-games/Half-Life (1998)
+video-games/Legend of Zelda - Majora's Mask (2000)
+video-games/Legend of Zelda - Ocarina of Time (1998)
+video-games/Mario Kart 64 (1996)
+video-games/Metal Gear Solid (1998)
+video-games/Metal Gear Solid 3 - Snake Eater (2004)
+video-games/Mother 3 (2006)
+video-games/Pokemon Red and Blue (1996)
+video-games/Shadow of the Colossus (2005)
+video-games/StarCraft (1998)
+video-games/World of Warcraft (2004-1X)
+visual-novels
+visual novels/[backlog]/...
+visual-novels/[backlog]
+visual novels/[backlog]/[completed]
+visual novels/[backlog]/[completed]/...
