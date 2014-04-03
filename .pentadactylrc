@@ -182,19 +182,16 @@ map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats
 
 " Media
 map -modes=n -builtin <Leader>n  :tabopen! https://dl.dropboxusercontent.com/u/30753123/nil/index.html<CR>
+map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
 map -modes=n -builtin <Leader>ad :tabopen! http://myanimelist.net/clubs.php?cid=40791<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
-map -modes=n -builtin <Leader>gn :tabopen! http://www.goodreads.com/<CR>
-map -modes=n -builtin <Leader>gp :tabopen! https://www.goodreads.com/user/show/7207396-nil<CR>
 map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/films-tv.html<CR>
 map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/music.html<CR>
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/video-games.html<CR>
 map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/visual-novels.html<CR>
-map -modes=n -builtin <Leader>y  :tabopen! http://rateyourmusic.com/~nilin<CR>
 map -modes=n -builtin <Leader>l  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " LAN.
