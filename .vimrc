@@ -706,4 +706,46 @@ endfunction
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
 
+function Func()
+    :%s/^ *\\section{\([^}]\+\)}/======\1======/e
+    :%s/^ *\\subsection{\([^}]\+\)}/=====\1=====/e
+    :%s/^ *\\begin{definition}/\/\/Definition:\/\//e
+    :%s/^ *\\begin{remark}/\/\/Remark:\/\//e
+    :%s/^ *\\begin{theorem}/**Theorem:**/e
+    :%s/^ *\\begin{lemma}/**Lemma:**/e
+    :%s/^ *\\begin{corollary}/**Corollary:**/e
+    :%s/^ *\\begin{proposition}/**Proposition:**/e
+    :%s/^ *\\begin{claim}/**Claim:**/e
+    :%s/^ *\\begin{example}/**Example:**/e
+    :%s/^ *\\begin{proof}/\/\/Proof:\/\//e
+    :%s/^ *\\begin{observation}/\/\/Observation:\/\//e
+    :%s/\\end{definition}//e
+    :%s/\\end{remark}//e
+    :%s/\\end{theorem}//e
+    :%s/\\end{lemma}//e
+    :%s/\\end{corollary}//e
+    :%s/\\end{proposition}//e
+    :%s/\\end{claim}//e
+    :%s/\\end{example}//e
+    :%s/\\end{proof}//e
+    :%s/\\end{observation}//e
+    :%s/^ *\\noindent *//e
+    :%s/\\emph{\([^}]\+\)}/\/\/\1\/\//e
+    :%s/\\underline{\([^}]\+\)}/__\1__/e
+    :%s/\\underbracket{/\\underbrace{/e
+    :%s/^ *\\begin{align\*}/\\begin{equation*}\\begin{aligned}/e
+    :%s/\\end{align\*}/\\end{aligned}\\end{equation*}/e
+    "manually do items, i.e., joining them so they align properly
+    ":%s/\\end{enumerate}//e
+    ":%s/\\end{itemize}//e
+    :%s/\\\([a-zA-Z]\)\([^a-zA-Z]\)/\\mathbb{\1}\2/e
+"delete until htitle
+"delete everything after htitle
+"dunno how to deal with nested items and linebreaks
+"also whitespaces
+"have no more than one consecutive blank line
+"{\bf }
+"%s/^ *\\begin{enumerate}[^\\]*\\item/  -
+"%s/^ *\\begin{itemize}[^\\]*\\item/  *
+endfunction
 " }}}

@@ -28,7 +28,6 @@ gvim
 htop
 icedtea-web-java7
 ifplugd
-ipython
 irssi
 iw
 lib32-cairo-infinality-ultimate
@@ -52,11 +51,8 @@ ntp
 openssh
 packer
 pm-utils
-python-jinja
-python-tornado
 r
 ranger-git
-rdesktop
 rsync
 rubber
 rxvt-unicode
@@ -103,7 +99,7 @@ xorg-xinit
 xsel
 zathura
 zathura-djvu
-zathura-pdf-poppler
+zathura-pdf-mupdf
 zathura-ps
 zip
 zsh

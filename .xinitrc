@@ -21,7 +21,7 @@
 clipit &
 compton -b
 dropboxd &
-#mpd ~/.config/mpd/mpd.conf
+mpd ~/.config/mpd/mpd.conf
 #rssdler -c ~/.config/rssdler/config.txt -d
 #synclient touchpadoff=0
 syndaemon -k -i 1 -d
@@ -37,7 +37,7 @@ xmodmap -e 'keycode 255 = emdash'
 xmodmap -e 'keycode 108 = Alt_R'
 xcape -e 'Control_L=Escape;Alt_R=emdash'
 xrdb -merge ~/.Xresources
-#mpdas &
+mpdas &
 
 ###############################################################################
 # Applications
