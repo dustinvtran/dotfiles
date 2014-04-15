@@ -55,6 +55,7 @@ set passkeys+=reddit.com:NEx+-qcCarwb<CR>
 set passkeys+=boards.4chan.org:NE<C-n><C-e>DxmMqQ<C-w>cC<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
+set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly.
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
 " Holy fuck this guy keeps resetting itself otherwise.
@@ -175,7 +176,7 @@ map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusi
 
 " Community Websites
 map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
-map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%2FAssociates<CR>
+map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffollow<CR>
 map -modes=n -builtin <Leader>h  :tabopen! https://github.com/nil-<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
