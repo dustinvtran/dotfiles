@@ -123,6 +123,7 @@ hilights = (
   { text = "nil-"; nick = "yes"; word = "yes"; fullword = "yes"; },
   { text = "nilf"; nick = "yes"; word = "yes"; fullword = "yes"; },
   { text = "nilk"; nick = "yes"; word = "yes"; fullword = "yes"; }
+  { text = "niltop"; nick = "yes"; word = "yes"; fullword = "yes"; }
 );
 keyboard = (
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; },

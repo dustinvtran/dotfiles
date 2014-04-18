@@ -706,6 +706,7 @@ endfunction
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
 
+" temp function for 227c
 function Func()
     :%s/^ *\\section{\([^}]\+\)}/======\1======/e
     :%s/^ *\\subsection{\([^}]\+\)}/=====\1=====/e
