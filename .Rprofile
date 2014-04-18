@@ -16,24 +16,23 @@ r["CRAN"] <- "http://cran.us.r-project.org"
 options(repos = r)
 rm(r)
 
-# This is an aliased function that knits and compiles my problem sets, all in one step requiring just the couse and
-# problem set #.
-knitme <- function(course,coursenum,psnum) {
+# knitme knits/compiles my .Rtex problem sets while requiring only the problem set # as input. It assumes: 1. you are in the working directory, and 2. follow the correct filename format.
+knitme <- function(psnum) {
     # Knit using just the problem set #.
     if (psnum < 10) {
         psnum <- paste(0, psnum, sep = "")
     }
-    filedir <- paste("/home/nil/Dropbox/nil/academics/berkeley-2014-spring/", course, "-", coursenum, "/problem-sets", sep = "")
-    filename <- paste(filedir, "/", coursenum, "-ps", psnum, ".Rtex", sep = "")
-    filenameout <- paste(filedir, "/", coursenum, "-ps", psnum, ".tex", sep = "")
+    string <- paste("-ps", psnum, ".Rtex", sep="")
+    filename <- list.files()[grep(string,list.files())]
+    filenameout <- gsub(".Rtex", ".tex", filename)
     knit(filename, output = filenameout)
     # Workaround for bug from knitr, requiring me to delete some redundant line output in my .tex.
     command <- paste("sed -i '12,60d' '", filenameout, "'", sep = "")
     system(command)
     # Compile and clean auxiliary files using rubber.
-    command <- paste("rubber --into='", filedir, "' -d '", filenameout, "'", sep = "")
+    command <- paste("rubber -d '", filenameout, "'", sep = "")
     system(command)
-    command <- paste("rubber --into='", filedir, "' --clean '", filenameout, "'", sep = "")
+    command <- paste("rubber --clean '", filenameout, "'", sep = "")
     system(command)
 }
 
