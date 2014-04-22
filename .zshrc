@@ -401,7 +401,6 @@ alias bd="bg && disown"                    # Best way to prevent terminal-launch
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'                      # See list of recently used commands.
 alias pokerstars="wine '/home/nil/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
-alias psc="ps -C"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
