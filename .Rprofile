@@ -67,4 +67,13 @@ ls.sizes <- function(howMany = 10, minSize = 1){
         print(format(objSizes, justify = "right", width = 11), quote = FALSE)
 }
 
+# This sources all files in a given directory, defaulted to the working directory.
+sourceDir <- function(path=getwd(), trace = TRUE, ...) {
+    for (nm in list.files(path, pattern = "\\.[RrSsQq]$")) {
+       if(trace) cat(nm,":")
+       source(file.path(path, nm), ...)
+       if(trace) cat("\n")
+    }
+}
+
 # vim:filetype=conf
