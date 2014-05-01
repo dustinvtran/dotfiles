@@ -14,6 +14,10 @@ user_css = u''
 # Set the maximum width that the book's text and pictures will take when in fullscreen mode. This allows you to read the book text without it becoming too wide.
 max_fs_width = 800
  
+# max fs height
+# Set the maximum height that the book's text and pictures will take when in fullscreen mode. This allows you to read the book text without it becoming too tall. Note that this setting only takes effect in paged mode (which is the default mode).
+max_fs_height = -1
+ 
 # fit images
 # Resize images larger than the viewer window to fit inside it
 fit_images = True

@@ -30,17 +30,17 @@ link = http://www.nyaa.eu/?page=rss
 #directory =
 #regExTrue =
 regExFalse = ([1-4]?[0-9]{2}p|mp4)
-download1 = (Asenshi.*(Mushishi|Mekaku))
+download1 = (Commie.*(Ping Pong|Mekaku)|Vivid.*Mushishi)
 download1False = %(regExFalse)s
-download2 = HorribleSubs.*(Ping Pong)
+download2 = HorribleSubs.*(Ping Pong|Mekaku|Mushishi)
 download2False = (1080p|%(regExFalse)s)
 
 #########################################################
-#[tpb]
+[tpb]
 #########################################################
 
-#link = http://thepiratebay.sx/rss
-#regExTrue = (Arrested.*Development.*S04.*1080)
-#regExFalse = (480p|720p)
+link = http://thepiratebay.sx/rss
+regExTrue = (Silicon.*Valley.*S01.*720)
+regExFalse = (480p|720p)
 
 # vim:filetype=conf
