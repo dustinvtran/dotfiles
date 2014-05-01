@@ -79,12 +79,16 @@ map -modes=c -builtin <C-n> <Down>
 map -modes=c -builtin <C-e> <Up>
 map -modes=n -builtin s gT
 map -modes=n -builtin t gt
+map -modes=n -builtin <Right> gt
+map -modes=n -builtin <Left> gT
 map <silent> -modes=n -builtin <C-s> :tabmove -1<CR>
 map <silent> -modes=n -builtin <C-t> :tabmove +1<CR>
 map -modes=n -builtin j ;
 map -modes=n -builtin <C-b> :dialog places<CR>
 map -modes=n -builtin S H
 map -modes=n -builtin T L
+map -modes=n -builtin <S-Right> H
+map -modes=n -builtin <S-Left> L
 map -modes=n -builtin o t
 map -modes=n -builtin O T
 map -modes=n -builtin <C-o> :tabopen!<Space>
@@ -193,7 +197,8 @@ map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30
 map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/music.html<CR>
 map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/video-games.html<CR>
 map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/visual-novels.html<CR>
-map -modes=n -builtin <Leader>l  :tabopen! http://www.last.fm/user/nil1729<CR>
+map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/literature.html<CR>
+map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " LAN.
 map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
