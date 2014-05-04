@@ -8,7 +8,68 @@ Each to-do item for an application is assigned toward a priority level depending
 Highest Priority {{{
 -------------------------------------------------------------------------------
 
+The following are temporary packages installed for skype video communication and/or configuration:
 lib32-v4l-utils, v4l-utils, guvcview, skype-call-recorder
+
+The following is a bunch of unorganized "todolist" things
+live-tex{{{
+get tikz-cd working, e.g., 134-lecture-05.tex
+compile from lecture note
+subsubsection numbering
+}}}
+finish major set up of linux on laptop {{{
+mpd: set up stream on PC to get working for laptop using icecast
+Gmail: desktop notifications for arch linux
+    replace naughty with libnotify, include it for dropbox, gmail, irssi, ?, low battery notification, skype notifications
+both: get zathura and things such as private firefox to tile when desired
+    sync pc: someway to make this easier and less manual
+        git checkout master && git checkout laptop .. & git merge-master-from-laptop
+        git checkout master && git checkout desktop .. & git merge-master-from-desktop
+            * somehow get all files from git sdiff
+                for now define a script to ask for filenames, then do all the rest
+        what special cases do i still need to do manually?
+            * if it's adding new files into master, and you want to push master
+            * there are overlapping commits from both pcs
+    xbacklight not the same on plug in, display off/on
+    clipit not always working when highliting over
+    font: infinality-ultimate not working for lemon and things
+        lemon rendering unicode on some characters..!!?
+    laptop boots faster than wifi gets to load
+    auto-enter rsa password for git
+    git doc/shared-files: a list of files shared between laptop destop, and those which aren't
+    rc.lua
+        shortcut key: have one to disable touchpad
+        pausebreak: play-pause
+        prtsc: ?
+        libreoffice popups
+    libreoffice: have dropbox sync auto-update xlsx sheets
+    udev-power-supply
+        install it
+        another if condition
+            after 90 sec of idle
+                xbacklight -dec 20
+            after 180s of idle
+                xbacklight -dec 20
+            if i move during any of these, it resets it back to normal
+        also while learning this, set laptop lid event to pm-suspend-hybrid
+    firefox addons:
+        stylish
+        RES
+    vim: power bar colors
+    touchpad: touch and drag while scrolling
+    both: gimp-git
+    both: update infinality repos
+    new share
+        libreoffice keybinds
+        .config/ranger/bookmarks
+        /etc/systemd/system/getty@tty1.service.d/autologin.conf
+        firefox addon configs
+        vim airline colors
+    new
+        /etc/pm/config.d/unload_module
+    no need
+        system-dotfiles/hdmi.rules.. cron..
+}}}
 
 misc
     firefox popups too big
@@ -16,9 +77,6 @@ misc
     deal with window layout, e.g., the media
     move skype with the rule_any thing
     emdash/alt
-
-file directories
-    managing ./other in nil/Dropbox or nil/nil?
 
 mpd
     in the alias, set if statement of it mpdas defunct/not there, add mpdas & line too
@@ -42,18 +100,6 @@ cron
 
 urxvt
     * urxvt-perls: c-v as paste (eg for irssi and readline), url clicker+keyboard select.
-
-skype/mic
-    * usb audio output should always be set to 50. it resets. putting it in udev-hdmi is not the right way since you only put up the usb when about to speak
-        amixer -c 2 set Mic 9dB
-    * enable push to talk
-    * see how who talks in a group
-    * awesome: Configure where to display it.
-    * awesome: how to deal with notifications.
-    * best interface/cli?
-
-media-lists
-    * figure out how to sort, e.g., pull out from a section and place into a file, and have sed sort by every 7th row or something
 
 }}}
 High Priority {{{
@@ -111,6 +157,8 @@ Firefox Addon: Pentadactyl
     * When I try to hit a popup X box, the status line shifts everything up, then it shifts it down and so it goes screwy in a loop, making it hard to hit the box.
 
 irssi
+    * better way to store logs, so you dont see things like truncated names
+    * include invisible (status) channel so it collects all commands like /names
     * Quitting with /away doesn't show away in sb on new login, although I'm still away.
     * Possibly use (status) at login, which you can then close afterwards, so you don't have to deal with all that garbage on login. Or maybe (msgs) too.
     * Alias > to automatically expand to C-c3>.
@@ -145,6 +193,14 @@ readline
     * Add color to inputs of python, R, Matlab to determine what mode you're in.
     * Add more vim keybindings like ones I did for zle widgets. Possibly even sync the two.
         Use github for suggestions.
+
+skype/mic
+    * usb audio output should always be set to 50. it resets. putting it in udev-hdmi is not the right way since you only put up the usb when about to speak
+        amixer -c 2 set Mic 9dB
+    * enable push to talk
+    * some configuration to enable user to see who talks in a group
+    * awesome: Configure where to place it.
+    * awesome: how to deal with notifications.
 
 transmission
     * Occasionally corrupt pieces of files in Transmission downloading. Is this transmission's fault or mine??
@@ -241,6 +297,9 @@ mcomix
 
 mpv
     * Configure autosync to never go out during fast forward, e.g., with --mc or whatever.
+
+media-lists
+    * figure out how to sort, e.g., pull out from a section and place into a file, and have sed sort by every 7th row or something
 
 ncmpcpp
     * Somehow play everything as the playlist (clear, then add them).
@@ -413,38 +472,23 @@ zsh
 Misc {{{
 -------------------------------------------------------------------------------
 
-temp settings for vacation
-    udev-hdmi: changed display
-    zshrc
-    xinitrc
-
-set up github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets,search engines), how i sort my media.
-grub
-    rename menu entries
-login manager
-    boot into X as normally, but first overlayed by a floating terminal asking for password; if fail, then repeat ask, with prompt saying that 'reboot' and 'poweroff' as passwords work; if success, then resume normally. And then whenever I close/open the lid, it does that same terminal function.  I can issue that close/open lid condition using acpid.
-Look at other people's dotfiles in github for ideas.
+what to change when moving to different monitors: udev-hdmi, xinitrc
+Better partition your code in repos, e.g., github old dotfiles repo, firefox styles repo, and latex templates and firefox bookmarks (e.g. bookmarklets,search engines), how i sort my media.
 system
     Optimize boot time.
     Recheck and sync the keys and colors on all apps; clean their configs.
     Purge all system dotfiles from old packages and/or reinstall.
     Complete wish/todolists.
     Place all dotfiles into .config! (while removing their '.')
-Learn all them linux commands, archlinux niche functions, etc.
-Keyboard: L/R Shift training wheels
-git: Learn the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
-Software Program Ideas
-    * Parser to automate directory name formats as in my Media README which does it even for [Backlog] by parsing through specific websites' APIs. Then if I rate it >=8 from another website, it'll move from [Backlog] to Collection, and if I rate <8, it'll move to [Completed]. Include metadata files that have dates, author, etc.
-    * When copying latex things from pdf to text, have it convert all the unicode to the appropriate \LaTeX command.
-    * A backup of your system, as well as a perfect sync into a bootable USB on-the-go.
-        1. An automated backup of your entire system and config files without superfluous backups of media material.
-        2. Moreover, can be used as a carry-around USB which literally boots into your system with everything perfectly set in place.
-        3. Have anything changed on the carry-around USB organized into one single folder, for which you can then take it and implement it into your desktop system at later points.
-        4. Have the carry-around USB and desktop system config continuously sync, rather than daily.
-        1/2. rsync your entire system save for the superfluous material (media folders, etc.).
-        3. Don't know yet, but you can always note of this manually.
-        4. Don't know yet, but such programs exist.
-        -: Do you really need a bootable USB? I mean, it's not like there are just public computers all over the place like some sci-fi place, where instead of owning computers people own little bootable USBs to plug into such hubs as their personal computers on-the-go.
-    * Have timestamped backups saved every month, to literally log your life. The only caveat is the huge expense in requiring all that storage. And really, your computer logs just aren't interesting enough to do this..
+    rename menu entries in grub
+    login manager
+        boot into X as normally, but first overlayed by a floating terminal asking for password; if fail, then repeat ask, with prompt saying that 'reboot' and 'poweroff' as passwords work; if success, then resume normally. And then whenever I close/open the lid, it does that same terminal function.  I can issue that close/open lid condition using acpid.
+    Look at other people's dotfiles in github for more ideas.
+Learn:
+    general UNIX commands
+    archlinux niche functions/management
+    Keyboard: L/R Shift training wheels
+    git: the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
+    gmail filters/labels/more shortcuts
 
 }}}
