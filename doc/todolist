@@ -77,6 +77,7 @@ misc
     deal with window layout, e.g., the media
     move skype with the rule_any thing
     emdash/alt
+    Clean packages/my PC's memory
 
 mpd
     in the alias, set if statement of it mpdas defunct/not there, add mpdas & line too
@@ -97,6 +98,9 @@ Colemak
 
 cron
    * Fix the cronjobs. mpdas simply goes defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>. rssdler isn't always downloading
+
+vim
+    * syntax color style for my todolist, and a file that logs when I add and complete (delete) tasks
 
 urxvt
     * urxvt-perls: c-v as paste (eg for irssi and readline), url clicker+keyboard select.
