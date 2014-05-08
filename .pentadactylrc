@@ -158,6 +158,9 @@ map -modes=n [ Qw
 " -----------------------------------------------------------------------------
 
 " huehuehue
+map -modes=n -builtin <Leader>g  :tabopen! https://github.com/<CR>
+map -modes=n -builtin <Leader>h  :tabopen! https://news.ycombinator.com/<CR>
+map -modes=n -builtin <Leader>q  :tabopen! http://www.quora.com/<CR>
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
@@ -178,10 +181,8 @@ map -modes=n -builtin <Leader>rp :tabopen! http://www.reddit.com/r/buildapc<CR>
 map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/anime<CR>
 map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
-" Community Websites
 map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
 map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffollow<CR>
-map -modes=n -builtin <Leader>h  :tabopen! https://github.com/nil-<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
 
@@ -193,11 +194,11 @@ map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<C
 map -modes=n -builtin <Leader>ad :tabopen! http://myanimelist.net/clubs.php?cid=40791<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/films-tv.html<CR>
-map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/music.html<CR>
-map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/video-games.html<CR>
-map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/visual-novels.html<CR>
-map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/literature.html<CR>
+map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/films-tv.html<CR>
+map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/music.html<CR>
+map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/video-games.html<CR>
+map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/visual-novels.html<CR>
+map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/literature.html<CR>
 map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " LAN.
