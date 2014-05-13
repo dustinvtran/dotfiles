@@ -164,12 +164,11 @@ map -modes=n -builtin <Leader>q  :tabopen! http://www.quora.com/<CR>
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
+map -modes=n -builtin <Leader>4n :tabopen! http://boards.4chan.org/n/<CR>
 map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/tv/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
 map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
-map -modes=n -builtin <Leader>4s :tabopen! http://boards.4chan.org/sci/<CR>
-map -modes=n -builtin <Leader>4w :tabopen! http://boards.4chan.org/w/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
@@ -184,7 +183,7 @@ map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusi
 map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
 map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffollow<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
-map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | blackcats-games.net | what.cd | iptorrents.com | torrent-invites.com/10-giveaways<CR>
+map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd | torrent-invites.com/10-giveaways<CR>
 
 " Media
 map -modes=n -builtin <Leader>n  :tabopen! http://nil.heliohost.org/<CR>
