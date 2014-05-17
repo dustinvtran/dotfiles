@@ -51,8 +51,8 @@ set showstatuslinks=command
 set showtabline=always
 set titlestring=
 set hlfind
-set passkeys+=reddit.com:NEx+-qcCarwb<CR>
-set passkeys+=boards.4chan.org:NE<C-n><C-e>DxmMqQ<C-w>cC<CR>
+set passkeys+=reddit.com:NEx+-wbqcCaAqmM<CR>
+set passkeys+=boards.4chan.org:qQ<C-q>xmM<C-n><C-e>cCNE<CR>
 set passkeys+=cloud.feedly.com:?<CR>
 "JK/rjknpovMmsbV
 set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
@@ -162,13 +162,13 @@ map -modes=n -builtin <Leader>g  :tabopen! https://github.com/<CR>
 map -modes=n -builtin <Leader>h  :tabopen! https://news.ycombinator.com/<CR>
 map -modes=n -builtin <Leader>q  :tabopen! http://www.quora.com/<CR>
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
-map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
+map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
+map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4n :tabopen! http://boards.4chan.org/n/<CR>
 map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/tv/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
-map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
