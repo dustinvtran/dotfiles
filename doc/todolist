@@ -155,6 +155,7 @@ cron
     * Get up an xcape cronjob. It still goes funky at times.
 
 Firefox Addon: Pentadactyl
+    * make a script to open archive url of current board, which is set as a keybind
     * Using digits autogoes to a url page. stahp. let them use google.
     * Google search suggestions aren't working. unless i specifically go to 'g'.
     * Have '/' searches show the # of results.
