@@ -51,25 +51,22 @@ Medium Priority
     * An addon or something, where you can right click a link and use the wrapped text for a search engine. For example, so you don't have to highlight the linked text in order to right click then hit Wikipedia to search for the wiki article.
 
 }}}
-Firefox Addon: 4chan X Seaweed {{{
+Firefox Addon: 4chan X (ccd0) {{{
 -------------------------------------------------------------------------------
 
 High Priority
-    * Can't open up thread with keybind 'Open thread in new tab'.
-    * Working watch list.
+    * Can't navigate to last thread on a board's page (and subsequently keyboard-open its thread).
     * Mouse drag-hold adjustable image like RES; better yet, a keyboard adjustable one.
     * Ability to keyboard hint-click replies to posts, or at least hit a keybind that will open them up if they exist.
            'Quote Hash Navigation' can do this partially, but it only moves to that post, not opens up the inline post like the arrow does; also it is prevalent on all quotes, which is unnecessary for this purpose.
 
 Medium Priority
-    * Working autopager (this saves two keybinds, is more convenient, and doesn't deal with "should i wait or open new page in tab which requires 2 more keybinds" dilemma).
-        Can't navigate to last thread on a board's page (and subsequently keyboard-open its thread).
     * Keybind to open up corresponding archive link to board.
-
-Low Priority
     * Have <C-j>/<C-k> navigate between threads on the board index, and navigate between posts on a thread page (this saves two keybinds since I never nagivate between two posts on the board index).
         At the very least, the ability to unbind c-j/k on comments page, preventing it from going  to home page.
     * When J/K navigating between posts and when hitting K at the top most post, have it deselect (this saves a keybind). This allows you to select the OP and expand his/her image.
+
+Low Priority
     * Have the extra info when hovering over a post be shown when you're selecting it through keyboard navigation, i.e., the image file name, its size and resolution, and the google and iqdb links.
 
 }}}
