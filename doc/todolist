@@ -273,11 +273,8 @@ feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
 
 Firefox
-    * 4chanx/pentadactyl: it goes to home if 4chanx doesn't do anything, especially when it's still loading
-    * Style MAL and forum CSS, addon manager css.
     * MAL: Set up wikipedia+MAL API so that you can autoadd all tags.
-    * Wait for RES to update so it works again.
-    * whatcd/torrent-invites: 33% (50 posts,25 rep), 55% (150 posts, 75 rep), browse regularly for bibliotik
+    * whatcd: get power user (1.05 ratio) for ptp, btn, and bibilotik invites
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.
     * flash: fullscreen toggles away once i hit something else.
     * Display notifications on primary desktop, not HDMI (e.g. download finished, gmail checker notifier, autopager notification of not loading, etc.).
