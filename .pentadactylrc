@@ -156,7 +156,7 @@ map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4n :tabopen! http://boards.4chan.org/n/<CR>
-map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/tv/<CR>
+map -modes=n -builtin <Leader>4t :tabopen! http://boards.4chan.org/tv/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
 map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
@@ -305,6 +305,27 @@ function websiteFiletypes() {
 }
 EOF
 map -modes=i -builtin <C-e> -javascript editExternallyWithFiletype()
+
+"##############################################################################
+" Open 4chan archiver
+"##############################################################################
+
+"javascript <<EOF
+"function chanArchive() {
+"    var host = buffer.URL.host
+"    var temp = host.replace(/.*\.4chan\.org$/, "")
+"    var board = temp.replace(/.*, "") #everything after the board letters
+"    if (board.match(^(3|biz|cgl|ck|diy|fa|g|ic|jp|lit|sci|vr)))
+"        commands.execute("https://warosu.org/" + board);
+"    if (board.match(^(a|biz|co|diy|gd|jp|m|q|sci|tg|tv|vg|vr|wsg)))
+"        commands.execute("http://archive.foolz.us/" + board);
+"    if (board.match(^(cgl|con|g|mu|w)))
+"        commands.execute("https://archive.rebeccablacktech.com/" + board);
+"    if (board.match(^(3|a|adv|an|c|cgl|ck|cm|co|diy|fa|fit|g|i|ic|lp|k|lit|m|mlp|mu|n|o|p|po|q|sci|sp|tg|toy|trv|tv|v|vg|vp|w|wg|wsg|x))")
+"        commands.execute("http://4chanarchive.net/boards/" + board + "/0");
+"}
+"EOF
+"map -modes=i -builtin <C-e> -javascript chanArchive()
 
 "##############################################################################
 " Macros
