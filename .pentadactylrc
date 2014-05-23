@@ -164,22 +164,14 @@ map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/vg/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
-map -modes=n -builtin <Leader>ru :tabopen! http://www.reddit.com/r/unixporn<CR>
-map -modes=n -builtin <Leader>rc :tabopen! http://www.reddit.com/r/bicycling+bikeporn<CR>
-map -modes=n -builtin <Leader>rb :tabopen! http://www.reddit.com/r/battlestations<CR>
-map -modes=n -builtin <Leader>rt :tabopen! http://www.reddit.com/r/math<CR>
-map -modes=n -builtin <Leader>rp :tabopen! http://www.reddit.com/r/buildapc<CR>
-map -modes=n -builtin <Leader>rn :tabopen! http://www.reddit.com/r/anime<CR>
-map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/classicalmusic<CR>
 
 map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
 map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffollow<CR>
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
-map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd | torrent-invites.com/10-giveaways<CR>
+map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd<CR>
 
 " Media
 map -modes=n -builtin <Leader>n  :tabopen! http://nil.heliohost.org/<CR>
-map -modes=n -builtin <Leader>b  :tabopen! http://nilblogs.wordpress.com/<CR>
 map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
 map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
 map -modes=n -builtin <Leader>ad :tabopen! http://myanimelist.net/clubs.php?cid=40791<CR>
@@ -192,28 +184,22 @@ map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30
 map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/literature.html<CR>
 map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
-" LAN.
+" LAN
 map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
 map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 
-" Misc.
+" Misc
 map -modes=n -builtin <Leader>w  :tabopen! https://www.google.com/search?q=weather<CR>
 
-" Documents.
+" Documents
 map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/1/render<CR>
 map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
 map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
 map -modes=n -builtin <Leader>mh :tabopen! https://mail.google.com/mail/u/3/#inbox<CR>
 
-" Uni.
+" Uni
 map -modes=n -builtin <Leader>j    :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
-map -modes=n -builtin <Leader>sp   :tabopen! https://bspace.berkeley.edu/portal<CR>
-map -modes=n -builtin <Leader>134  :tabopen! stat134<CR>
-map -modes=n -builtin <Leader>135n :tabopen! stat135<CR>
-map -modes=n -builtin <Leader>135p :tabopen! stat135p<CR>
-map -modes=n -builtin <Leader>151p :tabopen! stat151p<CR>
-map -modes=n -builtin <Leader>227  :tabopen! eecs227<CR>
 
 " }}}
 " Functions & Macros {{{
@@ -227,6 +213,7 @@ map -modes=n -builtin <Leader>227  :tabopen! eecs227<CR>
 javascript <<EOF
     userContext.searchDictionary = function (selection) {
         commands.execute("tabopen! wikt " + selection);
+        commands.execute("tabopen! dict " + selection);
         commands.execute("tabopen! g define " + selection);
     };
 EOF
