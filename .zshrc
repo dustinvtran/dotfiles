@@ -52,36 +52,36 @@ unset fasd_cache
 # Completion {{{
 # -----------------------------------------------------------------------------
 
-# Use (advanced) completion functionality.
+# Use (advanced) completion functionality
 autoload -U compinit
 compinit -d $CACHEDIR/zcompdump 2>/dev/null
 
-# Use cache to speed completion up and set cache folder path.
+# Use cache to speed completion up and set cache folder path
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path $CACHEDIR
 
-# Auto-insert first suggestion.
+# Auto-insert first suggestion
 setopt menu_complete
 
 # If the <tab> key is pressed with multiple possible options, print the
-# options. If the options are printed, begin cycling through them.
+# options. If the options are printed, begin cycling through them
 zstyle ':completion:*' menu select
 
-# Set format for warnings.
+# Set format for warnings
 zstyle ':completion:*:warnings' format 'Sorry, no matches for: %d%b'
 
-# Use colors when outputting file names for completion options.
+# Use colors when outputting file names for completion options
 zstyle ':completion:*' list-colors ''
 
-# Do not prompt to cd into current directory.
-# For example, cd ../<tab> should not prompt current directory.
+# Do not prompt to cd into current directory
+# For example, cd ../<tab> should not prompt current directory
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-# Completion for kill.
+# Completion for kill
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,cputime,cmd'
 
-# Show completion for hidden files also.
+# Show completion for hidden files also
 zstyle ':completion:*' file-patterns '*(D)'
 
 # Red dots!
@@ -96,7 +96,7 @@ bindkey "^I" expand-or-complete-with-dots
 # }}}
 # Prompt Style {{{
 # -----------------------------------------------------------------------------
-# This changes PS1 dynamically depending on insert or command mode.
+# This changes PS1 dynamically depending on insert or command mode
 
 autoload -U colors && colors
 PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
@@ -129,17 +129,17 @@ zle -N zle-line-init
 # }}}
 # zle widgets {{{
 # -----------------------------------------------------------------------------
-# The ZLE widges are all followed by "zle -<MODE> <NAME>" and bound below in the "Key Bindings" section.
+# The zle widgets are all followed by "zle -<MODE> <NAME>" and bound below in the "Key Bindings" section
 
 # Delete all characters between a pair of characters. Mimics Vim's "di" text
-# object functionality.
+# object functionality
 delete-in() {
     # Create locally-scoped variables we'll need
     local CHAR LCHAR RCHAR LSEARCH RSEARCH COUNT
-    # Read the character to indicate which text object we're deleting.
+    # Read the character to indicate which text object we're deleting
     read -k CHAR
     if [ "$CHAR" = "w" ]
-        then # diw, delete the word.
+        then # diw, delete the word
         # find the beginning of the word under the cursor
         zle vi-backward-word
         # set the left side of the delete region at this point
@@ -148,7 +148,7 @@ delete-in() {
         zle vi-forward-word
         # set the right side of the delete region at this point
         RSEARCH=$CURSOR
-        # Set the BUFFER to everything except the word we are removing.
+        # Set the BUFFER to everything except the word we are removing
         RBUFFER="$BUFFER[$RSEARCH+1,${#BUFFER}]"
         LBUFFER="$LBUFFER[1,$LSEARCH]"
         return
@@ -167,48 +167,48 @@ delete-in() {
         LCHAR="{"
         RCHAR="}"
     else
-        # The character entered does not have a special definition.
+        # The character entered does not have a special definition
         # Simply find the first instance to the left and right of the
-        # cursor.
+        # cursor
         LCHAR="$CHAR"
         RCHAR="$CHAR"
     fi
     # Find the first instance of LCHAR to the left of the cursor and the
     # first instance of RCHAR to the right of the cursor, and remove
-    # everything in between.
-    # Begin the search for the left-sided character directly the left of the cursor.
+    # everything in between
+    # Begin the search for the left-sided character directly the left of the cursor
     LSEARCH=${#LBUFFER}
-    # Keep going left until we find the character or hit the beginning of the buffer.
+    # Keep going left until we find the character or hit the beginning of the buffer
     while [ "$LSEARCH" -gt 0 ] && [ "$LBUFFER[$LSEARCH]" != "$LCHAR" ]
     do
         LSEARCH=$(expr $LSEARCH - 1)
     done
-    # If we hit the beginning of the command line without finding the character, abort.
+    # If we hit the beginning of the command line without finding the character, abort
     if [ "$LBUFFER[$LSEARCH]" != "$LCHAR" ]
     then
         return
     fi
     # start the search directly to the right of the cursor
     RSEARCH=0
-    # Keep going right until we find the character or hit the end of the buffer.
+    # Keep going right until we find the character or hit the end of the buffer
     while [ "$RSEARCH" -lt $(expr ${#RBUFFER} + 1 ) ] && [ "$RBUFFER[$RSEARCH]" != "$RCHAR" ]
     do
         RSEARCH=$(expr $RSEARCH + 1)
     done
-    # If we hit the end of the command line without finding the character, abort.
+    # If we hit the end of the command line without finding the character, abort
     if [ "$RBUFFER[$RSEARCH]" != "$RCHAR" ]
     then
         return
 fi
-# Set the BUFFER to everything except the text we are removing.
+# Set the BUFFER to everything except the text we are removing
     RBUFFER="$RBUFFER[$RSEARCH,${#RBUFFER}]"
     LBUFFER="$LBUFFER[1,$LSEARCH]"
 }
 zle -N delete-in
 
 
-# Delete all characters between a pair of characters and then go to insert mode.
-# Mimics Vim's "ci" text object functionality.
+# Delete all characters between a pair of characters and then go to insert mode
+# Mimics Vim's "ci" text object functionality
 change-in() {
     zle delete-in
     zle vi-insert
@@ -216,7 +216,7 @@ change-in() {
 zle -N change-in
 
 # Delete all characters between a pair of characters as well as the surrounding
-# characters themselves. Mimics Vim's "da" text object functionality.
+# characters themselves. Mimics Vim's "da" text object functionality
 delete-around() {
     zle delete-in
     zle vi-backward-char
@@ -227,7 +227,7 @@ zle -N delete-around
 
 # Delete all characters between a pair of characters as well as the surrounding
 # characters themselves and then go into insert mode Mimics Vim's "ca" text
-# object functionality.
+# object functionality
 change-around() {
     zle delete-in
     zle vi-backward-char
@@ -250,11 +250,11 @@ vim-down-line-or-history() {
 }
 zle -N vim-down-line-or-history
 
-# The hackneyed <Nop> bind.
+# The hackneyed <Nop> bind
 nop() {}
 zle -N nop
 
-# Use clipboard rather than system registers.
+# Use clipboard rather than system registers
 prepend-x-selection () {
     RBUFFER=$(xsel -op </dev/null)$RBUFFER;
     zle vi-end-of-line
@@ -280,14 +280,14 @@ zle -N edit-command-line
 bindkey -v
 
 # Disable flow control. Specifically, ensure that ctrl-s does not stop
-# terminal flow so that it can be used in other programs (such as Vim).
+# terminal flow so that it can be used in other programs (such as Vim)
 setopt noflowcontrol
 stty -ixon
 
-# Disable use of ^D.
+# Disable use of ^D
 stty eof undef
 
-# 1 sec <Esc> time delay? zsh pls.
+# 1 sec <Esc> time delay? zsh pls
 # Set to 10ms for key sequences. (Note "bindkey -rp '^['" removes the
 # availability of any '^[...' mappings, so use this instead.)
 KEYTIMEOUT=1
@@ -300,12 +300,12 @@ bindkey -M viins "^?" backward-delete-char      # i_Backspace
 bindkey -M viins '^[[3~' delete-char            # i_Delete
 bindkey -M viins '^[[Z' reverse-menu-complete   # i_SHIFT-Tab
 
-# Non-Vim default mappings I use everywhere.
+# Non-Vim default mappings I use everywhere
 bindkey -M viins "^N" vim-down-line-or-history  # i_CTRL-N
 bindkey -M viins "^E" vim-up-line-or-history    # i_CTRL-E
 bindkey -M viins '^V' append-x-selection        # i_CTRL-V
 
-# Vim defaults I don't use but I may as well keep.
+# Vim defaults I don't use but I may as well keep
 bindkey -M viins "^A" beginning-of-line         # i_CTRL-A
 #bindkey -M viins "^E" end-of-line               # i_CTRL-E
 bindkey -M viins "^K" down-line-or-history      # i_CTRL-N
@@ -318,7 +318,7 @@ bindkey -M viins "^W" backward-kill-word        # i_CTRL-W
 bindkey -M viins "^[[7~" vi-beginning-of-line   # i_Home
 bindkey -M viins "^[[8~" vi-end-of-line         # i_End
 
-# Edit current line in veritable Vim.
+# Edit current line in veritable Vim
 bindkey -M viins "^H" edit-command-line         # i_CTRL-I
 
 ###############################################################################
@@ -335,21 +335,21 @@ bindkey -M vicmd "gg" beginning-of-buffer-or-history # gg
 bindkey -M vicmd "G" end-of-buffer-or-history   # G
 bindkey -M vicmd "^R" redo                      # CTRL-R
 
-# Colemak.
+# Colemak
 bindkey -M vicmd "s" backward-char              # i_s
 bindkey -M vicmd "t" forward-char               # i_t
-#Note zshrc cannot physically do this, but urxvt itself cannot detect vicmd/viins apart..
+#Note zshrc cannot physically do this, but urxvt itself cannot detect vicmd/viins apart
 #bindkey -M vicmd "n" SCROLL DAMMIT!!            # n
 #bindkey -M vicmd "e" SCROLL DAMMIT!!            # e
 
-# Non-Vim default mappings I use everywhere.
+# Non-Vim default mappings I use everywhere
 bindkey -M vicmd 'p' append-x-selection         # p
 bindkey -M vicmd 'P' prepend-x-selection        # P
 bindkey -M vicmd 'y' yank-x-selection           # y
 #bindkey -M vicmd 'Y' yank-to-end-x-selection    # Y
 bindkey -M vicmd "z" vi-substitute              # z
 
-# Vim defaults I don't use but I may as well keep.
+# Vim defaults I don't use but I may as well keep
 bindkey -M vicmd "^H" vi-add-eol                # CTRL-E
 bindkey -M vicmd "g~" vi-oper-swap-case         # g~
 bindkey -M vicmd "ga" what-cursor-position      # ga
@@ -362,55 +362,55 @@ bindkey -M vicmd "ga" what-cursor-position      # ga
 # Alias
 ###############################################################################
 
-# Colors.
+# Colors
 alias ls='ls -a --color'
 alias lsl='ls -lah --color'
 alias grep='grep --color'
 
-# Disable autocorrection for these.
+# Disable autocorrection for these
 alias ln="nocorrect ln"
 alias mv='nocorrect mv'
 alias mkdir='nocorrect mkdir'
 alias sudo='nocorrect sudo'
 
-# Default flags.
-alias ping="ping -c 5 www.google.com"      # The only reason I ever use ping.
-alias crontab="EDITOR=vim crontab"         # Since crontab doesn't work with gvim/detached editors.
-alias cp="nocorrect cp -Rv"                # Ensure that cp is always recursive and verbose.
-alias df="df -h"                           # Display sizes in human readable format.
-alias du="du -h -c"                        # Display sizes in human readable format, and total.
-alias mpd="mpd ~/.config/mpd/mpd.conf"     # Default directory for configuration files.
-alias mount="sudo mount"                   # Don't require prepending sudo.
-alias umount="sudo umount"                 # Don't require prepending sudo.
-alias youtube-dl="youtube-dl -citk --max-quality FORMAT --extract-audio --audio-format mp3" # Download with audio and things.
+# Default flags
+alias ping="ping -c 5 www.google.com"      # The only reason I ever use ping
+alias crontab="EDITOR=vim crontab"         # Since crontab doesn't work with gvim/detached editors
+alias cp="nocorrect cp -Rv"                # Ensure that cp is always recursive and verbose
+alias df="df -h"                           # Display sizes in human readable format
+alias du="du -h -c"                        # Display sizes in human readable format, and total
+alias mpd="mpd ~/.config/mpd/mpd.conf"     # Default directory for configuration files
+alias mount="sudo mount"                   # Don't require prepending sudo
+alias umount="sudo umount"                 # Don't require prepending sudo
+alias youtube-dl="youtube-dl -citk --max-quality FORMAT --extract-audio --audio-format mp3" # Download with audio and things
 
-# Computing Environment default flags.
+# Default flags for programming languages
 alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots), hide splash
-                                           # startup.
-alias R="R --no-save -q"                   # Never save workspace image, hide startup message.
-alias python="python -q"                   # Hide startup message.
+                                           # startup
+alias R="R --no-save -q"                   # Never save workspace image, hide startup message
+alias python="python -q"                   # Hide startup message
 
-# Power Management Controls.
-alias poweroff="sudo poweroff"             # Don't require prepending sudo.
-alias reboot="sudo reboot"                 # Don't require prepending sudo.
-alias suspend="sudo pm-suspend-hybrid"     # Don't require prepending sudo. Also the best low power suspension state.
-alias xsetd="xset dpms force off"          # Turn off display.
+# Power Management Controls
+alias poweroff="sudo poweroff"             # Don't require prepending sudo
+alias reboot="sudo reboot"                 # Don't require prepending sudo
+alias suspend="sudo pm-suspend-hybrid"     # Don't require prepending sudo. Also the best low power suspension state
+alias xsetd="xset dpms force off"          # Turn off display
 
-# Miscellaneous custom commands.
-alias bd="bg && disown"                    # Best way to prevent terminal-launched app from dying when closing terminal.
+# miscellaneous custom commands
+alias bd="bg && disown"                    # Best way to prevent terminal-launched app from dying when closing terminal
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
-alias history='fc -l'                      # See list of recently used commands.
+alias history='fc -l'                      # See list of recently used commands
 alias pokerstars="wine '/home/nil/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
-alias rm='echo "This is not the command you are looking for."; false' #Never use rm again.
+alias rm='echo "This is not the command you are looking for."; false' #Never use rm again
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
 alias wlan0="sudo systemctl restart netctl-auto@wlan0.service"
 alias wlp2s0="sudo systemctl restart netctl-auto@wlp2s0.service"
 
-# Restart configs.
+# Restart configs
 alias so="xrdb ~/.Xresources; exec zsh"
 
-# Directory navigation.
+# Directory Navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -418,15 +418,15 @@ alias -- -='cd -'
 alias -- --='cd -2'
 alias -- ---='cd -3'
 
-# Make backup files ~/doc/package-list, ~/system-dotfiles/groups, ~/system-dotfiles/systemctl.
+# Make backup files ~/doc/package-list, ~/system-dotfiles/groups, ~/system-dotfiles/systemctl
 alias backup="(groups > ~/system-dotfiles/groups) && (systemctl --all > ~/system-dotfiles/systemctl) &&\
 (echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
 installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list)"
 
-# List directory structure of ~/nil/media.
-alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[Backlog\]/*'\
+# List directory structure of ~/nil/media
+alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[backlog\]/*'\
         | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/media\/sdb1/d'\
         | sed -e 's/\[backlog\]/\[aabacklog\]/'\
         && echo 'anime/[aabacklog]/...
@@ -469,13 +469,13 @@ visual novels/[aabacklog]/[completed]/...' )\
  collection. See ~/.zshrc for the command.'\
         > ~/doc/media-catalog"
 
-# Manual mounter.
+# Manual mounter
 alias mountb="mount /dev/sdb1 /mnt/sdb1"
 alias mountc="mount /dev/sdc1 /mnt/sdc1"
 alias umountb="umount /mnt/sdb1"
 alias umountc="umount /mnt/sdc1"
 
-# Package management.
+# Package management
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
 alias pQs="pacman -Qs"
 alias pR="sudo pacman -R"
@@ -484,13 +484,13 @@ alias pS="packer --noedit -S"
 alias pSyu="packer --noedit -Syu"
 alias pSs="packer -Ss"
 
-# trash-cli.
+# trash-cli
 alias tp="trash-put"
 alias tl="trash-list"
 alias tr="restore-trash"
 alias emptytrash="trash-empty"
 
-# CLI Applications.
+# CLI applications
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
 alias scrot="scrot -c -d 3 ~/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
 alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
@@ -500,42 +500,34 @@ alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record 
 ###############################################################################
 
 # The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
-# as first.
+# as first
 zip() {
     name="$(basename -- "$1")"
     cd "$(dirname -- "$1")" &&
     command zip -r "$name.zip" "$name"
 }
 
-# Application Opening
+# Application opening
 l() { nocorrect f -e libreoffice "$@" & }
 m() { nocorrect f -e mpv "$@" & }
 alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
-# 2014 Spring Berkeley temp aliases
-#alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.35.205"
-alias rdesktop="rdesktop -g 1600x900  -P -z -x l -r sound:off -u s135-879057 98.143.38.105"
-#alias sshb="ssh -X s135-879057@scf-ug01.berkeley.edu"
-#alias sshb="ssh -X s135-879057@arwen.berkeley.edu"
-alias sshb="ssh -X s135-879057@98.143.38.105"
-function scpb() {
+# harvard server
+alias sshh="ssh -X s135-879057@98.143.38.105"
+function scph() {
     scp -r s135-879057@98.143.38.105:~/$1 $2
 }
 
-# Tablet SSH.
+# Tablet SSH
 # The obtuse folder directory is to copy manga files directly into my comic reader app. I specify "all arguments" so it
-# can scp multiple files/directories simultaneously, if desired.
+# can scp multiple files/directories simultaneously, if desired
 function scpt() {
     scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
-    #temp setting for vacation
-    #scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/08D6B83A-D6A0-4B4E-9334-86A0A99BD891/Documents/
 }
-# This one goes to my pdf reader app.
+# This one goes to my pdf reader app
 function scpp() {
     scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
-    #temp setting for vacation
-    #scp -r "$@" mobile@192.168.1.9:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
 }
 
 # }}}

@@ -80,11 +80,11 @@ Xft.lcdfilter: lcddefault
 !            [codeset=JISX0208]xft:Kochi Gothic,\
 !            [codeset=KSC5601]xft:Baekmuk Dotum,\
 !            xft:WenQuanYi Bitmap Song
-URxvt*font: xft:uushi:pixelsize=11:antialias=false,\
+URxvt*font: xft:tewi:pixelsize=11:antialias=false,\
             [codeset=JISX0208]xft:Kochi Gothic,\
             [codeset=KSC5601]xft:Baekmuk Dotum,\
             xft:WenQuanYi Bitmap Song
-URxvt*boldFont: xft:uushi:pixelsize=11:antialias=false,\
+URxvt*boldFont: xft:tewi:pixelsize=11:antialias=false,\
             [codeset=JISX0208]xft:Kochi Gothic,\
             [codeset=KSC5601]xft:Baekmuk Dotum,\
             xft:WenQuanYi Bitmap Song

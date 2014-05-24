@@ -1,8 +1,8 @@
 .config /home/nil/.config
-academics /home/nil/Dropbox/nil/academics
-berkeley-2014-spring /home/nil/Dropbox/nil/academics/berkeley-2014-spring
 firefox /home/nil/Dropbox/Public/firefox-css
-List /home/nil/Dropbox/Public/List
+Public /home/nil/Dropbox/Public
 nil /home/nil/nil
 snippets /home/nil/.vim/bundle/nil/snippets
+work /home/nil/Dropbox/nil/work
+harvard-2014-fall /home/nil/Dropbox/nil/work/harvard-2014-fall
 ~ /home/nil
