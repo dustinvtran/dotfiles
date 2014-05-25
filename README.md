@@ -1,6 +1,4 @@
 # dotfiles
-(The documentation for these dotfiles is currently being worked on, and is subject to vast changes at random moments in time.)
-
 This repository collects all nontrivial configuration files for both my laptop and desktop PCs. See `~/doc` for documentation; `~/bin` for scripts; and `~/system-dotfiles` for edited system configuration files.
 
 ## primary applications
@@ -16,8 +14,10 @@ This repository collects all nontrivial configuration files for both my laptop a
 * mpd & ncmpcpp: music player
 * ranger: file manager
 * transmission-remote-cli & rssdler: torrent client & rss feed
+* urxvt: terminal emulator
 * vim: text editor
 * zathura: pdf reader
+* zsh: Unix shell
 
 ## screencaps
 Here are a few screenies of current and past setups.
