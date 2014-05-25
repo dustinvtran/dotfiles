@@ -7,8 +7,9 @@
 !##############################################################################
 ! Global Colorscheme Notes
 !##############################################################################
-! Apps: Xresources (irssi, ncmpcpp, terminal, tcli, ranger), firefox (userChrome, pentadactyl, website css), vim
-! (colorscheme, airline), awesome, zsh, alsi, calendar.
+! Relevant Apps: Xresources (irssi, ncmpcpp, terminal, transmission-remote-cli,
+! ranger), alsi, bspwm, firefox (userChrome, pentadactyl, website css),
+! vim (colorscheme, airline), zsh
 
 ! White (a snow white):         #f9f9f9
 ! Black (a faded black):        #707070
@@ -72,14 +73,6 @@ Xft.autohint: false
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
-!URxvt*font: xft:lemon:pixelsize=11:antialias=false,\
-!            [codeset=JISX0208]xft:Kochi Gothic,\
-!            [codeset=KSC5601]xft:Baekmuk Dotum,\
-!            xft:WenQuanYi Bitmap Song
-!URxvt*boldFont: xft:lemon:pixelsize=11:antialias=false,\
-!            [codeset=JISX0208]xft:Kochi Gothic,\
-!            [codeset=KSC5601]xft:Baekmuk Dotum,\
-!            xft:WenQuanYi Bitmap Song
 URxvt*font: xft:tewi:pixelsize=11:antialias=false,\
             [codeset=JISX0208]xft:Kochi Gothic,\
             [codeset=KSC5601]xft:Baekmuk Dotum,\
@@ -106,7 +99,7 @@ URxvt*cursorUnderline: true
 
 URxvt.keysym.C-u: command:\033]720;1\007
 URxvt.keysym.C-d: command:\033]721;1\007
-! Somehow map it to some obscure key, and then map that key via Vim.
+! Somehow map it to some obscure key, and then map that key via Vim
 !URxvt.keysym.S-space: command: \033[1~
 URxvt.iso14755: False
 
@@ -118,7 +111,7 @@ URxvt.iso14755: False
 URxvt.perl-ext: default,matcher
 URxvt.matcher.button: 1
 URxvt.urlLauncher: /usr/bin/firefox
-! Highlight to end of last character, not the full line (particularly more convenient for yanking).
+! Highlight to end of last character, not the full line (particularly more convenient for yanking)
 ! Not working.
 !URxvt.highlightSelection: true
 

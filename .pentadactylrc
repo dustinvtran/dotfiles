@@ -60,6 +60,8 @@ set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
 " Holy fuck this guy keeps resetting itself otherwise.
 set! general.smoothScroll=false
+set! ui.key.menuAccessKey=0
+set! ui.key.menuAccessKeyFocuses=false
 
 " }}}
 " Mappings {{{
@@ -140,6 +142,8 @@ map -modes=n <F7> <Nop>
 map -modes=i <C-s> <Nop>
 map -modes=i <C-n> <Nop>
 map -modes=n,i <C-h> <Nop>
+" not working
+"map -modes=n,i <A> <Nop>
 map -modes=n ] QQ
 map -modes=n [ Qw
 
@@ -147,8 +151,9 @@ map -modes=n [ Qw
 " Bookmarks {{{
 " -----------------------------------------------------------------------------
 
-" huehuehue
-map -modes=n -builtin <Leader>g  :tabopen! https://github.com/<CR>
+" Communities
+map -modes=n -builtin <Leader>gn  :tabopen! https://github.com/<CR>
+map -modes=n -builtin <Leader>gp  :tabopen! https://github.com/nil-<CR>
 map -modes=n -builtin <Leader>h  :tabopen! https://news.ycombinator.com/<CR>
 map -modes=n -builtin <Leader>q  :tabopen! http://www.quora.com/<CR>
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
@@ -164,11 +169,6 @@ map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/vg/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
-
-map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
-map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffollow<CR>
-map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
-map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd<CR>
 
 " Media
 map -modes=n -builtin <Leader>n  :tabopen! http://nil.heliohost.org/<CR>
@@ -190,16 +190,17 @@ map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 
 " Misc
 map -modes=n -builtin <Leader>w  :tabopen! https://www.google.com/search?q=weather<CR>
+map -modes=n -builtin <Leader>e  :tabopen! http://www.ebay.com/<CR>
+map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffollow<CR>
+map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
+map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd<CR>
 
 " Documents
-map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/1/render<CR>
-map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
-map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
+map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/0/render<CR>
+map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
+map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
 map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
 map -modes=n -builtin <Leader>mh :tabopen! https://mail.google.com/mail/u/3/#inbox<CR>
-
-" Uni
-map -modes=n -builtin <Leader>j    :tabopen! https://berkeley-csm.symplicity.com/students/?s=home<CR>
 
 " }}}
 " Functions & Macros {{{
