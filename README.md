@@ -1,13 +1,26 @@
 # dotfiles
-Hello!
+(The documentation for these dotfiles is currently being worked on, and is subject to vast changes at random moments in time.)
 
-The documentation for these dotfiles is currently being worked on, and is subject to vast changes at random moments in time.
+This repository collects all nontrivial configuration files for both my laptop and desktop PCs. See `~/doc` for documentation; `~/bin` for scripts; and `~/system-dotfiles` for edited system configuration files.
 
-## navigation
-For general documentation, see `~/doc`. Scripts are in `~/bin`, and edited system configs are in `~/system-dotfiles`.
+## primary applications
+
+* awesome: window manager
+* calibre: ebook reader
+* compton: composite effects
+* feh: image viewer
+* firefox: web browser
+* irssi: IRC client
+* mcomix: comic reader
+* mpv: video player
+* mpd & ncmpcpp: music player
+* ranger: file manager
+* transmission-remote-cli & rssdler: torrent client & rss feed
+* vim: text editor
+* zathura: pdf reader
 
 ## screencaps
-Here are a few screenies of current/past setups.
+Here are a few screenies of current and past setups.
 
 ### laptop (present)
 ![screeny4](http://a.pomf.se/msusru.png)
