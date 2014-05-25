@@ -57,6 +57,18 @@ On the larger display, I have (from top to bottom) ncmpcpp, irssi, blank termina
 
 On the laptop's display, I have vim and nil-transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces (in fullscreen, since unlike other applications, they *do* require as much space as possible for the teeny tiny display).
 
+## syncing multiple PCs
+I use two computers, and in order to manage their configuration files efficiently, I set up this dotfile repository with the following three branches:
+
+* `laptop`: This is the branch displayed by default (in laymen's terms, the one you're most likely looking at at this moment), which comprises of the dotfiles used on my laptop PC.
+* `desktop`: This comprises of the dotfiles used on my desktop PC. In order to view this branch, click the dropdown menu next to the repository name on Github.
+* `master`: This holds all common dotfiles to be shared across all machines.
+
+On each machine, all files are always committed and pushed into their respective niche branch (`laptop` and `desktop` accordingly). Whenever a common file is changed, i.e., one belonging to `master`, I checkout those files into the `master` branch. Then on the other machine, I merge the `master` branch into the machine-specific branch, which will update the common files but not affect the machine-specific files.
+
+Thus all PCs share the common dotfiles in `master`, and they also use revision control for their machine-specific files on their respective branches. This is the best method to manage config files across multiple machines!
+
+
 ## Working with a Dynamic Set of Displays
 
 Given that I'm a top pleb using a $400 laptop, I make do with a larger display at home. I primarily use that setup: a 1366x768 display connected to a 1920x1080 external one. To accommodate situations where I'm on the go (and thus without the external monitor), I note certain lines in certain dotfiles with `[L+E]` and `[L]`. These lines are (un)commented appropriately depending on whichever displays I have available.
