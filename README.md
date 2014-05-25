@@ -1,5 +1,5 @@
 # dotfiles
-This repository collects all nontrivial configuration files for both my laptop and desktop PCs. See `~/doc` for documentation; `~/bin` for scripts; and `~/system-dotfiles` for edited system configuration files.
+This repository collects all nontrivial configuration files for both my laptop and desktop PCs. See `~/doc` for documentation; `~/bin` for scripts; and `~/system` for edited system configuration files.
 
 ## primary applications
 
@@ -13,7 +13,7 @@ This repository collects all nontrivial configuration files for both my laptop a
 * mpv: video player
 * mpd & ncmpcpp: music player
 * ranger: file manager
-* transmission-remote-cli & rssdler: torrent client & rss feed
+* transmission-remote-cli & rssdler: torrent client & RSS feed
 * urxvt: terminal emulator
 * vim: text editor
 * zathura: pdf reader

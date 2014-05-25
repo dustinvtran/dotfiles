@@ -286,11 +286,8 @@ augroup END
 
 noremap k n|noremap K N
 noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap <silent> <C-h> :silent e#<CR>
-augroup fuck_you_yankstack
-    autocmd!
-    autocmd VimEnter * nnoremap l :<C-U>call InsertChar(v:count1)<CR>
-    autocmd VimEnter * nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
-augroup END
+nnoremap l :<C-U>call InsertChar(v:count1)<CR>
+nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
 augroup farkin_easymotion2
     autocmd!
     autocmd VimEnter * nnoremap j xph
@@ -330,6 +327,9 @@ vnoremap <Leader>d "_d
 nnoremap <Leader>D "_D
 vnoremap <Leader>D "_D
 nnoremap x "_x
+nnoremap Y y$
+cnoremap <C-v> <C-R>*<BS>
+inoremap <C-v> <C-R>*
 nnoremap z s
 vnoremap z s
 noremap Q @
@@ -399,10 +399,7 @@ set background=light
 syntax enable
 set guioptions=
 set notitle
-"set guifont=lemon
-"set guifont=ProFont\ Italic\ 10
-"set guifont=GohuFont\ 10
-set guifont=Terminus\ 8
+set guifont=tewi\ 8
 set laststatus=2
 set noshowmode
 let g:airline_theme='solarized'
@@ -454,7 +451,11 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 " EasyMotion
 "##############################################################################
 
+<<<<<<< HEAD
 " Homerow optimized, then tweaked by personal preference.
+=======
+" Keys are written by optimizin via homerow, then tweaked by personal preference
+>>>>>>> renamed system folder
 let g:EasyMotion_keys = 'hneiotsradluygpfwqkmvc;xzbjEIOTSRAHDLUYGPFWQKMVCXZBJ'
 " I require only two EasyMotion keybinds for all my nifty teleportation: f/F. The 'f/F' defaults are set for normal/visual
 " modes, and the 't/T' defaults are set for operator mode (primarily d/c/y).
@@ -578,6 +579,7 @@ augroup tex_only
     autocmd FileType tex nnoremap <buffer> <silent> # :call ParityDollarSign()<CR>
 augroup END
 
+<<<<<<< HEAD
 "##############################################################################
 " YankRing:
 "##############################################################################
@@ -614,6 +616,8 @@ nnoremap Y y$
 cnoremap <C-v> <C-R>*<BS>
 inoremap <C-v> <C-R>*
 
+=======
+>>>>>>> renamed system folder
 " }}}
 " Specific Filetypes {{{
 " -----------------------------------------------------------------------------
@@ -706,47 +710,4 @@ endfunction
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
 
-" temp function for 227c
-function Func()
-    :%s/^ *\\section{\([^}]\+\)}/======\1======/e
-    :%s/^ *\\subsection{\([^}]\+\)}/=====\1=====/e
-    :%s/^ *\\begin{definition}/\/\/Definition:\/\//e
-    :%s/^ *\\begin{remark}/\/\/Remark:\/\//e
-    :%s/^ *\\begin{theorem}/**Theorem:**/e
-    :%s/^ *\\begin{lemma}/**Lemma:**/e
-    :%s/^ *\\begin{corollary}/**Corollary:**/e
-    :%s/^ *\\begin{proposition}/**Proposition:**/e
-    :%s/^ *\\begin{claim}/**Claim:**/e
-    :%s/^ *\\begin{example}/**Example:**/e
-    :%s/^ *\\begin{proof}/\/\/Proof:\/\//e
-    :%s/^ *\\begin{observation}/\/\/Observation:\/\//e
-    :%s/\\end{definition}//e
-    :%s/\\end{remark}//e
-    :%s/\\end{theorem}//e
-    :%s/\\end{lemma}//e
-    :%s/\\end{corollary}//e
-    :%s/\\end{proposition}//e
-    :%s/\\end{claim}//e
-    :%s/\\end{example}//e
-    :%s/\\end{proof}//e
-    :%s/\\end{observation}//e
-    :%s/^ *\\noindent *//e
-    :%s/\\emph{\([^}]\+\)}/\/\/\1\/\//e
-    :%s/\\underline{\([^}]\+\)}/__\1__/e
-    :%s/\\underbracket{/\\underbrace{/e
-    :%s/^ *\\begin{align\*}/\\begin{equation*}\\begin{aligned}/e
-    :%s/\\end{align\*}/\\end{aligned}\\end{equation*}/e
-    "manually do items, i.e., joining them so they align properly
-    ":%s/\\end{enumerate}//e
-    ":%s/\\end{itemize}//e
-    :%s/\\\([a-zA-Z]\)\([^a-zA-Z]\)/\\mathbb{\1}\2/e
-"delete until htitle
-"delete everything after htitle
-"dunno how to deal with nested items and linebreaks
-"also whitespaces
-"have no more than one consecutive blank line
-"{\bf }
-"%s/^ *\\begin{enumerate}[^\\]*\\item/  -
-"%s/^ *\\begin{itemize}[^\\]*\\item/  *
-endfunction
 " }}}

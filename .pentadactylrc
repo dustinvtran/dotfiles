@@ -10,7 +10,7 @@
 " Styles
 "##############################################################################
 
-" Colorscheme: Command bar.
+" Colorscheme: Command bar
 highlight CompTitle color: #707070 !important; background: #f9f9f9 !important;
 highlight CompTitleSep color: #707070 !important; background: #f9f9f9 !important;
 highlight CompItem background: #f9f9f9 !important;
@@ -21,22 +21,22 @@ highlight CompItem[selected] background: #e0e0e0 !important;
 highlight NonText color: #707070 !important;
 highlight StatusLine -moz-appearance: #f9f9f9 !important; font-weight: none; background: #f9f9f9 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important;
 
-" Colorscheme: Hints & Find.
+" Colorscheme: Hints & Find
 highlight Find background: #FF96A3 !important;
 highlight Hint background: #FF96A3 !important; padding: 3px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: #f9f9f9; line-height:1em;
 highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
 highlight HintActive background: rgba(255, 209, 20, 0.7) !important;
 
-" Font.
-highlight Hint -a font: normal 12px lemon !important;
-highlight CmdLine -a font: normal 12px lemon !important;
-highlight Link -a font: normal 12px lemon !important;
-highlight CompTitle -a font: normal 12px lemon !important;
-highlight CompTitleSep -a font: normal 12px lemon !important;
-highlight CompItem -a font: normal 12px lemon !important;
-highlight CompMore -a font: normal 12px lemon !important;
-highlight CompLess -a font: normal 12px lemon !important;
-highlight StatusLine -a font: normal 12px lemon !important;
+" Font
+highlight Hint -a font: normal 12px tewi !important;
+highlight CmdLine -a font: normal 12px tewi !important;
+highlight Link -a font: normal 12px tewi !important;
+highlight CompTitle -a font: normal 12px tewi !important;
+highlight CompTitleSep -a font: normal 12px tewi !important;
+highlight CompItem -a font: normal 12px tewi !important;
+highlight CompMore -a font: normal 12px tewi !important;
+highlight CompLess -a font: normal 12px tewi !important;
+highlight StatusLine -a font: normal 12px tewi !important;
 
 "##############################################################################
 " Set
@@ -53,12 +53,12 @@ set titlestring=
 set hlfind
 set passkeys+=reddit.com:NEfFx+-wbqcCaAqmM<CR>
 set passkeys+=boards.4chan.org:qQ<C-q>xmM<C-n><C-e>cCNE<CR>
-set passkeys+=cloud.feedly.com:?<CR>
+set passkeys+=feedly.com:?<CR>
 "JK/rjknpovMmsbV
 set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
-" This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly.
+" This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
-" Holy fuck this guy keeps resetting itself otherwise.
+" Holy fuck this guy keeps resetting itself otherwise from about:config
 set! general.smoothScroll=false
 set! ui.key.menuAccessKey=0
 set! ui.key.menuAccessKeyFocuses=false
@@ -99,8 +99,6 @@ map -modes=n -builtin H O
 map -modes=n -builtin <C-r> <C-c>
 map -modes=n -builtin k n
 map -modes=n -builtin K N
-" two searches
-" edit externally
 
 "##############################################################################
 " General
@@ -115,8 +113,6 @@ map -modes=n -builtin Y y
 map -modes=n -builtin Q @
 map -modes=n -builtin i gi
 map -modes=n -builtin <C-f> g;b
-"map -modes=n -builtin <C-p> <C-i>
-"map -modes=n <C-o> <Nop>
 map -modes=n -builtin <C-S-r> :rehash<CR>
 map -modes=i,c -builtin <C-f> <C-T>
 map -modes=n,i,c,t -builtin <C-a> <pass>
@@ -135,7 +131,6 @@ map -modes=n -builtin \3 :tabdetach<CR>
 map -modes=n -builtin <Leader>p <C-V><C-S-p>
 map -modes=n -builtin <Leader>st :set guioptions!=s<CR>
 map -modes=n -builtin a <C-v><C-d>
-"map -modes=n gs :viewsource<CR>
 map -modes=n gf <Nop>
 map -modes=n <C-q> <Nop>
 map -modes=n <F7> <Nop>
@@ -184,6 +179,13 @@ map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30
 map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/literature.html<CR>
 map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
+" Google
+map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/0/render<CR>
+map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
+map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
+map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
+map -modes=n -builtin <Leader>mh :tabopen! https://mail.google.com/mail/u/3/#inbox<CR>
+
 " LAN
 map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
 map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
@@ -195,19 +197,12 @@ map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%Ffo
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd<CR>
 
-" Documents
-map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/0/render<CR>
-map -modes=n -builtin <Leader>md :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
-map -modes=n -builtin <Leader>mb :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
-map -modes=n -builtin <Leader>mv :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
-map -modes=n -builtin <Leader>mh :tabopen! https://mail.google.com/mail/u/3/#inbox<CR>
-
 " }}}
 " Functions & Macros {{{
 " -----------------------------------------------------------------------------
 
 "##############################################################################
-" Search multiple sites in one.
+" Search multiple sites in one
 "##############################################################################
 " Bug: I have to use backslashes to get out of single quotes/double quotes. Annoying!
 
@@ -244,14 +239,14 @@ javascript <<EOF
     };
 EOF
 
-" Custom search commands.
+" Custom search commands
 command define -nargs=* -js userContext.searchDictionary(args)
 command giki -nargs=* -js userContext.searchGiki(args)
 command arch -nargs=* -js userContext.searchArch(args)
 command ani -nargs=* -js userContext.searchAni(args)
 command mal -nargs=* -js userContext.searchMal(args)
 
-" Most used generic ones.
+" Most used generic ones
 map -modes=n -builtin l :define<Space>
 map -modes=n -builtin L :tabopen! word<Space>
 
