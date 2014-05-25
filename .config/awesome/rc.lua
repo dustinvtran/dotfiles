@@ -542,7 +542,7 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=30, y=40}) end },
     { rule = { instance = "tcli" },
       properties = { tag = tags[1][1], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=30, y=560}) end },
+      callback = function(c) c:geometry({x=30, y=660}) end },
 
     --{ rule = { class = "Gvim" },
     --  properties = {tag = tags[1][2],  floating = true, switchtotag = true },

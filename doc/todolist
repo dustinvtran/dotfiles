@@ -5,11 +5,9 @@ Each to-do item for an application is assigned toward a priority level depending
  implemented. Then in the Priority categories, each application is sorted by alphabetical order. Then each item for an
  application is itself ranked by descending order of subpriority.
 
+
 Highest Priority {{{
 -------------------------------------------------------------------------------
-
-The following are temporary packages installed for skype video communication and/or configuration:
-lib32-v4l-utils, v4l-utils, guvcview, skype-call-recorder
 
 The following is a bunch of unorganized "todolist" things
 live-tex{{{
@@ -73,23 +71,18 @@ both: get zathura and things such as private firefox to tile when desired
 
 misc
     firefox popups too big
-    vim: uushi not working
-    deal with window layout, e.g., the media
-    move skype with the rule_any thing
-    emdash/alt
-    Clean packages/my PC's memory
+    clean packages/my PC's memory
 
 mpd
     in the alias, set if statement of it mpdas defunct/not there, add mpdas & line too
 
-Awesome
-    *** Fix mail-notify!!
-        Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
-        This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
-    * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
-    * Move mouse to center of screen of new focused tag.
-        Do something like switchtotag in the keybinds.
-    * Applications not shifting correctly between monitors and #s, what with absolute positions. Maybe add movetoscreeen or something? see mod4+control+j function in the default rc.lua and add it to your keybinds
+bspwm
+    move to it dummy
+https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
+https://github.com/baskerville/bspwm
+https://wiki.archlinux.org/index.php/Bspwm
+    emulate desired style as previous
+    square icons like other dude from pic, and also earsplit's
 
 Colemak
     * convert: vim (nerdtree, bufexplorer)
@@ -105,54 +98,17 @@ vim
 urxvt
     * urxvt-perls: c-v as paste (eg for irssi and readline), url clicker+keyboard select.
 
+colorscheme
+    * change colors to reflect new paper (darker colors maybe? especially red like a stanford/blood red) for xresources and vim colorscheme
+
 }}}
 High Priority {{{
 -------------------------------------------------------------------------------
 
+Remove these from desktop packages: lib32-v4l-utils, v4l-utils, guvcview, skype-call-recorder
+
 Android USB Connection
     * shows up on lsusb but not fdisk -l
-
-Awesome
-    Appearance
-        * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
-            mpd: stopped
-            battery: low
-        * Have the tag icons turn sideways on focus.
-            Find how to change tag name when focused.
-            Find the appropriate icons.
-        * mpv: Somehow grep with regexp and gray any parts of the filenames in [...] maybe by sedding them and adding the separator variable.
-        * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
-        * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
-    General
-        * Have the directional focusings go across monitors too.
-        * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
-            * have battery widget show ETA on hover
-        * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
-        * Revamp menu, all with cute icons.
-        * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
-            Do the same for zathura and feh.
-        * Set alt+o to not do "on top", but to focus window that's below it, which would then put it on top.
-            Set Library on top of Firefox always.
-        * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
-        * For things like gimp, have the extra dialog folders show appropriately on the right workspace (this includes the right monitor). For example, GIMP's save dialog appears on my external display.
-    Panel Scripts
-        * mpv
-            If the file name is too long (e.g. if X has > Y characters), truncate it.
-        * mpd
-            If the song name is too long (e.g. if X has > Y characters), truncate it.
-            Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
-        * volume: have a keybind to check current volume, or to pop up the display for a few seconds
-            Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
-        * Right-aligned panel widgets should be cut off from the left not the right.
-    Misc
-        * Can't fullscreen VirtualBox, even with the function.
-        * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
-        * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
-        * Try rodentbane for the occasionally necessary mouse movement with keyboard.
-        * Add left+right click as move window.
-
-cron
-    * Get up an xcape cronjob. It still goes funky at times.
 
 Firefox Addon: Pentadactyl
     * make a script to open archive url of current board, which is set as a keybind
@@ -204,8 +160,6 @@ skype/mic
         amixer -c 2 set Mic 9dB
     * enable push to talk
     * some configuration to enable user to see who talks in a group
-    * awesome: Configure where to place it.
-    * awesome: how to deal with notifications.
 
 transmission
     * Occasionally corrupt pieces of files in Transmission downloading. Is this transmission's fault or mine??
@@ -219,7 +173,6 @@ Vim
     * NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
 
 udev-hdmi
-    * awesome starts a little too early, not getting wallpaper every time, especially if I try to open apps.
     * urxvt open commands not working.
 
 virtualbox
@@ -251,29 +204,17 @@ Misc
 Medium Priority {{{
 -------------------------------------------------------------------------------
 
+cron
+    * Get up an xcape cronjob. It still goes funky at times.
+
 laptop
     optimize battery with CPU frequency scaling and stuff
-
-Awesome
-    * Maybe use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
-    * When clicking away from menu, have it hide just like it does with Escape.
-    * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
-    * Hide cursor if it doesn't move for >=5 seconds.
-    * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
-    Panel Scripts
-        Bashets font: err, it sucks on playing japanese/fallbacks. use fallback fonts.
-        * battery: On single digit %, it also shows the comma.
-        * irssi
-            Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
-                Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
-        * skype
-        * Add clickables (or keybindables?) into dzen.
-    * When youtube video is a url in firefox, have play-pause cycle pause that, not mpv or ncmpcpp instead.
 
 feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
 
 Firefox
+    * should I style sites such as MAL, wikipedia, etc.?
     * MAL: Set up wikipedia+MAL API so that you can autoadd all tags.
     * whatcd: get power user (1.05 ratio) for ptp, btn, and bibilotik invites
     * Better way to integrate my other/mobile bookmarks that's keyboard navigable.
@@ -391,11 +332,6 @@ Audio
 
 Compton
     * Somehow shadow-exclude all fullscreen windows, but no longer when they're floating.
-
-Awesome
-    * irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat.
-    * Eminent mouse scroll through tags not working.
-    * erm, that dropbox notification. Modify it.
 
 Firefox Addon: Pentadactyl
     * normal <C-j> goes to home page if it's assigned to do nothing else at that issue of command, e.g., if it's unbinded, for example, in 4chan thread pages.
