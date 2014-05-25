@@ -1,21 +1,23 @@
-# The Desktop: A Primer for my Work Method
+# A Modern Tiling Workflow
 
-In the works~~~ this is just random words at the moment. Also adding more sections as I see fit.
+(This documentation is currently being worked on, and is subject to vast changes at random moments in time.)
 
-This documents my modus operandi, the god-endorsed efficiency that everyone and his grandmother should already be following. Here are some highly opinionated points that I centralize my methodology on:
+This documents my modus operandi, the god-endorsed efficiency that everyone and his grandmother should already be following. Here are a few highly opinionated points that I base my methodology on:
 
 * Keep your hands on the keyboard all the time, every time.
 * If it can be done faster, it will be done faster.
-* Universal keybinds. Have as many mappings perform roughly the same operation across all applications.
+* Universal keybinds: have as many mappings perform roughly the same operation across all applications.
 * Organization—and thus competent but never obtuse minimalism—is paramount to capable learning.
 * Your desktop should be as non-intrusive as possible. If you constantly need to resize windows and/or adjust the layout, you're doing it wrong.
 * Always look *fabulous*.
 
 ## Float vs. Tile
 
-While I use a tiling window manager, I am first and foremost a floater. This is because none of my most frequently used applications actually need to take the entire screen. And it just does not look very pretty—particularly on large displays. Sure, just add in another window, resize your portions, and then your window will still be tiled while with just enough room as you desire. But what about having it centered? What about that other window? I don't *care* about that window anyways, so why not center the one application I am using, and fill in beautiful gaps to view your wallpaper instead?
+While I use a tiling window manager, I am first and foremost a floater, i.e., most applications are placed in floating windows as opposed to tiled. This is because few applications these days need to take as much screen estate as possible. Let's be honest here: monitors and resolution sizes are so large in today's world that few users face the challenges that users in the 80's did.
 
-Doing the opposite already becomes counter-intuitive to the tiling WM philosophy. After all, gaps are not only aesthetically pleasing but arguably more efficient (it keeps my eyes focused on key apps for example, and prevents text from having ugly, unnecessarily gargantuan margins). With how I manage my windows, floating can be just as—if not more—efficient than tiling. All window management through this method is pre-configured, saving even more time than tiling since you no longer need to move (and hence "manage") any windows.
+Moreover, tiling just does not look aesthetically pleasing. And these aesthetics have a functional purpose: they keep my eyes focused on key applications, and prevent text from having unnecessarily gargantuan margins or awkward proportions.
+
+With how I manage my windows, floating is even more efficient than tiling. All window management through this method is pre-configured, saving even more time than tiling because you no longer need to manipulate any windows.
 
 ## Window Management
 
@@ -23,14 +25,14 @@ Doing the opposite already becomes counter-intuitive to the tiling WM philosophy
 
 I set keybinds to focus each of my main applications, and the same keybind spawns the application if it doesn't already exist. This makes it easy to move exactly where I want to go. Say I'm editing a file in Vim in one workspace, and now suddenly I want to browse my IRC client. Simple. `alt+i` instantly focuses irssi (and moves to that workspace), I read channel conversation or respond to someone, and then I `alt+w` to go back to editing my file in Vim. Two keybinds does the job that multiple, such as navigating to said workspace and then said application, would have to do otherwise.
 
-My window manger's properties are also set in order to specify each application's position on the screen. Their geometry is also automagically set, either from their own configuration files or from a command line flag. This makes every application on startup already placed into position, and already sized correctly. Who needs tiling—a manually adjusted affair—when I already have the exact layout and sizes in mind? With all windows already setup to your OCD bastardized needs, and a minimal set of keys to navigate through the windows, this is not only efficient but ridiculously easy to use and learn.
+Each main application has a pre-configured position on the screen and pre-configured geometry. This automagically makes every application on startup already moved into position, and already sized correctly. Who needs tiling—a manually adjusted affair—when I already have the exact layout and sizes in mind? With all windows already setup to your OCD bastardized needs, and a minimal set of keys to navigate through the windows, this is not only efficient but intuitive and ridiculously easy to learn.
 
-## Efficient Keyboard
+## An Efficient Keyboard Layout
 
 [on my 'nest' setup with colemak, and how i've only changed hjkl keys to nest in normal mode for everything.]
 Before explaining my keybinds,
 
-## Keybinds
+## Universal Keybinds
 
 Vim. Vim always. Every one of my applications follow roughly the same idea, with `hjkl` taking the forefront in movement, and other essential Vim keys (e.g., `d`, `y`, `p`, `<Leader>`) taking analogous traits. This makes my keybinds universal across all platforms, and efficient through sane keybinds located near or on the home row. With everything Vimified, it's hard not to gloat at just how easy and efficient everything becomes, anything ranging from window manager keybinds to something as niche as torrent client keybinds.
 
@@ -44,6 +46,8 @@ Apps: awesome, firefox (pentadactyl, incl: 4chan, RES, gmail keybinds)), irssi, 
 ### Libreoffice
 
 changes are minimal. just removed bunch of toolbars. added ctrl+nest/NEST, ctrl+g/G
+
+### ...
 
 ## The (Current) Layout
 
