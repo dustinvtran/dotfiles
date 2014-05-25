@@ -18,16 +18,16 @@ On each machine, all files are always committed and pushed into their respective
 Thus all PCs share the common dotfiles in `master`, and they also use revision control for their machine-specific files on their respective branches. This is the best method to manage config files across multiple machines!
 
 ## screencaps
-Here are a few screenies of current/past setups, sorted roughly in descending chronological order.
+Here are a few screenies of current/past setups.
 
-## current (laptop)
+### laptop (present)
 ![screeny4](http://a.pomf.se/msusru.png)
 
-###desktop - first display
+#### desktop - first display (2013)
 ![screeny3](http://a.pomf.se/3Hy9.png)
 
-##desktop - second display
+### desktop - second display (2013)
 ![screeny2](http://a.pomf.se/6Wh3.png)
 
-##laptop
+### laptop (2013)
 ![screeny1](http://a.pomf.se/3Zp7.gif)
