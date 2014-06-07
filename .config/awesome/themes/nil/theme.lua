@@ -6,20 +6,20 @@ theme = {}
 
 theme.font          = "terminus 8"
 
-theme.bg_normal     = "#f9f9f9"
-theme.bg_focus      = "#707070"
-theme.bg_urgent     = "#707070"
-theme.bg_minimize   = "#707070"
+theme.bg_normal     = "#272822"
+theme.bg_focus      = "#f8f8f2"
+theme.bg_urgent     = "#f8f8f2"
+theme.bg_minimize   = "#f8f8f2"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#707070"
-theme.fg_focus      = "#f9f9f9"
-theme.fg_urgent     = "#f9f9f9"
-theme.fg_minimize   = "#f9f9f9"
+theme.fg_normal     = "#f8f8f2"
+theme.fg_focus      = "#272822"
+theme.fg_urgent     = "#272822"
+theme.fg_minimize   = "#272822"
 
 theme.border_width  = 2
-theme.border_normal = "#e0e0e0"
-theme.border_focus  = "#707070"
+theme.border_normal = "#272822"
+theme.border_focus  = "#49483e"
 theme.border_marked = "#91231c"
 
 theme.layout_floating = "/home/nil/.config/awesome/themes/nil/layouts/floating.png"

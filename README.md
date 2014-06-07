@@ -22,14 +22,17 @@ This repository collects all nontrivial configuration files for both my laptop a
 ## screencaps
 Here are a few screenies of current and past setups.
 
-### laptop (present)
-![screeny4](http://a.pomf.se/msusru.png)
+### laptop (june 2014)
+![screeny5](http://i.imgur.com/d9hlRu6.png)
 
-#### desktop - first display (2013)
-![screeny3](http://a.pomf.se/3Hy9.png)
+### laptop (jan - may 2014)
+![screeny4](http://i.imgur.com/8syi1ry.png)
+
+### desktop - first display (2013)
+![screeny3](http://i.imgur.com/dwMA2vQ.png)
 
 ### desktop - second display (2013)
-![screeny2](http://a.pomf.se/6Wh3.png)
+![screeny2](http://i.imgur.com/QyScwbn.png)
 
 ### laptop (2013)
-![screeny1](http://a.pomf.se/3Zp7.gif)
+![screeny1](http://i.imgur.com/ktcQIuQ.gif)

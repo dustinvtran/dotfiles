@@ -1,10 +1,9 @@
-This is a document which compiles a list of tasks that I still have to complete. This is purely for personal (and
- documented) use, so I can keep track of features I desire and when I complete them.
+This document compiles a list of tasks that I have yet to complete. This is purely for personal (although somewhat public)
+ use, so I can keep track of features I desire and when I complete them.
 
-Each to-do item for an application is assigned toward a priority level depending on how much I personally want them to be
- implemented. Then in the Priority categories, each application is sorted by alphabetical order. Then each item for an
- application is itself ranked by descending order of subpriority.
-
+Each to-do item for an application is assigned a priority level depending on how much I personally want them to be
+ completed. Then in the Priority categories, each application is sorted by alphabetical order. Then each task within an
+ application is itself ranked by descending order of priority.
 
 Highest Priority {{{
 -------------------------------------------------------------------------------
@@ -30,15 +29,9 @@ both: get zathura and things such as private firefox to tile when desired
             * there are overlapping commits from both pcs
     xbacklight not the same on plug in, display off/on
     clipit not always working when highliting over
-    font: infinality-ultimate not working for lemon and things
-        lemon rendering unicode on some characters..!!?
     laptop boots faster than wifi gets to load
     auto-enter rsa password for git
-    git doc/shared-files: a list of files shared between laptop destop, and those which aren't
     rc.lua
-        shortcut key: have one to disable touchpad
-        pausebreak: play-pause
-        prtsc: ?
         libreoffice popups
     libreoffice: have dropbox sync auto-update xlsx sheets
     udev-power-supply
@@ -50,9 +43,6 @@ both: get zathura and things such as private firefox to tile when desired
                 xbacklight -dec 20
             if i move during any of these, it resets it back to normal
         also while learning this, set laptop lid event to pm-suspend-hybrid
-    firefox addons:
-        stylish
-        RES
     vim: power bar colors
     touchpad: touch and drag while scrolling
     both: gimp-git
@@ -69,6 +59,13 @@ both: get zathura and things such as private firefox to tile when desired
         system-dotfiles/hdmi.rules.. cron..
 }}}
 
+bspwm
+    finish locus
+    have windows move on launch
+    panel
+    media shortcut
+    perhaps switch to pseudo_tile
+
 misc
     firefox popups too big
     clean packages/my PC's memory
@@ -76,13 +73,10 @@ misc
 mpd
     in the alias, set if statement of it mpdas defunct/not there, add mpdas & line too
 
-bspwm
-    move to it dummy
-https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
-https://github.com/baskerville/bspwm
-https://wiki.archlinux.org/index.php/Bspwm
-    emulate desired style as previous
-    square icons like other dude from pic, and also earsplit's
+qtile
+    * alphabetical order workspaces
+    * raise and run specific apps
+    * remember position of windows
 
 Colemak
     * convert: vim (nerdtree, bufexplorer)
@@ -214,6 +208,7 @@ feh
     * Set maximum size, but not minimum, so you don't see the ugly box for small pictures.
 
 Firefox
+    * script to save both HN comments+article link to pocket
     * should I style sites such as MAL, wikipedia, etc.?
     * MAL: Set up wikipedia+MAL API so that you can autoadd all tags.
     * whatcd: get power user (1.05 ratio) for ptp, btn, and bibilotik invites
@@ -228,6 +223,7 @@ Firefox Addon: Pentadactyl
     * Better font to distinguish upper cases in hint mode.
 
 irssi
+    * url links are no longer underlined and turned blue
     * Get a way to set a vim mode map to do "3 ", and another for "1,1 "
     * Do stuff like /whois, <c-r>, ,n and /nicklist while being able to remove all that text when i no longer want to see it.
     * A status window works for this, but it doesn't include /names. How to?
@@ -357,9 +353,6 @@ irssi
     * anames: spacing goes crazy if there's a user with a long name.
     * vim_mode: Remove that annoying operator shit, or append it to the right like in vim.
     * pubmsg_me shows one extra character for long names, i.e., when i'm highlighted.
-
-mount
-    * Get an automounter that doesn't suck.
 
 R
     * knitr Compiling: It works if I don't use \input{}. See if I can do it with \input{}.

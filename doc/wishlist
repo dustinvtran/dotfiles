@@ -1,9 +1,10 @@
-This is a document which compiles a list of features that I would like on various applications I have used. This is mainly
- for personal use, so I can keep track of features I desire.
+This document compiles a list of features that I would like on various applications I have used (including websites
+ I browse). This is mainly for personal use, so I can keep track of features I desire and what I personally find to be
+ faulty with them.
 
-This is sorted alphabetically by application. Each item on the list is assigned toward a priority level depending how much
+This is sorted alphabetically by application. Each item on the list is assigned a priority level depending how much
  I personally want them to be implemented. Then each item in the Priority categories are themselves ranked in descending
- order of subpriority. Oh, I also have a feature wishlist of websites I regularly browse at the end.
+ order of priority.
 
 autocutsel {{{
 
@@ -11,7 +12,7 @@ High Priority
     * Pastes the escaped code for unicode characters and not the actual character, e.g., emdash, and a particular single quote variant.
 
 }}}
-Awesome {{{
+awesome {{{
 -------------------------------------------------------------------------------
 
 High Priority
@@ -35,6 +36,7 @@ Highest Priority
 
 High Priority
     Appearance
+        * square icons like twily's, and also earsplit's
         * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
             mpd: stopped
             battery: low
@@ -96,6 +98,12 @@ Low Priority
     * erm, that dropbox notification. Modify it.
 
 }}}
+bspwm {{{
+
+High Priority
+    * Command to focus a specific application via window id
+
+}}}
 byzanz {{{
 -------------------------------------------------------------------------------
 
@@ -124,13 +132,13 @@ Medium Priority
     * Allow pan+next to be set to left mouse click, where you pan if you click+drag moving around, and next otherwise.
 
 }}}
-Firefox {{{
+firefox {{{
 
 Medium Priority
     * An addon or something, where you can right click a link and use the wrapped text for a search engine. For example, so you don't have to highlight the linked text in order to right click then hit Wikipedia to search for the wiki article.
 
 }}}
-Firefox Addon: 4chan X (ccd0) {{{
+firefox addon: 4chan X (ccd0) {{{
 -------------------------------------------------------------------------------
 
 High Priority
@@ -149,7 +157,7 @@ Low Priority
     * Have the extra info when hovering over a post be shown when you're selecting it through keyboard navigation, i.e., the image file name, its size and resolution, and the google and iqdb links.
 
 }}}
-Firefox Addon: Pentadactyl {{{
+firefox addon: pentadactyl {{{
 -------------------------------------------------------------------------------
 
 High Priority
@@ -174,7 +182,7 @@ Low Priority
    * No support for <Leader><Leader> (though <Leader>,> works.
 
 }}}
-Firefox Addon: Reddit Enhancement Suite {{{
+firefox addon: reddit enhancement suite {{{
 -------------------------------------------------------------------------------
 
 High Priority
@@ -185,6 +193,12 @@ High Priority
 Medium Priority
     * Keyboard adjustable image, not just mouse drag-hold adjustable.
     * Refocus frame movement like 4chanx, where if you scroll normally, then start navigating between threads or posts, it automoves that keyboard cursor to whichever ones are seen on your current display.
+
+}}}
+herbsluftwm {{{
+
+High Priority
+    * Command to focus a specific application via window id
 
 }}}
 i3 {{{
@@ -318,6 +332,13 @@ Low Priority:
     * For screenshot-template, have the file extension displayed with a - instead of a . Currently, one can only include .filetype or omit it altogether.
 
 }}}
+qtile {{{
+-------------------------------------------------------------------------------
+
+High Priority
+    * Write it in python 3!
+
+}}}
 ncmpcpp {{{
 -------------------------------------------------------------------------------
 
@@ -330,7 +351,7 @@ Low Priority
     * Half-page up/downs (or 5j/k's).
 
 }}}
-Ranger {{{
+ranger {{{
 -------------------------------------------------------------------------------
 
 Medium Priority:
@@ -359,7 +380,7 @@ Medium Priority
     * Scrot just one window, or just one display, or just set some pixel argument to specify how much to capture.
 
 }}}
-Transmission {{{
+transmission {{{
 -------------------------------------------------------------------------------
 
 High Priority
@@ -377,7 +398,7 @@ Low Priority:
     * Don't require killing transmission-daemon before editing settings.json.
 
 }}}
-Transmission-remote-cli {{{
+transmission-remote-cli {{{
 -------------------------------------------------------------------------------
 
 High Priority:
@@ -403,7 +424,7 @@ Low Priority:
     * Single quotes don't work in comments.
 
 }}}
-Vim {{{
+vim {{{
 -------------------------------------------------------------------------------
 
 High Priority
@@ -422,7 +443,7 @@ Low Priority
     * Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
 
 }}}
-Zathura {{{
+zathura {{{
 -------------------------------------------------------------------------------
 
 Low Priority:
@@ -447,12 +468,6 @@ Medium Priority
 
 Low Priority
     * Sort calendars.
-
-}}}
-Website: Anything with a Search Engine {{{
-
-High Priority
-    * F'kin regex functionality.
 
 }}}
 Website: Goodreads {{{
@@ -485,7 +500,13 @@ High Priority
     * Store the entire buffer into cache so you can replay a video without requiring to buffer all over again.
 
 }}}
-Online Surveys {{{
+Websites: Anything with a Search Engine {{{
+
+High Priority
+    * F'kin regex functionality.
+
+}}}
+Websites: Online Surveys {{{
 
 Survey Monkey
 -: can only do <=100 responses, can't export data to .csv, can't change layout that much.

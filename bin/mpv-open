@@ -23,7 +23,6 @@ file=$(~/bin/notme/now-playing-mpv)
 unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 
 # If mpv isn't running.
-# To be honest, I don't know how this if condition works (!), but it does.
 if [ $(pgrep mpv) -ne 0 ]; then
     # Pause mpd, e.g., if I open mpv while mpd is still playing.
     ncmpcpp pause

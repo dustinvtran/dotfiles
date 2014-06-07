@@ -76,7 +76,7 @@ tags = {
     --names2  = { "i", "ii", "iii", "iv", "v" },
     --layout2 = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
     names1  = { "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x" },
-    layout1 = { layouts[1], layouts[2], layouts[2], layouts[1], layouts[1],
+    layout1 = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1],
               layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
 }
 
@@ -352,11 +352,11 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey }, "Return", function () awful.util.spawn(terminal)                end),
     awful.key({ modkey }, "l", function () run_or_raise(terminal,  { instance = "term" }) end),
-    awful.key({ modkey }, "w", function () run_or_raise("gvim",    { class = "Gvim"    }) end),
-    --awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
-    awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
-    awful.key({ modkey }, "q", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/aesthetics/macros.ods", { instance = "VCLSalFrame" }) end),
+    awful.key({ modkey }, "v", function () run_or_raise("gvim",    { class = "Gvim"    }) end),
+    awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
+    --awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
+    awful.key({ modkey }, "f", function () run_or_raise("firefox", { class = "Firefox" }) end),
+    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/interests/macros.ods", { instance = "VCLSalFrame" }) end),
     awful.key({ modkey }, "k", function () run_or_raise("skype",    { class = "Skype"    }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
@@ -369,15 +369,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
     awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
     awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
-     -- temp setting for vacation
-    --awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 80x20", { instance = "nil" }) end),
-    --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 80x35 -e irssi", { instance = "irssi" }) end),
-    --awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 80x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -g 80x20 -e ranger", { instance = "ranger" }) end),
+    awful.key({ modkey }, "r", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
     awful.key({ modkey }, "m", function () run_or_raise("", { class = "Calibre-ebook-viewer" }, { class = "feh" }, { class = "Mcomix" }, { class = "mpv" }) end),
-    awful.key({ modkey }, "r", function () run_or_raise("", { class = "Zathura" }) end),
+    awful.key({ modkey }, "z", function () run_or_raise("", { class = "Zathura" }) end),
 
 --#############################################################################
 -- Keybindings: Widget Dialogs
@@ -385,14 +380,14 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,         }, "c", function () awful.util.spawn("calendar-toggle") end),
     awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end),
-    awful.key({                 }, "Pause", function () awful.util.spawn("touchpad-toggle") end),
+    --awful.key({ modkey }, "v", function () awful.util.spawn_with_shell("sh -c 'xdotool type \"$(xsel)\"'") end),
+    awful.key({                 }, "Print", function () awful.util.spawn("touchpad-toggle") end),
 
 --#############################################################################
 -- Keybindings: Media Keys
 --#############################################################################
 
-    --awful.key({ }, "F6",  function () awful.util.spawn_with_shell("play-pause") end),
-    awful.key({ }, "F5",  function () awful.util.spawn_with_shell("play-pause") end),
+    awful.key({ }, "Pause",  function () awful.util.spawn_with_shell("play-pause") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle"     ) end),
     awful.key({ }, "F11",  function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
     awful.key({ }, "F12", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end)
@@ -530,39 +525,27 @@ awful.rules.rules = {
 
     -- [L+E] Use this if you have both laptop and external display.
     --{ rule = { class = "Gvim" },
-    --  properties = { floating = true, switchtotag = true },
+    --  properties = { switchtotag = true },
     --  callback = function(c) c:geometry({x=1950, y=40}) end },
     --{ rule = { instance = "tcli" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[1][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1950, y=560}) end },
 
     -- [L] Use this if you only have laptop display.
     { rule = { class = "Gvim" },
-      properties = { floating = true, switchtotag = true },
+      properties = { switchtotag = true },
       callback = function(c) c:geometry({x=30, y=40}) end },
     { rule = { instance = "tcli" },
-      properties = { tag = tags[1][1], floating = true, switchtotag = true },
+      properties = { tag = tags[1][1], switchtotag = true },
       callback = function(c) c:geometry({x=30, y=660}) end },
-
-    --{ rule = { class = "Gvim" },
-    --  properties = {tag = tags[1][2],  floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=30, y=40}) end },
-    --{ rule = { instance = "tcli" },
-    --  properties = { tag = tags[1][2], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=30, y=800}) end },
 
 --#############################################################################
 -- Workspace 2
 --#############################################################################
 
      { rule = { role = "browser" },
-      properties = { tag = tags[1][2], floating = false, switchtotag = true },
-      --callback = function(c) c:geometry({x=60, y=40, width = 1200, height = 1020}) end },
-      },
-     -- temp setting for vacation
-     --{ rule = { role = "browser" },
-     -- properties = { tag = tags[1][1], floating = true, switchtotag = true },
-     -- callback = function(c) c:geometry({x=35, y=40, width = 1050, height = 980}) end },
+      properties = { tag = tags[1][2], switchtotag = true },
+      callback = function(c) c:geometry({x=10, y=30, width = 1575, height = 850}) end },
      { rule_any = { name = {"Options for Menu Editor", "Firefox Preferences", "Page Info", "Tab Mix Plus Options",
                   "Library"}, instance = {"plugin-container"} },
       properties = { floating = true },
@@ -574,17 +557,19 @@ awful.rules.rules = {
 
     { rule = { instance = "VCLSalFrame" },
       properties = { tag = tags[1][3], floating = false, switchtotag = true } },
+    { rule = { class = "r_x11" },
+      properties = { tag = tags[1][3], switchtotag = true } },
 
 --#############################################################################
 -- Workspace 4
 --#############################################################################
 
     { rule = { class = "gimp" },
-      properties = { tag = tags[1][4], floating = true, switchtotag = true } },
+      properties = { tag = tags[1][4], switchtotag = true } },
     { rule = { class = "VirtualBox" },
       properties = { tag = tags[1][4], floating = false, switchtotag = true } },
     { rule = { class = "Skype" },
-      properties = { tag = tags[1][4], floating = true, switchtotag = true },
+      properties = { tag = tags[1][4], switchtotag = true },
       callback = function(c) c:geometry({x=60, y=40}) end },
      { rule_any = { class = {"Skype"}, role = {"ConversationsWindow"} },
       properties = { floating = true },
@@ -596,106 +581,68 @@ awful.rules.rules = {
 
     -- [L+E] Use this if you have both laptop and external display.
     --{ rule = { instance = "irssi" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=175}) end },
     --{ rule = { instance = "nil" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=550}) end },
     --{ rule = { instance = "ncmpcpp" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=40}) end },
     --{ rule = { instance = "ranger" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=845}) end },
     --{ rule = { class = "Calibre-ebook-viewer" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
     --{ rule = { class = "feh" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=0, y=0}) end },
     --{ rule = { class = "Mcomix" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
     --{ rule = { class = "mpv" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=65, y=200}) end },
     --{ rule = { class = "Zathura" },
-    --  properties = { tag = tags[2][1], floating = true, switchtotag = true },
+    --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
 
     -- [L] Use this if you only have laptop display.
     { rule = { instance = "irssi" },
+<<<<<<< HEAD
       properties = { tag = tags[1][5], floating = true, switchtotag = true },
       callback = function(c) c:geometry({x=900, y=210}) end },
+=======
+      properties = { tag = tags[1][5], switchtotag = true },
+      callback = function(c) c:geometry({x=900, y=180}) end },
+>>>>>>> new colorscheme
     { rule = { instance = "nil" },
-      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=70, y=260}) end },
     { rule = { instance = "ncmpcpp" },
-      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=900, y=35}) end },
     { rule = { instance = "ranger" },
-      properties = { tag = tags[1][5], floating = true, switchtotag = true },
+      properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=900, y=625}) end },
     { rule = { class = "Calibre-ebook-viewer" },
-      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      properties = { tag = tags[1][10], switchtotag = true },
       callback = function(c) c:geometry({width = 700, height = 725}) end },
     { rule_any = { class = { "feh", "Mcomix", "mpv" } },
-      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      properties = { tag = tags[1][10], switchtotag = true },
       callback = awful.placement.centered },
     { rule = { class = "Zathura" },
-      properties = { tag = tags[1][10], floating = true, switchtotag = true },
+      properties = { tag = tags[1][10], switchtotag = true },
       callback = function(c) c:geometry({height = 700}) end },
-
-     -- temp setting for vacation
-    --{ rule = { instance = "irssi" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1140, y=170}) end },
-    --{ rule = { instance = "nil" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1140, y=570}) end },
-    --{ rule = { instance = "ncmpcpp" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1140, y=40}) end },
-    --{ rule = { instance = "ranger" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1140, y=810}) end },
-    --{ rule = { instance = "irssi" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=175}) end },
-    --{ rule = { instance = "nil" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=550}) end },
-    --{ rule = { instance = "ncmpcpp" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=40}) end },
-    --{ rule = { instance = "ranger" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=845}) end },
-    --{ rule = { class = "Calibre-ebook-viewer" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
-    --{ rule = { class = "feh" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=0, y=0}) end },
-    --{ rule = { class = "Mcomix" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
-    --{ rule = { class = "mpv" },
-    --  properties = { tag = tags[1][1], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=65, y=200}) end },
-    --{ rule = { class = "Zathura" },
-    --  properties = { tag = tags[1][2], floating = true, switchtotag = true },
-    --  callback = function(c) c:geometry({x=1000, y=42, width=780, height=1016}) end },
 
 --#############################################################################
 -- Miscellaneous
 --#############################################################################
 
     { rule = { instance = "calendar" },
-      properties = { floating = true, switchtotag = true },
+      properties = { switchtotag = true },
       callback = function(c) c:geometry({x=450, y=15}) end },
-    -- temp setting for vacation
-      --callback = function(c) c:geometry({x=250, y=15}) end },
 }
 -- }}}
 -- Signals {{{

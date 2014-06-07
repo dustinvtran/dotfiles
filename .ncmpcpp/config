@@ -15,8 +15,8 @@ lyrics_directory = "~/.ncmpcpp/lyrics"
 ###############################################################################
 
 #song_list_format = "{$8%l $1» $5%a $1» $2}{%t}"
-song_list_format = "{$5%a $1» $2}{%t}"
-song_columns_list_format = "(6f)[white]{l} (20)[blue]{a} (40)[red]{t|f} (35)[green]{b}"
+song_list_format = "{$3%a $8» $2}{%t}"
+song_columns_list_format = "(6f)[white]{l} (20)[green]{a} (40)[red]{t|f} (35)[blue]{b}"
 #now_playing_prefix = "$1» "
 #now_playing_suffix = " "
 now_playing_prefix = "$b"
@@ -39,16 +39,14 @@ centered_cursor = "yes"
 #progressbar_look = "≫  "
 #progressbar_look = "»  "
 progressbar_look = "── "
-progressbar_color = "black"
-statusbar_color = "white"
 header_visibility = "no"
 statusbar_visibility = "no"
 titles_visibility = "no"
 follow_now_playing_lyrics = "yes"
 
 ###############################################################################
-# Colors Definitions
+# Colors
 ###############################################################################
 
-#progressbar_color = "green"
-#progressbar_elapsed_color = "black"
+progressbar_color = "white"
+statusbar_color = "black"

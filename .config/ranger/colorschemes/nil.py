@@ -16,7 +16,7 @@ from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import *
 
 class Default(ColorScheme):
-    progress_bar_color = blue
+    progress_bar_color = green
 
     def use(self, context):
         fg, bg, attr = default_colors
@@ -43,11 +43,11 @@ class Default(ColorScheme):
             if context.container:
                 fg = red
             if context.directory:
-                fg = blue
+                fg = green
             elif context.executable and not \
                     any((context.media, context.container,
                         context.fifo, context.socket)):
-                fg = green
+                fg = blue
             if context.socket:
                 fg = magenta
             if context.fifo or context.device:
@@ -83,7 +83,7 @@ class Default(ColorScheme):
 
         if context.in_taskview:
             if context.title:
-                fg = blue
+                fg = green
 
             if context.selected:
                 attr |= reverse

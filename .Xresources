@@ -5,61 +5,45 @@
 !
 
 !##############################################################################
-! Global Colorscheme Notes
-!##############################################################################
-! Relevant Apps: Xresources (irssi, ncmpcpp, terminal, transmission-remote-cli,
-! ranger), alsi, bspwm, firefox (userChrome, pentadactyl, website css),
-! vim (colorscheme, airline), zsh
-
-! White (a snow white):         #f9f9f9
-! Black (a faded black):        #707070
-! Darker Gray:                  #adadad
-! Gray (a dusky gray):          #e0e0e0
-! Green:                        #abd8a5
-! Lighter Gray:                 #ebebeb
-! Red/Pink (flourescent faded): #FF96A3
-! Darker Red (faded burgundy):  #a27b7f
-
-!##############################################################################
-! falac White Colorscheme: Customized
+! Colorscheme
 !##############################################################################
 
-! 0: Black
-URxvt*color0 : #505050
-URxvt*color8 : #727272
+#define base00 #272822
+#define base01 #383830
+#define base02 #49483e
+#define base03 #75715e
+#define base04 #a59f85
+#define base05 #f8f8f2
+#define base06 #f5f4f1
+#define base07 #f9f8f5
+#define base08 #f92672
+#define base09 #fd971f
+#define base0A #f4bf75
+#define base0B #a6e22e
+#define base0C #a1efe4
+#define base0D #66d9ef
+#define base0E #ae81ff
+#define base0F #cc6633
 
-! 1: Red
-URxvt*color1: #FF96A3
-URxvt*color9: #a27b7f
-
-! 2: Green
-URxvt*color2 : #abd8a5
-URxvt*color10 : #80a27b
-
-! 3. Yellow/Orange
-URxvt*color3: #bfa5d8
-URxvt*color11: #9884ac
-
-! 4. Blue
-URxvt*color4: #a5abd8
-URxvt*color12: #7b80a2
-
-! 5. Magenta
-URxvt*color5 : #d8a5d2
-URxvt*color13 : #a27b9d
-
-! 6. Cyan
-URxvt*color6 : #a5d2d8
-URxvt*color14 : #7b9da2
-
-! 7. White
-URxvt*color7 : #adadad
-URxvt*color15 : #505050
-
-URxvt*background: #f9f9f9
-URxvt*foreground: #707070
-URxvt*colorUL: #9693b5
-URxvt*borderColor: #f9f9f9
+*.foreground: base05
+*.background: base00
+*.cursorColor: base05
+*.color0: base00
+*.color1: base08
+*.color2: base0B
+*.color3: base0A
+*.color4: base0D
+*.color5: base0E
+*.color6: base0C
+*.color7: base05
+*.color8: base03
+*.color9: base09
+*.color10: base01
+*.color11: base02
+*.color12: base04
+*.color13: base06
+*.color14: base0F
+*.color15: base07
 
 !##############################################################################
 ! Fonts
@@ -108,9 +92,10 @@ URxvt.iso14755: False
 !##############################################################################
 
 !URxvt.perl-lib: /home/nil/.config/urxvt
-URxvt.perl-ext: default,matcher
-URxvt.matcher.button: 1
-URxvt.urlLauncher: /usr/bin/firefox
+!URxvt.perl-ext: default,matcher
+!URxvt.perl-ext-common: default,clipboard
+!URxvt.matcher.button: 1
+!URxvt.urlLauncher: /usr/bin/firefox
 ! Highlight to end of last character, not the full line (particularly more convenient for yanking)
 ! Not working.
 !URxvt.highlightSelection: true

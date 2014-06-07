@@ -18,7 +18,9 @@
 # Commands & Daemons
 ###############################################################################
 
-clipit &
+#clipit &
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
 compton -b
 dropboxd &
 mpd ~/.config/mpd/mpd.conf
@@ -27,6 +29,7 @@ syndaemon -k -i 1 -d
 transmission-daemon &
 xbacklight -set 50
 setxkbmap -variant colemak
+#setxkbmap -layout us
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keycode 66 = Control_L'
 xmodmap -e 'add Control = Control_L'
@@ -62,8 +65,17 @@ urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
 # Desktop Environment/Window Manager
 ###############################################################################
 
-#sxhkd &
-#exec bspwm
-#exec wm
-#exec /home/nil/bin/wm
 exec awesome
+#PID=$!
+#sleep 5 && echo 'awesome.restart()' | awesome-client &
+#wait $PID
+
+#exec qtile
+
+#xsetroot -cursor_name left_ptr
+#sxhkd &
+#feh --bg-scale ~/.config/bspwm/wallpaper.jpg
+##/home/nil/.config/bspwm/panel/panel dzen2 &
+#exec bspwm
+##exec wm
+##exec /home/nil/bin/wm

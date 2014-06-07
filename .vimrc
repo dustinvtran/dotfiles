@@ -17,11 +17,11 @@ Bundle 'dahu/MarkMyWords'
 Bundle 'gmarik/vundle'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
+Bundle 'lilydjwg/colorizer'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'skammer/vim-css-color'
 "Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'file:///home/nil/.vim/bundle/nil'
@@ -389,20 +389,20 @@ nnoremap <silent> <C-c> :silent BufExplorer<CR>
 " Colors & Airline
 "##############################################################################
 
-" Temporary until I can get solarized working for terminal.
+" Temporary until I can get monokai working for terminal
+>>>>>>> new colorscheme
 if has('gui_running')
-    colorscheme nil
+    colorscheme monokai
 else
-    colorscheme bclear
+    colorscheme molokai
 endif
-set background=light
 syntax enable
 set guioptions=
 set notitle
 set guifont=tewi\ 8
 set laststatus=2
 set noshowmode
-let g:airline_theme='solarized'
+let g:airline_theme='molokai'
 let g:airline_left_sep='⮀'
 let g:airline_right_sep='⮂'
 let g:airline#extensions#whitespace#enabled = 0
@@ -451,11 +451,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 " EasyMotion
 "##############################################################################
 
-<<<<<<< HEAD
-" Homerow optimized, then tweaked by personal preference.
-=======
 " Keys are written by optimizin via homerow, then tweaked by personal preference
->>>>>>> renamed system folder
 let g:EasyMotion_keys = 'hneiotsradluygpfwqkmvc;xzbjEIOTSRAHDLUYGPFWQKMVCXZBJ'
 " I require only two EasyMotion keybinds for all my nifty teleportation: f/F. The 'f/F' defaults are set for normal/visual
 " modes, and the 't/T' defaults are set for operator mode (primarily d/c/y).
@@ -579,45 +575,6 @@ augroup tex_only
     autocmd FileType tex nnoremap <buffer> <silent> # :call ParityDollarSign()<CR>
 augroup END
 
-<<<<<<< HEAD
-"##############################################################################
-" YankRing:
-"##############################################################################
-" Uncomment when I put in YankRing again.
-"""nnoremap <silent> <Leader>p :YRShow<CR>
-"""" Clipboard unnnamed doesn't work with YankRing since it remaps p and P to something stupid. Here I'm resetting it to work again.
-"augroup yanks
-"   autocmd!
-    """autocmd VimEnter * unmap p
-    """autocmd VimEnter * unmap P
-"augroup END
-"""let g:yankring_min_element_length = 2
-
-"Both Yank plugins fuck too much mapping behavior over. Also, YankStack doesn't even get a list and it fucks things over anyways, so why no YankRing?
-    ""YankStack:
-    ""No default keys.
-    "let g:yankstack_map_keys = 0
-    ""Cycle through yanks. nmap is necessary.
-    ""Use <C-n>,<C-p>.
-    "nmap <leader>p <Plug>yankstack_substitute_older_paste
-    "nmap <leader>P <Plug>yankstack_substitute_newer_paste
-    ""List yanks.
-    ""nnoremap <silent> <Leader>p :Yanks<CR>
-    ""So it works with clipboard=unnamed.
-    "augroup yanks
-        "autocmd!
-        "autocmd VimEnter * unmap p
-    "augroup END
-" Make shift operators consistent.
-    "call yankstack#setup()
-nnoremap Y y$
-
-" Command-line/Insert paste shortcuts.
-cnoremap <C-v> <C-R>*<BS>
-inoremap <C-v> <C-R>*
-
-=======
->>>>>>> renamed system folder
 " }}}
 " Specific Filetypes {{{
 " -----------------------------------------------------------------------------
@@ -709,5 +666,6 @@ endfunction
     "autocmd FileType tex set makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
+
 
 " }}}

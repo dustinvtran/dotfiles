@@ -2647,12 +2647,12 @@ sub vim_mode_cmd {
     my $mode_str = '';
     if ($mode == M_INS) {
 #        $mode_str = 'Insert';
-        $mode_str = '%2 %Knil %1%g⮀%K ~ %N%r⮀%N ';
+        $mode_str = '%4 %knil %1%b⮀%k ~ %N%r⮀%N ';
     } elsif ($mode == M_EX) {
         $mode_str = '%_Ex%_';
     } else {
 #        $mode_str = '%_Command%_';
-        $mode_str = '%4 %Knil %1%b⮀%K ~ %N%r⮀%N ';
+        $mode_str = '%2 %knil %1%g⮀%k ~ %N%r⮀%N ';
         if ($register ne '"' or $numeric_prefix or $operator or $movement or
             $pending_map) {
             my $partial = '';
