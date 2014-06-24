@@ -4,6 +4,40 @@
 # Name: nil
 #
 
-# Default modules.
+# Default modules
 import numpy as np
+
+# Provides summary statistics like R's summary()
+# requires numpy as np, pandas as pd
+def summary(x):
+    df = pd.DataFrame(np.zeros((1,5)), columns=['Min.', '1st Qu.', 'Median', 'Mean', '3rd Qu.', 'Max.'])
+    df['Min.'] = min(x)
+    df['1st Qu.'] = np.percentile(x, 25)
+    df['Median'] = np.median(x)
+    df['Mean'] = np.mean(x)
+    df['3rd Qu.'] = np.percentile(x, 75)
+    df['Max.'] = max(x)
+    print df
+
+# Add auto-completion and a stored history file of commands to your Python
+# interactive interpreter. Requires Python 2.0+, readline. Autocomplete is
+# bound to the Esc key by default (you can change it - see readline docs).
+
+import atexit
 import os
+import readline
+import rlcompleter
+
+historyPath = os.path.expanduser("~/.pyhistory")
+
+def save_history(historyPath=historyPath):
+    import readline
+    readline.write_history_file(historyPath)
+
+if os.path.exists(historyPath):
+    readline.read_history_file(historyPath)
+
+atexit.register(save_history)
+del os, atexit, readline, rlcompleter, save_history, historyPath
+
+# vim: filetype=python

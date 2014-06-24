@@ -590,6 +590,7 @@ augroup latex
     autocmd FileType plaintex,tex call Macros()
     autocmd FileType plaintex,tex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
     autocmd BufNewFile,BufRead *.Rtex set filetype=tex
+    autocmd BufNewFile,BufRead *.Rmd set filetype=markdown
 augroup END
 
 function! Macros()
