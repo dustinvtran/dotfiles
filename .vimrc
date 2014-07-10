@@ -1,4 +1,5 @@
 "
+"
 " Vim dotfile
 " ~/.vimrc
 " Name: nil
@@ -8,23 +9,25 @@
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'benjifisher/matchit.zip'
-Bundle 'bling/vim-airline'
-Bundle 'bufexplorer.zip'
-Bundle 'dahu/MarkMyWords'
-Bundle 'gmarik/vundle'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'lilydjwg/colorizer'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'msanders/snipmate.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-"Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'file:///home/nil/.vim/bundle/nil'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'benjifisher/matchit.zip'
+Plugin 'bling/vim-airline'
+Plugin 'bufexplorer.zip'
+Plugin 'dahu/MarkMyWords'
+Plugin 'godlygeek/tabular'
+Plugin 'kien/ctrlp.vim'
+Plugin 'lilydjwg/colorizer'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'msanders/snipmate.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim'
+"Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'file:///home/nil/.vim/bundle/nil'
+call vundle#end()
 filetype plugin on
 
 " System Settings.
@@ -402,7 +405,11 @@ set notitle
 set guifont=tewi\ 8
 set laststatus=2
 set noshowmode
-let g:airline_theme='molokai'
+"let g:airline_theme='molokai'
+augroup airlineTheme
+    autocmd!
+    autocmd VimEnter * AirlineTheme molokai
+augroup END
 let g:airline_left_sep='⮀'
 let g:airline_right_sep='⮂'
 let g:airline#extensions#whitespace#enabled = 0
@@ -591,6 +598,7 @@ augroup latex
     autocmd FileType plaintex,tex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
     autocmd BufNewFile,BufRead *.Rtex set filetype=tex
     autocmd BufNewFile,BufRead *.Rmd set filetype=markdown
+    autocmd BufNewFile,BufRead *.Rhtml set filetype=html
 augroup END
 
 function! Macros()

@@ -19,14 +19,6 @@ mpd: set up stream on PC to get working for laptop using icecast
 Gmail: desktop notifications for arch linux
     replace naughty with libnotify, include it for dropbox, gmail, irssi, ?, low battery notification, skype notifications
 both: get zathura and things such as private firefox to tile when desired
-    sync pc: someway to make this easier and less manual
-        git checkout master && git checkout laptop .. & git merge-master-from-laptop
-        git checkout master && git checkout desktop .. & git merge-master-from-desktop
-            * somehow get all files from git sdiff
-                for now define a script to ask for filenames, then do all the rest
-        what special cases do i still need to do manually?
-            * if it's adding new files into master, and you want to push master
-            * there are overlapping commits from both pcs
     xbacklight not the same on plug in, display off/on
     clipit not always working when highliting over
     laptop boots faster than wifi gets to load
@@ -58,6 +50,30 @@ both: get zathura and things such as private firefox to tile when desired
     no need
         system-dotfiles/hdmi.rules.. cron..
 }}}
+
+colorscheme
+    ~/.irssi/nick colors
+        gray shouldnt be an available nick color
+        can't see spoilers
+    ~/.vimrc
+        need better colors for text doc
+    ~/.ncmpcpp/config
+        highlights not showing correctly
+        can't type anything visibly
+
+sync pc: someway to make this easier and less manual
+    git checkout master && git checkout laptop .. & git merge-master-from-laptop
+    git checkout master && git checkout desktop .. & git merge-master-from-desktop
+        * automate this
+    what special cases do i still need to do manually?
+        * if it's adding new files into master, and you want to push master
+        * there are overlapping commits from both pcs
+
+transmission
+    not downloading anything (neither ip address worked)
+
+zshrc
+    paste not working (xsel -op)
 
 bspwm
     finish locus

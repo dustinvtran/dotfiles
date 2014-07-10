@@ -56,6 +56,7 @@ set passkeys+=boards.4chan.org:qQ<C-q>xmM<C-n><C-e>cCNE<CR>
 set passkeys+=feedly.com:?<CR>
 "JK/rjknpovMmsbV
 set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
+set passkeys+=batoto.net:.,<CR>
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
 " Holy fuck this guy keeps resetting itself otherwise from about:config
@@ -201,7 +202,7 @@ map -modes=n -builtin <Leader>k  :tabopen! bakabt.me | animebytes.tv | what.cd<C
 " Earnest
 map -modes=n -builtin <Leader>me :tabopen! https://mail.google.com/mail/u/4/#inbox<CR>
 map -modes=n -builtin <Leader>as :tabopen! https://app.asana.com/0/12647822246510/12647822246510<CR>
-map -modes=n -builtin <Leader>uw :tabopen! https://wiki.meetearnest.com/index.php/How_to_read_a_Credit_Report | https://wiki.meetearnest.com/index.php/Step-by-step_Scoring_Process | https://wiki.meetearnest.com/index.php/Underwriting_Methodology | https://docs.google.com/a/meetearnest.com/spreadsheets/d/1u5T6HOCXM4kgQv6evm7ss5dq93xFEz1PX8EjxslqU84/edit#gid=86319636 | https://underwriter.meetearnest.com/#/login | https://drive.google.com/a/meetearnest.com/folderview?id=0B1nd0ewadhYiMERqanE5TUltQjA&usp=sharing | https://www.dropbox.com/home/Application%20Files<CR>
+map -modes=n -builtin <Leader>uw :tabopen! https://wiki.meetearnest.com/index.php/How_to_read_a_Credit_Report | https://wiki.meetearnest.com/index.php/Step-by-step_Scoring_Process | https://wiki.meetearnest.com/index.php/Underwriting_Methodology | http://tiny.cc/scoremaster | https://underwriter.meetearnest.com/#/login | https://drive.google.com/a/meetearnest.com/folderview?id=0B1nd0ewadhYiMERqanE5TUltQjA&usp=sharing | https://www.dropbox.com/home/Application%20Files<CR>
 map -modes=n -builtin <Leader>vf :tabopen! https://wiki.meetearnest.com/index.php/How_to_read_a_Credit_Report | https://wiki.meetearnest.com/index.php/Step-by-step_Scoring_Process_(VERIFIER_STEPS) | https://docs.google.com/a/meetearnest.com/spreadsheets/d/1u5T6HOCXM4kgQv6evm7ss5dq93xFEz1PX8EjxslqU84/edit#gid=86319636 | https://underwriter.meetearnest.com/#/login | https://www.dropbox.com/home/Application%20Files<CR>
 
 " }}}
