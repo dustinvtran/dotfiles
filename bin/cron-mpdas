@@ -7,7 +7,6 @@ export DISPLAY=:0
 program="mpdas"
 command="mpdas &"
 
-pgrep $program
-if [ $? -ne 0 ]; then
+if [[ -z $(pgrep $program) ]]; then
     $command
 fi

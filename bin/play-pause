@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# This is a script set as a global keybind. It play/pauses ncmpcpp if mpv isn't running, and play/pauses mpv if it is
-# running (while keeping ncmpcpp paused).
+# This is a script set as a global keybind, which works for three different applications with audio. If mpv is running, it
+# play/pauses mpv; if mpv isn't running and spotify is running, it play/pauses spotify; else it play/pauses ncpmcpp.
 
-pgrep mpv
-if [ $? -ne 0 ]; then
-    ncmpcpp toggle
-else
+if [[ -n $(pgrep mpv) ]]; then
     echo "cycle pause" > ~/bin/config/mpv-control
     ncmpcpp pause
+    playerctl pause
+elif [[ -n $(pgrep spotify) ]]; then
+    playerctl play-pause
+    ncmpcpp pause
+else
+    ncmpcpp toggle
 fi
