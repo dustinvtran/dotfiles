@@ -1,9 +1,11 @@
-This document compiles a list of tasks that I have yet to complete. This is purely for personal (although somewhat public)
- use, so I can keep track of features I desire and when I complete them.
+This document compiles a list of tasks that I have yet to complete. This is
+purely for personal (although somewhat public) use, so I can keep track of
+features I desire and when I complete them.
 
-Each to-do item for an application is assigned a priority level depending on how much I personally want them to be
- completed. Then in the Priority categories, each application is sorted by alphabetical order. Then each task within an
- application is itself ranked by descending order of priority.
+Each to-do item for an application is assigned a priority level depending on how
+much I personally want them to be completed. Then in the Priority categories,
+each application is sorted by alphabetical order. Then each task within an
+application is itself ranked by descending order of priority.
 
 Highest Priority {{{
 -------------------------------------------------------------------------------
@@ -50,6 +52,24 @@ both: get zathura and things such as private firefox to tile when desired
     no need
         system-dotfiles/hdmi.rules.. cron..
 }}}
+
+somehow migrate all pic bookmarks from pixiv to pinterest
+audio output is broken
+redo ts=80 for all files
+yanking full line and pasting in another vim buffer
+import 4chan x settings
+vimrc: set up one where i can do fuzzy file find by default on /home/nil
+teknik ricehalla
+mpv-control not working
+android
+    have dropbox sync with the current gallery, e.g., if i delete stuff in gallery delete in dropbox too
+clean your installed package list
+    filezilla, thunderbird
+make a new /fa/ style colorscheme
+lastpass: assign a universal password (new one) to things that you have constant access to, e.g., github pushing and specific mobile device accounts
+  look into migrating to keepass/better pw managers that integrate with android and can be grabbed
+also look into better todolist via hacker news
+decide on if tweetdeck or not is useful
 
 colorscheme
     ~/.irssi/nick colors
@@ -107,9 +127,6 @@ vim
 
 urxvt
     * urxvt-perls: c-v as paste (eg for irssi and readline), url clicker+keyboard select.
-
-colorscheme
-    * change colors to reflect new paper (darker colors maybe? especially red like a stanford/blood red) for xresources and vim colorscheme
 
 }}}
 High Priority {{{

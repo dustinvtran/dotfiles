@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 
 [
-    {OTHER    => '%s%snil@arch'},
-    {OTHER    => '%sWebsite:%s nil.heliohost.org'},
+    {OTHER    => '%s%dvt@arch'},
+    {OTHER    => '%sWebsite:%s dustinvtran.com'},
     {HARDCODED => ""},
     {OS       => '%sOS:%s %s'},
     {KERNEL   => '%sKernel:%s %s'},

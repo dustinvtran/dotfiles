@@ -62,10 +62,12 @@ set wildmenu                                 " Tab-completion features in cmd-li
 set wildmode=list:full
 set foldmethod=marker                        " Custom folding.
 
-" Formatting.
-set backspace=indent,eol,start               " Expected backspacing.
-set linebreak                                " Don't linebreak words in the middle.
-set display=lastline                         " Displays partial wrapped lines.
+" Formatting
+set backspace=indent,eol,start               " Expected backspacing
+set linebreak                                " Don't linebreak words in the middle
+set display=lastline                         " Displays partial wrapped lines
+set tw=80                                    " Auto linebreak at 80 characters
+set formatoptions=rotcq                      " Format options with new lines
 set cursorline                               " Cursor Highlight, Color
 set number                                   " Show absolute number for cursor line.
 set relativenumber                           " Line numbers relative to cursor line.
@@ -78,13 +80,13 @@ set splitright
 set wmh=0 wmw=0                              " Only see filename when minimized.
 augroup no_indent
     autocmd!
-    autocmd FileType * set formatoptions=rol
+    autocmd FileType text set formatoptions=rol
 augroup END
 
-" Tab Settings.
-set expandtab                                " Spaces as tabs.
-set shiftwidth=4                             " 4-character tabs.
-set softtabstop=4                            " Fix it to 4.
+" Tab Settings
+set expandtab                                " Spaces as tabs
+set shiftwidth=2                             " 2-character tabs
+set softtabstop=2                            " Fix it to 2
 
 " 1 sec <Esc> delay in terminal? Vim pls.
 set noesckeys
@@ -92,8 +94,10 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size, but not for console Vim.
 if has("gui_running")
-  set lines=49 columns=127
-  "set lines=65 columns=127
+    " 80 character limit
+    "set lines=49 columns=85
+    " github character limit
+    set lines=49 columns=127
 endif
 
 augroup misc
@@ -112,7 +116,6 @@ augroup misc
     endif
     " Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!
     autocmd BufWritePost $myvimrc nested source $myvimrc
-    autocmd BufWritePost $myvimrc set formatoptions-=c formatoptions-=t formatoptions-=q formatoptions+=r formatoptions+=o formatoptions+=l
 augroup END
 
 " }}}
@@ -443,7 +446,7 @@ let g:ctrlp_prompt_mappings = {
 \ 'PrtCurEnd()':          [''],
 \ }
 let g:ctrlp_cmd = 'CtrlPMRU'
-let g:ctrlp_working_path_mode = ''
+let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
 set wildignore+=*.doc,*.docx,*.ods,*.xlsx
@@ -592,13 +595,15 @@ augroup END
 
 let g:tex_flavor = "latex"
 
-augroup latex
+augroup filetypes
     autocmd!
     autocmd FileType plaintex,tex call Macros()
     autocmd FileType plaintex,tex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
     autocmd BufNewFile,BufRead *.Rtex set filetype=tex
     autocmd BufNewFile,BufRead *.Rmd set filetype=markdown
-    autocmd BufNewFile,BufRead *.Rhtml set filetype=html
+    autocmd BufNewFile,BufRead *.Rhtml,*.hbs set filetype=html
+    "autocmd FileType r,html,text setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
 function! Macros()

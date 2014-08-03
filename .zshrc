@@ -520,6 +520,11 @@ function scph() {
     scp -r s135-879057@98.143.38.105:~/$1 $2
 }
 
+# digital ocean server
+alias sshd="ssh dvt@162.243.56.181"
+alias scpo="scp -r ~/Dropbox/www/oneesama.moe dvt@162.243.56.181:/var/www"
+alias scpd="scp -r ~/Dropbox/www/dustinvtran.com dvt@162.243.56.181:/var/www"
+
 # Tablet SSH
 # The obtuse folder directory is to copy manga files directly into my comic reader app. I specify "all arguments" so it
 # can scp multiple files/directories simultaneously, if desired

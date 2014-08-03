@@ -26,6 +26,8 @@ unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 if [ $(pgrep mpv) -ne 0 ]; then
     # Pause mpd, e.g., if I open mpv while mpd is still playing.
     ncmpcpp pause
+    # Pause spotify, e.g., if I open mpv while mpd is still playing.
+    playerctl pause
     # Place all arguments into new playlist.
     rm ~/.mpv/playlist
     for i in "$@"; do
