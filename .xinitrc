@@ -26,7 +26,7 @@ dropboxd &
 mpd ~/.config/mpd/mpd.conf
 rssdler -c ~/.config/rssdler/config.txt -d
 syndaemon -k -i 1 -d
-transmission-daemon &
+#transmission-daemon &
 xbacklight -set 50
 setxkbmap -variant colemak
 #setxkbmap -layout us

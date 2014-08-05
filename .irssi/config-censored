@@ -6,20 +6,26 @@
 
 servers = (
   {
-    address = "irc.rizon.net";
-    chatnet = "Rizon";
-    port = "6667";
+    address = "RizonBNC.us.rizon.net";
+    chatnet = "rizon";
+    port = "12345";
     autoconnect = "yes";
+    use_ssl = "yes";
+    password = "";
   }
 );
 
-chatnets = { rizon = { type = "IRC"; nick = "niltop"; }; };
+chatnets = {
+ rizon = { type = "IRC"; nick = "nil"; };
+};
 
 channels = (
-  { name = "#qd"; chatnet = "rizon"; autojoin = "yes"; },
-  { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
   #{ name = "#/g/summer"; chatnet = "rizon"; autojoin = "yes"; },
-  #{ name = "#rice"; chatnet = "rizon"; autojoin = "yes"; }
+  { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#rice"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#priorities"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#qd"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#sakuga"; chatnet = "rizon"; autojoin = "yes"; },
 );
 
 aliases = {
@@ -98,7 +104,7 @@ settings = {
     #awl_display_header = "                   ";
 
     # [L] Use this if you only have laptop display.
-    awl_display_header = "                                           ";
+    awl_display_header = "                       ";
 
     awl_display_key = "%w$H $C  $S";
     awl_display_key_active = "%r$H $C  $S";
