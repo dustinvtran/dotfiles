@@ -1,6 +1,6 @@
 #
 # ~/.zshenv
-# Name: nil
+# Name: Dustin Tran
 #
 
 export EDITOR=gvim

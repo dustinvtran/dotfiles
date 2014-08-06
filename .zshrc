@@ -1,7 +1,7 @@
 #
 # zsh dotfile
 # ~/.zshrc
-# Name: nil
+# Name: Dustin Tran
 #
 # General Settings {{{
 # -----------------------------------------------------------------------------

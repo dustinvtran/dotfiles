@@ -1,7 +1,7 @@
 #
 # R dotfile
 # ~/.Rprofile
-# Name: nil
+# Name: Dustin Tran
 #
 
 # Default libraries.

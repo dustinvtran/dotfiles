@@ -71,6 +71,6 @@ Thus all PCs share the common dotfiles in `master`, and they also use revision c
 
 ## Working with a Dynamic Set of Displays
 
-Given that I'm a top pleb using a $400 laptop, I make do with a larger display at home. I primarily use that setup: a 1366x768 display connected to a 1920x1080 external one. To accommodate situations where I'm on the go (and thus without the external monitor), I note certain lines in certain dotfiles with `[L+E]` and `[L]`. These lines are (un)commented appropriately depending on whichever displays I have available.
+I make do with a larger display at home. I primarily use that setup: a 1366x768 display connected to a 1920x1080 external one. To accommodate situations where I'm on the go (and thus without the external monitor), I note certain lines in certain dotfiles with `[L+E]` and `[L]`. These lines are (un)commented appropriately depending on whichever displays I have available.
 
 But this is a pain in the butt to go in and change each dotfile correspondingly. To automate this procedure, I set a script that does the (un)commenting, and then I use it with udev, which is triggered whenever HDMI output is (dis)connected (see `~/bin/udev-hdmi` for more info). Hence, once setup, you can simply hotplug away and your layouts will be preconfigured as necessary. This definitely beats having to turn off xrandr's hdmi, then re-editing your WM dotfile, then,...

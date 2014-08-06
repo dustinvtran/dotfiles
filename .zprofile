@@ -1,6 +1,6 @@
 #
 # ~/.zprofile
-# Name: nil
+# Name: Dustin Tran
 #
 
 . $HOME/.zshrc
