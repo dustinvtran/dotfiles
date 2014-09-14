@@ -12,20 +12,49 @@ servers = (
     autoconnect = "yes";
     use_ssl = "yes";
     password = "";
+  },
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    autoconnect = "yes";
+    use_ssl = "yes";
   }
 );
 
 chatnets = {
- rizon = { type = "IRC"; nick = "nil"; };
+  rizon = { type = "IRC"; nick = "nil"; };
+  freenode = {
+    type = "IRC";
+    nick = "nil-";
+    autosendcmd = "/msg nickserv IDENTIFY ...; /window goto nickserv; /window close";
+  };
 };
 
 channels = (
-  #{ name = "#/g/summer"; chatnet = "rizon"; autojoin = "yes"; },
-  { name = "#TheAnime"; chatnet = "rizon"; autojoin = "yes"; },
-  { name = "#rice"; chatnet = "rizon"; autojoin = "yes"; },
-  { name = "#priorities"; chatnet = "rizon"; autojoin = "yes"; },
+  # a
   { name = "#qd"; chatnet = "rizon"; autojoin = "yes"; },
-  { name = "#sakuga"; chatnet = "rizon"; autojoin = "yes"; },
+  { name = "#anorexia"; chatnet = "rizon"; autojoin = "yes"; },
+  # ml
+  {
+    name = "#machinelearning";
+    chatnet = "freenode";
+    autojoin = "yes";
+  },
+  { name = "##statistics"; chatnet = "freenode"; autojoin = "yes"; },
+  # languages
+  { name = "#c++"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#haskell"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#python"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#scikit-learn"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#R"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#zsh"; chatnet = "freenode"; autojoin = "no"; },
+  # unix and apps
+  { name = "##linux"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; },
+  #
+  { name = "##latin"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -75,6 +104,22 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_1 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_2 = {
+      placement = "top";
+      items = {
+        barstart = { priority = "100"; };
+        awl_2 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -93,7 +138,7 @@ settings = {
     autolog_path = "~/.irssi/logs/%Y/$tag/$0.%m.log";
     show_names_on_join = "no";
     term_charset = "utf-8";
-    theme = "nil";
+    theme = "dvt";
     use_status_window = "no";
   };
   "perl/core/scripts" = {
@@ -121,14 +166,14 @@ settings = {
     dcc_autoaccept_lowports = "yes";
     dcc_autoget = "yes";
     dcc_autorename = "yes";
-    dcc_download_path = "~/nil/media/literature/[backlog]/IRC-bookz";
+    dcc_download_path = "~/dvt/media/literature/irc-bookz";
   };
 };
 hilights = (
   { text = "nil"; nick = "yes"; word = "yes"; fullword = "yes"; },
   { text = "nil-"; nick = "yes"; word = "yes"; fullword = "yes"; },
   { text = "nilf"; nick = "yes"; word = "yes"; fullword = "yes"; },
-  { text = "nilk"; nick = "yes"; word = "yes"; fullword = "yes"; }
+  { text = "nilk"; nick = "yes"; word = "yes"; fullword = "yes"; },
   { text = "niltop"; nick = "yes"; word = "yes"; fullword = "yes"; }
 );
 keyboard = (

@@ -175,11 +175,11 @@ map -modes=n -builtin <Leader>dd :tabopen! http://dustinvtran.com/<CR>
 map -modes=n -builtin <Leader>db :tabopen! http://dustinvtran.com/blog<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/films-tv.html<CR>
-map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/music.html<CR>
-map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/video-games.html<CR>
-map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/visual-novels.html<CR>
-map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/literature.html<CR>
+map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/films-tv.html<CR>
+map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/music.html<CR>
+map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/video-games.html<CR>
+map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/visual-novels.html<CR>
+map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/literature.html<CR>
 map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " mail
@@ -214,7 +214,7 @@ map -modes=n -builtin <Leader>sg :tabopen! http://www.grailed.com/<CR>
 map -modes=n -builtin <Leader>sz :tabopen! http://stylezeitgeist.com/forums/forumdisplay.php?f=50<CR>
 
 " homepge
-map -modes=n -builtin <Leader>ff :tabopen! https://www.wunderlist.com/ | https://twitter.com/ | file:///home/nil/Dropbox/Public/collections/websites/index.html | http://en.wikipedia.org/wiki/Avant-garde_jazz | https://www.google.com/calendar/b/0/render<CR>
+map -modes=n -builtin <Leader>ff :tabopen! https://www.wunderlist.com/ | https://twitter.com/ | file:///home/dvt/Dropbox/Public/collections/websites/index.html | http://en.wikipedia.org/wiki/Avant-garde_jazz | https://www.google.com/calendar/b/0/render<CR>
 
 " harvard
 map -modes=n -builtin <Leader>205h :tabopen! 205h<CR>

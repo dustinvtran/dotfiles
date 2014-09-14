@@ -1,0 +1,3 @@
+*/1 * * * * /bin/bash /home/dvt/bin/cron-rssdler
+*/1 * * * * /bin/bash /home/dvt/bin/cron-mpdas
+*/60 * * * * /bin/bash /home/dvt/bin/cron-xcape

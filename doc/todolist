@@ -61,7 +61,7 @@ somehow migrate all pic bookmarks from pixiv to pinterest
 audio output is broken
   get blockify to work with external sound muted
 yanking full line and pasting in another vim buffer
-vimrc: set up one where i can do fuzzy file find by default on /home/nil
+vimrc: set up one where i can do fuzzy file find by default on /home/dvt
 teknik ricehalla
 mpv-control not working
 clean your installed package list
@@ -332,7 +332,7 @@ vim
     type lime/uushi encodings with ctrl+shift.
     anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
     NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
-    SetColors: not sure how to change the runtimepath to ~/.vim/bundle/nil/colors/*.vim. technically, i could always do a symlink.
+    SetColors: not sure how to change the runtimepath to ~/.vim/bundle/dvt/colors/*.vim. technically, i could always do a symlink.
     Repeat: Not working with Surround.
     Snippets: Fix the auto-reload command to not be so computation heavy.
     Snippets: How to do snippets inside a snippet? Or perhaps manage more carefully if not.

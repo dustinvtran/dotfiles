@@ -1,7 +1,7 @@
 #
 # Ranger colorscheme
-# ~/.config/ranger/colorschemes/nil.py
-# Name: nil
+# ~/.config/ranger/colorschemes/dvt.py
+# Name: Dustin Tran
 #
 
 # Note: I changed the interface for titlebar and statusbar, and so some conditions are added/removed accordingly,

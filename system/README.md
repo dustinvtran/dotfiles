@@ -17,4 +17,4 @@ This documents the file paths for the system files I edited above, as well as a 
   which directly modify the interface. Substitute with these two files if you want ranger to look like my current setup.
 * `/usr/lib/python3.4/site-packages/ranger/gui/ui.py`:  These are changes made in ranger's installation files which
   directly modify the interface. Substitute with these two files if you want ranger to look like my current setup.
-* `/var/spool/cron/nil`
+* `/var/spool/cron/dvt`

@@ -1,7 +1,7 @@
 --
 -- Awesome dotfile
 -- ~/.config/awesome/rc.lua
--- Name: nil
+-- Name: Dustin Tran
 --
 -- Initial Settings {{{
 -------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ tags = {
               layouts[1], layouts[1], layouts[1], layouts[1], layouts[1] },
 }
 
-beautiful.init("/home/nil/.config/awesome/themes/nil/theme.lua")
+beautiful.init("/home/dvt/.config/awesome/themes/dvt/theme.lua")
 
 for s = 1, screen.count() do
     --if (s == 1) then
@@ -106,8 +106,8 @@ system = {
 mymainmenu = awful.menu({ items = {
      { "⮪ system", system, beautiful.awesome_icon },
      { "⮩ urxvt", terminal },
-     { "⮤ scrot", "scrot /home/nil/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png" },
-     { "⮤ byzanz", "byzanz-record -c -d 10 nil.gif" },
+     { "⮤ scrot", "scrot /home/dvt/dvt/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png" },
+     { "⮤ byzanz", "byzanz-record -c -d 10 dvt.gif" },
      }
 })
 
@@ -119,7 +119,7 @@ mymainmenu = awful.menu({ items = {
 -- Bashets Widgets: Battery, Clock, Irssi Notification, Mail Notification, mpv
 --#############################################################################
 
-bashets.set_script_path("/home/nil/.config/awesome/widgets/")
+bashets.set_script_path("/home/dvt/.config/awesome/widgets/")
 batwidget = wibox.widget.textbox()
 clockwidget = wibox.widget.textbox()
 irssiwidget = wibox.widget.textbox()
@@ -353,20 +353,20 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "Return", function () awful.util.spawn(terminal)                end),
     awful.key({ modkey }, "l", function () run_or_raise(terminal,  { instance = "term" }) end),
     awful.key({ modkey }, "v", function () run_or_raise("gvim",    { class = "Gvim"    }) end),
-    awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
-    --awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 127x18 -e nil-transmission-remote-cli", { instance = "tcli" }) end),
+    awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -g 127x18 -e dvt-transmission-remote-cli", { instance = "tcli" }) end),
+    --awful.key({ modkey }, "a", function () run_or_raise("urxvt -name tcli -font 'xft:uushi' -boldFont 'xft:uushi' -g 127x18 -e dvt-transmission-remote-cli", { instance = "tcli" }) end),
     awful.key({ modkey }, "f", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/nil/Dropbox/nil/interests/macros.ods", { instance = "VCLSalFrame" }) end),
+    awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/dvt/Dropbox/dvt/interests/macros.ods", { instance = "VCLSalFrame" }) end),
     awful.key({ modkey }, "k", function () run_or_raise("skype",    { class = "Skype"    }) end),
 
     -- [L+E] Use this if you have both laptop and external display.
-    --awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "nil" }) end),
+    --awful.key({ modkey }, "u", function () run_or_raise("urxvt -name dvt -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "dvt" }) end),
     --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
     --awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
 
     -- [L] Use this if you only have laptop display.
-    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name nil -g 85x24", { instance = "nil" }) end),
+    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name dvt -g 85x24", { instance = "dvt" }) end),
     awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
     awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     awful.key({ modkey }, "r", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
@@ -379,7 +379,7 @@ globalkeys = awful.util.table.join(
 --#############################################################################
 
     awful.key({ modkey,         }, "c", function () awful.util.spawn("calendar-toggle") end),
-    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/nil/.irssi/logs/fnotify") end),
+    awful.key({ modkey, "Shift" }, "i", function () awful.util.spawn_with_shell("echo >> /home/dvt/.irssi/logs/fnotify") end),
     --awful.key({ modkey }, "v", function () awful.util.spawn_with_shell("sh -c 'xdotool type \"$(xsel)\"'") end),
     awful.key({                 }, "Print", function () awful.util.spawn("touchpad-toggle") end),
 
@@ -592,7 +592,7 @@ awful.rules.rules = {
     --{ rule = { instance = "irssi" },
     --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=175}) end },
-    --{ rule = { instance = "nil" },
+    --{ rule = { instance = "dvt" },
     --  properties = { tag = tags[2][1], switchtotag = true },
     --  callback = function(c) c:geometry({x=1340, y=550}) end },
     --{ rule = { instance = "ncmpcpp" },
@@ -619,14 +619,9 @@ awful.rules.rules = {
 
     -- [L] Use this if you only have laptop display.
     { rule = { instance = "irssi" },
-<<<<<<< HEAD
-      properties = { tag = tags[1][5], floating = true, switchtotag = true },
-      callback = function(c) c:geometry({x=900, y=210}) end },
-=======
       properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=900, y=180}) end },
->>>>>>> new colorscheme
-    { rule = { instance = "nil" },
+    { rule = { instance = "dvt" },
       properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=70, y=260}) end },
     { rule = { instance = "ncmpcpp" },

@@ -109,7 +109,7 @@ Medium Priority
   when youtube video is a url in firefox, have play-pause cycle pause that, not mpv or ncmpcpp instead
 
 Low Priority
-  irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat
+  irssi-notify doesn't echo the nick if it starts with 'dvt'. Lolwat
   eminent mouse scroll through tags not working
   erm, that dropbox notification. Modify it
 

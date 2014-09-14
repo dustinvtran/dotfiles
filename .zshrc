@@ -399,7 +399,7 @@ alias xsetd="xset dpms force off"          # Turn off display
 alias bd="bg && disown"                    # Best way to prevent terminal-launched app from dying when closing terminal
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'                      # See list of recently used commands
-alias pokerstars="wine '/home/nil/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
+alias pokerstars="wine '/home/dvt/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
@@ -424,7 +424,7 @@ installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-lis
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list)"
 
-# List directory structure of ~/nil/media
+# List directory structure of ~/dvt/media
 alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[backlog\]/*'\
         | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/media\/sdb1/d'\
         | sed -e 's/\[backlog\]/\[aabacklog\]/'\
@@ -461,7 +461,7 @@ visual novels/[aabacklog]/[completed]/...' )\
         | sort\
         | sed -e 's/\[aabacklog\]/\[backlog\]/'\
         | sed -e 's/^\(anime\|films\|literature\|manga\|music\|tv\|video games\|visual novels\)$/\n&/'\
-        | sed -e '1i This lists the entire directory structure of my ~/nil/media folder, which is a collection\
+        | sed -e '1i This lists the entire directory structure of my ~/dvt/media folder, which is a collection\
  of all titles I rate >=8/10 and\n their affiliated installments. It also stores my massive backlogs within each\
  medium, but I omit them here. Why archive\n my media directory structure, you ask? Because its so pretty and\
  autistic of me I simply must. When you\x27re a consumer,\n there ought to be a competent way to organize your\
@@ -493,8 +493,8 @@ alias emptytrash="trash-empty"
 
 # CLI applications
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
-alias scrot="scrot -c -d 3 ~/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
-alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
+alias scrot="scrot -c -d 3 ~/dvt/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
+alias byzanz-record="cd ~/dvt/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 dvt.gif && cd -"
 
 ###############################################################################
 # Functions

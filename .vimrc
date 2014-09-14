@@ -25,7 +25,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
 "Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'file:///home/nil/.vim/bundle/nil'
+Plugin 'file:///home/dvt/.vim/dvt'
 call vundle#end()
 filetype plugin on
 
@@ -534,7 +534,7 @@ let NERDTreeShowHidden=1
 " Snipmate
 "##############################################################################
 
-let g:snippets_dir = '~/.vim/bundle/nil/snippets'
+let g:snippets_dir = '~/.vim/bundle/dvt/snippets'
 
 " To reload the snippets whenever I rewrite them.
 augroup snippets

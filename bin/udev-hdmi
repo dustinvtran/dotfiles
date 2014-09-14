@@ -3,18 +3,18 @@
 # This is a script for a udev rule and startup. It changes certain settings, triggered whenever HDMI1 is connected or
 # disconnected.
 
-export XAUTHORITY=/home/nil/.Xauthority
+export XAUTHORITY=/home/dvt/.Xauthority
 export DISPLAY=:0
 
-alsa_dir=/home/nil/bin/config
+alsa_dir=/home/dvt/bin/config
 hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
-lplusecommented=$(grep -A 1 "^ *# \[L+E\]" /home/nil/.xinitrc | grep -v "^ *# \[L+E\]" | grep "^ *#")
+lplusecommented=$(grep -A 1 "^ *# \[L+E\]" /home/dvt/.xinitrc | grep -v "^ *# \[L+E\]" | grep "^ *#")
 
 # Set audio output.
 if [ "$hdmi_status" = connected ]; then
-    ln -sf $alsa_dir/asound.usb /home/nil/.asoundrc
+    ln -sf $alsa_dir/asound.usb /home/dvt/.asoundrc
 else
-    ln -sf $alsa_dir/asound.laptop /home/nil/.asoundrc
+    ln -sf $alsa_dir/asound.laptop /home/dvt/.asoundrc
 fi
 
 # Set video output.
@@ -45,41 +45,41 @@ mount /dev/sdb1 /media/sdb1
 if [ "$hdmi_status" = connected ] && [ -n "$lplusecommented" ]; then
     sed -i -e '/^ *-- \[L+E\]/,/^$/ { /^ *-- \[L+E\]/b; /^$/b; s/--// }' \
            -e '/^ *-- \[L\]/,/^$/ { /^ *-- \[L\]/b; /^$/b; s/^ */&--/ }' \
-           /home/nil/.config/awesome/rc.lua
+           /home/dvt/.config/awesome/rc.lua
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/#// }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/^ */&#/ }' \
-           /home/nil/.config/ranger/rifle.conf
+           /home/dvt/.config/ranger/rifle.conf
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/#// }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/^ */&#/ }' \
-           /home/nil/.irssi/config
+           /home/dvt/.irssi/config
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/#// }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/^ */&#/ }' \
-           /home/nil/.irssi/config-censored
+           /home/dvt/.irssi/config-censored
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/#// }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/^ */&#/ }' \
-           /home/nil/.mpv/config
+           /home/dvt/.mpv/config
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/#// }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/^ */&#/ }' \
-           /home/nil/.xinitrc
+           /home/dvt/.xinitrc
     echo 'awesome.restart()' | awesome-client &
 elif [ "$hdmi_status" = disconnected ] && [ -z "$lplusecommented" ]; then
     sed -i -e '/^ *-- \[L+E\]/,/^$/ { /^ *-- \[L+E\]/b; /^$/b; s/^ */&--/ }' \
            -e '/^ *-- \[L\]/,/^$/ { /^ *-- \[L\]/b; /^$/b; s/--// }'         \
-           /home/nil/.config/awesome/rc.lua
+           /home/dvt/.config/awesome/rc.lua
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/^ */&#/ }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/#// }'         \
-           /home/nil/.config/ranger/rifle.conf
+           /home/dvt/.config/ranger/rifle.conf
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/^ */&#/ }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/#// }'         \
-           /home/nil/.irssi/config
+           /home/dvt/.irssi/config
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/^ */&#/ }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/#// }'         \
-           /home/nil/.irssi/config-censored
+           /home/dvt/.irssi/config-censored
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/^ */&#/ }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/#// }'         \
-           /home/nil/.mpv/config
+           /home/dvt/.mpv/config
     sed -i -e '/^ *# \[L+E\]/,/^$/ { /^ *# \[L+E\]/b; /^$/b; s/^ */&#/ }' \
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/#// }'         \
-           /home/nil/.xinitrc
+           /home/dvt/.xinitrc
     echo 'awesome.restart()' | awesome-client &
 fi

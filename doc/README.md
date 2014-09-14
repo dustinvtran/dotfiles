@@ -55,7 +55,7 @@ changes are minimal. just removed bunch of toolbars. added ctrl+nest/NEST, ctrl+
 
 On the larger display, I have (from top to bottom) ncmpcpp, irssi, blank terminal, and ranger, with a lot of empty space indicated on the left. This allows me to use all applications in only the small windows that they're needed in, allowing a lot of room for useless gaps and wallpaper gawking. The left empty space is for incidental media applications, ones which are positioned there on the occasion that they're running: mpv, feh, calibre-ebook-viewer, and zathura. Media players—whether ranging from video or ebook to pictures—are all given their ample, needed space through that left region. Never are two ever running at the same time, so they're all allowed to use the same position.
 
-On the laptop's display, I have vim and nil-transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces (in fullscreen, since unlike other applications, they *do* require as much space as possible for the teeny tiny display).
+On the laptop's display, I have vim and dvt-transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces (in fullscreen, since unlike other applications, they *do* require as much space as possible for the teeny tiny display).
 
 ## syncing multiple PCs
 I use two computers, and in order to manage their configuration files efficiently, I set up this dotfile repository with the following three branches:

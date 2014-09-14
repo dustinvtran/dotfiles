@@ -49,18 +49,18 @@ firefox &
 gvim &
 
 # [L+E] Use this if you have both laptop and external display
-#urxvt -name nil -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
+#urxvt -name dvt -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
 #urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
 #urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
 #urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
 
 # [L] Use this if you only have laptop display
-urxvt -name nil -g 85x24 &
+urxvt -name dvt -g 85x24 &
 urxvt -name irssi -g 102x35 -e irssi &
 urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
 urxvt -name ranger -g 102x21 -e ranger &
 
-urxvt -name tcli -g 129x18 -e nil-transmission-remote-cli &
+urxvt -name tcli -g 129x18 -e dvt-transmission-remote-cli &
 
 ###############################################################################
 # Desktop Environment/Window Manager
@@ -76,7 +76,7 @@ exec awesome
 #xsetroot -cursor_name left_ptr
 #sxhkd &
 #feh --bg-scale ~/.config/bspwm/wallpaper.jpg
-##/home/nil/.config/bspwm/panel/panel dzen2 &
+##/home/dvt/.config/bspwm/panel/panel dzen2 &
 #exec bspwm
 ##exec wm
-##exec /home/nil/bin/wm
+##exec /home/dvt/bin/wm

@@ -3,7 +3,7 @@
 #
 # ranger: File Preview
 # ~/.config/ranger/rc.conf
-# Name: nil
+# Name: Dustin Tran
 #
 
 # Note: Only difference is that I commented out lines for archive extensions, pdfs, video/audio previews. I prefer to see

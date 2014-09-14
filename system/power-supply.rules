@@ -1,2 +1,2 @@
-SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", RUN+="/home/nil/bin/udev-power-supply"
-SUBSYSTEM=="power_supply", ATTR{status}=="Charging", RUN+="/home/nil/bin/udev-power-supply"
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", RUN+="/home/dvt/bin/udev-power-supply"
+SUBSYSTEM=="power_supply", ATTR{status}=="Charging", RUN+="/home/dvt/bin/udev-power-supply"

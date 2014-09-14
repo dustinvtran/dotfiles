@@ -1,7 +1,7 @@
 "
-" nil colorscheme
-" ~/.vim/bundle/nil/colors/nil.vim
-" Name: nil
+" dvt colorscheme
+" ~/.vim/bundle/dvt/colors/dvt.vim
+" Name: Dustin Tran
 "
 
 " Colors appended at the end. Default solarized otherwise.

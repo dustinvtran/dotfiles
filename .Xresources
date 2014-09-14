@@ -91,7 +91,7 @@ URxvt.iso14755: False
 ! Various Settings
 !##############################################################################
 
-!URxvt.perl-lib: /home/nil/.config/urxvt
+!URxvt.perl-lib: /home/dvt/.config/urxvt
 !URxvt.perl-ext: default,matcher
 !URxvt.perl-ext-common: default,clipboard
 !URxvt.matcher.button: 1

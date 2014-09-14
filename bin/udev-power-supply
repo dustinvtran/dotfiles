@@ -3,7 +3,7 @@
 # This is a script for a udev rule and startup. It changes the display's blank time, triggered whenever power_supply is
 # connected or disconnected.
 
-export XAUTHORITY=/home/nil/.Xauthority
+export XAUTHORITY=/home/dvt/.Xauthority
 export DISPLAY=:0
 
 sleep 2

@@ -1,9 +1,8 @@
-
-.config /home/nil/.config
-firefox /home/nil/Dropbox/Public/firefox-css
-Public /home/nil/Dropbox/Public
-nil /home/nil/nil
-snippets /home/nil/.vim/bundle/nil/snippets
-work /home/nil/Dropbox/nil/work
-harvard-2014-fall /home/nil/Dropbox/nil/work/harvard-2014-fall
-~ /home/nil
+.config /home/dvt/.config
+firefox /home/dvt/Dropbox/Public/firefox-css
+Public /home/dvt/Dropbox/Public
+~ /home/dvt
+work /home/dvt/Dropbox/dvt/work
+harvard-2014-fall /home/dvt/Dropbox/dvt/work/harvard-2014-fall
+dvt /home/dvt/dvt
+snippets /home/dvt/.vim/bundle/dvt/snippets

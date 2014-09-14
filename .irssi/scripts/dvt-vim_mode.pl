@@ -1,6 +1,6 @@
 #
-# nil-vim_mode.pl
-# Name: nil
+# dvt-vim_mode.pl
+# Name: Dustin Tran
 # Description: A haphazard fork of vim_mode.pl, to implement things I can't do with vim_moderc.
 # Changelog:
 # * Mapped ; to :.

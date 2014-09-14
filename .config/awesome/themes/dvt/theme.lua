@@ -22,19 +22,19 @@ theme.border_normal = "#272822"
 theme.border_focus  = "#49483e"
 theme.border_marked = "#91231c"
 
-theme.layout_floating = "/home/nil/.config/awesome/themes/nil/layouts/floating.png"
-theme.layout_tile = "/home/nil/.config/awesome/themes/nil/layouts/tile.png"
-theme.layout_tileleft = "/home/nil/.config/awesome/themes/nil/layouts/tileleft.png"
+theme.layout_floating = "/home/dvt/.config/awesome/themes/dvt/layouts/floating.png"
+theme.layout_tile = "/home/dvt/.config/awesome/themes/dvt/layouts/tile.png"
+theme.layout_tileleft = "/home/dvt/.config/awesome/themes/dvt/layouts/tileleft.png"
 --theme.layout_floating = " ⮛ "
 --theme.layout_tile = " ⮘ "
 --theme.layout_tileleft = " ⮙ "
 
-theme.menu_submenu_icon = "/home/nil/.config/awesome/themes/nil/submenu.png"
+theme.menu_submenu_icon = "/home/dvt/.config/awesome/themes/dvt/submenu.png"
 theme.menu_height = 15
 theme.menu_width  = 100
 
-theme.wallpaper1 = "/home/nil/.config/awesome/themes/nil/wallpaper.jpg"
-theme.icon_theme = nil
+theme.wallpaper1 = "/home/dvt/.config/awesome/themes/dvt/wallpaper.jpg"
+theme.icon_theme = dvt
 
 -- Extras to add in.
 theme.tag_font  = "terminus 8"

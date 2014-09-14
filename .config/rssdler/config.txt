@@ -1,19 +1,19 @@
 #
 # rssdler dotfile
 # ~/.config/rssdler/config.txt
-# Name: nil
+# Name: Dustin Tran
 #
 
 #########################################################
 [global]
 #########################################################
 
-downloadDir = /home/nil/Dropbox
-workingDir = /home/nil/.config/rssdler
+downloadDir = /home/dvt/Dropbox
+workingDir = /home/dvt/.config/rssdler
 minSize = 10
 maxSize = 0
 log = 3
-logFile = /home/nil/.config/rssdler/rssdlerlog.log
+logFile = /home/dvt/.config/rssdler/rssdlerlog.log
 verbose = 3
 scanMins = 5
 sleepTime = 5

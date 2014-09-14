@@ -1,3 +1,0 @@
-*/1 * * * * /bin/bash /home/nil/bin/cron-rssdler
-*/1 * * * * /bin/bash /home/nil/bin/cron-mpdas
-*/60 * * * * /bin/bash /home/nil/bin/cron-xcape

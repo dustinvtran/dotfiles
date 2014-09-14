@@ -13,5 +13,5 @@ if [ $(grep -F "$file" $playlist | wc -l) -ne 0 ]; then
 fi
 # Reload playlist by clearing it, then appending all files from the newly modified list.
 echo "playlist_clear" > ~/bin/config/mpv-control
-echo 'loadlist "/home/nil/.mpv/playlist" append' > ~/bin/config/mpv-control
+echo 'loadlist "/home/dvt/.mpv/playlist" append' > ~/bin/config/mpv-control
 echo 'show_text "Playlist updated."' > ~/bin/config/mpv-control

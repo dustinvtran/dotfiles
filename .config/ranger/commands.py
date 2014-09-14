@@ -1,7 +1,7 @@
 #
 # ranger commands
 # ~/.config/ranger/commands.py
-# Name: nil
+# Name: Dustin Tran
 #
 
 from ranger.api.commands import *
