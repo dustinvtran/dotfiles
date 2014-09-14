@@ -3,9 +3,4 @@
 # Name: Dustin Tran
 #
 
-. $HOME/.zshrc
-
-if [[ -z $DISPLAY && $(tty) = /dev/tty1 ]]; then
-    xinit -- :0
-    logout
-fi
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

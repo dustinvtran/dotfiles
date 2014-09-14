@@ -390,7 +390,16 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Pause",  function () awful.util.spawn_with_shell("play-pause") end),
     awful.key({ }, "F10", function () awful.util.spawn("amixer set Master toggle | amixer set IEC958 toggle"     ) end),
     awful.key({ }, "F11",  function () awful.util.spawn("amixer set Master 2%- unmute | amixer set PCM 2%- unmute") end),
-    awful.key({ }, "F12", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end)
+    awful.key({ }, "F12", function () awful.util.spawn("amixer set Master 2%+ unmute | amixer set PCM 2%+ unmute") end),
+
+    -- restore all minimized clients
+    awful.key({ modkey, "Shift"   }, "m",
+        function()
+            local tag = awful.tag.selected()
+                for i=1, #tag:clients() do
+                    tag:clients()[i].minimized=false
+            end
+        end)
 )
 
 --#############################################################################

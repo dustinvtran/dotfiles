@@ -21,12 +21,13 @@
 #clipit &
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
+#blockify &
 compton -b
 dropboxd &
 mpd ~/.config/mpd/mpd.conf
 rssdler -c ~/.config/rssdler/config.txt -d
-syndaemon -k -i 1 -d
-#transmission-daemon &
+syndaemon -k -i 0.5 -d
+transmission-daemon &
 xbacklight -set 50
 setxkbmap -variant colemak
 #setxkbmap -layout us

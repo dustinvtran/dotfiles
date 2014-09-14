@@ -57,6 +57,7 @@ set passkeys+=feedly.com:?<CR>
 "JK/rjknpovMmsbV
 set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
 set passkeys+=batoto.net:.,<CR>
+set passkeys+=www.wunderlist.com:<C-n><C-l><C-d><C-s><C-a><C-BS><C-i><C-F>r<C-4><Up><Down><Left><Right><CR>
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
 " Holy fuck this guy keeps resetting itself otherwise from about:config
@@ -166,17 +167,12 @@ map -modes=n -builtin <Leader>qb :tabopen! http://www.quibb.com/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
 map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
-map -modes=n -builtin <Leader>tt :tabopen! https://tweetdeck.twitter.com/<CR>
+map -modes=n -builtin <Leader>tt :tabopen! https://twitter.com/<CR>
 map -modes=n -builtin <Leader>td :tabopen! https://www.twitter.com/dustinvtran<CR>
-map -modes=n -builtin <Leader>tn :tabopen! https://www.twitter.com/nilmoe<CR>
 
 " Media
 map -modes=n -builtin <Leader>dd :tabopen! http://dustinvtran.com/<CR>
 map -modes=n -builtin <Leader>db :tabopen! http://dustinvtran.com/blog<CR>
-map -modes=n -builtin <Leader>o  :tabopen! http://oneesama.moe/<CR>
-map -modes=n -builtin <Leader>an :tabopen! http://myanimelist.net/panel.php<CR>
-map -modes=n -builtin <Leader>ap :tabopen! http://myanimelist.net/profile/nil-<CR>
-map -modes=n -builtin <Leader>ad :tabopen! http://myanimelist.net/clubs.php?cid=40791<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/films-tv.html<CR>
@@ -186,37 +182,49 @@ map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30
 map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/nil/collections/media/literature.html<CR>
 map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
-" Google
-map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/0/render<CR>
+" mail
 map -modes=n -builtin <Leader>m0 :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
 map -modes=n -builtin <Leader>m1 :tabopen! https://mail.google.com/mail/u/1/#inbox<CR>
 map -modes=n -builtin <Leader>m2 :tabopen! https://mail.google.com/mail/u/2/#inbox<CR>
 map -modes=n -builtin <Leader>m3 :tabopen! https://mail.google.com/mail/u/3/#inbox<CR>
 map -modes=n -builtin <Leader>m4 :tabopen! https://mail.google.com/mail/u/4/#inbox<CR>
 map -modes=n -builtin <Leader>m5 :tabopen! https://mail.google.com/mail/u/5/#inbox<CR>
-map -modes=n -builtin <Leader>w  :tabopen! https://www.google.com/search?q=weather<CR>
+map -modes=n -builtin <Leader>m6 :tabopen! http://webmail.oneesama.moe/?_task=mail<CR>
 
 " LAN
 map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
 map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 
-" Misc
-map -modes=n -builtin <Leader>a  :tabopen! https://app.asana.com/<CR>
-map -modes=n -builtin <Leader>f  :tabopen! http://cloud.feedly.com/#category%2Fdata<CR>
-map -modes=n -builtin <Leader>gg  :tabopen! https://github.com/<CR>
-map -modes=n -builtin <Leader>gd  :tabopen! https://github.com/dustinvtran<CR>
-map -modes=n -builtin <Leader>gn  :tabopen! https://github.com/nil-<CR>
+" productivity
+map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/0/render<CR>
+map -modes=n -builtin <Leader>w  :tabopen! https://www.wunderlist.com/#/lists/week<CR>
+
+" misc
+map -modes=n -builtin <Leader>fe :tabopen! http://cloud.feedly.com/#category%2Fdata<CR>
+map -modes=n -builtin <Leader>fb :tabopen! https://www.facebook.com/<CR>
+map -modes=n -builtin <Leader>gg :tabopen! https://github.com/<CR>
+map -modes=n -builtin <Leader>gd :tabopen! https://github.com/dustinvtran<CR>
 map -modes=n -builtin <Leader>i  :tabopen! http://www.pinterest.com/nilmoe/<CR>
 map -modes=n -builtin <Leader>k  :tabopen! http://getpocket.com/a/queue/<CR>
 
 " fashion
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>su :tabopen! http://supertalk.superfuture.com/index.php/forum/21-supermarket/<CR>
+map -modes=n -builtin <Leader>sg :tabopen! http://www.grailed.com/<CR>
+map -modes=n -builtin <Leader>sz :tabopen! http://stylezeitgeist.com/forums/forumdisplay.php?f=50<CR>
 
-" Earnest
-map -modes=n -builtin <Leader>e  :tabopen! http://www.muessentials.com/ | file:///home/nil/Dropbox/Public/collections/websites/index.html | https://tweetdeck.twitter.com/ | https://mail.google.com/mail/u/2/#inbox | https://www.google.com/calendar/b/2/render?tab=mc | https://app.asana.com/0/12647822246510/12647822246510 | https://github.com/meetearnest/data-science<CR>
-map -modes=n -builtin <Leader>uw :tabopen! http://tiny.cc/scoremaster | https://underwriter.meetearnest.com/#/login | https://www.dropbox.com/home/Application%20Files<CR>
-map -modes=n -builtin <Leader>vf :tabopen! https://wiki.meetearnest.com/index.php/How_to_read_a_Credit_Report | https://wiki.meetearnest.com/index.php/Step-by-step_Scoring_Process_(VERIFIER_STEPS) | https://docs.google.com/a/meetearnest.com/spreadsheets/d/1u5T6HOCXM4kgQv6evm7ss5dq93xFEz1PX8EjxslqU84/edit#gid=86319636 | https://underwriter.meetearnest.com/#/login | https://www.dropbox.com/home/Application%20Files<CR>
+" homepge
+map -modes=n -builtin <Leader>ff :tabopen! https://www.wunderlist.com/ | https://twitter.com/ | file:///home/nil/Dropbox/Public/collections/websites/index.html | http://en.wikipedia.org/wiki/Avant-garde_jazz | https://www.google.com/calendar/b/0/render<CR>
+
+" harvard
+map -modes=n -builtin <Leader>205h :tabopen! 205h<CR>
+map -modes=n -builtin <Leader>205p :tabopen! 205p<CR>
+map -modes=n -builtin <Leader>207h :tabopen! 207h<CR>
+map -modes=n -builtin <Leader>207p :tabopen! 207p<CR>
+map -modes=n -builtin <Leader>220h :tabopen! 220h<CR>
+map -modes=n -builtin <Leader>221h :tabopen! 221h<CR>
+map -modes=n -builtin <Leader>221p :tabopen! 221p<CR>
+map -modes=n -builtin <Leader>298h :tabopen! 298h<CR>
 
 " }}}
 " Functions & Macros {{{

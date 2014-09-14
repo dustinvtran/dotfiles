@@ -11,360 +11,391 @@ order of priority.
 autocutsel {{{
 
 High Priority
-  * Pastes the escaped code for unicode characters and not the actual character, e.g., emdash, and a particular single quote variant.
+  pastes the escaped code for unicode characters and not the actual character,
+    e.g., emdash, and a particular single quote variant
 
 }}}
 awesome {{{
 -------------------------------------------------------------------------------
 
 High Priority
-* Terrible floating window management: do stuff that allow for beautiful gaps in tiling.
-* Preconfigured tiling layouts are stupid. What on earth use case is that? Just let me f-ing move this one window here, shrink that other one, and set it up like so-and-so. With the right implementation (like i3), it would hardly be much time to get it exactly as you want.
-* Windows are not moved to designated default location on startup, requiring that you restart awesome in order for them to position correctly.
+  terrible floating window management: do stuff that allow for beautiful gaps in
+    tiling
+  preconfigured tiling layouts are stupid. What on earth use case is that? Just
+    let me f-ing move this one window here, shrink that other one, and set it up
+    like so-and-so. With the right implementation (like i3), it would hardly be
+    much time to get it exactly as you want
+  windows are not moved to designated default location on startup, requiring
+    that you restart awesome in order for them to position correctly
 
 Low Priority
-* Better debug handling: don't crash the PC and cause me to reboot in safe mode just because of some minor typo in my rc.lua!
+  better debug handling: don't crash the PC and cause me to reboot in safe mode
+    just because of some minor typo in my rc.lua!
 
-The list below is an archive of tasks that were still on my todolist before I stopped using it.
+The list below is an archive of tasks that were still on my todolist before I stopped using it
 Highest Priority
-  *** Fix mail-notify!!
-    Weird freezing where application works but everything can't be given focus although they're still running. This seems to happen most during downloading. Perhaps a problem because of dhcpccd/netctl?
-    This happens because of mail-notify while it's using up bandwidth. Is this in conjunction with transmission running? Why would it stall the PC apps if it just takes up time to finish?
-  * Shift centered floating windows relative, e.g., down and/or to the left, for applications like mpv.
-  * Move mouse to center of screen of new focused tag.
-    Do something like switchtotag in the keybinds.
-  * Applications not shifting correctly between monitors and #s, what with absolute positions. Maybe add movetoscreeen or something? see mod4+control+j function in the default rc.lua and add it to your keybinds
-  * increase height of top bar
+  fix mail-notify!!
+    Weird freezing where application works but everything can't be given focus
+      although they're still running. This seems to happen most during
+      downloading.  Perhaps a problem because of dhcpccd/netctl?
+    This happens because of mail-notify while it's using up bandwidth. Is this
+      in conjunction with transmission running? Why would it stall the PC apps
+      if it just takes up time to finish?
+  shift centered floating windows relative, e.g., down and/or to the left, for
+    applications like mpv
+  move mouse to center of screen of new focused tag
+    Do something like switchtotag in the keybinds
+  applications not shifting correctly between monitors and #s, what with
+    absolute positions. Maybe add movetoscreeen or something? see mod4+control+j
+    function in the default rc.lua and add it to your keybinds
+  increase height of top bar
 
 High Priority
   Appearance
-    * square icons like twily's, and also earsplit's
-    * Bashets: Apply if conditions from a grep, so that all colors and formatting works correctly.
+    square icons like twily's, and also earsplit's
+    bashets: Apply if conditions from a grep, so that all colors and formatting works correctly
       mpd: stopped
       battery: low
-    * Have the tag icons turn sideways on focus.
-      Find how to change tag name when focused.
-      Find the appropriate icons.
-    * mpv: Somehow grep with regexp and gray any parts of the filenames in [...] maybe by sedding them and adding the separator variable.
-    * Get nu on workspaces and layout icon only. Lemon the rest (particularly the menu).
-    * Dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
+    have the tag icons turn sideways on focus
+      Find how to change tag name when focused
+      Find the appropriate icons
+    mpv: Somehow grep with regexp and gray any parts of the filenames in [...] maybe by sedding them and adding the separator variable
+    get nu on workspaces and layout icon only. Lemon the rest (particularly the menu)
+    dropdown widgets using Naughty/dzen/whatever: Calendar, Music Now Playing, all the widgets!
   General
-    * awesome starts a little too early for udev-hdmi, not getting wallpaper every time, especially if I try to open apps.
-    * Have the directional focusings go across monitors too.
-    * Make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.).
-      * have battery widget show ETA on hover
-    * Everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.).
-    * Revamp menu, all with cute icons.
-    * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly.
-      Do the same for zathura and feh.
-    * Set alt+o to not do "on top", but to focus window that's below it, which would then put it on top.
-      Set Library on top of Firefox always.
-    * When mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again.
-    * For things like gimp, have the extra dialog folders show appropriately on the right workspace (this includes the right monitor). For example, GIMP's save dialog appears on my external display.
+    awesome starts a little too early for udev-hdmi, not getting wallpaper every time, especially if I try to open apps
+    have the directional focusings go across monitors too
+    make widgets that only appear on a keybind that moves them, e.g., volume widget (see user-contributed widgets for ex.)
+      have battery widget show ETA on hover
+    everything not moved right on startup (e.g., transmission-cli, calendar (which has a different startup position depending on the workspace, lol), etc.)
+    revamp menu, all with cute icons
+    somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace. For example, pgrep the # of currently running and assign accordingly
+      Do the same for zathura and feh
+    set alt+o to not do "on top", but to focus window that's below it, which would then put it on top
+      Set Library on top of Firefox always
+    when mpv changes to another file on its playlist and is at a different resolution. Have it recenter/position again
+    for things like gimp, have the extra dialog folders show appropriately on the right workspace (this includes the right monitor). For example, GIMP's save dialog appears on my external display
   Panel Scripts
-    * mpv
-      If the file name is too long (e.g. if X has > Y characters), truncate it.
-    * mpd
-      If the song name is too long (e.g. if X has > Y characters), truncate it.
-      Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler.
-    * volume: have a keybind to check current volume, or to pop up the display for a few seconds
-      Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each.
-    * Right-aligned panel widgets should be cut off from the left not the right.
+    mpv
+      If the file name is too long (e.g. if X has > Y characters), truncate it
+    mpd
+      If the song name is too long (e.g. if X has > Y characters), truncate it
+      Have keybind which shows albumart which is not locally stored but always taken from the web via audioscrobbler
+    volume: have a keybind to check current volume, or to pop up the display for a few seconds
+      Instead of overhead, you can also put it into your panel by the following: have 2 scripts, script A which gets tracked by .conkyrightrc, and script B which pipes what to echo and for how long into script A. for example do in script B echo "echo '^fg(....)'" > script A. then keybind script B with your 4 volumes (up/down/mute/nothing but display) and do a similar one in each
+    right-aligned panel widgets should be cut off from the left not the right
   Misc
-    * Can't fullscreen VirtualBox, even with the function.
-    * Not distinguishing the sizes for other dialogs of calibre-ebook-viewer.
-    * If I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf.
-    * Try rodentbane for the occasionally necessary mouse movement with keyboard.
-    * Add left+right click as move window.
-    * how to deal with skype notifications.
+    can't fullscreen VirtualBox, even with the function
+    not distinguishing the sizes for other dialogs of calibre-ebook-viewer
+    if I can't set feh to change only if bigger than X size like mpv can, then set the feh settings in awesome instead of rifle.conf
+    try rodentbane for the occasionally necessary mouse movement with keyboard
+    add left+right click as move window
+    how to deal with skype notifications
 
 Medium Priority
-  * Maybe use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's.
-  * When clicking away from menu, have it hide just like it does with Escape.
-  * Use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka.
-  * Hide cursor if it doesn't move for >=5 seconds.
-  * Configure Gimp so that the main application is tiled, and the toolbars are floating always on top.
+  maybe use nicer looking pngs for the icons, e.g., Ahoka or Lemonboy's
+  when clicking away from menu, have it hide just like it does with Escape
+  use all variable names in rc.lua so that the theme.lua becomes modular and determines all your colors, e.g., see ahoka
+  hide cursor if it doesn't move for >=5 seconds
+  configure Gimp so that the main application is tiled, and the toolbars are floating always on top
   Panel Scripts
-    Bashets font: err, it sucks on playing japanese/fallbacks. use fallback fonts.
-    * battery: On single digit %, it also shows the comma.
-    * irssi
-      Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names.
-        Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display.
-    * skype
-    * Add clickables (or keybindables?) into dzen.
-  * When youtube video is a url in firefox, have play-pause cycle pause that, not mpv or ncmpcpp instead.
+    Bashets font: err, it sucks on playing japanese/fallbacks. use fallback fonts
+    battery: On single digit %, it also shows the comma
+    irssi
+      Have fnotify grab the whole nick, not just the line, so i see the whole nick of longer truncated names
+        Also, if that person's nick is long enough, it may connect with his/her nick mode, which causes the script to grab the wrong word to display
+    skype
+    add clickables (or keybindables?) into dzen
+  when youtube video is a url in firefox, have play-pause cycle pause that, not mpv or ncmpcpp instead
 
 Low Priority
-  * irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat.
-  * Eminent mouse scroll through tags not working.
-  * erm, that dropbox notification. Modify it.
+  irssi-notify doesn't echo the nick if it starts with 'nil'. Lolwat
+  eminent mouse scroll through tags not working
+  erm, that dropbox notification. Modify it
 
 }}}
 bspwm {{{
 
 High Priority
-  * Command to focus a specific application via window id
+  command to focus a specific application via window id
 
 }}}
 byzanz {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Allow filename to take in timestamps, as scrot does.
-  * Allow argument to take a file path, instead of being forced to alias a 'cd ... && byzanz-record ... && cd-' command. This also means menu commands like awesome cannot take a file path, only interactive shells.
+  allow filename to take in timestamps, as scrot does
+  allow argument to take a file path, instead of being forced to alias a 'cd ...
+    && byzanz-record ... && cd-' command. This also means menu commands like
+    awesome cannot take a file path, only interactive shells
 
 Low Priority
-  * Capture just one window without needing to specify dimensions.
+  capture just one window without needing to specify dimensions
 
 }}}
 calibre-ebook-viewer {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * More keybinds: Go to Table of Contents, progress osd like with mpv's, toggle toolbars, Dictionary type & look up (instead of highlighting then <C-l>).
-  * Hint mode to hit links with keypresses.
-  * Remove entire GTK interface similar to zathura.
-  * Keybinds in fullscreen don't work.
+  more keybinds: Go to Table of Contents, progress osd like with mpv's, toggle toolbars, Dictionary type & look up (instead of highlighting then <C-l>)
+  hint mode to hit links with keypresses
+  remove entire GTK interface similar to zathura
+  keybinds in fullscreen don't work
 
 }}}
 feh {{{
 -------------------------------------------------------------------------------
 
 Medium Priority
-  * Allow pan+next to be set to left mouse click, where you pan if you click+drag moving around, and next otherwise.
+  allow pan+next to be set to left mouse click, where you pan if you click+drag
+    moving around, and next otherwise
 
 }}}
 firefox {{{
 
 Medium Priority
-  * An addon or something, where you can right click a link and use the wrapped text for a search engine. For example, so you don't have to highlight the linked text in order to right click then hit Wikipedia to search for the wiki article.
+  an addon or something, where you can right click a link and use the wrapped
+    text for a search engine. For example, so you don't have to highlight the
+    linked text in order to right click then hit Wikipedia to search for the
+    wiki article
 
 }}}
 firefox addon: 4chan X (ccd0) {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Can't navigate to last thread on a board's page (and subsequently keyboard-open its thread).
-  * Mouse drag-hold adjustable image like RES; better yet, a keyboard adjustable one.
-  * Ability to keyboard hint-click replies to posts, or at least hit a keybind that will open them up if they exist.
-       'Quote Hash Navigation' can do this partially, but it only moves to that post, not opens up the inline post like the arrow does; also it is prevalent on all quotes, which is unnecessary for this purpose.
+  can't navigate to last thread on a board's page (and subsequently
+    keyboard-open its thread)
+  mouse drag-hold adjustable image like RES; better yet, a keyboard adjustable one
+  ability to keyboard hint-click replies to posts, or at least hit a keybind
+    that will open them up if they exist
+      'Quote Hash Navigation' can do this partially, but it only moves to that
+      post, not opens up the inline post like the arrow does; also it is
+      prevalent on all quotes, which is unnecessary for this purpose
 
 Medium Priority
-  * Keybind to open up corresponding archive link to board.
-  * Have <C-j>/<C-k> navigate between threads on the board index, and navigate between posts on a thread page (this saves two keybinds since I never nagivate between two posts on the board index).
-    At the very least, the ability to unbind c-j/k on comments page, preventing it from going  to home page.
-  * When J/K navigating between posts and when hitting K at the top most post, have it deselect (this saves a keybind). This allows you to select the OP and expand his/her image.
+  keybind to open up corresponding archive link to board
+  have <C-j>/<C-k> navigate between threads on the board index, and navigate
+    between posts on a thread page (this saves two keybinds since I never
+    nagivate between two posts on the board index)
+      At the very least, the ability to unbind c-j/k on comments page,
+      preventing it from going  to home page
+  when J/K navigating between posts and when hitting K at the top most post,
+    have it deselect (this saves a keybind). This allows you to select the OP
+    and expand his/her image
 
 Low Priority
-  * Have the extra info when hovering over a post be shown when you're selecting it through keyboard navigation, i.e., the image file name, its size and resolution, and the google and iqdb links.
+  have the extra info when hovering over a post be shown when you're selecting
+    it through keyboard navigation, i.e., the image file name, its size and
+    resolution, and the google and iqdb links
 
 }}}
 firefox addon: pentadactyl {{{
 -------------------------------------------------------------------------------
 
 High Priority
-   * True Bookmark support.
-     No -folder option when adding bookmarks through :bmark.
-     Better navigation through :bmarks, c.f., through folders with GUI.
-     E.g., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders.
-   * Better native GUI support: Better way to work with recently closed tabs/windows and view them, as well as bunch of "back"'s history, instead of showing Menu Bar and navigating from there.
-     Same with history dialog.
-   * An actually useful way to nagivate with caret mode. Possibly where caret starts at center of screen instead of wherever. I dunno, something. Right now trying to cp+paste with it is just terrible.
-   * Navigate between multiple scrollbars on the same tab, e.g., on feedly.
-   * I can't hint links that are popup windows or when the damn hints are off the left border of the screen..
-   * I can't hint out of the popup windows, e.g., when editing entries in MAL.
+   true Bookmark support
+     No -folder option when adding bookmarks through :bmark
+     Better navigation through :bmarks, c.f., through folders with GUI
+     E.g., a url link with all bookmarks with the folders, then i can use the f/F hints to hint the links or the folders
+   better native GUI support: Better way to work with recently closed tabs/windows and view them, as well as bunch of "back"'s history, instead of showing Menu Bar and navigating from there
+     Same with history dialog
+   an actually useful way to nagivate with caret mode. Possibly where caret starts at center of screen instead of wherever. I dunno, something. Right now trying to cp+paste with it is just terrible
+   navigate between multiple scrollbars on the same tab, e.g., on feedly
+   i can't hint links that are popup windows or when the damn hints are off the left border of the screen.
+   i can't hint out of the popup windows, e.g., when editing entries in MAL
 
 Medium Priority
-  * Ability to toggle scrollbar without needing to refresh page in order to see it.
-   * Tab Options Plugin: I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically.
-   * Not clear when I'm in text edit mode during cmd-line, and how to escape it.
+  ability to toggle scrollbar without needing to refresh page in order to see it
+   tab Options Plugin: I want it to open tabs at the end if I open a bunch of links, but otherwise to the right of the current "group". This is more intuitive in Chrome which does this automatically
+   not clear when I'm in text edit mode during cmd-line, and how to escape it
 
 Low Priority
-   * Check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back.
-   * No support for <Leader><Leader> (though <Leader>,> works.
+   check list of back's, in case hitting it once keeps redirecting you instead, or you just want to check something way back
+   no support for <Leader><Leader> (though <Leader>,> works
 
 }}}
 firefox addon: reddit enhancement suite {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Open comments in new (unfocused) tab.
-  * Hide child comments, not hide the parent comment as well.
-  * Prefetch all images like 4chanx.
+  open comments in new (unfocused) tab
+  hide child comments, not hide the parent comment as well
+  prefetch all images like 4chanx
 
 Medium Priority
-  * Keyboard adjustable image, not just mouse drag-hold adjustable.
-  * Refocus frame movement like 4chanx, where if you scroll normally, then start navigating between threads or posts, it automoves that keyboard cursor to whichever ones are seen on your current display.
+  keyboard adjustable image, not just mouse drag-hold adjustable
+  refocus frame movement like 4chanx, where if you scroll normally, then start navigating between threads or posts, it automoves that keyboard cursor to whichever ones are seen on your current display
 
 }}}
 herbsluftwm {{{
 
 High Priority
-  * Command to focus a specific application via window id
+  command to focus a specific application via window id
 
 }}}
 i3 {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Slightly more advanced panel customizability.
-    Non-integer order, e.g., alphabetical or UTF-8 icons.
-    Different styles for focused workspace, e.g., have them animate, turn sideways, have a triangle instead of turn completely different colors, or do /something/ different.
-    Can't add a black outline to the workspace panel. The first workspace icon isn't completely covered when focused this way.
-  * Single keybind to spawn app if doesn't exist, focus app if exist. This makes two keybinds in one.
-  * When focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result.
+  slightly more advanced panel customizability
+    Non-integer order, e.g., alphabetical or UTF-8 icons
+    Different styles for focused workspace, e.g., have them animate, turn sideways, have a triangle instead of turn completely different colors, or do /something/ different
+    Can't add a black outline to the workspace panel. The first workspace icon isn't completely covered when focused this way
+  single keybind to spawn app if doesn't exist, focus app if exist. This makes two keybinds in one
+  when focusing an application and there are multiple hits for that string, cycle among them; don't just stick with the first result
 
 Medium Priority
-  * Slightly more advanced panel customizability.
-    Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support.
-    Image icon/non-UTF name support.
-  * Better true panel support for dzen2.
-    E.g., don't require so many manual dzen2's depending on separate text alignments.
-    E.g., dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv.
-    E.g., when restarting, the nondocked dzen2's get overlapped because i3bar restarts.
-  * Recall window sizes of things that don't size their own windows (mostly GUIs).
-  * Ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And also a
+  slightly more advanced panel customizability
+    Keybindable panel applets, e.g., a now-playing mpd widget with not just hover/click support, but keybind support
+    Image icon/non-UTF name support
+  better true panel support for dzen2
+    E.g., don't require so many manual dzen2's depending on separate text alignments
+    E.g., dzen2 in center has weird flickering when moving workspaces in laptop rapidly, while HDMI is in fullscreen on mpv
+    E.g., when restarting, the nondocked dzen2's get overlapped because i3bar restarts
+  recall window sizes of things that don't size their own windows (mostly GUIs)
+  ability to not use borders on non-floating windows, but keep them for manually made floating windows. (And also a
     keybind to be able to toggle that border.)
-  * Move between floating windows with hjkl, not just a (counter)clockwise cycle through hl.
-     * As a subset, this means I can't move to the next monitor with hl.
-  * Execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi.
-  * Prevent certain applications from stealing focus due to it re-issuing the for_window command, ncmpcpp in particular.
-  * Modular config files, e.g., having theming parts of config optionally in another file so that you can interchange them easily by citing a different file path to import from in the ~/.config/i3/config file.
+  move between floating windows with hjkl, not just a (counter)clockwise cycle through hl
+     as a subset, this means I can't move to the next monitor with hl
+  execute a shell command when triggered with focusing a window, e.g., remove irssi notification ping once you focus irssi
+  prevent certain applications from stealing focus due to it re-issuing the for_window command, ncmpcpp in particular
+  modular config files, e.g., having theming parts of config optionally in another file so that you can interchange them easily by citing a different file path to import from in the ~/.config/i3/config file
 
 Low Priority
-  * More instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus.
-  * Somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution.
-     for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup.
-  * Ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc.
-  * Independent scratchpads, e.g., ability to have multiple overlayed on each other and still
-     can toggle hide them all away (can only do one at a time currently).
-  * Ability to hide/close floating window on loss of focus (for better use of some scratchpad
-     windows, like scratchpad terminals).
-  * Right-click desktop with options.
-  * When changing workspaces and back, the w3m image preview in ranger is gone.
+  more instantaneous mouse-over-window focus, rather than require to move further into the window to activate focus
+  somehow absolute positioning based off workspace, not pixels and monitor alignment, so plugging out a large external display from a laptop, which forces the workspace onto the laptop, won't have crazy positioning based off the external display's larger resolution
+     for_window [class=asdf] move absolute position 4000 px 300 px works, but is not nice for dynamic monitor management, e.g., if I switch to just the laptop instead of a dual screen setup
+  ability to dynamically set the different floating layouts, move (by cycling) the floating windows around, etc
+  independent scratchpads, e.g., ability to have multiple overlayed on each other and still
+     can toggle hide them all away (can only do one at a time currently)
+  ability to hide/close floating window on loss of focus (for better use of some scratchpad
+     windows, like scratchpad terminals)
+  right-click desktop with options
+  when changing workspaces and back, the w3m image preview in ranger is gone
 
-The list below is an archive of tasks that were still on my todolist before I stopped using it.
+The list below is an archive of tasks that were still on my todolist before I stopped using it
 Medium Priority
-  * ncmcpp reissues for_window occasionally, causing it to focus (which is annoying if you're in the middle of typing and cause ncmpcpp to do something).
+  ncmcpp reissues for_window occasionally, causing it to focus (which is annoying if you're in the middle of typing and cause ncmpcpp to do something)
 Low Priority
-  * Set all firefox popups to float more generally, rather than needing to xprop each individually.
-    * Read up on no-startup-id.
-  * Somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace.
-  * Switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution).
+  set all firefox popups to float more generally, rather than needing to xprop each individually
+    read up on no-startup-id
+  somehow move the next libreoffice window to the succeeding workspace (iii, iv, v,...) depending on whether there's already a window in that workspace
+  switch audios on hotplug without requiring restart applications, and distinct volumes on each, whilst still allowing for just three buttons (a pulseaudio solution)
 
 }}}
 irssi {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Integrated search function that highlights the search parameter and scrolls through the buffer for you like a normal <C-f> would in other IRC clients. /lastlog is terrible and outputs all the results, resulting in clunky chat window. Then keybind them with ? and / modes in vim_mode.
-    At the very least, some way to open up the current log within vim, and then browse it from there.
+  integrated search function that highlights the search parameter and scrolls through the buffer for you like a normal <C-f> would in other IRC clients. /lastlog is terrible and outputs all the results, resulting in clunky chat window. Then keybind them with ? and / modes in vim_mode
+    At the very least, some way to open up the current log within vim, and then browse it from there
 
 Medium Priority
-  * Inline embedded images when displaying an image link (in the same way ranger uses w3m).
-  * True mouse support, e.g., clickable links (not just (shift+ with mouse.pl)drag+copy), clickable window names, maybe context menus for something.
-  * Advanced Window List: Collapse channels to a tab bar much like firefox with a bunch of ellipses and clear answers for the ends.
-  * vim_mode: maps with <CR>/<C-j> don't work.
+  inline embedded images when displaying an image link (in the same way ranger uses w3m)
+  true mouse support, e.g., clickable links (not just (shift+ with mouse.pl)drag+copy), clickable window names, maybe context menus for something
+  advanced Window List: Collapse channels to a tab bar much like firefox with a bunch of ellipses and clear answers for the ends
+  vim_mode: maps with <CR>/<C-j> don't work
 
 Low Priority
-  * Advanced Window List: Ability to condense channel texts from just left to right, instead of cutting down the middle.
-  * Advanced Window List: Better centered text than that with the awl_display_header.
-  * C-# and C-j as separate keys.
-  * OpenURL: Ability for multiple urls in one line.
-  * OpenURL: Ability for urls in /me commands.
-  * OpenURL: Ability for urls that I post (yes I open my own links heh).
-  * uberprompt: show without indicating its status at the beginning. '/prompt set -only $' only works temporarily until I hit another ex command. Would require some more extensive scripting to rid this feature.
+  advanced Window List: Ability to condense channel texts from just left to right, instead of cutting down the middle
+  advanced Window List: Better centered text than that with the awl_display_header
+  c-# and C-j as separate keys
+  openURL: Ability for multiple urls in one line
+  openURL: Ability for urls in /me commands
+  openURL: Ability for urls that I post (yes I open my own links heh)
+  uberprompt: show without indicating its status at the beginning. '/prompt set -only $' only works temporarily until I hit another ex command. Would require some more extensive scripting to rid this feature
 
 }}}
 libreoffice {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Modal editing, and keybind navigation a la vim
-  * Keybinds to append/prepend text instead of wiping a cell on a keypress to insert characters.
+  modal editing, and keybind navigation a la vim
+  keybinds to append/prepend text instead of wiping a cell on a keypress to insert characters
 
 }}}
 mcomix {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Precise Seeking: Keybinds to seek -/+ 5 pages, -/+ 20 pages, -/+ 50 pages.
-    * Allow <Shift>s/t to be the ff Prev/Next Page keybinds instead of using <Primary>s/t. The latter don't work!
-  * Allow <Shift>n/e to scroll right/left instead of using <Primary>s/t. The latter don't work!
-  * If I save+quit a file, allow mcomix to save a cache for every file I do this to, not always go to that progress on that file when I try to open and read another file.
-  * Customizable mouse keybinds: have rightclick go to previous page instead of context menu, double left click toggle fullscreen, another to toggle GUI, etc.
-  * Have smart scrolling with j/k not jump scroll so discretely, e.g., have it scroll continuously as with normal scrolling, while still allowing for the smart component.
+  precise Seeking: Keybinds to seek -/+ 5 pages, -/+ 20 pages, -/+ 50 pages
+    allow <Shift>s/t to be the ff Prev/Next Page keybinds instead of using <Primary>s/t. The latter don't work!
+  allow <Shift>n/e to scroll right/left instead of using <Primary>s/t. The latter don't work!
+  if I save+quit a file, allow mcomix to save a cache for every file I do this to, not always go to that progress on that file when I try to open and read another file
+  customizable mouse keybinds: have rightclick go to previous page instead of context menu, double left click toggle fullscreen, another to toggle GUI, etc
+  have smart scrolling with j/k not jump scroll so discretely, e.g., have it scroll continuously as with normal scrolling, while still allowing for the smart component
 
 Medium Priority
-  * If I save+quit a file while it's fullscreen, have it fullscreen on startup whether or not I set that to be default in general.
-  * When fullscreening, have it automatically go to dual view, and then when exiting, have it exit dual view.
-  * Left/right scrolling won't work with <Shift>n/<Shift>e.
-  * Allow to remove certain default keybindings in keybindings.conf, without being auto-added in again when starting up Mcomix.
+  if I save+quit a file while it's fullscreen, have it fullscreen on startup whether or not I set that to be default in general
+  when fullscreening, have it automatically go to dual view, and then when exiting, have it exit dual view
+  left/right scrolling won't work with <Shift>n/<Shift>e
+  allow to remove certain default keybindings in keybindings.conf, without being auto-added in again when starting up Mcomix
 
 Low Priority
-  * Change size of osd-bar/progress bar to not cover so much.
-  * Bug: Map <Primary>p to preferences, which will work if I also map p to osd-bar.
-  * Multiple keybinds to the same command.
-  * Advanced mouse gestures (c.f. MangaMeeya).
-  * Don't require killing mcomix before editing settings.
+  change size of osd-bar/progress bar to not cover so much
+  bug: Map <Primary>p to preferences, which will work if I also map p to osd-bar
+  multiple keybinds to the same command
+  advanced mouse gestures (c.f. MangaMeeya)
+  don't require killing mcomix before editing settings
 
 }}}
 mpv {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Internal subtitle rendering quality just like MPC-HC, where the subtitles aren't integrated into the video (and hence blurred on fullscreen), but rather overwritten on top.
+  internal subtitle rendering quality just like MPC-HC, where the subtitles aren't integrated into the video (and hence blurred on fullscreen), but rather overwritten on top
 
 Medium Priority
   Playlist Navigation/Management
-    * If no playlist exists, automatically play next file in the same directory (like MPC-HC).
-      See https://github.com/mpv-player/mpv/issues/132.
-    * Better default support for playlist navigation and management.
-    * Have only one running instance of mpv where opening other files only add append them to the present playlist (note: no-fixed-vo doesn't do this).
-      Luckily my own solution is good enough that I don't care /that/ much about these features.
-  * Allow to reduce osd_border_size but without reducing the size of the fangs for the chapter markers.
+    if no playlist exists, automatically play next file in the same directory (like MPC-HC)
+      See https://github.com/mpv-player/mpv/issues/132
+    better default support for playlist navigation and management
+    have only one running instance of mpv where opening other files only add append them to the present playlist (note: no-fixed-vo doesn't do this)
+      Luckily my own solution is good enough that I don't care /that/ much about these features
+  allow to reduce osd_border_size but without reducing the size of the fangs for the chapter markers
 
 Low Priority
-  * Let keep-open work if at end of last file, but not prevent say, automatic segwaying into the next file on the playlist. This offers the normal behavior in GUIs: automatic movement into next files in playlists but not closing its application once done playing all files.
-  * When at end of file, freeze at last frame instead of a blackout that keep-open does. It does this on some files but not all. Somehow mandate this for those that reach a black screen.
-  * Compound commands don't work for everything. Luckily, I can cheat/work around this by making scripts which pipe into my Fifo with them.
-  * A "go back to last place before last time seek was done" keybind, in case of accidentally hitting chapter skips or something.
-  * Hotkey that can toggle screen size between 100% and whatever my preferred is.
-  * View (and access) list of recently opened files.
-  * For screenshot-template, have the file extension displayed with a - instead of a . Currently, one can only include .filetype or omit it altogether.
+  let keep-open work if at end of last file, but not prevent say, automatic segwaying into the next file on the playlist. This offers the normal behavior in GUIs: automatic movement into next files in playlists but not closing its application once done playing all files
+  when at end of file, freeze at last frame instead of a blackout that keep-open does. It does this on some files but not all. Somehow mandate this for those that reach a black screen
+  compound commands don't work for everything. Luckily, I can cheat/work around this by making scripts which pipe into my Fifo with them
+  a "go back to last place before last time seek was done" keybind, in case of accidentally hitting chapter skips or something
+  hotkey that can toggle screen size between 100% and whatever my preferred is
+  view (and access) list of recently opened files
+  for screenshot-template, have the file extension displayed with a - instead of a . Currently, one can only include .filetype or omit it altogether
 
 }}}
 qtile {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Write it in python 3!
+  write it in python 3!
 
 }}}
 ncmpcpp {{{
 -------------------------------------------------------------------------------
 
 Medium Priority
-  * When holding spacebar to add music to playlist, don't add the last one at end of list multiple times.
+  when holding spacebar to add music to playlist, don't add the last one at end of list multiple times
 
 Low Priority
-  * Turn selected/highlighted item attribute to bold, not reverse.
-  * Display album art on another window or when I prompt for it.
-  * Half-page up/downs (or 5j/k's).
+  turn selected/highlighted item attribute to bold, not reverse
+  display album art on another window or when I prompt for it
+  half-page up/downs (or 5j/k's)
 
 }}}
 ranger {{{
 -------------------------------------------------------------------------------
 
 Medium Priority
-  * Have transfers show an ETA and other such details like what file is currently being copied and what has already been copied, not just a progress bar.
-  * More color choices, like irssi can.
-  * Allow .zshrc things to run through, such as aliases and functions, when you use :shell commands, not just for interactive shells.
+  have transfers show an ETA and other such details like what file is currently being copied and what has already been copied, not just a progress bar
+  more color choices, like irssi can
+  allow .zshrc things to run through, such as aliases and functions, when you use :shell commands, not just for interactive shells
 
 Low Priority
-  * Choose what files are pasted first when copying a bunch of them.
-  * Enhanced out-of-console previews: activate video previews (just some snapshot much like w3m for images, or better yet, several snapshots and it cycling through them), txt previews from an embeddable gvim or vim one (i.e. not just pager).
-  * w3img shows a piece of its bottom occasionally, although it resets when I teleport to another folder.
+  choose what files are pasted first when copying a bunch of them
+  enhanced out-of-console previews: activate video previews (just some snapshot much like w3m for images, or better yet, several snapshots and it cycling through them), txt previews from an embeddable gvim or vim one (i.e. not just pager)
+  w3img shows a piece of its bottom occasionally, although it resets when I teleport to another folder
     Did i affect this when editing the interface scripts, or was it always like this?
 
 }}}
@@ -372,170 +403,259 @@ rssdler {{{
 -------------------------------------------------------------------------------
 
 Low Priority
-  * Don't exit the rssdler process on errors, e.g., connection lost. (Forced to run a cron job to keep it up)
+  don't exit the rssdler process on errors, e.g., connection lost. (Forced to
+    run a cron job to keep it up)
 
 }}}
 scrot {{{
 -------------------------------------------------------------------------------
 
 Medium Priority
-  * Scrot just one window, or just one display, or just set some pixel argument to specify how much to capture.
+  scrot just one window, or just one display, or just set some pixel argument to
+    specify how much to capture
 
 }}}
 transmission {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Preserve queue order on exit.
-  * >3 file priorities.
-  * Occasional opposite queue behavior: Sometimes the queue order is prioritized reversed, but this isn't indicated visibly. That is, sometimes it goes to the lowest items on the queue order rather than the ones at the highest.
-  * Wonky queue behavior: When moving to new queue positions, the bottom ones previously active (and now moved away to no longer be active) continue to be active regardless, while the moved queue are still queued/inactive. I have to pause/replay the moved active torrent to make it inactive and let transmission start the new queued torrent.
+  preserve queue order on exit
+  >3 file priorities
+  occasional opposite queue behavior: Sometimes the queue order is prioritized reversed, but this isn't indicated visibly. That is, sometimes it goes to the lowest items on the queue order rather than the ones at the highest
+  wonky queue behavior: When moving to new queue positions, the bottom ones previously active (and now moved away to no longer be active) continue to be active regardless, while the moved queue are still queued/inactive. I have to pause/replay the moved active torrent to make it inactive and let transmission start the new queued torrent
 
 Low Priority
-  * Custom tags/labels for custom filtering.
-  * Built-in RSS, meaning in particular that 3rd party RSS dlers can only download to watch directory, and not set each torrent hit to change its default download directory, or force them to queue on top (a feature uTorrent has).
-    User-made script for this exists for queueing to top; as for different download directories, can run custom script to move particular RSS downloaded torrent files after the torrent completes.
-  * >1 watch directory, and subsequently the default download directory depending on the watch directory or if torrent opened into Transmission directly.
-  * No need to use Firefox plugin to start magnets into Transmission.
-  * Don't require killing transmission-daemon before editing settings.json.
+  custom tags/labels for custom filtering
+  built-in RSS, meaning in particular that 3rd party RSS dlers can only download to watch directory, and not set each torrent hit to change its default download directory, or force them to queue on top (a feature uTorrent has)
+    User-made script for this exists for queueing to top; as for different download directories, can run custom script to move particular RSS downloaded torrent files after the torrent completes
+  >1 watch directory, and subsequently the default download directory depending on the watch directory or if torrent opened into Transmission directly
+  no need to use Firefox plugin to start magnets into Transmission
+  don't require killing transmission-daemon before editing settings.json
 
 }}}
 transmission-remote-cli {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * Set default download location from transmission-remote-cli client.
-  * Add a timeout so the selected item attribute resets.
-    Afterwards, set that BOLD thing to REVERSE, so it's like ncmpcpp.
+  set default download location from transmission-remote-cli client
+  add a timeout so the selected item attribute resets
+    Afterwards, set that BOLD thing to REVERSE, so it's like ncmpcpp
 
 Low Priority
-  * Mouse support.
-  * move location of several downloaded locations at once, similar to 'highlight' in torrents' file lists.
-  * Somehow allow ranger to open containing folder of torrent.
-  * Huge huge input lag when the file list is enormous (lagged on rahxephon with ~1000 files).
-  * When i queue up/down when already at top/bottom, they add weird stats to my uploads (only happens when downloading).
+  mouse support
+  move location of several downloaded locations at once, similar to 'highlight' in torrents' file lists
+  somehow allow ranger to open containing folder of torrent
+  huge huge input lag when the file list is enormous (lagged on rahxephon with ~1000 files)
+  when i queue up/down when already at top/bottom, they add weird stats to my uploads (only happens when downloading)
 
 }}}
 urxvt/Xresources {{{
 -------------------------------------------------------------------------------
 
 Medium Priority
-  * Have j/k scroll up/down the buffer during vicmd.
+  have j/k scroll up/down the buffer during vicmd
 
 Low Priority
-  * Single quotes don't work in comments.
+  single quotes don't work in comments
 
 }}}
 vim {{{
 -------------------------------------------------------------------------------
 
 High Priority
-  * rubber: Compile files with spaces in their name.
+  rubber: Compile files with spaces in their name
 
 Medium Priority
-  * EasyMotion: This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again.
-  * EasyMotion: Allow f/F's to be case-insensitive, but smartcase when I do capitalize.
+  easyMotion: This is inspired from the browser search commands. Have the secondary options (e.g. when it spits out the same letter) start double digraphs and trigraphs. This allows you to know exactly the sequence to press, without having to hit one key, wait for your brain to process the next, and hit again
+  easyMotion: Allow f/F's to be case-insensitive, but smartcase when I do capitalize
     (Maybe I can already do this by setting it to the EasyMotion n/N commands, whilst allowing a one key argument for the find. This also makes it easier in case I screw up so I can cycle with n/N.)
-  * NERDTree: I want you as a Toggle, but I also want you to always autotree node to CWD.
+  nERDTree: I want you as a Toggle, but I also want you to always autotree node to CWD
 
 Low Priority
-  * Stop being so goddamn slow when scrolling through long lines and with syntax on. Setting max syntax through column shouldn't be an issue to begin with.
-  * EasyMotion: Include the fold title as part of search.
-  * NERDTree: 'cd' doesn't work in the tree, nor does :NERDTreeCWD.
-  * Some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest.
+  stop being so goddamn slow when scrolling through long lines and with syntax on. Setting max syntax through column shouldn't be an issue to begin with
+  easyMotion: Include the fold title as part of search
+  nERDTree: 'cd' doesn't work in the tree, nor does :NERDTreeCWD
+  some plugin to track all the commands I do in normal mode and ex mode. This way, I can see how productive I can be by remapping the keys that take longest or shortest
 
 }}}
 zathura {{{
 -------------------------------------------------------------------------------
 
 Low Priority
-  * Have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page. E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc.
+  have J/K be your PgUp/Downs, while <C-j><C-k> navigate to the beginning/end of the page. E.g., you're at the top of the page but don't see the whole page, <C-j> hits you to the end of the page, then <C-j> again hits you to the beginning of the next page, etc. etc
 
+}}}
+Web App: Any.Do {{{
+
+High Priority
+  folder rearrangement
+  custom keyboard shortcuts
+
+Medium Priority
+  an easy way to determine which tasks have extra descriptions/subtasks (this is available in mobile but not web), and which tasks are given certain dates
+  more flexible recurring tasks
+  better UI (not everything centerfaced, and more tiling/columns of things such as seeing descriptions/subtasks for a specific task (don't zoom into it and not be able to see anything else); the folders should each be tabs you can click, and you should be able to select a folder on the left of the web interface, not click at the top then see all folders)
+  color options for different folders
+
+Low Priority
+  description region (hack: write them as subtasks)
+}}}
+Web App: Asana {{{
+
+High Priority
+  custom keyboard shortcuts
+  auto-assign all personal project stuff to me
+  offline access that syncs afterwards, like with editing Dropbox files
+  better mobile functionality: especially in adding tasks (it shouldn't just
+    exist in the new tasks list on the desktop), and moving things
+  super slow launch time
+
+Medium Priority
+  prettier UI
+
+Low Priority
+  tags in personal projects (hack: use a workspace as your personal instead)
+  ability to reorganize personal projects (hack: use a workspace as your
+    personal instead)
 }}}
 Web App: Google Calendar {{{
 
 High Priority
-  * Better fucking Tasks functionality
-    * Have the ability to view multiple tasks lists simultaneously, with this option for both the calendars (just like you can click on and off for multiple calendars) and the task lists. Without this option, I'm currently forced to use only one task list (otherwise I'd have to recheck multiple lists over and over, and I could easily forget something). But then in order to organize things efficiently, I use indented tasks, which only allows one sorting option. I would then only use multiple task lists if those two sections of my life were extremely discrete and demanded the schism while fully understanding that I cannot combine the two (e.g. my anime blog task list and my work life task list). Ultimately, it's a shitty life trying to adapt to all the limitations here, and so you'd be better off at not integrating your task/todo list into your calendar at the moment.
-      * Collapsible tasks grouped under subtasks.
-      * Allow indentation still when sorted under due date. Without this, I'm forced to stick with my own order.
-    * Import/export/share tasks.
-    * Reminders (SMS, email, popup) for tasks.
-    * Recurring tasks (e.g. to do something every week like Groceries).
-  * Vim-able modal keybinding.
-    * At the very least, customizable keybinds for what's already available.
+  better fucking Tasks functionality
+    have the ability to view multiple tasks lists simultaneously, with this option for both the calendars (just like you can click on and off for multiple calendars) and the task lists. Without this option, I'm currently forced to use only one task list (otherwise I'd have to recheck multiple lists over and over, and I could easily forget something). But then in order to organize things efficiently, I use indented tasks, which only allows one sorting option. I would then only use multiple task lists if those two sections of my life were extremely discrete and demanded the schism while fully understanding that I cannot combine the two (e.g. my anime blog task list and my work life task list). Ultimately, it's a shitty life trying to adapt to all the limitations here, and so you'd be better off at not integrating your task/todo list into your calendar at the moment
+      collapsible tasks grouped under subtasks
+      allow indentation still when sorted under due date. Without this, I'm forced to stick with my own order
+    import/export/share tasks
+    reminders (SMS, email, popup) for tasks
+    recurring tasks (e.g. to do something every week like Groceries)
+  vim-able modal keybinding
+    at the very least, customizable keybinds for what's already available
 
 Medium Priority
-  * Larger expansions of long text strings as titles of tasks or events.
+  larger expansions of long text strings as titles of tasks or events
 
 Low Priority
-  * Sort calendars.
+  sort calendars
 
 }}}
 Web App: LastPass {{{
 
 High Priority
-  * Free android usage
-  * Better designed UI and keyboard shortcuts
+  free android usage
+
+Medium Priority
+  better designed UI and keyboard shortcuts
 
 }}}
 Web App: Pocket {{{
 
 High Priority
-  * A public profile, so others can view all your saved articles
-  * Bulk delete tags, and move around articles
+  a public profile, so others can view all your saved articles
+  bulk delete tags, and move around articles
 
 }}}
 Web App: Instapaper {{{
 
 High Priority
-  * A public profile, so others can view all your saved articles
-  * Organizing archived content, e.g., if I use folders as a way of organizing content, I need the ability to differentiate them as "read/unread", rather than have the "unread" list exclusive
-  * free search and mobile app
+  a public profile, so others can view all your saved articles
+  organizing archived content, e.g., if I use folders as a way of organizing
+    content, I need the ability to differentiate them as "read/unread", rather
+    than have the "unread" list exclusive
+  free search and mobile app
 
+}}}
+Web App: Wunderlist {{{
+
+High Priority
+  rearrange tasks due today
+  revision control history
+    e.g., to see what you completed yesterday, at what time, when things were renamed, and more stats reporting to see when you tend to complete things
+  more functionality to edit multiple tasks
+    e.g., set all their due dates
+  more keyboard shortcuts (and custom ones)
+    up down left right
+    set due today, due tomorrow
+    sort by due date, by alphabetical, etc.
+    edit task description, edit task title, edit due date
+  add a "start date", and in general a time range to complete tasks
+    e.g., you need to plan out a bunch of tasks to do during a week-long
+    vacation (hack: make a list and put all those tasks in there; only problem
+    is that you can't then organize those tasks by categories; second hack: also
+    use remind me's as start dates, although ideally they should also be
+    displayed in the pure task list)
+  move tasks between lists without requiring the all smart list in android; it's
+    impossible to move them without taking a super long time, so you're pretty
+    much forced to wait until you have a desktop to move stuff
+  ability to archive lists, not necessarily delete them (simply hide them from
+    view); current workaround is before deleting a list, i move all the
+    completed tasks to the inbox
+  undo button
+
+Medium Priority
+  calendar sync
+  subsections in lists
+    (hack: prepend "#subsection-name " to all such tasks, using the tags system
+    as the subsection)
+  ability to set inbox to auto, or hidden, just like the others
+  better design (not as 3d/button-y)
+  ability to customize background image
+  a date to start doing a task (hack: use due date for now)
+  ability to rearrange the smart lists
+
+Low Priority
+  more flexible recurring tasks
+  real tags, and not shitty hashtags that make it difficult to add to multiple
+    or have their own design
+  color options for different folders
 }}}
 Website: Goodreads {{{
 
 High Priority
-  * >5 ratings on rating scale.
+  >5 ratings on rating scale
 
 Low Priority
-  * Ability to remove sections of profile to clean it up.
+  Ability to remove sections of profile to clean it up
 
 }}}
 Website: MangaTraders {{{
 
 Medium Priority
-  * When downloading a file but not being able to download because the connection limit is reached, don't strikethrough the file.
+  When downloading a file but not being able to download because the connection
+    limit is reached, don't strikethrough the file
 
 }}}
 Website: StyleForum Classifieds {{{
 
 High Priority
-  * Budget restrictions, search engine, item classifications, more immediately clear whether active listing or not, and certain key phrases that everyone uses, like "closet cleaning".
-  * Implement embedded, auto-loaded images on the classified forum posts, not require some stupid pop-up image that takes forever to load because the image servers are so slow.
+  Budget restrictions, search engine, item classifications, more immediately
+    clear whether active listing or not, and certain key phrases that everyone
+    uses, like "closet cleaning"
+  Implement embedded, auto-loaded images on the classified forum posts, not
+    require some stupid pop-up image that takes forever to load because the
+    image servers are so slow
 
 }}}
 Website: Youtube {{{
 
 High Priority
-  * Stahp losing buffer when you move to new seek position.
-  * Load the entire playback even while the video is paused.
-  * Store the entire buffer into cache so you can replay a video without requiring to buffer all over again.
+  stahp losing buffer when you move to new seek position
+  load the entire playback even while the video is paused
+  store the entire buffer into cache so you can replay a video without requiring
+    to buffer all over again
 
 }}}
 Websites: Anything with a Search Engine {{{
 
 High Priority
-  * F'kin regex functionality.
+  f'kin regex functionality
 
 }}}
 Websites: Online Surveys {{{
 
 Survey Monkey
--: can only do <=100 responses, can't export data to .csv, can't change layout that much.
+-: can only do <=100 responses, can't export data to .csv, can't change layout that much
 
 Google Form
--: Can't track IP, default fonts are ugly, can't autoclose at a date and with custom end text, poor summary stats (not that this matters much).
+-: Can't track IP, default fonts are ugly, can't autoclose at a date and with custom end text, poor summary stats (not that this matters much)
 
 }}}

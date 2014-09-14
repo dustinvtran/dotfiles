@@ -23,7 +23,7 @@ knitme <- function(psnum) {
         psnum <- paste(0, psnum, sep = "")
     }
     string <- paste("-ps", psnum, ".Rtex", sep="")
-    filename <- list.files()[grep(string,list.files())]
+    filename <- list.files()[grep(string, list.files())]
     filenameout <- gsub(".Rtex", ".tex", filename)
     knit(filename, output = filenameout)
     # Workaround for bug from knitr, requiring me to delete some redundant line output in my .tex.

@@ -41,4 +41,5 @@ gapless-audio
 no-input-default-bindings
 
 ## temp workaround
+
 vo=xv
