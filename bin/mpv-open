@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # This is my solution to efficient playlist navigation in mpv. It makes use of ranger to add files to the playlist, and vim
 # to rearrange items on the list.
 #
@@ -23,10 +22,11 @@ file=$(~/bin/notme/now-playing-mpv)
 unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 
 # If mpv isn't running.
-# To be honest, I don't know how this if condition works (!), but it does.
 if [ $(pgrep mpv) -ne 0 ]; then
     # Pause mpd, e.g., if I open mpv while mpd is still playing.
     ncmpcpp pause
+    # Pause spotify, e.g., if I open mpv while mpd is still playing.
+    playerctl pause
     # Place all arguments into new playlist.
     rm ~/.mpv/playlist
     for i in "$@"; do
@@ -47,6 +47,6 @@ else
     fi
     # Reload playlist by clearing it, then appending all files from the newly modified list.
     echo "playlist_clear" > ~/bin/config/mpv-control
-    echo 'loadlist "/home/nil/.mpv/playlist" append' > ~/bin/config/mpv-control
+    echo 'loadlist "$HOME/.mpv/playlist" append' > ~/bin/config/mpv-control
     echo 'show_text "Playlist updated."' > ~/bin/config/mpv-control
 fi

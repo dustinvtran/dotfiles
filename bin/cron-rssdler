@@ -1,13 +1,11 @@
 #!/bin/bash
-
-# This is a script for a cronjob which keeps the specified program always running.
+# Keeps the specified program always running (to be used in cronjob).
 
 export DISPLAY=:0
 
 program="rssdler"
-command="rssdler -c /home/nil/.config/rssdler/config.txt -d"
+command="rssdler -c /home/dvt/.config/rssdler/config.txt -d"
 
-pgrep $program
-if [ $? -ne 0 ]; then
+if [[ -z $(pgrep $program) ]]; then
     $command
 fi

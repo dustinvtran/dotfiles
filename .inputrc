@@ -1,7 +1,6 @@
 #
-# Readline dotfile
 # ~/.inputrc
-# Name: nil
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 set editing-mode vi
@@ -10,8 +9,6 @@ set keymap vi
 $if mode=vi
     # Normal mode.
     set keymap vi-command
-    "gg": beginning-of-line
-    "G": end-of-line
     # Insert mode.
     set keymap vi-insert
     "\C-n": next-history

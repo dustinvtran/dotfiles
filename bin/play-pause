@@ -1,13 +1,20 @@
 #!/bin/bash
+# Cycles play/pause among audio applictions. It is prioritized such that certain
+# applications are always paused whenever the higher priority one is running.
 
-# This is a script set as a global keybind. It play/pauses ncmpcpp if mpv isn't running, and play/pauses mpv if it is
-# running (while keeping ncmpcpp paused).
-
-pgrep mpv
-if [ $? -ne 0 ]
-then
-    ncmpcpp toggle
-else
+if [[ -n $(pgrep mpv) ]]; then
     echo "cycle pause" > ~/bin/config/mpv-control
-    ncmpcpp pause
+    if [[ -n $(pgrep mpd) ]]; then
+        ncmpcpp pause
+    fi
+    if [[ -n $(pgrep spotify) ]]; then
+        playerctl pause
+    fi
+elif [[ -n $(pgrep spotify) ]]; then
+    playerctl play-pause
+    if [[ -n $(pgrep mpd) ]]; then
+        ncmpcpp pause
+    fi
+elif [[ -n $(pgrep mpd) ]]; then
+    ncmpcpp toggle
 fi

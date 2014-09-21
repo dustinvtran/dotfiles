@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# This displays mpd now playing info if mpd is running.
+# Displays mpd now playing info if mpd is running.
 
 so=$(mpc current -f %title%)
 art=$(mpc current -f %artist%)

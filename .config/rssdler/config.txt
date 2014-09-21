@@ -1,19 +1,18 @@
 #
-# rssdler dotfile
 # ~/.config/rssdler/config.txt
-# Name: nil
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 #########################################################
 [global]
 #########################################################
 
-downloadDir = /home/nil/Dropbox
-workingDir = /home/nil/.config/rssdler
+downloadDir = /home/dvt/Dropbox
+workingDir = /home/dvt/.config/rssdler
 minSize = 10
 maxSize = 0
 log = 3
-logFile = /home/nil/.config/rssdler/rssdlerlog.log
+logFile = /home/dvt/.config/rssdler/rssdlerlog.log
 verbose = 3
 scanMins = 5
 sleepTime = 5
@@ -40,7 +39,7 @@ download2False = (1080p|%(regExFalse)s)
 #########################################################
 
 link = http://thepiratebay.sx/rss
-regExTrue = (Silicon.*Valley.*S01.*720)
-regExFalse = (480p|720p)
+regExTrue = (Game of Thrones.*S04.*720)
+regExFalse = (480p)
 
 # vim:filetype=conf

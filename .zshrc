@@ -1,9 +1,8 @@
 #
-# zsh dotfile
 # ~/.zshrc
-# Name: nil
+# Author: Dustin Tran <dustinvtran.com>
 #
-# General Settings {{{
+# General Settings
 # -----------------------------------------------------------------------------
 
 setopt auto_name_dirs
@@ -48,8 +47,7 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
-# }}}
-# Completion {{{
+# Completion
 # -----------------------------------------------------------------------------
 
 # Use (advanced) completion functionality
@@ -93,22 +91,20 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
-# }}}
-# Prompt Style {{{
+# Prompt Style
 # -----------------------------------------------------------------------------
 # This changes PS1 dynamically depending on insert or command mode
 
 autoload -U colors && colors
-PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
 
 zle-keymap-select () {
 if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
     if [ $KEYMAP = vicmd ]; then
-        PS1="%{[38;05;8;48;05;2m%} %(!.%S-ROOT-%s.%n) %{[38;05;2;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
+        PS1=$'%{\e[0m%}%{\e[48;5;240m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;240m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ %{\e[0m%}'
         () { return $__prompt_status }
         zle reset-prompt
     else
-        PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
+        PS1=$'%{\e[0m%}%{\e[48;5;255m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;255m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ %{\e[0m%}'
         () { return $__prompt_status }
         zle reset-prompt
     fi
@@ -119,15 +115,14 @@ zle -N zle-keymap-select
 zle-line-init () {
     zle -K viins
     if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
-        PS1="%{[38;05;8;48;05;4m%} %(!.%S-ROOT-%s.%n) %{[38;05;4;48;05;1m%}⮀%{[00m%}%{[38;05;8;48;05;1m%} %~ %{[00m%}%{[38;05;1m%}⮀ %{[00m%}"
+        PS1=$'%{\e[0m%}%{\e[48;5;255m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;255m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ %{\e[0m%}'
         () { return $__prompt_status }
         zle reset-prompt
     fi
 }
 zle -N zle-line-init
 
-# }}}
-# zle widgets {{{
+# zle widgets
 # -----------------------------------------------------------------------------
 # The zle widgets are all followed by "zle -<MODE> <NAME>" and bound below in the "Key Bindings" section
 
@@ -273,8 +268,7 @@ zle -N yank-x-selection
 autoload edit-command-line
 zle -N edit-command-line
 
-# }}}
-# The Vim setup {{{
+# The Vim setup
 # -----------------------------------------------------------------------------
 
 bindkey -v
@@ -354,8 +348,7 @@ bindkey -M vicmd "^H" vi-add-eol                # CTRL-E
 bindkey -M vicmd "g~" vi-oper-swap-case         # g~
 bindkey -M vicmd "ga" what-cursor-position      # ga
 
-# }}}
-# Alias & Functions {{{
+# Alias & Functions
 # -----------------------------------------------------------------------------
 
 ###############################################################################
@@ -374,7 +367,7 @@ alias mkdir='nocorrect mkdir'
 alias sudo='nocorrect sudo'
 
 # Default flags
-alias ping="ping -c 5 www.google.com"      # The only reason I ever use ping
+#alias ping="ping -c 5 www.google.com"      # The only reason I ever use ping
 alias crontab="EDITOR=vim crontab"         # Since crontab doesn't work with gvim/detached editors
 alias cp="nocorrect cp -Rv"                # Ensure that cp is always recursive and verbose
 alias df="df -h"                           # Display sizes in human readable format
@@ -382,7 +375,8 @@ alias du="du -h -c"                        # Display sizes in human readable for
 alias mpd="mpd ~/.config/mpd/mpd.conf"     # Default directory for configuration files
 alias mount="sudo mount"                   # Don't require prepending sudo
 alias umount="sudo umount"                 # Don't require prepending sudo
-alias youtube-dl="youtube-dl -citk --max-quality FORMAT --extract-audio --audio-format mp3" # Download with audio and things
+alias youtube-dl="youtube-dl -cik"         # Some sane defaults
+alias coursera-dl="coursera-dl -n -f 'mp4'" # Only download the video files
 
 # Default flags for programming languages
 alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots), hide splash
@@ -400,7 +394,7 @@ alias xsetd="xset dpms force off"          # Turn off display
 alias bd="bg && disown"                    # Best way to prevent terminal-launched app from dying when closing terminal
 alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp rehash;fc-cache;fc-cache -fv'
 alias history='fc -l'                      # See list of recently used commands
-alias pokerstars="wine '/home/nil/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
+alias pokerstars="wine '/home/dvt/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
@@ -418,14 +412,14 @@ alias -- -='cd -'
 alias -- --='cd -2'
 alias -- ---='cd -3'
 
-# Make backup files ~/doc/package-list, ~/system-dotfiles/groups, ~/system-dotfiles/systemctl
-alias backup="(groups > ~/system-dotfiles/groups) && (systemctl --all > ~/system-dotfiles/systemctl) &&\
+# Make backup files ~/doc/package-list, ~/system/groups, ~/system/systemctl
+alias backup="(groups > ~/system/groups) && (systemctl --all > ~/system/systemctl) &&\
 (echo 'This lists any installed packages that are not in the base or base-devel group, and hence are likely \
 installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-list\
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list)"
 
-# List directory structure of ~/nil/media
+# List directory structure of ~/dvt/media
 alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[backlog\]/*'\
         | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/media\/sdb1/d'\
         | sed -e 's/\[backlog\]/\[aabacklog\]/'\
@@ -462,7 +456,7 @@ visual novels/[aabacklog]/[completed]/...' )\
         | sort\
         | sed -e 's/\[aabacklog\]/\[backlog\]/'\
         | sed -e 's/^\(anime\|films\|literature\|manga\|music\|tv\|video games\|visual novels\)$/\n&/'\
-        | sed -e '1i This lists the entire directory structure of my ~/nil/media folder, which is a collection\
+        | sed -e '1i This lists the entire directory structure of my ~/dvt/media folder, which is a collection\
  of all titles I rate >=8/10 and\n their affiliated installments. It also stores my massive backlogs within each\
  medium, but I omit them here. Why archive\n my media directory structure, you ask? Because its so pretty and\
  autistic of me I simply must. When you\x27re a consumer,\n there ought to be a competent way to organize your\
@@ -472,8 +466,10 @@ visual novels/[aabacklog]/[completed]/...' )\
 # Manual mounter
 alias mountb="mount /dev/sdb1 /mnt/sdb1"
 alias mountc="mount /dev/sdc1 /mnt/sdc1"
+alias mountd="mount /dev/sdd1 /mnt/sdd1"
 alias umountb="umount /mnt/sdb1"
 alias umountc="umount /mnt/sdc1"
+alias umountd="umount /mnt/sdd1"
 
 # Package management
 alias pl="comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)"
@@ -492,8 +488,8 @@ alias emptytrash="trash-empty"
 
 # CLI applications
 alias alsi="clear && alsi -a -c1=unboldred -c2=unboldred"
-alias scrot="scrot -c -d 3 ~/nil/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
-alias byzanz-record="cd ~/nil/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 nil.gif && cd -"
+alias scrot="scrot -c -d 3 ~/dvt/media/pictures/screencaps/scrot/%Y-%m-%d-%T.png"
+alias byzanz-record="cd ~/dvt/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 dvt.gif && cd -"
 
 ###############################################################################
 # Functions
@@ -514,10 +510,15 @@ alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
 # harvard server
-alias sshh="ssh -X s135-879057@98.143.38.105"
+alias sshh="sshrc -X s135-879057@98.143.38.105"
 function scph() {
     scp -r s135-879057@98.143.38.105:~/$1 $2
 }
+
+# digital ocean server
+alias sshd="sshrc dvt@162.243.56.181"
+alias scpo="scp -r ~/Dropbox/www/oneesama.moe dvt@162.243.56.181:/var/www"
+alias scpd="scp -r ~/Dropbox/www/dustinvtran.com dvt@162.243.56.181:/var/www"
 
 # Tablet SSH
 # The obtuse folder directory is to copy manga files directly into my comic reader app. I specify "all arguments" so it
@@ -530,4 +531,3 @@ function scpp() {
     scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
 }
 
-# }}}

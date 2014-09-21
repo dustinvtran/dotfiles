@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# This displays mpv's now playing filename if mpv is running. Most of it was written by frau (see github).
+# Displays mpv's now playing filename if mpv is running. Most of it was written by frau (see github).
 
 function get_file_playing() {
   video_extensions=( mkv avi mp4 ogm mov flv wmv ts m2ts )

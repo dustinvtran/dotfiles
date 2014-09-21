@@ -55,10 +55,22 @@ changes are minimal. just removed bunch of toolbars. added ctrl+nest/NEST, ctrl+
 
 On the larger display, I have (from top to bottom) ncmpcpp, irssi, blank terminal, and ranger, with a lot of empty space indicated on the left. This allows me to use all applications in only the small windows that they're needed in, allowing a lot of room for useless gaps and wallpaper gawking. The left empty space is for incidental media applications, ones which are positioned there on the occasion that they're running: mpv, feh, calibre-ebook-viewer, and zathura. Media players—whether ranging from video or ebook to pictures—are all given their ample, needed space through that left region. Never are two ever running at the same time, so they're all allowed to use the same position.
 
-On the laptop's display, I have vim and nil-transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces (in fullscreen, since unlike other applications, they *do* require as much space as possible for the teeny tiny display).
+On the laptop's display, I have vim and transmission-remote-cli. Firefox, gimp, and libreoffice are always open on this display's other workspaces (in fullscreen, since unlike other applications, they *do* require as much space as possible for the teeny tiny display).
+
+## syncing multiple PCs
+I use two computers, and in order to manage their configuration files efficiently, I set up this dotfile repository with the following three branches:
+
+* `laptop`: This is the branch displayed by default (in laymen's terms, the one you're most likely looking at at this moment), which comprises of the dotfiles used on my laptop PC.
+* `desktop`: This comprises of the dotfiles used on my desktop PC. In order to view this branch, click the dropdown menu next to the repository name on Github.
+* `master`: This holds all common dotfiles to be shared across all machines.
+
+On each machine, all files are always committed and pushed into their respective niche branch (`laptop` and `desktop` accordingly). Whenever a common file is changed, i.e., one belonging to `master`, I checkout those files into the `master` branch. Then on the other machine, I merge the `master` branch into the machine-specific branch, which will update the common files but not affect the machine-specific files.
+
+Thus all PCs share the common dotfiles in `master`, and they also use revision control for their machine-specific files on their respective branches. This is the best method to manage config files across multiple machines!
+
 
 ## Working with a Dynamic Set of Displays
 
-Given that I'm a top pleb using a $400 laptop, I make do with a larger display at home. I primarily use that setup: a 1366x768 display connected to a 1920x1080 external one. To accommodate situations where I'm on the go (and thus without the external monitor), I note certain lines in certain dotfiles with `[L+E]` and `[L]`. These lines are (un)commented appropriately depending on whichever displays I have available.
+I make do with a larger display at home. I primarily use that setup: a 1366x768 display connected to a 1920x1080 external one. To accommodate situations where I'm on the go (and thus without the external monitor), I note certain lines in certain dotfiles with `[L+E]` and `[L]`. These lines are (un)commented appropriately depending on whichever displays I have available.
 
 But this is a pain in the butt to go in and change each dotfile correspondingly. To automate this procedure, I set a script that does the (un)commenting, and then I use it with udev, which is triggered whenever HDMI output is (dis)connected (see `~/bin/udev-hdmi` for more info). Hence, once setup, you can simply hotplug away and your layouts will be preconfigured as necessary. This definitely beats having to turn off xrandr's hdmi, then re-editing your WM dotfile, then,...

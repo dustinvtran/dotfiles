@@ -1,7 +1,6 @@
 #
-# mpv general dotfile
 # ~/.mpv/config
-# Name: nil
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 #########################################################
@@ -29,8 +28,8 @@ sub-text-font-size=50
 # Directories
 #########################################################
 
-input-file=/home/nil/bin/config/mpv-control
-screenshot-template=/home/nil/nil/media/pictures/screencaps/mpv/%f_%p_%tm-%td-%ty
+input-file=/home/dvt/bin/config/mpv-control
+screenshot-template=/home/dvt/dvt/media/pictures/screencaps/mpv/%f_%p_%tm-%td-%ty
 
 #########################################################
 # Miscellaneous
@@ -41,4 +40,5 @@ gapless-audio
 no-input-default-bindings
 
 ## temp workaround
+
 vo=xv

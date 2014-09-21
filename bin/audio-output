@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# This is a script that switches among three audio outputs depending on the argument.
+# Switch among three audio outputs depending on the argument.
 
 if [ "$1" == "laptop" ]; then
     ln -sf ~/bin/config/asound.laptop ~/.asoundrc

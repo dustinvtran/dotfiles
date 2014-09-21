@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# This displays a bitmap icon, battery status, and battery percent depending on how high/low the percent.
+# Displays a bitmap icon, battery status, and battery percent depending on how high/low the percent.
 
 batperc=$(acpi -b | sed -n "1p" | awk -F " " '{print $4}' | head -c3)
 batpercint=$(acpi -b | sed -n "1p" | awk -F "[% ]" '{print $4}' | head -c3)
