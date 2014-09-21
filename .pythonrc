@@ -16,7 +16,7 @@ def summary(x):
     df['Mean'] = np.mean(x)
     df['3rd Qu.'] = np.percentile(x, 75)
     df['Max.'] = max(x)
-    print df
+    print(df)
 
 # Add auto-completion and a stored history file of commands to your Python
 # interactive interpreter. Requires Python 2.0+, readline. Autocomplete is

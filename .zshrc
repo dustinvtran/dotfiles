@@ -102,11 +102,11 @@ autoload -U colors && colors
 zle-keymap-select () {
 if [[ $TERM == "rxvt-unicode" || $TERM == "rxvt-unicode-256color" ]]; then
     if [ $KEYMAP = vicmd ]; then
-        PS1=$'%{\e[48;5;240m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;240m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ \e[0m'
+        PS1=$'%{\e[0m%}%{\e[48;5;240m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;240m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ %{\e[0m%}'
         () { return $__prompt_status }
         zle reset-prompt
     else
-        PS1=$'%{\e[48;5;255m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;255m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ \e[0m'
+        PS1=$'%{\e[0m%}%{\e[48;5;255m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;255m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ %{\e[0m%}'
         () { return $__prompt_status }
         zle reset-prompt
     fi
@@ -117,7 +117,7 @@ zle -N zle-keymap-select
 zle-line-init () {
     zle -K viins
     if [[ $TERM == "rxvt-unicode" || $TERM = "rxvt-unicode-256color" ]]; then
-        PS1=$'%{\e[48;5;255m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;255m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ \e[0m'
+        PS1=$'%{\e[0m%}%{\e[48;5;255m%}%{\e[38;5;235m%} %(!.%S-ROOT-%s.%n) \e[38;5;255m%}\e[48;5;249m%}⮀%{\e[38;5;235m%}%{\e[48;5;249m%} %~ %{\e[48;5;0m%}%{\e[38;5;249m%}⮀ %{\e[0m%}'
         () { return $__prompt_status }
         zle reset-prompt
     fi

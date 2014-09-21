@@ -91,7 +91,7 @@ nnoremap <Esc> <Nop>
 
 " Set floating window size to Github's character limit
 if has("gui_running")
-  set lines=49 columns=127
+  set lines=70 columns=127
 endif
 
 augroup misc
