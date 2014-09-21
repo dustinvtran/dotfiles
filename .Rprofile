@@ -1,7 +1,6 @@
 #
-# R dotfile
 # ~/.Rprofile
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 # Default libraries.

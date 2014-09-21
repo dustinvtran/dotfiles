@@ -1,7 +1,6 @@
 #
-# Ranger colorscheme
 # ~/.config/ranger/colorschemes/dvt.py
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 # Note: I changed the interface for titlebar and statusbar, and so some conditions are added/removed accordingly,

@@ -1,7 +1,6 @@
 #
-# zsh dotfile
 # ~/.zshrc
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 # General Settings {{{
 # -----------------------------------------------------------------------------

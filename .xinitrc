@@ -1,8 +1,7 @@
 #!/bin/sh
 #
-# X init
 # ~/.xinitrc
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 ###############################################################################

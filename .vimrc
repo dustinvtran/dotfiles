@@ -1,7 +1,6 @@
 "
-" Vim dotfile
 " ~/.vimrc
-" Name: Dustin Tran
+" Author: Dustin Tran <dustinvtran.com>
 "
 " Settings {{{
 " -----------------------------------------------------------------------------
@@ -508,6 +507,7 @@ vmap <silent> <Leader>cs <plug>NERDCommenterSexy
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment
 let g:NERDCreateDefaultMappings = 0
 let g:NERDCustomDelimiters = {
+  \ 'pentadactyl': { 'left': '"' },
   \ 'rtex': { 'left': '%' },
   \ 'snippet': { 'left': '#' }
   \ }

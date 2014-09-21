@@ -1,4 +1,4 @@
--- nil: added temporary workarounds as seen on github.
+-- added temporary workarounds as seen on github.
 
 ----------------------------------------------------------------
 -- Effortless wmii-style dynamic tagging.

@@ -1,7 +1,6 @@
 --
--- Awesome dotfile
 -- ~/.config/awesome/rc.lua
--- Name: Dustin Tran
+-- Author: Dustin Tran <dustinvtran.com>
 --
 -- Initial Settings {{{
 -------------------------------------------------------------------------------

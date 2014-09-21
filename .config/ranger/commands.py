@@ -1,7 +1,6 @@
 #
-# ranger commands
 # ~/.config/ranger/commands.py
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 from ranger.api.commands import *

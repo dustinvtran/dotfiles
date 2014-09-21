@@ -1,9 +1,8 @@
 #!/usr/bin/env sh
 
 #
-# ranger: File Preview
 # ~/.config/ranger/rc.conf
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 # Note: Only difference is that I commented out lines for archive extensions, pdfs, video/audio previews. I prefer to see

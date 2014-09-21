@@ -1,7 +1,6 @@
 #
-# rssdler dotfile
 # ~/.config/rssdler/config.txt
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 #########################################################

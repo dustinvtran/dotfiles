@@ -1,7 +1,6 @@
 #
-# irssi dotfile
 # ~/.irssi/config
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 servers = (

@@ -1,7 +1,6 @@
 #
-# Readline dotfile
 # ~/.inputrc
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 #
 
 set editing-mode vi

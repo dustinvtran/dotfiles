@@ -1,6 +1,6 @@
 #
 # dvt-vim_mode.pl
-# Name: Dustin Tran
+# Author: Dustin Tran <dustinvtran.com>
 # Description: A haphazard fork of vim_mode.pl, to implement things I can't do with vim_moderc.
 # Changelog:
 # * Mapped ; to :.
