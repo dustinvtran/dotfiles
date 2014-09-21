@@ -199,11 +199,10 @@ transmission
         for now, you'll have to check each torrent after it finishes individually.
 
 Vim
-    latex $..$ not working anymore.
     fix 'df' and 'ct' (basically omap) til-ing.
     note that you uncommented that one part from NERDCommenter.vim.
     make or use some syntax file for your todolists.
-    nERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
+    NERDTree: Get movement keys working, e.g., <C-j>/<C-k>.
 
 udev-hdmi
     urxvt open commands not working.
@@ -231,7 +230,6 @@ Misc
         mounting: mountb; unpause all torrents in transmission-client; mpd (the alias); mpdas &
     fork transmissionremotecli properly so people can use your own more professionally
     workMethod: Finish final draft.
-    latex: what's with the .out files? why rubber no clean??
 
 }}}
 Medium Priority {{{
@@ -323,15 +321,9 @@ vim
     use different fonts for different languages, e.g., similar to how urxvt has fallback font.
     latex: Autobuild.
         first, need to be able to compile in background. But & fails for both pdflatex and rubber?
-    if in .Rtex file, have the autobuild but also have same syntax highlighting as .tex.
-        !R -e "library(knitr); knit('%:p')"
-        !rubber -d "%:r".tex
-        silent !rubber --clean "%:r".tex &
-        if I can't do this and am relying on R code, just have Vim not try to auto-compile .Rtex.
     change up colors for terminal vim.
     type lime/uushi encodings with ctrl+shift.
     anyway to refer to <SID> functions, e.g., Matchit, stuff that don't use <Plug> so you can nnoremap.
-    NERDCommenter: get it to work for random filetypes (.snippets, i3config, etc.).
     SetColors: not sure how to change the runtimepath to ~/.vim/bundle/dvt/colors/*.vim. technically, i could always do a symlink.
     Repeat: Not working with Surround.
     Snippets: Fix the auto-reload command to not be so computation heavy.

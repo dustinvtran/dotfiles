@@ -42,7 +42,7 @@ class Default(ColorScheme):
             if context.container:
                 fg = red
             if context.directory:
-                fg = green
+                fg = 8
             elif context.executable and not \
                     any((context.media, context.container,
                         context.fifo, context.socket)):
