@@ -217,6 +217,7 @@ map -modes=n -builtin <Leader>sz :tabopen! http://stylezeitgeist.com/forums/foru
 map -modes=n -builtin <Leader>ff :tabopen! https://www.wunderlist.com/ | https://twitter.com/ | file:///home/dvt/Dropbox/Public/collections/websites/index.html | http://en.wikipedia.org/wiki/Avant-garde_jazz | https://www.google.com/calendar/b/0/render<CR>
 
 " harvard
+map -modes=n -builtin <Leader>205g :tabopen! 205g<CR>
 map -modes=n -builtin <Leader>205h :tabopen! 205h<CR>
 map -modes=n -builtin <Leader>205p :tabopen! 205p<CR>
 map -modes=n -builtin <Leader>207h :tabopen! 207h<CR>

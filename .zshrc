@@ -381,7 +381,8 @@ alias du="du -h -c"                        # Display sizes in human readable for
 alias mpd="mpd ~/.config/mpd/mpd.conf"     # Default directory for configuration files
 alias mount="sudo mount"                   # Don't require prepending sudo
 alias umount="sudo umount"                 # Don't require prepending sudo
-alias youtube-dl="youtube-dl -citk --max-quality FORMAT --extract-audio --audio-format mp3" # Download with audio and things
+alias youtube-dl="youtube-dl -cik"         # Some sane defaults
+alias coursera-dl="coursera-dl -n -f 'mp4'" # Only download the video files
 
 # Default flags for programming languages
 alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots), hide splash
