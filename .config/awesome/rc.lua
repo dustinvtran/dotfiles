@@ -115,7 +115,7 @@ mymainmenu = awful.menu({ items = {
 -------------------------------------------------------------------------------
 
 --#############################################################################
--- Bashets Widgets: Battery, Clock, Irssi Notification, Mail Notification, mpv
+-- bashets
 --#############################################################################
 
 bashets.set_script_path("/home/dvt/.config/awesome/widgets/")
@@ -163,7 +163,7 @@ bashets.register("now-playing-mpv.sh", {
 bashets.start()
 
 --#############################################################################
--- Volume Widget
+-- volume Widget
 --#############################################################################
 
 --volwidget = wibox.widget.textbox()

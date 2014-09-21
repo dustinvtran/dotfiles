@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# This is a script for a cronjob which keeps the specified program always running.
+# Keeps the specified program always running (to be used in cronjob).
 
 export DISPLAY=:0
 

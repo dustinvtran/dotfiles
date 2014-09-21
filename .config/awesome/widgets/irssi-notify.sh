@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # As my irssi notification system, this echoes the latest highlighter's nick. I then set
 # a keybind in my window manager which clears the notification, only to reappear (with the next
 # highlighter's nick) via this script.

@@ -1,7 +1,6 @@
 #!/bin/bash
-
-# This is a script for a udev rule and startup. It changes certain settings, triggered whenever HDMI1 is connected or
-# disconnected.
+# Changes certain settings, triggered whenever HDMI1 is connected or
+# disconnected. This is a script for a udev rule and startup.
 
 export XAUTHORITY=/home/dvt/.Xauthority
 export DISPLAY=:0

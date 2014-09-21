@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# This is a script for a "dropdown" calendar.
+# Display a "dropdown" calendar.
 
 pgrep -f 'urxvt -name calendar'
 if [ $? -ne 0 ]

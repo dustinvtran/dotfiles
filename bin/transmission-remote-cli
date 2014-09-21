@@ -1,8 +1,7 @@
 #!/usr/bin/env python2
-
 #
 # transmission-remote-cli
-# Name: dvt
+# Author: Dustin Tran <dustinvtran.com>
 # Description: This is a heavily modified version of fagga's transmission-remote-cli for
 #   interface changes, new default settings, and new keybinds.
 #

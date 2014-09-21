@@ -1,7 +1,6 @@
 #!/bin/bash
-
-# This is a script for a udev rule and startup. It changes the display's blank time, triggered whenever power_supply is
-# connected or disconnected.
+# Changes the display's blank time, triggered whenever power_supply is connected
+# or disconnected. This is a script for a udev rule and startup.
 
 export XAUTHORITY=/home/dvt/.Xauthority
 export DISPLAY=:0
