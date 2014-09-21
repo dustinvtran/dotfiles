@@ -515,13 +515,13 @@ alias v="nocorrect f -e gvim -B viminfo"
 z() { nocorrect f -e zathura "$@" & }
 
 # harvard server
-alias sshh="ssh -X s135-879057@98.143.38.105"
+alias sshh="sshrc -X s135-879057@98.143.38.105"
 function scph() {
     scp -r s135-879057@98.143.38.105:~/$1 $2
 }
 
 # digital ocean server
-alias sshd="ssh dvt@162.243.56.181"
+alias sshd="sshrc dvt@162.243.56.181"
 alias scpo="scp -r ~/Dropbox/www/oneesama.moe dvt@162.243.56.181:/var/www"
 alias scpd="scp -r ~/Dropbox/www/dustinvtran.com dvt@162.243.56.181:/var/www"
 
