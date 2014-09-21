@@ -59,7 +59,7 @@ urxvt -name irssi -g 102x35 -e irssi &
 urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
 urxvt -name ranger -g 102x21 -e ranger &
 
-urxvt -name tcli -g 129x18 -e dvt-transmission-remote-cli &
+urxvt -name tcli -g 129x18 -e transmission-remote-cli &
 
 ###############################################################################
 # Desktop Environment/Window Manager

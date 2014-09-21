@@ -578,7 +578,7 @@ let g:tex_flavor = "latex"
 augroup filetypes
   autocmd!
   autocmd BufNewFile,BufRead *.Rtex set filetype=rtex
-  autocmd BufNewFile,BufRead *.Rmd set filetype=markdown
+  autocmd BufNewFile,BufRead *.md,*.Rmd set filetype=markdown
   autocmd BufNewFile,BufRead *.Rhtml,*.hbs set filetype=html
   autocmd FileType plaintex,tex,rtex call TexMacros()
   autocmd FileType plaintex,tex,rtex nnoremap <silent> <Leader>s :call OpenPDF()<CR>

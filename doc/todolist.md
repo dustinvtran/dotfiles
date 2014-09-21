@@ -16,8 +16,7 @@ live-tex
 * subsubsection numbering
 finish major set up of linux on laptop {{{
 * mpd: set up stream on PC to get working for laptop using icecast
-* Gmail: desktop notifications for arch linux
-    * replace naughty with libnotify, include it for dropbox, gmail, irssi, ?, low battery notification, skype notifications
+* replace naughty with libnotify, include it for dropbox, gmail, irssi, ?, low battery notification, skype notifications
 * both: get zathura and things such as private firefox to tile when desired
     * xbacklight not the same on plug in, display off/on
     * clipit not always working when highliting over
@@ -75,8 +74,6 @@ colorscheme
   * ~/.irssi/nick colors
       * gray shouldnt be an available nick color
       * can't see spoilers
-  * ~/.vimrc
-      * need better colors for text doc
 
 sync pc: someway to make this easier and less manual
   * git checkout master && git checkout laptop .. & git merge-master-from-laptop
@@ -113,16 +110,11 @@ Colemak
 cron
    * Fix the cronjobs. mpdas simply goes defunct. Fails on reboot. Perhaps add an if condition that stipulates to run it if it says <defunct>. rssdler isn't always downloading
 
-vim
-  * syntax color style for my todolist, and a file that logs when I add and complete (delete) tasks
-
 urxvt
   * urxvt-perls: c-v as paste (eg for irssi and readline), url clicker+keyboard select.
   * maybe rekeybind shift+insert via awesome
 
 ## High Priority
-
-Remove these from desktop packages: lib32-v4l-utils, v4l-utils, guvcview, skype-call-recorder
 
 Android USB Connection
   * shows up on lsusb but not fdisk -l
@@ -208,8 +200,6 @@ zsh
   * tab completion doesn't work on some commands (e.g. fasd, git).
 
 Misc
-  * change theme to a dark filtered one with a kawaii coffee girl/book or some shit. I'm getting tired of flowers.
-      * follow ricing guide.
   * automate the following
       * unmounting: pkill ranger (sometimes); pause all torrents in transmission-client; pkill mpd; umountb
       * mounting: mountb; unpause all torrents in transmission-client; mpd (the alias); mpdas &
