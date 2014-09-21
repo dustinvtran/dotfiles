@@ -62,14 +62,11 @@ audio output is broken
   get blockify to work with external sound muted
 yanking full line and pasting in another vim buffer
 vimrc: set up one where i can do fuzzy file find by default on /home/dvt
-teknik ricehalla
 mpv-control not working
 clean your installed package list
     filezilla, thunderbird, deluge
-make a new /fa/ style colorscheme
 How to follow link in man using vim as manpager? I've done it before
 double press both volume buttons to play pause
-I keep forgetting to check email without them always open. Fix mail notifier!!
 devices:
   set up android stuff as zshrc aliases, and also save fuse.conf
   have gallery sync with the current dropbox, e.g., if i delete stuff in dropbox delete in gallery too, and other way around
@@ -84,9 +81,6 @@ colorscheme
         can't see spoilers
     ~/.vimrc
         need better colors for text doc
-    ~/.ncmpcpp/config
-        highlights not showing correctly
-        can't type anything visibly
 
 sync pc: someway to make this easier and less manual
     git checkout master && git checkout laptop .. & git merge-master-from-laptop
@@ -95,9 +89,6 @@ sync pc: someway to make this easier and less manual
     what special cases do i still need to do manually?
         if it's adding new files into master, and you want to push master
         there are overlapping commits from both pcs
-
-zshrc
-    paste not working (xsel -op)
 
 bspwm
     finish locus
@@ -235,9 +226,6 @@ Misc
 Medium Priority {{{
 -------------------------------------------------------------------------------
 
-cron
-    get up an xcape cronjob. It still goes funky at times.
-
 laptop
     optimize battery with CPU frequency scaling and stuff
 
@@ -251,7 +239,7 @@ Firefox
     whatcd: get power user (1.05 ratio) for ptp, btn, and bibilotik invites
     better way to integrate my other/mobile bookmarks that's keyboard navigable.
     flash: fullscreen toggles away once i hit something else.
-    display notifications on primary desktop, not HDMI (e.g. download finished, gmail checker notifier, autopager notification of not loading, etc.).
+    display notifications on primary desktop, not HDMI (e.g. download finished, autopager notification of not loading, etc.).
     don't have middle click on webpage go to last opened tab.
     screen glitches when moving to firefox sometimes.
 
@@ -446,11 +434,5 @@ system
     login manager
         boot into X as normally, but first overlayed by a floating terminal asking for password; if fail, then repeat ask, with prompt saying that 'reboot' and 'poweroff' as passwords work; if success, then resume normally. And then whenever I close/open the lid, it does that same terminal function.  I can issue that close/open lid condition using acpid.
     look at other people's dotfiles in github for more ideas.
-Learn:
-    general UNIX commands
-    archlinux niche functions/management
-    keyboard: L/R Shift training wheels
-    git: the other commands so you can do things like rename git commits, add things, have nicer formatting and git commit etiquette, etc.
-    gmail filters/labels/more shortcuts
 
 }}}

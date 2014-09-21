@@ -610,37 +610,6 @@ function! TeXCompile()
       silent !rm "%:r.log"
       silent !rm "%:r.out"
     "endif
-"endfunction
-
-"augroup always_update
-"   autocmd!
-"    autocmd CursorMoved,CursorMovedI * call FileUpdate()
-"augroup END
-
- "Only in .tex files: Call function whenever cursor changes text in either normal or insert mode.
-"augroup always_update_tex
-   "autocmd!
-   "autocmd FileType tex :autocmd CursorMoved,CursorMovedI * call FileUpdate()
-""       How to leave this autocmd when I'm not in .tex?
-"augroup END
-"
-"##############################################################################
-" LaTeX Auto-Compile & Error Parser
-"##############################################################################
-"
-"augroup AutorunTexbuild
-    "autocmd!
-    "autocmd FileType tex :if !exists('b:runtexbuild') | call system('$vim/vimfiles/bundle/texbuild-master/texbuild '.shellescape(@%)) | let b:runtexbuild=1 | endif
-    "autocmd VimLeave * :call system('killall -TERM texbuild')
-"augroup END
-"
-"augroup latex_stuff
-    "autocmd!
-    "autocmd FileType tex set makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode
-    "autocmd FileType tex set errorformat=%f:%l:\ %m
-"augroup END
-
-=======
   endif
   if &filetype=='rtex'
     cd %:p:h
@@ -652,6 +621,5 @@ function! TeXCompile()
     silent !rm "%:r.tex"
   endif
 endfunction
->>>>>>> improve tex compiling procedure
 
 " }}}

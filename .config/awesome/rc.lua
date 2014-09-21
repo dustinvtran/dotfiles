@@ -125,6 +125,7 @@ irssiwidget = wibox.widget.textbox()
 mailwidget = wibox.widget.textbox()
 mpdwidget = wibox.widget.textbox()
 mpvwidget = wibox.widget.textbox()
+spotifywidget = wibox.widget.textbox()
 bashets.register("battery.sh", {
     widget = batwidget,
     format = '<span font="terminus 8">$1 <span color="#adadad">$2</span> $3</span>',
@@ -141,23 +142,24 @@ bashets.register("irssi-notify.sh", {
     format = '<span font="terminus 8" color="#FF96A3">$1</span>',
     update_time = 1,
     separator = "nil"})
---bashets.register("mail-notify.sh", {
-    --widget = mailwidget,
-    --format = '<span font="terminus 8" color="#FF96A3">$1</span>',
-    --update_time = 90,
-    --separator = "nil"})
+bashets.register("unread-mail.py", {
+    widget = mailwidget,
+    format = '<span font="tewi 8" color="#FF96A3">$1</span>',
+    update_time = 30})
 bashets.register("now-playing-mpd.sh", {
     widget = mpdwidget,
-    format = '<span font="terminus 8">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
-    --if $2 | grep stopped
-    --format = '<span font="terminus 8">  $1<span color="#adadad">$2</span>$3</span>',
+    format = '<span font="tewi 8">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
+    update_time = 1,
+    separator = " | "})
+bashets.register("now-playing-spotify.py", {
+    widget = spotifywidget,
+    format = '<span font="tewi 8">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
     update_time = 1,
     separator = " | "})
 bashets.register("now-playing-mpv.sh", {
     widget = mpvwidget,
-    format = '<span font="terminus 8">$1</span>',
-    update_time = 1,
-    separator = "nil"})
+    format = '<span font="tewi 8">$1</span>',
+    update_time = 1})
 bashets.start()
 
 --#############################################################################
@@ -269,10 +271,10 @@ for s = 1, screen.count() do
 
         local right_layout = wibox.layout.fixed.horizontal()
         --right_layout:add(volwidget)
-        --right_layout:add(mailwidget)
+        right_layout:add(mailwidget)
         right_layout:add(irssiwidget)
         right_layout:add(mpvwidget)
-        right_layout:add(mpdwidget)
+        right_layout:add(spotifywidget)
         right_layout:add(batwidget)
 
         layout = center.horizontal()
@@ -365,8 +367,8 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
 
     -- [L] Use this if you only have laptop display.
-    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name dvt -g 85x24", { instance = "dvt" }) end),
-    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x35 -e irssi", { instance = "irssi" }) end),
+    awful.key({ modkey }, "u", function () run_or_raise("urxvt -name dvt -g 102x21", { instance = "dvt" }) end),
+    awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x24 -e irssi", { instance = "irssi" }) end),
     awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
     awful.key({ modkey }, "r", function () run_or_raise("urxvt -name ranger -g 102x21 -e ranger", { instance = "ranger" }) end),
 
@@ -542,10 +544,10 @@ awful.rules.rules = {
     -- [L] Use this if you only have laptop display.
     { rule = { class = "Gvim" },
       properties = { switchtotag = true },
-      callback = function(c) c:geometry({x=30, y=40}) end },
+      callback = function(c) c:geometry({x=20, y=40}) end },
     { rule = { instance = "tcli" },
       properties = { tag = tags[1][1], switchtotag = true },
-      callback = function(c) c:geometry({x=30, y=660}) end },
+      callback = function(c) c:geometry({x=20, y=660}) end },
 
 --#############################################################################
 -- Workspace 2
@@ -619,16 +621,16 @@ awful.rules.rules = {
     -- [L] Use this if you only have laptop display.
     { rule = { instance = "irssi" },
       properties = { tag = tags[1][5], switchtotag = true },
-      callback = function(c) c:geometry({x=900, y=180}) end },
+      callback = function(c) c:geometry({x=950, y=40}) end },
     { rule = { instance = "dvt" },
       properties = { tag = tags[1][5], switchtotag = true },
-      callback = function(c) c:geometry({x=70, y=260}) end },
+      callback = function(c) c:geometry({x=950, y=350}) end },
+    { rule = { instance = "ranger" },
+      properties = { tag = tags[1][5], switchtotag = true },
+      callback = function(c) c:geometry({x=950, y=625}) end },
     { rule = { instance = "ncmpcpp" },
       properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=900, y=35}) end },
-    { rule = { instance = "ranger" },
-      properties = { tag = tags[1][5], switchtotag = true },
-      callback = function(c) c:geometry({x=900, y=625}) end },
     { rule = { class = "Calibre-ebook-viewer" },
       properties = { tag = tags[1][10], switchtotag = true },
       callback = function(c) c:geometry({width = 700, height = 725}) end },
