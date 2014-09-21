@@ -16,26 +16,6 @@ r["CRAN"] <- "http://cran.us.r-project.org"
 options(repos = r)
 rm(r)
 
-# knitme knits/compiles my .Rtex problem sets while requiring only the problem set # as input. It assumes: 1. you are in the working directory, and 2. follow the correct filename format.
-knitme <- function(psnum) {
-    # Knit using just the problem set #.
-    if (psnum < 10) {
-        psnum <- paste(0, psnum, sep = "")
-    }
-    string <- paste("-ps", psnum, ".Rtex", sep="")
-    filename <- list.files()[grep(string, list.files())]
-    filenameout <- gsub(".Rtex", ".tex", filename)
-    knit(filename, output = filenameout)
-    # Workaround for bug from knitr, requiring me to delete some redundant line output in my .tex.
-    command <- paste("sed -i '12,60d' '", filenameout, "'", sep = "")
-    system(command)
-    # Compile and clean auxiliary files using rubber.
-    command <- paste("rubber -d '", filenameout, "'", sep = "")
-    system(command)
-    command <- paste("rubber --clean '", filenameout, "'", sep = "")
-    system(command)
-}
-
 # panel.cor puts correlation in upper panels of pairs plots, the size proportional to correlation
 panel.cor <- function(x, y, digits=2, prefix="", cex.cor, ...)
 {

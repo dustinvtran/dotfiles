@@ -31,90 +31,84 @@ filetype plugin on
 
 " System Settings.
 set encoding=utf-8
-set showcmd                                  " Display partial commands.
-set noerrorbells visualbell t_vb=            " Disable error bells.
+set showcmd                            " Display partial commands
 augroup stahp
-    autocmd!
-    autocmd GUIEnter * set visualbell t_vb=  " I need this one to prevent screen flashes.
+  autocmd!
+  autocmd GUIEnter * set visualbell t_vb=  " Disable error bells
 augroup END
-set autochdir                                " Auto-cd into the file's dir.
-set hidden                                   " Change buffers without saving.
-set shortmess=I                              " Disable intro message.
-set mouse=a                                  " Mouse support in terminal.
-set autoread                                 " Reload files outside vim.
-set clipboard=unnamed                        " Set to system's clipboard register.
+set autochdir                          " Auto-cd into the file's dir
+set hidden                             " Change buffers without saving
+set shortmess=I                        " Disable intro message
+set mouse=a                            " Mouse support in terminal
+set autoread                           " Reload files outside vim
+set clipboard=unnamed                  " Set to system's clipboard register
 
-" Temp Directories.
-set backup                                   " Enable backups.
-set noswapfile                               " It's 2013, Vim.
-set undofile                                 " Enable persistent undo.
+" Temp Directories
+set backup                             " Enable backups
+set noswapfile                         " It's the 21st century, Vim
+set undofile                           " Enable persistent undo
 set backupdir=~/.vim/tmp/backup
 set undodir=~/.vim/tmp/undo
 set viminfo='10,\"100,:20,%
 
-" Searching, Highlighting, Replacing Settings.
-set ignorecase                               " Case-insensitive matching...
-set smartcase                                "  except case-sensitive searches.
-set incsearch                                " Incremental searching.
-set gdefault                                 " Default: Substitute all occurrences only in line.
-set wildmenu                                 " Tab-completion features in cmd-line mode.
+" Searching, Highlighting, Replacing Settings
+set ignorecase                         " Case-insensitive matching...
+set smartcase                          "  except case-sensitive searches
+set incsearch                          " Incremental searching
+set gdefault                           " Substitute all occurrences only in line
+set wildmenu                           " Tab-completion features in cmd-line mode
 set wildmode=list:full
-set foldmethod=marker                        " Custom folding.
+set foldmethod=marker                  " Custom folding
 
 " Formatting
-set backspace=indent,eol,start               " Expected backspacing
-set linebreak                                " Don't linebreak words in the middle
-set display=lastline                         " Displays partial wrapped lines
-set tw=80                                    " Auto linebreak at 80 characters
-set formatoptions=rotcq                      " Format options with new lines
-set cursorline                               " Cursor Highlight, Color
-set number                                   " Show absolute number for cursor line.
-set relativenumber                           " Line numbers relative to cursor line.
-set cmdwinheight=1                           " Self-explanatory.
-set ttyscroll=3                              " Speeds up screen redrawing.
-set lazyredraw                               " To avoid scroll lag on long ass lines.
-set scrolloff=10                             " Minimum # of lines shown above/below cursor.
-set splitbelow                               " Split windows as expected.
+set backspace=indent,eol,start         " Expected backspacing
+set linebreak                          " Don't linebreak words in the middle
+set display=lastline                   " Displays partial wrapped lines
+set tw=80                              " Auto linebreak at 80 characters
+set formatoptions=rotcq                " Format options with new lines
+set cursorline                         " Cursor Highlight, Color
+set number                             " Show absolute number for cursor line
+set relativenumber                     " Line numbers relative to cursor line
+set cmdwinheight=1                     " Self-explanatory
+set ttyscroll=3                        " Speeds up screen redrawing
+set lazyredraw                         " To avoid scroll lag on long ass lines
+set scrolloff=10                       " Minimum # of lines shown above/below cursor
+set splitbelow                         " Split windows as expected
 set splitright
-set wmh=0 wmw=0                              " Only see filename when minimized.
+set wmh=0 wmw=0                        " Only see filename when minimized
 augroup no_indent
-    autocmd!
-    autocmd FileType text set formatoptions=rol
+  autocmd!
+  autocmd FileType text set formatoptions=rol
 augroup END
 
 " Tab Settings
-set expandtab                                " Spaces as tabs
-set shiftwidth=2                             " 2-character tabs
-set softtabstop=2                            " Fix it to 2
+set expandtab                          " Spaces as tabs
+set shiftwidth=2                       " 2-character tabs
+set softtabstop=2                      " Fix it to 2
 
 " 1 sec <Esc> delay in terminal? Vim pls.
 set noesckeys
 nnoremap <Esc> <Nop>
 
-" Set floating window size, but not for console Vim.
+" Set floating window size to Github's character limit
 if has("gui_running")
-    " 80 character limit
-    "set lines=49 columns=85
-    " github character limit
-    set lines=49 columns=127
+  set lines=49 columns=127
 endif
 
 augroup misc
-    autocmd!
-    " Remove any trailing whitespace in the file.
-    autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-    " Auto-open last file if invoked without arguments.
-    " Currently bugged when trying to use Vim also as manpager.
-    if has('gui_running')
+  autocmd!
+  " Remove any trailing whitespace in the file
+  autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
+  " Auto-open last file if calling Vim without arguments
+  " Currently bugged when trying to use Vim also as manpager
+  if has('gui_running')
     autocmd VimEnter * nested if
       \ argc() == 0 &&
       \ bufname("%") == "" &&
       \ bufname("2" + 0) != "" |
       \   exe "normal! `0" |
       \ endif
-    endif
-    " Auto-load vimrc on write. The third line is simply to get my formatoptions again when it reloads. Cuz I hate 'em!
-    autocmd BufWritePost $myvimrc nested source $myvimrc
+  endif
 augroup END
 
 " }}}
@@ -122,7 +116,23 @@ augroup END
 " -----------------------------------------------------------------------------
 
 "##############################################################################
-" Better styling of folds.
+" Let twiddle convert swap cases, lowercase all characters, or uppercase all characters
+"##############################################################################
+
+function! TwiddleCase(str)
+  if a:str ==# toupper(a:str)
+    let result = tolower(a:str)
+  elseif a:str ==# tolower(a:str)
+    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
+  else
+    let result = toupper(a:str)
+  endif
+  return result
+endfunction
+vnoremap ~ y:call setreg('', twiddlecase(@"), getregtype(''))<cr>gv""pgv
+
+"##############################################################################
+" Better styling of folds
 "##############################################################################
 
 function! NeatFoldText()
@@ -142,11 +152,11 @@ set foldtext=NeatFoldText()
 "##############################################################################
 
 function! DDWrapper()
-    if getline('.') =~ '^\s*$'
-        normal! "_dd
-    else
-        normal! dd
-    endif
+  if getline('.') =~ '^\s*$'
+    normal! "_dd
+  else
+    normal! dd
+  endif
 endfunction
 nnoremap <silent> dd :call DDWrapper()<CR>
 
@@ -163,20 +173,20 @@ endfunction
 
 if has("folding")
   function! UnfoldCur()
-    if !&foldenable
-      return
-    endif
-    let cl = line(".")
-    if cl <= 1
-      return
-    endif
-    let cf  = foldlevel(cl)
-    let uf  = foldlevel(cl - 1)
-    let min = (cf > uf ? uf : cf)
-    if min
-      execute "normal!" min . "zo"
-      return 1
-    endif
+  if !&foldenable
+    return
+  endif
+  let cl = line(".")
+  if cl <= 1
+    return
+  endif
+  let cf  = foldlevel(cl)
+  let uf  = foldlevel(cl - 1)
+  let min = (cf > uf ? uf : cf)
+  if min
+    execute "normal!" min . "zo"
+    return 1
+  endif
   endfunction
 endif
 
@@ -214,8 +224,8 @@ noremap <silent> <S-Space> :call FoldAllToggle()<CR>
 "noremap <silent> <S-F1> :call FoldAllToggle()<CR>
 if !has('gui_running')
 augroup auto_fold
-    autocmd!
-    autocmd VimEnter * call FoldAllToggle()
+  autocmd!
+  autocmd VimEnter * call FoldAllToggle()
 augroup END
 endif
 
@@ -225,52 +235,52 @@ endif
 
 let loaded_InsertChar = 1
 function! InsertChar(count)
-	call inputsave()
-	let l:count = a:count
-	if ! l:count
-		call inputrestore()
-		return
-	endif
-	let l:inserted = ''
-	let l:old_match = matcharg(1)
-	let l:old_eventignore = &eventignore
-	set eventignore+=insertenter,insertleave
-	try
-		execute 'normal! i' . repeat('_', l:count) . "\<ESC>" . repeat('h', l:count - 1)
+  call inputsave()
+  let l:count = a:count
+  if ! l:count
+    call inputrestore()
+    return
+  endif
+  let l:inserted = ''
+  let l:old_match = matcharg(1)
+  let l:old_eventignore = &eventignore
+  set eventignore+=insertenter,insertleave
+  try
+    execute 'normal! i' . repeat('_', l:count) . "\<ESC>" . repeat('h', l:count - 1)
 
-		for l:pos in range(l:count)
-			execute 'match Error /\%#' . repeat('.', l:count - l:pos) . '/'
-			redraw
-			let l:char = getchar(0)
-			if ! l:char
-				redraw
-				echohl MoreMsg
-				echo 'Char ' . (l:pos + 1) . '/' . l:count . ': '
-				echohl None
-				let l:char = getchar()
-				echo
-			endif
-			if l:char == 27
-				execute 'normal! ' . repeat('h', l:pos) . repeat('x', l:count)
-				return
-			endif
-			undojoin
-			execute 'normal! r' . nr2char(l:char)
-			let l:inserted .= nr2char(l:char)
-			if l:char != 13 && (l:count - l:pos) > 1
-				execute 'normal! l'
-			endif
-		endfor
-		silent! call repeat#set('i' . l:inserted . "\<ESC>", -1)
-	finally
-		if type(l:old_match) == type([]) && strlen(l:old_match[0]) && strlen(l:old_match[1])
-			execute 'match' l:old_match[0] '/' . l:old_match[1] . '/'
-		else
-			match
-		endif
-		let &eventignore = l:old_eventignore
-		call inputrestore()
-	endtry
+    for l:pos in range(l:count)
+      execute 'match Error /\%#' . repeat('.', l:count - l:pos) . '/'
+      redraw
+      let l:char = getchar(0)
+      if ! l:char
+        redraw
+        echohl MoreMsg
+        echo 'Char ' . (l:pos + 1) . '/' . l:count . ': '
+        echohl None
+        let l:char = getchar()
+        echo
+      endif
+      if l:char == 27
+        execute 'normal! ' . repeat('h', l:pos) . repeat('x', l:count)
+        return
+      endif
+      undojoin
+      execute 'normal! r' . nr2char(l:char)
+      let l:inserted .= nr2char(l:char)
+      if l:char != 13 && (l:count - l:pos) > 1
+        execute 'normal! l'
+      endif
+    endfor
+    silent! call repeat#set('i' . l:inserted . "\<ESC>", -1)
+  finally
+    if type(l:old_match) == type([]) && strlen(l:old_match[0]) && strlen(l:old_match[1])
+      execute 'match' l:old_match[0] '/' . l:old_match[1] . '/'
+    else
+      match
+    endif
+    let &eventignore = l:old_eventignore
+    call inputrestore()
+  endtry
 endfunction
 
 " }}}
@@ -284,9 +294,9 @@ endfunction
 noremap n gj|noremap N J|noremap <C-n> <C-d>|cnoremap <C-n> <Down>
 noremap e gk|noremap E i<CR><Esc>k$|vnoremap K <Esc>i<CR><Esc>k$gv|noremap <C-e> <C-u>|cnoremap <C-e> <Up>
 augroup farkin_easymotion
-    autocmd!
-    autocmd VimEnter * noremap t l
-    autocmd VimEnter * noremap s h
+  autocmd!
+  autocmd VimEnter * noremap t l
+  autocmd VimEnter * noremap s h
 augroup END
 
 noremap k n|noremap K N
@@ -294,14 +304,14 @@ noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap
 nnoremap l :<C-U>call InsertChar(v:count1)<CR>
 nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
 augroup farkin_easymotion2
-    autocmd!
-    autocmd VimEnter * nnoremap j xph
+  autocmd!
+  autocmd VimEnter * nnoremap j xph
 augroup END
 
 noremap gn j
 noremap ge k
-noremap <silent> <C-s> :silent update<CR>:call LaTeXBuild()<CR>
-noremap! <silent> <C-s> <Esc>:silent update<CR>:call LaTeXBuild()<CR>
+noremap <silent> <C-s> :silent update<CR>:call TeXCompile()<CR>
+noremap! <silent> <C-s> <Esc>:silent update<CR>:call TeXCompile()<CR>
 nnoremap <Leader>s <C-w>W
 nnoremap <Leader>t <C-w>w
 nnoremap <silent> S :tabp<CR>
@@ -352,26 +362,26 @@ nnoremap <Leader>b {
 " See BufExplorer.
 
 " Windows
-nnoremap          <C-x> <C-w>s
-nnoremap          <C-v> <C-w>v
+nnoremap      <C-x> <C-w>s
+nnoremap      <C-v> <C-w>v
 noremap  <silent> <C-w> :q<CR>
 noremap! <silent> <C-w> :q<CR>
-noremap           <F1>  <C-w>+
-noremap           <F2>  <C-w>-
-noremap           <F3>  <C-w>>
-noremap           <F4>  <C-w><
-noremap           <F5>  <C-w>=
+noremap       <F1>  <C-w>+
+noremap       <F2>  <C-w>-
+noremap       <F3>  <C-w>>
+noremap       <F4>  <C-w><
+noremap       <F5>  <C-w>=
 function! MarkWindowSwap()
-    let g:markedWinNum = winnr()
+  let g:markedWinNum = winnr()
 endfunction
 function! DoWindowSwap()
-    let curNum = winnr()
-    let curBuf = bufnr( "%" )
-    exe g:markedWinNum . "wincmd w"
-    let markedBuf = bufnr( "%" )
-    exe 'hide buf' curBuf
-    exe curNum . "wincmd w"
-    exe 'hide buf' markedBuf
+  let curNum = winnr()
+  let curBuf = bufnr( "%" )
+  exe g:markedWinNum . "wincmd w"
+  let markedBuf = bufnr( "%" )
+  exe 'hide buf' curBuf
+  exe curNum . "wincmd w"
+  exe 'hide buf' markedBuf
 endfunction
 nnoremap <silent> <Leader>m         :call MarkWindowSwap()<CR>
 nnoremap <silent> <Leader><Leader>m :call DoWindowSwap()<CR>
@@ -397,9 +407,9 @@ nnoremap <silent> <C-c> :silent BufExplorer<CR>
 " Temporary until I can get monokai working for terminal
 >>>>>>> new colorscheme
 if has('gui_running')
-    colorscheme monokai
+  colorscheme monokai
 else
-    colorscheme molokai
+  colorscheme molokai
 endif
 syntax enable
 set guioptions=
@@ -409,8 +419,8 @@ set laststatus=2
 set noshowmode
 "let g:airline_theme='molokai'
 augroup airlineTheme
-    autocmd!
-    autocmd VimEnter * AirlineTheme molokai
+  autocmd!
+  autocmd VimEnter * AirlineTheme molokai
 augroup END
 let g:airline_left_sep='⮀'
 let g:airline_right_sep='⮂'
@@ -439,11 +449,11 @@ let g:airline_mode_map = {
 
 let g:ctrlp_map = '<C-f>'
 let g:ctrlp_prompt_mappings = {
-\ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-\ 'PrtSelectMove("k")':   ['<c-e>', '<up>'],
-\ 'PrtHistory(-1)':       [''],
-\ 'PrtCurEnd()':          [''],
-\ }
+  \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+  \ 'PrtSelectMove("k")':   ['<c-e>', '<up>'],
+  \ 'PrtHistory(-1)':     [''],
+  \ 'PrtCurEnd()':      [''],
+  \ }
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_clear_cache_on_exit = 0
@@ -469,9 +479,9 @@ let g:EasyMotion_mapping_F = 'F'
 let g:EasyMotion_mapping_t = 't'
 let g:EasyMotion_mapping_T = 'T'
 augroup tilthefs
-    autocmd!
-    autocmd VimEnter * omap f t
-    autocmd VimEnter * omap F T
+  autocmd!
+  autocmd VimEnter * omap f t
+  autocmd VimEnter * omap F T
 augroup END
 
 "##############################################################################
@@ -492,23 +502,15 @@ nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 " NERDCommenter
 "##############################################################################
 
-augroup nerdcommentdammit
-    autocmd!
-    autocmd VimEnter * vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
-augroup END
+map <silent> <Leader>cc <plug>NERDCommenterComment
+vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment
-" For commenting Snippets plugin.
-"let g:NERDCustomDelimiters = {
-"        \ 'snippets': { 'left': '#' },
-" Apparently .tex works. But why not .asdf or .snippets?
-        "\ 'tex': { 'left': '#' }
-"\ }
-"The defaults don't work either.
-    "let g:NERDCustomDelimiters = {
-        "\ 'ruby': { 'left': '#', 'leftAlt': 'FOO', 'rightAlt': 'BAR' },
-        "\ 'grondle': { 'left': '{{', 'right': '}}' }
-    "\ }
+let g:NERDCreateDefaultMappings = 0
+let g:NERDCustomDelimiters = {
+  \ 'rtex': { 'left': '%' },
+  \ 'snippet': { 'left': '#' }
+  \ }
 
 "##############################################################################
 " NERDTree
@@ -524,8 +526,8 @@ let NERDTreeShowHidden=1
 "##############################################################################
 
 "augroup color_scheme
-"    autocmd!
-"    autocmd VimEnter * silent SetColors all
+"  autocmd!
+"  autocmd VimEnter * silent SetColors all
 "augroup END
 "nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
 "nnoremap <silent> <Leader>r :call NextColor(1)<CR>
@@ -538,13 +540,13 @@ let g:snippets_dir = '~/.vim/bundle/dvt/snippets'
 
 " To reload the snippets whenever I rewrite them.
 augroup snippets
-    autocmd!
-    " Works only for .snippets. Will reload them all once I leave its buffer.
-    " This doesn't quite work out.
-    " autocmd FileType snippets BufLeave call ReloadAllSnippets()
-    "
-    " This one does work, but it's computationally unpleasant in that I don't need to call it for /every/ file.
-    autocmd BufWritePost * call ReloadAllSnippets()
+  autocmd!
+  " Works only for .snippets. Will reload them all once I leave its buffer
+  " This doesn't quite work out
+  " autocmd FileType snippets BufLeave call ReloadAllSnippets()
+  "
+  " This one does work, but it's computationally unpleasant in that I don't need to call it for /every/ file
+  autocmd BufWritePost * call ReloadAllSnippets()
 augroup END
 
 "##############################################################################
@@ -553,66 +555,34 @@ augroup END
 
 " Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways.
 vmap s <Plug>VSurround
-" So the '\' surround command does '\[...\]'.
-let g:surround_92 = "\\[\r\\]"
-" Remaps \[ as shortcut to in-line surround with '\[...\]'. It requires 'map' since I need the above hotkey for 's\'.
+" So the '\' surround command does '\[...\]'
+let g:surround_92 = "\\[\n\r\n\\]"
+" Remaps \[ as shortcut to in-line surround with '\[...\]'. It requires 'map' since I need the above hotkey for 's\'
 nmap <silent> \[ yss\
-
-" Parity Dollar Sign.
-
-" Bug: It spits out an error if there's no '$' in the buffer.
-" '$' acts like this: map! modes            Default;
-"                     Normal mode           if even # of '$', then surround inner WORD with '$';
-"                                           if odd $ of '$',  then append '$';
-"                     Operator/Visual mode  Surround with '$' with a single key.
-function! ParityDollarSign()
-    normal! mz
-    "Note there's no g flag because I have it as default.
-    %s/\$//n
-    let i = split(v:statusmsg)[0]
-    if i % 2
-        normal! `za$
-    else
-        normal! `zviW
-        normal s$
-        normal! E
-    endif
-endfunction
-
-augroup tex_only
-    autocmd!
-    autocmd FileType tex nnoremap <buffer> <silent> # :call ParityDollarSign()<CR>
-augroup END
 
 " }}}
 " Specific Filetypes {{{
 " -----------------------------------------------------------------------------
 
-"##############################################################################
-" LaTeX
-"##############################################################################
-
 let g:tex_flavor = "latex"
 
 augroup filetypes
-    autocmd!
-    autocmd FileType plaintex,tex call Macros()
-    autocmd FileType plaintex,tex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
-    autocmd BufNewFile,BufRead *.Rtex set filetype=tex
-    autocmd BufNewFile,BufRead *.Rmd set filetype=markdown
-    autocmd BufNewFile,BufRead *.Rhtml,*.hbs set filetype=html
-    "autocmd FileType r,html,text setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd!
+  autocmd BufNewFile,BufRead *.Rtex set filetype=rtex
+  autocmd BufNewFile,BufRead *.Rmd set filetype=markdown
+  autocmd BufNewFile,BufRead *.Rhtml,*.hbs set filetype=html
+  autocmd FileType plaintex,tex,rtex call TexMacros()
+  autocmd FileType plaintex,tex,rtex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
+  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
 augroup END
 
-function! Macros()
-    inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
-    inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
-    inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
-endfunction
-
-function! OpenPDF()
-  silent !zathura "%:r".pdf &
+function! TexMacros()
+  inoreabbrev bb <c-r>=<sid>Expr('bb', '\mathbb')<cr>
+  inoreabbrev rm <c-r>=<sid>Expr('rm', '\mathrm')<cr>
+  inoreabbrev trm <c-r>=<sid>Expr('trm', '\textrm')<cr>
+  inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
+  inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
+  inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 
 "This allows abbreviations starting with \.
@@ -624,31 +594,21 @@ function! s:Expr(default, repl)
   endif
 endfunction
 
-" Temporary.
-function! LaTeXBuild()
-    if &filetype=='tex'
-" Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info.
-        "if @% == "[0-9]+-lecture-[0-9]{2}.tex"
-        "    compile master
-        "else
-            "silent !rubber -d "%:p" &
-            "!(pdflatex -output-directory="%:p:h" "%:p") &
-            !rubber -d "%:p"
-            silent !rubber --clean "%:p" &
-        "endif
-    endif
+function! OpenPDF()
+  silent !zathura "%:r".pdf &
 endfunction
 
-"##############################################################################
-" Autosave
-"##############################################################################
-"This prevents auto-saving unsaved files or unnecessarily, and hides command-line spam.
- "This works perfectly, but since my computer fucks up right now when I try to save shit, comment out for now.
-"function! FileUpdate()
-    "if expand("%") == ""
+function! TeXCompile()
+  if &filetype=='tex'
+    " TODO: Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info
+    "if @% == "[0-9]+-lecture-[0-9]{2}.tex"
+    "  compile master
     "else
-        "silent update
-        "call LaTeXBuild()
+      cd %:p:h
+      !xelatex "%"
+      silent !rm "%:r.aux"
+      silent !rm "%:r.log"
+      silent !rm "%:r.out"
     "endif
 "endfunction
 
@@ -680,5 +640,18 @@ endfunction
     "autocmd FileType tex set errorformat=%f:%l:\ %m
 "augroup END
 
+=======
+  endif
+  if &filetype=='rtex'
+    cd %:p:h
+    !Rscript -e "library(knitr); knit('%')"
+    !rubber -d "%:p:r.tex"
+    silent !rm "%:r.aux"
+    silent !rm "%:r.log"
+    silent !rm "%:r.out"
+    silent !rm "%:r.tex"
+  endif
+endfunction
+>>>>>>> improve tex compiling procedure
 
 " }}}
