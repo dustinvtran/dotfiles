@@ -2,7 +2,7 @@
 " ~/.pentadactylrc
 " Author: Dustin Tran <dustinvtran.com>
 "
-" Settings {{{
+" Settings
 " -----------------------------------------------------------------------------
 
 "##############################################################################
@@ -64,8 +64,7 @@ set! general.smoothScroll=false
 set! ui.key.menuAccessKey=0
 set! ui.key.menuAccessKeyFocuses=false
 
-" }}}
-" Mappings {{{
+" Mappings
 " -----------------------------------------------------------------------------
 
 "##############################################################################
@@ -143,8 +142,7 @@ map -modes=n,i <C-h> <Nop>
 map -modes=n ] QQ
 map -modes=n [ Qw
 
-" }}}
-" Bookmarks {{{
+" Bookmarks
 " -----------------------------------------------------------------------------
 
 " Communities
@@ -226,8 +224,7 @@ map -modes=n -builtin <Leader>221h :tabopen! 221h<CR>
 map -modes=n -builtin <Leader>221p :tabopen! 221p<CR>
 map -modes=n -builtin <Leader>298h :tabopen! 298h<CR>
 
-" }}}
-" Functions & Macros {{{
+" Functions & Macros
 " -----------------------------------------------------------------------------
 
 "##############################################################################
@@ -348,4 +345,3 @@ map -modes=i -builtin <C-e> -javascript editExternallyWithFiletype()
 cabbreviate pent pentadactyl
 
 " vim:filetype=pentadactyl
-" }}}

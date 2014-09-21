@@ -2,7 +2,7 @@
 -- ~/.config/awesome/rc.lua
 -- Author: Dustin Tran <dustinvtran.com>
 --
--- Initial Settings {{{
+-- Initial Settings
 -------------------------------------------------------------------------------
 
 --#############################################################################
@@ -53,8 +53,7 @@ terminal = "urxvt -name term"
 modkey = "Mod1"
 modkey2 = "Mod4"
 
--- }}}
--- Dialogs {{{
+-- Dialogs
 -------------------------------------------------------------------------------
 
 --#############################################################################
@@ -110,8 +109,7 @@ mymainmenu = awful.menu({ items = {
      }
 })
 
--- }}}
--- Wibox {{{
+-- Wibox
 -------------------------------------------------------------------------------
 
 --#############################################################################
@@ -284,8 +282,7 @@ for s = 1, screen.count() do
     mywibox[s]:set_widget(layout)
 end
 
--- }}}
--- Mappings {{{
+-- Mappings
 -------------------------------------------------------------------------------
 
 --#############################################################################
@@ -517,8 +514,7 @@ end
 
 root.keys(globalkeys)
 
--- }}}
--- Rules {{{
+-- Rules
 -------------------------------------------------------------------------------
 
 awful.rules.rules = {
@@ -649,8 +645,7 @@ awful.rules.rules = {
       properties = { switchtotag = true },
       callback = function(c) c:geometry({x=450, y=15}) end },
 }
--- }}}
--- Signals {{{
+-- Signals
 -------------------------------------------------------------------------------
 
 client.connect_signal("manage", function (c, startup)
@@ -712,8 +707,7 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
--- }}}
--- Functions {{{
+-- Functions
 ------------------------------------------------------------------------------
 
 --#############################################################################
@@ -782,4 +776,3 @@ function match (table1, table2)
    return true
 end
 
--- }}}

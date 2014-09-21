@@ -2,7 +2,7 @@
 # ~/.zshrc
 # Author: Dustin Tran <dustinvtran.com>
 #
-# General Settings {{{
+# General Settings
 # -----------------------------------------------------------------------------
 
 setopt auto_name_dirs
@@ -47,8 +47,7 @@ fi
 source "$fasd_cache"
 unset fasd_cache
 
-# }}}
-# Completion {{{
+# Completion
 # -----------------------------------------------------------------------------
 
 # Use (advanced) completion functionality
@@ -92,8 +91,7 @@ expand-or-complete-with-dots() {
 zle -N expand-or-complete-with-dots
 bindkey "^I" expand-or-complete-with-dots
 
-# }}}
-# Prompt Style {{{
+# Prompt Style
 # -----------------------------------------------------------------------------
 # This changes PS1 dynamically depending on insert or command mode
 
@@ -124,8 +122,7 @@ zle-line-init () {
 }
 zle -N zle-line-init
 
-# }}}
-# zle widgets {{{
+# zle widgets
 # -----------------------------------------------------------------------------
 # The zle widgets are all followed by "zle -<MODE> <NAME>" and bound below in the "Key Bindings" section
 
@@ -271,8 +268,7 @@ zle -N yank-x-selection
 autoload edit-command-line
 zle -N edit-command-line
 
-# }}}
-# The Vim setup {{{
+# The Vim setup
 # -----------------------------------------------------------------------------
 
 bindkey -v
@@ -352,8 +348,7 @@ bindkey -M vicmd "^H" vi-add-eol                # CTRL-E
 bindkey -M vicmd "g~" vi-oper-swap-case         # g~
 bindkey -M vicmd "ga" what-cursor-position      # ga
 
-# }}}
-# Alias & Functions {{{
+# Alias & Functions
 # -----------------------------------------------------------------------------
 
 ###############################################################################
@@ -536,4 +531,3 @@ function scpp() {
     scp -r "$@" mobile@192.168.1.115:/var/mobile/Applications/55560426-B2FC-4F26-ACF0-D95A18D965BB/Documents/
 }
 
-# }}}

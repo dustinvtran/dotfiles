@@ -2,7 +2,7 @@
 " ~/.vimrc
 " Author: Dustin Tran <dustinvtran.com>
 "
-" Settings {{{
+" Settings
 " -----------------------------------------------------------------------------
 
 set nocompatible
@@ -57,7 +57,6 @@ set incsearch                          " Incremental searching
 set gdefault                           " Substitute all occurrences only in line
 set wildmenu                           " Tab-completion features in cmd-line mode
 set wildmode=list:full
-set foldmethod=marker                  " Custom folding
 
 " Formatting
 set backspace=indent,eol,start         " Expected backspacing
@@ -110,8 +109,7 @@ augroup misc
   endif
 augroup END
 
-" }}}
-" Functions {{{
+" Functions
 " -----------------------------------------------------------------------------
 
 "##############################################################################
@@ -131,8 +129,19 @@ endfunction
 vnoremap ~ y:call setreg('', twiddlecase(@"), getregtype(''))<cr>gv""pgv
 
 "##############################################################################
-" Better styling of folds
+" folding styles
 "##############################################################################
+
+function! FoldLevels()
+  let thisline = getline(v:lnum)
+  if thisline != ''
+    let nextline = getline(v:lnum + 1)
+    if match(nextline, '-\{5,\}$') >= 0
+      return ">1"
+    endif
+  endif
+  return "="
+endfunction
 
 function! NeatFoldText()
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
@@ -144,6 +153,9 @@ function! NeatFoldText()
   let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
+
+set foldmethod=expr
+set foldexpr=FoldLevels()
 set foldtext=NeatFoldText()
 
 "##############################################################################
@@ -282,8 +294,7 @@ function! InsertChar(count)
   endtry
 endfunction
 
-" }}}
-" Mappings {{{
+" Mappings
 " -----------------------------------------------------------------------------
 
 "##############################################################################
@@ -389,8 +400,7 @@ nnoremap <silent> <Leader><Leader>m :call DoWindowSwap()<CR>
 noremap  <silent> <C-t> :tabe<CR>
 noremap! <silent> <C-t> :tabe<CR>
 
-" }}}
-" Plugins {{{
+" Plugins
 " -----------------------------------------------------------------------------
 
 "##############################################################################
@@ -560,8 +570,7 @@ let g:surround_92 = "\\[\n\r\n\\]"
 " Remaps \[ as shortcut to in-line surround with '\[...\]'. It requires 'map' since I need the above hotkey for 's\'
 nmap <silent> \[ yss\
 
-" }}}
-" Specific Filetypes {{{
+" Specific Filetypes
 " -----------------------------------------------------------------------------
 
 let g:tex_flavor = "latex"
@@ -574,6 +583,7 @@ augroup filetypes
   autocmd FileType plaintex,tex,rtex call TexMacros()
   autocmd FileType plaintex,tex,rtex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd Filetype markdown call Markdown()
 augroup END
 
 function! TexMacros()
@@ -622,4 +632,18 @@ function! TeXCompile()
   endif
 endfunction
 
-" }}}
+function! Markdown()
+  function! MarkdownFoldLevels()
+    let thisline = getline(v:lnum)
+    if match(thisline, '^##[^#]') >= 0
+      return ">1"
+    elseif thisline != ''
+      let nextline = getline(v:lnum + 1)
+      if match(nextline, '-\{5,\}$') >= 0
+        return ">1"
+      endif
+    endif
+    return "="
+  endfunction
+  setlocal foldexpr=MarkdownFoldLevels()
+endfunction
