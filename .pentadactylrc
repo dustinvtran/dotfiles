@@ -189,7 +189,7 @@ map -modes=n -builtin <Leader>m5 :tabopen! https://mail.google.com/mail/u/5/#inb
 map -modes=n -builtin <Leader>m6 :tabopen! http://webmail.oneesama.moe/?_task=mail<CR>
 
 " LAN
-map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
+"map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
 map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
 
 " productivity

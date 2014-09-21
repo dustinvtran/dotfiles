@@ -126,24 +126,26 @@ mpvwidget = wibox.widget.textbox()
 spotifywidget = wibox.widget.textbox()
 bashets.register("battery.sh", {
     widget = batwidget,
-    format = '<span font="terminus 8">$1 <span color="#adadad">$2</span> $3</span>',
+    format = '<span font="tewi 8">$1 <span color="#adadad">$2</span> $3</span>',
     --if $2 | grep < 20
-    --format = '<span font="terminus 8" color=#FF96A3">$1',
+    --format = '<span font="tewi 8" color=#FF96A3">$1',
     update_time = 1,
     separator = " | "})
 bashets.register("clock.sh", {
     widget = clockwidget,
-    format = '<span font="terminus 8">$1</span>',
-    update_time = 60, separator = "nil"})
+    format = '<span font="tewi 8">$1</span>',
+    update_time = 60,
+    separator = "nil"})
 bashets.register("irssi-notify.sh", {
     widget = irssiwidget,
-    format = '<span font="terminus 8" color="#FF96A3">$1</span>',
+    format = '<span font="tewi 8" color="#FF96A3">$1</span>',
     update_time = 1,
     separator = "nil"})
 bashets.register("unread-mail.py", {
     widget = mailwidget,
     format = '<span font="tewi 8" color="#FF96A3">$1</span>',
-    update_time = 30})
+    update_time = 30,
+    separator = "nil"})
 bashets.register("now-playing-mpd.sh", {
     widget = mpdwidget,
     format = '<span font="tewi 8">$1 <span color="#adadad">$2</span> $3 <span color="#adadad">$4</span> $5</span>',
@@ -157,7 +159,8 @@ bashets.register("now-playing-spotify.py", {
 bashets.register("now-playing-mpv.sh", {
     widget = mpvwidget,
     format = '<span font="tewi 8">$1</span>',
-    update_time = 1})
+    update_time = 1,
+    separator = "nil"})
 bashets.start()
 
 --#############################################################################

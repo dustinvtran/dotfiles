@@ -1,5 +1,4 @@
 #!/usr/bin/env sh
-
 #
 # ~/.config/ranger/rc.conf
 # Author: Dustin Tran <dustinvtran.com>

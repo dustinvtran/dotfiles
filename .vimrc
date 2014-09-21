@@ -28,7 +28,7 @@ Plugin 'file:///home/dvt/.vim/dvt'
 call vundle#end()
 filetype plugin on
 
-" System Settings.
+" System Settings
 set encoding=utf-8
 set showcmd                            " Display partial commands
 augroup stahp
@@ -84,7 +84,7 @@ set expandtab                          " Spaces as tabs
 set shiftwidth=2                       " 2-character tabs
 set softtabstop=2                      " Fix it to 2
 
-" 1 sec <Esc> delay in terminal? Vim pls.
+" 1 sec <Esc> delay in terminal? Vim pls
 set noesckeys
 nnoremap <Esc> <Nop>
 
@@ -159,7 +159,7 @@ set foldexpr=FoldLevels()
 set foldtext=NeatFoldText()
 
 "##############################################################################
-" When 'dd'ing blank lines, don't yank them into the register.
+" When 'dd'ing blank lines, don't yank them into the register
 "##############################################################################
 
 function! DDWrapper()
@@ -172,7 +172,7 @@ endfunction
 nnoremap <silent> dd :call DDWrapper()<CR>
 
 "##############################################################################
-" Restore cursor to previous position and unfold just enough to see cursor line.
+" Restore cursor to previous position and unfold just enough to see cursor line
 "##############################################################################
 
 function! ResCur()
@@ -211,13 +211,13 @@ augroup resCur
 augroup END
 
 "##############################################################################
-" Open URL in browser.
+" Open URL in browser
 "##############################################################################
 
 nnoremap <silent> ] :silent !rifle <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 
 "##############################################################################
-" Fold all toggle.
+" Fold all toggle
 "##############################################################################
 
 let g:foldtoggle = 0
@@ -231,7 +231,7 @@ function! FoldAllToggle()
   endif
 endfunction
 noremap <silent> <S-Space> :call FoldAllToggle()<CR>
-" A temporary workaround for terminal Vim, since foldlevelstart ain't working.
+" A temporary workaround for terminal Vim, since foldlevelstart ain't working
 "noremap <silent> <S-F1> :call FoldAllToggle()<CR>
 if !has('gui_running')
 augroup auto_fold
@@ -241,7 +241,7 @@ augroup END
 endif
 
 "##############################################################################
-" Insert Character Function, which is also an atomic operator and has nice shadings.
+" Insert Character Function, which is also an atomic operator and has nice shadings
 "##############################################################################
 
 let loaded_InsertChar = 1
@@ -326,7 +326,6 @@ nnoremap <Leader>s <C-w>W
 nnoremap <Leader>t <C-w>w
 nnoremap <silent> S :tabp<CR>
 nnoremap <silent> T :tabn<CR>
-" ctrl p
 
 "##############################################################################
 " General
@@ -369,7 +368,7 @@ nnoremap <Leader>b {
 "##############################################################################
 
 " Buffers
-" See BufExplorer.
+" See BufExplorer
 
 " Windows
 nnoremap      <C-x> <C-w>s
@@ -414,7 +413,6 @@ nnoremap <silent> <C-c> :silent BufExplorer<CR>
 "##############################################################################
 
 " Temporary until I can get monokai working for terminal
->>>>>>> new colorscheme
 if has('gui_running')
   colorscheme monokai
 else
@@ -482,7 +480,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 " Keys are written by optimizin via homerow, then tweaked by personal preference
 let g:EasyMotion_keys = 'hneiotsradluygpfwqkmvc;xzbjEIOTSRAHDLUYGPFWQKMVCXZBJ'
 " I require only two EasyMotion keybinds for all my nifty teleportation: f/F. The 'f/F' defaults are set for normal/visual
-" modes, and the 't/T' defaults are set for operator mode (primarily d/c/y).
+" modes, and the 't/T' defaults are set for operator mode (primarily d/c/y)
 let g:EasyMotion_mapping_f = 'f'
 let g:EasyMotion_mapping_F = 'F'
 let g:EasyMotion_mapping_t = 't'
@@ -498,7 +496,7 @@ augroup END
 "##############################################################################
 
 map <Tab> %
-" The new "go back to back". This is because <Tab> is equivalent to <C-i>.
+" The new "go back to back". This is because <Tab> is equivalent to <C-i>
 noremap <C-p> <C-i>
 
 "##############################################################################
@@ -548,7 +546,7 @@ let NERDTreeShowHidden=1
 
 let g:snippets_dir = '~/.vim/bundle/dvt/snippets'
 
-" To reload the snippets whenever I rewrite them.
+" To reload the snippets whenever I rewrite them
 augroup snippets
   autocmd!
   " Works only for .snippets. Will reload them all once I leave its buffer
@@ -563,7 +561,7 @@ augroup END
 " Surround
 "##############################################################################
 
-" Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways.
+" Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways
 vmap s <Plug>VSurround
 " So the '\' surround command does '\[...\]'
 let g:surround_92 = "\\[\n\r\n\\]"
@@ -595,7 +593,7 @@ function! TexMacros()
   inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 
-"This allows abbreviations starting with \.
+"This allows abbreviations starting with \
 function! s:Expr(default, repl)
   if getline('.')[col('.')-2]=='\'
     return "\<bs>".a:repl

@@ -28,15 +28,24 @@ rssdler -c ~/.config/rssdler/config.txt -d
 syndaemon -k -i 0.5 -d
 transmission-daemon &
 xbacklight -set 50
+
 setxkbmap -variant colemak
-#setxkbmap -layout us
+# Keybind CapsLock as Control_L
 xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keycode 66 = Control_L'
 xmodmap -e 'add Control = Control_L'
+# Keybind Menu key as Super_R
 xmodmap -e 'keycode 135 = Super_R'
+# Keybind Alt_R key as Alt_R and emdash
 xmodmap -e 'keycode 255 = emdash'
 xmodmap -e 'keycode 108 = Alt_R'
+# Force Ctrl-V to (Shift+)Insert.
+#xmodmap -e 'keycode 55 = v V Insert'
+# temp, force Shift+Super_L to do Shift+Insert
+xmodmap -e 'keycode 133 = Super_L Insert'
+# Double load CapsLock (Control_L) as Escape, Alt_R as emdash
 xcape -e 'Control_L=Escape;Alt_R=emdash'
+
 xrdb -merge ~/.Xresources
 mpdas &
 
@@ -65,6 +74,8 @@ urxvt -name tcli -g 129x18 -e transmission-remote-cli &
 # Desktop Environment/Window Manager
 ###############################################################################
 
+#http://unix.stackexchange.com/questions/11182/mapping-key-combination-with-xmodmap
+xbindkeys
 exec awesome
 #PID=$!
 #sleep 5 && echo 'awesome.restart()' | awesome-client &

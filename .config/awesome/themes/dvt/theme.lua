@@ -4,7 +4,7 @@
 
 theme = {}
 
-theme.font          = "terminus 8"
+theme.font          = "nu 9"
 
 theme.bg_normal     = "#272822"
 theme.bg_focus      = "#f8f8f2"
@@ -37,8 +37,8 @@ theme.wallpaper1 = "/home/dvt/.config/awesome/themes/dvt/wallpaper.jpg"
 theme.icon_theme = dvt
 
 -- Extras to add in.
-theme.tag_font  = "terminus 8"
-theme.bold      = "#adadad"
+--theme.tag_font  = "lemon"
+--theme.bold      = "#adadad"
 
 return theme
 

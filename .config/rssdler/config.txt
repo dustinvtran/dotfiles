@@ -39,7 +39,7 @@ download2False = (1080p|%(regExFalse)s)
 #########################################################
 
 link = http://thepiratebay.sx/rss
-regExTrue = (Silicon.*Valley.*S01.*720)
-regExFalse = (480p|720p)
+regExTrue = (Game of Thrones.*S04.*720)
+regExFalse = (480p)
 
 # vim:filetype=conf
