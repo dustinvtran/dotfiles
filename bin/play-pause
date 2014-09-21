@@ -4,11 +4,17 @@
 
 if [[ -n $(pgrep mpv) ]]; then
     echo "cycle pause" > ~/bin/config/mpv-control
-    ncmpcpp pause
-    playerctl pause
+    if [[ -n $(pgrep mpd) ]]; then
+        ncmpcpp pause
+    fi
+    if [[ -n $(pgrep spotify) ]]; then
+        playerctl pause
+    fi
 elif [[ -n $(pgrep spotify) ]]; then
     playerctl play-pause
-    ncmpcpp pause
+    if [[ -n $(pgrep mpd) ]]; then
+        ncmpcpp pause
+    fi
 elif [[ -n $(pgrep mpd) ]]; then
     ncmpcpp toggle
 fi
