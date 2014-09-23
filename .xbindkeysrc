@@ -1,2 +1,0 @@
-"{ echo KeySymPress Shift_L; echo KeySym Insert; echo KeySymRelease Shift_L; } | xmacroplay"
-  Super_R

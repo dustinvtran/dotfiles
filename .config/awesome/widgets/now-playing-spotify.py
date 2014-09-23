@@ -15,4 +15,4 @@ elif status == "Paused":
     artist = player.get_artist()
     print(" ⮕ | Paused: | %s | by | %s " %(title, artist))
 else:
-    print(" ")
+    print("")

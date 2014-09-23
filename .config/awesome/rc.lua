@@ -230,58 +230,23 @@ for s = 1, screen.count() do
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
     mywibox[s] = awful.wibox({ position = "top", screen = s })
-    --if (s == 1) then
-    --    local left_layout = wibox.layout.fixed.horizontal()
-    --    left_layout:add(mytaglist[s])
-    --    left_layout:add(mylayoutbox[s])
-    --
-    --    local right_layout = wibox.layout.fixed.horizontal()
-    --    --right_layout:add(volwidget)
-    --    --right_layout:add(mailwidget)
-    --    right_layout:add(irssiwidget)
-    --
-    --    -- [L] Use this if you only have laptop display.
-    --    --right_layout:add(mpvwidget)
-    --    --right_layout:add(mpdwidget)
-    --
-    --    right_layout:add(batwidget)
-    --
-    --    layout = center.horizontal()
-    --    layout:set_left(left_layout)
-    --    layout:set_middle(clockwidget)
-    --    layout:set_right(right_layout)
-    --else
-    --    local left_layout = wibox.layout.fixed.horizontal()
-    --    left_layout:add(mytaglist[s])
-    --    left_layout:add(mylayoutbox[s])
-    --
-    --    local right_layout = wibox.layout.fixed.horizontal()
-    --    right_layout:add(mpvwidget)
-    --    right_layout:add(mpdwidget)
-    --
-    --    layout = center.horizontal()
-    --    layout:set_left(left_layout)
-    --    layout:set_middle(clockwidget)
-    --    layout:set_right(right_layout)
-    --end
 
-    --temp
-        local left_layout = wibox.layout.fixed.horizontal()
-        left_layout:add(mytaglist[s])
-        left_layout:add(mylayoutbox[s])
+    local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mytaglist[s])
+    left_layout:add(mylayoutbox[s])
 
-        local right_layout = wibox.layout.fixed.horizontal()
-        --right_layout:add(volwidget)
-        right_layout:add(mailwidget)
-        right_layout:add(irssiwidget)
-        right_layout:add(mpvwidget)
-        right_layout:add(spotifywidget)
-        right_layout:add(batwidget)
+    local right_layout = wibox.layout.fixed.horizontal()
+    --right_layout:add(volwidget)
+    right_layout:add(mailwidget)
+    right_layout:add(irssiwidget)
+    right_layout:add(mpvwidget)
+    right_layout:add(spotifywidget)
+    right_layout:add(batwidget)
 
-        layout = center.horizontal()
-        layout:set_left(left_layout)
-        layout:set_middle(clockwidget)
-        layout:set_right(right_layout)
+    layout = center.horizontal()
+    layout:set_left(left_layout)
+    layout:set_middle(clockwidget)
+    layout:set_right(right_layout)
     mywibox[s]:set_widget(layout)
 end
 
@@ -360,13 +325,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "b", function () run_or_raise("libreoffice /home/dvt/Dropbox/dvt/interests/macros.ods", { instance = "VCLSalFrame" }) end),
     awful.key({ modkey }, "k", function () run_or_raise("skype",    { class = "Skype"    }) end),
 
-    -- [L+E] Use this if you have both laptop and external display.
-    --awful.key({ modkey }, "u", function () run_or_raise("urxvt -name dvt -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24", { instance = "dvt" }) end),
-    --awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi", { instance = "irssi" }) end),
-    --awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp", { instance = "ncmpcpp" }) end),
-    --awful.key({ modkey }, "f", function () run_or_raise("urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger", { instance = "ranger" }) end),
-
-    -- [L] Use this if you only have laptop display.
     awful.key({ modkey }, "u", function () run_or_raise("urxvt -name dvt -g 102x21", { instance = "dvt" }) end),
     awful.key({ modkey }, "i", function () run_or_raise("urxvt -name irssi -g 102x24 -e irssi", { instance = "irssi" }) end),
     awful.key({ modkey }, "p", function () run_or_raise("urxvt -name ncmpcpp -g 102x10 -e ncmpcpp", { instance = "ncmpcpp" }) end),
@@ -532,15 +490,6 @@ awful.rules.rules = {
 -- Workspace 1
 --#############################################################################
 
-    -- [L+E] Use this if you have both laptop and external display.
-    --{ rule = { class = "Gvim" },
-    --  properties = { switchtotag = true },
-    --  callback = function(c) c:geometry({x=1950, y=40}) end },
-    --{ rule = { instance = "tcli" },
-    --  properties = { tag = tags[1][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=1950, y=560}) end },
-
-    -- [L] Use this if you only have laptop display.
     { rule = { class = "Gvim" },
       properties = { switchtotag = true },
       callback = function(c) c:geometry({x=20, y=40}) end },
@@ -585,39 +534,9 @@ awful.rules.rules = {
       callback = function(c) c:geometry({x=300, y=40}) end },
 
 --#############################################################################
--- Workspace 1 ([L+E]) or Workspace 5 & 10 ([L])
+-- Workspace 5
 --#############################################################################
 
-    -- [L+E] Use this if you have both laptop and external display.
-    --{ rule = { instance = "irssi" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=175}) end },
-    --{ rule = { instance = "dvt" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=550}) end },
-    --{ rule = { instance = "ncmpcpp" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=40}) end },
-    --{ rule = { instance = "ranger" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=1340, y=845}) end },
-    --{ rule = { class = "Calibre-ebook-viewer" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=275, y=40, width = 800, height = 1020}) end },
-    --{ rule = { class = "feh" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=0, y=0}) end },
-    --{ rule = { class = "Mcomix" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
-    --{ rule = { class = "mpv" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=65, y=200}) end },
-    --{ rule = { class = "Zathura" },
-    --  properties = { tag = tags[2][1], switchtotag = true },
-    --  callback = function(c) c:geometry({x=300, y=42, width=780, height=1016}) end },
-
-    -- [L] Use this if you only have laptop display.
     { rule = { instance = "irssi" },
       properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=950, y=40}) end },
@@ -630,6 +549,10 @@ awful.rules.rules = {
     { rule = { instance = "ncmpcpp" },
       properties = { tag = tags[1][5], switchtotag = true },
       callback = function(c) c:geometry({x=900, y=35}) end },
+
+--#############################################################################
+-- Workspace 10
+--#############################################################################
     { rule = { class = "Calibre-ebook-viewer" },
       properties = { tag = tags[1][10], switchtotag = true },
       callback = function(c) c:geometry({width = 700, height = 725}) end },
@@ -648,6 +571,7 @@ awful.rules.rules = {
       properties = { switchtotag = true },
       callback = function(c) c:geometry({x=450, y=15}) end },
 }
+
 -- Signals
 -------------------------------------------------------------------------------
 

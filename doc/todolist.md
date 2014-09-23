@@ -20,7 +20,6 @@ finish major set up of linux on laptop {{{
 * both: get zathura and things such as private firefox to tile when desired
     * xbacklight not the same on plug in, display off/on
     * clipit not always working when highliting over
-    * laptop boots faster than wifi gets to load
     * auto-enter rsa password for git
     * rc.lua
       * libreoffice popups
@@ -54,7 +53,6 @@ finish major set up of linux on laptop {{{
 * import 4chan x settings
 * somehow migrate all pic bookmarks from pixiv to pinterest
 * audio output is broken
-  * get blockify to work with external sound muted
 * yanking full line and pasting in another vim buffer
 * vimrc: set up one where i can do fuzzy file find by default on /home/dvt
 * mpv-control not working

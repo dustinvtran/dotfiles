@@ -584,17 +584,8 @@ augroup filetypes
   autocmd Filetype markdown call Markdown()
 augroup END
 
-function! TexMacros()
-  inoreabbrev bb <c-r>=<sid>Expr('bb', '\mathbb')<cr>
-  inoreabbrev rm <c-r>=<sid>Expr('rm', '\mathrm')<cr>
-  inoreabbrev trm <c-r>=<sid>Expr('trm', '\textrm')<cr>
-  inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
-  inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
-  inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
-endfunction
-
-"This allows abbreviations starting with \
 function! s:Expr(default, repl)
+  " Allows abbreviations starting with \
   if getline('.')[col('.')-2]=='\'
     return "\<bs>".a:repl
   else
@@ -602,11 +593,24 @@ function! s:Expr(default, repl)
   endif
 endfunction
 
+function! TexMacros()
+  " Map text macros
+  inoreabbrev bb <c-r>=<sid>Expr('bb', '\mathbb')<cr>
+  inoreabbrev rm <c-r>=<sid>Expr('rm', '\mathrm')<cr>
+  inoreabbrev trm <c-r>=<sid>Expr('trm', '\textrm')<cr>
+  inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
+  inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
+  inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
+  inoreabbrev op <c-r>=<sid>Expr('op', '\operatorname')<cr>
+endfunction
+
 function! OpenPDF()
-  silent !zathura "%:r".pdf &
+  " Open the pdf of the present working file
+  silent !zathura "%:r.pdf" &
 endfunction
 
 function! TeXCompile()
+  " Compile tex file in its working directory and remove auxiliary outputs
   if &filetype=='tex'
     " TODO: Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info
     "if @% == "[0-9]+-lecture-[0-9]{2}.tex"
@@ -631,6 +635,7 @@ function! TeXCompile()
 endfunction
 
 function! Markdown()
+  " Use folding style based on subsection headings
   function! MarkdownFoldLevels()
     let thisline = getline(v:lnum)
     if match(thisline, '^##[^#]') >= 0

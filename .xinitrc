@@ -20,7 +20,7 @@
 #clipit &
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
-#blockify &
+blockify &
 compton -b
 dropboxd &
 mpd ~/.config/mpd/mpd.conf
@@ -39,9 +39,10 @@ xmodmap -e 'keycode 135 = Super_R'
 # Keybind Alt_R key as Alt_R and emdash
 xmodmap -e 'keycode 255 = emdash'
 xmodmap -e 'keycode 108 = Alt_R'
-# Force Ctrl-V to (Shift+)Insert.
+# Keybind Ctrl-V to Shift+Insert.
 #xmodmap -e 'keycode 55 = v V Insert'
-# temp, force Shift+Super_L to do Shift+Insert
+#xbindkeys
+# temp: Keybind Shift+Super_L to do Shift+Insert
 xmodmap -e 'keycode 133 = Super_L Insert'
 # Double load CapsLock (Control_L) as Escape, Alt_R as emdash
 xcape -e 'Control_L=Escape;Alt_R=emdash'
@@ -50,36 +51,25 @@ xrdb -merge ~/.Xresources
 mpdas &
 
 ###############################################################################
-# Applications
-###############################################################################
-
-firefox &
-gvim &
-
-# [L+E] Use this if you have both laptop and external display
-#urxvt -name dvt -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x24 &
-#urxvt -name irssi -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x31 -e irssi &
-#urxvt -name ncmpcpp -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x9 -e ncmpcpp &
-#urxvt -name ranger -font 'xft:uushi' -boldFont 'xft:uushi' -g 85x19 -e ranger &
-
-# [L] Use this if you only have laptop display
-urxvt -name dvt -g 85x24 &
-urxvt -name irssi -g 102x35 -e irssi &
-urxvt -name ncmpcpp -g 102x10 -e ncmpcpp &
-urxvt -name ranger -g 102x21 -e ranger &
-
-urxvt -name tcli -g 129x18 -e transmission-remote-cli &
-
-###############################################################################
 # Desktop Environment/Window Manager
 ###############################################################################
 
-#http://unix.stackexchange.com/questions/11182/mapping-key-combination-with-xmodmap
-xbindkeys
-exec awesome
-#PID=$!
-#sleep 5 && echo 'awesome.restart()' | awesome-client &
-#wait $PID
+exec awesome &
+
+###############################################################################
+# Applications
+###############################################################################
+
+PID=$!
+gvim &
+urxvt -name dvt -g 102x21 &
+urxvt -name ranger -g 102x21 -e ranger &
+urxvt -name tcli -g 129x18 -e transmission-remote-cli &
+sleep 10
+firefox &
+urxvt -name irssi -g 102x24 -e irssi &
+echo 'awesome.restart()' | awesome-client &
+wait $PID
 
 #exec qtile
 
