@@ -18,6 +18,7 @@ map ; <Nop>
 map <Leader>c /set colors toggle
 map <Leader>n /anames
 map <Leader>t /topic
+map <Leader>0 /window 1
 map <Leader>1 /window 1
 map <Leader>2 /window 2
 map <Leader>3 /window 3
@@ -27,6 +28,7 @@ map <Leader>6 /window 6
 map <Leader>7 /window 7
 map <Leader>8 /window 8
 map <Leader>9 /window 9
+map <Leader>$ /window last
 map /1 /openurl 1
 map /2 /openurl 2
 map /3 /openurl 3

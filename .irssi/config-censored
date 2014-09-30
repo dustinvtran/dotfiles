@@ -14,37 +14,21 @@ servers = (
     password = ""; # censored
     real_name = "Dustin Tran";
     user_name = "dvt";
-  },
-  {
-    address = "RizonBNC.us.rizon.net";
-    chatnet = "rizon";
-    port = "12345";
-    autoconnect = "yes";
-    use_ssl = "yes";
-    nick = "nil";
-    password = ""; # censored
-    real_name = ":3";
-    user_name = "nil";
   }
 );
 
 chatnets = {
   freenode = { type = "IRC"; };
-  rizon = { type = "IRC"; };
 };
 
 channels = (
   { name = "#machinelearning"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "##statistics"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "##c++"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#haskell"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#python"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#R"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#archlinux"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#vim"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "##latin"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#qd"; chatnet = "rizon"; autojoin = "yes"; },
-  { name = "#anorexia"; chatnet = "rizon"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -94,14 +78,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      placement = "top";
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -123,7 +99,7 @@ settings = {
   "perl/core/scripts" = {
     awl_block = "13";
     awl_sbar_maxlength = "no";
-    awl_display_header = "";
+    awl_display_header = "             ";
     awl_display_key = "%w$H $C  $S";
     awl_display_key_active = "%r$H $C  $S";
     awl_placement = "top";
@@ -144,9 +120,6 @@ settings = {
 };
 hilights = (
   { text = "dvt"; nick = "yes"; word = "yes"; fullword = "yes"; },
-  { text = "nil"; nick = "yes"; word = "yes"; fullword = "yes"; },
-  { text = "nil-"; nick = "yes"; word = "yes"; fullword = "yes"; },
-  { text = "niltop"; nick = "yes"; word = "yes"; fullword = "yes"; }
 );
 keyboard = (
   { key = "meta-[M"; id = "command"; data = "mouse_xterm "; },
@@ -190,7 +163,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#haskell";
+        name = "#python";
         tag = "freenode";
       }
     );
@@ -200,7 +173,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#python";
+        name = "#R";
         tag = "freenode";
       }
     );
@@ -210,7 +183,7 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#R";
+        name = "#archlinux";
         tag = "freenode";
       }
     );
@@ -220,50 +193,10 @@ windows = {
       {
         type = "CHANNEL";
         chat_type = "IRC";
-        name = "#archlinux";
-        tag = "freenode";
-      }
-    );
-  };
-  8 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
         name = "#vim";
         tag = "freenode";
       }
     );
   };
-  9 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "##latin";
-        tag = "freenode";
-      }
-    );
-  };
-  10 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#qd";
-        tag = "rizon";
-      }
-    );
-  };
-  11 = {
-    items = (
-      {
-        type = "CHANNEL";
-        chat_type = "IRC";
-        name = "#anorexia";
-        tag = "rizon";
-      }
-    );
-  };
 };
-mainwindows = { 1 = { first_line = "3"; lines = "19"; }; };
+mainwindows = { 7 = { first_line = "2"; lines = "20"; }; };
