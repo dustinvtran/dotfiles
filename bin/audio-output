@@ -2,13 +2,13 @@
 # Switch among three audio outputs depending on the argument.
 
 if [ "$1" == "laptop" ]; then
-    ln -sf ~/bin/config/asound.laptop ~/.asoundrc
+    ln -sf ~/bin/config/.asoundrc.laptop ~/.asoundrc
     echo "You're using the Laptop audio."
 elif [ "$1" == "hdmi" ]; then
-    ln -sf ~/bin/config/asound.hdmi ~/.asoundrc
+    ln -sf ~/bin/config/.asoundrc.hdmi ~/.asoundrc
     echo "You're using the HDMI audio."
 elif [ "$1" == "usb" ]; then
-    ln -sf ~/bin/config/asound.usb ~/.asoundrc
+    ln -sf ~/bin/config/.asoundrc.usb ~/.asoundrc
     echo "You're using the USB audio."
 elif [ "$1" == "" ]; then
     if [[ -n $(realpath ~/.asoundrc | grep laptop) ]];then

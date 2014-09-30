@@ -495,8 +495,8 @@ alias byzanz-record="cd ~/dvt/media/pictures/screencaps/byzanz && byzanz-record 
 # Functions
 ###############################################################################
 
-# The best zip! Don't include parent folders, don't nest zip function, zip recursively, and auto-take zip's second argument
-# as first
+# The best zip! Don't include parent folders, don't nest zip function, zip
+# recursively, and auto-take zip's second argument as first
 zip() {
     name="$(basename -- "$1")"
     cd "$(dirname -- "$1")" &&
