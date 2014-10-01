@@ -6,7 +6,7 @@ file=$(~/bin/notme/now-playing-mpv)
 unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 
 # If currently playing file exists in playlist.
-if [ $(grep -F "$file" $playlist | wc -l) -ne 0 ]; then
+if [[ $(grep -F "$file" $playlist | wc -l) -ne 0 ]]; then
     # Remove all lines up to and including the first occurrence of the currently playing filename.
     sed -i "0,/$unregexfile/d" $playlist
 fi

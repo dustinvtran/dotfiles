@@ -10,14 +10,14 @@ hdmi_status=$(cat /sys/class/drm/card0-HDMI-A-1/status)
 lplusecommented=$(grep -A 1 "^ *# \[L+E\]" /home/dvt/.xinitrc | grep -v "^ *# \[L+E\]" | grep "^ *#")
 
 # Set audio output.
-if [ "$hdmi_status" = connected ]; then
-    ln -sf $alsa_dir/asound.usb /home/dvt/.asoundrc
+if [[ "$hdmi_status" = connected ]]; then
+    ln -sf $alsa_dir/.asoundrc.usb /home/dvt/.asoundrc
 else
-    ln -sf $alsa_dir/asound.laptop /home/dvt/.asoundrc
+    ln -sf $alsa_dir/.asoundrc.laptop /home/dvt/.asoundrc
 fi
 
 # Set video output.
-#if [ "$hdmi_status" = connected ]; then
+#if [[ "$hdmi_status" = connected ]]; then
 #    xrandr --output LVDS1 --auto --primary --output HDMI1 --auto --mode 1920x1080 --left-of LVDS1
 #else
 #    xrandr --output HDMI1 --off
@@ -41,7 +41,7 @@ mount /dev/sdb1 /media/sdb1
     # -e '' /b: Exclude the first and last matched lines from the upcoming substitution.
     # -e '' s/: Add/Remove first # or -- on the line, while preserving any leading whitespace.
 # * Then I kill and reload certain applications which need to restart; then I restart awesome.
-if [ "$hdmi_status" = connected ] && [ -n "$lplusecommented" ]; then
+if [[ "$hdmi_status" = connected ]] && [[ -n "$lplusecommented" ]]; then
     sed -i -e '/^ *-- \[L+E\]/,/^$/ { /^ *-- \[L+E\]/b; /^$/b; s/--// }' \
            -e '/^ *-- \[L\]/,/^$/ { /^ *-- \[L\]/b; /^$/b; s/^ */&--/ }' \
            /home/dvt/.config/awesome/rc.lua
@@ -61,7 +61,7 @@ if [ "$hdmi_status" = connected ] && [ -n "$lplusecommented" ]; then
            -e '/^ *# \[L\]/,/^$/ { /^ *# \[L\]/b; /^$/b; s/^ */&#/ }' \
            /home/dvt/.xinitrc
     echo 'awesome.restart()' | awesome-client &
-elif [ "$hdmi_status" = disconnected ] && [ -z "$lplusecommented" ]; then
+elif [[ "$hdmi_status" = disconnected ]] && [[ -z "$lplusecommented" ]]; then
     sed -i -e '/^ *-- \[L+E\]/,/^$/ { /^ *-- \[L+E\]/b; /^$/b; s/^ */&--/ }' \
            -e '/^ *-- \[L\]/,/^$/ { /^ *-- \[L\]/b; /^$/b; s/--// }'         \
            /home/dvt/.config/awesome/rc.lua

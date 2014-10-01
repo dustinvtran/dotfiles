@@ -4,7 +4,7 @@
 so=$(mpc current -f %title%)
 art=$(mpc current -f %artist%)
 
-if [ "`mpc | grep "^\[paused\]"`" != "" ]; then
+if [[ "`mpc | grep "^\[paused\]"`" != "" ]]; then
     echo -n " ⮕ | Paused: | $so | by | $art "
     elif [ "`mpc | grep "^\[playing\]"`" != "" ]; then
     echo -n " ⮕ | Playing: | $so | by | $art "

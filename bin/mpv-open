@@ -22,7 +22,7 @@ file=$(~/bin/notme/now-playing-mpv)
 unregexfile=$(sed -e 's/[]\/()$*.^|[]/\\&/g' <<< $file)
 
 # If mpv isn't running.
-if [ $(pgrep mpv) -ne 0 ]; then
+if [[ $(pgrep mpv) -ne 0 ]]; then
     # Pause mpd, e.g., if I open mpv while mpd is still playing.
     ncmpcpp pause
     # Pause spotify, e.g., if I open mpv while mpd is still playing.

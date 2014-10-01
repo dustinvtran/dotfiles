@@ -8,7 +8,7 @@
 line=$(tail -n 1 /home/dvt/.irssi/logs/fnotify)
 secondword=$(tail -n 1 /home/dvt/.irssi/logs/fnotify | awk -F " " '{print $2}')
 
-if [ -n "${line}" ]; then
+if [[ -n "${line}" ]]; then
     if [[ $line != \#* ]]; then
         nick=$(tail -n 1 /home/dvt/.irssi/logs/fnotify | awk -F " " '{print $1}')
     elif [[ $secondword = [a-zA-Z0-9]* ]];then
