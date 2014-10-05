@@ -9,6 +9,9 @@ set keymap vi
 $if mode=vi
     # Normal mode.
     set keymap vi-command
+    "s": backward-char
+    "t": forward-char
+    "j": transpose-chars
     # Insert mode.
     set keymap vi-insert
     "\C-n": next-history

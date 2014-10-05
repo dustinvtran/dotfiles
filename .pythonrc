@@ -3,20 +3,11 @@
 # Author: Dustin Tran <dustinvtran.com>
 #
 
-# Default modules
+# Default modules.
+from matplotlib import pyplot as plt
 import numpy as np
-
-# Provides summary statistics like R's summary()
-# requires numpy as np, pandas as pd
-def summary(x):
-    df = pd.DataFrame(np.zeros((1,5)), columns=['Min.', '1st Qu.', 'Median', 'Mean', '3rd Qu.', 'Max.'])
-    df['Min.'] = min(x)
-    df['1st Qu.'] = np.percentile(x, 25)
-    df['Median'] = np.median(x)
-    df['Mean'] = np.mean(x)
-    df['3rd Qu.'] = np.percentile(x, 75)
-    df['Max.'] = max(x)
-    print(df)
+import pandas as pd
+import scipy as sp
 
 # Add auto-completion and a stored history file of commands to your Python
 # interactive interpreter. Requires Python 2.0+, readline. Autocomplete is

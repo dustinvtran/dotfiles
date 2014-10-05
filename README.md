@@ -22,6 +22,9 @@ This repository collects all nontrivial configuration files for both my laptop a
 ## screencaps
 Here are a few screenies of current and past setups.
 
+### laptop (october 2014)
+![](http://i.imgur.com/2YH9Yy7.png)
+
 ### laptop (september 2014)
 ![](http://i.imgur.com/QkCxKOf.png)
 
