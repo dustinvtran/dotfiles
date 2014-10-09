@@ -22,7 +22,12 @@ fi
 #else
 #    xrandr --output HDMI1 --off
 #fi
-xrandr --output LVDS1 --off
+#xrandr --output LVDS1 --off
+
+# temp
+xrandr --output eDP1 --auto --output VGA1 --auto --mode 1920x1200 --right-of eDP1
+xrandr --output eDP1 --off --output VGA1 --auto --mode 1920x1200 --right-of eDP1
+xrandr --output eDP1 --auto --primary --output VGA1 --off
 
 # temp mount since i do this permanently now
 mount /dev/sdb1 /media/sdb1

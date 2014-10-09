@@ -64,6 +64,7 @@ set linebreak                          " Don't linebreak words in the middle
 set display=lastline                   " Displays partial wrapped lines
 set tw=80                              " Auto linebreak at 80 characters
 set formatoptions=rotcq                " Format options with new lines
+set autoindent                         " Hard wrap with autoindent
 set cursorline                         " Cursor Highlight, Color
 set number                             " Show absolute number for cursor line
 set relativenumber                     " Line numbers relative to cursor line
@@ -513,6 +514,7 @@ map <silent> <Leader>cc <plug>NERDCommenterComment
 vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment
+map <silent> <Leader>cu <plug>NERDCommenterUncomment
 let g:NERDCreateDefaultMappings = 0
 let g:NERDCustomDelimiters = {
   \ 'pentadactyl': { 'left': '"' },
@@ -579,6 +581,8 @@ augroup filetypes
   autocmd BufNewFile,BufRead *.md,*.Rmd set filetype=markdown
   autocmd BufNewFile,BufRead *.Rhtml,*.hbs set filetype=html
   autocmd FileType plaintex,tex,rtex call TexMacros()
+"temp
+  autocmd FileType plaintex,tex,rtex set foldmethod=marker
   autocmd FileType plaintex,tex,rtex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd Filetype markdown call Markdown()
@@ -594,14 +598,28 @@ function! s:Expr(default, repl)
 endfunction
 
 function! TexMacros()
-  " Map text macros
-  inoreabbrev bb <c-r>=<sid>Expr('bb', '\mathbb')<cr>
-  inoreabbrev rm <c-r>=<sid>Expr('rm', '\mathrm')<cr>
+  " Map TeX macros
+  inoreabbrev mb <c-r>=<sid>Expr('mb', '\mathbb')<cr>
+  inoreabbrev mc <c-r>=<sid>Expr('mc', '\mathcal')<cr>
+  inoreabbrev mf <c-r>=<sid>Expr('mf', '\mathfrak')<cr>
+  inoreabbrev ms <c-r>=<sid>Expr('ms', '\mathscr')<cr>
+  inoreabbrev mrm <c-r>=<sid>Expr('mrm', '\mathrm')<cr>
   inoreabbrev trm <c-r>=<sid>Expr('trm', '\textrm')<cr>
-  inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
-  inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
-  inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
   inoreabbrev op <c-r>=<sid>Expr('op', '\operatorname')<cr>
+  inoreabbrev tt <c-r>=<sid>Expr('tt', '\text')<cr>
+  inoreabbrev tbf <c-r>=<sid>Expr('tbf', '\textbf')<cr>
+  inoreabbrev tit <c-r>=<sid>Expr('tit', '\textit')<cr>
+  inoreabbrev tsc <c-r>=<sid>Expr('tsc', '\textsc')<cr>
+  inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
+  inoreabbrev bs <c-r>=<sid>Expr('bs', '\backslash')<cr>
+  inoreabbrev tbs <c-r>=<sid>Expr('tbs', '\textbackslash')<cr>
+  inoreabbrev hat <c-r>=<sid>Expr('hat', '\widehat')<cr>
+  inoreabbrev tilde <c-r>=<sid>Expr('tilde', '\widetilde')<cr>
+  inoreabbrev sub <c-r>=<sid>Expr('sub', '\subset')<cr>
+  inoreabbrev sup <c-r>=<sid>Expr('sup', '\supset')<cr>
+  inoreabbrev sube <c-r>=<sid>Expr('sube', '\subseteq')<cr>
+  inoreabbrev supe <c-r>=<sid>Expr('supe', '\supseteq')<cr>
+  inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 
 function! OpenPDF()

@@ -381,7 +381,7 @@ alias coursera-dl="coursera-dl -n -f 'mp4'" # Only download the video files
 # Default flags for programming languages
 alias matlab="matlab -nodesktop -nosplash" # Run matlab in terminal (but with GUI support in, say, plots), hide splash
                                            # startup
-alias R="R --no-save -q"                   # Never save workspace image, hide startup message
+alias R="R --no-save --quiet"              # Never save workspace image, hide startup message
 alias python="python -q"                   # Hide startup message
 
 # Power Management Controls
@@ -396,9 +396,9 @@ alias fonts='mkfontdir ~/.fonts;mkfontscale ~/.fonts;xset +fp ~/.fonts;xset fp r
 alias history='fc -l'                      # See list of recently used commands
 alias pokerstars="wine '/home/dvt/.wine/drive_c/Program Files (x86)/PokerStars/PokerStars.exe'"
 alias rm='echo "This is not the command you are looking for."; false' #Never use rm again
+alias ssh='echo "This is not the command you are looking for."; false' #Never use ssh again
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias sv="sudo vim"
-alias wlan0="sudo systemctl restart netctl-auto@wlan0.service"
 alias wlp2s0="sudo systemctl restart netctl-auto@wlp2s0.service"
 
 # Restart configs

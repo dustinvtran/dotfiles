@@ -151,31 +151,28 @@ map -modes=n -builtin <Leader>4f :tabopen! http://boards.4chan.org/fa/<CR>
 map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4n :tabopen! http://boards.4chan.org/n/<CR>
-map -modes=n -builtin <Leader>4t :tabopen! http://boards.4chan.org/tv/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
-map -modes=n -builtin <Leader>4a :tabopen! http://boards.4chan.org/a/<CR>
-map -modes=n -builtin <Leader>4c :tabopen! http://boards.4chan.org/ck/<CR>
-map -modes=n -builtin <Leader>4v :tabopen! http://boards.4chan.org/vg/<CR>
 map -modes=n -builtin <Leader>dt :tabopen! http://www.datatau.com/<CR>
 map -modes=n -builtin <Leader>dn :tabopen! https://news.layervault.com/<CR>
 map -modes=n -builtin <Leader>h  :tabopen! https://news.ycombinator.com/<CR>
 map -modes=n -builtin <Leader>qa :tabopen! http://www.quora.com/<CR>
 map -modes=n -builtin <Leader>qb :tabopen! http://www.quibb.com/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
-map -modes=n -builtin <Leader>rf :tabopen! http://www.reddit.com/r/malefashionadvice<CR>
+map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/machinelearning<CR>
 map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
 map -modes=n -builtin <Leader>tt :tabopen! https://twitter.com/<CR>
 map -modes=n -builtin <Leader>td :tabopen! https://www.twitter.com/dustinvtran<CR>
+map -modes=n -builtin <Leader>v  :tabopen! http://videolectures.net/<CR>
 
 " Media
 map -modes=n -builtin <Leader>dd :tabopen! http://dustinvtran.com/<CR>
 map -modes=n -builtin <Leader>db :tabopen! http://dustinvtran.com/blog<CR>
 map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
 map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/films-tv.html<CR>
+"map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/films-tv.html<CR>
 map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/music.html<CR>
-map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/video-games.html<CR>
-map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/visual-novels.html<CR>
+"map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/video-games.html<CR>
+"map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/visual-novels.html<CR>
 map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/literature.html<CR>
 map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 

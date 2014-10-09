@@ -6,10 +6,13 @@
 export PS1=$'\[\e[38;5;235m\]\[\e[48;5;249m\] ssh \[\e[48;5;255m\]\[\e[38;5;249m\]⮀\[\e[48;5;255m\]\[\e[38;5;235m\] \u \e[38;5;255m\]\e[48;5;249m\]⮀\[\e[38;5;235m\]\[\e[48;5;249m\] \W \[\e[48;5;0m\]\[\e[38;5;249m\]⮀ \e[0m'
 export TERM=xterm
 
-if [ $(hostname | grep rc.fas.harvard.edu | wc -l) == 1 ]; then
+if [[ $(hostname | grep rc.fas.harvard.edu | wc -l) == 1 ]]; then
+  module load hpc/git-1.7.4
   module load centos6/R-3.1.1
-  alias R="R --no-save -q"
-  echo 'options(repos = structure(c(CRAN = "http://cran.rstudio.com")))' > ~/.Rprofile
+  alias R="R --no-save --quiet"
+  if [[ ! -f ~/.Rprofile ]]; then
+    echo 'options(repos = c(CRAN = "http://cran.r-project.org/"))' > ~/.Rprofile
+  fi
 fi
 
 # vim: filetype=sh

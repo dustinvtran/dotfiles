@@ -26,7 +26,7 @@ dropboxd &
 mpd ~/.config/mpd/mpd.conf
 rssdler -c ~/.config/rssdler/config.txt -d
 syndaemon -k -i 0.5 -d
-transmission-daemon &
+#transmission-daemon &
 xbacklight -set 50
 
 setxkbmap -variant colemak
@@ -64,7 +64,7 @@ PID=$!
 gvim &
 urxvt -name dvt -g 102x21 &
 urxvt -name ranger -g 102x21 -e ranger &
-urxvt -name tcli -g 129x18 -e transmission-remote-cli &
+#urxvt -name tcli -g 129x18 -e transmission-remote-cli &
 sleep 10
 firefox &
 urxvt -name irssi -g 102x24 -e irssi &

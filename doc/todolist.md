@@ -9,6 +9,10 @@ application is itself ranked by descending order of priority.
 
 ## Highest Priority
 
+zsh
+  * ps1
+freeze after lid
+
 The following is a bunch of unorganized "todolist" things
 live-tex
 * get tikz-cd working, e.g., 134-lecture-05.tex
