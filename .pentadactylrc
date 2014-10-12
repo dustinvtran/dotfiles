@@ -27,23 +27,22 @@ highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
 highlight HintActive background: rgba(255, 209, 20, 0.7) !important;
 
 " Font
-highlight Hint -a font: normal 12px tewi !important;
-highlight CmdLine -a font: normal 12px tewi !important;
-highlight Link -a font: normal 12px tewi !important;
-highlight CompTitle -a font: normal 12px tewi !important;
-highlight CompTitleSep -a font: normal 12px tewi !important;
-highlight CompItem -a font: normal 12px tewi !important;
-highlight CompMore -a font: normal 12px tewi !important;
-highlight CompLess -a font: normal 12px tewi !important;
-highlight StatusLine -a font: normal 12px tewi !important;
+highlight Hint -a font: normal 12px monaco !important;
+highlight CmdLine -a font: normal 12px monaco !important;
+highlight Link -a font: normal 12px monaco !important;
+highlight CompTitle -a font: normal 12px monaco !important;
+highlight CompTitleSep -a font: normal 12px monaco !important;
+highlight CompItem -a font: normal 12px monaco !important;
+highlight CompMore -a font: normal 12px monaco !important;
+highlight CompLess -a font: normal 12px monaco !important;
+highlight StatusLine -a font: normal 12px monaco !important;
 
 "##############################################################################
 " Set
 "##############################################################################
 
 set complete=slSf
-set guioptions=
-set defsearch=g
+set guioptions=brT
 set maxitems=5
 set newtab=help
 set showstatuslinks=command
@@ -60,7 +59,6 @@ set passkeys+=www.wunderlist.com:<C-n><C-l><C-d><C-s><C-a><C-BS><C-i><C-F>r<C-4>
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
 " Holy fuck this guy keeps resetting itself otherwise from about:config
-set! general.smoothScroll=false
 set! ui.key.menuAccessKey=0
 set! ui.key.menuAccessKeyFocuses=false
 
@@ -71,10 +69,10 @@ set! ui.key.menuAccessKeyFocuses=false
 " Colemak
 "##############################################################################
 
-map -modes=n -builtin n 5j
-map -modes=n -builtin e 5k
-map -modes=n -builtin N 3l
-map -modes=n -builtin E 3h
+map -modes=n -builtin n j
+map -modes=n -builtin e k
+map -modes=n -builtin N 3j
+map -modes=n -builtin E 3k
 map -modes=n -builtin <C-n> <C-d>
 map -modes=n -builtin <C-e> <C-u>
 map -modes=c -builtin <C-n> <Down>
@@ -91,11 +89,11 @@ map -modes=n -builtin S H
 map -modes=n -builtin T L
 map -modes=n -builtin <S-Right> H
 map -modes=n -builtin <S-Left> L
-map -modes=n -builtin o t
-map -modes=n -builtin O T
+map -modes=n -builtin o <C-v><M-l><M-t>
+map -modes=n -builtin O <C-v><M-l><M-c><M-t><M-v><Right>
 map -modes=n -builtin <C-o> :tabopen!<Space>
-map -modes=n -builtin h o
-map -modes=n -builtin H O
+map -modes=n -builtin h <C-v><M-l>
+map -modes=n -builtin H <C-v><M-l><Right>
 map -modes=n -builtin <C-r> <C-c>
 map -modes=n -builtin k n
 map -modes=n -builtin K N
@@ -208,7 +206,7 @@ map -modes=n -builtin <Leader>sg :tabopen! http://www.grailed.com/<CR>
 map -modes=n -builtin <Leader>sz :tabopen! http://stylezeitgeist.com/forums/forumdisplay.php?f=50<CR>
 
 " homepge
-map -modes=n -builtin <Leader>ff :tabopen! https://www.wunderlist.com/ | https://twitter.com/ | file:///home/dvt/Dropbox/Public/collections/websites/index.html | https://play.spotify.com/browse | https://www.google.com/calendar/b/0/render<CR>
+map -modes=n -builtin <Leader>ff :tabopen! file:///Users/dvt/Dropbox/Public/collections/websites/index.html<CR>
 
 " harvard
 map -modes=n -builtin <Leader>205g :tabopen! 205g<CR>
