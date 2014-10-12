@@ -9,9 +9,23 @@ application is itself ranked by descending order of priority.
 
 ## Highest Priority
 
+important system configurations to do
+* audio not working
+* occasional hiccups with netctl
+* flash/drivers for stuff
+* graphics/external displays and other peripherals
+* android/ios support
+* copy/paste
+* copy/paste in libreoffice is wonky in that you can't paste consecutively without recopying the same text again
+* occasionally a huge lag that slows down pc to death
+* decent system to manage notifications
+* some missing touchpad functionality
+* better battery support
+* font rendering, and maintaining fonts
+* notification system
+
 zsh
   * ps1
-freeze after lid
 
 The following is a bunch of unorganized "todolist" things
 live-tex
@@ -56,7 +70,6 @@ finish major set up of linux on laptop {{{
 * redo ts=80 for all files
 * import 4chan x settings
 * somehow migrate all pic bookmarks from pixiv to pinterest
-* audio output is broken
 * yanking full line and pasting in another vim buffer
 * vimrc: set up one where i can do fuzzy file find by default on /home/dvt
 * mpv-control not working
