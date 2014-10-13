@@ -1,0 +1,96 @@
+"
+" ~/.cvimrc
+" Author: Dustin Tran <dustinvtran.com>
+"
+" Settings
+" -----------------------------------------------------------------------------
+
+"##############################################################################
+" Styles
+"##############################################################################
+
+let activehighlight = "#FFC542"
+
+"##############################################################################
+" Set
+"##############################################################################
+
+let mapleader = ","
+let hintcharacters = "arstdqwfpgzxcvb"
+set noautofocus
+set typelinkhints
+
+" Mappings
+" -----------------------------------------------------------------------------
+
+unmapAll
+
+"##############################################################################
+" Movement
+"##############################################################################
+
+map n scrollDown
+map e scrollUp
+map <C-n> scrollPageDown
+map <C-e> scrollPageUp
+map gg scrollToTop
+map G scrollToBottom
+
+"##############################################################################
+" Link Hints
+"##############################################################################
+
+map f createHint
+map F createTabbedHint
+
+"##############################################################################
+" Miscellaneous
+"##############################################################################
+
+map . repeatCommand
+map ; openCommandBar
+map / openSearchBar
+map ? openSearchBarReverse
+" should combine these too
+map i goToInput
+map gi goToLastInput
+map r reloadTab
+map yy yankDocumentUrl
+map p openPaste
+map P openPasteTab
+map gu goUpUrl
+map gU goToRootUrl
+
+"##############################################################################
+" Tab Navigation
+"##############################################################################
+
+map s previousTab
+map t nextTab
+map <Left> previousTab
+map <Right> nextTab
+map 0 firstTab
+map $ lastTab
+map x :quit<CR>
+map u lastClosedTab
+map < moveTabLeft
+map > moveTabRight
+map S goBack
+map T goForward
+map gp pinTab
+
+"##############################################################################
+" Find Mode
+"##############################################################################
+
+map k nextSearchResult
+map K previousSearchResult
+
+"##############################################################################
+" Additional Mappings
+"##############################################################################
+
+map <Leader><Space> :nohl<CR>
+
+" Bookmarks
+" -----------------------------------------------------------------------------
