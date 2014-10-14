@@ -21,10 +21,11 @@ highlight NonText color: #707070 !important;
 highlight StatusLine -moz-appearance: #f9f9f9 !important; font-weight: none; background: #f9f9f9 !important; border: 0px !important; min-height: 15px !important; text-shadow: none !important;
 
 " Colorscheme: Hints & Find
-highlight Find background: #FF96A3 !important;
-highlight Hint background: #FF96A3 !important; padding: 3px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: #f9f9f9; line-height:1em;
-highlight HintElem background: rgba(255, 209, 20, 0.7) !important;
-highlight HintActive background: rgba(255, 209, 20, 0.7) !important;
+highlight Find background: #FFC542 !important;
+highlight Hint background: #FFC542 !important; padding: 3px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: #FFFFFF; line-height:1em;
+
+highlight HintElem opacity; 1 !important;
+highlight HintActive opacity: 1 !important;
 
 " Font
 highlight Hint -a font: normal 12px monaco !important;
@@ -55,10 +56,9 @@ set passkeys+=feedly.com:?<CR>
 "JK/rjknpovMmsbV
 set passkeys+=mail.google.com:q/ENx+!KkrRg*Aacwb<CR>
 set passkeys+=batoto.net:.,<CR>
-set passkeys+=www.wunderlist.com:<C-n><C-l><C-d><C-s><C-a><C-BS><C-i><C-F>r<C-4><Up><Down><Left><Right><CR>
 " This is the same as my vim EasyMotion's, except 'h' is at the far-left so it indexes properly
 set hintkeys="hneiotsradluygpfwqkmvcxzbjEIOTSRAHDLUYGPFWQKMVCXZBJ"
-" Holy fuck this guy keeps resetting itself otherwise from about:config
+" This keeps resetting otherwise from about:config
 set! ui.key.menuAccessKey=0
 set! ui.key.menuAccessKeyFocuses=false
 
@@ -114,34 +114,44 @@ map -modes=n -builtin <C-f> g;b
 map -modes=n -builtin <C-S-r> :rehash<CR>
 map -modes=i,c -builtin <C-f> <C-T>
 map -modes=n,i,c,t -builtin <C-a> <pass>
-map -modes=i -builtin <C-i> <pass>
-map -modes=i,c -builtin <C-v> <pass>
-map -modes=i,c -builtin <C-z> <pass>
-map -modes=n -builtin <C-d> :dialog addons<CR>
-map -modes=n -builtin <C-p> :dialog preferences<CR>
-map -modes=n -builtin <C-y> :tabopen about:downloads<CR>
-map -modes=n -builtin <C-S-p> :dialog print<CR>
+map -modes=n -builtin <M-j> :tabopen about:downloads<CR>
 map -modes=n -builtin <C-w>  :tabopen about:sync-tabs<CR>
 map -modes=n -builtin <Leader><Space> :set hlfind!<CR>
-map -modes=n -builtin \1 :tabattach 1<CR>
-map -modes=n -builtin \2 :tabattach 2<CR>
-map -modes=n -builtin \3 :tabdetach<CR>
-map -modes=n -builtin <Leader>p <C-V><C-S-p>
+map -modes=n -builtin <Leader>ta1 :tabattach 1<CR>
+map -modes=n -builtin <Leader>ta2 :tabattach 2<CR>
+map -modes=n -builtin <Leader>td  :tabdetach<CR>
 map -modes=n -builtin <Leader>st :set guioptions!=s<CR>
 map -modes=n -builtin a <C-v><C-d>
+map -modes=n -builtin x d
 map -modes=n gf <Nop>
-map -modes=n <C-q> <Nop>
 map -modes=n <F7> <Nop>
-map -modes=i <C-s> <Nop>
 map -modes=i <C-n> <Nop>
 map -modes=n,i <C-h> <Nop>
-" not working
-"map -modes=n,i <A> <Nop>
-map -modes=n ] QQ
-map -modes=n [ Qw
+map -modes=n d <Nop>
 
 " Bookmarks
 " -----------------------------------------------------------------------------
+
+" Primary
+" browse
+map -modes=n -builtin <Leader>fe :tabopen! http://cloud.feedly.com/#category%2Fdata<CR>
+map -modes=n -builtin <Leader>p  :tabopen! http://getpocket.com/a/queue/<CR>
+map -modes=n -builtin <Leader>h  :tabopen! https://news.ycombinator.com/<CR>
+map -modes=n -builtin <Leader>qa :tabopen! http://www.quora.com/<CR>
+" machine learning
+map -modes=n -builtin <Leader>v  :tabopen! http://videolectures.net/<CR>
+map -modes=n -builtin <Leader>me :tabopen! http://www.metacademy.org/<CR>
+map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/machinelearning<CR>
+map -modes=n -builtin <Leader>dt :tabopen! http://www.datatau.com/<CR>
+" write
+map -modes=n -builtin <Leader>dd :tabopen! http://dustinvtran.com/<CR>
+map -modes=n -builtin <Leader>db :tabopen! http://dustinvtran.com/blog<CR>
+map -modes=n -builtin <Leader>tt :tabopen! https://twitter.com/<CR>
+map -modes=n -builtin <Leader>td :tabopen! https://twitter.com/dustinvtran<CR>
+map -modes=n -builtin <Leader>gg :tabopen! https://github.com/<CR>
+map -modes=n -builtin <Leader>gd :tabopen! https://github.com/dustinvtran<CR>
+map -modes=n -builtin <Leader>k  :tabopen! http://www.kaggle.com/<CR>
+"map -modes=n -builtin <Leader>   :tabopen! http://stackexchange.com/<CR>
 
 " Communities
 map -modes=n -builtin <Leader>44 :tabopen! http://boards.4chan.org/<CR>
@@ -150,29 +160,7 @@ map -modes=n -builtin <Leader>4l :tabopen! http://boards.4chan.org/lit/<CR>
 map -modes=n -builtin <Leader>4g :tabopen! http://boards.4chan.org/g/<CR>
 map -modes=n -builtin <Leader>4n :tabopen! http://boards.4chan.org/n/<CR>
 map -modes=n -builtin <Leader>4m :tabopen! http://boards.4chan.org/mu/<CR>
-map -modes=n -builtin <Leader>dt :tabopen! http://www.datatau.com/<CR>
-map -modes=n -builtin <Leader>dn :tabopen! https://news.layervault.com/<CR>
-map -modes=n -builtin <Leader>h  :tabopen! https://news.ycombinator.com/<CR>
-map -modes=n -builtin <Leader>qa :tabopen! http://www.quora.com/<CR>
-map -modes=n -builtin <Leader>qb :tabopen! http://www.quibb.com/<CR>
 map -modes=n -builtin <Leader>rr :tabopen! http://reddit.com<CR>
-map -modes=n -builtin <Leader>rm :tabopen! http://www.reddit.com/r/machinelearning<CR>
-map -modes=n -builtin <Leader>ra :tabopen! http://www.reddit.com/r/android<CR>
-map -modes=n -builtin <Leader>tt :tabopen! https://twitter.com/<CR>
-map -modes=n -builtin <Leader>td :tabopen! https://www.twitter.com/dustinvtran<CR>
-map -modes=n -builtin <Leader>v  :tabopen! http://videolectures.net/<CR>
-
-" Media
-map -modes=n -builtin <Leader>dd :tabopen! http://dustinvtran.com/<CR>
-map -modes=n -builtin <Leader>db :tabopen! http://dustinvtran.com/blog<CR>
-map -modes=n -builtin <Leader>al :tabopen! http://myanimelist.net/animelist/nil-&order=4<CR>
-map -modes=n -builtin <Leader>ml :tabopen! http://myanimelist.net/mangalist/nil-&order=4<CR>
-"map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/films-tv.html<CR>
-map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/music.html<CR>
-"map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/video-games.html<CR>
-"map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/visual-novels.html<CR>
-map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/literature.html<CR>
-map -modes=n -builtin <Leader>la  :tabopen! http://www.last.fm/user/nil1729<CR>
 
 " mail
 map -modes=n -builtin <Leader>m0 :tabopen! https://mail.google.com/mail/u/0/#inbox<CR>
@@ -183,30 +171,25 @@ map -modes=n -builtin <Leader>m4 :tabopen! https://mail.google.com/mail/u/4/#inb
 map -modes=n -builtin <Leader>m5 :tabopen! https://mail.google.com/mail/u/5/#inbox<CR>
 map -modes=n -builtin <Leader>m6 :tabopen! http://webmail.oneesama.moe/?_task=mail<CR>
 
-" LAN
-"map -modes=n -builtin <Leader>t  :tabopen! http://127.0.0.1:9091/transmission/web/<CR>
-map -modes=n -builtin <Leader>x  :tabopen! http://localhost:32400/manage/<CR>
-
-" productivity
-map -modes=n -builtin <Leader>c  :tabopen! https://www.google.com/calendar/b/0/render<CR>
-map -modes=n -builtin <Leader>w  :tabopen! https://www.wunderlist.com/#/lists/week<CR>
-
-" misc
-map -modes=n -builtin <Leader>fe :tabopen! http://cloud.feedly.com/#category%2Fdata<CR>
+" social
 map -modes=n -builtin <Leader>fb :tabopen! https://www.facebook.com/<CR>
-map -modes=n -builtin <Leader>gg :tabopen! https://github.com/<CR>
-map -modes=n -builtin <Leader>gd :tabopen! https://github.com/dustinvtran<CR>
+map -modes=n -builtin <Leader>qb :tabopen! http://www.quibb.com/<CR>
+
+" archives
+"map -modes=n -builtin <Leader>v  :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/films-tv.html<CR>
+"map -modes=n -builtin <Leader>mu :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/music.html<CR>
+"map -modes=n -builtin <Leader>vg :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/video-games.html<CR>
+"map -modes=n -builtin <Leader>vn :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/visual-novels.html<CR>
+map -modes=n -builtin <Leader>li :tabopen! http://dl.dropboxusercontent.com/u/30753123/collections/media/literature.html<CR>
+map -modes=n -builtin <Leader>la :tabopen! http://www.last.fm/user/nil1729<CR>
 map -modes=n -builtin <Leader>i  :tabopen! http://www.pinterest.com/nilmoe/<CR>
-map -modes=n -builtin <Leader>k  :tabopen! http://getpocket.com/a/queue/<CR>
+map -modes=n -builtin <Leader>w  :tabopen! file:///Users/dvt/Dropbox/Public/collections/websites/index.html<CR>
 
 " fashion
 map -modes=n -builtin <Leader>sf :tabopen! http://www.styleforum.net/f/6654/marketplace/-filter-/RmlsdGVyJTVCdHlwZSU1RCU1QjElNUQvMS9GaWx0ZXIlNUJ0eXBlJTVEJTVCNCU1RC8xL0ZpbHRlciU1QnN0YXRlJTVEJTVCT3BlbiU1RC8xL0ZpbHRlciU1QmNhdGVnb3J5VGFnJTVELy0xL0ZpbHRlciU1Qm9yZGVyX2J5JTVEL0NsYXNzaWZpZWQuYnVtcF9hdC9wYWdlLzA,/<CR>
 map -modes=n -builtin <Leader>su :tabopen! http://supertalk.superfuture.com/index.php/forum/21-supermarket/<CR>
 map -modes=n -builtin <Leader>sg :tabopen! http://www.grailed.com/<CR>
 map -modes=n -builtin <Leader>sz :tabopen! http://stylezeitgeist.com/forums/forumdisplay.php?f=50<CR>
-
-" homepge
-map -modes=n -builtin <Leader>ff :tabopen! file:///Users/dvt/Dropbox/Public/collections/websites/index.html<CR>
 
 " harvard
 map -modes=n -builtin <Leader>205g :tabopen! 205g<CR>
@@ -231,29 +214,13 @@ javascript <<EOF
     userContext.searchDictionary = function (selection) {
         commands.execute("tabopen! wikt " + selection);
         commands.execute("tabopen! dict " + selection);
-        commands.execute("tabopen! g define " + selection);
+        commands.execute("tabopen! google define " + selection);
     };
-EOF
-javascript <<EOF
-    userContext.searchGiki = function (selection) {
-        commands.execute("tabopen! g " + selection);
-        commands.execute("tabopen! wiki " + selection);
-    };
-EOF
-javascript <<EOF
-    userContext.searchArch = function (selection) {
-        commands.execute("tabopen! archpkg " + selection);
-        commands.execute("tabopen! aur " + selection);
-    };
-EOF
-javascript <<EOF
     userContext.searchAni = function (selection) {
         commands.execute("tabopen! nyaa " + selection);
         commands.execute("tabopen! animebytes " + selection);
         commands.execute("tabopen! baka " + selection);
     };
-EOF
-javascript <<EOF
     userContext.searchMal = function (selection) {
         commands.execute("tabopen! wiki " + selection);
         commands.execute("tabopen! mal " + selection);
@@ -262,14 +229,8 @@ EOF
 
 " Custom search commands
 command define -nargs=* -js userContext.searchDictionary(args)
-command giki -nargs=* -js userContext.searchGiki(args)
-command arch -nargs=* -js userContext.searchArch(args)
 command ani -nargs=* -js userContext.searchAni(args)
 command mal -nargs=* -js userContext.searchMal(args)
-
-" Most used generic ones
-map -modes=n -builtin l :define<Space>
-map -modes=n -builtin L :tabopen! word<Space>
 
 "##############################################################################
 " Edit in external editor, with filetype syntax!
@@ -287,8 +248,6 @@ function editExternallyWithFiletype() {
     editor.editFieldExternally();
     options["editor"] = save_editor;
 }
-EOF
-javascript <<EOF
 function websiteFiletypes() {
     var host = buffer.URL.host
     switch(host.replace(/^www\./, "")) {
