@@ -1,9 +1,0 @@
-script load adv_windowlist.pl
-script load mouse.pl
-script load dvt-anames.pl
-script load dvt-emojis.pl
-script load dvt-fnotify.pl
-script load dvt-nickcolor.pl
-script load dvt-openurl.pl
-script load dvt-trackbar.pl
-script load dvt-vim_mode.pl

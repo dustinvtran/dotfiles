@@ -1,9 +1,0 @@
-#!/bin/bash
-# Display a "dropdown" calendar.
-
-pgrep -f 'urxvt -name calendar'
-if [[ $? -ne 0 ]]; then
-    urxvt -name calendar -g 21x9 -underlineColor '#f9f9f9' -font 'xft:uushi' --hold -e cal
-else
-    pkill -f 'urxvt -name calendar'
-fi
