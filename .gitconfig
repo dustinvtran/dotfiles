@@ -1,12 +1,10 @@
 [help]
        	autocorrect = 1
 [alias]
-        merge-desktop = !git checkout master && git pull origin master && git checkout desktop && git merge master && git push --all
-        merge-laptop = !git checkout master && git pull origin master && git checkout laptop && git merge master && git push --all
-        merge-master-from-desktop = !git commit -am '"Merge" branch desktop into master' && git checkout desktop && git push --all
-        merge-master-from-laptop = !git commit -am '"Merge" branch laptop into master' && git checkout laptop && git push --all
-        rmc = rm --cached
         sdiff = diff --diff-filter=M --name-only
         slog = log --oneline --topo-order --graph
 [color]
         ui = true
+[user]
+	name = Dustin Tran
+	email = dustinviettran@gmail.com

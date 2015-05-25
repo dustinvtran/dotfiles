@@ -1,4 +1,4 @@
-This document compiles a list of tasks that I have yet to complete. This is
+eThis document compiles a list of tasks that I have yet to complete. This is
 purely for personal (although somewhat public) use, so I can keep track of
 features I desire and when I complete them.
 

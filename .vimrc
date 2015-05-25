@@ -11,20 +11,25 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'benjifisher/matchit.zip'
+"Plugin 'Kazark/vim-SimpleSmoothScroll'
 Plugin 'bling/vim-airline'
 Plugin 'bufexplorer.zip'
 Plugin 'dahu/MarkMyWords'
+Plugin 'danro/rename.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'Lokaltog/vim-easymotion'
+Bundle "motus/pig.vim"
 Plugin 'msanders/snipmate.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-Plugin 'file:///home/dvt/.vim/dvt'
+"Plugin 'yonchu/accelerated-smooth-scroll'
+Plugin 'file:///Users/dvt/.vim/dvt'
 call vundle#end()
 filetype plugin on
 
@@ -35,7 +40,10 @@ augroup stahp
   autocmd!
   autocmd GUIEnter * set visualbell t_vb=  " Disable error bells
 augroup END
-set autochdir                          " Auto-cd into the file's dir
+" Auto-cd into the file's dir
+augroup autocd
+  autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif
+augroup END
 set hidden                             " Change buffers without saving
 set shortmess=I                        " Disable intro message
 set mouse=a                            " Mouse support in terminal
@@ -55,6 +63,7 @@ set ignorecase                         " Case-insensitive matching...
 set smartcase                          "  except case-sensitive searches
 set incsearch                          " Incremental searching
 set gdefault                           " Substitute all occurrences only in line
+set modelines=1                        " Let OS X read ft commands in files
 set wildmenu                           " Tab-completion features in cmd-line mode
 set wildmode=list:full
 
@@ -90,9 +99,9 @@ set noesckeys
 nnoremap <Esc> <Nop>
 
 " Set floating window size to Github's character limit
-if has("gui_running")
-  set lines=70 columns=127
-endif
+"if has("gui_running")
+"  set lines=70 columns=127
+"endif
 
 augroup misc
   autocmd!
@@ -113,9 +122,9 @@ augroup END
 " Functions
 " -----------------------------------------------------------------------------
 
-"##############################################################################
+"###############################################################################
 " Let twiddle convert swap cases, lowercase all characters, or uppercase all characters
-"##############################################################################
+"###############################################################################
 
 function! TwiddleCase(str)
   if a:str ==# toupper(a:str)
@@ -129,9 +138,9 @@ function! TwiddleCase(str)
 endfunction
 vnoremap ~ y:call setreg('', twiddlecase(@"), getregtype(''))<cr>gv""pgv
 
-"##############################################################################
+"###############################################################################
 " folding styles
-"##############################################################################
+"###############################################################################
 
 function! FoldLevels()
   let thisline = getline(v:lnum)
@@ -159,9 +168,9 @@ set foldmethod=expr
 set foldexpr=FoldLevels()
 set foldtext=NeatFoldText()
 
-"##############################################################################
+"###############################################################################
 " When 'dd'ing blank lines, don't yank them into the register
-"##############################################################################
+"###############################################################################
 
 function! DDWrapper()
   if getline('.') =~ '^\s*$'
@@ -172,9 +181,9 @@ function! DDWrapper()
 endfunction
 nnoremap <silent> dd :call DDWrapper()<CR>
 
-"##############################################################################
+"###############################################################################
 " Restore cursor to previous position and unfold just enough to see cursor line
-"##############################################################################
+"###############################################################################
 
 function! ResCur()
   if line("'\"") <= line("$")
@@ -211,15 +220,15 @@ augroup resCur
   endif
 augroup END
 
-"##############################################################################
+"###############################################################################
 " Open URL in browser
-"##############################################################################
+"###############################################################################
 
-nnoremap <silent> ] :silent !rifle <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
+nnoremap <silent> ] :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
 
-"##############################################################################
+"###############################################################################
 " Fold all toggle
-"##############################################################################
+"###############################################################################
 
 let g:foldtoggle = 0
 function! FoldAllToggle()
@@ -241,9 +250,9 @@ augroup auto_fold
 augroup END
 endif
 
-"##############################################################################
+"###############################################################################
 " Insert Character Function, which is also an atomic operator and has nice shadings
-"##############################################################################
+"###############################################################################
 
 let loaded_InsertChar = 1
 function! InsertChar(count)
@@ -295,42 +304,53 @@ function! InsertChar(count)
   endtry
 endfunction
 
+"####
+"Shortcut to delete current file.
+"####
+function! Delete()
+  call delete(expand('%')) | bdelete!
+endfunction
+
 " Mappings
 " -----------------------------------------------------------------------------
 
-"##############################################################################
+"###############################################################################
 " Colemak
-"##############################################################################
+"###############################################################################
 
-noremap n gj|noremap N J|noremap <C-n> <C-d>|cnoremap <C-n> <Down>
-noremap e gk|noremap E i<CR><Esc>k$|vnoremap K <Esc>i<CR><Esc>k$gv|noremap <C-e> <C-u>|cnoremap <C-e> <Up>
-augroup farkin_easymotion
-  autocmd!
-  autocmd VimEnter * noremap t l
-  autocmd VimEnter * noremap s h
-augroup END
+"noremap n gj|noremap gn j|cnoremap <C-n> <Down>
+"noremap e gk|noremap ge k|cnoremap <C-e> <Up>
+"augroup farkin_easymotion
+"  autocmd!
+"  autocmd VimEnter * noremap t l
+"  autocmd VimEnter * noremap s h
+"augroup END
 
-noremap k n|noremap K N
-noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap <silent> <C-h> :silent e#<CR>
-nnoremap l :<C-U>call InsertChar(v:count1)<CR>
-nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
-augroup farkin_easymotion2
-  autocmd!
-  autocmd VimEnter * nnoremap j xph
-augroup END
+"noremap j i<CR><Esc>k$
+"noremap k n|noremap K N|vnoremap K <Esc>i<CR><Esc>k$gv
+"noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap <silent> <C-h> :silent e#<CR>
+"nnoremap l :<C-U>call InsertChar(v:count1)<CR>
+"nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
+""augroup farkin_easymotion2
+""  autocmd!
+""  autocmd VimEnter * nnoremap j xph
+""augroup END
 
-noremap gn j
-noremap ge k
 noremap <silent> <C-s> :silent update<CR>:call TeXCompile()<CR>
 noremap! <silent> <C-s> <Esc>:silent update<CR>:call TeXCompile()<CR>
-nnoremap <Leader>s <C-w>W
-nnoremap <Leader>t <C-w>w
-nnoremap <silent> S :tabp<CR>
-nnoremap <silent> T :tabn<CR>
+"nnoremap <Leader>s <C-w>W
+"nnoremap <Leader>t <C-w>w
+""nnoremap <silent> <C-s> :tabp<CR>
+""nnoremap <silent> <C-t> :tabn<CR>
+nnoremap <silent> <C-e> :silent e#<CR>
+noremap j gj
+noremap gj j
+noremap k gk
+noremap gk k
 
-"##############################################################################
+"###############################################################################
 " General
-"##############################################################################
+"###############################################################################
 
 let mapleader = ","
 noremap ; :
@@ -341,39 +361,26 @@ vnoremap < <gv
 vnoremap > >gv
 noremap <S-CR> O<Esc>
 noremap <CR> o<Esc>
-nnoremap <Leader><CR> o<Esc>k
-nnoremap <Leader><S-CR> O<Esc>j
-nnoremap <Leader>c "_c
-vnoremap <Leader>c "_c
-nnoremap <Leader>C "_C
-vnoremap <Leader>C "_C
-nnoremap <Leader>d "_d
-vnoremap <Leader>d "_d
-nnoremap <Leader>D "_D
-vnoremap <Leader>D "_D
 nnoremap x "_x
 nnoremap Y y$
 cnoremap <C-v> <C-R>*<BS>
 inoremap <C-v> <C-R>*
-nnoremap z s
-vnoremap z s
+"nnoremap z s
+"vnoremap z s
 noremap Q @
 nnoremap ' '.
-noremap W )|onoremap W )
-noremap B (|onoremap B (
-nnoremap <Leader>w }
-nnoremap <Leader>b {
+noremap <silent> <C-y> :let @+=expand("%:p:h")<CR>
 
-"##############################################################################
+"###############################################################################
 " Buffers, Windows, & Tabs
-"##############################################################################
+"###############################################################################
 
 " Buffers
 " See BufExplorer
 
 " Windows
-nnoremap      <C-x> <C-w>s
-nnoremap      <C-v> <C-w>v
+"nnoremap      <C-x> <C-w>s
+"nnoremap      <C-v> <C-w>v
 noremap  <silent> <C-w> :q<CR>
 noremap! <silent> <C-w> :q<CR>
 noremap       <F1>  <C-w>+
@@ -403,26 +410,25 @@ noremap! <silent> <C-t> :tabe<CR>
 " Plugins
 " -----------------------------------------------------------------------------
 
-"##############################################################################
+"###############################################################################
 " Buffer Explorer
-"##############################################################################
+"###############################################################################
 
 nnoremap <silent> <C-c> :silent BufExplorer<CR>
 
-"##############################################################################
+"###############################################################################
 " Colors & Airline
-"##############################################################################
+"###############################################################################
 
-" Temporary until I can get monokai working for terminal
 if has('gui_running')
   colorscheme monokai
+  set guioptions=
+  set guifont=tewi\ 8
 else
   colorscheme molokai
 endif
 syntax enable
-set guioptions=
 set notitle
-set guifont=tewi\ 8
 set laststatus=2
 set noshowmode
 "let g:airline_theme='molokai'
@@ -451,17 +457,10 @@ let g:airline_mode_map = {
   \ '' : 'S·B',
   \ }
 
-"##############################################################################
+"###############################################################################
 " Ctrl-P
-"##############################################################################
+"###############################################################################
 
-let g:ctrlp_map = '<C-f>'
-let g:ctrlp_prompt_mappings = {
-  \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-  \ 'PrtSelectMove("k")':   ['<c-e>', '<up>'],
-  \ 'PrtHistory(-1)':     [''],
-  \ 'PrtCurEnd()':      [''],
-  \ }
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_clear_cache_on_exit = 0
@@ -474,9 +473,9 @@ set wildignore+=*.flac,*.mp3
 set wildignore+=*.mkv
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
-"##############################################################################
+"###############################################################################
 " EasyMotion
-"##############################################################################
+"###############################################################################
 
 " Keys are written by optimizin via homerow, then tweaked by personal preference
 let g:EasyMotion_keys = 'hneiotsradluygpfwqkmvc;xzbjEIOTSRAHDLUYGPFWQKMVCXZBJ'
@@ -492,23 +491,23 @@ augroup tilthefs
   autocmd VimEnter * omap F T
 augroup END
 
-"##############################################################################
+"###############################################################################
 " Matchit
-"##############################################################################
+"###############################################################################
 
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>
 noremap <C-p> <C-i>
 
-"##############################################################################
+"###############################################################################
 " MarkMyWords
-"##############################################################################
+"###############################################################################
 
 nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 
-"##############################################################################
+"###############################################################################
 " NERDCommenter
-"##############################################################################
+"###############################################################################
 
 map <silent> <Leader>cc <plug>NERDCommenterComment
 vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
@@ -522,18 +521,23 @@ let g:NERDCustomDelimiters = {
   \ 'snippet': { 'left': '#' }
   \ }
 
-"##############################################################################
+"###############################################################################
 " NERDTree
-"##############################################################################
+"###############################################################################
 
 nnoremap <silent> <C-q> :NERDTreeToggle<CR>
+let NERDTreeMapJumpFirstChild = 'E'
+let NERDTreeMapJumpLastChild = 'N'
+let NERDTreeMapJumpNextSibling = 'n'
+let NERDTreeMapJumpPrevSibling = 'e'
+let NERDTreeMapOpenExpl = ''
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 
-"##############################################################################
+"###############################################################################
 " Set Color
-"##############################################################################
+"###############################################################################
 
 "augroup color_scheme
 "  autocmd!
@@ -542,9 +546,9 @@ let NERDTreeShowHidden=1
 "nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
 "nnoremap <silent> <Leader>r :call NextColor(1)<CR>
 
-"##############################################################################
+"###############################################################################
 " Snipmate
-"##############################################################################
+"###############################################################################
 
 let g:snippets_dir = '~/.vim/bundle/dvt/snippets'
 
@@ -559,9 +563,9 @@ augroup snippets
   autocmd BufWritePost * call ReloadAllSnippets()
 augroup END
 
-"##############################################################################
+"###############################################################################
 " Surround
-"##############################################################################
+"###############################################################################
 
 " Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways
 vmap s <Plug>VSurround
@@ -583,7 +587,8 @@ augroup filetypes
   autocmd FileType plaintex,tex,rtex call TexMacros()
 "temp
   autocmd FileType plaintex,tex,rtex set foldmethod=marker
-  autocmd FileType plaintex,tex,rtex nnoremap <silent> <Leader>s :call OpenPDF()<CR>
+  autocmd FileType plaintex,tex,rtex nnoremap <buffer> <silent> <Leader>p :call OpenPDF()<CR>
+  autocmd FileType html,markdown nnoremap <buffer> <silent> <Leader>p :call OpenBrowser()<CR>
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd Filetype markdown call Markdown()
 augroup END
@@ -596,6 +601,13 @@ function! s:Expr(default, repl)
     return a:default
   endif
 endfunction
+"# Auto crop
+"for a in *.png; do convert -trim "$a" "$a"; done
+" ghost
+"_*
+"\emph
+"itemize
+"\operatornamewithlimits
 
 function! TexMacros()
   " Map TeX macros
@@ -603,6 +615,7 @@ function! TexMacros()
   inoreabbrev mc <c-r>=<sid>Expr('mc', '\mathcal')<cr>
   inoreabbrev mf <c-r>=<sid>Expr('mf', '\mathfrak')<cr>
   inoreabbrev ms <c-r>=<sid>Expr('ms', '\mathscr')<cr>
+  inoreabbrev mbf <c-r>=<sid>Expr('mbf', '\mathbf')<cr>
   inoreabbrev mrm <c-r>=<sid>Expr('mrm', '\mathrm')<cr>
   inoreabbrev trm <c-r>=<sid>Expr('trm', '\textrm')<cr>
   inoreabbrev op <c-r>=<sid>Expr('op', '\operatorname')<cr>
@@ -624,31 +637,59 @@ endfunction
 
 function! OpenPDF()
   " Open the pdf of the present working file
-  silent !zathura "%:r.pdf" &
+  "silent !open "%:r.pdf" &
+  silent !open -n "/Applications/Skim.app" --args "%:p:r.pdf" &
 endfunction
 
-function! TeXCompile()
-  " Compile tex file in its working directory and remove auxiliary outputs
-  if &filetype=='tex'
-    " TODO: Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info
-    "if @% == "[0-9]+-lecture-[0-9]{2}.tex"
-    "  compile master
-    "else
-      cd %:p:h
-      !xelatex "%"
-      silent !rm "%:r.aux"
-      silent !rm "%:r.log"
-      silent !rm "%:r.out"
-    "endif
+function! OpenBrowser()
+  " Open the file in Safari
+  if &filetype == "markdown"
+    " Convert to html if markdown first
+    silent !grip "%" --export  "%:p:r.html"
+    silent !open "%:p:r.html" &
+  elseif &filetype == "html"
+    silent !open "%:p" &
   endif
-  if &filetype=='rtex'
+endfunction
+
+" TODO: Set it to run in background somehow. Then if it never updates/errors, have a keybind to do rubber-info
+function! TeXCompile()
+  " Compile tex file in its working directory, then remove auxiliary outputs.
+  if &filetype == 'tex'
+    " Compile the master file if in my lecture/section file naming convention.
+    if expand("%") =~ "^[0-9abcr]\\+_lecture_[0-9]\\{2\\}\.tex"
+      cd %:p:h
+      let thisfile = split(expand("%"), "_lecture")[0]
+      let thisfile = join([thisfile, "_lecture"], "")
+      execute "!pdflatex " . join([thisfile, ".tex"], "")
+    elseif expand("%") =~ "^[0-9]\\+_section_[0-9]\\{2\\}\.tex"
+      cd %:p:h
+      let thisfile = split(expand("%"), "_section")[0]
+      let thisfile = join([thisfile, "_lecture"], "")
+      execute "!pdflatex " . join([thisfile, ".tex"], "")
+    " Compile current file.
+    else
+      cd %:p:h
+      !pdflatex "%"
+      "!rubber "%"
+      "!xelatex "%"
+      let thisfile = expand("%:r")
+    endif
+  " Generate tex file and then compile if rtex.
+  elseif &filetype == 'rtex'
     cd %:p:h
     !Rscript -e "library(knitr); knit('%')"
-    !rubber -d "%:p:r.tex"
-    silent !rm "%:r.aux"
-    silent !rm "%:r.log"
-    silent !rm "%:r.out"
+    "!xelatex "%:r.tex"
+    "!rubber "%:r.tex"
+    !pdflatex "%:r.tex"
     silent !rm "%:r.tex"
+    let thisfile = expand("%:r")
+  endif
+  if &filetype == 'tex' || &filetype == 'rtex'
+    silent execute "!rm " . join([thisfile, ".aux"], "")
+    silent execute "!rm " . join([thisfile, ".log"], "")
+    silent execute "!rm " . join([thisfile, ".out"], "")
+    silent execute "!rm " . join([thisfile, ".dvi"], "")
   endif
 endfunction
 

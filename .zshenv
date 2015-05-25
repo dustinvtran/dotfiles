@@ -3,12 +3,11 @@
 # Author: Dustin Tran <dustinvtran.com>
 #
 
+#export EDITOR=vim
 export EDITOR=gvim
-export PATH=~/bin:~/bin/notme:$PATH
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 fdm=indent nomod noma nolist nonu nornu' -c 'nnoremap q :q<CR>' -\""
 export PYTHONSTARTUP=~/.pythonrc
 
-# bspwm
-export PANEL_FIFO=/tmp/panel-fifo
-export PANEL_HEIGHT=24
-export PATH=$PATH:~/.config/bspwm/panel:~/.config/bspwm/bin
+export PATH=/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=/usr/texbin:$PATH # does this work for xelatex?
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"

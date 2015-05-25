@@ -7,34 +7,34 @@
 # Geometry
 #########################################################
 
-autofit-larger=90%x90%
+#autofit-larger=90%x90%
 
 #########################################################
 # OSD & Non-ASS Subtitle Rendering
 #########################################################
 
-osd-border-size=2
-osd-duration=2000
-osd-font='HelveticaNeueLT Com 45 Lt'
-sub-text-font='HelveticaNeueLT Com 45 Lt'
-osd-font-size=40
-sub-text-font-size=50
+#osd-border-size=2
+#osd-duration=2000
+#osd-font='HelveticaNeueLT Com 45 Lt'
+#sub-text-font='HelveticaNeueLT Com 45 Lt'
+#osd-font-size=40
+#sub-text-font-size=50
 
 #########################################################
 # Directories
 #########################################################
 
-input-file=/home/dvt/bin/config/mpv-control
-screenshot-template=/home/dvt/dvt/media/pictures/screencaps/mpv/%f_%p_%tm-%td-%ty
+#input-file=/home/dvt/bin/config/mpv-control
+screenshot-template=/Users/dvt/Pictures/screencaps/mpv/%f_%p_%tm-%td-%ty
 
 #########################################################
 # Miscellaneous
 #########################################################
 
-autosync=30
-gapless-audio
-no-input-default-bindings
+#autosync=30
+#gapless-audio
+#no-input-default-bindings
 
 ## temp workaround
 
-vo=xv
+#vo=xv

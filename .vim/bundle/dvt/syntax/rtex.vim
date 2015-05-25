@@ -21,5 +21,10 @@ unlet b:current_syntax
 syntax include @Python syntax/python.vim
 syntax region pythonCode matchgroup=Snip start="%% begin.rcode engine='python'" end="%% end.rcode" containedin=@TeX contains=@Python
 
+let b:current_syntax = ''
+unlet b:current_syntax
+syntax include @Cpp syntax/cpp.vim
+syntax region pythonCode matchgroup=Snip start="\begin{lstlisting}[language=C++]" end="\end{lstlisting}" containedin=@TeX contains=@Cpp
+
 hi link Snip SpecialComment
 let b:current_syntax = 'rtex'
