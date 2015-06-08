@@ -1,0 +1,8 @@
+#!/bin/bash
+pathToStan=~/github/cmdstan
+if [ $# -eq 0 ]
+then
+  $pathToStan/bin/print output.csv
+else
+  $pathToStan/bin/print $1
+fi
