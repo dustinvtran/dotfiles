@@ -8,3 +8,5 @@
 [user]
 	name = Dustin Tran
 	email = dustinviettran@gmail.com
+[core]
+	editor = mvim

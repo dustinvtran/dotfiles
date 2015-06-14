@@ -1,4 +1,5 @@
 #!/bin/bash
+# Attributed to Alp Kucukelbir <alp@cs.columbia.edu>.
 inputFile=$1
 inputFileStripped=$inputFile # modified from alp's
 rm -i -f $inputFileStripped.hpp

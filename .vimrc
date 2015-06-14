@@ -20,7 +20,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lilydjwg/colorizer'
 Plugin 'Lokaltog/vim-easymotion'
-Bundle "motus/pig.vim"
+Plugin 'maverickg/stan.vim'
+Plugin 'motus/pig.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -381,8 +382,8 @@ noremap <silent> <C-y> :let @+=expand("%:p:h")<CR>
 " Windows
 "nnoremap      <C-x> <C-w>s
 "nnoremap      <C-v> <C-w>v
-noremap  <silent> <C-w> :q<CR>
-noremap! <silent> <C-w> :q<CR>
+"noremap  <silent> <C-w> :q<CR>
+"noremap! <silent> <C-w> :q<CR>
 noremap       <F1>  <C-w>+
 noremap       <F2>  <C-w>-
 noremap       <F3>  <C-w>>
@@ -423,7 +424,8 @@ nnoremap <silent> <C-c> :silent BufExplorer<CR>
 if has('gui_running')
   colorscheme monokai
   set guioptions=
-  set guifont=tewi\ 8
+  "set guifont=tewi\ 8
+  set guifont=Monaco\ for\ Powerline:h11
 else
   colorscheme molokai
 endif
