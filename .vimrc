@@ -663,27 +663,23 @@ function! TeXCompile()
       cd %:p:h
       let thisfile = split(expand("%"), "_lecture")[0]
       let thisfile = join([thisfile, "_lecture"], "")
-      execute "!pdflatex " . join([thisfile, ".tex"], "")
+      execute "!latexmk -pdf " . join([thisfile, ".tex"], "")
     elseif expand("%") =~ "^[0-9]\\+_section_[0-9]\\{2\\}\.tex"
       cd %:p:h
       let thisfile = split(expand("%"), "_section")[0]
       let thisfile = join([thisfile, "_lecture"], "")
-      execute "!pdflatex " . join([thisfile, ".tex"], "")
+      execute "!latexmk -pdf " . join([thisfile, ".tex"], "")
     " Compile current file.
     else
       cd %:p:h
-      !pdflatex "%"
-      "!rubber "%"
-      "!xelatex "%"
+      !latexmk -pdf "%"
       let thisfile = expand("%:r")
     endif
   " Generate tex file and then compile if rtex.
   elseif &filetype == 'rtex'
     cd %:p:h
     !Rscript -e "library(knitr); knit('%')"
-    "!xelatex "%:r.tex"
-    "!rubber "%:r.tex"
-    !pdflatex "%:r.tex"
+    !latexmk -pdf "%:r.tex"
     silent !rm "%:r.tex"
     let thisfile = expand("%:r")
   endif
