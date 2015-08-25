@@ -337,8 +337,8 @@ endfunction
 ""  autocmd VimEnter * nnoremap j xph
 ""augroup END
 
-noremap <silent> <C-s> :silent update<CR>:call TeXCompile()<CR>
-noremap! <silent> <C-s> <Esc>:silent update<CR>:call TeXCompile()<CR>
+"noremap <silent> <C-s> :silent update<CR>:call TeXCompile()<CR>
+"noremap! <silent> <C-s> <Esc>:silent update<CR>:call TeXCompile()<CR>
 "nnoremap <Leader>s <C-w>W
 "nnoremap <Leader>t <C-w>w
 ""nnoremap <silent> <C-s> :tabp<CR>

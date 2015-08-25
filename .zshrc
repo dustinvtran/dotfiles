@@ -409,3 +409,11 @@ function setjdk() {
 function removeFromPath() {
     export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
+
+#pushd ~/github/www; python -m SimpleHTTPServer &; popd; disown
+#pushd ~/Dropbox/dvt/www-private; python -m SimpleHTTPServer 8080 &; popd
+#mvim -d \
+# /Users/dvt/github/sgd-publications/jss/preamble \
+# /Users/dvt/github/copula-vi/aistats2016/preamble \
+# /Users/dvt/github/copula-vi/jmlr/preamble \
+# /Users/dvt/Dropbox/dvt/work/research/miscellanea/preamble
