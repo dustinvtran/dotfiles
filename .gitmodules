@@ -1,3 +1,6 @@
 [submodule "Library/texmf/generic/tikz-bayesnet"]
 	path = Library/texmf/tex/latex/tikz-bayesnet
 	url = git@github.com:jluttine/tikz-bayesnet.git
+[submodule "Library/texmf/generic/tikz-colorbrewer"]
+	path = Library/texmf/tex/latex/tikz-colorbrewer
+	url = git@github.com:vtraag/tikz-colorbrewer.git
