@@ -1,0 +1,287 @@
+This lists the entire directory structure of my ~/dvt/media folder, which is a collection of all titles I rate >=8/10 and
+ their affiliated installments. It also stores my massive backlogs within each medium, but I omit them here. Why archive
+ my media directory structure, you ask? Because its so pretty and autistic of me I simply must. When you're a consumer,
+ there ought to be a competent way to organize your collection. See ~/.zshrc for the command.
+
+anime
+anime/[backlog]
+anime/[backlog]/...
+anime/[backlog]/[completed]
+anime/[backlog]/[completed]/...
+anime/[backlog]/[current]
+anime/[backlog]/[current]/...
+anime/[backlog]/[winter-2014]
+anime/[backlog]/[winter-2014]/...
+anime/Aria (2005-08)
+anime/Aria (2005-08)/Aria the Animation
+anime/Aria (2005-08)/Aria the Natural
+anime/Aria (2005-08)/Aria the Natural Special
+anime/Aria (2005-08)/Aria the Origination
+anime/Aria (2005-08)/Aria the Origination Special
+anime/Aria (2005-08)/Aria the OVA - Arietta
+anime/Aria (2005-08)/Picture Dramas
+anime/Baccano! (2007-08)
+anime/Baccano! (2007-08)/Specials
+anime/Byousoku 5 Centimeter (2007)
+anime/Cowboy Bebop (1998-01)
+anime/Cowboy Bebop (1998-01)/Tengoku no Tobira
+anime/Ghost in the Shell (1995-04)
+anime/Ghost in the Shell (1995-04)/Ghost in the Shell
+anime/Ghost in the Shell (1995-04)/Ghost in the Shell 2 - Innocence
+anime/Ghost in the Shell - Stand Alone Complex (2002-07)
+anime/Ghost in the Shell - Stand Alone Complex (2002-07)/2nd GIG
+anime/Ghost in the Shell - Stand Alone Complex (2002-07)/Solid State Society
+anime/Ghost in the Shell - Stand Alone Complex (2002-07)/Stand Alone Complex
+anime/Jinrui wa Suitai Shimashita (2012-13)
+anime/Jinrui wa Suitai Shimashita (2012-13)/Specials
+anime/Kareshi Kanojo no Jijou (1998-99)
+anime/Kaze no Tani no Nausicaa (1984)
+anime/Kino no Tabi (2003-07)
+anime/Kino no Tabi (2003-07)/Byokuki no Kuni
+anime/Kino no Tabi (2003-07)/Life Goes On
+anime/Kino no Tabi (2003-07)/Prequel
+anime/Koi Kaze (2004)
+anime/Mimi wo Sumaseba (1995)
+anime/Mobile Police Patlabor (1988-01)
+anime/Mobile Police Patlabor (1988-01)/Mobile Police Patlabor
+anime/Mobile Police Patlabor (1988-01)/Mobile Police Patlabor 2 - The Movie
+anime/Mobile Police Patlabor (1988-01)/Mobile Police Patlabor - The Movie
+anime/Mobile Police Patlabor (1988-01)/Mobile Police Patlabor - WXIII
+anime/Monogatari (2009-1X)
+anime/Monogatari (2009-1X)/Bakemonogatari
+anime/Monogatari (2009-1X)/Kizumonogatari
+anime/Monogatari (2009-1X)/Monogatari Series Second Season
+anime/Monogatari (2009-1X)/Nekomonogatari (Kuro)
+anime/Monogatari (2009-1X)/Nisemonogatari
+anime/Mononoke (2006-07)
+anime/Mononoke (2006-07)/Ayakashi Prequel
+anime/Mononoke Hime (1997)
+anime/Mushishi (2005-14)
+anime/Mushishi (2005-14)/Mushishi
+anime/Mushishi (2005-14)/Mushishi Special - Hihamukage
+anime/Mushishi (2005-14)/Mushishi Zoku Shou
+anime/NHK ni Youkoso! (2006)
+anime/Ookami to Koushinryou (2008-09)
+anime/Ookami to Koushinryou (2008-09)/Ookami to Koushinryou
+anime/Ookami to Koushinryou (2008-09)/Ookami to Koushinryou II
+anime/Ookami to Koushinryou (2008-09)/Ookami to Koushinryou II OVA
+anime/Ouritsu Uchuugun - Honneamise no Tsubasa (1987)
+anime/Perfect Blue (1998)
+anime/Saraiya Goyou (2010)
+anime/Sayonara Zetsubou Sensei (2007-12)
+anime/Sayonara Zetsubou Sensei (2007-12)/Goku Sayonara Zetsubou Sensei
+anime/Sayonara Zetsubou Sensei (2007-12)/Sayonara Zetsubou Sensei
+anime/Sayonara Zetsubou Sensei (2007-12)/Sayonara Zetsubou Sensei Special
+anime/Sayonara Zetsubou Sensei (2007-12)/Zan Sayonara Zetsubou Sensei
+anime/Sayonara Zetsubou Sensei (2007-12)/Zan Sayonara Zetsubou Sensei Bangaichi
+anime/Sayonara Zetsubou Sensei (2007-12)/Zoku Sayonara Zetsubou Sensei
+anime/Seikai (1999-05)
+anime/Seikai (1999-05)/Seikai no Danshou
+anime/Seikai (1999-05)/Seikai no Monshou
+anime/Seikai (1999-05)/Seikai no Senki
+anime/Seikai (1999-05)/Seikai no Senki II
+anime/Seikai (1999-05)/Seikai no Senki III
+anime/Seirei no Moribito (2007)
+anime/Sen to Chihiro no Kamikakushi (2001)
+anime/Shinseiki Evangelion (1995-97)
+anime/Shinseiki Evangelion (1995-97)/End of Evangelion
+anime/Shoujo Kakumei Utena (1997-99)
+anime/Shoujo Kakumei Utena (1997-99)/Adolescence Mokushiroku
+anime/Shoujo Kakumei Utena (1997-99)/DVD release
+anime/Suzumiya Haruhi (2006-10)
+anime/Suzumiya Haruhi (2006-10)/Suzumiya Haruhi no Shoushitsu
+anime/Tenshi no Tamago (1985)
+anime/Tonari no Totoro (1988-02)
+anime/Tonari no Totoro (1988-02)/Specials
+anime/Tsumiki no Ie (2008)
+anime/Yojouhan Shinwa Taikei (2010)
+anime/Yojouhan Shinwa Taikei (2010)/Specials
+
+films
+films/2001 - A Space Odyssey (1968)
+films/[backlog]
+films/[backlog]/...
+films/[backlog]/[completed]
+films/[backlog]/[completed]/...
+films/A Beautiful Mind (2001)
+films/A Clockwork Orange (1971)
+films/Amadeus (1984)
+films/American Psycho (2000)
+films/Annie Hall (1977)
+films/Barry Lyndon (1975)
+films/Barton Fink (1991)
+films/Blade Runner (1982)
+films/Chinatown (1974)
+films/Dead Poets Society (1989)
+films/Fight Club (1999)
+films/Full Metal Jacket (1987)
+films/Goodfellas (1990)
+films/Hannah and Her Sisters (1986)
+films/Lawrence of Arabia (1962)
+films/Les Miserables (1998)
+films/Miller's Crossing (1990)
+films/Moneyball (2011)
+films/No Country for Old Men (2007)
+films/Norwegian Wood (2010)
+films/One Flew Over The Cuckoo's Nest (1975)
+films/Pan's Labyrinth (2006)
+films/Psycho (1960)
+films/Pulp Fiction (1994)
+films/Raise the Red Lantern (1991)
+films/Ran (1985)
+films/Saving Private Ryan (1998)
+films/Schindler's List (1993)
+films/Seppuku (1962)
+films/Serenity (2005)
+films/The Big Lebowski (1998)
+films/The Departed (2006)
+films/The Godfather (1972)
+films/The Godfather Part II (1974)
+films/The Godfather Part III (1990)
+films/The Graduate (1967)
+films/The Green Mile (1999)
+films/There Will Be Blood (2007)
+films/The Shawshank Redemption (1994)
+films/The Shining (1980)
+films/The Sound of Music (1965)
+films/True Grit (2010)
+films/When Harry Met Sally (1989)
+
+literature
+literature/[backlog]
+literature/[backlog]/...
+literature/[backlog]/[completed]
+literature/[backlog]/[completed]/...
+literature/Fiction
+literature/Fiction/Adventures of Huckleberry Finn (1884)
+literature/Fiction/After Dark (2004)
+literature/Fiction/Alice (1865-71)
+literature/Fiction/American Psycho (1991)
+literature/Fiction/A Song of Ice and Fire (1996-1X)
+literature/Fiction/Battle Royale (1999)
+literature/Fiction/Beowulf (~700-1100)
+literature/Fiction/David Copperfield (1850)
+literature/Fiction/Flowers for Algernon (1959)
+literature/Fiction/Foundation (1942-1993)
+literature/Fiction/Frankenstein (1818)
+literature/Fiction/Great Expectations (1860-61)
+literature/Fiction/Gulliver's Travels (1726)
+literature/Fiction/Hotaru no Haka (1967)
+literature/Fiction/Kafka on the Shore (2002)
+literature/Fiction/Lolita (1955)
+literature/Fiction/Nineteen Eighty-Four (1949)
+literature/Fiction/Norwegian Wood (1987)
+literature/Fiction/Of Mice and Men (1937)
+literature/Fiction/Oliver Twist (1838)
+literature/Fiction/Pride and Prejudice (1813)
+literature/Fiction/Sense and Sensibility (1811)
+literature/Fiction/Slaughterhouse-Five (1969)
+literature/Fiction/The Hobbit (1937)
+literature/Fiction/The Invisible Man (1897)
+literature/Fiction/The Lord of the Rings (1954-55)
+literature/Fiction/The Once and Future King (1958)
+literature/Fiction/The Time Machine (1895)
+literature/Fiction/The Wind-Up Bird Chronicle (1994-05)
+literature/Light Novels (or related)
+literature/Light Novels (or related)/Baccano! (2003-1X)
+literature/Light Novels (or related)/Jinrui wa Suitai Shimashita (2007-1X)
+literature/Light Novels (or related)/Kino no Tabi (2000-1X)
+literature/Light Novels (or related)/Monogatari (2006-1X)
+literature/Light Novels (or related)/NHK ni Youkoso! (2002)
+literature/Light Novels (or related)/Ookami to Koushinryou (2006-11)
+literature/Light Novels (or related)/Seikai (1996-1X)
+literature/Light Novels (or related)/Seirei no Moribito (1996-07)
+literature/Light Novels (or related)/Suzumiya Haruhi (2003-11)
+literature/Light Novels (or related)/Yojouhan Shinwa Taikei (2004)
+literature/Nonfiction
+literature/Nonfiction/A Modest Proposal (1726)
+literature/Nonfiction/Politics and the English Language (1946)
+literature/Nonfiction/Rhetoric (~300BC)
+literature/Plays
+literature/Plays/A Midsummer Night's Dream (~1590-96)
+literature/Plays/Hamlet (~1605)
+literature/Plays/Macbeth (~1606)
+literature/Plays/Much Ado About Nothin (~1958-99)
+literature/Plays/The Taming of the Shrew (~1590-92)
+literature/Poetry
+literature/Poetry/Author - Shel Silverstein (1930-99)
+literature/Poetry/Epic of Gilgamesh (~1700BC)
+literature/Poetry/Odyssey (~700BC)
+literature/Short Stories
+literature/Short Stories/Author - Edgar Allan Poe (1809-49)
+literature/Short Stories/Author - HP Lovecraft (1890-1937)
+literature/Short Stories/The Lottery (1948)
+
+manga
+manga/[backlog]
+manga/[backlog]/...
+manga/[backlog]/[completed]
+manga/[backlog]/[completed]/...
+manga/[backlog]/[current]
+manga/[backlog]/[current]/...
+manga/Aria (2001-08)
+manga/Aria (2001-08)/1 - Aqua
+manga/Aria (2001-08)/2 - Aria
+manga/BLAME! (1998-08)
+manga/BLAME! (1998-08)/Specials
+manga/Freesia (2001-09)
+manga/Hitsuji no Uta (1996-02)
+manga/Ketchup Mayonnaise (1999)
+manga/not simple (2004-05)
+manga/Pumpkin and Mayonnaise (1998)
+manga/Solanin (2005)
+manga/Yokohama Kaidashi Kikou (1994-06)
+/mnt/sdb1
+
+music
+
+tv
+tv/[backlog]
+tv/[backlog]/...
+tv/[backlog]/[completed]
+tv/[backlog]/[completed]/...
+tv/Arrested Development (2003-13)
+tv/Arrested Development (2003-13)/Season 1
+tv/Arrested Development (2003-13)/Season 2
+tv/Arrested Development (2003-13)/Season 3
+tv/Arrested Development (2003-13)/Season 4
+tv/Band of Brothers (2001)
+tv/Firefly (2002-03)
+tv/Freaks and Geeks (1999-00)
+tv/Whose Line Is It Anyways? (1998-1X)
+tv/Whose Line Is It Anyways? (1998-1X)/Season 1
+tv/Whose Line Is It Anyways? (1998-1X)/Season 2
+tv/Whose Line Is It Anyways? (1998-1X)/Season 3
+tv/Whose Line Is It Anyways? (1998-1X)/Season 4
+tv/Whose Line Is It Anyways? (1998-1X)/Season 5
+tv/Whose Line Is It Anyways? (1998-1X)/Season 6
+tv/Whose Line Is It Anyways? (1998-1X)/Season 7
+tv/Whose Line Is It Anyways? (1998-1X)/Season 8
+tv/Whose Line Is It Anyways? (1998-1X)/Season 9
+video-games
+video games/[backlog]/...
+video-games/[backlog]
+video games/[backlog]/[completed]
+video games/[backlog]/[completed]/...
+video-games/Chrono Trigger (1995)
+video-games/EarthBound (1994)
+video-games/Elder Scrolls V - Skyrim (2012)
+video-games/Final Fantasy VII (1997)
+video-games/Grand Theft Auto 3 - Vice City (2001)
+video-games/Guild Wars 2 (2012-1X)
+video-games/Half-Life (1998)
+video-games/Legend of Zelda - Majora's Mask (2000)
+video-games/Legend of Zelda - Ocarina of Time (1998)
+video-games/Mario Kart 64 (1996)
+video-games/Metal Gear Solid (1998)
+video-games/Metal Gear Solid 3 - Snake Eater (2004)
+video-games/Mother 3 (2006)
+video-games/Pokemon Red and Blue (1996)
+video-games/Shadow of the Colossus (2005)
+video-games/StarCraft (1998)
+video-games/World of Warcraft (2004-1X)
+visual-novels
+visual novels/[backlog]/...
+visual-novels/[backlog]
+visual novels/[backlog]/[completed]
+visual novels/[backlog]/[completed]/...
