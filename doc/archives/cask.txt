@@ -1,9 +1,11 @@
 calibre
+ccleaner
 djview
 dropbox
 easysimbl
 firefox
 flash
+flux
 gimp
 google-chrome
 google-drive
@@ -13,17 +15,14 @@ hipchat
 iterm2
 java
 julia
-karabiner
 libreoffice
 mactex
 macvim
-mendeley-desktop
 mpv (!)
 omnifocus
 papers
 qlmarkdown
 rstudio
-seil
 sente
 skim
 skype

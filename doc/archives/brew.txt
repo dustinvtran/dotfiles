@@ -75,6 +75,7 @@ openssl
 ossp-uuid
 p7zip
 pandoc
+pandoc-citeproc
 pango
 pcre
 perf

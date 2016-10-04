@@ -7,8 +7,11 @@ export PS1=$'\[\e[38;5;235m\]\[\e[48;5;249m\] ssh \[\e[48;5;255m\]\[\e[38;5;249m
 export TERM=xterm
 
 if [[ $(hostname | grep rc.fas.harvard.edu | wc -l) == 1 ]]; then
+  source new-modules.sh
   module load hpc/git-1.7.4
   module load centos6/R-3.1.1
+  module load python/2.7.6-fasrc01
+  source activate ENV_NAME
   alias R="R --no-save --quiet"
   if [[ ! -f ~/.Rprofile ]]; then
     echo 'options(repos = c(CRAN = "http://cran.r-project.org/"))' > ~/.Rprofile

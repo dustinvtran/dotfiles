@@ -410,6 +410,8 @@ function removeFromPath() {
     export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
 }
 
+alias g++=/usr/local/bin/x86_64-apple-darwin14.5.0-g++-5
+
 #pushd ~/github/www; python -m SimpleHTTPServer &; popd; disown
 #pushd ~/Dropbox/dvt/www-private; python -m SimpleHTTPServer 8080 &; popd
 #mvim -d \
@@ -417,3 +419,26 @@ function removeFromPath() {
 # /Users/dvt/github/copula-vi/aistats2016/preamble \
 # /Users/dvt/github/copula-vi/jmlr/preamble \
 # /Users/dvt/Dropbox/dvt/work/research/miscellanea/preamble
+function python {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"
+    else
+        /usr/local/bin/python "$@"
+    fi
+}
+
+function ipython {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/ipython "$@"
+    else
+        /usr/local/bin/ipython "$@"
+    fi
+}
+
+function python3 {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python3 "$@"
+    else
+        /usr/local/bin/python3 "$@"
+    fi
+}

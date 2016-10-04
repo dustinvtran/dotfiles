@@ -72,7 +72,8 @@ set wildmode=list:full
 set backspace=indent,eol,start         " Expected backspacing
 set linebreak                          " Don't linebreak words in the middle
 set display=lastline                   " Displays partial wrapped lines
-set tw=80                              " Auto linebreak at 80 characters
+"set tw=80                              " Auto linebreak at 80 characters
+set tw=70                              " Auto linebreak at 70 characters
 set formatoptions=rotcq                " Format options with new lines
 set autoindent                         " Hard wrap with autoindent
 set cursorline                         " Cursor Highlight, Color
@@ -536,6 +537,7 @@ let NERDTreeMapOpenExpl = ''
 let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.DS_Store$']
 
 "###############################################################################
 " Set Color
@@ -591,7 +593,8 @@ augroup filetypes
   autocmd FileType plaintex,tex,rtex set foldmethod=marker
   autocmd FileType plaintex,tex,rtex nnoremap <buffer> <silent> <Leader>p :call OpenPDF()<CR>
   autocmd FileType html,markdown nnoremap <buffer> <silent> <Leader>p :call OpenBrowser()<CR>
-  autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  "autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType python setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype markdown call Markdown()
 augroup END
 
@@ -613,11 +616,11 @@ endfunction
 
 function! TexMacros()
   " Map TeX macros
-  inoreabbrev mb <c-r>=<sid>Expr('mb', '\mathbb')<cr>
+  "inoreabbrev mb <c-r>=<sid>Expr('mb', '\mathbb')<cr>
   inoreabbrev mc <c-r>=<sid>Expr('mc', '\mathcal')<cr>
   inoreabbrev mf <c-r>=<sid>Expr('mf', '\mathfrak')<cr>
   inoreabbrev ms <c-r>=<sid>Expr('ms', '\mathscr')<cr>
-  inoreabbrev mbf <c-r>=<sid>Expr('mbf', '\mathbf')<cr>
+  "inoreabbrev mbf <c-r>=<sid>Expr('mbf', '\mathbf')<cr>
   inoreabbrev mrm <c-r>=<sid>Expr('mrm', '\mathrm')<cr>
   inoreabbrev trm <c-r>=<sid>Expr('trm', '\textrm')<cr>
   inoreabbrev op <c-r>=<sid>Expr('op', '\operatorname')<cr>
@@ -630,10 +633,10 @@ function! TexMacros()
   inoreabbrev tbs <c-r>=<sid>Expr('tbs', '\textbackslash')<cr>
   inoreabbrev hat <c-r>=<sid>Expr('hat', '\widehat')<cr>
   inoreabbrev tilde <c-r>=<sid>Expr('tilde', '\widetilde')<cr>
-  inoreabbrev sub <c-r>=<sid>Expr('sub', '\subset')<cr>
-  inoreabbrev sup <c-r>=<sid>Expr('sup', '\supset')<cr>
-  inoreabbrev sube <c-r>=<sid>Expr('sube', '\subseteq')<cr>
-  inoreabbrev supe <c-r>=<sid>Expr('supe', '\supseteq')<cr>
+  "inoreabbrev sub <c-r>=<sid>Expr('sub', '\subset')<cr>
+  "inoreabbrev sup <c-r>=<sid>Expr('sup', '\supset')<cr>
+  "inoreabbrev sube <c-r>=<sid>Expr('sube', '\subseteq')<cr>
+  "inoreabbrev supe <c-r>=<sid>Expr('supe', '\supseteq')<cr>
   inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 
@@ -647,7 +650,8 @@ function! OpenBrowser()
   " Open the file in Safari
   if &filetype == "markdown"
     " Convert to html if markdown first
-    silent !grip "%" --export  "%:p:r.html"
+    "silent !grip "%" --export  "%:p:r.html"
+    silent !pandoc "%" -f markdown_github -t html -c markdown7.css -s -S -o "%:p:r.html"
     silent !open "%:p:r.html" &
   elseif &filetype == "html"
     silent !open "%:p" &
