@@ -442,3 +442,9 @@ function python3 {
         /usr/local/bin/python3 "$@"
     fi
 }
+
+# Due to Sierra, this has to be put in .zshrc instead of .zshenv.
+export PATH=/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/bin
+export PATH=/usr/texbin:$PATH # does this work for xelatex?
