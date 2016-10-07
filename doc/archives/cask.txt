@@ -2,7 +2,6 @@ calibre
 ccleaner
 djview
 dropbox
-easysimbl
 firefox
 flash
 flux
@@ -11,26 +10,21 @@ google-chrome
 google-drive
 google-hangouts
 hexchat
-hipchat
 iterm2
 java
-julia
 libreoffice
 mactex
 macvim
-mpv (!)
 omnifocus
 papers
 qlmarkdown
-rstudio
-sente
 skim
 skype
 slack
 spotifree
 spotify-notifications
 tikzit
+torbrowser
 utorrent
-virtualbox
 xld
 xquartz

@@ -44,7 +44,6 @@ isl
 jpeg
 keybase
 lame
-latex-mk
 leiningen
 libass
 libass-ct
