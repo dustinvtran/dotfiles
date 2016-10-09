@@ -4,35 +4,27 @@ This repository collects configuration files for my PCs.
 
 See `doc/` for documentation; `bin/` for scripts.
 
-## primary applications
-
-+ 1password: password manager
-+ calibre: ebook reader
-+ finder: file manager
-+ macvim: tex editor
-+ mpv: video player
-+ preview: pdf reader
-+ iterm2: terminal
-+ omnifocus: task manager
-+ papers: paper library
-+ safari: web browser
-+ slack: messenger
-+ spotify: music player
-+ twitter: twitter client
-+ utorrent: torrent client
-+ zsh: Unix shell
-
 ## macos
 I have since converted to Mac for default functionality and
-collaboration purposes (in sacrifice of aesthetics and uniqueness).
+collaboration purposes.
 
-Top is my typical workflow for my first desktop, followed by a browser
-in the second desktop, a terminal in the third desktop, and a papers
-app in the fourth desktop. Bottom is my fifth desktop, which handles
-miscellaneous applications.
+### laptop (october 2016)
+
+![](http://i.imgur.com/RFRuV5X.png)
+
+~ | ~
+:-------------------------:|:-------------------------:
+![](http://i.imgur.com/2AUxWNy.png) | ![](http://i.imgur.com/OzQWzDv.png)
+![](http://i.imgur.com/aJfipEh.png) | ![](http://i.imgur.com/0EFEboW.jpg)
+
+A demo of my typical workflow. A text editor and any PDFs are on
+my first desktop, followed by a browser in the second desktop, a
+terminal in the third desktop, and a papers app in the fourth desktop.
+Finally, my fifth desktop is empty, as it handles miscellaneous
+applications.
 
 ### laptop (november 2015)
-![](http://i.imgur.com/66xAa2Z.png)
+
 ![](http://i.imgur.com/kLxbnqq.jpg)
 
 ## arch linux
