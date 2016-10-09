@@ -18,4 +18,14 @@ if [[ $(hostname | grep rc.fas.harvard.edu | wc -l) == 1 ]]; then
   fi
 fi
 
+#ssh -i ~/Dropbox/amazon-ec2/real_slap.pem ubuntu@54.234.156.172
+#sudo nvidia-docker run -it container_with_hg
+#3. sudo docker exec 8ae394ebd290 apt-get install -y mercurial
+#4. sudo docker commit 8ae394ebd290 container_with_hg
+#sudo docker ps
+#sudo docker images
+
+#ssh -i ~/Dropbox/amazon-ec2/real_slap.pem ec2-user@174.129.86.180
+
+
 # vim: filetype=sh
