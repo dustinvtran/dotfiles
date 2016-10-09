@@ -4,7 +4,6 @@ atk
 autoconf
 automake
 bash
-bazel
 bdw-gc
 boost
 cairo
@@ -14,7 +13,6 @@ cloog
 coreutils
 cscope
 djvulibre
-emacs
 ext4fuse
 faac
 ffmpeg
@@ -42,7 +40,6 @@ icu4c
 imagemagick
 isl
 jpeg
-keybase
 lame
 leiningen
 libass
@@ -60,7 +57,6 @@ libyaml
 little-cms2
 lsusb
 lua
-luarocks
 mercurial
 mpfr
 mpg123

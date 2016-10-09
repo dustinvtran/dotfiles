@@ -1,8 +1,7 @@
+1password
 calibre
-ccleaner
 djview
 dropbox
-firefox
 flash
 flux
 gimp
@@ -16,12 +15,13 @@ libreoffice
 mactex
 macvim
 omnifocus
+osxfuse
 papers
-qlmarkdown
 skim
 skype
 slack
 spotifree
+spotify
 spotify-notifications
 tikzit
 torbrowser

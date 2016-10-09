@@ -3,17 +3,21 @@
 + zshrc
   + prompt with git branch, and other feature lines you can find on other ppl's
 + set up time machine
-notifications
-  + rss (web/desktop)
++ rss notifications
 + documentation of hacks i did, specifically gui settings for example
 + the list in devices.ods
-+ dotfiles to save
-  + utf symbols monaco
-  + gui settings somehow
-    + macvim > preferences > on open text file, open a new tab
 + look more into os x hacks
 + clean up the old three dotfiles branches
 + update new workflow docs
++ dotfiles to save
+  + utf symbols monaco
+  + system preferences
+  + safari settings and extensions
+  + iterm
+  + dock
+  + finder
+  + dropbox selected folders
+  + google drive selected folders
 
 ## A (revitalized) philosophy of a workflow
 
