@@ -30,7 +30,7 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 "Plugin 'yonchu/accelerated-smooth-scroll'
-Plugin 'file:///Users/dvt/.vim/dvt'
+Plugin 'file:///Users/dvt/.vim/bundle/dvt'
 call vundle#end()
 filetype plugin on
 
