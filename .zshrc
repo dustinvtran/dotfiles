@@ -3,8 +3,6 @@
 # Author: Dustin Tran <dustinvtran.com>
 #
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # General Settings
 # -----------------------------------------------------------------------------
 
@@ -43,8 +41,9 @@ setopt inc_append_history
 # -----------------------------------------------------------------------------
 
 # Use (advanced) completion functionality
-autoload -U compinit
-compinit -d $CACHEDIR/zcompdump 2>/dev/null
+# TODO
+#autoload -U compinit
+#compinit -d $CACHEDIR/zcompdump 2>/dev/null
 
 # Use cache to speed completion up and set cache folder path
 zstyle ':completion:*' use-cache on
@@ -297,7 +296,7 @@ bindkey -M vicmd "z" vi-substitute        # z
 ################################################################################
 
 # Default flags
-alias crontab="EDITOR=vim crontab"
+#alias crontab="EDITOR=vim crontab"
 alias df="df -h"
 alias du="du -h -c"
 alias grep="grep --color"
@@ -309,10 +308,8 @@ alias youtube-dl="youtube-dl -cik"
 alias matlab="matlab -nodesktop"
 alias R="R --no-save"
 
-# Remind me never to use these.
-#alias rm='echo "This is not the command you are looking for."; false'
-alias ssh='echo "This is not the command you are looking for."; false'
-
+#sudo ext4fuse /dev/disk2s1 /mnt/disk2s1 -o allow_other
+#sudo umount /mnt/disk2s1
 alias mount2-ntfs="sudo ntfs-3g -o uid=501,gid=20 /dev/disk2s1 /mnt/disk2s1"
 alias mount3-ntfs="sudo ntfs-3g -o uid=501,gid=20 /dev/disk3s1 /mnt/disk3s1"
 alias mount2-ext="sudo mount -t fuse-ext2 /dev/disk2s1 /mnt/disk2s1"
@@ -374,9 +371,9 @@ visual novels/[aabacklog]/[completed]/...' )\
     > ~/doc/media-catalog"
 
 # CLI applications
-alias screencapture="screencapture -T 3 ~/dvt/media/pictures/screencaps/desktop/$(date +%Y-%m-%T).png"
-alias screencapturei="screencapture -i ~/dvt/media/pictures/screencaps/desktop/$(date +%Y-%m-%T).png"
-alias byzanz-record="cd ~/dvt/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 dvt.gif && cd -"
+#alias screencapture="screencapture -T 3 ~/dvt/media/pictures/screencaps/desktop/$(date +%Y-%m-%T).png"
+#alias screencapturei="screencapture -i ~/dvt/media/pictures/screencaps/desktop/$(date +%Y-%m-%T).png"
+#alias byzanz-record="cd ~/dvt/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 dvt.gif && cd -"
 
 ################################################################################
 # Functions
@@ -390,34 +387,11 @@ zip() {
   command zip -r "$name.zip" "$name"
 }
 
-# JAVA,
-# Your java 6 version here
-export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
 
-function setjdk() {
-    if [ $# -ne 0 ]; then
-        removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
-        if [ -n "${JAVA_HOME+x}" ]; then
-            removeFromPath $JAVA_HOME
-        fi
-        export JAVA_HOME=`/usr/libexec/java_home -v $@`
-        export PATH=$JAVA_HOME/bin:$PATH
-    fi
-    echo JAVA_HOME set to $JAVA_HOME
-    java -version
-}
-function removeFromPath() {
-    export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
-}
+#alias g++=/usr/local/bin/x86_64-apple-darwin14.5.0-g++-5
 
-alias g++=/usr/local/bin/x86_64-apple-darwin14.5.0-g++-5
-
-#pushd ~/github/www; python -m SimpleHTTPServer &; popd; disown
-#pushd ~/Dropbox/dvt/www-private; python -m SimpleHTTPServer 8080 &; popd
 #mvim -d \
 # /Users/dvt/github/sgd-publications/jss/preamble \
-# /Users/dvt/github/copula-vi/aistats2016/preamble \
-# /Users/dvt/github/copula-vi/jmlr/preamble \
 # /Users/dvt/Dropbox/dvt/work/research/miscellanea/preamble
 function python {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
@@ -444,10 +418,8 @@ function python3 {
 }
 
 # Due to Sierra, this has to be put in .zshrc instead of .zshenv.
+# default to homebrew; also add ~/bin
 export PATH=/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH=$PATH:$HOME/bin
-export PATH=/usr/texbin:$PATH # does this work for xelatex?
-
-#sudo ext4fuse /dev/disk2s1 /mnt/disk2s1 -o allow_other
-#sudo umount /mnt/disk2s1
+export PATH=$PATH:/Library/TeX/texbin
+source /usr/local/bin/virtualenvwrapper.sh

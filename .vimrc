@@ -316,34 +316,6 @@ endfunction
 " Mappings
 " -----------------------------------------------------------------------------
 
-"###############################################################################
-" Colemak
-"###############################################################################
-
-"noremap n gj|noremap gn j|cnoremap <C-n> <Down>
-"noremap e gk|noremap ge k|cnoremap <C-e> <Up>
-"augroup farkin_easymotion
-"  autocmd!
-"  autocmd VimEnter * noremap t l
-"  autocmd VimEnter * noremap s h
-"augroup END
-
-"noremap j i<CR><Esc>k$
-"noremap k n|noremap K N|vnoremap K <Esc>i<CR><Esc>k$gv
-"noremap h e|noremap H )hh|onoremap H )hh|noremap gH (hh|onoremap gH (hh|nnoremap <silent> <C-h> :silent e#<CR>
-"nnoremap l :<C-U>call InsertChar(v:count1)<CR>
-"nnoremap L l:<C-U>call InsertChar(v:count1)<CR>
-""augroup farkin_easymotion2
-""  autocmd!
-""  autocmd VimEnter * nnoremap j xph
-""augroup END
-
-"noremap <silent> <C-s> :silent update<CR>:call TeXCompile()<CR>
-"noremap! <silent> <C-s> <Esc>:silent update<CR>:call TeXCompile()<CR>
-"nnoremap <Leader>s <C-w>W
-"nnoremap <Leader>t <C-w>w
-""nnoremap <silent> <C-s> :tabp<CR>
-""nnoremap <silent> <C-t> :tabn<CR>
 nnoremap <silent> <C-e> :silent e#<CR>
 noremap j gj
 noremap gj j

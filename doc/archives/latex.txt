@@ -1,1 +1,0 @@
-+ install mt2pro2 manually

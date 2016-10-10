@@ -1,23 +1,39 @@
 ## todo list
 
++ aws setup
+  + tmux
+    https://danielmiessler.com/study/tmux/#gs.null
 + zshrc
   + prompt with git branch, and other feature lines you can find on other ppl's
-+ set up time machine
-+ rss notifications
-+ documentation of hacks i did, specifically gui settings for example
-+ the list in devices.ods
 + look more into os x hacks
-+ clean up the old three dotfiles branches
-+ update new workflow docs
 + dotfiles to save
-  + utf symbols monaco
-  + system preferences
-  + safari settings and extensions
-  + iterm
   + dock
-  + finder
-  + dropbox selected folders
-  + google drive selected folders
+  + dropbox (selected folders)
+  + finder (e.g., favorites, open with)
+  + google drive (selected folders)
+  + iterm2
+  + mail
+  + safari (settings and extensions)
+    + res | pinned subreddits
+  + skim
+  + spotify
+  + system preferences
+  (basically every gui app)
++ documentation
+  + clean up the old three dotfiles branches
+  + update new workflow docs
+  + the list of apps in devices.ods
++ rss notifications
++ remove spotlight from menu bar
+
+## new setup
+
++ vim
+  + monaco for powerline
++ calendars
++ zsh
+  + highlighting during selection
+  + compinit
 
 ## A (revitalized) philosophy of a workflow
 

@@ -23,8 +23,5 @@ slack
 spotifree
 spotify
 spotify-notifications
-tikzit
 torbrowser
 utorrent
-xld
-xquartz
