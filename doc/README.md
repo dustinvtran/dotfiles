@@ -1,5 +1,13 @@
 ## todo list
 
+new setup
++ vim
+  + monaco for powerline
++ calendars
++ zsh
+  + highlighting during selection
+  + compinit
+
 + aws setup
   + tmux
     https://danielmiessler.com/study/tmux/#gs.null
@@ -13,6 +21,7 @@
   + google drive (selected folders)
   + iterm2
   + mail
+  + omnifocus
   + safari (settings and extensions)
     + res | pinned subreddits
   + skim
@@ -26,14 +35,10 @@
 + rss notifications
 + remove spotlight from menu bar
 
-## new setup
+## manual
 
-+ vim
-  + monaco for powerline
-+ calendars
-+ zsh
-  + highlighting during selection
-  + compinit
+defaults write com.apple.screencapture location ~/Pictures
+killall SystemUIServer
 
 ## A (revitalized) philosophy of a workflow
 

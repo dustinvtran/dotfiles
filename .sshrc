@@ -1,6 +1,6 @@
 #
 # ~/.sshrc
-# Author: Dustin Tran <dustinvtran.com>
+# Author: Dustin Tran <dustintran.com>
 #
 
 export PS1=$'\[\e[38;5;235m\]\[\e[48;5;249m\] ssh \[\e[48;5;255m\]\[\e[38;5;249m\]⮀\[\e[48;5;255m\]\[\e[38;5;235m\] \u \e[38;5;255m\]\e[48;5;249m\]⮀\[\e[38;5;235m\]\[\e[48;5;249m\] \W \[\e[48;5;0m\]\[\e[38;5;249m\]⮀ \e[0m'

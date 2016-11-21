@@ -1,6 +1,6 @@
 #
 # ~/.mpv/config
-# Author: Dustin Tran <dustinvtran.com>
+# Author: Dustin Tran <dustintran.com>
 #
 
 #########################################################
@@ -25,7 +25,7 @@
 #########################################################
 
 #input-file=/home/dvt/bin/config/mpv-control
-screenshot-template=/Users/dvt/Pictures/screencaps/mpv/%f_%p_%tm-%td-%ty
+screenshot-template=/Users/dvt/Pictures/mpv/%f_%p_%tm-%td-%ty
 
 #########################################################
 # Miscellaneous

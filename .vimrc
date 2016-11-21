@@ -1,6 +1,6 @@
 "
 " ~/.vimrc
-" Author: Dustin Tran <dustinvtran.com>
+" Author: Dustin Tran <dustintran.com>
 "
 " Settings
 " -----------------------------------------------------------------------------
@@ -398,7 +398,8 @@ if has('gui_running')
   colorscheme monokai
   set guioptions=
   "set guifont=tewi\ 8
-  set guifont=Monaco\ for\ Powerline:h11
+  "set guifont=Monaco\ for\ Powerline:h11
+  set guifont=Monaco
 else
   colorscheme molokai
 endif
@@ -493,7 +494,8 @@ let g:NERDCreateDefaultMappings = 0
 let g:NERDCustomDelimiters = {
   \ 'pentadactyl': { 'left': '"' },
   \ 'rtex': { 'left': '%' },
-  \ 'snippet': { 'left': '#' }
+  \ 'snippet': { 'left': '#' },
+  \ 'tex': {'left': '% ' }
   \ }
 
 "###############################################################################

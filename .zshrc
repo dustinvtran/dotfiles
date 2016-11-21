@@ -1,6 +1,6 @@
 #
 # ~/.zshrc
-# Author: Dustin Tran <dustinvtran.com>
+# Author: Dustin Tran <dustintran.com>
 #
 
 # General Settings

@@ -1,6 +1,6 @@
 #
 # ~/.zshenv
-# Author: Dustin Tran <dustinvtran.com>
+# Author: Dustin Tran <dustintran.com>
 #
 
 # See ~/.zshrc for path.
