@@ -11,17 +11,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'benjifisher/matchit.zip'
-"Plugin 'Kazark/vim-SimpleSmoothScroll'
 Plugin 'bling/vim-airline'
 Plugin 'bufexplorer.zip'
-Plugin 'dahu/MarkMyWords'
 Plugin 'danro/rename.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'kien/ctrlp.vim'
 Plugin 'lilydjwg/colorizer'
-Plugin 'Lokaltog/vim-easymotion'
 Plugin 'maverickg/stan.vim'
-Plugin 'motus/pig.vim'
 Plugin 'msanders/snipmate.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
@@ -29,7 +25,6 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
-"Plugin 'yonchu/accelerated-smooth-scroll'
 Plugin 'file:///Users/dvt/.vim/bundle/dvt'
 call vundle#end()
 filetype plugin on
@@ -339,8 +334,6 @@ nnoremap x "_x
 nnoremap Y y$
 cnoremap <C-v> <C-R>*<BS>
 inoremap <C-v> <C-R>*
-"nnoremap z s
-"vnoremap z s
 noremap Q @
 nnoremap ' '.
 noremap <silent> <C-y> :let @+=expand("%:p:h")<CR>
@@ -450,36 +443,12 @@ set wildignore+=*.mkv
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
 "###############################################################################
-" EasyMotion
-"###############################################################################
-
-" Keys are written by optimizin via homerow, then tweaked by personal preference
-let g:EasyMotion_keys = 'hneiotsradluygpfwqkmvc;xzbjEIOTSRAHDLUYGPFWQKMVCXZBJ'
-" I require only two EasyMotion keybinds for all my nifty teleportation: f/F. The 'f/F' defaults are set for normal/visual
-" modes, and the 't/T' defaults are set for operator mode (primarily d/c/y)
-let g:EasyMotion_mapping_f = 'f'
-let g:EasyMotion_mapping_F = 'F'
-let g:EasyMotion_mapping_t = 't'
-let g:EasyMotion_mapping_T = 'T'
-augroup tilthefs
-  autocmd!
-  autocmd VimEnter * omap f t
-  autocmd VimEnter * omap F T
-augroup END
-
-"###############################################################################
 " Matchit
 "###############################################################################
 
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>
 noremap <C-p> <C-i>
-
-"###############################################################################
-" MarkMyWords
-"###############################################################################
-
-nnoremap <silent> <Leader>h :silent MMWSelect helpmark<CR>
 
 "###############################################################################
 " NERDCommenter
@@ -512,17 +481,6 @@ let NERDTreeQuitOnOpen = 1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$']
-
-"###############################################################################
-" Set Color
-"###############################################################################
-
-"augroup color_scheme
-"  autocmd!
-"  autocmd VimEnter * silent SetColors all
-"augroup END
-"nnoremap <silent> <Leader>e :call NextColor(-1)<CR>
-"nnoremap <silent> <Leader>r :call NextColor(1)<CR>
 
 "###############################################################################
 " Snipmate
@@ -580,13 +538,6 @@ function! s:Expr(default, repl)
     return a:default
   endif
 endfunction
-"# Auto crop
-"for a in *.png; do convert -trim "$a" "$a"; done
-" ghost
-"_*
-"\emph
-"itemize
-"\operatornamewithlimits
 
 function! TexMacros()
   " Map TeX macros
