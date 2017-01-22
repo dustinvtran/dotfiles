@@ -1,8 +1,9 @@
 1password
+battle-net
 calibre
+curse
 djview
 dropbox
-flash
 flux
 gimp
 google-chrome
@@ -23,5 +24,6 @@ slack
 spotifree
 spotify
 spotify-notifications
+steam
 torbrowser
 utorrent

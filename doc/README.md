@@ -74,18 +74,18 @@ examples of moves from customizability extreme to defaults
 
 ## primary applications
 
-+ 1password: password manager
-+ calibre: ebook reader
-+ finder: file manager
-+ macvim: tex editor
-+ mpv: video player
-+ preview, slim: pdf reader
-+ iterm2: terminal
-+ omnifocus: task manager
-+ papers: paper library
-+ safari: web browser
-+ slack: messenger
-+ spotify: music player
-+ twitter: twitter client
-+ utorrent: torrent client
-+ zsh: Unix shell
++ 1password | password manager
++ calibre | ebook reader
++ finder (and occasionally, ranger) | file manager
++ macvim | tex editor
++ mpv | video player
++ preview, slim | pdf reader
++ iterm2 | terminal
++ omnifocus | task manager
++ papers | paper library
++ safari | web browser
++ slack | messenger
++ spotify | music player
++ twitter | twitter client
++ utorrent | torrent client
++ zsh | Unix shell
