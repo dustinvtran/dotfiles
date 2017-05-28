@@ -10,7 +10,10 @@ from __future__ import print_function
 
 import edward as ed
 import numpy as np
+import six
 import tensorflow as tf
+
+from edward.models import *
 
 # Add auto-completion and a stored history file of commands to your Python
 # interactive interpreter. Requires Python 2.0+, readline. Autocomplete is

@@ -3,29 +3,17 @@
 # Author: Dustin Tran <dustintran.com>
 #
 
-export PS1=$'\[\e[38;5;235m\]\[\e[48;5;249m\] ssh \[\e[48;5;255m\]\[\e[38;5;249m\]⮀\[\e[48;5;255m\]\[\e[38;5;235m\] \u \e[38;5;255m\]\e[48;5;249m\]⮀\[\e[38;5;235m\]\[\e[48;5;249m\] \W \[\e[48;5;0m\]\[\e[38;5;249m\]⮀ \e[0m'
-export TERM=xterm
+# export PS1=$'\[\e[38;5;235m\]\[\e[48;5;249m\] ssh \[\e[48;5;255m\]\[\e[38;5;249m\]⮀\[\e[48;5;255m\]\[\e[38;5;235m\] \u \e[38;5;255m\]\e[48;5;249m\]⮀\[\e[38;5;235m\]\[\e[48;5;249m\] \W \[\e[48;5;0m\]\[\e[38;5;249m\]⮀ \e[0m'
+# export TERM=xterm
 
-if [[ $(hostname | grep rc.fas.harvard.edu | wc -l) == 1 ]]; then
-  source new-modules.sh
-  module load hpc/git-1.7.4
-  module load centos6/R-3.1.1
-  module load python/2.7.6-fasrc01
-  source activate ENV_NAME
-  alias R="R --no-save --quiet"
-  if [[ ! -f ~/.Rprofile ]]; then
-    echo 'options(repos = c(CRAN = "http://cran.r-project.org/"))' > ~/.Rprofile
-  fi
-fi
-
-#ssh -i ~/Dropbox/amazon-ec2/real_slap.pem ubuntu@54.234.156.172
-#sudo nvidia-docker run -it container_with_hg
-#3. sudo docker exec 8ae394ebd290 apt-get install -y mercurial
-#4. sudo docker commit 8ae394ebd290 container_with_hg
-#sudo docker ps
-#sudo docker images
-
-#ssh -i ~/Dropbox/amazon-ec2/real_slap.pem ec2-user@174.129.86.180
-
+## Amazon EC2
+# ssh -i ~/Dropbox/amazon-ec2/real_slap.pem ubuntu@54.234.156.172
+# sudo nvidia-docker run -it container_with_hg
+# 3. sudo docker exec 8ae394ebd290 apt-get install -y mercurial
+# 4. sudo docker commit 8ae394ebd290 container_with_hg
+# sudo docker ps
+# sudo docker images
+#
+# ssh -i ~/Dropbox/amazon-ec2/real_slap.pem ec2-user@174.129.86.180
 
 # vim: filetype=sh

@@ -300,20 +300,21 @@ bindkey -M vicmd "z" vi-substitute        # z
 alias df="df -h"
 alias du="du -h -c"
 alias grep="grep --color"
-alias ls="ls -a --color"
+alias ls="gls -a --color"
 alias coursera-dl="coursera-dl -n -f 'mp4'"
 alias youtube-dl="youtube-dl -cik"
+alias ranger='ranger --choosedir=/tmp/rangerdir; LASTDIR=`cat /tmp/rangerdir`; cd "$LASTDIR"; unset LASTDIR'
 
 # Default flags for programming languages
 alias matlab="matlab -nodesktop"
 alias R="R --no-save"
 
-#sudo ext4fuse /dev/disk2s1 /mnt/disk2s1 -o allow_other
-#sudo umount /mnt/disk2s1
 alias mount2-ntfs="sudo ntfs-3g -o uid=501,gid=20 /dev/disk2s1 /mnt/disk2s1"
 alias mount3-ntfs="sudo ntfs-3g -o uid=501,gid=20 /dev/disk3s1 /mnt/disk3s1"
 alias mount2-ext="sudo mount -t fuse-ext2 /dev/disk2s1 /mnt/disk2s1"
 alias mount3-ext="sudo mount -t fuse-ext2 /dev/disk3s1 /mnt/disk3s1"
+#sudo ext4fuse /dev/disk2s1 /mnt/disk2s1 -o allow_other
+#sudo umount /mnt/disk2s1
 alias umount2="sudo umount /mnt/disk2s1"
 alias umount3="sudo umount /mnt/disk3s1"
 

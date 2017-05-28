@@ -95,11 +95,6 @@ set softtabstop=2                      " Fix it to 2
 set noesckeys
 nnoremap <Esc> <Nop>
 
-" Set floating window size to Github's character limit
-"if has("gui_running")
-"  set lines=70 columns=127
-"endif
-
 augroup misc
   autocmd!
   " Remove any trailing whitespace in the file
@@ -394,6 +389,7 @@ if has('gui_running')
   "set guifont=Monaco\ for\ Powerline:h11
   set guifont=Monaco
 else
+  set t_Co=256
   colorscheme molokai
 endif
 syntax enable
@@ -448,7 +444,7 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
 map <Tab> %
 " The new "go back to back". This is because <Tab> is equivalent to <C-i>
-noremap <C-p> <C-i>
+noremap <Leader>i <C-i>
 
 "###############################################################################
 " NERDCommenter
@@ -528,6 +524,8 @@ augroup filetypes
   "autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype markdown call Markdown()
+  " this sorts import statements; requires installation of isort
+  "autocmd FileType python nnoremap <Leader>i :!isort %<CR><CR>
 augroup END
 
 function! s:Expr(default, repl)
