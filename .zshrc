@@ -388,12 +388,6 @@ zip() {
   command zip -r "$name.zip" "$name"
 }
 
-
-#alias g++=/usr/local/bin/x86_64-apple-darwin14.5.0-g++-5
-
-#mvim -d \
-# /Users/dvt/github/sgd-publications/jss/preamble \
-# /Users/dvt/Dropbox/dvt/work/research/miscellanea/preamble
 function python {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
         PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"

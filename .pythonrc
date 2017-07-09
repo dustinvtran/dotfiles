@@ -15,25 +15,25 @@ import tensorflow as tf
 
 from edward.models import *
 
-# Add auto-completion and a stored history file of commands to your Python
-# interactive interpreter. Requires Python 2.0+, readline. Autocomplete is
-# bound to the Esc key by default (you can change it - see readline docs).
+# Add auto-completion and store history file of Python interpreter commands.
 
-#import atexit
-#import os
-#import readline
-#import rlcompleter
+import atexit
+import os
+import readline
+import rlcompleter
 
-#historyPath = os.path.expanduser("~/.pyhistory")
+history_path = os.path.expanduser("~/.pyhistory")
 
-#def save_history(historyPath=historyPath):
-#    import readline
-#    readline.write_history_file(historyPath)
+def save_history(history_path=history_path):
+  import readline
+  readline.write_history_file(history_path)
 
-#if os.path.exists(historyPath):
-#    readline.read_history_file(historyPath)
+if os.path.exists(history_path):
+  readline.read_history_file(history_path)
 
-#atexit.register(save_history)
-#del os, atexit, readline, rlcompleter, save_history, historyPath
+atexit.register(save_history)
+del atexit, os, readline, rlcompleter, save_history, history_path
+
+# python -c 'import time; start=time.time(); import edward as ed; print(time.time() - start)'
 
 # vim: filetype=python
