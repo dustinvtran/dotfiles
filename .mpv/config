@@ -34,6 +34,7 @@ screenshot-template=/Users/dvt/Pictures/mpv/%f_%p_%tm-%td-%ty
 #autosync=30
 #gapless-audio
 #no-input-default-bindings
+sub-auto=fuzzy
 
 ## temp workaround
 

@@ -455,12 +455,13 @@ vmap <silent> <Leader>cc <plug>NERDCommenterAlignBoth
 vmap <silent> <Leader>cs <plug>NERDCommenterSexy
 vmap <silent> <Leader>cu <plug>NERDCommenterUncomment
 map <silent> <Leader>cu <plug>NERDCommenterUncomment
+ let NERDSpaceDelims = 1
 let g:NERDCreateDefaultMappings = 0
 let g:NERDCustomDelimiters = {
   \ 'pentadactyl': { 'left': '"' },
   \ 'rtex': { 'left': '%' },
   \ 'snippet': { 'left': '#' },
-  \ 'tex': {'left': '% ' }
+  \ 'python': { 'left': '#' },
   \ }
 
 "###############################################################################
@@ -521,7 +522,6 @@ augroup filetypes
   autocmd FileType plaintex,tex,rtex set foldmethod=marker
   autocmd FileType plaintex,tex,rtex nnoremap <buffer> <silent> <Leader>p :call OpenPDF()<CR>
   autocmd FileType html,markdown nnoremap <buffer> <silent> <Leader>p :call OpenBrowser()<CR>
-  "autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType python setlocal ts=2 sts=2 sw=2 expandtab
   autocmd Filetype markdown call Markdown()
   " this sorts import statements; requires installation of isort

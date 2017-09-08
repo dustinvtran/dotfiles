@@ -10,6 +10,7 @@ from __future__ import print_function
 
 import edward as ed
 import numpy as np
+import os
 import six
 import tensorflow as tf
 
@@ -18,7 +19,6 @@ from edward.models import *
 # Add auto-completion and store history file of Python interpreter commands.
 
 import atexit
-import os
 import readline
 import rlcompleter
 
@@ -32,7 +32,7 @@ if os.path.exists(history_path):
   readline.read_history_file(history_path)
 
 atexit.register(save_history)
-del atexit, os, readline, rlcompleter, save_history, history_path
+del atexit, readline, rlcompleter, save_history, history_path
 
 # python -c 'import time; start=time.time(); import edward as ed; print(time.time() - start)'
 
