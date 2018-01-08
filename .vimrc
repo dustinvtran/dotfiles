@@ -112,8 +112,8 @@ set statusline+=%1*\ %f\ %*         " Relative path to file
 set statusline+=%1*\ ››
 set statusline+=%=                  " Switch to right-hand-side
 set statusline+=%3*\ ‹‹
-set statusline+=%3*\ %{&fileformat} " File format
-set statusline+=%3*\ %c             " Column number
+set statusline+=%3*\ %{&ft}         " Filetype
+set statusline+=%3*\ %cC            " Column number
 set statusline+=%3*\ %p%%\ %*       " Percentage through file
 hi User1 guifg=#FFFFFF guibg=#191f26 gui=BOLD
 hi User2 guifg=#000000 guibg=#959ca6
@@ -146,22 +146,6 @@ augroup END
 
 " Functions
 " -----------------------------------------------------------------------------
-
-"###############################################################################
-" Let twiddle convert swap cases, lowercase all characters, or uppercase all characters
-"###############################################################################
-
-function! TwiddleCase(str)
-  if a:str ==# toupper(a:str)
-    let result = tolower(a:str)
-  elseif a:str ==# tolower(a:str)
-    let result = substitute(a:str,'\(\<\w\+\>\)', '\u\1', 'g')
-  else
-    let result = toupper(a:str)
-  endif
-  return result
-endfunction
-vnoremap ~ y:call setreg('', twiddlecase(@"), getregtype(''))<cr>gv""pgv
 
 "###############################################################################
 " folding styles
@@ -246,12 +230,6 @@ augroup resCur
 augroup END
 
 "###############################################################################
-" Open URL in browser
-"###############################################################################
-
-nnoremap <silent> ] :silent !open <C-R>=escape("<C-R><C-F>", "#?&;\|%")<CR><CR>
-
-"###############################################################################
 " Fold all toggle
 "###############################################################################
 
@@ -275,62 +253,8 @@ augroup auto_fold
 augroup END
 endif
 
-"###############################################################################
-" Insert Character Function, which is also an atomic operator and has nice shadings
-"###############################################################################
-
-let loaded_InsertChar = 1
-function! InsertChar(count)
-  call inputsave()
-  let l:count = a:count
-  if ! l:count
-    call inputrestore()
-    return
-  endif
-  let l:inserted = ''
-  let l:old_match = matcharg(1)
-  let l:old_eventignore = &eventignore
-  set eventignore+=insertenter,insertleave
-  try
-    execute 'normal! i' . repeat('_', l:count) . "\<ESC>" . repeat('h', l:count - 1)
-
-    for l:pos in range(l:count)
-      execute 'match Error /\%#' . repeat('.', l:count - l:pos) . '/'
-      redraw
-      let l:char = getchar(0)
-      if ! l:char
-        redraw
-        echohl MoreMsg
-        echo 'Char ' . (l:pos + 1) . '/' . l:count . ': '
-        echohl None
-        let l:char = getchar()
-        echo
-      endif
-      if l:char == 27
-        execute 'normal! ' . repeat('h', l:pos) . repeat('x', l:count)
-        return
-      endif
-      undojoin
-      execute 'normal! r' . nr2char(l:char)
-      let l:inserted .= nr2char(l:char)
-      if l:char != 13 && (l:count - l:pos) > 1
-        execute 'normal! l'
-      endif
-    endfor
-    silent! call repeat#set('i' . l:inserted . "\<ESC>", -1)
-  finally
-    if type(l:old_match) == type([]) && strlen(l:old_match[0]) && strlen(l:old_match[1])
-      execute 'match' l:old_match[0] '/' . l:old_match[1] . '/'
-    else
-      match
-    endif
-    let &eventignore = l:old_eventignore
-    call inputrestore()
-  endtry
-endfunction
-
 "####
-"Shortcut to delete current file.
+" Shortcut to delete current file
 "####
 function! Delete()
   call delete(expand('%')) | bdelete!
@@ -339,17 +263,16 @@ endfunction
 " Mappings
 " -----------------------------------------------------------------------------
 
-nnoremap <silent> <C-e> :silent e#<CR>
-noremap j gj
-noremap gj j
-noremap k gk
-noremap gk k
-
 "###############################################################################
 " General
 "###############################################################################
 
 let mapleader = ","
+nnoremap <silent> <C-e> :silent e#<CR>
+noremap j gj
+noremap gj j
+noremap k gk
+noremap gk k
 noremap ; :
 nnoremap <C-a> ggVG
 nnoremap <Space> za
@@ -397,7 +320,7 @@ endfunction
 nnoremap <silent> <C-q> :call ToggleLexplore()<CR>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
-let g:netrw_list_hide = '.DS_Store,*.pyc'
+let g:netrw_list_hide = '.DS_Store,.*\.pyc$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 30
 
