@@ -5,29 +5,29 @@
 " Settings
 " -----------------------------------------------------------------------------
 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-Plugin 'benjifisher/matchit.zip'
-Plugin 'bling/vim-airline'
-Plugin 'bufexplorer.zip'
-Plugin 'danro/rename.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'kien/ctrlp.vim'
-Plugin 'lilydjwg/colorizer'
-Plugin 'maverickg/stan.vim'
-Plugin 'msanders/snipmate.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-fugitive'
-"Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'file:///Users/dvt/.vim/bundle/dvt'
-call vundle#end()
-filetype plugin on
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin('~/.vim/bundle')
+Plug 'benjifisher/matchit.zip'
+" Plug 'crusoexia/vim-monokai'  " for iterm2
+Plug 'danro/rename.vim', { 'on': 'Rename' }
+Plug 'godlygeek/tabular'
+" fzf doesn't render correctly on MacVim. Use Ctrl-P for now.
+" https://github.com/junegunn/fzf/issues/1108
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'maverickg/stan.vim'
+Plug 'msanders/snipmate.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug '~/.vim/bundle/dvt'
+call plug#end()
 
 " System Settings
 set encoding=utf-8
@@ -38,7 +38,7 @@ augroup stahp
 augroup END
 " Auto-cd into the file's dir
 augroup autocd
-  autocmd BufEnter * if &ft !~ '^nerdtree$' | silent! lcd %:p:h | endif
+  autocmd BufEnter * silent! lcd %:p:h
 augroup END
 set hidden                             " Change buffers without saving
 set shortmess=I                        " Disable intro message
@@ -85,6 +85,39 @@ augroup no_indent
   autocmd!
   autocmd FileType text set formatoptions=rol
 augroup END
+
+" Colors & Statusline
+" Statusline modified from
+" https://medium.com/@kadek/the-last-statusline-for-vim-a613048959b2
+if has('gui_running')
+  set guioptions=
+  set guifont=Monaco
+else
+  " TODO(trandustin): for iterm2, monokai's color is warped
+  " set t_Co=256
+  " set termguicolors
+endif
+colorscheme monokai
+syntax enable
+set noshowmode
+set notitle
+set laststatus=2
+set statusline=
+set statusline+=%2*\ %{fugitive#head()}
+set statusline+=%2*\ ››
+set statusline+=\ %*
+set statusline+=%1*\ %m             " Modified flag
+set statusline+=%1*\ %r             " Read-only flag
+set statusline+=%1*\ %f\ %*         " Relative path to file
+set statusline+=%1*\ ››
+set statusline+=%=                  " Switch to right-hand-side
+set statusline+=%3*\ ‹‹
+set statusline+=%3*\ %{&fileformat} " File format
+set statusline+=%3*\ %c             " Column number
+set statusline+=%3*\ %p%%\ %*       " Percentage through file
+hi User1 guifg=#FFFFFF guibg=#191f26 gui=BOLD
+hi User2 guifg=#000000 guibg=#959ca6
+hi User3 guifg=#000000 guibg=#4cbf99
 
 " Tab Settings
 set expandtab                          " Spaces as tabs
@@ -336,96 +369,47 @@ noremap <silent> <C-y> :let @+=expand("%:p:h")<CR>
 "###############################################################################
 " Buffers, Windows, & Tabs
 "###############################################################################
+" I use a combination of windows and tabs. I use netrw for a file
+" explorer. I use fzf for farther searching across directories. I
+" don't use buffers or markers.
 
-" Buffers
-" See BufExplorer
-
-" Windows
-"nnoremap      <C-x> <C-w>s
-"nnoremap      <C-v> <C-w>v
-"noremap  <silent> <C-w> :q<CR>
-"noremap! <silent> <C-w> :q<CR>
-noremap       <F1>  <C-w>+
-noremap       <F2>  <C-w>-
-noremap       <F3>  <C-w>>
-noremap       <F4>  <C-w><
-noremap       <F5>  <C-w>=
-function! MarkWindowSwap()
-  let g:markedWinNum = winnr()
-endfunction
-function! DoWindowSwap()
-  let curNum = winnr()
-  let curBuf = bufnr( "%" )
-  exe g:markedWinNum . "wincmd w"
-  let markedBuf = bufnr( "%" )
-  exe 'hide buf' curBuf
-  exe curNum . "wincmd w"
-  exe 'hide buf' markedBuf
-endfunction
-nnoremap <silent> <Leader>m         :call MarkWindowSwap()<CR>
-nnoremap <silent> <Leader><Leader>m :call DoWindowSwap()<CR>
-
-" Tabs
 noremap  <silent> <C-t> :tabe<CR>
 noremap! <silent> <C-t> :tabe<CR>
+" Lexplore doesn't toggle if directory or opened file changes. Use
+" this hack instead.
+let g:NetrwIsOpen = 0
+function! ToggleLexplore()
+  if g:NetrwIsOpen
+    let i = bufnr("$")
+    while (i >= 1)
+      if (getbufvar(i, "&filetype") == "netrw")
+        silent exe "bwipeout " . i
+      endif
+      let i-=1
+    endwhile
+    let g:NetrwIsOpen=0
+  else
+    let g:NetrwIsOpen=1
+    silent Lexplore
+  endif
+endfunction
+" TODO(trandustin): close netrw after opening
+nnoremap <silent> <C-q> :call ToggleLexplore()<CR>
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_list_hide = '.DS_Store,*.pyc'
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 30
 
 " Plugins
 " -----------------------------------------------------------------------------
 
 "###############################################################################
-" Buffer Explorer
-"###############################################################################
-
-nnoremap <silent> <C-c> :silent BufExplorer<CR>
-
-"###############################################################################
-" Colors & Airline
-"###############################################################################
-
-if has('gui_running')
-  colorscheme monokai
-  set guioptions=
-  "set guifont=tewi\ 8
-  "set guifont=Monaco\ for\ Powerline:h11
-  set guifont=Monaco
-else
-  set t_Co=256
-  colorscheme molokai
-endif
-syntax enable
-set notitle
-set laststatus=2
-set noshowmode
-"let g:airline_theme='molokai'
-augroup airlineTheme
-  autocmd!
-  autocmd VimEnter * AirlineTheme molokai
-augroup END
-let g:airline_left_sep='⮀'
-let g:airline_right_sep='⮂'
-let g:airline#extensions#whitespace#enabled = 0
-"let g:airline_section_c='%f%m'
-let g:airline_section_x=''
-let g:airline_section_y="%{strlen(&filetype)>0?&filetype:''}"
-let g:airline_section_z='%p%%'
-let g:airline_mode_map = {
-  \ '__' : '-',
-  \ 'n'  : 'N',
-  \ 'i'  : 'I',
-  \ 'R'  : 'R',
-  \ 'c'  : 'C',
-  \ 'v'  : 'V',
-  \ 'V'  : 'V·L',
-  \ '' : 'V·B',
-  \ 's'  : 'S',
-  \ 'S'  : 'S·L',
-  \ '' : 'S·B',
-  \ }
-
-"###############################################################################
 " Ctrl-P
 "###############################################################################
 
+" nnoremap <C-p> :History<CR>
+" let g:fzf_history_dir = '~/.cache/fzf'
 let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_clear_cache_on_exit = 0
@@ -465,21 +449,6 @@ let g:NERDCustomDelimiters = {
   \ }
 
 "###############################################################################
-" NERDTree
-"###############################################################################
-
-nnoremap <silent> <C-q> :NERDTreeToggle<CR>
-let NERDTreeMapJumpFirstChild = 'E'
-let NERDTreeMapJumpLastChild = 'N'
-let NERDTreeMapJumpNextSibling = 'n'
-let NERDTreeMapJumpPrevSibling = 'e'
-let NERDTreeMapOpenExpl = ''
-let NERDTreeQuitOnOpen = 1
-let NERDTreeShowBookmarks=1
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.DS_Store$']
-
-"###############################################################################
 " Snipmate
 "###############################################################################
 
@@ -495,17 +464,6 @@ augroup snippets
   " This one does work, but it's computationally unpleasant in that I don't need to call it for /every/ file
   autocmd BufWritePost * call ReloadAllSnippets()
 augroup END
-
-"###############################################################################
-" Surround
-"###############################################################################
-
-" Let 's' be the surround function for visual mode. This defaults to 'S', but I can always 'c' in visual mode over 's' anyways
-vmap s <Plug>VSurround
-" So the '\' surround command does '\[...\]'
-let g:surround_92 = "\\[\n\r\n\\]"
-" Remaps \[ as shortcut to in-line surround with '\[...\]'. It requires 'map' since I need the above hotkey for 's\'
-nmap <silent> \[ yss\
 
 " Specific Filetypes
 " -----------------------------------------------------------------------------
