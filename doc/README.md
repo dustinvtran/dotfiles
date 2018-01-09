@@ -1,22 +1,25 @@
-# A (revitalized) philosophy of a workflow
+# A philosophy of a workflow
 
-I used to be about a fully customized and personalized workflow in
-order to efficiency. However, because of frequent collaboration I'm
-now the opposite and prefer defaults.
+In a past life, I fully customized my workflow in order to maximize efficiency. 
+However, because of frequent collaboration, I took a full 180: 
+defaults are preferred as minimum maintenance is the highest priority;
+additional settings are only a feature creep.
 
-+ more desktop app integration: use desktop apps over web apps if they have a
+Some philosophies:
+
++ More desktop app integration: use desktop apps over web apps if they have a
   particular advantage such as speed, desktop notifications, etc.
-+ more use of built-in shortcuts: stick with built-in shortcuts unless your
++ More use of built-in shortcuts: stick with built-in shortcuts unless your
   customization drastically increases productivity, e.g., s/t to move prev/next
   tab in firefox
-+ ability to go from all gui to all hacker terminal
++ Ability to go from all gui to all hacker terminal
   + preferably a nice gui aesthetic like hdni with power commands
-+ stick with app launcher/focuser for most things, only keybind things you need
++ Stick with app launcher/focuser for most things, only keybind things you need
   instant access to, such as browser, todolist, and vim, but not e.g., spotlight
-+ keep lots of stuff minimized, e.g., calendar, wunderlist, spotify
-+ allow other users to easily access, understand, and use primary apps (general
++ Keep lots of stuff minimized, e.g., calendar, wunderlist, spotify
++ Allow other users to easily access, understand, and use primary apps (general
   desktop movement, browser)
-+ some easy combination of both all gui and all themed/customized cli apps
++ Some easy combination of both all gui and all themed/customized cli apps
 + On browsers: modal editing just does not work here. Some pages work
   best under their own controls, so it makes no sense to have an
   overarching normal mode where you do browser navigation, and then
@@ -25,29 +28,32 @@ now the opposite and prefer defaults.
   This requires the emacs approach of purely modifiers, and use only
   keys that no other app would.
 
-examples of moves from customizability extreme to defaults
+Examples of moves from customizability extreme to defaults:
 + tiling manager -> none
 + colemak -> qwerty
 + firefox with modal editing, custom styles, etc. -> safari
 + irssi -> slack
 + mpd, npm -> spotify
 + ranger -> finder
++ transmission-cli -> utorrent
++ vim -> macvim
 + zathura -> slim
 
 ## primary applications
 
 + 1password | password manager
 + calibre | ebook reader
++ drive | cloud storage
 + finder, ranger | file manager
 + iterm2 | terminal
 + macvim | tex editor
 + mpv | video player
-+ omnifocus | task manager
++ omnifocus, calendar | task manager
 + papers | paper library
 + preview, slim | pdf reader
 + rsync, ssh, tmux | working with remote servers
 + safari | web browser
-+ slack | messenger
++ mail, slack, gitter | messenger
 + spotify | music player
 + twitter | twitter client
 + utorrent | torrent client
@@ -56,22 +62,13 @@ examples of moves from customizability extreme to defaults
 ## todo list
 
 new setup
-+ vim
-  + monaco for powerline
-+ calendars
 + zsh
   + highlighting during selection
   + compinit
-
-+ aws setup
-  + tmux
-    https://danielmiessler.com/study/tmux/#gs.null
-+ zshrc
   + prompt with git branch, and other feature lines you can find on other ppl's
 + look more into os x hacks
 + dotfiles to save
   + dock
-  + dropbox (selected folders)
   + finder (e.g., favorites, open with)
   + google drive (selected folders)
   + iterm2
