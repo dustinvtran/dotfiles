@@ -5,6 +5,9 @@
 " Settings
 " -----------------------------------------------------------------------------
 
+" TODO
+" autoindent in vim with fileexpr
+" + \gray{ + indent; but turning off filexpr= doesn't allow aligning lines correctly with highlight+gq
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -92,12 +95,13 @@ augroup END
 if has('gui_running')
   set guioptions=
   set guifont=Monaco
+  colorscheme monokai
 else
   " TODO(trandustin): for iterm2, monokai's color is warped
-  " set t_Co=256
+  set t_Co=256
   " set termguicolors
+  colorscheme molokai
 endif
-colorscheme monokai
 syntax enable
 set noshowmode
 set notitle
@@ -318,6 +322,9 @@ function! ToggleLexplore()
 endfunction
 " TODO(trandustin): close netrw after opening
 nnoremap <silent> <C-q> :call ToggleLexplore()<CR>
+if !has('gui_running')
+  nnoremap <silent> <Leader>q: call ToggleLexplore()<CR>
+endif
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_list_hide = '.DS_Store,.*\.pyc$'
@@ -433,15 +440,8 @@ function! TexMacros()
   inoreabbrev tit <c-r>=<sid>Expr('tit', '\textit')<cr>
   inoreabbrev tsc <c-r>=<sid>Expr('tsc', '\textsc')<cr>
   inoreabbrev ttt <c-r>=<sid>Expr('ttt', '\texttt')<cr>
-  inoreabbrev bs <c-r>=<sid>Expr('bs', '\backslash')<cr>
-  inoreabbrev tbs <c-r>=<sid>Expr('tbs', '\textbackslash')<cr>
   inoreabbrev hat <c-r>=<sid>Expr('hat', '\widehat')<cr>
   inoreabbrev tilde <c-r>=<sid>Expr('tilde', '\widetilde')<cr>
-  "inoreabbrev sub <c-r>=<sid>Expr('sub', '\subset')<cr>
-  "inoreabbrev sup <c-r>=<sid>Expr('sup', '\supset')<cr>
-  "inoreabbrev sube <c-r>=<sid>Expr('sube', '\subseteq')<cr>
-  "inoreabbrev supe <c-r>=<sid>Expr('supe', '\supseteq')<cr>
-  inoreabbrev latex <c-r>=<sid>Expr('latex', '\LaTeX')<cr>
 endfunction
 
 function! OpenPDF()
