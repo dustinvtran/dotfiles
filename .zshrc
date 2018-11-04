@@ -41,7 +41,7 @@ setopt inc_append_history
 # -----------------------------------------------------------------------------
 
 # Use (advanced) completion functionality
-# TODO
+# TODO: just switch to a theme like zsh pure
 #autoload -U compinit
 #compinit -d $CACHEDIR/zcompdump 2>/dev/null
 
@@ -296,19 +296,14 @@ bindkey -M vicmd "z" vi-substitute        # z
 ################################################################################
 
 # Default flags
-#alias crontab="EDITOR=vim crontab"
 alias df="df -h"
 alias du="du -h -c"
 alias grep="grep --color"
 alias ls="gls -a --color"
-alias coursera-dl="coursera-dl -n -f 'mp4'"
 alias youtube-dl="youtube-dl -cik"
 alias ranger='ranger --choosedir=/tmp/rangerdir; LASTDIR=`cat /tmp/rangerdir`; cd "$LASTDIR"; unset LASTDIR'
 
-# Default flags for programming languages
-alias matlab="matlab -nodesktop"
-alias R="R --no-save"
-
+# Use `diskutil list` to list connected devices, osxfuse as the mounting software.
 alias mount2-ntfs="sudo ntfs-3g -o uid=501,gid=20 /dev/disk2s1 /mnt/disk2s1"
 alias mount3-ntfs="sudo ntfs-3g -o uid=501,gid=20 /dev/disk3s1 /mnt/disk3s1"
 alias mount2-ext="sudo mount -t fuse-ext2 /dev/disk2s1 /mnt/disk2s1"
@@ -326,56 +321,6 @@ installed manually by\n me. See ~/.zshrc for the command.\n' > ~/doc/package-lis
 && (comm -23 <(pacman -Qeq|sort) <(pacman -Qgq base base-devel|sort)\
 && echo 'matlab r-2012b (\"make install\")') | sort >> ~/doc/package-list)"
 
-# List directory structure of ~/dvt/media
-# TODO: write as external shell script
-alias media-catalog=" ( find '/mnt/sdb1' -type d -not -path '*/\[backlog\]/*'\
-    | sed -e 's/^\/mnt\/sdb1\///' -e '/^\/media\/sdb1/d'\
-    | sed -e 's/\[backlog\]/\[aabacklog\]/'\
-    && echo 'anime/[aabacklog]/...
-anime/[aabacklog]/[completed]
-anime/[aabacklog]/[completed]/...
-anime/[aabacklog]/[current]
-anime/[aabacklog]/[current]/...
-anime/[aabacklog]/[winter-2014]
-anime/[aabacklog]/[winter-2014]/...
-films/[aabacklog]/...
-films/[aabacklog]/[completed]
-films/[aabacklog]/[completed]/...
-literature/[aabacklog]/...
-literature/[aabacklog]/[completed]
-literature/[aabacklog]/[completed]/...
-manga/[aabacklog]/...
-manga/[aabacklog]/[completed]
-manga/[aabacklog]/[completed]/...
-manga/[aabacklog]/[current]
-manga/[aabacklog]/[current]/...
-music/[aabacklog]/...
-music/[aabacklog]/[completed]
-music/[aabacklog]/[completed]/...
-tv/[aabacklog]/...
-tv/[aabacklog]/[completed]
-tv/[aabacklog]/[completed]/...
-video games/[aabacklog]/...
-video games/[aabacklog]/[completed]
-video games/[aabacklog]/[completed]/...
-visual novels/[aabacklog]/...
-visual novels/[aabacklog]/[completed]
-visual novels/[aabacklog]/[completed]/...' )\
-    | sort\
-    | sed -e 's/\[aabacklog\]/\[backlog\]/'\
-    | sed -e 's/^\(anime\|films\|literature\|manga\|music\|tv\|video games\|visual novels\)$/\n&/'\
-    | sed -e '1i This lists the entire directory structure of my ~/dvt/media folder, which is a collection\
- of all titles I rate >=8/10 and\n their affiliated installments. It also stores my massive backlogs within each\
- medium, but I omit them here. Why archive\n my media directory structure, you ask? Because its so pretty and\
- autistic of me I simply must. When you\x27re a consumer,\n there ought to be a competent way to organize your\
- collection. See ~/.zshrc for the command.'\
-    > ~/doc/media-catalog"
-
-# CLI applications
-#alias screencapture="screencapture -T 3 ~/dvt/media/pictures/screencaps/desktop/$(date +%Y-%m-%T).png"
-#alias screencapturei="screencapture -i ~/dvt/media/pictures/screencaps/desktop/$(date +%Y-%m-%T).png"
-#alias byzanz-record="cd ~/dvt/media/pictures/screencaps/byzanz && byzanz-record -c -d 10 dvt.gif && cd -"
-
 ################################################################################
 # Functions
 ################################################################################
@@ -388,33 +333,14 @@ zip() {
   command zip -r "$name.zip" "$name"
 }
 
-function python {
-    if [[ ! -z "$VIRTUAL_ENV" ]]; then
-        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"
-    else
-        /usr/local/bin/python "$@"
-    fi
-}
-
-function ipython {
-    if [[ ! -z "$VIRTUAL_ENV" ]]; then
-        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/ipython "$@"
-    else
-        /usr/local/bin/ipython "$@"
-    fi
-}
-
-function python3 {
-    if [[ ! -z "$VIRTUAL_ENV" ]]; then
-        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python3 "$@"
-    else
-        /usr/local/bin/python3 "$@"
-    fi
-}
-
 # Due to Sierra, this has to be put in .zshrc instead of .zshenv.
-# default to homebrew; also add ~/bin
+# Default to Homebrew's Python, coreutils, LateX, and my own binaries.
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH=/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:/Library/TeX/texbin
 source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/Envs
+export PYTHONSTARTUP=~/.pythonrc
+
+alias tmux="tmux -2"  # add 256 colors

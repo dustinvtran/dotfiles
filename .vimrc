@@ -70,8 +70,7 @@ set wildmode=list:full
 set backspace=indent,eol,start         " Expected backspacing
 set linebreak                          " Don't linebreak words in the middle
 set display=lastline                   " Displays partial wrapped lines
-"set tw=80                              " Auto linebreak at 80 characters
-set tw=70                              " Auto linebreak at 70 characters
+set tw=79                              " Auto linebreak at 79 characters
 set formatoptions=rotcq                " Format options with new lines
 set autoindent                         " Hard wrap with autoindent
 set cursorline                         " Cursor Highlight, Color
@@ -323,7 +322,7 @@ endfunction
 " TODO(trandustin): close netrw after opening
 nnoremap <silent> <C-q> :call ToggleLexplore()<CR>
 if !has('gui_running')
-  nnoremap <silent> <Leader>q: call ToggleLexplore()<CR>
+  nnoremap <silent> <Leader>q :call ToggleLexplore()<CR>
 endif
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4

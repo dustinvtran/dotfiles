@@ -4,6 +4,3 @@
 [submodule "Library/texmf/generic/tikz-colorbrewer"]
 	path = Library/texmf/tex/latex/tikz-colorbrewer
 	url = git@github.com:vtraag/tikz-colorbrewer.git
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = git@github.com:VundleVim/Vundle.vim.git
