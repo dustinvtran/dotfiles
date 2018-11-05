@@ -1,3 +1,1 @@
-karabiner-elements
-monaco for powerline
 mtpro2
